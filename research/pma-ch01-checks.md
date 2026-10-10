@@ -20,3 +20,4 @@ folded into 1.1 under PROGRAM.md's rule for remarks. The requested target count 
 | PMA-1.8 | PASS: A supremum/infimum is a bound admitting no strictly better bound; uniqueness included. | Iff proofs against IsLUB/IsGLB under LinearOrder. |
 | PMA-1.9 | PASS: The rational gap has exact bound sets but no rational endpoints; the negative rational interval and positive reciprocal examples include all membership distinctions. | upperBounds/lowerBounds classification; isLUB_Iio/Iic; exists_nat_one_div_lt. |
 | PMA-1.10 | PASS: Every nonempty subset bounded above has a supremum in the carrier. | ConditionallyCompleteLinearOrder comparator; ℚ fails the property by node 1.9. |
+| PMA-1.11 | PASS: Every nonempty bounded-below subset has an infimum equal to the supremum of its lower bounds. | isLUB_lowerBounds equivalence with IsGLB; one common witness returned. |

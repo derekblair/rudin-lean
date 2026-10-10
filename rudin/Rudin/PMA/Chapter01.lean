@@ -278,4 +278,13 @@ theorem pma1_10_rationals_not_complete : ¬ HasLUBProperty ℚ := by
   have hE : rationalBelowSqrtTwo.Nonempty := ⟨1, by constructor <;> norm_num⟩
   exact pma1_9_rational_gap.2.2.1 (h _ hE pma1_9_rational_gap.1)
 
+/-! ### PMA-1.11: infima from suprema of lower bounds. -/
+
+theorem pma1_11 {α : Type*} [LinearOrder α] (h : HasLUBProperty α)
+    (B : Set α) (hne : B.Nonempty) (hbelow : BddBelow B) :
+    ∃ a, IsLUB (lowerBounds B) a ∧ IsGLB B a := by
+  obtain ⟨b, hb⟩ := hne
+  have hupper : BddAbove (lowerBounds B) := ⟨b, fun a ha => ha hb⟩
+  obtain ⟨a, ha⟩ := h (lowerBounds B) hbelow hupper
+  exact ⟨a, ha, isLUB_lowerBounds.mp ha⟩
 end Rudin.PMA.Chapter01
