@@ -402,4 +402,45 @@ theorem pma_field_sign_consequences {K : Type*} [Field K] :
   exact ⟨zero_mul, fun _ _ h => mul_eq_zero.mp h,
     fun x y => ⟨neg_mul x y, (mul_neg x y).symm⟩, neg_mul_neg⟩
 
+/-! ### PMA-1.17: Ordered field -/
+
+/-- The order compatibility clauses in the definition of an ordered field.
+The `LinearOrder` parameter supplies trichotomy and transitivity. -/
+def pmaOrderedFieldAxioms (K : Type*) [Field K] [LinearOrder K] : Prop :=
+  (∀ x y z : K, x < y → x + z < y + z) ∧
+  (∀ x y : K, 0 < x → 0 < y → 0 < x * y)
+
+def pmaPositive {K : Type*} [Zero K] [LT K] (x : K) : Prop := 0 < x
+
+def pmaNegative {K : Type*} [Zero K] [LT K] (x : K) : Prop := x < 0
+
+theorem pma_ordered_field_axioms {K : Type*} [Field K] [LinearOrder K]
+    [IsStrictOrderedRing K] : pmaOrderedFieldAxioms K := by
+  refine ⟨?_, fun _ _ hx hy => mul_pos hx hy⟩
+  intro x y z h
+  simpa only [add_comm] using add_lt_add_right h z
+
+/-- Reference equivalence with Mathlib's order compatibility class. -/
+theorem pma_ordered_field_axioms_iff {K : Type*} [Field K] [LinearOrder K] :
+    pmaOrderedFieldAxioms K ↔ IsStrictOrderedRing K := by
+  constructor
+  · intro h
+    let : IsOrderedAddMonoid K := {
+      add_le_add_left := fun x y hxy z => by
+        rcases hxy.lt_or_eq with hlt | rfl
+        · exact (h.1 x y z hlt).le
+        · exact le_rfl }
+    have h01 : (0 : K) ≤ 1 := by
+      by_cases h01 : (0 : K) ≤ 1
+      · exact h01
+      · have h10 : (1 : K) < 0 := lt_of_not_ge h01
+        have hpos : (0 : K) < -1 := neg_pos_of_neg h10
+        have hsq : (0 : K) < 1 := by simpa using h.2 (-1) (-1) hpos hpos
+        exact hsq.le
+    let : ZeroLEOneClass K := ⟨h01⟩
+    exact IsStrictOrderedRing.of_mul_pos h.2
+  · intro h
+    let := h
+    exact pma_ordered_field_axioms
+
 end Rudin.PMA.Chapter01

@@ -26,3 +26,4 @@ folded into 1.1 under PROGRAM.md's rule for remarks. The requested target count 
 | PMA-1.14 | PASS: Additive cancellation, uniqueness of identity/inverse and double negation hold using only additive axioms. | AddCommGroup lemmas add_left_cancel, eq_neg_of_add_eq_zero_right, neg_neg. |
 | PMA-1.15 | PASS: Nonzero multiplicative cancellation, uniqueness of identity/inverse and double inversion follow from multiplication axioms. | GroupWithZero lemmas; every clause has the source nonzero restriction. |
 | PMA-1.16 | PASS: Multiplication by zero, no zero divisors, single/double negation identities match all field consequences. | zero_mul, mul_eq_zero, neg_mul/mul_neg, neg_mul_neg. |
+| PMA-1.17 | PASS: The strict field order is preserved by translation and positive products are positive; sign terminology is explicit. | pma_ordered_field_axioms_iff compares exactly to IsStrictOrderedRing. |
