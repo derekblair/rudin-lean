@@ -2026,4 +2026,27 @@ theorem pma3_42 : pma3_42_contract := by
   change Tendsto (fun N => ∑ n ∈ Finset.range N, a n * (b n : ℂ)) atTop (𝓝 s)
   simpa [Complex.real_smul, mul_comm] using hs
 
+/-! ### PMA-3.43: alternating-sign and decreasing-magnitude criterion. -/
+
+def pma3_43_contract : Prop := ∀ c : ℕ → ℝ,
+  Antitone (fun n => |c n|) → (∀ m, 0 ≤ c (2 * m) ∧ c (2 * m + 1) ≤ 0) →
+  Tendsto c atTop (𝓝 0) → SeriesConverges c
+
+theorem pma3_43 : pma3_43_contract := by
+  intro c hc hs hc0
+  have habs : Tendsto (fun n => |c n|) atTop (𝓝 0) := by simpa using hc0.abs
+  obtain ⟨s, hsum⟩ := hc.tendsto_alternating_series_of_tendsto_zero habs
+  have he : ∀ n, (-1 : ℝ) ^ n * |c n| = c n := by
+    intro n
+    rcases Nat.mod_two_eq_zero_or_one n with hn | hn
+    · have hn' : n = 2 * (n / 2) := by omega
+      rw [hn']
+      simp [pow_mul, abs_of_nonneg (hs (n / 2)).1]
+    · have hn' : n = 2 * (n / 2) + 1 := by omega
+      rw [hn']
+      simp [pow_add, pow_mul, abs_of_nonpos (hs (n / 2)).2]
+  refine ⟨s, ?_⟩
+  change Tendsto (fun N => ∑ n ∈ Finset.range N, c n) atTop (𝓝 s)
+  simpa [he] using hsum
+
 end Rudin.PMA.Chapter03
