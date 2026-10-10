@@ -732,4 +732,25 @@ theorem closed_iff_complement_open {X : Type*} [MetricSpace X] (E : Set X) :
   rw [isOpenSet_iff_isOpen, isClosedSet_iff_isClosed, complement_eq_compl,
     isOpen_compl_iff]
 
+/-! ### PMA-2.24: Unions and intersections of open and closed sets. -/
+theorem arbitrary_union_open {X I : Type*} [MetricSpace X] (G : I → Set X)
+    (hG : ∀ i, IsOpenSet (G i)) : IsOpenSet (⋃ i, G i) := by
+  rw [isOpenSet_iff_isOpen]
+  exact isOpen_iUnion fun i => (isOpenSet_iff_isOpen _).mp (hG i)
+
+theorem arbitrary_intersection_closed {X I : Type*} [MetricSpace X] (F : I → Set X)
+    (hF : ∀ i, IsClosedSet (F i)) : IsClosedSet (⋂ i, F i) := by
+  rw [isClosedSet_iff_isClosed]
+  exact isClosed_iInter fun i => (isClosedSet_iff_isClosed _).mp (hF i)
+
+theorem finite_intersection_open {X I : Type*} [MetricSpace X] [Finite I]
+    (G : I → Set X) (hG : ∀ i, IsOpenSet (G i)) : IsOpenSet (⋂ i, G i) := by
+  rw [isOpenSet_iff_isOpen]
+  exact isOpen_iInter_of_finite fun i => (isOpenSet_iff_isOpen _).mp (hG i)
+
+theorem finite_union_closed {X I : Type*} [MetricSpace X] [Finite I]
+    (F : I → Set X) (hF : ∀ i, IsClosedSet (F i)) : IsClosedSet (⋃ i, F i) := by
+  rw [isClosedSet_iff_isClosed]
+  exact isClosed_iUnion_of_finite fun i => (isClosedSet_iff_isClosed _).mp (hF i)
+
 end Rudin.PMA.Chapter02

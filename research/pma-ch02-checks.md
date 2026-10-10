@@ -29,3 +29,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-2.21 | PASS: All seven rows of four property classifications plus reciprocal 0/nonmember accumulation contrasts and real-versus-complex segment openness are included. |
 | PMA-2.22 | PASS: Arbitrary-union complement equals intersection of complements, by exact indexed membership equivalence. |
 | PMA-2.23 | PASS: Openness iff complement closed, through explicit source predicate comparators. |
+| PMA-2.24 | PASS: Arbitrary open unions/closed intersections and finite open intersections/closed unions have all source quantifiers. |
