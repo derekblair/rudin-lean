@@ -1,0 +1,43 @@
+Examples: exit 0
+
+RationalIndicator: exit 0
+
+MTest: exit 0
+'Rudin.PMA.Chapter07.pma7_10' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Continuity: exit 0
+
+Calculus: exit 0
+'Rudin.PMA.Chapter07.pma7_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.pma7_17' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.uniform_integral_imaginary_step_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.uniform_integral_zero_mass_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.uniform_derivative_endpoint_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.uniform_integral_conditional_series_probe' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Nowhere: exit 0
+
+NoSubsequence: exit 0
+'Rudin.PMA.Chapter07.pma7_20' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.sineSequence_subsequence_has_bad_point' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Equicontinuity: exit 0
+'Rudin.PMA.Chapter07.pma7_19' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.pma7_21' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.pma7_22' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.pma7_23' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.pma7_24' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.pma7_25' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Algebra: exit 0
+'Rudin.PMA.Chapter07.pma7_26' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.pma7_27' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.pma7_28' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.pma7_29' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.pma7_30' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.pma7_31' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.pma7_32' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.pma7_33' depends on axioms: [propext, Classical.choice, Quot.sound]
+

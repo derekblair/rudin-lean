@@ -1,0 +1,7 @@
+Axiom audit for Rudin.PMA.Chapter07: checked 92 declarations; only propext, Classical.choice, and Quot.sound.
+Axiom audit for Chapter07ExamplesIndependentReview: checked 10 declarations; only propext, Classical.choice, and Quot.sound.
+'Rudin.PMA.Chapter07.pma7_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.pma7_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.pma7_5' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.pma7_6' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter07.pma7_4' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,123 @@
+[
+  {
+    "source": "rudin/Chapter07NowhereReviewProbe.lean",
+    "sha256": "2049c0d1e42b5081740f38df7b03cd978f3cdff6120ee1be6acc49c50420a47f",
+    "namespace": "Nowhere",
+    "theorem_names": [
+      "all_real_points",
+      "derivative_value_rejected",
+      "outside_unit_interval_probe",
+      "witness_at_origin",
+      "nonzero_arbitrarily_small_steps"
+    ]
+  },
+  {
+    "source": "rudin/Chapter07ExamplesReviewProbe.lean",
+    "sha256": "ca9d9b2634066fae26f9b5b327190b6dc5f49946009620d9b40e070953bf5f6d",
+    "namespace": "Examples",
+    "theorem_names": [
+      "double_ratio_diagonal",
+      "zero_index_geometric_sum",
+      "sine_first_derivative",
+      "spike_first_native_integrals",
+      "spike_closed_right_endpoint",
+      "finite_integral_limit_cannot_be_zero",
+      "rational_indicator_at_integer",
+      "rational_indicator_discontinuous_at_zero",
+      "rational_indicator_native_partition_sums",
+      "rational_indicator_not_native_integrable"
+    ]
+  },
+  {
+    "source": "rudin/Chapter07MTestRootProbe.lean",
+    "sha256": "4abd7fece33cbe8a735574729a8cb6d6d03a89353886519959f4c275a4ee59c5",
+    "namespace": "MTest",
+    "theorem_names": [
+      "empty_domain_needs_no_positive_majorant",
+      "conditional_uniform_convergence_survives"
+    ]
+  },
+  {
+    "source": "rudin/Chapter07NoSubsequenceRootProbe.lean",
+    "sha256": "b7d9aeba8176c9ce6a81813aeeb5e93107b4a8d5b449fe9a85a552995eaf2d24",
+    "namespace": "NoSubsequence",
+    "theorem_names": [
+      "no_uniform_subsequence",
+      "every_subsequence_misses_some_point"
+    ]
+  },
+  {
+    "source": "rudin/Chapter07CalculusRootProbe.lean",
+    "sha256": "1819e2fa3a33fe4984830796de439901d9a9935889c75556b61dc6d6c9007de3",
+    "namespace": "Calculus",
+    "theorem_names": [
+      "no_positive_mass_assumption",
+      "complex_limit_existence"
+    ]
+  },
+  {
+    "source": "rudin/Chapter07ContinuityReviewProbe.lean",
+    "sha256": "5751949bc6be0204a95cdeabc22826902d1e3e7a9ea59e1a3d50c29ddb8b513b",
+    "namespace": "Continuity",
+    "theorem_names": [
+      "limit_outside_domain",
+      "no_isolated_limit_point",
+      "dini_domain_not_compact",
+      "empty_bcf_norm",
+      "empty_bcf_closure",
+      "singleton_bcf_imaginary_norm",
+      "unbounded_continuous_not_bcf",
+      "noncompact_bcf_complete"
+    ]
+  },
+  {
+    "source": "rudin/Chapter07EquicontinuityReviewProbe.lean",
+    "sha256": "6708c235b026a88d8c94c71be647388af050a8a2739ec39d830051a52a489f17",
+    "namespace": "Equicontinuity",
+    "theorem_names": [
+      "countable_empty_without_topology",
+      "countable_singleton_without_topology",
+      "continuous_single_family_not_source_equicontinuous",
+      "equicontinuity_includes_early_member",
+      "ascoli_empty_domain",
+      "moving_peaks_no_uniform_limit"
+    ]
+  },
+  {
+    "source": "rudin/Chapter07FoundationsReviewProbe.lean",
+    "sha256": "0b71fe5d51528d841766b8c04ff9bd6b4ebfd823733a9ef30243895c637b3d9e",
+    "namespace": "Foundations",
+    "theorem_names": [
+      "empty_domain_limit",
+      "empty_domain_error",
+      "empty_domain_real_sup",
+      "unbounded_prefix_uniform",
+      "unbounded_prefix_initial_error",
+      "unbounded_prefix_error_tends_zero",
+      "complete_required_for_unit_domain",
+      "incomplete_target_rejects_criterion",
+      "imaginary_constant_limit",
+      "ordered_series_definition"
+    ]
+  },
+  {
+    "source": "rudin/Chapter07AlgebraReviewProbe.lean",
+    "sha256": "f383d5c99e4e821a60fb1fb7e4d4acfcd1b95ef69c62f3ae10e84b6f45d212ac",
+    "namespace": "Algebra",
+    "theorem_names": [
+      "eventuallyZero_algebra",
+      "eventuallyZero_indicator",
+      "eventuallyZero_separates",
+      "eventuallyZero_nonvanishing",
+      "eventuallyZero_no_global_nonzero_member",
+      "eventuallyZero_no_unit",
+      "nonunital_interpolation_real_complex",
+      "no_common_bound",
+      "closure_without_common_bound",
+      "zero_radius_exact_normalization",
+      "singleton_approximation_without_global_continuity",
+      "empty_compact_density",
+      "actual_complex_obstruction"
+    ]
+  }
+]

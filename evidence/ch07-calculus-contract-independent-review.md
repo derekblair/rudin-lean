@@ -1,0 +1,13 @@
+# Independent pre-proof review: PMA-7.16 and PMA-7.17
+
+Reviewer: oscillation, 2026-10-10. Author: Taylor. The reviewer authored neither draft contract. Actual source read in full: `rudin/Chapter07CalculusDraft.lean`, SHA256 `3f8cac222481aa973cb4f65d92662a5034aec0b0378822d86d5a3e55f77d0acd`. A fresh independent `./lake-local env lean Chapter07CalculusDraft.lean` completed with exit 0 and no warnings. Comparison sources: the accepted `research/pma-ch07-inventory.md` and `evidence/ch07-source-independent-review.md`.
+
+**ACCEPTED for proof implementation.** All required clauses of both nodes are retained; no hidden continuity, boundedness, integrability, or prior-limit-existence assumption was found.
+
+For 7.16, the actual type uses protected Chapter 6 `ComplexRSIntegrable` and `ComplexRSIntegral`, not a measure integral. Their definitions were independently re-read in `Chapter06/Vector.lean`: integrability is real/imaginary native integrability, and the complex value is assembled from the native real integrals. The integrator requires only `MonotoneOn α (Icc a b)`, allowing jumps and zero mass. Ordered singleton intervals are included. Every sequence member is integrable; neither continuity nor uniform boundedness is added. The conclusion supplies integrability of the uniform limit and a genuine `Tendsto` assertion for the integrals.
+
+The second conjunct retains the attached termwise integration corollary. Its hypotheses assert uniform convergence of ordered finite partial sums, and its conclusion is `Chapter03.SeriesHasSum` of the integrals. `Chapter03.PartialSums` and `SeriesHasSum` were re-read: these are `Finset.range N` sums and their `atTop` limit, not unconditional summability. The positive source indexing is explicitly reindexed by internal `n ↔ source n+1`; no term is lost or added mathematically.
+
+For 7.17, `a < b` prevents degenerate derivative ambiguity, and the convergent reference point lies in the full closed interval. Each term has actual derivative data `HasDerivWithinAt ... (Icc a b) x` at every interval point, so both relative endpoints are included. Derivative convergence is uniform on the full interval. Convergence of values is assumed at only one point. The conclusion constructs a function, proves uniform convergence to it, fixes its value at the reference point, and proves its derivative and convergence of the derivative values everywhere on that interval. `UniformDerivativeLimitProperty` is required for both ℂ and ℝ with real scalar differentiation. There is no derivative-continuity premise or requirement on exterior extensions.
+
+This accepts the statements only. No proof, axiom audit of future proofs, or hostile gate is certified by this review. No source files were edited.

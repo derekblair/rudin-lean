@@ -1,0 +1,14 @@
+Read-only final dependency comparison. Local snapshots intentionally omit Git metadata; Git revision/status checks below target the original production package checkouts. The initial attempt to query local snapshot Git metadata returned not-a-repository and made no change.
+PASS mathlib: production clean at d13f23b723b8a846827a245b89c10fc7d3f11612; 9227 copied tracked files byte-identical and independent
+PASS plausible: production clean at 118aa17ee84656b8bd727fef7c458ee8c833385c; 34 copied tracked files byte-identical and independent
+PASS LeanSearchClient: production clean at ddf04cf3949fa556442341e87d47f9f6e6074707; 14 copied tracked files byte-identical and independent
+PASS importGraph: production clean at e928b72544873815af278d38681b31c0293588e3; 72 copied tracked files byte-identical and independent
+PASS proofwidgets: production clean at 106ff4fafc74ef4ac99d81dbf3ab399118f497a5; 110 copied tracked files byte-identical and independent
+PASS aesop: production clean at 355695d523e41d0554926416cba2a2b3544fbbc9; 256 copied tracked files byte-identical and independent
+PASS Qq: production clean at 6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259; 34 copied tracked files byte-identical and independent
+PASS batteries: production clean at f2effa3d803fda822b1f97b806c47cf2adfbcbc2; 280 copied tracked files byte-identical and independent
+PASS Cli: production clean at e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204; 11 copied tracked files byte-identical and independent
+PASS original pinned rudin/lean-toolchain
+PASS original pinned rudin/lakefile.toml
+PASS original pinned rudin/lake-manifest.json
+PASS isolated rudin tree has no symlinks, Git metadata or PDF

@@ -26,7 +26,7 @@ One node per numbered item in Rudin's text (Definition, Theorem, Proposition, Le
 
 - Lean `leanprover/lean4:v4.34.1` via elan; Mathlib pinned to the same rev as `~/math-proofs` (see lake-manifest). Never float the toolchain mid-book — API churn rots the corpus.
 - `lake exe cache get` for oleans; never build Mathlib from source.
-- Current authorized run (2026-10-10): use the existing approved local executor and pinned toolchain. Keep approval and sandbox safeguards enabled. Chapter 6 integration continues the existing Chapter 5 local branch with local commits only; no push, new interactive session, installation, or remote execution is authorized by this run.
+- Current authorized run (2026-10-10): use the existing approved local executor and pinned toolchain. Keep approval and sandbox safeguards enabled. Chapter 7 integration continues the existing Chapter 5/6 local branch with local commits only; no push, new interactive session, installation, or remote execution is authorized by this run.
 
 ## Per-node pipeline
 
@@ -81,3 +81,7 @@ principal theorem lookup, source checks and recursive axiom audit before every
 section commit. Preserve all approved code bytes; group nodes by their real module
 dependencies. Chapter 7 work remains in the isolated workspace until separately
 integrated. No push or remote write is authorized.
+
+## Current Chapter 7 production gate
+
+Integrate the independently accepted frozen Chapter 7 candidate on the existing local branch. Preserve all Chapter 5/6 history and chapter-specific evidence. Require a fresh default production build, exact principal coverage, accepted-contract comparisons, source checks and recursive axiom audit before every dependency-respecting section commit. Final code must match all 15 reviewed hashes. Existing semantic acceptance is carried by byte identity, with fresh production kernel gates. Chapter 8 work stays isolated. No push, new interactive session, install, credential access or safeguard change is authorized.
