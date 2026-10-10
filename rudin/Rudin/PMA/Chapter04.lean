@@ -1117,4 +1117,41 @@ theorem node_4_27 : Statement_4_27 := by
     exact secondKind_of_no_left ⟨ha, hb⟩ oscillatingSine_not_continuousAt_zero
       (oscillatingSine_no_side_limit false)
 
+/-! ### PMA-4.24: Intermediate values without continuity -/
+def pma4_24_contract : Prop :=
+  (∀ {a b : ℝ}, a < b → ∀ c,
+    ((OscillatingSine a < c ∧ c < OscillatingSine b) ∨
+      (OscillatingSine b < c ∧ c < OscillatingSine a)) →
+    ∃ x ∈ Ioo a b, OscillatingSine x = c) ∧
+  ¬ ContinuousAt OscillatingSine 0
+
+theorem pma4_24 : pma4_24_contract := by
+  constructor
+  · intro a b hab c hbetween
+    by_cases hz : 0 ∈ Icc a b
+    · have hc : -1 ≤ c ∧ c ≤ 1 := by
+        obtain ⟨hla, hua⟩ := oscillatingSine_mem_unit_interval a
+        obtain ⟨hlb, hub⟩ := oscillatingSine_mem_unit_interval b
+        rcases hbetween with hbetween | hbetween <;> constructor <;> linarith
+      by_cases hb : 0 < b
+      · obtain ⟨x, hx, hxc⟩ := oscillatingSine_attains_near_zero_right hb hc
+        exact ⟨x, ⟨lt_of_le_of_lt hz.1 hx.1, hx.2⟩, hxc⟩
+      · have hbeq : b = 0 := le_antisymm (le_of_not_gt hb) hz.2
+        have ha : a < 0 := by simpa only [hbeq] using hab
+        obtain ⟨x, hx, hxc⟩ := oscillatingSine_attains_near_zero_left ha hc
+        exact ⟨x, ⟨hx.1, by simpa only [hbeq] using hx.2⟩, hxc⟩
+    · have hf : ContinuousOn OscillatingSine (Icc a b) := by
+        intro x hx
+        apply (oscillatingSine_continuousAt_of_ne_zero ?_).continuousWithinAt
+        intro hxeq
+        exact hz (hxeq ▸ hx)
+      exact pma4_23 hab OscillatingSine hf c hbetween
+  · intro hcont
+    obtain ⟨δ, hδ, hclose⟩ := Metric.continuousAt_iff.mp hcont (1 / 2) (by norm_num)
+    obtain ⟨x, hx, hfx⟩ := oscillatingSine_attains_near_zero_right hδ (c := 1) (by norm_num)
+    have hd : dist x 0 < δ := by simpa only [dist_zero_right, Real.norm_of_nonneg hx.1.le] using hx.2
+    have hc := hclose hd
+    have hz : OscillatingSine 0 = 0 := by simp only [OscillatingSine, ↓reduceIte]
+    rw [hfx, hz] at hc
+    norm_num [dist_zero_right] at hc
 end Rudin.PMA.Chapter04

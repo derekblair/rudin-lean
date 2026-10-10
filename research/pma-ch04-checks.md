@@ -32,3 +32,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-4.25 | PASS: generic metric codomain, exact interval sequence tests, common bilateral limit, and the marked valid left-boundary extension. |
 | PMA-4.26 | PASS: disjoint/exhaustive classification restricted to discontinuities, with unequal limits or an equal limit differing from the value. |
 | PMA-4.27 | PASS: all four literal functions, complete continuity sets and missing one-sided limits, exact jump limits −2/2, and discontinuity kinds. |
+| PMA-4.24 | PASS: exact sin(1/x) function with zero value at zero, full strict intermediate-value property, and discontinuity at zero. |
