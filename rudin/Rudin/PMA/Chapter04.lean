@@ -267,4 +267,48 @@ theorem pma4_10 : pma4_10_contract := by
   intro X _ k f g hf hg
   exact ⟨hf.add hg, hf.inner hg⟩
 
+/-! ### PMA-4.11: Polynomial, rational and norm examples -/
+def EuclideanMonomial {k : ℕ} (m : Fin k → ℕ) (x : EuclideanSpace ℝ (Fin k)) : ℂ :=
+  ∏ i, (x i : ℂ) ^ m i
+def EuclideanPolynomial {k : ℕ} (P : MvPolynomial (Fin k) ℂ)
+    (x : EuclideanSpace ℝ (Fin k)) : ℂ := MvPolynomial.eval (fun i => (x i : ℂ)) P
+def pma4_11_contract : Prop :=
+  (∀ {k : ℕ} (i : Fin k),
+    LipschitzWith 1 (fun x : EuclideanSpace ℝ (Fin k) => x i) ∧
+      Continuous (fun x : EuclideanSpace ℝ (Fin k) => x i)) ∧
+  (∀ {k : ℕ}, LipschitzWith 1 (fun x : EuclideanSpace ℝ (Fin k) => ‖x‖) ∧
+    Continuous (fun x : EuclideanSpace ℝ (Fin k) => ‖x‖)) ∧
+  (∀ {k : ℕ} (m : Fin k → ℕ), Continuous (EuclideanMonomial m)) ∧
+  (∀ {k : ℕ} (P : MvPolynomial (Fin k) ℂ), Continuous (EuclideanPolynomial P)) ∧
+  (∀ {k : ℕ} (P Q : MvPolynomial (Fin k) ℂ),
+    ContinuousOn (fun x => EuclideanPolynomial P x / EuclideanPolynomial Q x)
+      {x | EuclideanPolynomial Q x ≠ 0}) ∧
+  (∀ {X : Type*} [MetricSpace X] {k : ℕ} (f : X → EuclideanSpace ℝ (Fin k)),
+    Continuous f → Continuous (fun x => ‖f x‖))
+
+theorem euclidean_coordinate_lipschitz {k : ℕ} (i : Fin k) :
+    LipschitzWith 1 (fun x : EuclideanSpace ℝ (Fin k) => x i) := by
+  apply LipschitzWith.of_dist_le_mul
+  intro x y
+  simpa only [dist_eq_norm, NNReal.coe_one, one_mul, PiLp.sub_apply] using
+    PiLp.norm_apply_le (x-y) i
+
+theorem euclidean_monomial_continuous {k : ℕ} (m : Fin k → ℕ) :
+    Continuous (EuclideanMonomial m) := by
+  unfold EuclideanMonomial
+  fun_prop
+
+theorem euclidean_polynomial_continuous {k : ℕ} (P : MvPolynomial (Fin k) ℂ) :
+    Continuous (EuclideanPolynomial P) := by
+  exact P.continuous_eval.comp (continuous_pi fun i =>
+    Complex.continuous_ofReal.comp (PiLp.continuous_apply 2 (fun _ : Fin k => ℝ) i))
+
+theorem pma4_11 : pma4_11_contract := by
+  refine ⟨fun i => ⟨euclidean_coordinate_lipschitz i, (euclidean_coordinate_lipschitz i).continuous⟩,
+    ⟨lipschitzWith_one_norm, continuous_norm⟩, fun m => euclidean_monomial_continuous m,
+    fun P => euclidean_polynomial_continuous P, ?_, fun _ h => h.norm⟩
+  intro k P Q
+  exact (euclidean_polynomial_continuous P).continuousOn.div
+    (euclidean_polynomial_continuous Q).continuousOn (fun _ h => h)
+
 end Rudin.PMA.Chapter04

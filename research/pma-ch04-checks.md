@@ -16,3 +16,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-4.8 | PASS: Independent contract PASS; global continuity iff all open preimages and iff all closed preimages. |
 | PMA-4.9 | PASS: Independent contract PASS; continuous complex sum/product/nowhere-nonzero quotient; Mathlib continuous algebra. |
 | PMA-4.10 | PASS: Independent contract PASS; all Euclidean coordinates iff continuity, vector sum and inner product continuity. |
+| PMA-4.11 | PASS: Independent definitions/contract PASS; projections and norm1-Lipschitz; monomials, all finite complex polynomials, rational restricted-domain quotients and norm composition. |
