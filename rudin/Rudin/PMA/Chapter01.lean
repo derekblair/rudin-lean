@@ -811,4 +811,22 @@ theorem pma_complex_pair_mul (a b c d : ℝ) :
     pmaComplexPair a b * pmaComplexPair c d =
       pmaComplexPair (a * c - b * d) (a * d + b * c) := rfl
 
+/-! ### PMA-1.25: all of the field axioms for the pair operations. -/
+
+theorem pma_complex_pair_zero : pmaComplexPair 0 0 = 0 := rfl
+theorem pma_complex_pair_one : pmaComplexPair 1 0 = 1 := rfl
+
+theorem pma_complex_field_axioms :
+    (∀ x y : ℂ, x + y = y + x) ∧
+    (∀ x y z : ℂ, (x + y) + z = x + (y + z)) ∧
+    (∀ x : ℂ, x + 0 = x) ∧
+    (∀ x : ℂ, ∃ y, x + y = 0) ∧
+    (∀ x y : ℂ, x * y = y * x) ∧
+    (∀ x y z : ℂ, (x * y) * z = x * (y * z)) ∧
+    (1 : ℂ) ≠ 0 ∧
+    (∀ x : ℂ, x * 1 = x) ∧
+    (∀ x : ℂ, x ≠ 0 → ∃ y, x * y = 1) ∧
+    (∀ x y z : ℂ, x * (y + z) = x * y + x * z) :=
+  pma_field_axioms
+
 end Rudin.PMA.Chapter01
