@@ -373,3 +373,170 @@ theorem pma5_5 : pma5_5_contract := by
     ⟨hdf.1, hdf.2.1, hdg.2.2.comp x hdf.2.2 hmaps⟩
 
 end Rudin.PMA.Chapter05
+
+
+/- Assembly source: Chapter05OscillationDraft.lean -/
+
+open Set Filter
+open scoped Topology
+
+namespace Rudin.PMA.Chapter05
+
+noncomputable section
+
+/-! ### PMA-5.6: Two oscillatory examples -/
+
+/-- The totalized reciprocal formula has the required zero extension. -/
+def OscillationLinear (x : ℝ) : ℝ := x * Real.sin (1 / x)
+
+/-- The totalized reciprocal formula has the required zero extension. -/
+def OscillationQuadratic (x : ℝ) : ℝ := x ^ 2 * Real.sin (1 / x)
+
+def pma5_6_contract : Prop :=
+  OscillationLinear 0 = 0 ∧
+  Continuous OscillationLinear ∧
+  (∀ x : ℝ, x ≠ 0 → HasDerivAt OscillationLinear
+    (Real.sin (1 / x) - Real.cos (1 / x) / x) x) ∧
+  ¬ DifferentiableAt ℝ OscillationLinear 0 ∧
+  OscillationQuadratic 0 = 0 ∧
+  Differentiable ℝ OscillationQuadratic ∧
+  HasDerivAt OscillationQuadratic 0 0 ∧
+  (∀ x : ℝ, x ≠ 0 → HasDerivAt OscillationQuadratic
+    (2 * x * Real.sin (1 / x) - Real.cos (1 / x)) x) ∧
+  ¬ ContinuousAt (deriv OscillationQuadratic) 0
+
+theorem oscillationLinear_zero : OscillationLinear 0 = 0 := by
+  simp [OscillationLinear]
+
+theorem oscillationQuadratic_zero : OscillationQuadratic 0 = 0 := by
+  simp [OscillationQuadratic]
+
+theorem oscillationLinear_hasDerivAt {x : ℝ} (hx : x ≠ 0) :
+    HasDerivAt OscillationLinear
+      (Real.sin (1 / x) - Real.cos (1 / x) / x) x := by
+  unfold OscillationLinear
+  simp only [one_div]
+  apply ((hasDerivAt_id x).mul (hasDerivAt_inv hx).sin).congr_deriv
+  simp only [id_eq, one_mul]
+  field_simp
+  ring
+
+theorem oscillationQuadratic_hasDerivAt {x : ℝ} (hx : x ≠ 0) :
+    HasDerivAt OscillationQuadratic
+      (2 * x * Real.sin (1 / x) - Real.cos (1 / x)) x := by
+  unfold OscillationQuadratic
+  simp only [one_div]
+  apply (((hasDerivAt_id x).pow 2).mul (hasDerivAt_inv hx).sin).congr_deriv
+  simp only [id_eq, Pi.pow_apply, Nat.cast_ofNat, Nat.reduceSub, pow_one, mul_one]
+  field_simp
+  ring
+
+theorem oscillationLinear_abs_le (x : ℝ) : |OscillationLinear x| ≤ |x| := by
+  rw [OscillationLinear, abs_mul]
+  calc
+    |x| * |Real.sin (1 / x)| ≤ |x| * 1 :=
+      mul_le_mul_of_nonneg_left (Real.abs_sin_le_one _) (abs_nonneg _)
+    _ = |x| := mul_one _
+
+theorem oscillationLinear_continuousAt_zero : ContinuousAt OscillationLinear 0 := by
+  rw [Metric.continuousAt_iff]
+  intro ε hε
+  refine ⟨ε, hε, ?_⟩
+  intro x hx
+  rw [oscillationLinear_zero, Real.dist_eq, sub_zero]
+  exact (oscillationLinear_abs_le x).trans_lt (by simpa [Real.dist_eq] using hx)
+
+theorem oscillationLinear_continuous : Continuous OscillationLinear := by
+  rw [continuous_iff_continuousAt]
+  intro x
+  by_cases hx : x = 0
+  · subst x
+    exact oscillationLinear_continuousAt_zero
+  · exact (oscillationLinear_hasDerivAt hx).continuousAt
+
+theorem oscillationLinear_slope (x : ℝ) :
+    slope OscillationLinear 0 x = Chapter04.OscillatingSine x := by
+  by_cases hx : x = 0
+  · simp [hx, Chapter04.OscillatingSine]
+  · simp [slope_def_field, OscillationLinear, Chapter04.OscillatingSine, hx,
+      one_div, mul_div_cancel_left₀]
+
+theorem oscillationLinear_not_differentiableAt_zero :
+    ¬ DifferentiableAt ℝ OscillationLinear 0 := by
+  intro hd
+  apply Chapter04.oscillatingSine_no_side_limit true
+  refine ⟨deriv OscillationLinear 0, ?_⟩
+  have h := hd.hasDerivAt.tendsto_slope.mono_left (nhdsGT_le_nhdsNE (0 : ℝ))
+  rw [show slope OscillationLinear 0 = Chapter04.OscillatingSine from
+    funext oscillationLinear_slope] at h
+  exact h
+
+theorem oscillationQuadratic_slope (x : ℝ) :
+    slope OscillationQuadratic 0 x = OscillationLinear x := by
+  by_cases hx : x = 0
+  · simp [hx, OscillationLinear]
+  · rw [slope_def_field]
+    simp only [OscillationQuadratic, OscillationLinear, zero_pow (by decide : 2 ≠ 0),
+      zero_mul, sub_zero]
+    field_simp
+
+theorem oscillationQuadratic_hasDerivAt_zero : HasDerivAt OscillationQuadratic 0 0 := by
+  rw [hasDerivAt_iff_tendsto_slope]
+  rw [show slope OscillationQuadratic 0 = OscillationLinear from
+    funext oscillationQuadratic_slope]
+  simpa only [oscillationLinear_zero] using
+    oscillationLinear_continuousAt_zero.tendsto.mono_left nhdsWithin_le_nhds
+
+theorem oscillationQuadratic_differentiable : Differentiable ℝ OscillationQuadratic := by
+  intro x
+  by_cases hx : x = 0
+  · subst x
+    exact oscillationQuadratic_hasDerivAt_zero.differentiableAt
+  · exact (oscillationQuadratic_hasDerivAt hx).differentiableAt
+
+theorem oscillationQuadratic_deriv_attains_neg_one_near_zero {b : ℝ} (hb : 0 < b) :
+    ∃ x ∈ Ioo 0 b, deriv OscillationQuadratic x = -1 := by
+  have hp : 0 < 2 * Real.pi := by positivity
+  obtain ⟨n, hn⟩ := exists_nat_gt (b⁻¹ / (2 * Real.pi))
+  have hphase : b⁻¹ < (n : ℝ) * (2 * Real.pi) := (div_lt_iff₀ hp).mp hn
+  have hphasepos : 0 < (n : ℝ) * (2 * Real.pi) := (inv_pos.mpr hb).trans hphase
+  refine ⟨((n : ℝ) * (2 * Real.pi))⁻¹,
+    ⟨inv_pos.mpr hphasepos, ?_⟩, ?_⟩
+  · simpa only [inv_inv] using
+      (inv_lt_inv₀ hphasepos (inv_pos.mpr hb)).mpr hphase
+  · have hsin : Real.sin ((n : ℝ) * (2 * Real.pi)) = 0 := by
+      simpa only [zero_add, Real.sin_zero] using Real.sin_add_nat_mul_two_pi 0 n
+    simpa only [one_div, inv_inv, hsin, Real.cos_nat_mul_two_pi, mul_zero, zero_sub] using
+      (oscillationQuadratic_hasDerivAt (ne_of_gt (inv_pos.mpr hphasepos))).deriv
+
+theorem oscillationQuadratic_deriv_not_continuousAt_zero :
+    ¬ ContinuousAt (deriv OscillationQuadratic) 0 := by
+  intro hc
+  obtain ⟨δ, hδ, hclose⟩ := Metric.continuousAt_iff.mp hc (1 / 2) (by norm_num)
+  obtain ⟨x, hx, hdx⟩ := oscillationQuadratic_deriv_attains_neg_one_near_zero hδ
+  have hdist : dist x 0 < δ := by
+    simpa only [Real.dist_eq, sub_zero, abs_of_pos hx.1] using hx.2
+  have hbad := hclose hdist
+  rw [hdx, oscillationQuadratic_hasDerivAt_zero.deriv] at hbad
+  norm_num [Real.dist_eq] at hbad
+
+theorem pma5_6 : pma5_6_contract :=
+  ⟨oscillationLinear_zero, oscillationLinear_continuous,
+    fun _ hx => oscillationLinear_hasDerivAt hx,
+    oscillationLinear_not_differentiableAt_zero,
+    oscillationQuadratic_zero, oscillationQuadratic_differentiable,
+    oscillationQuadratic_hasDerivAt_zero,
+    fun _ hx => oscillationQuadratic_hasDerivAt hx,
+    oscillationQuadratic_deriv_not_continuousAt_zero⟩
+
+/-- Boundary probe: the off-zero derivative formula must not be extended to zero. -/
+theorem oscillationQuadratic_offZero_formula_wrong_at_zero :
+    deriv OscillationQuadratic 0 ≠
+      2 * (0 : ℝ) * Real.sin (1 / 0) - Real.cos (1 / 0) := by
+  rw [oscillationQuadratic_hasDerivAt_zero.deriv]
+  norm_num
+
+
+end
+
+end Rudin.PMA.Chapter05
