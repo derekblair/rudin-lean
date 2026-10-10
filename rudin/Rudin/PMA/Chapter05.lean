@@ -1338,3 +1338,97 @@ theorem taylorHypotheses_one_iff {f : ℝ → ℝ} {a b : ℝ} :
 
 
 end Rudin.PMA.Chapter05
+
+
+/- Assembly source: Chapter05VectorDraft.lean -/
+
+noncomputable section
+open Set Filter Topology
+open scoped RealInnerProductSpace InnerProductSpace
+
+namespace Rudin.PMA.Chapter05
+
+/-! ### PMA-5.16: Real-parameter complex and Euclidean derivatives -/
+
+def VectorDerivativeWithin {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
+    (f : ℝ → E) (v : E) (a b x : ℝ) : Prop :=
+  a < b ∧ x ∈ Icc a b ∧
+    Tendsto (fun t => ‖(t - x)⁻¹ • (f t - f x) - v‖)
+      (𝓝[Icc a b \ {x}] x) (𝓝 0)
+
+theorem vectorDerivativeWithin_iff {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
+    (f : ℝ → E) (v : E) (a b x : ℝ) :
+    VectorDerivativeWithin f v a b x ↔
+      a < b ∧ x ∈ Icc a b ∧ HasDerivWithinAt f v (Icc a b) x := by
+  unfold VectorDerivativeWithin
+  apply and_congr_right
+  intro _
+  apply and_congr_right
+  intro _
+  rw [hasDerivWithinAt_iff_tendsto_slope]
+  exact tendsto_iff_norm_sub_tendsto_zero.symm
+
+theorem complex_derivative_components (f : ℝ → ℂ) (v : ℂ) (s : Set ℝ) (x : ℝ) :
+    HasDerivWithinAt f v s x ↔
+      HasDerivWithinAt (fun t => (f t).re) v.re s x ∧
+      HasDerivWithinAt (fun t => (f t).im) v.im s x := by
+  constructor
+  · intro h
+    exact ⟨Complex.reCLM.hasFDerivAt.comp_hasDerivWithinAt x h,
+      Complex.imCLM.hasFDerivAt.comp_hasDerivWithinAt x h⟩
+  · rintro ⟨hr, hi⟩
+    convert hr.ofReal_comp.add (hi.ofReal_comp.mul_const Complex.I) using 1
+    · funext t
+      exact (Complex.re_add_im (f t)).symm
+    · exact (Complex.re_add_im v).symm
+
+theorem euclidean_derivative_components (n : ℕ) (f : ℝ → EuclideanSpace ℝ (Fin n))
+    (v : EuclideanSpace ℝ (Fin n)) (s : Set ℝ) (x : ℝ) :
+    HasDerivWithinAt f v s x ↔
+      ∀ i, HasDerivWithinAt (fun t => f t i) (v i) s x := by
+  let e := PiLp.continuousLinearEquiv 2 ℝ (fun _ : Fin n => ℝ)
+  constructor
+  · intro h
+    exact hasDerivWithinAt_pi.mp (e.hasFDerivAt.comp_hasDerivWithinAt x h)
+  · intro h
+    have hh := hasDerivWithinAt_pi.mpr h
+    exact e.symm.hasFDerivAt.comp_hasDerivWithinAt x hh
+
+def pma5_16_contract : Prop :=
+  (∀ {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
+    (f : ℝ → E) (v : E) (a b x : ℝ),
+    VectorDerivativeWithin f v a b x ↔
+      a < b ∧ x ∈ Icc a b ∧ HasDerivWithinAt f v (Icc a b) x) ∧
+  (∀ (f : ℝ → ℂ) (v : ℂ) (s : Set ℝ) (x : ℝ),
+    HasDerivWithinAt f v s x ↔
+      HasDerivWithinAt (fun t => (f t).re) v.re s x ∧
+      HasDerivWithinAt (fun t => (f t).im) v.im s x) ∧
+  (∀ (n : ℕ) (f : ℝ → EuclideanSpace ℝ (Fin n))
+    (v : EuclideanSpace ℝ (Fin n)) (s : Set ℝ) (x : ℝ),
+    HasDerivWithinAt f v s x ↔
+      ∀ i, HasDerivWithinAt (fun t => f t i) (v i) s x) ∧
+  (∀ {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
+    (f g : ℝ → E) (v w : E) (s : Set ℝ) (x : ℝ),
+    HasDerivWithinAt f v s x → HasDerivWithinAt g w s x →
+      ContinuousWithinAt f s x ∧ HasDerivWithinAt (fun t => f t + g t) (v + w) s x) ∧
+  (∀ (f g : ℝ → ℂ) (v w : ℂ) (s : Set ℝ) (x : ℝ),
+    HasDerivWithinAt f v s x → HasDerivWithinAt g w s x →
+      HasDerivWithinAt (fun t => f t * g t) (v * g x + f x * w) s x ∧
+      (g x ≠ 0 → HasDerivWithinAt (fun t => f t / g t)
+        ((v * g x - f x * w) / (g x)^2) (s ∩ {t | g t ≠ 0}) x)) ∧
+  (∀ {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+    (f g : ℝ → E) (v w : E) (s : Set ℝ) (x : ℝ),
+    HasDerivWithinAt f v s x → HasDerivWithinAt g w s x →
+      HasDerivWithinAt (fun t => ⟪f t, g t⟫_ℝ) (⟪v, g x⟫_ℝ + ⟪f x, w⟫_ℝ) s x)
+
+theorem pma5_16 : pma5_16_contract := by
+  refine ⟨vectorDerivativeWithin_iff, complex_derivative_components,
+    euclidean_derivative_components, ?_, ?_, ?_⟩
+  · intro E _ _ f g v w s x hf hg
+    exact ⟨hf.continuousWithinAt, hf.add hg⟩
+  · intro f g v w s x hf hg
+    exact ⟨hf.mul hg, fun h => (hf.div hg h).mono inter_subset_left⟩
+  · intro E _ _ f g v w s x hf hg
+    simpa only [add_comm] using hf.inner ℝ hg
+
+end Rudin.PMA.Chapter05
