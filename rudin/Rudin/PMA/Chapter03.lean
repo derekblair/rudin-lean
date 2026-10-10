@@ -2344,4 +2344,18 @@ theorem pma3_46 : pma3_46_contract := by
       apply alternatingHarmonic_not_absolute
       simpa [SeriesAbsolutelyConverges, NegativeAlternatingHarmonic] using h
 
+/-! ### PMA-3.47: ordinary sums preserve addition and scalar multiplication. -/
+
+def pma3_47_contract : Prop := ∀ (a b : ℕ → ℂ) (A B c : ℂ),
+  SeriesHasSum a A → SeriesHasSum b B →
+  SeriesHasSum (fun n => a n + b n) (A + B) ∧ SeriesHasSum (fun n => c * a n) (c * A)
+
+theorem pma3_47 : pma3_47_contract := by
+  intro a b A B c ha hb
+  constructor
+  · change Tendsto (fun N => ∑ n ∈ Finset.range N, (a n + b n)) atTop (𝓝 (A + B))
+    simpa [PartialSums, Finset.sum_add_distrib] using ha.add hb
+  · change Tendsto (fun N => ∑ n ∈ Finset.range N, c * a n) atTop (𝓝 (c * A))
+    simpa [PartialSums, Finset.mul_sum] using ha.const_mul c
+
 end Rudin.PMA.Chapter03
