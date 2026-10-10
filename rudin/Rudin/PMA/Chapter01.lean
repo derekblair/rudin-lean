@@ -377,4 +377,19 @@ theorem pma_addition_consequences {K : Type*} [AddCommGroup K] :
   · intro x y h
     exact eq_neg_of_add_eq_zero_right h
 
+/-! ### PMA-1.15: Consequences of the multiplication axioms -/
+
+theorem pma_multiplication_consequences {K : Type*} [GroupWithZero K] :
+    (∀ x y z : K, x ≠ 0 → x * y = x * z → y = z) ∧
+    (∀ x y : K, x ≠ 0 → x * y = x → y = 1) ∧
+    (∀ x y : K, x ≠ 0 → x * y = 1 → y = x⁻¹) ∧
+    (∀ x : K, x ≠ 0 → (x⁻¹)⁻¹ = x) := by
+  refine ⟨fun _ _ _ hx h => mul_left_cancel₀ hx h, ?_, ?_, ?_⟩
+  · intro x y hx h
+    exact mul_left_cancel₀ hx (h.trans (mul_one x).symm)
+  · intro x y hx h
+    exact mul_left_cancel₀ hx (h.trans (mul_inv_cancel₀ hx).symm)
+  · intro x _
+    exact inv_inv x
+
 end Rudin.PMA.Chapter01
