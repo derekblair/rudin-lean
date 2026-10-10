@@ -229,4 +229,16 @@ theorem pma2_10_family_intersection : (⋂ x : IntervalFamilyIndex,intervalFamil
   have := hh ⟨y/2,hx⟩
   linarith [hy1.1]
 
+/-! ### PMA-2.11: union/intersection algebra. -/
+theorem pma2_11 {A : Type*} (S T U : Set A) :
+    S ∪ T = T ∪ S ∧ S ∩ T = T ∩ S ∧
+    (S ∪ T) ∪ U = S ∪ (T ∪ U) ∧ (S ∩ T) ∩ U = S ∩ (T ∩ U) ∧
+    S ∩ (T ∪ U) = (S ∩ T) ∪ (S ∩ U) ∧
+    S ⊆ S ∪ T ∧ S ∩ T ⊆ S ∧ S ∪ ∅ = S ∧ S ∩ ∅ = ∅ ∧
+    (S ⊆ T → S ∪ T = T ∧ S ∩ T = S) := by
+  exact ⟨Set.union_comm S T, Set.inter_comm S T, Set.union_assoc S T U,
+    Set.inter_assoc S T U, Set.inter_union_distrib_left S T U,
+    Set.subset_union_left, Set.inter_subset_left, Set.union_empty S,
+    Set.inter_empty S, fun h => ⟨Set.union_eq_right.mpr h,Set.inter_eq_left.mpr h⟩⟩
+
 end Rudin.PMA.Chapter02
