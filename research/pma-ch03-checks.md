@@ -27,3 +27,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.19 | PASS: eventual inequality and both extended extrema. |
 | PMA-3.20 | PASS: all five limits, exact positive-index formulas, and each required parameter guard. |
 | PMA-3.21 | PASS: inclusive block sums, zero-index partial sums, positive-index Icc bridge, ordinary sums/convergence/divergence, explicit conditional-filter references. |
+| PMA-3.22 | PASS: complete complex Cauchy criterion with inclusive blocks and the displayed `≤ε`. |

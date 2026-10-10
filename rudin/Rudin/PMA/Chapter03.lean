@@ -773,4 +773,93 @@ theorem node_3_21 {V : Type*} [AddCommMonoid V] [TopologicalSpace V] :
     Statement_3_21 (V := V) :=
   ⟨partialSums_positive_index, seriesHasSum_iff_conditional, seriesConverges_iff_conditional⟩
 
+/-! ### PMA-3.22: Cauchy's criterion for ordinary complex series. -/
+def SeriesCauchyCriterion (a : ℕ → ℂ) : Prop :=
+  ∀ ε : ℝ, 0 < ε → ∃ N : ℕ, ∀ n m : ℕ, N ≤ n → n ≤ m → ‖BlockSum a n m‖ ≤ ε
+
+def Statement_3_22 : Prop :=
+  ∀ a : ℕ → ℂ, SeriesConverges a ↔ SeriesCauchyCriterion a
+
+/-! PMA-3.22 proof details: Verified ordinary Cauchy criterion. -/
+theorem seriesConverges_iff_cauchySeq {V : Type*} [NormedAddCommGroup V] [CompleteSpace V]
+    (a : ℕ → V) : SeriesConverges a ↔ CauchySeq (PartialSums a) := by
+  constructor
+  · rintro ⟨s,hs⟩
+    exact hs.cauchySeq
+  · intro h
+    exact cauchySeq_tendsto_of_complete h
+
+theorem blockSum_eq_sub_partialSums {V : Type*} [AddCommGroup V]
+    (a : ℕ → V) {n m : ℕ} (hnm : n ≤ m) :
+    BlockSum a n m = PartialSums a (m+1) - PartialSums a n := by
+  unfold BlockSum PartialSums
+  have heq : Finset.Icc n m = Finset.Ico n (m+1) := by
+    ext k
+    simp only [Finset.mem_Icc, Finset.mem_Ico]
+    omega
+  rw [heq,Finset.sum_Ico_eq_sub a (by omega)]
+
+theorem node_3_22 : Statement_3_22 := by
+  intro a
+  rw [seriesConverges_iff_cauchySeq, Metric.cauchySeq_iff]
+  constructor
+  · intro h ε hε
+    obtain ⟨N,hN⟩ := h ε hε
+    refine ⟨N,?_⟩
+    intro n m hn hnm
+    rw [blockSum_eq_sub_partialSums a hnm]
+    exact le_of_lt (by simpa only [dist_eq_norm] using hN (m+1) (by omega) n hn)
+  · intro h ε hε
+    obtain ⟨N,hN⟩ := h (ε/2) (by linarith)
+    refine ⟨N,?_⟩
+    intro m hm n hn
+    rcases lt_trichotomy n m with hnm | rfl | hmn
+    · have hh := hN n (m-1) hn (by omega)
+      rw [blockSum_eq_sub_partialSums a (by omega),Nat.sub_add_cancel (by omega)] at hh
+      exact lt_of_le_of_lt (by simpa only [dist_eq_norm] using hh) (by linarith)
+    · simpa using hε
+    · have hh := hN m (n-1) hm (by omega)
+      rw [blockSum_eq_sub_partialSums a (by omega),Nat.sub_add_cancel (by omega)] at hh
+      exact lt_of_le_of_lt (by simpa only [dist_eq_norm, norm_sub_rev] using hh) (by linarith)
+
+/-! PMA-3.22 proof details: The necessary zero-term condition as a preliminary lemma. -/
+theorem series_terms_tendsto_zero {V : Type*} [NormedAddCommGroup V]
+    {a : ℕ → V} (h : SeriesConverges a) : Tendsto a atTop (𝓝 0) := by
+  obtain ⟨s,hs⟩ := h
+  have hs' : Tendsto (fun n => PartialSums a (n+1)) atTop (𝓝 s) :=
+    hs.comp (tendsto_add_atTop_nat 1)
+  have hdiff := hs'.sub hs
+  simpa only [PartialSums,Finset.sum_range_succ,add_sub_cancel_left,sub_self] using hdiff
+
+/-! PMA-3.22 proof details: Finite prefixes do not change ordinary convergence. -/
+theorem partialSums_shift {V : Type*} [AddCommGroup V] (a : ℕ → V) (N M : ℕ) :
+    PartialSums (fun n => a (n+N)) M = PartialSums a (M+N) - PartialSums a N := by
+  unfold PartialSums
+  rw [Nat.add_comm M N,Finset.sum_range_add]
+  simp only [add_sub_cancel_left]
+  congr 1
+  funext n
+  rw [Nat.add_comm]
+
+theorem seriesConverges_nat_add_iff {V : Type*} [NormedAddCommGroup V]
+    (a : ℕ → V) (N : ℕ) : SeriesConverges (fun n => a (n+N)) ↔ SeriesConverges a := by
+  constructor
+  · rintro ⟨s,hs⟩
+    have hh := hs.add_const (PartialSums a N)
+    have heq : (fun M => PartialSums (fun n => a (n+N)) M + PartialSums a N) =
+        (fun M => PartialSums a (M+N)) := by
+      funext M
+      rw [partialSums_shift,sub_add_cancel]
+    rw [heq] at hh
+    exact ⟨_,(tendsto_add_atTop_iff_nat N).mp hh⟩
+  · rintro ⟨s,hs⟩
+    have hh := (hs.comp (tendsto_add_atTop_nat N)).sub_const (PartialSums a N)
+    have heq : (fun M => PartialSums a (M+N) - PartialSums a N) =
+        PartialSums (fun n => a (n+N)) := by
+      funext M
+      exact (partialSums_shift a N M).symm
+    simp only [Function.comp_def] at hh
+    rw [heq] at hh
+    exact ⟨_,hh⟩
+
 end Rudin.PMA.Chapter03
