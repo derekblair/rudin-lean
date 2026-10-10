@@ -1464,4 +1464,145 @@ theorem pma5_17 : pma5_17_contract := by
       Real.norm_eq_abs, abs_of_pos (mul_pos (by norm_num) Real.pi_pos)] at hn
     exact (mul_pos (by norm_num : (0 : ℝ) < 2) Real.pi_pos).ne' hn.symm
 
+/-! ### PMA-5.18: The complex l'Hôpital counterexample -/
+
+def complexHopitalPhase (x : ℝ) : ℂ := Complex.exp (Complex.I / (x : ℂ)^2)
+def complexHopitalG (x : ℝ) : ℂ := (x : ℂ) + (x : ℂ)^2 * complexHopitalPhase x
+def complexHopitalVelocity (x : ℝ) : ℂ :=
+  1 + (2 * (x : ℂ) - 2 * Complex.I / (x : ℂ)) * complexHopitalPhase x
+
+def pma5_18_contract : Prop :=
+  (∀ x ∈ Ioo (0 : ℝ) 1,
+    HasDerivAt (fun t : ℝ => (t : ℂ)) 1 x ∧
+    HasDerivAt complexHopitalG (complexHopitalVelocity x) x ∧
+    complexHopitalG x ≠ 0 ∧ complexHopitalVelocity x ≠ 0 ∧
+    ‖2 * (x : ℂ) - 2 * Complex.I / (x : ℂ)‖ - 1 ≤ ‖complexHopitalVelocity x‖ ∧
+    2 / x - 1 ≤ ‖2 * (x : ℂ) - 2 * Complex.I / (x : ℂ)‖ - 1 ∧
+    ‖(1 : ℂ) / complexHopitalVelocity x‖ ≤ x / (2 - x)) ∧
+  Tendsto (fun x : ℝ => (x : ℂ)) (𝓝[>] 0) (𝓝 0) ∧
+  Tendsto complexHopitalG (𝓝[>] 0) (𝓝 0) ∧
+  Tendsto (fun x : ℝ => (x : ℂ) / complexHopitalG x) (𝓝[>] 0) (𝓝 1) ∧
+  Tendsto (fun x => (1 : ℂ) / complexHopitalVelocity x) (𝓝[>] 0) (𝓝 0)
+
+theorem complexHopitalPhase_norm (x : ℝ) : ‖complexHopitalPhase x‖ = 1 := by
+  simp [complexHopitalPhase, Complex.norm_exp, Complex.div_re, ← Complex.ofReal_pow]
+
+theorem complexHopital_derivative (x : ℝ) (hx : x ≠ 0) :
+    HasDerivAt complexHopitalG (complexHopitalVelocity x) x := by
+  have hc : (x : ℂ) ≠ 0 := Complex.ofReal_ne_zero.mpr hx
+  have hid := hasDerivAt_id (x : ℂ)
+  have hs := hid.pow 2
+  have he := ((hasDerivAt_const (x : ℂ) Complex.I).div hs (pow_ne_zero 2 hc)).cexp
+  have h := (hid.add (hs.mul he)).comp_ofReal
+  convert h using 1
+  · rfl
+  · simp only [complexHopitalVelocity, complexHopitalPhase, mul_one,
+      Nat.cast_ofNat, zero_mul, zero_sub, Pi.pow_apply, Pi.div_apply, id_eq]
+    norm_num
+    field_simp [hc]
+    ring
+
+theorem complexHopital_coefficient_lower (x : ℝ) (hx : 0 < x) :
+    2 / x ≤ ‖2 * (x : ℂ) - 2 * Complex.I / (x : ℂ)‖ := by
+  have h := Complex.abs_im_le_norm (2 * (x : ℂ) - 2 * Complex.I / (x : ℂ))
+  have he : 2 * x / (x * x) = 2 / x := by field_simp
+  simpa [Complex.div_im, Complex.normSq_apply, abs_of_pos hx, abs_of_nonneg (le_of_lt hx),
+    div_pow, mul_div_cancel_left₀, hx.ne', div_self, abs_div, he] using h
+
+theorem complexHopital_velocity_lower (x : ℝ) :
+    ‖2 * (x : ℂ) - 2 * Complex.I / (x : ℂ)‖ - 1 ≤ ‖complexHopitalVelocity x‖ := by
+  have h := norm_sub_le (complexHopitalVelocity x) (1 : ℂ)
+  have he : complexHopitalVelocity x - 1 =
+      (2 * (x : ℂ) - 2 * Complex.I / (x : ℂ)) * complexHopitalPhase x := by
+    simp [complexHopitalVelocity]
+  rw [he, norm_mul, complexHopitalPhase_norm, mul_one, norm_one] at h
+  linarith
+
+theorem complexHopital_nonzero (x : ℝ) (hx : x ∈ Ioo (0 : ℝ) 1) :
+    complexHopitalG x ≠ 0 ∧ complexHopitalVelocity x ≠ 0 := by
+  constructor
+  · intro hzero
+    have h := norm_sub_le (complexHopitalG x) ((x : ℂ)^2 * complexHopitalPhase x)
+    have he : complexHopitalG x - (x : ℂ)^2 * complexHopitalPhase x = (x : ℂ) := by
+      simp [complexHopitalG]
+    rw [he, hzero, norm_zero, zero_add, norm_mul, norm_pow,
+      complexHopitalPhase_norm, mul_one, Complex.norm_real, Real.norm_eq_abs,
+      abs_of_pos hx.1] at h
+    nlinarith [mul_pos hx.1 (sub_pos.mpr hx.2)]
+  · have h := complexHopital_velocity_lower x
+    have hc := complexHopital_coefficient_lower x hx.1
+    have hdiv : 2 < 2 / x := (lt_div_iff₀ hx.1).mpr (by linarith [hx.2])
+    exact norm_pos_iff.mp (by linarith)
+
+theorem complexHopital_ratio_bound (x : ℝ) (hx : x ∈ Ioo (0 : ℝ) 1) :
+    ‖(1 : ℂ) / complexHopitalVelocity x‖ ≤ x / (2 - x) := by
+  have h := complexHopital_velocity_lower x
+  have hc := complexHopital_coefficient_lower x hx.1
+  have hl : 0 < 2 / x - 1 := by
+    have : 2 < 2 / x := (lt_div_iff₀ hx.1).mpr (by linarith [hx.2])
+    linarith
+  rw [norm_div, norm_one]
+  calc
+    1 / ‖complexHopitalVelocity x‖ ≤ 1 / (2 / x - 1) :=
+      one_div_le_one_div_of_le hl (by linarith)
+    _ = x / (2 - x) := by
+      field_simp [hx.1.ne', (show 2 - x ≠ 0 by linarith [hx.2])]
+
+theorem complexHopital_small_term :
+    Tendsto (fun x : ℝ => (x : ℂ) * complexHopitalPhase x) (𝓝 0) (𝓝 0) := by
+  apply tendsto_zero_iff_norm_tendsto_zero.mpr
+  simpa only [norm_mul, complexHopitalPhase_norm, mul_one, Complex.ofReal_zero, norm_zero]
+    using (Complex.continuous_ofReal.tendsto (0 : ℝ)).norm
+
+theorem complexHopitalG_limit : Tendsto complexHopitalG (𝓝 0) (𝓝 0) := by
+  have hi : Tendsto (fun x : ℝ => (x : ℂ)) (𝓝 0) (𝓝 0) := by
+    simpa using Complex.continuous_ofReal.tendsto (0 : ℝ)
+  have hs := hi.mul complexHopital_small_term
+  have h := hi.add hs
+  change Tendsto (fun x : ℝ => (x : ℂ) + (x : ℂ)^2 * complexHopitalPhase x) (𝓝 0) (𝓝 0)
+  simpa only [zero_mul, zero_add, Pi.add_apply, Pi.mul_apply, pow_two, mul_assoc] using h
+
+theorem complexHopital_quotient_limit :
+    Tendsto (fun x : ℝ => (x : ℂ) / complexHopitalG x) (𝓝[>] 0) (𝓝 1) := by
+  have hd : Tendsto (fun x : ℝ => (1 : ℂ) + (x : ℂ) * complexHopitalPhase x)
+      (𝓝[>] 0) (𝓝 1) := by
+    simpa only [Pi.add_apply, add_zero] using
+      (tendsto_const_nhds (x := (1 : ℂ))).add
+        (complexHopital_small_term.mono_left nhdsWithin_le_nhds)
+  have hi : Tendsto (fun x : ℝ => (1 : ℂ) / (1 + (x : ℂ) * complexHopitalPhase x))
+      (𝓝[>] 0) (𝓝 1) := by
+    convert (tendsto_const_nhds (x := (1 : ℂ))).div hd
+      (one_ne_zero : (1 : ℂ) ≠ 0) using 1
+    simp
+  apply hi.congr'
+  filter_upwards [self_mem_nhdsWithin] with x hx
+  have hc : (x : ℂ) ≠ 0 := Complex.ofReal_ne_zero.mpr (ne_of_gt hx)
+  have he : complexHopitalG x = (x : ℂ) * (1 + (x : ℂ) * complexHopitalPhase x) := by
+    unfold complexHopitalG
+    ring
+  rw [he, div_mul_eq_div_div, div_self hc]
+
+theorem complexHopital_derivative_quotient_limit :
+    Tendsto (fun x => (1 : ℂ) / complexHopitalVelocity x) (𝓝[>] 0) (𝓝 0) := by
+  apply tendsto_zero_iff_norm_tendsto_zero.mpr
+  apply squeeze_zero' (Eventually.of_forall (fun x => norm_nonneg _))
+    (show ∀ᶠ x in 𝓝[>] (0 : ℝ),
+      ‖(1 : ℂ) / complexHopitalVelocity x‖ ≤ x / (2 - x) from ?_) ?_
+  · filter_upwards [Ioo_mem_nhdsGT (by norm_num : (0 : ℝ) < 1)] with x hx
+    exact complexHopital_ratio_bound x hx
+  · have ht : Tendsto (fun x : ℝ => x) (𝓝[>] 0) (𝓝 0) := tendsto_id.mono_left nhdsWithin_le_nhds
+    convert ht.div (tendsto_const_nhds.sub ht)
+      (by norm_num : (2 : ℝ) - 0 ≠ 0) using 1
+    simp
+
+theorem pma5_18 : pma5_18_contract := by
+  refine ⟨?_, ?_, complexHopitalG_limit.mono_left nhdsWithin_le_nhds,
+    complexHopital_quotient_limit, complexHopital_derivative_quotient_limit⟩
+  · intro x hx
+    exact ⟨(hasDerivAt_id x).ofReal_comp, complexHopital_derivative x hx.1.ne',
+      (complexHopital_nonzero x hx).1, (complexHopital_nonzero x hx).2,
+      complexHopital_velocity_lower x, sub_le_sub_right (complexHopital_coefficient_lower x hx.1) 1,
+      complexHopital_ratio_bound x hx⟩
+  · simpa using (Complex.continuous_ofReal.tendsto (0 : ℝ)).mono_left nhdsWithin_le_nhds
+
 end Rudin.PMA.Chapter05
