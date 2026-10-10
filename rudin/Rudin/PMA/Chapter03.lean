@@ -212,4 +212,23 @@ theorem pma3_2_limitPoint {X : Type*} [MetricSpace X] {E : Set X} {p : X}
     (fun n => (by simpa only [dist_comm] using (hd n).le))
   exact tendsto_one_div_add_atTop_nhds_zero_nat
 
+/-! ### PMA-3.3: algebra of complex limits. -/
+
+theorem pma3_3 {s t : ℕ → ℂ} {a b : ℂ}
+    (hs : ConvergesTo s a) (ht : ConvergesTo t b) (c : ℂ) :
+    ConvergesTo (fun n => s n + t n) (a+b) ∧
+    ConvergesTo (fun n => c * s n) (c*a) ∧
+    ConvergesTo (fun n => c + s n) (c+a) ∧
+    ConvergesTo (fun n => s n * t n) (a*b) := by
+  have hs' := (pma3_1_reference _ _).mp hs
+  have ht' := (pma3_1_reference _ _).mp ht
+  exact ⟨(pma3_1_reference _ _).mpr (hs'.add ht'),
+    (pma3_1_reference _ _).mpr (tendsto_const_nhds.mul hs'),
+    (pma3_1_reference _ _).mpr (tendsto_const_nhds.add hs'),
+    (pma3_1_reference _ _).mpr (hs'.mul ht')⟩
+
+theorem pma3_3_reciprocal {s : ℕ → ℂ} {a : ℂ}
+    (hs : ConvergesTo s a) (_hn : ∀ n, s n ≠ 0) (ha : a ≠ 0) :
+    ConvergesTo (fun n => (s n)⁻¹) a⁻¹ :=
+  (pma3_1_reference _ _).mpr (((pma3_1_reference _ _).mp hs).inv₀ ha)
 end Rudin.PMA.Chapter03

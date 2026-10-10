@@ -8,3 +8,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 |---|---|
 | PMA-3.1 | PASS: literal metric convergence, divergence, centered boundedness, all five complex examples, and positive-real ambient-space contrast. |
 | PMA-3.2 | PASS: finite neighborhood exceptions, uniqueness, boundedness, and a sequence in the limit-point set. |
+| PMA-3.3 | PASS: all four algebra operations plus reciprocal with termwise and limit nonzero guards. |
