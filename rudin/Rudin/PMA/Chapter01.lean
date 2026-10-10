@@ -854,4 +854,8 @@ def pmaImaginaryUnit : ℂ := pmaComplexPair 0 1
 
 theorem pma_imaginary_unit_eq : pmaImaginaryUnit = Complex.I := rfl
 
+/-! ### PMA-1.28: the square of the imaginary unit. -/
+
+theorem pma_imaginary_unit_sq : pmaImaginaryUnit ^ 2 = -1 := Complex.I_sq
+
 end Rudin.PMA.Chapter01
