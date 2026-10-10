@@ -394,4 +394,84 @@ theorem kCell_convex {k : ℕ} (a b : Fin k → ℝ) : IsConvexSet (kCell a b) :
   change a i ≤ t * x i + (1-t) * y i ∧ t * x i + (1-t) * y i ≤ b i
   constructor <;> nlinarith
 
+/-! ### PMA-2.18: Metric topology terminology. -/
+def neighborhood {X : Type*} [MetricSpace X] (p : X) (r : ℝ) : Set X :=
+  {q | dist p q < r}
+def IsLimitPoint {X : Type*} [MetricSpace X] (p : X) (E : Set X) : Prop :=
+  ∀ r : ℝ, 0 < r → ∃ q ∈ E, q ≠ p ∧ dist p q < r
+def IsIsolatedPoint {X : Type*} [MetricSpace X] (p : X) (E : Set X) : Prop :=
+  p ∈ E ∧ ¬ IsLimitPoint p E
+def IsClosedSet {X : Type*} [MetricSpace X] (E : Set X) : Prop :=
+  ∀ p, IsLimitPoint p E → p ∈ E
+def IsInteriorPoint {X : Type*} [MetricSpace X] (p : X) (E : Set X) : Prop :=
+  ∃ r : ℝ, 0 < r ∧ neighborhood p r ⊆ E
+def IsOpenSet {X : Type*} [MetricSpace X] (E : Set X) : Prop :=
+  ∀ p ∈ E, IsInteriorPoint p E
+def complement {X : Type*} (E : Set X) : Set X := {p | p ∉ E}
+def IsPerfectSet {X : Type*} [MetricSpace X] (E : Set X) : Prop :=
+  IsClosedSet E ∧ ∀ p ∈ E, IsLimitPoint p E
+def IsBoundedSet {X : Type*} [MetricSpace X] (E : Set X) : Prop :=
+  ∃ M : ℝ, ∃ q : X, ∀ p ∈ E, dist p q < M
+def IsDenseSet {X : Type*} [MetricSpace X] (E : Set X) : Prop :=
+  ∀ p : X, p ∈ E ∨ IsLimitPoint p E
+
+theorem neighborhood_eq_ball {X : Type*} [MetricSpace X] (p : X) (r : ℝ) :
+    neighborhood p r = Metric.ball p r := by
+  ext q
+  simp [neighborhood, Metric.mem_ball, dist_comm]
+
+theorem isLimitPoint_iff_accPt {X : Type*} [MetricSpace X] (p : X) (E : Set X) :
+    IsLimitPoint p E ↔ AccPt p (𝓟 E) := by
+  rw [accPt_iff_nhds]
+  constructor
+  · intro h U hU
+    obtain ⟨r, hr, hUr⟩ := Metric.mem_nhds_iff.mp hU
+    obtain ⟨q, hqE, hqp, hqr⟩ := h r hr
+    exact ⟨q, ⟨hUr (by simpa [Metric.mem_ball, dist_comm] using hqr), hqE⟩, hqp⟩
+  · intro h r hr
+    obtain ⟨q, ⟨hqB, hqE⟩, hqp⟩ := h (Metric.ball p r) (Metric.ball_mem_nhds p hr)
+    exact ⟨q, hqE, hqp, by simpa [Metric.mem_ball, dist_comm] using hqB⟩
+
+theorem isIsolatedPoint_iff_mem_not_accPt {X : Type*} [MetricSpace X]
+    (p : X) (E : Set X) :
+    IsIsolatedPoint p E ↔ p ∈ E ∧ ¬ AccPt p (𝓟 E) := by
+  simp only [IsIsolatedPoint, isLimitPoint_iff_accPt]
+
+theorem isClosedSet_iff_isClosed {X : Type*} [MetricSpace X] (E : Set X) :
+    IsClosedSet E ↔ IsClosed E := by
+  rw [isClosed_iff_derivedSet_subset]
+  simp only [IsClosedSet, isLimitPoint_iff_accPt, Set.subset_def, mem_derivedSet]
+
+theorem isInteriorPoint_iff_mem_interior {X : Type*} [MetricSpace X] (p : X)
+    (E : Set X) : IsInteriorPoint p E ↔ p ∈ interior E := by
+  rw [mem_interior_iff_mem_nhds, Metric.mem_nhds_iff]
+  simp [IsInteriorPoint, neighborhood_eq_ball]
+
+theorem isOpenSet_iff_isOpen {X : Type*} [MetricSpace X] (E : Set X) :
+    IsOpenSet E ↔ IsOpen E := by
+  rw [Metric.isOpen_iff]
+  simp [IsOpenSet, IsInteriorPoint, neighborhood_eq_ball]
+
+theorem complement_eq_compl {X : Type*} (E : Set X) : complement E = Eᶜ := rfl
+
+theorem isPerfectSet_iff_perfect {X : Type*} [MetricSpace X] (E : Set X) :
+    IsPerfectSet E ↔ Perfect E := by
+  simp only [IsPerfectSet, isClosedSet_iff_isClosed, isLimitPoint_iff_accPt,
+    perfect_def, Preperfect]
+
+theorem isBoundedSet_iff_isBounded {X : Type*} [MetricSpace X] [Nonempty X]
+    (E : Set X) : IsBoundedSet E ↔ Bornology.IsBounded E := by
+  obtain ⟨q⟩ := ‹Nonempty X›
+  constructor
+  · rintro ⟨M, q, h⟩
+    exact (Metric.isBounded_iff_subset_ball q).mpr ⟨M, h⟩
+  · intro h
+    obtain ⟨M, hM⟩ := (Metric.isBounded_iff_subset_ball q).mp h
+    exact ⟨M, q, hM⟩
+
+theorem isDenseSet_iff_dense {X : Type*} [MetricSpace X] (E : Set X) :
+    IsDenseSet E ↔ Dense E := by
+  simp only [IsDenseSet, isLimitPoint_iff_accPt, Dense,
+    closure_eq_self_union_derivedSet, Set.mem_union, mem_derivedSet]
+
 end Rudin.PMA.Chapter02
