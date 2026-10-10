@@ -1113,3 +1113,58 @@ run_cmd do
     if !forbidden.isEmpty then
       throwError "Forbidden axioms in {name}: {forbidden}"
   logInfo m!"PMA 5.13 draft audit: {names.size} declarations; only propext, Classical.choice, Quot.sound."
+
+
+/- Assembly source: Chapter05TaylorDraft.lean -/
+
+noncomputable section
+
+open Set Filter
+open scoped Topology Nat ContDiff
+
+namespace Rudin.PMA.Chapter05
+
+/-! ### PMA-5.14 — Actual existence of higher derivatives -/
+
+/-- Existence is additional to the library's totalized derivative value. A successor derivative
+requires its predecessor to exist throughout a relative neighborhood and to be differentiable
+at the point. Relative neighborhoods retain the interval's one-sided endpoint convention. -/
+def HigherExistsWithin (f : ℝ → ℝ) (s : Set ℝ) : ℕ → ℝ → Prop
+  | 0, _ => True
+  | k + 1, x =>
+      (∀ᶠ y in 𝓝[s] x, HigherExistsWithin f s k y) ∧
+      DifferentiableWithinAt ℝ (iteratedDerivWithin k f s) s x
+
+def pma5_14_contract : Prop :=
+  (∀ (f : ℝ → ℝ) (s : Set ℝ), iteratedDerivWithin 0 f s = f) ∧
+  (∀ (f : ℝ → ℝ) (s : Set ℝ) (k : ℕ),
+    iteratedDerivWithin (k + 1) f s = derivWithin (iteratedDerivWithin k f s) s) ∧
+  (∀ (f : ℝ → ℝ) (s : Set ℝ) (k : ℕ) (x : ℝ),
+    HigherExistsWithin f s (k + 1) x ↔
+      (∀ᶠ y in 𝓝[s] x, HigherExistsWithin f s k y) ∧
+      DifferentiableWithinAt ℝ (iteratedDerivWithin k f s) s x) ∧
+  (∀ (f : ℝ → ℝ) (s : Set ℝ) (n k : ℕ) (x : ℝ),
+    x ∈ s → k ≤ n → HigherExistsWithin f s n x → HigherExistsWithin f s k x)
+
+theorem HigherExistsWithin.predecessor {f : ℝ → ℝ} {s : Set ℝ} {n : ℕ} {x : ℝ}
+    (h : HigherExistsWithin f s (n + 1) x) (hx : x ∈ s) :
+    HigherExistsWithin f s n x :=
+  h.1.self_of_nhdsWithin hx
+
+theorem HigherExistsWithin.lower {f : ℝ → ℝ} {s : Set ℝ} {n k : ℕ} {x : ℝ}
+    (h : HigherExistsWithin f s n x) (hx : x ∈ s) (hkn : k ≤ n) :
+    HigherExistsWithin f s k x := by
+  induction n with
+  | zero => simpa only [Nat.le_zero.mp hkn] using h
+  | succ n ih =>
+    rcases Nat.eq_or_lt_of_le hkn with heq | hlt
+    · simpa only [heq] using h
+    · exact ih (h.predecessor hx) (Nat.lt_succ_iff.mp hlt)
+
+theorem pma5_14 : pma5_14_contract := by
+  refine ⟨fun _ _ => iteratedDerivWithin_zero, fun _ _ _ => iteratedDerivWithin_succ,
+    fun _ _ _ _ => Iff.rfl, ?_⟩
+  intro f s n k x hx hk h
+  exact h.lower hx hk
+
+end Rudin.PMA.Chapter05

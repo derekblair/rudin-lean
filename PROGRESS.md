@@ -11,7 +11,7 @@ All completed nodes have zero proof placeholders.
 | 02 | Basic Topology | 47 / 47 |
 | 03 | Numerical Sequences and Series | 55 / 55 |
 | 04 | Continuity | 34 / 34 |
-| 05 | Differentiation | 13 / 19 |
+| 05 | Differentiation | 14 / 19 |
 | 06 | The Riemann-Stieltjes Integral | 0 |
 | 07 | Sequences and Series of Functions | 0 |
 | 08 | Some Special Functions | 0 |
@@ -52,7 +52,7 @@ Run `python3 scripts/check_chapter.py 4`; fidelity evidence is in
 `research/pma-ch04-checks.md`, `research/pma-ch04-fidelity.md`, and
 `research/pma-ch04-production-review.md`.
 
-Chapter 5 local integration: 13/19 numbered nodes have been added from the
+Chapter 5 local integration: 14/19 numbered nodes have been added from the
 independently and adversarially reviewed candidate. The opening 5.1–5.5
 section is grouped to preserve reviewed declaration order; later nodes
 are integrated individually. Each section commit requires a passing default
