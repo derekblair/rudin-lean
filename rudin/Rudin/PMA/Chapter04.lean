@@ -520,4 +520,114 @@ theorem pma4_20 : pma4_20_contract := by
       exact not_lt_of_ge (Int.pairwise_one_le_dist hne) hpq
     simpa only [heq, dist_self] using hε
 
+/-! ### PMA-4.21: Circle parametrization counterexample -/
+def CircleParam (t : ℝ) : EuclideanSpace ℝ (Fin 2) :=
+  WithLp.toLp 2 ![Real.cos t, Real.sin t]
+
+def UnitCircle : Set (EuclideanSpace ℝ (Fin 2)) := {z | ‖z‖ = 1}
+
+def CircleParameterOrigin : Ico (0 : ℝ) (2 * Real.pi) :=
+  ⟨0, le_rfl, mul_pos (by norm_num) Real.pi_pos⟩
+
+def pma4_21_contract : Prop :=
+  (∃ e : Ico (0 : ℝ) (2 * Real.pi) ≃ UnitCircle,
+    (∀ t, (e t).val = CircleParam t.val) ∧ Continuous e ∧
+      ¬ ContinuousAt e.symm (e CircleParameterOrigin)) ∧
+  ¬ IsCompact (Ico (0 : ℝ) (2 * Real.pi)) ∧ IsCompact UnitCircle
+
+def complexCircleEuclideanEquiv : Circle ≃ UnitCircle where
+  toFun z := ⟨Complex.orthonormalBasisOneI.repr (z : ℂ), by
+    change ‖Complex.orthonormalBasisOneI.repr (z : ℂ)‖ = 1
+    rw [Complex.orthonormalBasisOneI.repr.norm_map]
+    exact z.norm_coe⟩
+  invFun z := ⟨Complex.orthonormalBasisOneI.repr.symm z.val, by
+    apply mem_sphere_zero_iff_norm.mpr
+    rw [Complex.orthonormalBasisOneI.repr.symm.norm_map]
+    exact z.property⟩
+  left_inv z := Subtype.ext (Complex.orthonormalBasisOneI.repr.symm_apply_apply (z : ℂ))
+  right_inv z := Subtype.ext (Complex.orthonormalBasisOneI.repr.apply_symm_apply z.val)
+
+def circleParameterEquiv : Ico (0 : ℝ) (2 * Real.pi) ≃ UnitCircle := by
+  have : Fact (0 < 2 * Real.pi) := ⟨mul_pos (by norm_num) Real.pi_pos⟩
+  exact (Set.equivOfEq (by simp : Ico (0 : ℝ) (2 * Real.pi) = Ico 0 (0 + 2 * Real.pi))).trans
+    ((AddCircle.equivIco (2 * Real.pi) 0).symm.trans
+      (AddCircle.homeomorphCircle'.toEquiv.trans complexCircleEuclideanEquiv))
+
+theorem circleParameterEquiv_apply (t : Ico (0 : ℝ) (2 * Real.pi)) :
+    (circleParameterEquiv t).val = CircleParam t.val := by
+  have : Fact (0 < 2 * Real.pi) := ⟨mul_pos (by norm_num) Real.pi_pos⟩
+  change Complex.orthonormalBasisOneI.repr
+    ((AddCircle.homeomorphCircle' ((AddCircle.equivIco (2 * Real.pi) 0).symm
+      ⟨t.val, by simpa only [zero_add] using t.property⟩)) : ℂ) = _
+  change Complex.orthonormalBasisOneI.repr
+    ((AddCircle.homeomorphCircle' (t.val : AddCircle (2 * Real.pi))) : ℂ) = _
+  rw [AddCircle.homeomorphCircle'_apply_mk]
+  ext i
+  fin_cases i <;> simp [CircleParam, Circle.coe_exp, Complex.exp_mul_I,
+    ← Complex.ofReal_cos, ← Complex.ofReal_sin]
+
+theorem circleParam_continuous : Continuous CircleParam := by
+  unfold CircleParam
+  apply (PiLp.continuous_toLp 2 (fun _ : Fin 2 => ℝ)).comp
+  apply continuous_pi
+  intro i
+  fin_cases i
+  · simpa using Real.continuous_cos
+  · simpa using Real.continuous_sin
+
+theorem circleParam_two_pi_eq_zero : CircleParam (2 * Real.pi) = CircleParam 0 := by
+  ext i
+  fin_cases i <;> simp [CircleParam]
+
+theorem unitCircle_isCompact : IsCompact UnitCircle := by
+  have heq : UnitCircle = Metric.sphere (0 : EuclideanSpace ℝ (Fin 2)) 1 := by
+    ext z
+    simp only [UnitCircle, mem_ofPred_eq, Metric.mem_sphere, dist_zero_right]
+  rw [heq]
+  exact isCompact_sphere _ _
+
+theorem circleParam_inverse_not_continuous_origin
+    (e : Ico (0 : ℝ) (2 * Real.pi) ≃ UnitCircle)
+    (he : ∀ t, (e t).val = CircleParam t.val) :
+    ¬ ContinuousAt e.symm (e CircleParameterOrigin) := by
+  let t : ℕ → Ico (0 : ℝ) (2 * Real.pi) := fun n =>
+    ⟨2 * Real.pi - Real.pi / ((n : ℝ) + 1), by
+      have hd : 0 < (n : ℝ) + 1 := by positivity
+      have hle : Real.pi / ((n : ℝ) + 1) ≤ Real.pi := by
+        apply (div_le_iff₀ hd).mpr
+        nlinarith [mul_nonneg Real.pi_pos.le (Nat.cast_nonneg n : (0 : ℝ) ≤ n)]
+      constructor
+      · linarith [Real.pi_pos]
+      · linarith [div_pos Real.pi_pos hd]⟩
+  have ht : Tendsto (fun n => (t n).val) atTop (𝓝 (2 * Real.pi)) := by
+    have hsmall : Tendsto (fun n : ℕ => Real.pi / ((n : ℝ) + 1)) atTop (𝓝 0) := by
+      simpa only [div_eq_mul_inv, one_div, one_mul, mul_zero] using
+        Tendsto.const_mul Real.pi (tendsto_one_div_add_atTop_nhds_zero_nat (𝕜 := ℝ))
+    simpa only [t, sub_zero] using tendsto_const_nhds.sub hsmall
+  have hmap : Tendsto (fun n => e (t n)) atTop (𝓝 (e CircleParameterOrigin)) := by
+    apply tendsto_subtype_rng.mpr
+    simp only [he]
+    change Tendsto (fun n => CircleParam (t n).val) atTop (𝓝 (CircleParam 0))
+    rw [← circleParam_two_pi_eq_zero]
+    exact circleParam_continuous.continuousAt.tendsto.comp ht
+  intro hcont
+  have hzero : Tendsto (fun n => (t n).val) atTop (𝓝 (0 : ℝ)) := by
+    simpa only [Function.comp_def, Equiv.symm_apply_apply, CircleParameterOrigin] using
+      continuous_subtype_val.continuousAt.tendsto.comp (hcont.tendsto.comp hmap)
+  have heq := tendsto_nhds_unique ht hzero
+  linarith [Real.pi_pos]
+
+theorem circleParam_contract_of_equiv
+    (e : Ico (0 : ℝ) (2 * Real.pi) ≃ UnitCircle)
+    (he : ∀ t, (e t).val = CircleParam t.val) : pma4_21_contract := by
+  have hcont : Continuous e := by
+    apply continuous_induced_rng.mpr
+    exact (circleParam_continuous.comp continuous_subtype_val).congr (fun t => (he t).symm)
+  refine ⟨⟨e, he, hcont, circleParam_inverse_not_continuous_origin e he⟩, ?_, unitCircle_isCompact⟩
+  rw [isCompact_Ico_iff]
+  exact not_le.mpr (mul_pos (by norm_num) Real.pi_pos)
+
+theorem pma4_21 : pma4_21_contract :=
+  circleParam_contract_of_equiv circleParameterEquiv circleParameterEquiv_apply
+
 end Rudin.PMA.Chapter04
