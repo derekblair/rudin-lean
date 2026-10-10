@@ -43,3 +43,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-2.35 | PASS: Closed subsets and closed intersections of compact sets are compact. |
 | PMA-2.36 | PASS: Arbitrary compact family with nonempty intersections of every finite subfamily has a common point (including empty index); nested nonempty compact-sequence corollary included. |
 | PMA-2.37 | PASS: Infinite compact subset has an accumulation point IN the compact set, with punctured AccPt. |
+| PMA-2.38 | PASS: Nested nonempty closed bounded real intervals intersect, with endpoint a≤b. |

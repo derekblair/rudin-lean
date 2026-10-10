@@ -973,4 +973,12 @@ theorem pma2_37 {X : Type u} [MetricSpace X] {E K : Set X}
     ∃ p ∈ K, AccPt p (𝓟 E) :=
   hE.exists_accPt_of_subset_isCompact ((pma2_32_reference K).mp hK) hEK
 
+/-! ### PMA-2.38: nested nonempty closed intervals have nonempty intersection. -/
+
+theorem pma2_38 (a b : ℕ → ℝ) (hab : ∀ n, a n ≤ b n)
+    (hdec : ∀ n, Icc (a (n + 1)) (b (n + 1)) ⊆ Icc (a n) (b n)) :
+    (⋂ n, Icc (a n) (b n)).Nonempty :=
+  IsCompact.nonempty_iInter_of_sequence_nonempty_isCompact_isClosed _ hdec
+    (fun n => Set.nonempty_Icc.mpr (hab n)) isCompact_Icc (fun _ => isClosed_Icc)
+
 end Rudin.PMA.Chapter02
