@@ -1632,4 +1632,92 @@ theorem statement_4_31_of_weighted_family
 theorem node_4_31 : Statement_4_31 :=
   statement_4_31_of_weighted_family jumpSum_family_contract
 
+/-! ### PMA-4.32: Basic extended-real neighborhoods and their real traces. -/
+
+def ExtendedNeighborhood (x : EReal) (V : Set ℝ) : Prop :=
+  if x = ⊤ then ∃ c : ℝ, V = Ioi c
+  else if x = ⊥ then ∃ c : ℝ, V = Iio c
+  else ∃ a b : ℝ, a < x.toReal ∧ x.toReal < b ∧ V = Ioo a b
+
+def Statement_4_32 : Prop :=
+  (∀ V : Set ℝ, ExtendedNeighborhood ⊤ V ↔ ∃ c : ℝ, V = Ioi c) ∧
+  (∀ V : Set ℝ, ExtendedNeighborhood ⊥ V ↔ ∃ c : ℝ, V = Iio c) ∧
+  (∀ (x : ℝ) (V : Set ℝ),
+    ExtendedNeighborhood (x : EReal) V ↔ ∃ a b : ℝ, a < x ∧ x < b ∧ V = Ioo a b) ∧
+  (∀ (x : EReal) (U : Set EReal), U ∈ 𝓝 x →
+    ∃ V : Set ℝ, ExtendedNeighborhood x V ∧
+      V ⊆ (fun t : ℝ => (t : EReal)) ⁻¹' U) ∧
+  (∀ (x : EReal) (V : Set ℝ), ExtendedNeighborhood x V →
+    ∃ U : Set EReal, U ∈ 𝓝 x ∧ (fun t : ℝ => (t : EReal)) ⁻¹' U = V)
+
+theorem extendedNeighborhood_top (V : Set ℝ) :
+    ExtendedNeighborhood ⊤ V ↔ ∃ c : ℝ, V = Ioi c := by
+  simp [ExtendedNeighborhood]
+
+theorem extendedNeighborhood_bot (V : Set ℝ) :
+    ExtendedNeighborhood ⊥ V ↔ ∃ c : ℝ, V = Iio c := by
+  simp [ExtendedNeighborhood]
+
+theorem extendedNeighborhood_coe (x : ℝ) (V : Set ℝ) :
+    ExtendedNeighborhood (x : EReal) V ↔ ∃ a b : ℝ, a < x ∧ x < b ∧ V = Ioo a b := by
+  simp [ExtendedNeighborhood]
+
+theorem extendedNeighborhood_trace (x : EReal) (V : Set ℝ)
+    (hV : ExtendedNeighborhood x V) :
+    ∃ U : Set EReal, U ∈ 𝓝 x ∧ (fun t : ℝ => (t : EReal)) ⁻¹' U = V := by
+  induction x using EReal.rec with
+  | bot =>
+    obtain ⟨c, rfl⟩ := (extendedNeighborhood_bot V).mp hV
+    refine ⟨Iio (c : EReal), Iio_mem_nhds (EReal.bot_lt_coe c), ?_⟩
+    ext t
+    simp
+  | coe x =>
+    obtain ⟨a, b, ha, hb, rfl⟩ := (extendedNeighborhood_coe x V).mp hV
+    refine ⟨Ioo (a : EReal) (b : EReal),
+      Ioo_mem_nhds (EReal.coe_lt_coe_iff.mpr ha) (EReal.coe_lt_coe_iff.mpr hb), ?_⟩
+    ext t
+    simp
+  | top =>
+    obtain ⟨c, rfl⟩ := (extendedNeighborhood_top V).mp hV
+    refine ⟨Ioi (c : EReal), Ioi_mem_nhds (EReal.coe_lt_top c), ?_⟩
+    ext t
+    simp
+
+theorem extendedNeighborhood_refines (x : EReal) (U : Set EReal) (hU : U ∈ 𝓝 x) :
+    ∃ V : Set ℝ, ExtendedNeighborhood x V ∧ V ⊆ (fun t : ℝ => (t : EReal)) ⁻¹' U := by
+  induction x using EReal.rec with
+  | bot =>
+    obtain ⟨c, hc⟩ := EReal.mem_nhds_bot_iff.mp hU
+    refine ⟨Iio c, (extendedNeighborhood_bot _).mpr ⟨c, rfl⟩, ?_⟩
+    intro t ht
+    exact hc (EReal.coe_lt_coe_iff.mpr ht)
+  | coe x =>
+    have hpre : (fun t : ℝ => (t : EReal)) ⁻¹' U ∈ 𝓝 x :=
+      continuous_coe_real_ereal.continuousAt hU
+    obtain ⟨a, b, ⟨ha, hb⟩, hab⟩ := mem_nhds_iff_exists_Ioo_subset.mp hpre
+    exact ⟨Ioo a b, (extendedNeighborhood_coe x _).mpr ⟨a, b, ha, hb, rfl⟩, hab⟩
+  | top =>
+    obtain ⟨c, hc⟩ := EReal.mem_nhds_top_iff.mp hU
+    refine ⟨Ioi c, (extendedNeighborhood_top _).mpr ⟨c, rfl⟩, ?_⟩
+    intro t ht
+    exact hc (EReal.coe_lt_coe_iff.mpr ht)
+
+theorem extendedTraceFilter_basis (x : EReal) :
+    (Filter.comap (fun t : ℝ => (t : EReal)) (𝓝 x)).HasBasis
+      (ExtendedNeighborhood x) (fun V : Set ℝ => V) := by
+  constructor
+  intro S
+  rw [(comap_hasBasis (fun t : ℝ => (t : EReal)) (𝓝 x)).mem_iff]
+  constructor
+  · rintro ⟨U, hU, hUS⟩
+    obtain ⟨V, hV, hVU⟩ := extendedNeighborhood_refines x U hU
+    exact ⟨V, hV, hVU.trans hUS⟩
+  · rintro ⟨V, hV, hVS⟩
+    obtain ⟨U, hU, hUV⟩ := extendedNeighborhood_trace x V hV
+    exact ⟨U, hU, by simpa only [hUV] using hVS⟩
+
+theorem node_4_32 : Statement_4_32 :=
+  ⟨extendedNeighborhood_top, extendedNeighborhood_bot, extendedNeighborhood_coe,
+    extendedNeighborhood_refines, extendedNeighborhood_trace⟩
+
 end Rudin.PMA.Chapter04
