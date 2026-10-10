@@ -88,4 +88,23 @@ theorem pma1_4_fraction (q : RationalNumbers) :
   refine ⟨q.num, q.den, by exact_mod_cast q.den_ne_zero, ?_⟩
   simpa using (Rat.num_div_den q).symm
 
+/-! ### PMA-1.5: a strict order is trichotomous and transitive. -/
+
+def OrderAxioms {α : Type*} (r : α → α → Prop) : Prop :=
+  (∀ x, ¬ r x x) ∧ (∀ x y, r x y ∨ x = y ∨ r y x) ∧ (∀ ⦃x y z⦄, r x y → r y z → r x z)
+
+theorem pma1_5_exactly_one {α : Type*} {r : α → α → Prop}
+    (h : OrderAxioms r) (x y : α) :
+    (r x y ∨ x = y ∨ r y x) ∧
+    ¬ (r x y ∧ x = y) ∧ ¬ (r x y ∧ r y x) ∧ ¬ (x = y ∧ r y x) := by
+  rcases h with ⟨hi, ht, htrans⟩
+  refine ⟨ht x y, ?_, ?_, ?_⟩
+  · rintro ⟨hxy, rfl⟩; exact hi x hxy
+  · rintro ⟨hxy, hyx⟩; exact hi x (htrans hxy hyx)
+  · rintro ⟨rfl, hxx⟩; exact hi x hxx
+
+theorem pma1_5_linearOrder (α : Type*) [LinearOrder α] :
+    OrderAxioms ((· < ·) : α → α → Prop) :=
+  ⟨lt_irrefl, lt_trichotomy, fun {_ _ _} hxy hyz => lt_trans hxy hyz⟩
+
 end Rudin.PMA.Chapter01
