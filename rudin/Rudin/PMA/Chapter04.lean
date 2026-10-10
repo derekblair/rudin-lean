@@ -350,4 +350,13 @@ theorem pma4_13 : pma4_13_contract := by
   intro X k f
   exact boundedFunction_iff_isBounded_range f
 
+/-! ### PMA-4.14: Continuous compact images -/
+def pma4_14_contract : Prop :=
+  ∀ {X Y : Type*} [MetricSpace X] [MetricSpace Y] [CompactSpace X]
+    (f : X → Y), Continuous f → IsCompact (range f)
+
+theorem pma4_14 : pma4_14_contract := by
+  intro X Y _ _ _ f hf
+  exact isCompact_range hf
+
 end Rudin.PMA.Chapter04
