@@ -54,3 +54,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.46 | PASS: actual nonabsolute definition/example; nonnegative equivalence; absolute inside-disk, comparison, root and guarded ratio conclusions. |
 | PMA-3.47 | PASS: ordinary sum identities for addition and scalar multiplication. |
 | PMA-3.48 | PASS: exact finite Cauchy coefficients and antidiagonal reference. |
+| PMA-3.49 | PASS: actual alternating square-root example, nonabsolute convergence, exact coefficient lower bound, failure of vanishing terms and product convergence. |

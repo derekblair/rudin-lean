@@ -2370,4 +2370,109 @@ theorem pma3_48 : pma3_48_contract := by
   intro a b n
   exact (Finset.Nat.sum_antidiagonal_eq_sum_range_succ (fun k l => a k * b l) n).symm
 
+/-! ### PMA-3.49: two nonabsolutely convergent series with divergent Cauchy product. -/
+
+def AlternatingSqrt (n : ℕ) : ℝ := (-1 : ℝ) ^ n / Real.sqrt (n + 1 : ℝ)
+
+def pma3_49_contract : Prop :=
+  SeriesNonabsolutelyConverges AlternatingSqrt ∧
+  (∀ n : ℕ, 2 * (n + 1 : ℝ) / (n + 2 : ℝ) ≤ ‖CauchyProduct AlternatingSqrt AlternatingSqrt n‖) ∧
+  ¬ Tendsto (CauchyProduct AlternatingSqrt AlternatingSqrt) atTop (𝓝 0) ∧
+  ¬ SeriesConverges (CauchyProduct AlternatingSqrt AlternatingSqrt)
+
+theorem reciprocalSqrtSucc_antitone : Antitone (fun n : ℕ => 1 / Real.sqrt (n + 1 : ℝ)) := by
+  intro m n hmn
+  apply one_div_le_one_div_of_le (Real.sqrt_pos.mpr (by positivity))
+  apply Real.sqrt_le_sqrt
+  exact_mod_cast Nat.add_le_add_right hmn 1
+
+theorem reciprocalSqrtSucc_tendsto_zero :
+    Tendsto (fun n : ℕ => 1 / Real.sqrt (n + 1 : ℝ)) atTop (𝓝 0) := by
+  have ht : Tendsto (fun n : ℕ => (n : ℝ) + 1) atTop atTop :=
+    tendsto_atTop_add_const_right atTop (1 : ℝ) tendsto_natCast_atTop_atTop
+  simpa only [one_div, Function.comp_def] using
+    tendsto_inv_atTop_zero.comp (Real.tendsto_sqrt_atTop.comp ht)
+
+theorem alternatingSqrt_nonabsolute : SeriesNonabsolutelyConverges AlternatingSqrt := by
+  constructor
+  · obtain ⟨A, hA⟩ := reciprocalSqrtSucc_antitone.tendsto_alternating_series_of_tendsto_zero
+      reciprocalSqrtSucc_tendsto_zero
+    refine ⟨A, ?_⟩
+    change Tendsto (fun N => ∑ n ∈ Finset.range N, AlternatingSqrt n) atTop (𝓝 A)
+    simpa [AlternatingSqrt, div_eq_mul_inv] using hA
+  · intro h
+    have hs := (seriesAbsolutelyConverges_iff_summable_norm _).mp h
+    have he : (fun n => ‖AlternatingSqrt n‖) =
+        fun n : ℕ => 1 / |(n : ℝ) + 1| ^ (1 / 2 : ℝ) := by
+      funext n
+      simp [AlternatingSqrt, norm_div, norm_pow, Real.norm_eq_abs,
+        Real.sqrt_eq_rpow,
+        abs_of_pos (show 0 < (n : ℝ) + 1 by positivity)]
+      positivity
+    rw [he] at hs
+    have hh := (Real.summable_one_div_nat_add_rpow 1 (1 / 2)).mp hs
+    norm_num at hh
+
+theorem alternatingSqrt_cauchy_norm (n : ℕ) :
+    ‖CauchyProduct AlternatingSqrt AlternatingSqrt n‖ =
+      ∑ k ∈ Finset.range (n + 1), 1 /
+        (Real.sqrt (k + 1 : ℝ) * Real.sqrt (((n - k : ℕ) : ℝ) + 1)) := by
+  have he : CauchyProduct AlternatingSqrt AlternatingSqrt n =
+      (-1 : ℝ) ^ n * ∑ k ∈ Finset.range (n + 1), 1 /
+        (Real.sqrt (k + 1 : ℝ) * Real.sqrt (((n - k : ℕ) : ℝ) + 1)) := by
+    rw [CauchyProduct, Finset.mul_sum]
+    apply Finset.sum_congr rfl
+    intro k hk
+    have hkn : k + (n - k) = n := Nat.add_sub_of_le
+      (Nat.le_of_lt_succ (Finset.mem_range.mp hk))
+    simp only [AlternatingSqrt]
+    rw [div_mul_div_comm, ← pow_add, hkn]
+    ring
+  rw [he, norm_mul, norm_pow]
+  simp only [Real.norm_eq_abs, abs_neg, abs_one, one_pow, one_mul]
+  exact abs_of_nonneg (Finset.sum_nonneg fun k _ => by positivity)
+
+theorem alternatingSqrt_cauchy_lower (n : ℕ) :
+    2 * (n + 1 : ℝ) / (n + 2 : ℝ) ≤ ‖CauchyProduct AlternatingSqrt AlternatingSqrt n‖ := by
+  rw [alternatingSqrt_cauchy_norm]
+  have hterm : ∀ k ∈ Finset.range (n + 1), 2 / (n + 2 : ℝ) ≤
+      1 / (Real.sqrt (k + 1 : ℝ) * Real.sqrt (((n - k : ℕ) : ℝ) + 1)) := by
+    intro k hk
+    have hkn : k + (n - k) = n := Nat.add_sub_of_le
+      (Nat.le_of_lt_succ (Finset.mem_range.mp hk))
+    have hcast : (k + 1 : ℝ) + (((n - k : ℕ) : ℝ) + 1) = (n + 2 : ℝ) := by
+      exact_mod_cast (show (k + 1) + (n - k + 1) = n + 2 by omega)
+    have hx : 0 < (k + 1 : ℝ) := by positivity
+    have hy : 0 < (((n - k : ℕ) : ℝ) + 1) := by positivity
+    have hd : 0 < Real.sqrt (k + 1 : ℝ) * Real.sqrt (((n - k : ℕ) : ℝ) + 1) :=
+      mul_pos (Real.sqrt_pos.mpr hx) (Real.sqrt_pos.mpr hy)
+    have hdle : Real.sqrt (k + 1 : ℝ) * Real.sqrt (((n - k : ℕ) : ℝ) + 1) ≤
+        (n + 2 : ℝ) / 2 := by
+      rw [← Real.sqrt_mul hx.le, Real.sqrt_le_iff]
+      constructor
+      · positivity
+      · nlinarith [sq_nonneg ((k + 1 : ℝ) - (((n - k : ℕ) : ℝ) + 1))]
+    apply (div_le_div_iff₀ (by positivity) hd).mpr
+    nlinarith
+  calc
+    2 * (n + 1 : ℝ) / (n + 2 : ℝ) =
+        ∑ _k ∈ Finset.range (n + 1), 2 / (n + 2 : ℝ) := by simp; ring
+    _ ≤ _ := Finset.sum_le_sum hterm
+
+theorem pma3_49 : pma3_49_contract := by
+  have hnot : ¬ Tendsto (CauchyProduct AlternatingSqrt AlternatingSqrt) atTop (𝓝 0) := by
+    intro ht
+    have hn := ht.norm
+    have hsmall : ∀ᶠ n in atTop, ‖CauchyProduct AlternatingSqrt AlternatingSqrt n‖ < 1 := by
+      exact hn.eventually (Iio_mem_nhds (by simp))
+    obtain ⟨n, hn⟩ := hsmall.exists
+    have hl := alternatingSqrt_cauchy_lower n
+    have hge : (1 : ℝ) ≤ 2 * (n + 1 : ℝ) / (n + 2 : ℝ) := by
+      apply (le_div_iff₀ (by positivity)).mpr
+      nlinarith [Nat.cast_nonneg (α := ℝ) n]
+    exact (not_lt_of_ge (hge.trans hl)) hn
+  refine ⟨alternatingSqrt_nonabsolute, alternatingSqrt_cauchy_lower, hnot, ?_⟩
+  rintro ⟨A, hA⟩
+  exact hnot (seriesHasSum_term_tendsto_zero hA)
+
 end Rudin.PMA.Chapter03
