@@ -71,4 +71,46 @@ theorem pma2_3_bijection {A B : Type*} :
   · rintro ⟨e⟩; exact ⟨e,e.bijective⟩
   · rintro ⟨f,hf⟩; exact ⟨Equiv.ofBijective f hf⟩
 
+/-! ### PMA-2.4: finite, countably infinite, and uncountable sets. -/
+def RudinFinite (A : Type*) : Prop := ∃ n : ℕ, Nonempty (A ≃ Fin n)
+def RudinInfinite (A : Type*) : Prop := ¬ RudinFinite A
+def RudinCountable (A : Type*) : Prop := Nonempty (A ≃ ℕ)
+def RudinUncountable (A : Type*) : Prop := ¬ RudinFinite A ∧ ¬ RudinCountable A
+def RudinAtMostCountable (A : Type*) : Prop := RudinFinite A ∨ RudinCountable A
+
+theorem pma2_4_finite_reference (A : Type*) : RudinFinite A ↔ Finite A :=
+  finite_iff_exists_equiv_fin.symm
+
+theorem pma2_4_infinite_reference (A : Type*) : RudinInfinite A ↔ Infinite A := by
+  rw [RudinInfinite,pma2_4_finite_reference,not_finite_iff_infinite]
+
+theorem pma2_4_positive_integer_reference (A : Type*) :
+    RudinCountable A ↔ Nonempty (A ≃ ℕ+) := by
+  constructor
+  · rintro ⟨e⟩; exact ⟨e.trans Equiv.pnatEquivNat.symm⟩
+  · rintro ⟨e⟩; exact ⟨e.trans Equiv.pnatEquivNat⟩
+
+theorem pma2_4_countable_reference (A : Type*) :
+    RudinCountable A ↔ Countable A ∧ Infinite A := by
+  constructor
+  · rintro ⟨e⟩
+    exact ⟨e.injective.countable, Infinite.of_injective e.symm e.symm.injective⟩
+  · rintro ⟨hc,hi⟩
+    let := hc; let := hi
+    change Nonempty (A ≃ ℕ)
+    infer_instance
+
+theorem pma2_4_atMost_reference (A : Type*) : RudinAtMostCountable A ↔ Countable A := by
+  constructor
+  · rintro (hf | hc)
+    · let := (pma2_4_finite_reference A).mp hf; infer_instance
+    · exact ((pma2_4_countable_reference A).mp hc).1
+  · intro hc
+    rcases finite_or_infinite A with hf | hi
+    · exact Or.inl ((pma2_4_finite_reference A).mpr hf)
+    · exact Or.inr ((pma2_4_countable_reference A).mpr ⟨hc,hi⟩)
+
+theorem pma2_4_uncountable_reference (A : Type*) : RudinUncountable A ↔ ¬ Countable A := by
+  rw [RudinUncountable,← pma2_4_atMost_reference, RudinAtMostCountable,not_or]
+
 end Rudin.PMA.Chapter02
