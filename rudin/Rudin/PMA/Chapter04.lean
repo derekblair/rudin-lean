@@ -359,4 +359,15 @@ theorem pma4_14 : pma4_14_contract := by
   intro X Y _ _ _ f hf
   exact isCompact_range hf
 
+/-! ### PMA-4.15: Closed and bounded Euclidean images -/
+def pma4_15_contract : Prop :=
+  ∀ {X : Type*} [MetricSpace X] [CompactSpace X] {k : ℕ}
+    (f : X → EuclideanSpace ℝ (Fin k)), Continuous f →
+      IsClosed (range f) ∧ Bornology.IsBounded (range f) ∧ BoundedFunction f
+
+theorem pma4_15 : pma4_15_contract := by
+  intro X _ _ k f hf
+  have hc := isCompact_range hf
+  exact ⟨hc.isClosed, hc.isBounded, (boundedFunction_iff_isBounded_range f).mpr hc.isBounded⟩
+
 end Rudin.PMA.Chapter04
