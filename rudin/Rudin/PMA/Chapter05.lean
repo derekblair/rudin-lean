@@ -574,4 +574,18 @@ theorem pma5_7 : pma5_7_contract := by
     rw [Metric.eventually_nhds_iff]
     simp only [dist_comm]
 
+/-! ### PMA-5.8: The derivative at an interior local extremum -/
+
+def pma5_8_contract : Prop :=
+  ∀ (f : ℝ → ℝ) (a b x d : ℝ), x ∈ Ioo a b →
+    HasDerivWithinAt f d (Icc a b) x →
+    (IsLocalMaxOn f (Icc a b) x ∨ IsLocalMinOn f (Icc a b) x) → d = 0
+
+theorem pma5_8 : pma5_8_contract := by
+  intro f a b x d hx hd he
+  have hn : Icc a b ∈ 𝓝 x := mem_of_superset (Ioo_mem_nhds hx.1 hx.2) Ioo_subset_Icc_self
+  rcases he with he | he
+  · exact (he.isLocalMax hn).hasDerivAt_eq_zero (hd.hasDerivAt hn)
+  · exact (he.isLocalMin hn).hasDerivAt_eq_zero (hd.hasDerivAt hn)
+
 end Rudin.PMA.Chapter05
