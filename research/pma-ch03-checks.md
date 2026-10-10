@@ -10,3 +10,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.2 | PASS: finite neighborhood exceptions, uniqueness, boundedness, and a sequence in the limit-point set. |
 | PMA-3.3 | PASS: all four algebra operations plus reciprocal with termwise and limit nonzero guards. |
 | PMA-3.4 | PASS: Euclidean coordinate equivalence, vector sum, real inner product, and convergent scalar sequence. |
+| PMA-3.5 | PASS: strictly increasing subsequence indices, actual composition, subsequential limit, every-subsequence equivalence, cluster-point reference. |

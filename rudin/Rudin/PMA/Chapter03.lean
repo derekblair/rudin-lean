@@ -260,4 +260,28 @@ theorem pma3_4_algebra {k : ℕ} {s t : ℕ → EuclideanSpace ℝ (Fin k)}
     (pma3_1_reference _ _).mpr (hs'.inner ht'),
     (pma3_1_reference _ _).mpr (hc'.smul hs')⟩
 
+/-! ### PMA-3.5: subsequences and their limits. -/
+
+def IsSubsequenceIndex (φ : ℕ → ℕ) : Prop := StrictMono φ
+def Subsequence {X : Type*} (s : ℕ → X) (φ : ℕ → ℕ) : ℕ → X := s ∘ φ
+def IsSubsequentialLimit {X : Type*} [TopologicalSpace X] (s : ℕ → X) (p : X) : Prop :=
+  ∃ φ : ℕ → ℕ, StrictMono φ ∧ Tendsto (s ∘ φ) atTop (𝓝 p)
+
+theorem pma3_5 {X : Type*} [MetricSpace X] (s : ℕ → X) (p : X) :
+    ConvergesTo s p ↔
+      ∀ φ : ℕ → ℕ, IsSubsequenceIndex φ → ConvergesTo (Subsequence s φ) p := by
+  constructor
+  · intro hs φ hφ
+    exact (pma3_1_reference _ _).mpr
+      (((pma3_1_reference _ _).mp hs).comp hφ.tendsto_atTop)
+  · intro h
+    exact h id strictMono_id
+
+theorem pma3_5_reference {X : Type*} [TopologicalSpace X] [FirstCountableTopology X]
+    (s : ℕ → X) (p : X) : IsSubsequentialLimit s p ↔ MapClusterPt p atTop s := by
+  constructor
+  · rintro ⟨φ, hφ, hp⟩
+    exact hp.mapClusterPt.of_comp hφ.tendsto_atTop
+  · exact MapClusterPt.tendsto_subseq
+
 end Rudin.PMA.Chapter03
