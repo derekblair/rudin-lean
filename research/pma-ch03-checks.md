@@ -56,3 +56,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.48 | PASS: exact finite Cauchy coefficients and antidiagonal reference. |
 | PMA-3.49 | PASS: actual alternating square-root example, nonabsolute convergence, exact coefficient lower bound, failure of vanishing terms and product convergence. |
 | PMA-3.50 | PASS: ordinary sums and absolute convergence of either one factor only. |
+| PMA-3.51 | PASS: ordinary sums of both factors and their product, with no absolute hypothesis. |

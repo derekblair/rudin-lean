@@ -2556,4 +2556,48 @@ theorem pma3_50 : pma3_50_contract := by
   · rw [cauchyProduct_comm a b, mul_comm]
     exact mertens_left hb ha hab
 
+/-! ### PMA-3.51: any convergent Cauchy product has the expected sum. -/
+
+def pma3_51_contract : Prop := ∀ (a b : ℕ → ℂ) (A B C : ℂ),
+  SeriesHasSum a A → SeriesHasSum b B → SeriesHasSum (CauchyProduct a b) C → C = A * B
+
+theorem powerSeriesTerms_cauchyProduct (a b : ℕ → ℂ) (z : ℂ) :
+    PowerSeriesTerms (CauchyProduct a b) z =
+      CauchyProduct (PowerSeriesTerms a z) (PowerSeriesTerms b z) := by
+  funext n
+  simp only [PowerSeriesTerms, CauchyProduct, Finset.sum_mul]
+  apply Finset.sum_congr rfl
+  intro k hk
+  have hkn : k + (n - k) = n := Nat.add_sub_of_le (Nat.le_of_lt_succ
+    (Finset.mem_range.mp hk))
+  have hz : z ^ n = z ^ k * z ^ (n - k) := by rw [← pow_add, hkn]
+  rw [hz]
+  ring
+
+theorem pma3_51 : pma3_51_contract := by
+  intro a b A B C ha hb hc
+  have hA := Complex.tendsto_tsum_powerSeries_nhdsWithin_lt ha
+  have hB := Complex.tendsto_tsum_powerSeries_nhdsWithin_lt hb
+  have hC := Complex.tendsto_tsum_powerSeries_nhdsWithin_lt hc
+  have hsmall : ∀ᶠ z : ℂ in Filter.map Complex.ofReal (𝓝[<] (1 : ℝ)), ‖z‖ < 1 := by
+    apply Filter.eventually_map.mpr
+    filter_upwards [self_mem_nhdsWithin,
+      mem_nhdsWithin_of_mem_nhds (Ioi_mem_nhds (show (0 : ℝ) < 1 by norm_num))]
+      with x hx hx0
+    change x < 1 at hx
+    change 0 < x at hx0
+    simpa only [Complex.norm_real, Real.norm_eq_abs, abs_of_pos hx0] using hx
+  have heq : (fun z : ℂ => (∑' n, a n * z ^ n) * (∑' n, b n * z ^ n)) =ᶠ[
+      Filter.map Complex.ofReal (𝓝[<] (1 : ℝ))]
+      fun z => ∑' n, CauchyProduct a b n * z ^ n := by
+    filter_upwards [hsmall] with z hz
+    have hza := summable_powerSeries_of_norm_lt_one ha.cauchySeq hz
+    have hzb := summable_powerSeries_of_norm_lt_one hb.cauchySeq hz
+    have hna := summable_norm_iff.mpr hza
+    have hnb := summable_norm_iff.mpr hzb
+    rw [tsum_mul_tsum_eq_tsum_sum_range_of_summable_norm hna hnb]
+    exact congrArg (fun f : ℕ → ℂ => ∑' n, f n)
+      (powerSeriesTerms_cauchyProduct a b z).symm
+  exact tendsto_nhds_unique hC ((hA.mul hB).congr' heq)
+
 end Rudin.PMA.Chapter03
