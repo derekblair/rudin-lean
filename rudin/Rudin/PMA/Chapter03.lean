@@ -1901,4 +1901,70 @@ theorem node_3_36 : Statement_3_36 := by
     have h1 : Tendsto (fun _ : ℕ => (1 : ℂ)) atTop (𝓝 1) := tendsto_const_nhds
     have he := tendsto_nhds_unique h1 hz
     norm_num at he
+/-! ### PMA-3.38: power series coefficients and terms. -/
+
+open scoped NNReal ENNReal
+
+def PowerSeriesTerms (c : ℕ → ℂ) (z : ℂ) (n : ℕ) : ℂ := c n * z ^ n
+
+def PowerSeriesRadius (c : ℕ → ℂ) : ℝ≥0∞ := (RootLimsup c)⁻¹
+
+def pma3_38_contract : Prop :=
+  (∀ c z N, PartialSums (PowerSeriesTerms c z) N = ∑ n ∈ Finset.range N, c n * z ^ n) ∧
+  ∀ c : ℕ → ℂ, ∃ R : ℝ≥0∞,
+    (∀ z : ℂ, (‖z‖₊ : ℝ≥0∞) < R → SeriesConverges (PowerSeriesTerms c z)) ∧
+    (∀ z : ℂ, R < (‖z‖₊ : ℝ≥0∞) → ¬ SeriesConverges (PowerSeriesTerms c z))
+
+theorem seriesHasSum_term_tendsto_zero {V : Type*} [NormedAddCommGroup V]
+    {a : ℕ → V} {A : V} (h : SeriesHasSum a A) : Tendsto a atTop (𝓝 0) := by
+  have hs : Tendsto (fun n => PartialSums a (n + 1)) atTop (𝓝 A) :=
+    h.comp (tendsto_add_atTop_nat 1)
+  simpa [PartialSums, Finset.sum_range_succ] using hs.sub h
+
+theorem powerSeriesRadius_reference (c : ℕ → ℂ) :
+    PowerSeriesRadius c = (FormalMultilinearSeries.ofScalars ℂ c).radius := by
+  have h := (FormalMultilinearSeries.ofScalars ℂ c).radius_inv_eq_limsup
+  have he : RootLimsup c = (FormalMultilinearSeries.ofScalars ℂ c).radius⁻¹ := by
+    rw [h]
+    apply Filter.limsup_congr
+    apply Filter.Eventually.of_forall
+    intro n
+    have hn : ‖FormalMultilinearSeries.ofScalars ℂ c n‖₊ = ‖c n‖₊ := by
+      apply NNReal.eq
+      exact FormalMultilinearSeries.ofScalars_norm ℂ c n
+    simp only [NthRootNorm] at *
+    rw [hn, ← ENNReal.ofReal_coe_nnreal, NNReal.coe_rpow]
+    rfl
+  simp [PowerSeriesRadius, he]
+
+theorem powerSeries_interior_summable_norm (c : ℕ → ℂ) (z : ℂ)
+    (hz : (‖z‖₊ : ℝ≥0∞) < PowerSeriesRadius c) :
+    Summable (fun n => ‖PowerSeriesTerms c z n‖) := by
+  rw [powerSeriesRadius_reference] at hz
+  simpa [PowerSeriesTerms, norm_mul, norm_pow, FormalMultilinearSeries.ofScalars_norm] using
+    (FormalMultilinearSeries.ofScalars ℂ c).summable_norm_mul_pow hz
+
+theorem seriesConverges_of_summable_norm {V : Type*} [NormedAddCommGroup V] [CompleteSpace V]
+    {a : ℕ → V} (h : Summable (fun n => ‖a n‖)) : SeriesConverges a :=
+  ⟨∑' n, a n, h.of_norm.hasSum.tendsto_sum_nat⟩
+
+theorem powerSeries_interior (c : ℕ → ℂ) (z : ℂ)
+    (hz : (‖z‖₊ : ℝ≥0∞) < PowerSeriesRadius c) : SeriesConverges (PowerSeriesTerms c z) :=
+  seriesConverges_of_summable_norm (powerSeries_interior_summable_norm c z hz)
+
+theorem powerSeries_exterior (c : ℕ → ℂ) (z : ℂ)
+    (hz : PowerSeriesRadius c < (‖z‖₊ : ℝ≥0∞)) : ¬ SeriesConverges (PowerSeriesTerms c z) := by
+  rintro ⟨A, hA⟩
+  have hzero := (seriesHasSum_term_tendsto_zero hA).norm
+  have hle := (FormalMultilinearSeries.ofScalars ℂ c).le_radius_of_tendsto
+    (r := ‖z‖₊) (by simpa [PowerSeriesTerms, norm_mul, norm_pow,
+      FormalMultilinearSeries.ofScalars_norm] using hzero)
+  rw [← powerSeriesRadius_reference] at hle
+  exact (not_le_of_gt hz) hle
+
+theorem pma3_38 : pma3_38_contract := by
+  refine ⟨fun _ _ _ => rfl, ?_⟩
+  intro c
+  exact ⟨PowerSeriesRadius c, powerSeries_interior c, powerSeries_exterior c⟩
+
 end Rudin.PMA.Chapter03
