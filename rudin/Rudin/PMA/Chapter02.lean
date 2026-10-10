@@ -1379,4 +1379,21 @@ theorem pma2_46_examples :
       intro x hx hy
       exact (not_lt_of_ge hx.2) hy.1
 
+/-! ### PMA-2.47: real connected sets are precisely those containing all points between their points. -/
+
+theorem pma2_47 (E : Set ℝ) : RudinConnected E ↔
+    ∀ x ∈ E, ∀ y ∈ E, ∀ z, x < z → z < y → z ∈ E := by
+  rw [pma2_45_connected_reference, isPreconnected_iff_ordConnected]
+  constructor
+  · intro h x hx y hy z hxz hzy
+    exact h.out hx hy ⟨hxz.le, hzy.le⟩
+  · intro h
+    constructor
+    intro x hx y hy z hz
+    rcases hz with ⟨hxz, hzy⟩
+    rcases hxz.eq_or_lt with rfl | hxz
+    · exact hx
+    rcases hzy.eq_or_lt with rfl | hzy
+    · exact hy
+    exact h x hx y hy z hxz hzy
 end Rudin.PMA.Chapter02
