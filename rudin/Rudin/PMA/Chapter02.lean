@@ -480,4 +480,24 @@ theorem neighborhood_isOpen {X : Type*} [MetricSpace X] (p : X) (r : ℝ) :
   rw [isOpenSet_iff_isOpen, neighborhood_eq_ball]
   exact Metric.isOpen_ball
 
+/-! ### PMA-2.20: A limit point has infinitely many set members in every neighborhood. -/
+theorem limitPoint_infinite_neighborhood {X : Type*} [MetricSpace X] {p : X}
+    {E : Set X} (hp : IsLimitPoint p E) {r : ℝ} (hr : 0 < r) :
+    (E ∩ neighborhood p r).Infinite := by
+  intro hfin
+  have hclosed := (hfin.sdiff (t := {p})).isClosed
+  have hpclosure : p ∈ closure ((E ∩ neighborhood p r) \ {p}) := by
+    rw [Metric.mem_closure_iff]
+    intro ε hε
+    obtain ⟨q, hqE, hqp, hqr⟩ := hp (min ε r) (lt_min hε hr)
+    exact ⟨q, ⟨⟨hqE, lt_of_lt_of_le hqr (min_le_right _ _)⟩,
+      by simpa using hqp⟩, lt_of_lt_of_le hqr (min_le_left _ _)⟩
+  have hp' := hclosed.closure_subset hpclosure
+  exact hp'.2 (by simp)
+
+theorem finite_no_limitPoint {X : Type*} [MetricSpace X] {E : Set X}
+    (hE : E.Finite) (p : X) : ¬ IsLimitPoint p E := by
+  intro hp
+  exact limitPoint_infinite_neighborhood hp zero_lt_one (hE.inter_of_left _)
+
 end Rudin.PMA.Chapter02

@@ -25,3 +25,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-2.17 | PASS: All four interval endpoint conventions, k-cell coordinates, open/closed norm balls and convexity contract match reference definitions; all stated convex examples included. |
 | PMA-2.18 | PASS: All ten topology predicates independently reviewed; AccPt/IsClosed/interior/IsOpen/Perfect/bounded/Dense iff comparators are exact, including Nonempty ambient condition for boundedness. |
 | PMA-2.19 | PASS: All positive-radius neighborhoods are open balls; Metric.isOpen_ball supplies the reference. |
+| PMA-2.20 | PASS: Punctured-neighborhood accumulation yields infinite neighborhood intersection; finite-set corollary included. |
