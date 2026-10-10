@@ -430,4 +430,94 @@ theorem pma4_19 : pma4_19_contract := by
   exact (uniformlyContinuous_iff_uniformContinuous f).mpr
     (CompactSpace.uniformContinuous_of_continuous hf)
 
+/-! ### PMA-4.20: Converse counterexamples on noncompact real sets -/
+def pma4_20_contract : Prop :=
+  (∀ (E : Set ℝ), ¬ IsCompact E →
+    (∃ f : E → ℝ, Continuous f ∧ ¬ BoundedFunction f) ∧
+    (∃ g : E → ℝ, Continuous g ∧ BoundedFunction g ∧
+      ¬ ∃ xmax, ∀ x, g x ≤ g xmax) ∧
+    (Bornology.IsBounded E →
+      ∃ h : E → ℝ, Continuous h ∧ ¬ UniformlyContinuous h)) ∧
+  (∀ {Y : Type*} [MetricSpace Y] (f : ℤ → Y), UniformlyContinuous f)
+
+theorem exists_continuous_unbounded_of_not_compact (E : Set ℝ) (hE : ¬ IsCompact E) :
+    ∃ f : E → ℝ, Continuous f ∧ ¬ BoundedFunction f := by
+  by_cases hb : Bornology.IsBounded E
+  · have hnclosed : ¬ IsClosed E := fun hc => hE (Metric.isCompact_iff_isClosed_bounded.mpr ⟨hc, hb⟩)
+    have hnsub : ¬ closure E ⊆ E := fun hs => hnclosed (isClosed_of_closure_subset hs)
+    obtain ⟨p, hpcl, hpE⟩ := not_subset.mp hnsub
+    let f : E → ℝ := fun x => (dist (x : ℝ) p)⁻¹
+    have hdistpos (x : E) : 0 < dist (x : ℝ) p := by
+      exact dist_pos.mpr (fun h => hpE (h ▸ x.property))
+    refine ⟨f, (continuous_subtype_val.dist continuous_const).inv₀
+      (fun x => ne_of_gt (hdistpos x)), ?_⟩
+    rintro ⟨M, hM⟩
+    have hR : 0 < max M 0 + 1 := by positivity
+    obtain ⟨x, hxE, hxp⟩ := Metric.mem_closure_iff.mp hpcl
+      (max M 0 + 1)⁻¹ (inv_pos.mpr hR)
+    have hfx : max M 0 + 1 < f ⟨x, hxE⟩ := by
+      change max M 0 + 1 < (dist x p)⁻¹
+      have h' : dist x p < (max M 0 + 1)⁻¹ := by simpa only [dist_comm] using hxp
+      simpa only [inv_inv] using
+        (inv_lt_inv₀ (inv_pos.mpr hR) (hdistpos ⟨x, hxE⟩)).mpr h'
+    have hm := hM ⟨x, hxE⟩
+    rw [Real.norm_of_nonneg (inv_nonneg.mpr dist_nonneg)] at hm
+    linarith [le_max_left M 0]
+  · refine ⟨fun x => (x : ℝ), continuous_subtype_val, ?_⟩
+    intro hf
+    apply hb
+    simpa using
+      (boundedFunction_iff_isBounded_range (fun x : E => (x : ℝ))).mp hf
+
+theorem exists_continuous_bounded_without_max_of_unbounded {X : Type*}
+    [TopologicalSpace X] {f : X → ℝ} (hf : Continuous f) (hfu : ¬ BoundedFunction f) :
+    ∃ g : X → ℝ, Continuous g ∧ BoundedFunction g ∧ ¬ ∃ xmax, ∀ x, g x ≤ g xmax := by
+  let g : X → ℝ := fun x => ‖f x‖ / (1 + ‖f x‖)
+  have hden (x : X) : 0 < 1 + ‖f x‖ := by positivity
+  refine ⟨g, hf.norm.div (continuous_const.add hf.norm)
+    (fun x => ne_of_gt (hden x)), ⟨1, ?_⟩, ?_⟩
+  · intro x
+    change ‖(‖f x‖ / (1 + ‖f x‖) : ℝ)‖ < 1
+    rw [Real.norm_of_nonneg (div_nonneg (norm_nonneg _) (hden x).le)]
+    exact (div_lt_one (hden x)).mpr (by linarith)
+  · rintro ⟨xmax, hmax⟩
+    have hy : ∃ y, ‖f xmax‖ < ‖f y‖ := by
+      by_contra hn
+      push Not at hn
+      exact hfu ⟨‖f xmax‖ + 1, fun y => lt_of_le_of_lt (hn y) (lt_add_one _)⟩
+    obtain ⟨y, hy⟩ := hy
+    have hstrict : g xmax < g y := by
+      change ‖f xmax‖ / (1 + ‖f xmax‖) < ‖f y‖ / (1 + ‖f y‖)
+      rw [div_lt_div_iff₀ (hden xmax) (hden y)]
+      nlinarith
+    exact not_lt_of_ge (hmax y) hstrict
+
+theorem pma4_20 : pma4_20_contract := by
+  constructor
+  · intro E hE
+    obtain ⟨f, hf, hfu⟩ := exists_continuous_unbounded_of_not_compact E hE
+    obtain ⟨g, hg, hgb, hgm⟩ := exists_continuous_bounded_without_max_of_unbounded hf hfu
+    refine ⟨⟨f, hf, hfu⟩, ⟨g, hg, hgb, hgm⟩, ?_⟩
+    intro hb
+    refine ⟨f, hf, ?_⟩
+    intro hu
+    have htot : TotallyBounded E := hb.isCompact_closure.totallyBounded.subset subset_closure
+    have htotSub : TotallyBounded (univ : Set E) := by
+      have hp : (Subtype.val : E → ℝ) ⁻¹' E = univ := by
+        ext x
+        simp only [mem_preimage, x.property, mem_univ]
+      simpa only [hp] using
+        (totallyBounded_preimage (f := (Subtype.val : E → ℝ))
+          isUniformEmbedding_subtype_val.isUniformInducing htot)
+    have hrange : Bornology.IsBounded (range f) := by
+      simpa only [image_univ] using
+        (htotSub.image ((uniformlyContinuous_iff_uniformContinuous f).mp hu)).isBounded
+    exact hfu ((boundedFunction_iff_isBounded_range f).mpr hrange)
+  · intro Y _ f ε hε
+    refine ⟨1, zero_lt_one, fun p q hpq => ?_⟩
+    have heq : p = q := by
+      by_contra hne
+      exact not_lt_of_ge (Int.pairwise_one_le_dist hne) hpq
+    simpa only [heq, dist_self] using hε
+
 end Rudin.PMA.Chapter04

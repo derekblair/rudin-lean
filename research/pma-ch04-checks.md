@@ -25,3 +25,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-4.17 | PASS: continuous actual bijection and continuity of its inverse. |
 | PMA-4.18 | PASS: one positive delta for every pair, `UniformContinuous` reference, and continuity consequence. |
 | PMA-4.19 | PASS: arbitrary compact metric domain and literal uniform continuity. |
+| PMA-4.20 | PASS: all three noncompact real-set counterexamples, boundedness guard on the third, and every metric-valued function on the integer subspace. |
