@@ -1984,4 +1984,31 @@ theorem pma3_39 : pma3_39_contract := by
   · intro c hc
     simp [PowerSeriesRadius, hc]
 
+/-! ### PMA-3.41: summation by parts, with the empty initial partial sum. -/
+
+def pma3_41_contract : Prop := ∀ (a b : ℕ → ℂ) (p q : ℕ), p ≤ q →
+  (∑ n ∈ Finset.Icc p q, a n * b n) =
+    (∑ n ∈ Finset.Ico p q, PartialSums a (n + 1) * (b n - b (n + 1))) +
+    PartialSums a (q + 1) * b q - PartialSums a p * b p
+
+theorem pma3_41 : pma3_41_contract := by
+  intro a b p q hpq
+  have h : (∑ n ∈ Finset.Icc p q, b n * a n) =
+      b q * PartialSums a (q + 1) - b p * PartialSums a p -
+      ∑ n ∈ Finset.Ico p q, (b (n + 1) - b n) * PartialSums a (n + 1) := by
+    simpa [PartialSums, Finset.Ico_add_one_right_eq_Icc, smul_eq_mul] using
+      Finset.sum_Ico_by_parts b a (show p < q + 1 by omega)
+  have hs : (∑ n ∈ Finset.Ico p q, PartialSums a (n + 1) * (b n - b (n + 1))) =
+      -(∑ n ∈ Finset.Ico p q, (b (n + 1) - b n) * PartialSums a (n + 1)) := by
+    rw [← Finset.sum_neg_distrib]
+    apply Finset.sum_congr rfl
+    intro n hn
+    ring
+  calc
+    (∑ n ∈ Finset.Icc p q, a n * b n) = ∑ n ∈ Finset.Icc p q, b n * a n := by
+      apply Finset.sum_congr rfl
+      intro n hn
+      ring
+    _ = _ := by rw [h, hs]; ring
+
 end Rudin.PMA.Chapter03
