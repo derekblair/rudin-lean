@@ -739,3 +739,377 @@ theorem middle_probe_MVT_without_endpoint_differentiability :
   exact fun x hx => hasDerivAt_abs_pos hx.1
 
 end Rudin.PMA.Chapter05
+
+
+/- Assembly source: Chapter05LHopitalDraft.lean -/
+
+noncomputable section
+open Set Filter
+open scoped Topology
+
+namespace Rudin.PMA.Chapter05
+
+/-! ### PMA-5.13: L'Hopital at every finite or infinite interval endpoint. -/
+
+/-- The four possible approaches to an endpoint of a nondegenerate real interval,
+including both infinite endpoints. The derivative assumptions below need hold only
+eventually on the approach, so every finite or extended interval is included. -/
+inductive EndpointApproach where
+  | right (a : ℝ)
+  | left (b : ℝ)
+  | positiveInfinity
+  | negativeInfinity
+
+def EndpointApproach.filter : EndpointApproach → Filter ℝ
+  | .right a => 𝓝[>] a
+  | .left b => 𝓝[<] b
+  | .positiveInfinity => atTop
+  | .negativeInfinity => atBot
+
+/-- An extended-real target for an ordinary real-valued function. -/
+def EndpointLimit (e : EndpointApproach) (f : ℝ → ℝ) (A : EReal) : Prop :=
+  Tendsto (fun x => (f x : EReal)) e.filter (𝓝 A)
+
+/-- Full local endpoint form of PMA 5.13. In the infinite-denominator branches
+there is no hypothesis on the numerator's limit. Eventual nonvanishing is a
+conclusion, so the quotient's source domain is respected. -/
+def pma5_13_contract : Prop :=
+  ∀ (e : EndpointApproach) (f f' g g' : ℝ → ℝ) (A : EReal),
+    (∀ᶠ x in e.filter, HasDerivAt f (f' x) x) →
+    (∀ᶠ x in e.filter, HasDerivAt g (g' x) x) →
+    (∀ᶠ x in e.filter, g' x ≠ 0) →
+    EndpointLimit e (fun x => f' x / g' x) A →
+    ((EndpointLimit e f 0 ∧ EndpointLimit e g 0) ∨
+      EndpointLimit e g ⊤ ∨ EndpointLimit e g ⊥) →
+    (∀ᶠ x in e.filter, g x ≠ 0) ∧ EndpointLimit e (fun x => f x / g x) A
+
+theorem EndpointApproach.neBot (e : EndpointApproach) : e.filter.NeBot := by
+  cases e <;> dsimp [EndpointApproach.filter] <;> infer_instance
+
+theorem EndpointApproach.exists_convex_mem_subset (e : EndpointApproach)
+    {s : Set ℝ} (hs : s ∈ e.filter) :
+    ∃ t ∈ e.filter, Convex ℝ t ∧ t ⊆ s := by
+  cases e with
+  | right a =>
+    obtain ⟨b, hab, hb⟩ := (nhdsGT_basis a).mem_iff.mp hs
+    exact ⟨Ioo a b, (nhdsGT_basis a).mem_of_mem hab, convex_Ioo a b, hb⟩
+  | left b =>
+    obtain ⟨a, hab, ha⟩ := (nhdsLT_basis b).mem_iff.mp hs
+    exact ⟨Ioo a b, (nhdsLT_basis b).mem_of_mem hab, convex_Ioo a b, ha⟩
+  | positiveInfinity =>
+    obtain ⟨a, _, ha⟩ := atTop_basis_Ioi.mem_iff.mp hs
+    exact ⟨Ioi a, atTop_basis_Ioi.mem_of_mem trivial, convex_Ioi a, ha⟩
+  | negativeInfinity =>
+    obtain ⟨b, _, hb⟩ := atBot_basis_Iio.mem_iff.mp hs
+    exact ⟨Iio b, atBot_basis_Iio.mem_of_mem trivial, convex_Iio b, hb⟩
+
+/-- Cauchy MVT on a convex real domain, with an arbitrary ordering of the two
+points. This form avoids assuming a sign for the derivative of the denominator. -/
+theorem ratio_mvt_on_convex {s : Set ℝ} (hs : Convex ℝ s)
+    {f f' g g' : ℝ → ℝ}
+    (hf : ∀ x ∈ s, HasDerivAt f (f' x) x)
+    (hg : ∀ x ∈ s, HasDerivAt g (g' x) x)
+    {x y : ℝ} (hx : x ∈ s) (hy : y ∈ s) (hne : x ≠ y) :
+    ∃ c ∈ s, (g x - g y) * f' c = (f x - f y) * g' c := by
+  have hc : s.OrdConnected := convex_iff_ordConnected.mp hs
+  rcases lt_or_gt_of_ne hne with hxy | hyx
+  · have hsub : Icc x y ⊆ s := hc.out hx hy
+    obtain ⟨c, hcm, heq⟩ := exists_ratio_hasDerivAt_eq_ratio_slope f f' hxy
+      (fun z hz => (hf z (hsub hz)).continuousAt.continuousWithinAt)
+      (fun z hz => hf z (hsub (Ioo_subset_Icc_self hz))) g g'
+      (fun z hz => (hg z (hsub hz)).continuousAt.continuousWithinAt)
+      (fun z hz => hg z (hsub (Ioo_subset_Icc_self hz)))
+    exact ⟨c, hsub (Ioo_subset_Icc_self hcm), by nlinarith [heq]⟩
+  · have hsub : Icc y x ⊆ s := hc.out hy hx
+    obtain ⟨c, hcm, heq⟩ := exists_ratio_hasDerivAt_eq_ratio_slope f f' hyx
+      (fun z hz => (hf z (hsub hz)).continuousAt.continuousWithinAt)
+      (fun z hz => hf z (hsub (Ioo_subset_Icc_self hz))) g g'
+      (fun z hz => (hg z (hsub hz)).continuousAt.continuousWithinAt)
+      (fun z hz => hg z (hsub (Ioo_subset_Icc_self hz)))
+    exact ⟨c, hsub (Ioo_subset_Icc_self hcm), heq⟩
+
+/-- A derivative-ratio lower bound gives an anchored function-ratio lower bound. -/
+theorem ratio_lower_bound_on_convex {s : Set ℝ} (hs : Convex ℝ s)
+    {f f' g g' : ℝ → ℝ} {v x y : ℝ}
+    (hf : ∀ z ∈ s, HasDerivAt f (f' z) z)
+    (hg : ∀ z ∈ s, HasDerivAt g (g' z) z)
+    (hg' : ∀ z ∈ s, g' z ≠ 0)
+    (hr : ∀ z ∈ s, v < f' z / g' z)
+    (hx : x ∈ s) (hy : y ∈ s) (hgyx : g y < g x) (hgx : 0 < g x) :
+    v + (f y - v * g y) / g x < f x / g x := by
+  have hne : x ≠ y := by intro h; subst x; exact (lt_irrefl _ hgyx)
+  obtain ⟨c, hc, heq⟩ := ratio_mvt_on_convex hs hf hg hx hy hne
+  have hd : g x - g y ≠ 0 := ne_of_gt (sub_pos.mpr hgyx)
+  have hratio : (f x - f y) / (g x - g y) = f' c / g' c := by
+    apply (div_eq_div_iff hd (hg' c hc)).mpr
+    nlinarith [heq]
+  have hlt : v * (g x - g y) < f x - f y :=
+    (lt_div_iff₀ (sub_pos.mpr hgyx)).mp (hratio.symm ▸ hr c hc)
+  apply (lt_div_iff₀ hgx).mpr
+  rw [add_mul, div_mul_cancel₀ _ hgx.ne']
+  nlinarith
+
+theorem endpoint_ratio_eventually_gt (e : EndpointApproach)
+    {f f' g g' : ℝ → ℝ} {r v : ℝ}
+    (hf : ∀ᶠ x in e.filter, HasDerivAt f (f' x) x)
+    (hg : ∀ᶠ x in e.filter, HasDerivAt g (g' x) x)
+    (hg' : ∀ᶠ x in e.filter, g' x ≠ 0)
+    (hginf : Tendsto g e.filter atTop)
+    (hratio : ∀ᶠ x in e.filter, v < f' x / g' x) (hrv : r < v) :
+    ∀ᶠ x in e.filter, r < f x / g x := by
+  have : e.filter.NeBot := e.neBot
+  obtain ⟨s, hs, hconv, hsub⟩ := e.exists_convex_mem_subset (hf.and (hg.and (hg'.and hratio)))
+  obtain ⟨y, hy⟩ := Filter.nonempty_of_mem hs
+  have hinv : Tendsto (fun x => (g x)⁻¹) e.filter (𝓝 0) :=
+    tendsto_inv_atTop_zero.comp hginf
+  have hdiv : Tendsto (fun x => (f y - v * g y) / g x) e.filter (𝓝 0) := by
+    simpa only [div_eq_mul_inv, mul_zero] using
+      (tendsto_const_nhds (x := f y - v * g y)).mul hinv
+  have hbound : Tendsto (fun x => v + (f y - v * g y) / g x) e.filter (𝓝 v) := by
+    simpa only [add_zero] using (tendsto_const_nhds (x := v)).add hdiv
+  filter_upwards [hs, hginf.eventually (eventually_gt_atTop (max 0 (g y))),
+    hbound.eventually (lt_mem_nhds hrv)] with x hx hgx hbx
+  exact hbx.trans (ratio_lower_bound_on_convex hconv
+    (fun z hz => (hsub hz).1) (fun z hz => (hsub hz).2.1)
+    (fun z hz => (hsub hz).2.2.1) (fun z hz => (hsub hz).2.2.2)
+    hx hy (lt_of_le_of_lt (le_max_right _ _) hgx)
+    (lt_of_le_of_lt (le_max_left _ _) hgx))
+
+theorem endpoint_ratio_eventually_lt (e : EndpointApproach)
+    {f f' g g' : ℝ → ℝ} {r v : ℝ}
+    (hf : ∀ᶠ x in e.filter, HasDerivAt f (f' x) x)
+    (hg : ∀ᶠ x in e.filter, HasDerivAt g (g' x) x)
+    (hg' : ∀ᶠ x in e.filter, g' x ≠ 0)
+    (hginf : Tendsto g e.filter atTop)
+    (hratio : ∀ᶠ x in e.filter, f' x / g' x < v) (hvr : v < r) :
+    ∀ᶠ x in e.filter, f x / g x < r := by
+  have h := endpoint_ratio_eventually_gt e (f := fun x => -f x)
+    (f' := fun x => -f' x) (g := g) (g' := g')
+    (hf.mono fun x hx => hx.neg) hg hg' hginf
+    (hratio.mono fun x hx => by simpa only [neg_div, neg_lt_neg_iff] using hx)
+    (neg_lt_neg hvr)
+  simpa only [neg_div, neg_lt_neg_iff] using h
+
+/-- Infinite-denominator l'Hopital with positive denominator divergence and an
+arbitrary extended target. No limit or boundedness of the numerator is assumed. -/
+theorem endpoint_lhopital_denominator_top (e : EndpointApproach)
+    {f f' g g' : ℝ → ℝ} {A : EReal}
+    (hf : ∀ᶠ x in e.filter, HasDerivAt f (f' x) x)
+    (hg : ∀ᶠ x in e.filter, HasDerivAt g (g' x) x)
+    (hg' : ∀ᶠ x in e.filter, g' x ≠ 0)
+    (hginf : Tendsto g e.filter atTop)
+    (hratio : EndpointLimit e (fun x => f' x / g' x) A) :
+    EndpointLimit e (fun x => f x / g x) A := by
+  induction A using EReal.rec with
+  | bot =>
+    apply EReal.tendsto_coe_nhds_bot_iff.mpr
+    apply tendsto_atBot.2
+    intro r
+    have hr := (EReal.tendsto_coe_nhds_bot_iff.mp hratio).eventually
+      (eventually_lt_atBot (r - 1))
+    exact (endpoint_ratio_eventually_lt e hf hg hg' hginf hr (by linarith)).mono
+      (fun _ h => h.le)
+  | coe a =>
+    apply EReal.tendsto_coe.mpr
+    have hr := EReal.tendsto_coe.mp hratio
+    apply tendsto_order.2
+    constructor
+    · intro r hra
+      obtain ⟨v, hrv, hva⟩ := exists_between hra
+      exact endpoint_ratio_eventually_gt e hf hg hg' hginf
+        (hr.eventually (lt_mem_nhds hva)) hrv
+    · intro r har
+      obtain ⟨v, hav, hvr⟩ := exists_between har
+      exact endpoint_ratio_eventually_lt e hf hg hg' hginf
+        (hr.eventually (gt_mem_nhds hav)) hvr
+  | top =>
+    apply EReal.tendsto_coe_nhds_top_iff.mpr
+    apply tendsto_atTop.2
+    intro r
+    have hr := (EReal.tendsto_coe_nhds_top_iff.mp hratio).eventually
+      (eventually_gt_atTop (r + 1))
+    exact (endpoint_ratio_eventually_gt e hf hg hg' hginf hr (by linarith)).mono
+      (fun _ h => h.le)
+
+theorem endpoint_lhopital_zero_filter (e : EndpointApproach)
+    {f f' g g' : ℝ → ℝ} {L : Filter ℝ}
+    (hf : ∀ᶠ x in e.filter, HasDerivAt f (f' x) x)
+    (hg : ∀ᶠ x in e.filter, HasDerivAt g (g' x) x)
+    (hg' : ∀ᶠ x in e.filter, g' x ≠ 0)
+    (hfzero : Tendsto f e.filter (𝓝 0))
+    (hgzero : Tendsto g e.filter (𝓝 0))
+    (hratio : Tendsto (fun x => f' x / g' x) e.filter L) :
+    Tendsto (fun x => f x / g x) e.filter L := by
+  cases e with
+  | right a => exact HasDerivAt.lhopital_zero_nhdsGT hf hg hg' hfzero hgzero hratio
+  | left b => exact HasDerivAt.lhopital_zero_nhdsLT hf hg hg' hfzero hgzero hratio
+  | positiveInfinity => exact HasDerivAt.lhopital_zero_atTop hf hg hg' hfzero hgzero hratio
+  | negativeInfinity => exact HasDerivAt.lhopital_zero_atBot hf hg hg' hfzero hgzero hratio
+
+/-- The denominator in the zero/zero branch is eventually nonzero. Applying
+the zero/zero theorem to g/g gives limit one, which excludes any zero tail values. -/
+theorem endpoint_zero_denominator_eventually_ne (e : EndpointApproach)
+    {g g' : ℝ → ℝ}
+    (hg : ∀ᶠ x in e.filter, HasDerivAt g (g' x) x)
+    (hg' : ∀ᶠ x in e.filter, g' x ≠ 0)
+    (hgzero : Tendsto g e.filter (𝓝 0)) :
+    ∀ᶠ x in e.filter, g x ≠ 0 := by
+  have hderiv : Tendsto (fun x => g' x / g' x) e.filter (𝓝 1) :=
+    tendsto_const_nhds.congr' (hg'.mono fun x hx => (div_self hx).symm)
+  have hlim := endpoint_lhopital_zero_filter e hg hg hg' hgzero hgzero hderiv
+  have hn := hlim.eventually (lt_mem_nhds (show (0 : ℝ) < 1 by norm_num))
+  filter_upwards [hn] with x hx
+  intro hzero
+  simp [hzero] at hx
+
+theorem pma5_13 : pma5_13_contract := by
+  intro e f f' g g' A hf hg hg' hratio hform
+  rcases hform with ⟨hfzero, hgzero⟩ | hgtop | hgbot
+  · have hf0 : Tendsto f e.filter (𝓝 0) := EReal.tendsto_coe.mp hfzero
+    have hg0 : Tendsto g e.filter (𝓝 0) := EReal.tendsto_coe.mp hgzero
+    refine ⟨endpoint_zero_denominator_eventually_ne e hg hg' hg0, ?_⟩
+    change Tendsto ((fun x : ℝ => (x : EReal)) ∘ (fun x => f x / g x)) e.filter (𝓝 A)
+    apply tendsto_comap_iff.mp
+    apply endpoint_lhopital_zero_filter e hf hg hg' hf0 hg0
+    exact tendsto_comap_iff.mpr hratio
+  · have hgtend := EReal.tendsto_coe_nhds_top_iff.mp hgtop
+    refine ⟨?_, endpoint_lhopital_denominator_top e hf hg hg' hgtend hratio⟩
+    exact (hgtend.eventually (eventually_gt_atTop 0)).mono fun x hx => ne_of_gt hx
+  · have hgneg := tendsto_neg_atBot_atTop.comp (EReal.tendsto_coe_nhds_bot_iff.mp hgbot)
+    refine ⟨?_, ?_⟩
+    · exact ((EReal.tendsto_coe_nhds_bot_iff.mp hgbot).eventually
+        (eventually_lt_atBot 0)).mono fun x hx => ne_of_lt hx
+    · have h := endpoint_lhopital_denominator_top e
+        (f := fun x => -f x) (f' := fun x => -f' x)
+        (g := fun x => -g x) (g' := fun x => -g' x)
+        (hf.mono fun x hx => hx.neg) (hg.mono fun x hx => hx.neg)
+        (hg'.mono fun x hx => neg_ne_zero.mpr hx) hgneg
+        (by simpa only [neg_div_neg_eq] using hratio)
+      simpa only [neg_div_neg_eq] using h
+
+/-- The real trace of extended neighborhoods at positive infinity. -/
+theorem lhopital_comap_top :
+    Filter.comap (fun x : ℝ => (x : EReal)) (𝓝 ⊤) = atTop := by
+  apply le_antisymm
+  · have h : Tendsto (fun x : ℝ => (x : EReal))
+        (Filter.comap (fun x : ℝ => (x : EReal)) (𝓝 ⊤)) (𝓝 ⊤) := tendsto_comap
+    exact Filter.tendsto_id'.mp (EReal.tendsto_coe_nhds_top_iff.mp h)
+  · exact EReal.tendsto_coe_atTop.le_comap
+
+/-- The real trace of extended neighborhoods at negative infinity. -/
+theorem lhopital_comap_bot :
+    Filter.comap (fun x : ℝ => (x : EReal)) (𝓝 ⊥) = atBot := by
+  apply le_antisymm
+  · have h : Tendsto (fun x : ℝ => (x : EReal))
+        (Filter.comap (fun x : ℝ => (x : EReal)) (𝓝 ⊥)) (𝓝 ⊥) := tendsto_comap
+    exact Filter.tendsto_id'.mp (EReal.tendsto_coe_nhds_bot_iff.mp h)
+  · exact EReal.tendsto_coe_atBot.le_comap
+
+theorem lhopital_approach_top {s : Set ℝ} (hs : s ∈ (atTop : Filter ℝ)) :
+    Chapter04.ExtendedApproachFilter s ⊤ = atTop := by
+  have hset : {t : ℝ | (t : EReal) ≠ ⊤} = Set.univ := by ext t; simp
+  rw [Chapter04.ExtendedApproachFilter, hset, Set.inter_univ, lhopital_comap_top]
+  exact inf_eq_left.mpr (Filter.le_principal_iff.mpr hs)
+
+theorem lhopital_approach_bot {s : Set ℝ} (hs : s ∈ (atBot : Filter ℝ)) :
+    Chapter04.ExtendedApproachFilter s ⊥ = atBot := by
+  have hset : {t : ℝ | (t : EReal) ≠ ⊥} = Set.univ := by ext t; simp
+  rw [Chapter04.ExtendedApproachFilter, hset, Set.inter_univ, lhopital_comap_bot]
+  exact inf_eq_left.mpr (Filter.le_principal_iff.mpr hs)
+
+theorem lhopital_approach_Ioo_left {a b : ℝ} (hab : a < b) :
+    Chapter04.ExtendedApproachFilter (Ioo a b) (a : EReal) = (.right a : EndpointApproach).filter := by
+  rw [Chapter04.extendedApproachFilter_coe]
+  have hs : Ioo a b \ {a} = Ioo a b := by
+    ext x
+    simp only [Set.mem_sdiff, Set.mem_singleton_iff, Set.mem_Ioo]
+    exact ⟨fun h => h.1, fun h => ⟨h, ne_of_gt h.1⟩⟩
+  rw [hs, nhdsWithin_Ioo_eq_nhdsGT hab]
+  rfl
+
+theorem lhopital_approach_Ioo_right {a b : ℝ} (hab : a < b) :
+    Chapter04.ExtendedApproachFilter (Ioo a b) (b : EReal) = (.left b : EndpointApproach).filter := by
+  rw [Chapter04.extendedApproachFilter_coe]
+  have hs : Ioo a b \ {b} = Ioo a b := by
+    ext x
+    simp only [Set.mem_sdiff, Set.mem_singleton_iff, Set.mem_Ioo]
+    exact ⟨fun h => h.1, fun h => ⟨h, ne_of_lt h.2⟩⟩
+  rw [hs, nhdsWithin_Ioo_eq_nhdsLT hab]
+  rfl
+
+theorem lhopital_approach_Ioi_left (a : ℝ) :
+    Chapter04.ExtendedApproachFilter (Ioi a) (a : EReal) = (.right a : EndpointApproach).filter := by
+  rw [Chapter04.extendedApproachFilter_coe]
+  have hs : Ioi a \ {a} = Ioi a := by
+    ext x
+    simp only [Set.mem_sdiff, Set.mem_singleton_iff, Set.mem_Ioi]
+    exact ⟨fun h => h.1, fun h => ⟨h, ne_of_gt h⟩⟩
+  rw [hs]
+  rfl
+
+theorem lhopital_approach_Iio_right (b : ℝ) :
+    Chapter04.ExtendedApproachFilter (Iio b) (b : EReal) = (.left b : EndpointApproach).filter := by
+  rw [Chapter04.extendedApproachFilter_coe]
+  have hs : Iio b \ {b} = Iio b := by
+    ext x
+    simp only [Set.mem_sdiff, Set.mem_singleton_iff, Set.mem_Iio]
+    exact ⟨fun h => h.1, fun h => ⟨h, ne_of_lt h⟩⟩
+  rw [hs]
+  rfl
+
+/-- Source-domain form, using exactly Chapter 4's nonvacuous extended limits.
+The preceding filter identities instantiate this with Ioo, Ioi, Iio, or the
+whole real line, covering every choice of finite or infinite interval endpoints. -/
+theorem pma5_13_source_interval (s : Set ℝ) (c : EReal) (e : EndpointApproach)
+    (he : Chapter04.ExtendedApproachFilter s c = e.filter)
+    (f f' g g' : ℝ → ℝ) (A : EReal)
+    (hf : ∀ x ∈ s, HasDerivAt f (f' x) x)
+    (hg : ∀ x ∈ s, HasDerivAt g (g' x) x)
+    (hg' : ∀ x ∈ s, g' x ≠ 0)
+    (hratio : Chapter04.ExtendedLimitOn s (fun x => f' x / g' x) c A)
+    (hform : (Chapter04.ExtendedLimitOn s f c 0 ∧ Chapter04.ExtendedLimitOn s g c 0) ∨
+      Chapter04.ExtendedLimitOn s g c ⊤ ∨ Chapter04.ExtendedLimitOn s g c ⊥) :
+    (∀ᶠ x in Chapter04.ExtendedApproachFilter s c, g x ≠ 0) ∧
+      Chapter04.ExtendedLimitOn s (fun x => f x / g x) c A := by
+  have hs : ∀ᶠ x in e.filter, x ∈ s := by
+    change s ∈ e.filter
+    rw [← he]
+    have hle : Chapter04.ExtendedApproachFilter s c ≤ 𝓟 s :=
+      inf_le_right.trans (Filter.principal_mono.mpr Set.inter_subset_left)
+    exact hle (by simp)
+  have hlimit : ∀ (h : ℝ → ℝ) (B : EReal),
+      Chapter04.ExtendedLimitOn s h c B → EndpointLimit e h B := by
+    intro h B hh
+    simpa only [EndpointLimit, he] using
+      (Chapter04.extendedLimitOn_iff_tendsto s h c B).mp hh |>.2
+  have hforms : (EndpointLimit e f 0 ∧ EndpointLimit e g 0) ∨
+      EndpointLimit e g ⊤ ∨ EndpointLimit e g ⊥ := by
+    rcases hform with ⟨h1, h2⟩ | htop | hbot
+    · exact Or.inl ⟨hlimit f 0 h1, hlimit g 0 h2⟩
+    · exact Or.inr (Or.inl (hlimit g ⊤ htop))
+    · exact Or.inr (Or.inr (hlimit g ⊥ hbot))
+  obtain ⟨hne, hlim⟩ := pma5_13 e f f' g g' A
+    (hs.mono fun x hx => hf x hx) (hs.mono fun x hx => hg x hx)
+    (hs.mono fun x hx => hg' x hx) (hlimit _ A hratio) hforms
+  refine ⟨by simpa only [he] using hne, ?_⟩
+  apply (Chapter04.extendedLimitOn_iff_tendsto s _ c A).mpr
+  exact ⟨by simpa only [he] using e.neBot,
+    by simpa only [EndpointLimit, he] using hlim⟩
+
+
+end Rudin.PMA.Chapter05
+
+open Lean Elab Command in
+run_cmd do
+  let env ← getEnv
+  let names ← env.constants.foldM (init := #[]) fun names rawName _ => do
+    let userName := privateToUserName rawName.eraseMacroScopes
+    return if (`Rudin.PMA.Chapter05).isPrefixOf userName then names.push rawName else names
+  if names.isEmpty then throwError "No Chapter 5 declarations found."
+  let allowed := #[``propext, ``Classical.choice, ``Quot.sound]
+  for name in names do
+    let axioms ← collectAxioms name
+    let forbidden := axioms.filter fun ax => !allowed.contains ax
+    if !forbidden.isEmpty then
+      throwError "Forbidden axioms in {name}: {forbidden}"
+  logInfo m!"PMA 5.13 draft audit: {names.size} declarations; only propext, Classical.choice, Quot.sound."
