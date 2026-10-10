@@ -451,4 +451,25 @@ theorem pma3_14 (s : ℕ → ℝ) (hm : MonotonicSequence s) :
       (tendsto_atTop_ciSup ((pma3_13_increasing_reference _).mp hi) hupper)⟩
   · exact ⟨⨅ n, s n, (pma3_1_reference _ _).mpr
       (tendsto_atTop_ciInf ((pma3_13_decreasing_reference _).mp hd) hlower)⟩
+/-! ### PMA-3.15: limits to the two infinities. -/
+
+def TendsToPositiveInfinity (s : ℕ → ℝ) : Prop := ∀ M : ℝ, ∃ N, ∀ n ≥ N, M ≤ s n
+def TendsToNegativeInfinity (s : ℕ → ℝ) : Prop := ∀ M : ℝ, ∃ N, ∀ n ≥ N, s n ≤ M
+
+theorem pma3_15_positive_reference (s : ℕ → ℝ) :
+    TendsToPositiveInfinity s ↔ Tendsto s atTop atTop := by
+  simp only [TendsToPositiveInfinity, tendsto_atTop, eventually_atTop]
+
+theorem pma3_15_negative_reference (s : ℕ → ℝ) :
+    TendsToNegativeInfinity s ↔ Tendsto s atTop atBot := by
+  simp only [TendsToNegativeInfinity, tendsto_atBot, eventually_atTop]
+
+theorem pma3_15_positive_ereal (s : ℕ → ℝ) :
+    TendsToPositiveInfinity s ↔ Tendsto (fun n => (s n : EReal)) atTop (𝓝 ⊤) := by
+  rw [pma3_15_positive_reference, EReal.tendsto_coe_nhds_top_iff]
+
+theorem pma3_15_negative_ereal (s : ℕ → ℝ) :
+    TendsToNegativeInfinity s ↔ Tendsto (fun n => (s n : EReal)) atTop (𝓝 ⊥) := by
+  rw [pma3_15_negative_reference, EReal.tendsto_coe_nhds_bot_iff]
+
 end Rudin.PMA.Chapter03
