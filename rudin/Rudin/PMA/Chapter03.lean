@@ -2600,4 +2600,20 @@ theorem pma3_51 : pma3_51_contract := by
       (powerSeriesTerms_cauchyProduct a b z).symm
   exact tendsto_nhds_unique hC ((hA.mul hB).congr' heq)
 
+/-! ### PMA-3.52: rearrangements use each original index exactly once. -/
+
+def Rearrangement {V : Type*} (a b : ℕ → V) : Prop :=
+  ∃ e : Equiv.Perm ℕ, b = a ∘ e
+
+def pma3_52_contract : Prop := ∀ (V : Type*) (a b : ℕ → V),
+  Rearrangement a b ↔ ∃ f : ℕ → ℕ, Function.Bijective f ∧ b = a ∘ f
+
+theorem pma3_52 : pma3_52_contract := by
+  intro V a b
+  constructor
+  · rintro ⟨e, he⟩
+    exact ⟨e, e.bijective, he⟩
+  · rintro ⟨f, hf, he⟩
+    exact ⟨Equiv.ofBijective f hf, he⟩
+
 end Rudin.PMA.Chapter03
