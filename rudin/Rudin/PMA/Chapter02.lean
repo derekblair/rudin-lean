@@ -876,4 +876,14 @@ theorem relativelyOpen_iff_ambient_intersection {X : Type*} [MetricSpace X]
     refine ⟨G,(isOpenSet_iff_isOpen G).mp hG, ?_⟩
     ext p
     simp
+/-! ### PMA-2.31: an open cover consists of open sets whose union contains the set. -/
+
+def OpenCover {X : Type*} [TopologicalSpace X] (E : Set X) {ι : Type*}
+    (G : ι → Set X) : Prop := (∀ i, IsOpen (G i)) ∧ E ⊆ ⋃ i, G i
+
+theorem pma2_31_reference {X : Type*} [TopologicalSpace X] (E : Set X)
+    {ι : Type*} (G : ι → Set X) :
+    OpenCover E G ↔ (∀ i, IsOpen (G i)) ∧ ∀ x ∈ E, ∃ i, x ∈ G i := by
+  simp [OpenCover, Set.subset_def]
+
 end Rudin.PMA.Chapter02
