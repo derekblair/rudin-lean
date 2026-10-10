@@ -21,3 +21,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.13 | PASS: consecutive non-strict inequalities, increasing/decreasing alternative, `Monotone`/`Antitone` references. |
 | PMA-3.14 | PASS: monotonic hypothesis and convergence iff boundedness. |
 | PMA-3.15 | PASS: eventual real thresholds for both infinities and real-filter/EReal comparators. |
+| PMA-3.16 | PASS: all extended subsequential limits, their supremum/infimum, and filter limsup/liminf comparators. |

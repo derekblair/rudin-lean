@@ -472,4 +472,23 @@ theorem pma3_15_negative_ereal (s : ℕ → ℝ) :
     TendsToNegativeInfinity s ↔ Tendsto (fun n => (s n : EReal)) atTop (𝓝 ⊥) := by
   rw [pma3_15_negative_reference, EReal.tendsto_coe_nhds_bot_iff]
 
+/-! ### PMA-3.16: upper and lower limits of real sequences. -/
+
+def ExtendedSubsequentialLimits (s : ℕ → ℝ) : Set EReal :=
+  {x | IsSubsequentialLimit (fun n => (s n : EReal)) x}
+def UpperLimit (s : ℕ → ℝ) : EReal := sSup (ExtendedSubsequentialLimits s)
+def LowerLimit (s : ℕ → ℝ) : EReal := sInf (ExtendedSubsequentialLimits s)
+
+theorem pma3_16_upper_reference (s : ℕ → ℝ) :
+    UpperLimit s = limsup (fun n => (s n : EReal)) atTop := by
+  unfold UpperLimit ExtendedSubsequentialLimits
+  simp_rw [pma3_5_reference]
+  exact (isGreatest_mapClusterPt_limsup (u := fun n => (s n : EReal)) (f := atTop)).csSup_eq
+
+theorem pma3_16_lower_reference (s : ℕ → ℝ) :
+    LowerLimit s = liminf (fun n => (s n : EReal)) atTop := by
+  unfold LowerLimit ExtendedSubsequentialLimits
+  simp_rw [pma3_5_reference]
+  exact (isLeast_mapClusterPt_liminf (u := fun n => (s n : EReal)) (f := atTop)).csInf_eq
+
 end Rudin.PMA.Chapter03
