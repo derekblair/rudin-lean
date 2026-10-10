@@ -120,4 +120,21 @@ def orderedSetOfLinearOrder (α : Type*) [LinearOrder α] : OrderedSet :=
 theorem pma1_6_rational_order (r s : ℚ) : r < s ↔ 0 < s - r :=
   (sub_pos).symm
 
+/-! ### PMA-1.7: upper/lower bounds and bounded sets. -/
+
+def IsUpperBound {α : Type*} [LE α] (E : Set α) (b : α) : Prop :=
+  ∀ x ∈ E, x ≤ b
+
+def IsLowerBound {α : Type*} [LE α] (E : Set α) (b : α) : Prop :=
+  ∀ x ∈ E, b ≤ x
+
+def IsBoundedAbove {α : Type*} [LE α] (E : Set α) : Prop := ∃ b, IsUpperBound E b
+def IsBoundedBelow {α : Type*} [LE α] (E : Set α) : Prop := ∃ b, IsLowerBound E b
+
+theorem pma1_7_reference {α : Type*} [LE α] (E : Set α) (b : α) :
+    (IsUpperBound E b ↔ b ∈ upperBounds E) ∧
+    (IsLowerBound E b ↔ b ∈ lowerBounds E) ∧
+    (IsBoundedAbove E ↔ BddAbove E) ∧ (IsBoundedBelow E ↔ BddBelow E) :=
+  ⟨Iff.rfl, Iff.rfl, Iff.rfl, Iff.rfl⟩
+
 end Rudin.PMA.Chapter01

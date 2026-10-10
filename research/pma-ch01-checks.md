@@ -16,3 +16,4 @@ folded into 1.1 under PROGRAM.md's rule for remarks. The requested target count 
 | PMA-1.4 | PASS: The chapter notation denotes all rational numbers. | Alias of ℚ; every element has an integer numerator and nonzero integer denominator. |
 | PMA-1.5 | PASS: Irreflexivity, trichotomy and transitivity give exactly one of the three source alternatives. | Pairwise exclusion proof; every Mathlib LinearOrder satisfies these axioms. |
 | PMA-1.6 | PASS: An ordered carrier is equipped with a relation satisfying the preceding order axioms. | Construction from LinearOrder; rational order iff positive difference. |
+| PMA-1.7 | PASS: Bounds use non-strict inequalities and boundedness asserts existence of such a bound. | Definitional iff comparisons to upperBounds, lowerBounds, BddAbove and BddBelow. |
