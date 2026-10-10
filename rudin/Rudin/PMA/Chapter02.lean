@@ -1038,4 +1038,12 @@ theorem pma2_41 {k : ℕ} (_hk : 0 < k) (E : Set (EuclideanSpace ℝ (Fin k))) :
   exact ⟨fun h => fun A hAE hA => hA.exists_accPt_of_subset_isCompact h hAE,
     fun h => (isCountablyCompact_iff_infinite_subset_has_accPt.mpr h).isCompact⟩
 
+/-! ### PMA-2.42: bounded infinite Euclidean sets have an accumulation point. -/
+
+theorem pma2_42 {k : ℕ} (_hk : 0 < k) {E : Set (EuclideanSpace ℝ (Fin k))}
+    (hb : Bornology.IsBounded E) (hi : E.Infinite) : ∃ p, AccPt p (𝓟 E) := by
+  obtain ⟨p, _, hp⟩ := hi.exists_accPt_of_subset_isCompact
+    (Metric.isCompact_iff_isClosed_bounded.mpr ⟨isClosed_closure, hb.closure⟩) subset_closure
+  exact ⟨p, hp⟩
+
 end Rudin.PMA.Chapter02

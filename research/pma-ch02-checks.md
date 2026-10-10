@@ -47,3 +47,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-2.39 | PASS: Nested nonempty coordinate cells intersect; explicit ClosedCell coordinate predicate agrees with earlier kCell. |
 | PMA-2.40 | PASS: Every coordinate cell is compact, including source positive-dimension cases. |
 | PMA-2.41 | PASS: Exact three-way Heine–Borel equivalence, including infinite-subset accumulation IN the target. |
+| PMA-2.42 | PASS: Bounded infinite Euclidean sets have ambient accumulation point; source point need not be set member. |
