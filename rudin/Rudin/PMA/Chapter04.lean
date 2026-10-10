@@ -311,4 +311,20 @@ theorem pma4_11 : pma4_11_contract := by
   exact (euclidean_polynomial_continuous P).continuousOn.div
     (euclidean_polynomial_continuous Q).continuousOn (fun _ h => h)
 
+/-! ### PMA-4.12: Induced domain metric -/
+def pma4_12_contract : Prop :=
+  (∀ {X Y : Type*} [MetricSpace X] [MetricSpace Y] (E : Set X)
+    (f : X → Y) (p : E), FunctionContinuousWithinAt E f p.val ↔
+      ContinuousAt (fun x : E => f x.val) p) ∧
+  (∀ {X Y : Type*} [MetricSpace X] [MetricSpace Y] (E : Set X) (f : X → Y),
+    FunctionContinuousOn E f ↔ Continuous (fun x : E => f x.val))
+
+theorem pma4_12 : pma4_12_contract := by
+  constructor
+  · intro X Y _ _ E f p
+    rw [functionContinuousWithinAt_iff E f p.val p.property]
+    exact continuousWithinAt_iff_continuousAt_domRestrict f p.property
+  · intro X Y _ _ E f
+    rw [functionContinuousOn_iff]
+    exact continuousOn_iff_continuous_domRestrict
 end Rudin.PMA.Chapter04
