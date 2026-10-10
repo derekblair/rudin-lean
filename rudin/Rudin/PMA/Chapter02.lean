@@ -113,4 +113,7 @@ theorem pma2_4_atMost_reference (A : Type*) : RudinAtMostCountable A ↔ Countab
 theorem pma2_4_uncountable_reference (A : Type*) : RudinUncountable A ↔ ¬ Countable A := by
   rw [RudinUncountable,← pma2_4_atMost_reference, RudinAtMostCountable,not_or]
 
+/-! ### PMA-2.5: integers are countably infinite. -/
+theorem pma2_5 : RudinCountable ℤ := ⟨Equiv.intEquivNat⟩
+
 end Rudin.PMA.Chapter02
