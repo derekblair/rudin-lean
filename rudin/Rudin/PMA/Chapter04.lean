@@ -237,4 +237,14 @@ theorem pma4_8 : pma4_8_contract := by
   rw [functionContinuousOn_univ_iff]
   exact ⟨continuous_def, continuous_iff_isClosed⟩
 
+/-! ### PMA-4.9: Algebra of continuous complex functions -/
+def pma4_9_contract : Prop :=
+  ∀ {X : Type*} [MetricSpace X] (f g : X → ℂ), Continuous f → Continuous g →
+    Continuous (ComplexSum f g) ∧ Continuous (ComplexProduct f g) ∧
+      ((∀ x, g x ≠ 0) → Continuous (ComplexQuotient f g))
+
+theorem pma4_9 : pma4_9_contract := by
+  intro X _ f g hf hg
+  exact ⟨hf.add hg, hf.mul hg, fun h => hf.div hg h⟩
+
 end Rudin.PMA.Chapter04
