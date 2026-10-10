@@ -858,4 +858,10 @@ theorem pma_imaginary_unit_eq : pmaImaginaryUnit = Complex.I := rfl
 
 theorem pma_imaginary_unit_sq : pmaImaginaryUnit ^ 2 = -1 := Complex.I_sq
 
+/-! ### PMA-1.29: the a + bi representation. -/
+
+theorem pma_complex_pair_representation (a b : ℝ) :
+    pmaComplexPair a b = (a : ℂ) + (b : ℂ) * pmaImaginaryUnit := by
+  apply Complex.ext <;> simp [pmaComplexPair, pmaImaginaryUnit, Complex.mul_re, Complex.mul_im]
+
 end Rudin.PMA.Chapter01
