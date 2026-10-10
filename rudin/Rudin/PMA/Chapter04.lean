@@ -97,4 +97,27 @@ theorem pma4_2 : pma4_2_contract := by
     simp only [Set.mem_sdiff, mem_singleton_iff]
   · exact fun E f p q r => functionLimitOn_unique E f p q r
 
+/-! ### PMA-4.3: Pointwise operations -/
+def ComplexSum {X : Type*} (f g : X → ℂ) (x : X) : ℂ := f x + g x
+def ComplexDifference {X : Type*} (f g : X → ℂ) (x : X) : ℂ := f x - g x
+def ComplexProduct {X : Type*} (f g : X → ℂ) (x : X) : ℂ := f x * g x
+def QuotientDomain {X : Type*} (E : Set X) (g : X → ℂ) : Set X := E ∩ {x | g x ≠ 0}
+def ComplexQuotient {X : Type*} (f g : X → ℂ) (x : X) : ℂ := f x / g x
+def ConstantFunction {X Y : Type*} (c : Y) (_ : X) : Y := c
+def PointwiseLE {X : Type*} (E : Set X) (f g : X → ℝ) : Prop := ∀ x ∈ E, f x ≤ g x
+def VectorSum {X : Type*} {k : ℕ} (f g : X → EuclideanSpace ℝ (Fin k))
+    (x : X) : EuclideanSpace ℝ (Fin k) := f x + g x
+def InnerFunction {X : Type*} {k : ℕ} (f g : X → EuclideanSpace ℝ (Fin k))
+    (x : X) : ℝ := inner ℝ (f x) (g x)
+def ScalarMultiple {X : Type*} {k : ℕ} (a : ℝ) (f : X → EuclideanSpace ℝ (Fin k))
+    (x : X) : EuclideanSpace ℝ (Fin k) := a • f x
+
+def pma4_3_contract : Prop :=
+  (∀ {X : Type*} (E : Set X) (g : X → ℂ) (x : X),
+    x ∈ QuotientDomain E g ↔ x ∈ E ∧ g x ≠ 0) ∧
+  (∀ {X : Type*} (E : Set X) (f g : X → ℝ),
+    PointwiseLE E f g ↔ ∀ x ∈ E, f x ≤ g x)
+
+theorem pma4_3 : pma4_3_contract := ⟨fun _ _ _ => Iff.rfl, fun _ _ _ => Iff.rfl⟩
+
 end Rudin.PMA.Chapter04
