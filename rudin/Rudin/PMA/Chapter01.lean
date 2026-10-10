@@ -900,4 +900,17 @@ theorem pma_mul_conjugate (z : ℂ) :
     0 ≤ Complex.normSq z ∧ (0 < Complex.normSq z ↔ z ≠ 0) :=
   ⟨Complex.mul_conj z, Complex.normSq_nonneg z, Complex.normSq_pos⟩
 
+/-! ### PMA-1.32: absolute value is the nonnegative square root of zz̄. -/
+
+def pmaComplexAbs (z : ℂ) : ℝ := Real.sqrt (Complex.normSq z)
+
+theorem pma_complex_abs_eq_norm (z : ℂ) : pmaComplexAbs z = ‖z‖ := rfl
+
+theorem pma_complex_abs_spec (z : ℂ) :
+    0 ≤ pmaComplexAbs z ∧
+    ((pmaComplexAbs z ^ 2 : ℝ) : ℂ) = z * pmaConjugate z := by
+  refine ⟨norm_nonneg z, ?_⟩
+  rw [pma_complex_abs_eq_norm, Complex.sq_norm]
+  exact (Complex.mul_conj z).symm
+
 end Rudin.PMA.Chapter01
