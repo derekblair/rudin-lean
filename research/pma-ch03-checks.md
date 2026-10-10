@@ -59,3 +59,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.51 | PASS: ordinary sums of both factors and their product, with no absolute hypothesis. |
 | PMA-3.52 | PASS: permutation composition and bijection reference, preserving every index exactly once. |
 | PMA-3.53 | PASS: exact two-positive/one-negative permutation; both ordinary sums, changed sum, first block `5/6`, strictly increasing blocks and strict limsup bound. |
+| PMA-3.54 | PASS: conditional real series, every ordered pair of extended targets including equality, actual permutation and partial-sum liminf/limsup. |

@@ -2809,4 +2809,898 @@ theorem pma3_53 : pma3_53_contract := by
   rw [hcoef]
   exact_mod_cast htlarge
 
+/-! ### PMA-3.54: arbitrary extended-real lower and upper limits of rearranged partial sums. -/
+
+def pma3_54_contract : Prop := ∀ (a : ℕ → ℝ) (α β : EReal),
+  SeriesNonabsolutelyConverges a → α ≤ β →
+  ∃ e : Equiv.Perm ℕ,
+    Filter.liminf (fun N => ((PartialSums (a ∘ e) N : ℝ) : EReal)) atTop = α ∧
+    Filter.limsup (fun N => ((PartialSums (a ∘ e) N : ℝ) : EReal)) atTop = β
+
+def PositiveTermPart (a : ℕ → ℝ) (n : ℕ) : ℝ := max (a n) 0
+
+def NegativeTermPart (a : ℕ → ℝ) (n : ℕ) : ℝ := max (-a n) 0
+
+theorem norm_eq_twice_positive_sub (a : ℕ → ℝ) (n : ℕ) :
+    ‖a n‖ = 2 * PositiveTermPart a n - a n := by
+  rcases le_total (a n) 0 with h | h
+  · simp [PositiveTermPart, max_eq_right h, Real.norm_eq_abs, abs_of_nonpos h]
+  · simp [PositiveTermPart, max_eq_left h, Real.norm_eq_abs, abs_of_nonneg h]
+    ring
+
+theorem norm_eq_twice_negative_add (a : ℕ → ℝ) (n : ℕ) :
+    ‖a n‖ = 2 * NegativeTermPart a n + a n := by
+  rcases le_total (a n) 0 with h | h
+  · simp [NegativeTermPart, max_eq_left (neg_nonneg.mpr h), Real.norm_eq_abs,
+      abs_of_nonpos h]
+    ring
+  · simp [NegativeTermPart, max_eq_right (neg_nonpos.mpr h), Real.norm_eq_abs,
+      abs_of_nonneg h]
+
+theorem nonabsolute_positive_part_not_summable {a : ℕ → ℝ}
+    (ha : SeriesNonabsolutelyConverges a) : ¬ Summable (PositiveTermPart a) := by
+  intro hp
+  obtain ⟨A, hA⟩ := ha.1
+  apply ha.2
+  refine ⟨2 * (∑' n, PositiveTermPart a n) - A, ?_⟩
+  have ht := (hp.hasSum.tendsto_sum_nat.const_mul 2).sub hA
+  change Tendsto (fun N => ∑ n ∈ Finset.range N, ‖a n‖) atTop
+    (𝓝 (2 * (∑' n, PositiveTermPart a n) - A))
+  have he : ∀ N, (∑ n ∈ Finset.range N, ‖a n‖) =
+      2 * (∑ n ∈ Finset.range N, PositiveTermPart a n) - PartialSums a N := by
+    intro N
+    simp only [norm_eq_twice_positive_sub, Finset.sum_sub_distrib, Finset.mul_sum,
+      PartialSums]
+  simpa only [he, Function.comp_def] using ht
+
+theorem nonabsolute_negative_part_not_summable {a : ℕ → ℝ}
+    (ha : SeriesNonabsolutelyConverges a) : ¬ Summable (NegativeTermPart a) := by
+  intro hn
+  obtain ⟨A, hA⟩ := ha.1
+  apply ha.2
+  refine ⟨2 * (∑' n, NegativeTermPart a n) + A, ?_⟩
+  have ht := (hn.hasSum.tendsto_sum_nat.const_mul 2).add hA
+  change Tendsto (fun N => ∑ n ∈ Finset.range N, ‖a n‖) atTop
+    (𝓝 (2 * (∑' n, NegativeTermPart a n) + A))
+  have he : ∀ N, (∑ n ∈ Finset.range N, ‖a n‖) =
+      2 * (∑ n ∈ Finset.range N, NegativeTermPart a n) + PartialSums a N := by
+    intro N
+    simp only [norm_eq_twice_negative_add, Finset.sum_add_distrib, Finset.mul_sum,
+      PartialSums]
+  simpa only [he, Function.comp_def] using ht
+
+theorem nonabsolute_part_sums_unbounded {a : ℕ → ℝ}
+    (ha : SeriesNonabsolutelyConverges a) :
+    Tendsto (PartialSums (PositiveTermPart a)) atTop atTop ∧
+      Tendsto (PartialSums (NegativeTermPart a)) atTop atTop := by
+  constructor
+  · exact (not_summable_iff_tendsto_nat_atTop_of_nonneg
+      (fun n => le_max_right (a n) 0)).mp (nonabsolute_positive_part_not_summable ha)
+  · exact (not_summable_iff_tendsto_nat_atTop_of_nonneg
+      (fun n => le_max_right (-a n) 0)).mp (nonabsolute_negative_part_not_summable ha)
+
+theorem positive_finite_extension {a : ℕ → ℝ} (ha : SeriesNonabsolutelyConverges a)
+    (used : Finset ℕ) (T : ℝ) : ∃ next : Finset ℕ,
+      Disjoint next used ∧ (∀ n ∈ next, 0 < a n) ∧ T < ∑ n ∈ next, a n := by
+  classical
+  have hp := (nonabsolute_part_sums_unbounded ha).1
+  obtain ⟨N, hN⟩ := (hp.eventually_gt_atTop (T + ∑ n ∈ used, PositiveTermPart a n)).exists
+  let rest := Finset.range N \ used
+  let next := rest.filter (fun n => 0 < a n)
+  have hs : (∑ n ∈ next, a n) = ∑ n ∈ rest, PositiveTermPart a n := by
+    rw [show next = rest.filter (fun n => 0 < a n) from rfl, Finset.sum_filter]
+    apply Finset.sum_congr rfl
+    intro n hn
+    by_cases ha0 : 0 < a n
+    · simp [ha0, PositiveTermPart, max_eq_left ha0.le]
+    · simp [ha0, PositiveTermPart, max_eq_right (le_of_not_gt ha0)]
+  have hle : (∑ n ∈ Finset.range N ∩ used, PositiveTermPart a n) ≤
+      ∑ n ∈ used, PositiveTermPart a n :=
+    Finset.sum_le_sum_of_subset_of_nonneg Finset.inter_subset_right
+      (fun n _ _ => le_max_right (a n) 0)
+  have hsum := Finset.sum_inter_add_sum_sdiff (Finset.range N) used (PositiveTermPart a)
+  refine ⟨next, ?_, ?_, ?_⟩
+  · apply Finset.disjoint_left.mpr
+    intro n hn
+    exact (Finset.mem_sdiff.mp (Finset.mem_filter.mp hn).1).2
+  · intro n hn
+    exact (Finset.mem_filter.mp hn).2
+  · rw [hs]
+    change T + (∑ n ∈ used, PositiveTermPart a n) <
+      ∑ n ∈ Finset.range N, PositiveTermPart a n at hN
+    dsimp only [rest]
+    linarith
+
+theorem seriesNonabsolute_neg {a : ℕ → ℝ} (ha : SeriesNonabsolutelyConverges a) :
+    SeriesNonabsolutelyConverges (fun n => -a n) := by
+  constructor
+  · obtain ⟨A, hA⟩ := ha.1
+    refine ⟨-A, ?_⟩
+    change Tendsto (fun N => ∑ n ∈ Finset.range N, -a n) atTop (𝓝 (-A))
+    simpa only [PartialSums, Finset.sum_neg_distrib] using hA.neg
+  · intro h
+    apply ha.2
+    simpa only [SeriesAbsolutelyConverges, norm_neg] using h
+
+theorem negative_finite_extension {a : ℕ → ℝ} (ha : SeriesNonabsolutelyConverges a)
+    (used : Finset ℕ) (T : ℝ) : ∃ next : Finset ℕ,
+      Disjoint next used ∧ (∀ n ∈ next, a n < 0) ∧ (∑ n ∈ next, a n) < T := by
+  obtain ⟨next, hd, hn, hsum⟩ := positive_finite_extension (seriesNonabsolute_neg ha) used (-T)
+  refine ⟨next, hd, fun n h => neg_pos.mp (hn n h), ?_⟩
+  rw [Finset.sum_neg_distrib] at hsum
+  linarith
+
+def PositiveUnusedTerm (a : ℕ → ℝ) (used : Finset ℕ) (n : ℕ) : ℝ :=
+  if n ∈ used then 0 else PositiveTermPart a n
+
+theorem positiveUnusedTerm_nonneg (a : ℕ → ℝ) (used : Finset ℕ) (n : ℕ) :
+    0 ≤ PositiveUnusedTerm a used n := by
+  simp only [PositiveUnusedTerm]
+  split_ifs
+  · exact le_rfl
+  · exact le_max_right (a n) 0
+
+theorem positiveUnusedTerm_not_summable {a : ℕ → ℝ}
+    (ha : SeriesNonabsolutelyConverges a) (used : Finset ℕ) :
+    ¬ Summable (PositiveUnusedTerm a used) := by
+  classical
+  intro hs
+  have hu : Summable (fun n => if n ∈ used then PositiveTermPart a n else 0) :=
+    summable_of_ne_finset_zero (s := used) (fun n hn => by simp [hn])
+  have he : PositiveTermPart a = fun n => PositiveUnusedTerm a used n +
+      (if n ∈ used then PositiveTermPart a n else 0) := by
+    funext n
+    by_cases hn : n ∈ used <;> simp [PositiveUnusedTerm, hn]
+  exact nonabsolute_positive_part_not_summable ha (by rw [he]; exact hs.add hu)
+
+theorem positiveUnusedTerm_partialSums_atTop {a : ℕ → ℝ}
+    (ha : SeriesNonabsolutelyConverges a) (used : Finset ℕ) :
+    Tendsto (PartialSums (PositiveUnusedTerm a used)) atTop atTop :=
+  (not_summable_iff_tendsto_nat_atTop_of_nonneg (positiveUnusedTerm_nonneg a used)).mp
+    (positiveUnusedTerm_not_summable ha used)
+
+theorem positiveUnusedTerm_threshold_crossing {a : ℕ → ℝ}
+    (ha : SeriesNonabsolutelyConverges a) (used : Finset ℕ) (T ε : ℝ)
+    (hT : 0 ≤ T) (hε : 0 ≤ ε) (hsmall : ∀ n ∉ used, ‖a n‖ ≤ ε) :
+    ∃ N, T < PartialSums (PositiveUnusedTerm a used) N ∧
+      PartialSums (PositiveUnusedTerm a used) N ≤ T + ε := by
+  classical
+  have hex : ∃ N, T < PartialSums (PositiveUnusedTerm a used) N :=
+    ((positiveUnusedTerm_partialSums_atTop ha used).eventually_gt_atTop T).exists
+  let N := Nat.find hex
+  have hN : T < PartialSums (PositiveUnusedTerm a used) N := Nat.find_spec hex
+  have hN0 : 0 < N := by
+    by_contra hn
+    have hz : N = 0 := by omega
+    simp [hz, PartialSums] at hN
+    linarith
+  have hprev : PartialSums (PositiveUnusedTerm a used) (N - 1) ≤ T := by
+    exact le_of_not_gt (Nat.find_min hex (show N - 1 < Nat.find hex by omega))
+  have hterm : PositiveUnusedTerm a used (N - 1) ≤ ε := by
+    by_cases hu : N - 1 ∈ used
+    · simp [PositiveUnusedTerm, hu, hε]
+    · simp only [PositiveUnusedTerm, ite_eq_right hu, PositiveTermPart]
+      apply (max_le_iff).mpr
+      constructor
+      · exact (le_abs_self (a (N - 1))).trans (hsmall _ hu)
+      · exact hε
+  refine ⟨N, hN, ?_⟩
+  have he : N = (N - 1) + 1 := by omega
+  have hp : PartialSums (PositiveUnusedTerm a used) N =
+      PartialSums (PositiveUnusedTerm a used) (N - 1) + PositiveUnusedTerm a used (N - 1) := by
+    nth_rw 1 [he]
+    simp [PartialSums, Finset.sum_range_succ]
+  rw [hp]
+  linarith
+
+def PositiveUnusedPrefixList (a : ℕ → ℝ) (used : Finset ℕ) (N : ℕ) : List ℕ :=
+  ((Finset.range N).filter (fun n => n ∉ used ∧ 0 < a n)).toList
+
+theorem positiveUnusedPrefixList_nodup (a : ℕ → ℝ) (used : Finset ℕ) (N : ℕ) :
+    (PositiveUnusedPrefixList a used N).Nodup := Finset.nodup_toList _
+
+theorem positiveUnusedPrefixList_mem {a : ℕ → ℝ} {used : Finset ℕ} {N n : ℕ} :
+    n ∈ PositiveUnusedPrefixList a used N ↔ n < N ∧ n ∉ used ∧ 0 < a n := by
+  simp [PositiveUnusedPrefixList, Finset.mem_filter]
+
+theorem positiveUnusedPrefixList_sum (a : ℕ → ℝ) (used : Finset ℕ) (N : ℕ) :
+    ((PositiveUnusedPrefixList a used N).map a).sum =
+      PartialSums (PositiveUnusedTerm a used) N := by
+  classical
+  rw [← List.sum_toFinset a (positiveUnusedPrefixList_nodup a used N)]
+  simp only [PositiveUnusedPrefixList, Finset.toList_toFinset, Finset.sum_filter, PartialSums]
+  apply Finset.sum_congr rfl
+  intro n hn
+  by_cases hu : n ∈ used
+  · simp [hu, PositiveUnusedTerm]
+  · by_cases hp : 0 < a n
+    · simp [hu, hp, PositiveUnusedTerm, PositiveTermPart, max_eq_left hp.le]
+    · simp [hu, hp, PositiveUnusedTerm, PositiveTermPart, max_eq_right (le_of_not_gt hp)]
+
+theorem positive_crossing_list {a : ℕ → ℝ} (ha : SeriesNonabsolutelyConverges a)
+    (used : Finset ℕ) (S T ε : ℝ) (hST : S ≤ T) (hε : 0 ≤ ε)
+    (hsmall : ∀ n ∉ used, ‖a n‖ ≤ ε) : ∃ l : List ℕ,
+      l.Nodup ∧ (∀ n ∈ l, n ∉ used ∧ 0 < a n) ∧
+      T < S + (l.map a).sum ∧ S + (l.map a).sum ≤ T + ε := by
+  obtain ⟨N, hN, hle⟩ := positiveUnusedTerm_threshold_crossing ha used (T - S) ε
+    (sub_nonneg.mpr hST) hε hsmall
+  refine ⟨PositiveUnusedPrefixList a used N, positiveUnusedPrefixList_nodup a used N,
+    fun n hn => (positiveUnusedPrefixList_mem.mp hn).2, ?_, ?_⟩
+  · rw [positiveUnusedPrefixList_sum]
+    linarith
+  · rw [positiveUnusedPrefixList_sum]
+    linarith
+
+theorem negative_crossing_list {a : ℕ → ℝ} (ha : SeriesNonabsolutelyConverges a)
+    (used : Finset ℕ) (S T ε : ℝ) (hST : T ≤ S) (hε : 0 ≤ ε)
+    (hsmall : ∀ n ∉ used, ‖a n‖ ≤ ε) : ∃ l : List ℕ,
+      l.Nodup ∧ (∀ n ∈ l, n ∉ used ∧ a n < 0) ∧
+      S + (l.map a).sum < T ∧ T - ε ≤ S + (l.map a).sum := by
+  obtain ⟨l, hl, hmem, hcross, hle⟩ := positive_crossing_list (seriesNonabsolute_neg ha)
+    used (-S) (-T) ε (neg_le_neg hST) hε (by simpa only [norm_neg] using hsmall)
+  have hs : (l.map (fun n => -a n)).sum = -(l.map a).sum := by
+    simpa only [List.map_map, Function.comp_def] using (List.sum_neg (l.map a)).symm
+  rw [hs] at hcross hle
+  refine ⟨l, hl, fun n hn => ⟨(hmem n hn).1, neg_pos.mp (hmem n hn).2⟩, ?_, ?_⟩ <;>
+    linarith
+
+open Filter
+
+/-- Fair increasing duplicate-free finite lists define a permutation of the naturals.
+The resulting permutation agrees with every finite list at all its existing positions. -/
+theorem fair_prefix_permutation (L : ℕ → List ℕ)
+    (hnodup : ∀ n, (L n).Nodup)
+    (hprefix : ∀ n, (L n).IsPrefix (L (n+1)))
+    (hlength : ∀ n, n ≤ (L n).length)
+    (hfair : ∀ k, ∃ n, k ∈ L n) :
+    ∃ e : Equiv.Perm ℕ, ∀ n k (hk : k < (L n).length), e k = (L n)[k]'hk := by
+  classical
+  have hmono : ∀ n m, n ≤ m → (L n).IsPrefix (L m) := by
+    intro n m hnm
+    induction m,hnm using Nat.le_induction with
+    | base => exact ⟨[],by simp⟩
+    | succ m hnm ih => exact ih.trans (hprefix m)
+  let f : ℕ → ℕ := fun k => (L (k+1))[k]'(by have := hlength (k+1);omega)
+  have hf : ∀ n k (hk : k < (L n).length), f k = (L n)[k]'hk := by
+    intro n k hk
+    rcases le_total n (k+1) with hn | hn
+    · exact ((hmono n (k+1) hn).getElem hk).symm
+    · exact (hmono (k+1) n hn).getElem (by have := hlength (k+1);omega)
+  have hfi : Function.Injective f := by
+    intro i j hij
+    let N := i+j+1
+    have hi : i < (L N).length := by have := hlength N;dsimp [N] at *;omega
+    have hj : j < (L N).length := by have := hlength N;dsimp [N] at *;omega
+    rw [hf N i hi,hf N j hj] at hij
+    exact (hnodup N).getElem_inj_iff.mp hij
+  have hfs : Function.Surjective f := by
+    intro k
+    obtain ⟨n,hn⟩ := hfair k
+    obtain ⟨i,hi,he⟩ := List.getElem_of_mem hn
+    exact ⟨i,(hf n i hi).trans he⟩
+  exact ⟨Equiv.ofBijective f ⟨hfi,hfs⟩,hf⟩
+
+/-- Every extended real is the limit of a sequence of finite real numbers. -/
+theorem ereal_real_sequence (x : EReal) :
+    ∃ u : ℕ → ℝ, Filter.Tendsto (fun n => (u n : EReal)) Filter.atTop (nhds x) := by
+  induction x using EReal.rec with
+  | bot =>
+    refine ⟨fun n => -(n : ℝ), EReal.tendsto_coe_nhds_bot_iff.mpr ?_⟩
+    exact tendsto_neg_atTop_atBot.comp tendsto_natCast_atTop_atTop
+  | coe x => exact ⟨fun _ => x, tendsto_const_nhds⟩
+  | top =>
+    refine ⟨fun n => (n : ℝ), EReal.tendsto_coe_nhds_top_iff.mpr ?_⟩
+    exact tendsto_natCast_atTop_atTop
+
+/-- Any ordered extended-real pair admits pointwise ordered finite real approximations,
+including infinite and equal endpoints. -/
+theorem ereal_ordered_real_sequences (α β : EReal) (hαβ : α ≤ β) :
+    ∃ lower upper : ℕ → ℝ, (∀ n, lower n ≤ upper n) ∧
+      Filter.Tendsto (fun n => (lower n : EReal)) Filter.atTop (nhds α) ∧
+      Filter.Tendsto (fun n => (upper n : EReal)) Filter.atTop (nhds β) := by
+  obtain ⟨u,hu⟩ := ereal_real_sequence α
+  obtain ⟨v,hv⟩ := ereal_real_sequence β
+  have hmin : ∀ n, ((min (u n) (v n) : ℝ) : EReal) = min (u n : EReal) (v n : EReal) := by
+    intro n
+    rcases le_total (u n) (v n) with h | h
+    · rw [min_eq_left h,min_eq_left (by exact_mod_cast h)]
+    · rw [min_eq_right h,min_eq_right (by exact_mod_cast h)]
+  have hmax : ∀ n, ((max (u n) (v n) : ℝ) : EReal) = max (u n : EReal) (v n : EReal) := by
+    intro n
+    rcases le_total (u n) (v n) with h | h
+    · rw [max_eq_right h,max_eq_right (by exact_mod_cast h)]
+    · rw [max_eq_left h,max_eq_left (by exact_mod_cast h)]
+  refine ⟨fun n => min (u n) (v n),fun n => max (u n) (v n),
+    fun n => min_le_max,?_,?_⟩
+  · have h := hu.min hv
+    rw [min_eq_left hαβ] at h
+    simpa only [hmin] using h
+  · have h := hu.max hv
+    rw [max_eq_right hαβ] at h
+    simpa only [hmax] using h
+
+theorem list_sum_map_nonneg (a : ℕ → ℝ) (l : List ℕ)
+    (h : ∀ n ∈ l, 0 ≤ a n) : 0 ≤ (l.map a).sum := by
+  apply List.sum_nonneg
+  intro x hx
+  obtain ⟨n,hn,rfl⟩ := List.mem_map.mp hx
+  exact h n hn
+
+theorem list_sum_map_nonpos (a : ℕ → ℝ) (l : List ℕ)
+    (h : ∀ n ∈ l, a n ≤ 0) : (l.map a).sum ≤ 0 := by
+  induction l with
+  | nil => simp
+  | cons n l ih =>
+    simp only [List.map_cons,List.sum_cons]
+    have hn := h n (by simp)
+    have hl := ih (fun m hm => h m (by simp [hm]))
+    linarith
+
+theorem list_prefix_sum_bounds_nonneg (a : ℕ → ℝ) (l : List ℕ)
+    (h : ∀ n ∈ l, 0 ≤ a n) (k : ℕ) :
+    0 ≤ ((l.take k).map a).sum ∧ ((l.take k).map a).sum ≤ (l.map a).sum := by
+  have ht := list_sum_map_nonneg a (l.take k) (fun n hn => h n (List.mem_of_mem_take hn))
+  have hd := list_sum_map_nonneg a (l.drop k) (fun n hn => h n (List.mem_of_mem_drop hn))
+  have he : ((l.take k).map a).sum + ((l.drop k).map a).sum = (l.map a).sum := by
+    rw [← List.sum_append,← List.map_append,List.take_append_drop]
+  exact ⟨ht,by linarith⟩
+
+theorem list_prefix_sum_bounds_nonpos (a : ℕ → ℝ) (l : List ℕ)
+    (h : ∀ n ∈ l, a n ≤ 0) (k : ℕ) :
+    (l.map a).sum ≤ ((l.take k).map a).sum ∧ ((l.take k).map a).sum ≤ 0 := by
+  have ht := list_sum_map_nonpos a (l.take k) (fun n hn => h n (List.mem_of_mem_take hn))
+  have hd := list_sum_map_nonpos a (l.drop k) (fun n hn => h n (List.mem_of_mem_drop hn))
+  have he : ((l.take k).map a).sum + ((l.drop k).map a).sum = (l.map a).sum := by
+    rw [← List.sum_append,← List.map_append,List.take_append_drop]
+  exact ⟨by linarith,ht⟩
+
+/-- Bounds for every interior partial sum of a fair insertion, positive crossing,
+then negative crossing stage. -/
+theorem rearrangement_stage_interiors (a : ℕ → ℝ) (old fair pos neg : List ℕ)
+    (ε L U : ℝ) (hε : 0 ≤ ε) (_hLU : L ≤ U)
+    (hfair : ∀ k, -ε ≤ ((fair.take k).map a).sum ∧ ((fair.take k).map a).sum ≤ ε)
+    (hpos : ∀ n ∈ pos, 0 ≤ a n) (hneg : ∀ n ∈ neg, a n ≤ 0)
+    (hpeak : U ≤ (((old++fair)++pos).map a).sum ∧
+      (((old++fair)++pos).map a).sum ≤ max ((old.map a).sum+ε) U+ε)
+    (hend : L-ε ≤ ((((old++fair)++pos)++neg).map a).sum ∧
+      ((((old++fair)++pos)++neg).map a).sum ≤ L) :
+    ∀ k, old.length ≤ k →
+      min ((old.map a).sum-ε) (L-ε) ≤
+          (((((old++fair)++pos)++neg).take k).map a).sum ∧
+        (((((old++fair)++pos)++neg).take k).map a).sum ≤
+          max ((old.map a).sum+ε) U+ε := by
+  intro k hk
+  have hminS := min_le_left ((old.map a).sum-ε) (L-ε)
+  have hminL := min_le_right ((old.map a).sum-ε) (L-ε)
+  have hmaxS := le_max_left ((old.map a).sum+ε) U
+  by_cases hfirst : k ≤ old.length+fair.length
+  · have hz1 : k-(old.length+fair.length) = 0 := by omega
+    have hz2 : k-(old.length+fair.length+pos.length) = 0 := by omega
+    have he : (((((old++fair)++pos)++neg).take k).map a).sum =
+        (old.map a).sum + ((fair.take (k-old.length)).map a).sum := by
+      simp only [List.take_append,List.length_append,List.take_of_length_le hk,
+        hz1,hz2,List.take_zero,List.append_nil,List.map_append,List.sum_append]
+    rw [he]
+    have hf := hfair (k-old.length)
+    constructor <;> linarith
+  · have hkfair : fair.length ≤ k-old.length := by omega
+    by_cases hpeaklen : k ≤ old.length+fair.length+pos.length
+    · have hz : k-(old.length+fair.length+pos.length) = 0 := by omega
+      have he : (((((old++fair)++pos)++neg).take k).map a).sum =
+          (old.map a).sum + (fair.map a).sum +
+            ((pos.take (k-(old.length+fair.length))).map a).sum := by
+        simp only [List.take_append,List.length_append,List.take_of_length_le hk,
+          List.take_of_length_le hkfair,hz,List.take_zero,List.append_nil,
+          List.map_append,List.sum_append]
+      rw [he]
+      have hf := hfair fair.length
+      simp only [List.take_length] at hf
+      have hp := list_prefix_sum_bounds_nonneg a pos hpos (k-(old.length+fair.length))
+      simp only [List.map_append,List.sum_append] at hpeak
+      constructor <;> linarith [hpeak.2]
+    · have hkpos : pos.length ≤ k-(old.length+fair.length) := by omega
+      have he : (((((old++fair)++pos)++neg).take k).map a).sum =
+          (((old++fair)++pos).map a).sum +
+            ((neg.take (k-(old.length+fair.length+pos.length))).map a).sum := by
+        simp only [List.take_append,List.length_append,List.take_of_length_le hk,
+          List.take_of_length_le hkfair,List.take_of_length_le hkpos,
+          List.map_append,List.sum_append]
+      rw [he]
+      have hn := list_prefix_sum_bounds_nonpos a neg hneg (k-(old.length+fair.length+pos.length))
+      simp only [List.map_append,List.sum_append] at hend hpeak ⊢
+      constructor <;> linarith [hpeak.2,hend.1]
+
+/-- Agreement with a finite permutation prefix identifies its ordered partial sum. -/
+theorem sum_range_eq_list_map_of_prefix_agreement {V : Type*} [AddCommMonoid V]
+    (a : ℕ → V) (e : ℕ → ℕ) (l : List ℕ)
+    (h : ∀ k (hk : k < l.length), e k = l[k]'hk) :
+    (∑ k ∈ Finset.range l.length, a (e k)) = (l.map a).sum := by
+  calc
+    (∑ k ∈ Finset.range l.length, a (e k)) = ∑ i : Fin l.length, a (e i) :=
+      (Fin.sum_univ_eq_sum_range (fun k => a (e k)) l.length).symm
+    _ = ∑ i : Fin l.length, a (l.get i) := by
+      apply Finset.sum_congr rfl
+      intro i _
+      rw [h i i.isLt]
+      rfl
+    _ = (l.map a).sum := by
+      calc
+        (∑ i : Fin l.length, a (l.get i)) = ((List.ofFn l.get).map a).sum := by
+          rw [List.map_ofFn,List.sum_ofFn]
+          rfl
+        _ = (l.map a).sum := by rw [List.ofFn_get]
+
+/-- Endpoint subsequences and an asymptotic strip determine both extended extrema. -/
+theorem rearrangement_extrema_of_strip
+    (p lower upper : ℕ → EReal) (α β : EReal)
+    (hlower : Tendsto lower atTop (𝓝 α))
+    (hupper : Tendsto upper atTop (𝓝 β))
+    (hstrip : ∀ᶠ n in atTop, lower n ≤ p n ∧ p n ≤ upper n)
+    (φ ψ : ℕ → ℕ) (hφ : StrictMono φ) (hψ : StrictMono ψ)
+    (hα : Tendsto (p ∘ φ) atTop (𝓝 α))
+    (hβ : Tendsto (p ∘ ψ) atTop (𝓝 β)) :
+    liminf p atTop = α ∧ limsup p atTop = β := by
+  have hcα : MapClusterPt α atTop p := hα.mapClusterPt.of_comp hφ.tendsto_atTop
+  have hcβ : MapClusterPt β atTop p := hβ.mapClusterPt.of_comp hψ.tendsto_atTop
+  constructor
+  · apply le_antisymm hcα.liminf_le
+    rw [← hlower.liminf_eq]
+    exact liminf_le_liminf (hstrip.mono fun _ hn => hn.1)
+  · apply le_antisymm _ hcβ.le_limsup
+    rw [← hupper.limsup_eq]
+    exact limsup_le_limsup (hstrip.mono fun _ hn => hn.2)
+
+theorem ordered_sum_eq_list_take_of_prefix (a : ℕ → ℝ) (e : ℕ → ℕ) (l : List ℕ)
+    (hagree : ∀ k (hk : k < l.length), e k = l[k]) :
+    ∀ N, N ≤ l.length → (∑ k ∈ Finset.range N, a (e k)) = ((l.take N).map a).sum := by
+  intro N
+  induction N with
+  | zero => intro hN; simp
+  | succ N ih =>
+    intro hN
+    have hlt : N < l.length := by omega
+    rw [Finset.sum_range_succ, ih (by omega), hagree N hlt]
+    have hm := List.sum_take_succ (l.map a) N (by simpa using hlt)
+    rw [List.getElem_map a] at hm
+    simpa only [List.map_take] using hm.symm
+
+/-- A vanishing real sequence has a uniformly vanishing bound on each tail. -/
+theorem exists_rearrangement_tail_bound (a : ℕ → ℝ)
+    (ha : Tendsto a atTop (𝓝 0)) :
+    ∃ ε : ℕ → ℝ, (∀ n, 0 ≤ ε n) ∧ Tendsto ε atTop (𝓝 0) ∧
+      (∀ n k, n ≤ k → ‖a k‖ ≤ ε n) := by
+  have hn : Tendsto (fun n => ‖a n‖) atTop (𝓝 (0 : ℝ)) := by
+    simpa only [norm_zero] using ha.norm
+  have hb : BddAbove (range fun n => ‖a n‖) := hn.bddAbove_range
+  let tails (n : ℕ) : Set ℝ := (fun k => ‖a k‖) '' Ici n
+  have htb (n : ℕ) : BddAbove (tails n) := hb.mono (image_subset_range _ _)
+  have hmem (n : ℕ) : ‖a n‖ ∈ tails n := mem_image_of_mem _ (mem_Ici.mpr le_rfl)
+  let ε (n : ℕ) : ℝ := sSup (tails n)
+  have hbound (n k : ℕ) (hnk : n ≤ k) : ‖a k‖ ≤ ε n :=
+    le_csSup (htb n) (mem_image_of_mem _ (mem_Ici.mpr hnk))
+  have hε (n : ℕ) : 0 ≤ ε n := (norm_nonneg _).trans (hbound n n le_rfl)
+  refine ⟨ε, hε, ?_, hbound⟩
+  apply tendsto_order.mpr
+  constructor
+  · intro x hx
+    exact Eventually.of_forall (fun n => hx.trans_le (hε n))
+  · intro x hx
+    have hh : 0 < x / 2 := half_pos hx
+    obtain ⟨N, hN⟩ := eventually_atTop.mp (hn.eventually (gt_mem_nhds hh))
+    apply eventually_atTop.mpr
+    refine ⟨N, fun n hNn => ?_⟩
+    have hsup : ε n ≤ x / 2 := by
+      apply csSup_le ⟨_, hmem n⟩
+      rintro y ⟨k, hk, rfl⟩
+      exact (hN k (hNn.trans hk)).le
+    exact hsup.trans_lt (half_lt_self hx)
+
+theorem exists_rearrangement_stage {a : ℕ → ℝ}
+    (ha : SeriesNonabsolutelyConverges a) (old : List ℕ) (n : ℕ)
+    (hold : old.Nodup) (hcover : ∀ k < n, k ∈ old)
+    (L U ε : ℝ) (hLU : L ≤ U) (hε : 0 ≤ ε)
+    (hsmall : ∀ k, n ≤ k → ‖a k‖ ≤ ε) :
+    ∃ fair pos neg : List ℕ,
+      fair = (if n ∈ old then [] else [n]) ∧
+      (old ++ fair ++ pos ++ neg).Nodup ∧
+      (∀ k < n+1, k ∈ old ++ fair ++ pos ++ neg) ∧
+      (∀ k ∈ pos, 0 < a k) ∧ (∀ k ∈ neg, a k < 0) ∧
+      U < ((old ++ fair ++ pos).map a).sum ∧
+      ((old ++ fair ++ pos).map a).sum ≤ max ((old.map a).sum + ε) U + ε ∧
+      L - ε ≤ ((old ++ fair ++ pos ++ neg).map a).sum ∧
+      ((old ++ fair ++ pos ++ neg).map a).sum < L ∧
+      old.length ≤ (old ++ fair ++ pos).length ∧
+      (old ++ fair ++ pos).length < (old ++ fair ++ pos ++ neg).length := by
+  classical
+  let fair : List ℕ := if n ∈ old then [] else [n]
+  let base := old ++ fair
+  have hbase : base.Nodup := by
+    dsimp [base, fair]
+    split_ifs with hn
+    · simpa using hold
+    · apply hold.append (List.nodup_singleton n)
+      apply List.disjoint_left.mpr
+      intro k hk
+      simp only [List.mem_singleton]
+      intro he
+      subst k
+      exact hn hk
+  have hbasecover : ∀ k < n+1, k ∈ base := by
+    intro k hk
+    by_cases hkn : k < n
+    · exact List.mem_append_left _ (hcover k hkn)
+    · have he : k = n := by omega
+      subst k
+      by_cases hn : n ∈ old
+      · exact List.mem_append_left _ hn
+      · simp [base, fair, hn]
+  have hunused (used : List ℕ) (hext : ∀ k ∈ old, k ∈ used) :
+      ∀ k ∉ used.toFinset, ‖a k‖ ≤ ε := by
+    intro k hk
+    apply hsmall
+    by_contra hkn
+    have hmem := hext k (hcover k (by omega))
+    exact hk (List.mem_toFinset.mpr hmem)
+  have hS : (base.map a).sum ≤ (old.map a).sum + ε := by
+    by_cases hn : n ∈ old
+    · simp [base, fair, hn, hε]
+    · have hh := (le_abs_self (a n)).trans (hsmall n le_rfl)
+      simpa [base, fair, hn] using add_le_add_left hh ((old.map a).sum)
+  have hpos : ∃ pos : List ℕ,
+      pos.Nodup ∧ (∀ k ∈ pos, k ∉ base.toFinset ∧ 0 < a k) ∧
+      U < (base.map a).sum + (pos.map a).sum ∧
+      (base.map a).sum + (pos.map a).sum ≤ max ((old.map a).sum + ε) U + ε := by
+    by_cases hSU : (base.map a).sum ≤ U
+    · obtain ⟨pos, hp, hm, hgt, hle⟩ := positive_crossing_list ha base.toFinset
+        (base.map a).sum U ε hSU hε (hunused base (fun _ hk => List.mem_append_left _ hk))
+      refine ⟨pos, hp, hm, hgt, ?_⟩
+      linarith [le_max_right ((old.map a).sum + ε) U]
+    · refine ⟨[], by simp, by simp, ?_, ?_⟩
+      · simpa using lt_of_not_ge hSU
+      · simp only [List.map_nil, List.sum_nil, add_zero]
+        exact hS.trans ((le_max_left _ _).trans (le_add_of_nonneg_right hε))
+  obtain ⟨pos, hp, hpm, hpeakgt, hpeakle⟩ := hpos
+  let peak := base ++ pos
+  have hpeak : peak.Nodup := by
+    apply hbase.append hp
+    apply List.disjoint_left.mpr
+    intro k hkb hkp
+    exact (hpm k hkp).1 (List.mem_toFinset.mpr hkb)
+  have hpeak_sum : (peak.map a).sum = (base.map a).sum + (pos.map a).sum := by
+    simp [peak]
+  have hLP : L ≤ (peak.map a).sum := hLU.trans (by rw [hpeak_sum]; exact hpeakgt.le)
+  obtain ⟨neg, hn, hnm, hendlt, hendle⟩ := negative_crossing_list ha peak.toFinset
+    (peak.map a).sum L ε hLP hε
+    (hunused peak (fun k hk => List.mem_append_left _ (List.mem_append_left _ hk)))
+  have hnew : (peak ++ neg).Nodup := by
+    apply hpeak.append hn
+    apply List.disjoint_left.mpr
+    intro k hkp hkn
+    exact (hnm k hkn).1 (List.mem_toFinset.mpr hkp)
+  have hneg : neg ≠ [] := by
+    intro he
+    simp [he] at hendlt
+    exact not_lt_of_ge hLP hendlt
+  refine ⟨fair, pos, neg, rfl, hnew, ?_, fun k hk => (hpm k hk).2,
+    fun k hk => (hnm k hk).2, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · intro k hk
+    exact List.mem_append_left _ (List.mem_append_left _ (hbasecover k hk))
+  · simpa [peak, base, add_assoc] using hpeakgt
+  · simpa [peak, base, add_assoc] using hpeakle
+  · simpa [peak, base, add_assoc] using hendle
+  · simpa [peak, base, add_assoc] using hendlt
+  · simp only [List.length_append]
+    omega
+  · have hlen : 0 < neg.length := List.length_pos_iff.mpr hneg
+    simp only [List.length_append]
+    omega
+
+theorem rearrangement_fair_partial_bound (a : ℕ → ℝ) (old : List ℕ) (n : ℕ)
+    (ε : ℝ) (hε : 0 ≤ ε) (hsmall : ‖a n‖ ≤ ε) :
+    ∀ k, -ε ≤ ((((if n ∈ old then [] else [n]) : List ℕ).take k).map a).sum ∧
+      ((((if n ∈ old then [] else [n]) : List ℕ).take k).map a).sum ≤ ε := by
+  classical
+  intro k
+  by_cases hn : n ∈ old
+  · simp [hn, hε]
+  · cases k with
+    | zero => simp [hε]
+    | succ k => simpa [hn] using (abs_le.mp hsmall)
+
+structure RearrangementStageWitness (a : ℕ → ℝ) (old : List ℕ) (n : ℕ)
+    (L U ε : ℝ) where
+  next : List ℕ
+  peak : ℕ
+  nodup : next.Nodup
+  old_prefix : old.IsPrefix next
+  cover : ∀ k < n+1, k ∈ next
+  old_le_peak : old.length ≤ peak
+  peak_lt_length : peak < next.length
+  lower_end : L - ε ≤ (next.map a).sum
+  end_lt_lower : (next.map a).sum < L
+  upper_lt_peak : U < ((next.take peak).map a).sum
+  peak_upper : ((next.take peak).map a).sum ≤ max ((old.map a).sum + ε) U + ε
+  interiors : ∀ k, old.length ≤ k →
+    min ((old.map a).sum - ε) (L - ε) ≤ ((next.take k).map a).sum ∧
+      ((next.take k).map a).sum ≤ max ((old.map a).sum + ε) U + ε
+
+theorem exists_rearrangement_stage_full {a : ℕ → ℝ}
+    (ha : SeriesNonabsolutelyConverges a) (old : List ℕ) (n : ℕ)
+    (hold : old.Nodup) (hcover : ∀ k < n, k ∈ old)
+    (L U ε : ℝ) (hLU : L ≤ U) (hε : 0 ≤ ε)
+    (hsmall : ∀ k, n ≤ k → ‖a k‖ ≤ ε) :
+    Nonempty (RearrangementStageWitness a old n L U ε) := by
+  classical
+  obtain ⟨fair, pos, neg, hfair, hnodup, hcovernew, hpos, hneg, hpeaklo,
+    hpeakhi, hendlo, hendhi, hlenlo, hlenhi⟩ :=
+    exists_rearrangement_stage ha old n hold hcover L U ε hLU hε hsmall
+  let peakList := old ++ fair ++ pos
+  let next := peakList ++ neg
+  have htake : next.take peakList.length = peakList := by
+    simp [next]
+  have hprefix : old.IsPrefix next := by
+    refine ⟨fair ++ pos ++ neg, ?_⟩
+    simp [next, peakList, List.append_assoc]
+  have hfairbound : ∀ k, -ε ≤ ((fair.take k).map a).sum ∧ ((fair.take k).map a).sum ≤ ε := by
+    rw [hfair]
+    exact rearrangement_fair_partial_bound a old n ε hε (hsmall n le_rfl)
+  have hinterior := rearrangement_stage_interiors a old fair pos neg ε L U hε hLU
+    hfairbound (fun k hk => (hpos k hk).le) (fun k hk => (hneg k hk).le)
+    ⟨hpeaklo.le, hpeakhi⟩ ⟨hendlo, hendhi.le⟩
+  refine ⟨{
+    next := next
+    peak := peakList.length
+    nodup := hnodup
+    old_prefix := hprefix
+    cover := hcovernew
+    old_le_peak := hlenlo
+    peak_lt_length := hlenhi
+    lower_end := hendlo
+    end_lt_lower := hendhi
+    upper_lt_peak := ?_
+    peak_upper := ?_
+    interiors := hinterior }⟩
+  · rw [htake]
+    exact hpeaklo
+  · rw [htake]
+    exact hpeakhi
+
+theorem ereal_coe_add_zero_tendsto {f g : ℕ → ℝ} {α : EReal}
+    (hf : Tendsto (fun n => (f n : EReal)) atTop (𝓝 α))
+    (hg : Tendsto g atTop (𝓝 0)) :
+    Tendsto (fun n => ((f n + g n : ℝ) : EReal)) atTop (𝓝 α) := by
+  have hz := continuous_coe_real_ereal.continuousAt.tendsto.comp hg
+  have hc : ContinuousAt (fun p : EReal × EReal => p.1 + p.2) (α, 0) :=
+    EReal.continuousAt_add (.inr (by simp)) (.inr (by simp))
+  have ht := hc.tendsto.comp (hf.prodMk_nhds hz)
+  simpa only [Function.comp_def, EReal.coe_add, EReal.coe_zero, add_zero] using ht
+
+theorem ereal_coe_min (x y : ℝ) : ((min x y : ℝ) : EReal) = min (x : EReal) (y : EReal) := by
+  rcases le_total x y with h | h
+  · rw [min_eq_left h, min_eq_left (by exact_mod_cast h)]
+  · rw [min_eq_right h, min_eq_right (by exact_mod_cast h)]
+
+theorem ereal_coe_max (x y : ℝ) : ((max x y : ℝ) : EReal) = max (x : EReal) (y : EReal) := by
+  rcases le_total x y with h | h
+  · rw [max_eq_right h, max_eq_right (by exact_mod_cast h)]
+  · rw [max_eq_left h, max_eq_left (by exact_mod_cast h)]
+
+
+
+/-- Lower endpoints and upper peaks converge to the prescribed extended-real targets
+when each crossing error vanishes. -/
+theorem rearrangement_endpoint_limits (ends peaks lower upper ε : ℕ → ℝ)
+    (α β : EReal) (hαβ : α ≤ β)
+    (hlower : Tendsto (fun n => (lower n : EReal)) atTop (𝓝 α))
+    (hupper : Tendsto (fun n => (upper n : EReal)) atTop (𝓝 β))
+    (hε : Tendsto ε atTop (𝓝 0))
+    (hEnd : ∀ n, lower n-ε n ≤ ends (n+1) ∧ ends (n+1) ≤ lower n)
+    (hPeak : ∀ n, upper n ≤ peaks n ∧
+      peaks n ≤ max (ends n+ε n) (upper n)+ε n) :
+    Tendsto (fun n => (ends n : EReal)) atTop (𝓝 α) ∧
+      Tendsto (fun n => (peaks n : EReal)) atTop (𝓝 β) := by
+  have hεneg : Tendsto (fun n => -ε n) atTop (𝓝 0) := by simpa only [neg_zero] using hε.neg
+  have hlower' : Tendsto (fun n => ((lower n-ε n : ℝ) : EReal)) atTop (𝓝 α) := by
+    simpa only [sub_eq_add_neg] using ereal_coe_add_zero_tendsto hlower hεneg
+  have hends' : Tendsto (fun n => (ends (n+1) : EReal)) atTop (𝓝 α) :=
+    tendsto_of_tendsto_of_tendsto_of_le_of_le hlower' hlower
+      (fun n => EReal.coe_le_coe_iff.mpr (hEnd n).1)
+      (fun n => EReal.coe_le_coe_iff.mpr (hEnd n).2)
+  have hends : Tendsto (fun n => (ends n : EReal)) atTop (𝓝 α) :=
+    (tendsto_add_atTop_iff_nat 1).mp hends'
+  have hmax : Tendsto (fun n => ((max (ends n+ε n) (upper n) : ℝ) : EReal))
+      atTop (𝓝 β) := by
+    simpa only [ereal_coe_max,max_eq_right hαβ] using
+      (ereal_coe_add_zero_tendsto hends hε).max hupper
+  have hbound := ereal_coe_add_zero_tendsto hmax hε
+  refine ⟨hends,tendsto_of_tendsto_of_tendsto_of_le_of_le hupper hbound
+    (fun n => EReal.coe_le_coe_iff.mpr (hPeak n).1)
+    (fun n => EReal.coe_le_coe_iff.mpr (hPeak n).2)⟩
+
+
+
+
+theorem rearrangement_strip_bounds_tendsto
+    (endpoint lower upper ε : ℕ → ℝ) (α β : EReal) (hab : α ≤ β)
+    (hend : Tendsto (fun n => (endpoint n : EReal)) atTop (𝓝 α))
+    (hlower : Tendsto (fun n => (lower n : EReal)) atTop (𝓝 α))
+    (hupper : Tendsto (fun n => (upper n : EReal)) atTop (𝓝 β))
+    (heps : Tendsto ε atTop (𝓝 0)) :
+    Tendsto (fun n => ((min (endpoint n - ε n) (lower n - ε n) : ℝ) : EReal))
+      atTop (𝓝 α) ∧
+    Tendsto (fun n => ((max (endpoint n + ε n) (upper n) + ε n : ℝ) : EReal))
+      atTop (𝓝 β) := by
+  have hneg : Tendsto (fun n => -ε n) atTop (𝓝 0) := by simpa using heps.neg
+  have hend_sub : Tendsto (fun n => ((endpoint n - ε n : ℝ) : EReal))
+      atTop (𝓝 α) := by
+    simpa only [sub_eq_add_neg] using ereal_coe_add_zero_tendsto hend hneg
+  have hlower_sub : Tendsto (fun n => ((lower n - ε n : ℝ) : EReal))
+      atTop (𝓝 α) := by
+    simpa only [sub_eq_add_neg] using ereal_coe_add_zero_tendsto hlower hneg
+  have hmin := hend_sub.min hlower_sub
+  have hl : Tendsto
+      (fun n => ((min (endpoint n - ε n) (lower n - ε n) : ℝ) : EReal))
+      atTop (𝓝 α) := by
+    simpa only [← ereal_coe_min, min_self] using hmin
+  have hend_add := ereal_coe_add_zero_tendsto hend heps
+  have hmax := hend_add.max hupper
+  have hm : Tendsto
+      (fun n => ((max (endpoint n + ε n) (upper n) : ℝ) : EReal))
+      atTop (𝓝 β) := by
+    simpa only [← ereal_coe_max, max_eq_right hab] using hmax
+  exact ⟨hl, ereal_coe_add_zero_tendsto hm heps⟩
+
+
+def PrefixStageIndex (length : ℕ → ℕ) (h : StrictMono length) (N : ℕ) : ℕ :=
+  Nat.find (show ∃ n, N < length (n+1) from ⟨N, by
+    have hn : N + 1 ≤ length (N + 1) := h.id_le (N+1)
+    omega⟩)
+
+theorem prefixStageIndex_properties (length : ℕ → ℕ) (h : StrictMono length)
+    (hzero : length 0 = 0) (N : ℕ) :
+    length (PrefixStageIndex length h N) ≤ N ∧ N < length (PrefixStageIndex length h N + 1) := by
+  have hex : ∃ n, N < length (n+1) := ⟨N, by have hn : N + 1 ≤ length (N + 1) := h.id_le (N+1);omega⟩
+  change length (Nat.find hex) ≤ N ∧ N < length (Nat.find hex + 1)
+  refine ⟨?_, Nat.find_spec hex⟩
+  by_cases hz : Nat.find hex = 0
+  · simp [hz, hzero]
+  · have hp := Nat.find_min hex (show Nat.find hex - 1 < Nat.find hex by omega)
+    have he : Nat.find hex - 1 + 1 = Nat.find hex := by omega
+    rw [he] at hp
+    exact le_of_not_gt hp
+
+theorem prefixStageIndex_tendsto (length : ℕ → ℕ) (h : StrictMono length)
+    (hzero : length 0 = 0) : Tendsto (PrefixStageIndex length h) atTop atTop := by
+  refine tendsto_atTop.2 fun n => ?_
+  filter_upwards [eventually_ge_atTop (length n)] with N hN
+  have hp := (prefixStageIndex_properties length h hzero N).2
+  by_contra! hn
+  have hle : length (PrefixStageIndex length h N + 1) ≤ length n :=
+    h.monotone (by omega)
+  omega
+
+theorem rearrangement_from_fair_bounded_prefixes
+    (a : ℕ → ℝ) (lists : ℕ → List ℕ) (peak : ℕ → ℕ)
+    (lower upper : ℕ → ℝ) (α β : EReal)
+    (hnodup : ∀ n, (lists n).Nodup)
+    (hprefix : ∀ n, (lists n).IsPrefix (lists (n+1)))
+    (hcover : ∀ n k, k < n → k ∈ lists n)
+    (hlength : StrictMono (fun n => (lists n).length))
+    (hzero : (lists 0).length = 0)
+    (hpeak : ∀ n, (lists n).length ≤ peak n ∧ peak n < (lists (n+1)).length)
+    (hlower : Tendsto (fun n => (lower n : EReal)) atTop (𝓝 α))
+    (hupper : Tendsto (fun n => (upper n : EReal)) atTop (𝓝 β))
+    (hstrip : ∀ n k, (lists n).length ≤ k → k ≤ (lists (n+1)).length →
+      lower n ≤ (((lists (n+1)).take k).map a).sum ∧
+      (((lists (n+1)).take k).map a).sum ≤ upper n)
+    (hend : Tendsto (fun n => (((lists (n+1)).map a).sum : EReal)) atTop (𝓝 α))
+    (hpk : Tendsto (fun n => ((((lists (n+1)).take (peak n)).map a).sum : EReal))
+      atTop (𝓝 β)) :
+    ∃ e : Equiv.Perm ℕ,
+      liminf (fun N => ((PartialSums (a ∘ e) N : ℝ) : EReal)) atTop = α ∧
+      limsup (fun N => ((PartialSums (a ∘ e) N : ℝ) : EReal)) atTop = β := by
+  obtain ⟨e, he⟩ := fair_prefix_permutation lists hnodup hprefix
+    (fun n => hlength.id_le n) (fun k => ⟨k+1,hcover (k+1) k (by omega)⟩)
+  have hsum : ∀ n N, N ≤ (lists n).length →
+      PartialSums (a ∘ e) N = (((lists n).take N).map a).sum := by
+    intro n N hN
+    exact ordered_sum_eq_list_take_of_prefix a e (lists n) (he n) N hN
+  let stage : ℕ → ℕ := PrefixStageIndex (fun n => (lists n).length) hlength
+  have hstage : Tendsto stage atTop atTop := prefixStageIndex_tendsto _ hlength hzero
+  let p : ℕ → EReal := fun N => ((PartialSums (a ∘ e) N : ℝ) : EReal)
+  let φ : ℕ → ℕ := fun n => (lists (n+1)).length
+  let ψ : ℕ → ℕ := peak
+  have hφ : StrictMono φ := by
+    intro n m hnm
+    exact hlength (by omega)
+  have hψ : StrictMono ψ := by
+    apply strictMono_nat_of_lt_succ
+    intro n
+    exact (hpeak n).2.trans_le (hpeak (n+1)).1
+  have hα : Tendsto (p ∘ φ) atTop (𝓝 α) := by
+    have heq : p ∘ φ = fun n => (((lists (n+1)).map a).sum : EReal) := by
+      funext n
+      change ((PartialSums (a ∘ e) (lists (n+1)).length : ℝ) : EReal) = _
+      rw [hsum (n+1) _ le_rfl, List.take_length]
+    rw [heq]
+    exact hend
+  have hβ : Tendsto (p ∘ ψ) atTop (𝓝 β) := by
+    have heq : p ∘ ψ = fun n => ((((lists (n+1)).take (peak n)).map a).sum : EReal) := by
+      funext n
+      change ((PartialSums (a ∘ e) (peak n) : ℝ) : EReal) = _
+      rw [hsum (n+1) _ (hpeak n).2.le]
+    rw [heq]
+    exact hpk
+  refine ⟨e, rearrangement_extrema_of_strip p
+    (fun N => (lower (stage N) : EReal)) (fun N => (upper (stage N) : EReal)) α β
+    (hlower.comp hstage) (hupper.comp hstage) ?_ φ ψ hφ hψ hα hβ⟩
+  apply Filter.Eventually.of_forall
+  intro N
+  have hp := prefixStageIndex_properties (fun n => (lists n).length) hlength hzero N
+  have hb := hstrip (stage N) N hp.1 hp.2.le
+  have hs := hsum (stage N+1) N hp.2.le
+  dsimp only [p]
+  rw [hs]
+  constructor
+  · exact_mod_cast hb.1
+  · exact_mod_cast hb.2
+
+theorem pma3_54 : pma3_54_contract := by
+  intro a α β ha hab
+  obtain ⟨lower, upper, hlu, hl, hu⟩ := ereal_ordered_real_sequences α β hab
+  obtain ⟨ε, hε, hε0, hsmall⟩ := exists_rearrangement_tail_bound a
+    (seriesHasSum_term_tendsto_zero (Classical.choose_spec ha.1))
+  let State (n : ℕ) := {old : List ℕ // old.Nodup ∧ ∀ k < n, k ∈ old}
+  let step (n : ℕ) (old : State n) :
+      RearrangementStageWitness a old.val n (lower n) (upper n) (ε n) :=
+    Classical.choice (exists_rearrangement_stage_full ha old.val n old.property.1
+      old.property.2 (lower n) (upper n) (ε n) (hlu n) (hε n) (hsmall n))
+  let states : (n : ℕ) → State n := Nat.rec (motive := State)
+    ⟨[], by simp⟩ (fun n old => ⟨(step n old).next, (step n old).nodup, (step n old).cover⟩)
+  let lists (n : ℕ) : List ℕ := (states n).val
+  let stages (n : ℕ) := step n (states n)
+  let peak (n : ℕ) : ℕ := (stages n).peak
+  have hnext : ∀ n, lists (n+1) = (stages n).next := fun n => rfl
+  have hnodup : ∀ n, (lists n).Nodup := fun n => (states n).property.1
+  have hcover : ∀ n k, k < n → k ∈ lists n := fun n => (states n).property.2
+  have hprefix : ∀ n, (lists n).IsPrefix (lists (n+1)) := by
+    intro n
+    rw [hnext]
+    exact (stages n).old_prefix
+  have hpeak : ∀ n, (lists n).length ≤ peak n ∧ peak n < (lists (n+1)).length := by
+    intro n
+    rw [hnext]
+    exact ⟨(stages n).old_le_peak, (stages n).peak_lt_length⟩
+  have hlength : StrictMono (fun n => (lists n).length) := by
+    apply strictMono_nat_of_lt_succ
+    intro n
+    exact (hpeak n).1.trans_lt (hpeak n).2
+  have hzero : (lists 0).length = 0 := rfl
+  let ends (n : ℕ) : ℝ := ((lists n).map a).sum
+  let peaks (n : ℕ) : ℝ := (((lists (n+1)).take (peak n)).map a).sum
+  have hEnd : ∀ n, lower n - ε n ≤ ends (n+1) ∧ ends (n+1) ≤ lower n := by
+    intro n
+    dsimp only [ends]
+    rw [hnext]
+    exact ⟨(stages n).lower_end, (stages n).end_lt_lower.le⟩
+  have hPeak : ∀ n, upper n ≤ peaks n ∧
+      peaks n ≤ max (ends n + ε n) (upper n) + ε n := by
+    intro n
+    dsimp only [peaks, ends]
+    rw [hnext]
+    exact ⟨(stages n).upper_lt_peak.le, (stages n).peak_upper⟩
+  have hendpoints := rearrangement_endpoint_limits ends peaks lower upper ε α β
+    hab hl hu hε0 hEnd hPeak
+  have hstrips := rearrangement_strip_bounds_tendsto ends lower upper ε α β hab
+    hendpoints.1 hl hu hε0
+  apply rearrangement_from_fair_bounded_prefixes a lists peak
+    (fun n => min (ends n - ε n) (lower n - ε n))
+    (fun n => max (ends n + ε n) (upper n) + ε n) α β hnodup hprefix hcover
+    hlength hzero hpeak hstrips.1 hstrips.2
+  · intro n k hnk hk
+    rw [hnext]
+    exact (stages n).interiors k hnk
+  · exact hendpoints.1.comp (tendsto_add_atTop_nat 1)
+  · exact hendpoints.2
+
 end Rudin.PMA.Chapter03
