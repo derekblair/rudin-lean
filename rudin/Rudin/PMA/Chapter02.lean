@@ -252,4 +252,17 @@ theorem pma2_12 {A : Type*} (E : ℕ → Set A) (h : ∀ n, RudinCountable (E n)
 theorem pma2_12_corollary {A I : Type*} [Countable I] (E : I → Set A)
     (h : ∀ i,(E i).Countable) : (⋃ i,E i).Countable := Set.countable_iUnion h
 
+/-! ### PMA-2.13: finite products and the rational numbers. -/
+theorem pma2_13 {A : Type*} (h : RudinCountable A) (n : ℕ) (hn : 0 < n) :
+    RudinCountable (Fin n → A) := by
+  obtain ⟨hc,hi⟩ := (pma2_4_countable_reference _).mp h
+  let := hc; let := hi
+  have hne : Nonempty (Fin n) := ⟨⟨0,hn⟩⟩
+  let := hne
+  exact (pma2_4_countable_reference _).mpr ⟨inferInstance,inferInstance⟩
+
+theorem pma2_13_rationals : RudinCountable ℚ := by
+  change Nonempty (ℚ ≃ ℕ)
+  infer_instance
+
 end Rudin.PMA.Chapter02

@@ -18,3 +18,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-2.10 | PASS: Both finite examples and all three (0,1]-indexed interval-family properties match the source; exact inclusion iff x≤z. |
 | PMA-2.11 | PASS: All source union/intersection commutative, associative, distributive, empty and inclusion laws are included. |
 | PMA-2.12 | PASS: Countably infinite indexed sets have an infinite countable union; at-most-countable union corollary included via Set.countable_iUnion. |
+| PMA-2.13 | PASS: Positive finite tuples are countably infinite and the rational corollary is included; Fin n product countability and infinitude. |
