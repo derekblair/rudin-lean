@@ -877,4 +877,27 @@ theorem pma_parts_pair (a b : ℝ) :
     pmaRealPart (pmaComplexPair a b) = a ∧ pmaImaginaryPart (pmaComplexPair a b) = b :=
   ⟨rfl, rfl⟩
 
+/-! ### PMA-1.31: conjugation preserves sums and products, and zz̄ is nonnegative real. -/
+
+theorem pma_conjugate_add (z w : ℂ) :
+    pmaConjugate (z + w) = pmaConjugate z + pmaConjugate w := map_add _ _ _
+
+theorem pma_conjugate_mul (z w : ℂ) :
+    pmaConjugate (z * w) = pmaConjugate z * pmaConjugate w := map_mul _ _ _
+
+theorem pma_add_conjugate (z : ℂ) :
+    z + pmaConjugate z = ((2 * pmaRealPart z : ℝ) : ℂ) := Complex.add_conj z
+
+theorem pma_sub_conjugate (z : ℂ) :
+    z - pmaConjugate z = (2 : ℂ) * pmaImaginaryUnit * (pmaImaginaryPart z : ℂ) := by
+  change z - conj z = (2 : ℂ) * Complex.I * (z.im : ℂ)
+  rw [Complex.sub_conj]
+  push_cast
+  ring
+
+theorem pma_mul_conjugate (z : ℂ) :
+    z * pmaConjugate z = (Complex.normSq z : ℂ) ∧
+    0 ≤ Complex.normSq z ∧ (0 < Complex.normSq z ↔ z ≠ 0) :=
+  ⟨Complex.mul_conj z, Complex.normSq_nonneg z, Complex.normSq_pos⟩
+
 end Rudin.PMA.Chapter01

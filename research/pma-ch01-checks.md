@@ -40,3 +40,4 @@ folded into 1.1 under PROGRAM.md's rule for remarks. The requested target count 
 | PMA-1.28 | PASS: The square of the imaginary unit is minus one. | Complex.I_sq. |
 | PMA-1.29 | PASS: Every ordered pair (a,b) has representation a+bi. | Coordinate extensionality with the source pair multiplication. |
 | PMA-1.30 | PASS: Conjugation negates the imaginary coordinate; real and imaginary parts return the respective real coordinates. | Definitional comparisons with conj/re/im. |
+| PMA-1.31 | PASS: Conjugation preserves sums/products; sum/difference with conjugate recover parts; the product is nonnegative real and positive off zero. | Ring-hom mapping; Complex.add_conj/sub_conj/mul_conj and normSq positivity. |
