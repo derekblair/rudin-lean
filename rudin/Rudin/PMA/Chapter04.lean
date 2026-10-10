@@ -420,4 +420,14 @@ theorem pma4_18 : pma4_18_contract := by
   · intro X Y _ _ f hf
     exact ((uniformlyContinuous_iff_uniformContinuous f).mp hf).continuous
 
+/-! ### PMA-4.19: Uniform continuity on compact domains -/
+def pma4_19_contract : Prop :=
+  ∀ {X Y : Type*} [MetricSpace X] [MetricSpace Y] [CompactSpace X]
+    (f : X → Y), Continuous f → UniformlyContinuous f
+
+theorem pma4_19 : pma4_19_contract := by
+  intro X Y _ _ _ f hf
+  exact (uniformlyContinuous_iff_uniformContinuous f).mpr
+    (CompactSpace.uniformContinuous_of_continuous hf)
+
 end Rudin.PMA.Chapter04
