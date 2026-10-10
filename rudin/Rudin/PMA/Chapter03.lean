@@ -889,4 +889,31 @@ theorem node_3_24 : Statement_3_24 := by
     intro n
     exact hC (Set.mem_range_self n)
 
+/-! ### PMA-3.25: Eventual comparison tests. -/
+def Statement_3_25 : Prop :=
+  (∀ (a : ℕ → ℂ) (c : ℕ → ℝ), (∀ᶠ n in atTop, ‖a n‖ ≤ c n) →
+    SeriesConverges c → SeriesConverges a) ∧
+  (∀ a d : ℕ → ℝ, (∀ᶠ n in atTop, 0 ≤ d n ∧ d n ≤ a n) →
+    SeriesDiverges d → SeriesDiverges a)
+
+/-! PMA-3.25 proof details: Verified eventual comparison tests. -/
+theorem series_comparison {V : Type*} [NormedAddCommGroup V] [CompleteSpace V]
+    {a : ℕ → V} {c : ℕ → ℝ} (hdom : ∀ᶠ n in atTop, ‖a n‖ ≤ c n)
+    (hc : SeriesConverges c) : SeriesConverges a := by
+  obtain ⟨N,hN⟩ := eventually_atTop.mp hdom
+  have hc' := (seriesConverges_nat_add_iff c N).mpr hc
+  rw [seriesConverges_iff_cauchySeq] at hc'
+  have ha' : CauchySeq (PartialSums (fun n => a (n+N))) :=
+    cauchySeq_range_of_norm_bounded hc' (fun n => hN (n+N) (by omega))
+  apply (seriesConverges_nat_add_iff a N).mp
+  exact (seriesConverges_iff_cauchySeq _).mpr ha'
+
+theorem node_3_25 : Statement_3_25 := by
+  refine ⟨fun _ _ h hc => series_comparison h hc, ?_⟩
+  intro a d hdom hd ha
+  apply hd
+  apply series_comparison (c := a) _ ha
+  filter_upwards [hdom] with n hn
+  simpa only [Real.norm_eq_abs,abs_of_nonneg hn.1] using hn.2
+
 end Rudin.PMA.Chapter03
