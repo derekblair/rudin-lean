@@ -284,4 +284,18 @@ theorem pma3_5_reference {X : Type*} [TopologicalSpace X] [FirstCountableTopolog
     exact hp.mapClusterPt.of_comp hφ.tendsto_atTop
   · exact MapClusterPt.tendsto_subseq
 
+/-! ### PMA-3.6: compact and bounded Euclidean subsequences. -/
+
+theorem pma3_6_compact {X : Type*} [MetricSpace X] {K : Set X}
+    (hK : IsCompact K) (s : ℕ → X) (hs : ∀ n, s n ∈ K) :
+    ∃ p ∈ K, IsSubsequentialLimit s p := by
+  obtain ⟨p, hp, φ, hφ, hlim⟩ := hK.tendsto_subseq hs
+  exact ⟨p, hp, φ, hφ, hlim⟩
+
+theorem pma3_6_euclidean {k : ℕ} (s : ℕ → EuclideanSpace ℝ (Fin k))
+    (h : SequenceBounded s) : ∃ p, IsSubsequentialLimit s p := by
+  obtain ⟨p, _, φ, hφ, hlim⟩ := tendsto_subseq_of_bounded
+    ((pma3_1_bounded_reference _).mp h) (fun n => mem_range_self n)
+  exact ⟨p, φ, hφ, hlim⟩
+
 end Rudin.PMA.Chapter03
