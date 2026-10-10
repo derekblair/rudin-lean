@@ -13,3 +13,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-2.5 | PASS: The integers have a bijection with naturals; Equiv.intEquivNat. |
 | PMA-2.6 | PASS: Finite sets cannot have an equinumerous proper subset, and every infinite set has one; cardinality of deleting a singleton supplies the comparison. |
 | PMA-2.7 | PASS: Sequences are natural-indexed functions; countably infinite sets are exactly ranges of injective sequences. |
+| PMA-2.8 | PASS: An infinite subset of a countably infinite carrier inherits countability and remains infinite. |

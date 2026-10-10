@@ -177,4 +177,11 @@ theorem pma2_7_enumeration {A : Type*} (S : Set A) :
       obtain ⟨n,hn⟩ := ha
       exact ⟨n,Subtype.ext hn⟩
 
+/-! ### PMA-2.8: infinite subsets of countably infinite sets. -/
+theorem pma2_8 {A : Type*} (S T : Set A) (hS : RudinCountable S)
+    (hT : T.Infinite) (hTS : T ⊆ S) : RudinCountable T := by
+  have hcS : S.Countable := ((pma2_4_countable_reference S).mp hS).1
+  exact (pma2_4_countable_reference T).mpr
+    ⟨hcS.mono hTS, hT.to_subtype⟩
+
 end Rudin.PMA.Chapter02
