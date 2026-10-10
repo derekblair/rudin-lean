@@ -263,4 +263,19 @@ theorem pma1_9_reciprocals :
     exact (not_le_of_gt hn) hh
   · intro h; exact lt_irrefl 0 (hpos 0 h)
 
+/-! ### PMA-1.10: the least-upper-bound property. -/
+
+def HasLUBProperty (α : Type*) [LE α] : Prop :=
+  ∀ E : Set α, E.Nonempty → BddAbove E → ∃ a, IsLUB E a
+
+theorem pma1_10_reference (α : Type*) [ConditionallyCompleteLinearOrder α] :
+    HasLUBProperty α := by
+  intro E hE hb
+  exact ⟨sSup E, isLUB_csSup hE hb⟩
+
+theorem pma1_10_rationals_not_complete : ¬ HasLUBProperty ℚ := by
+  intro h
+  have hE : rationalBelowSqrtTwo.Nonempty := ⟨1, by constructor <;> norm_num⟩
+  exact pma1_9_rational_gap.2.2.1 (h _ hE pma1_9_rational_gap.1)
+
 end Rudin.PMA.Chapter01

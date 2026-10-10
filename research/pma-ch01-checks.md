@@ -19,3 +19,4 @@ folded into 1.1 under PROGRAM.md's rule for remarks. The requested target count 
 | PMA-1.7 | PASS: Bounds use non-strict inequalities and boundedness asserts existence of such a bound. | Definitional iff comparisons to upperBounds, lowerBounds, BddAbove and BddBelow. |
 | PMA-1.8 | PASS: A supremum/infimum is a bound admitting no strictly better bound; uniqueness included. | Iff proofs against IsLUB/IsGLB under LinearOrder. |
 | PMA-1.9 | PASS: The rational gap has exact bound sets but no rational endpoints; the negative rational interval and positive reciprocal examples include all membership distinctions. | upperBounds/lowerBounds classification; isLUB_Iio/Iic; exists_nat_one_div_lt. |
+| PMA-1.10 | PASS: Every nonempty subset bounded above has a supremum in the carrier. | ConditionallyCompleteLinearOrder comparator; ℚ fails the property by node 1.9. |
