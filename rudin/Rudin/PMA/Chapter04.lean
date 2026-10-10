@@ -1154,4 +1154,47 @@ theorem pma4_24 : pma4_24_contract := by
     have hz : OscillatingSine 0 = 0 := by simp only [OscillatingSine, ↓reduceIte]
     rw [hfx, hz] at hc
     norm_num [dist_zero_right] at hc
+/-! ### PMA-4.28: Non-strict interval monotonicity. -/
+
+def IntervalIncreasing (a b : ℝ) (f : ℝ → ℝ) : Prop :=
+  ∀ x y : ℝ, a < x → x < y → y < b → f x ≤ f y
+
+def IntervalDecreasing (a b : ℝ) (f : ℝ → ℝ) : Prop :=
+  ∀ x y : ℝ, a < x → x < y → y < b → f y ≤ f x
+
+def IntervalMonotonic (a b : ℝ) (f : ℝ → ℝ) : Prop :=
+  IntervalIncreasing a b f ∨ IntervalDecreasing a b f
+
+def Statement_4_28 : Prop :=
+  ∀ (a b : ℝ) (f : ℝ → ℝ),
+    (IntervalIncreasing a b f ↔ MonotoneOn f (Ioo a b)) ∧
+    (IntervalDecreasing a b f ↔ AntitoneOn f (Ioo a b)) ∧
+    (IntervalMonotonic a b f ↔ MonotoneOn f (Ioo a b) ∨ AntitoneOn f (Ioo a b))
+
+
+theorem intervalIncreasing_iff_monotoneOn (a b : ℝ) (f : ℝ → ℝ) :
+    IntervalIncreasing a b f ↔ MonotoneOn f (Ioo a b) := by
+  constructor
+  · intro hf x hx y hy hxy
+    rcases hxy.eq_or_lt with h | h
+    · simp [h]
+    · exact hf x y hx.1 h hy.2
+  · intro hf x y hax hxy hyb
+    exact hf ⟨hax, hxy.trans hyb⟩ ⟨hax.trans hxy, hyb⟩ hxy.le
+
+theorem intervalDecreasing_iff_antitoneOn (a b : ℝ) (f : ℝ → ℝ) :
+    IntervalDecreasing a b f ↔ AntitoneOn f (Ioo a b) := by
+  constructor
+  · intro hf x hx y hy hxy
+    rcases hxy.eq_or_lt with h | h
+    · simp [h]
+    · exact hf x y hx.1 h hy.2
+  · intro hf x y hax hxy hyb
+    exact hf ⟨hax, hxy.trans hyb⟩ ⟨hax.trans hxy, hyb⟩ hxy.le
+
+theorem node_4_28 : Statement_4_28 := by
+  intro a b f
+  exact ⟨intervalIncreasing_iff_monotoneOn a b f, intervalDecreasing_iff_antitoneOn a b f,
+    or_congr (intervalIncreasing_iff_monotoneOn a b f) (intervalDecreasing_iff_antitoneOn a b f)⟩
+
 end Rudin.PMA.Chapter04
