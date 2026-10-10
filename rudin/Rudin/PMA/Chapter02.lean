@@ -1295,4 +1295,63 @@ theorem pma2_44 : CantorStages 0 = Icc (0 : ℝ) 1 ∧
     exact isCompact_Icc.of_isClosed_subset (isClosed_preCantorSet n) preCantorSet_subset_unitInterval
   · exact perfect_not_countable cantor_perfect ⟨0, zero_mem_cantorSet⟩
 
+/-! ### PMA-2.45: separated sets and connected sets. -/
+
+def Separated {X : Type*} [TopologicalSpace X] (A B : Set X) : Prop :=
+  Disjoint A (closure B) ∧ Disjoint (closure A) B
+
+def RudinConnected {X : Type*} [TopologicalSpace X] (E : Set X) : Prop :=
+  ∀ A B : Set X, A.Nonempty → B.Nonempty → Separated A B → E ≠ A ∪ B
+
+theorem pma2_45_separated_reference {X : Type*} [TopologicalSpace X] (A B : Set X) :
+    Separated A B ↔ A ∩ closure B = ∅ ∧ closure A ∩ B = ∅ := by
+  simp [Separated, Set.disjoint_iff_inter_eq_empty]
+
+theorem pma2_45_connected_reference {X : Type*} [TopologicalSpace X] (E : Set X) :
+    RudinConnected E ↔ IsPreconnected E := by
+  constructor
+  · intro h
+    apply isPreconnected_iff_subset_of_disjoint_closed.mpr
+    intro u v hu hv hcover hinter
+    by_contra hn
+    push Not at hn
+    rcases hn with ⟨hnu, hnv⟩
+    have hA : (E ∩ u).Nonempty := by
+      obtain ⟨x, hxE, hxv⟩ := Set.not_subset.mp hnv
+      exact ⟨x, hxE, (hcover hxE).resolve_right hxv⟩
+    have hB : (E ∩ v).Nonempty := by
+      obtain ⟨x, hxE, hxu⟩ := Set.not_subset.mp hnu
+      exact ⟨x, hxE, (hcover hxE).resolve_left hxu⟩
+    have hsep : Separated (E ∩ u) (E ∩ v) := by
+      constructor
+      · apply Set.disjoint_left.mpr
+        intro x hxA hxB
+        have hxv := (_root_.closure_minimal Set.inter_subset_right hv) hxB
+        have hx : x ∈ E ∩ (u ∩ v) := ⟨hxA.1, hxA.2, hxv⟩
+        simp [hinter] at hx
+      · apply Set.disjoint_left.mpr
+        intro x hxA hxB
+        have hxu := (_root_.closure_minimal Set.inter_subset_right hu) hxA
+        have hx : x ∈ E ∩ (u ∩ v) := ⟨hxB.1, hxu, hxB.2⟩
+        simp [hinter] at hx
+    apply h (E ∩ u) (E ∩ v) hA hB hsep
+    exact ((Set.inter_union_distrib_left E u v).symm.trans (Set.inter_eq_left.mpr hcover)).symm
+  · intro h A B hA hB hsep heq
+    have hcover : E ⊆ closure A ∪ closure B := by
+      rw [heq]
+      exact Set.union_subset_union subset_closure subset_closure
+    have hinter : E ∩ (closure A ∩ closure B) = ∅ := by
+      apply Set.eq_empty_iff_forall_notMem.mpr
+      rintro x ⟨hxE, hxA, hxB⟩
+      rw [heq] at hxE
+      rcases hxE with hx | hx
+      · exact Set.disjoint_left.mp hsep.1 hx hxB
+      · exact Set.disjoint_left.mp hsep.2 hxA hx
+    rcases isPreconnected_iff_subset_of_disjoint_closed.mp h (closure A) (closure B)
+      isClosed_closure isClosed_closure hcover hinter with hleft | hright
+    · obtain ⟨x, hx⟩ := hB
+      exact Set.disjoint_left.mp hsep.2 (hleft (heq.symm ▸ Or.inr hx)) hx
+    · obtain ⟨x, hx⟩ := hA
+      exact Set.disjoint_left.mp hsep.1 hx (hright (heq.symm ▸ Or.inl hx))
+
 end Rudin.PMA.Chapter02
