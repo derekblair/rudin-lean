@@ -120,4 +120,44 @@ def pma4_3_contract : Prop :=
 
 theorem pma4_3 : pma4_3_contract := ⟨fun _ _ _ => Iff.rfl, fun _ _ _ => Iff.rfl⟩
 
+/-! ### PMA-4.4: Algebra of function limits -/
+def pma4_4_contract : Prop :=
+  (∀ {X : Type*} [MetricSpace X] (E : Set X) (f g : X → ℂ)
+    (p : X) (A B : ℂ), FunctionLimitOn E f p A → FunctionLimitOn E g p B →
+      FunctionLimitOn E (ComplexSum f g) p (A + B) ∧
+      FunctionLimitOn E (ComplexProduct f g) p (A * B) ∧
+      (B ≠ 0 → FunctionLimitOn (QuotientDomain E g) (ComplexQuotient f g) p (A / B))) ∧
+  (∀ {X : Type*} [MetricSpace X] {k : ℕ} (E : Set X)
+    (f g : X → EuclideanSpace ℝ (Fin k)) (p : X) (A B : EuclideanSpace ℝ (Fin k)),
+      FunctionLimitOn E f p A → FunctionLimitOn E g p B →
+        FunctionLimitOn E (VectorSum f g) p (A + B) ∧
+        FunctionLimitOn E (InnerFunction f g) p (inner ℝ A B))
+
+theorem pma4_4 : pma4_4_contract := by
+  constructor
+  · intro X _ E f g p A B hf hg
+    have ht := (functionLimitOn_iff_tendsto E f p A hf.1).mp hf
+    have hu := (functionLimitOn_iff_tendsto E g p B hg.1).mp hg
+    refine ⟨(functionLimitOn_iff_tendsto E _ p _ hf.1).mpr (ht.add hu),
+      (functionLimitOn_iff_tendsto E _ p _ hf.1).mpr (ht.mul hu), ?_⟩
+    intro hB
+    have heq : 𝓝[QuotientDomain E g \ {p}] p = 𝓝[E \ {p}] p := by
+      have hset : QuotientDomain E g \ {p} = {x | g x ≠ 0} ∩ (E \ {p}) := by
+        ext x
+        simp only [QuotientDomain, Set.mem_sdiff, mem_inter_iff, mem_ofPred_eq, mem_singleton_iff]
+        tauto
+      rw [hset]
+      exact nhdsWithin_inter_of_mem (hu.eventually_ne hB)
+    have hp : Chapter02.IsLimitPoint p (QuotientDomain E g) := by
+      rw [functionLimitPoint_iff_neBot, heq]
+      exact (functionLimitPoint_iff_neBot E p).mp hf.1
+    apply (functionLimitOn_iff_tendsto _ _ _ _ hp).mpr
+    rw [heq]
+    exact ht.div hu hB
+  · intro X _ k E f g p A B hf hg
+    have ht := (functionLimitOn_iff_tendsto E f p A hf.1).mp hf
+    have hu := (functionLimitOn_iff_tendsto E g p B hg.1).mp hg
+    exact ⟨(functionLimitOn_iff_tendsto E _ p _ hf.1).mpr (ht.add hu),
+      (functionLimitOn_iff_tendsto E _ p _ hf.1).mpr (ht.inner hu)⟩
+
 end Rudin.PMA.Chapter04
