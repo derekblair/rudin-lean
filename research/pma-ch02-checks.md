@@ -49,3 +49,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-2.41 | PASS: Exact three-way Heine–Borel equivalence, including infinite-subset accumulation IN the target. |
 | PMA-2.42 | PASS: Bounded infinite Euclidean sets have ambient accumulation point; source point need not be set member. |
 | PMA-2.43 | PASS: Nonempty perfect Euclidean sets are uncountable; nondegenerate real intervals and the real line corollaries included. |
+| PMA-2.44 | PASS: Actual ternary-deletion recursive stages, 2^n distinct closed intervals of width3^-n, nested/compact stages, exact Cantor intersection, nonempty/compact/perfect/no segment/uncountable/volume0 all included. |

@@ -1090,4 +1090,209 @@ theorem pma2_43_real_uncountable : ¬ (Set.univ : Set ℝ).Countable := by
   intro h
   exact (pma2_43_corollary 0 1 (by norm_num)).1 (h.mono (Set.subset_univ _))
 
+/-! ### PMA-2.44: the middle-thirds Cantor set is compact, perfect, uncountable, and has no segment. -/
+
+abbrev CantorStages := preCantorSet
+abbrev CantorSet := cantorSet
+
+
+def CantorIntervals : ℕ → List (ℝ × ℝ)
+  | 0 => [(0, 1)]
+  | n + 1 => (CantorIntervals n).map (fun p => (p.1 / 3, p.2 / 3)) ++
+      (CantorIntervals n).map (fun p => ((2 + p.1) / 3, (2 + p.2) / 3))
+
+theorem cantor_intervals_count (n : ℕ) : (CantorIntervals n).length = 2 ^ n := by
+  induction n with
+  | zero => rfl
+  | succ n ih => simp [CantorIntervals, ih, pow_succ, mul_two]
+
+theorem cantor_intervals_length (n : ℕ) :
+    ∀ p ∈ CantorIntervals n, p.2 - p.1 = 1 / (3 : ℝ) ^ n := by
+  induction n with
+  | zero => simp [CantorIntervals]
+  | succ n ih =>
+    intro p hp
+    simp only [CantorIntervals, List.mem_append, List.mem_map] at hp
+    rcases hp with ⟨q, hq, rfl⟩ | ⟨q, hq, rfl⟩
+    · have hq' := ih q hq
+      simp only [pow_succ]
+      rw [div_mul_eq_div_div]
+      linarith
+    · have hq' := ih q hq
+      simp only [pow_succ]
+      rw [div_mul_eq_div_div]
+      linarith
+
+theorem cantor_intervals_reference (n : ℕ) (x : ℝ) :
+    x ∈ CantorStages n ↔ ∃ p ∈ CantorIntervals n, x ∈ Icc p.1 p.2 := by
+  induction n generalizing x with
+  | zero => simp [CantorStages, CantorIntervals]
+  | succ n ih =>
+    simp only [CantorStages, preCantorSet_succ, Set.mem_union, Set.mem_image]
+    constructor
+    · rintro (⟨y, hy, rfl⟩ | ⟨y, hy, rfl⟩)
+      · obtain ⟨p, hp, hpy⟩ := (ih y).mp hy
+        refine ⟨(p.1 / 3, p.2 / 3), ?_, ?_⟩
+        · apply List.mem_append_left
+          exact List.mem_map.mpr ⟨p, hp, rfl⟩
+        · rcases hpy with ⟨h₁, h₂⟩
+          constructor <;> dsimp <;> linarith
+      · obtain ⟨p, hp, hpy⟩ := (ih y).mp hy
+        refine ⟨((2 + p.1) / 3, (2 + p.2) / 3), ?_, ?_⟩
+        · apply List.mem_append_right
+          exact List.mem_map.mpr ⟨p, hp, rfl⟩
+        · rcases hpy with ⟨h₁, h₂⟩
+          constructor <;> dsimp <;> linarith
+    · rintro ⟨p, hp, hx⟩
+      simp only [CantorIntervals, List.mem_append, List.mem_map] at hp
+      rcases hp with ⟨q, hq, rfl⟩ | ⟨q, hq, rfl⟩
+      · left
+        refine ⟨3 * x, (ih _).mpr ⟨q, hq, ?_⟩, by ring⟩
+        rcases hx with ⟨h₁, h₂⟩
+        constructor <;> dsimp at * <;> linarith
+      · right
+        refine ⟨3 * x - 2, (ih _).mpr ⟨q, hq, ?_⟩, by ring⟩
+        rcases hx with ⟨h₁, h₂⟩
+        constructor <;> dsimp at * <;> linarith
+
+theorem cantor_intervals_bounds {n : ℕ} {p : ℝ × ℝ} (hp : p ∈ CantorIntervals n) :
+    0 ≤ p.1 ∧ p.1 ≤ p.2 ∧ p.2 ≤ 1 := by
+  have hlen : 0 < p.2 - p.1 := by
+    rw [cantor_intervals_length n p hp]
+    positivity
+  have hle : p.1 ≤ p.2 := by linarith
+  have h₁ := preCantorSet_subset_unitInterval ((cantor_intervals_reference n p.1).mpr
+    ⟨p, hp, le_refl _, hle⟩)
+  have h₂ := preCantorSet_subset_unitInterval ((cantor_intervals_reference n p.2).mpr
+    ⟨p, hp, hle, le_refl _⟩)
+  exact ⟨h₁.1, hle, h₂.2⟩
+
+theorem cantor_intervals_nodup (n : ℕ) : (CantorIntervals n).Nodup := by
+  induction n with
+  | zero => simp [CantorIntervals]
+  | succ n ih =>
+    rw [CantorIntervals, List.nodup_append]
+    refine ⟨?_, ?_, ?_⟩
+    · apply List.Nodup.map (f := fun p : ℝ × ℝ => (p.1 / 3, p.2 / 3)) ?_ ih
+      intro p q h
+      have h₁ := congrArg Prod.fst h
+      have h₂ := congrArg Prod.snd h
+      apply Prod.ext <;> dsimp at * <;> linarith
+    · apply List.Nodup.map (f := fun p : ℝ × ℝ => ((2 + p.1) / 3, (2 + p.2) / 3)) ?_ ih
+      intro p q h
+      have h₁ := congrArg Prod.fst h
+      have h₂ := congrArg Prod.snd h
+      apply Prod.ext <;> dsimp at * <;> linarith
+    · intro p hp q hq heq
+      obtain ⟨p', hp', rfl⟩ := List.mem_map.mp hp
+      obtain ⟨q', hq', rfl⟩ := List.mem_map.mp hq
+      have hpbound := cantor_intervals_bounds hp'
+      have hqbound := cantor_intervals_bounds hq'
+      have hfst := congrArg Prod.fst heq
+      dsimp at hfst
+      linarith [hpbound.2.1, hpbound.2.2, hqbound.1]
+
+theorem cantor_perfect : Perfect CantorSet := by
+  refine ⟨isClosed_cantorSet, ?_⟩
+  intro x hx
+  apply accPt_iff_nhds.mpr
+  intro U hU
+  let e := cantorSetHomeomorphNatToBool
+  let u : ℕ → Bool := e ⟨x, hx⟩
+  let g : ℕ → ℕ → Bool := fun n => Function.update u n (Bool.not (u n))
+  have hg : Tendsto g atTop (𝓝 u) := by
+    apply tendsto_pi_nhds.mpr
+    intro i
+    apply tendsto_const_nhds.congr'
+    filter_upwards [eventually_ge_atTop (i + 1)] with n hn
+    simp [g, Function.update_of_ne (show i ≠ n by omega)]
+  let f : (ℕ → Bool) → ℝ := fun v => (e.symm v).val
+  have hf : Continuous f := continuous_subtype_val.comp e.continuous_symm
+  have ht : Tendsto (fun n => f (g n)) atTop (𝓝 x) := by
+    have he : f u = x := congrArg Subtype.val (e.symm_apply_apply ⟨x, hx⟩)
+    simpa [Function.comp_def, he] using (hf.tendsto u).comp hg
+  obtain ⟨n, hn⟩ := (ht.eventually hU).exists
+  refine ⟨f (g n), ⟨hn, (e.symm (g n)).property⟩, ?_⟩
+  intro heq
+  have heq' : e.symm (g n) = (⟨x, hx⟩ : cantorSet) := Subtype.ext heq
+  have hgu : g n = u := by
+    simpa [u] using congrArg e heq'
+  have hb : Bool.not (u n) = u n := by simpa [g] using congrFun hgu n
+  exact (Bool.not_eq_self (u n)).mp hb
+
+theorem cantor_volume_zero : MeasureTheory.volume CantorSet = 0 := by
+  open MeasureTheory in
+  have hleft : volume ((fun x : ℝ => x / 3) '' cantorSet) =
+      ENNReal.ofReal (1 / 3 : ℝ) * volume cantorSet := by
+    have he : (fun x : ℝ => x / 3) '' cantorSet = (fun x : ℝ => 3 * x) ⁻¹' cantorSet := by
+      ext x
+      constructor
+      · rintro ⟨y, hy, rfl⟩
+        change 3 * (y / 3) ∈ cantorSet
+        convert hy using 1; ring
+      · intro hx
+        exact ⟨3 * x, hx, by ring⟩
+    rw [he, Real.volume_preimage_mul_left (by norm_num)]
+    norm_num
+  open MeasureTheory in
+  have hright : volume ((fun x : ℝ => (2 + x) / 3) '' cantorSet) =
+      ENNReal.ofReal (1 / 3 : ℝ) * volume cantorSet := by
+    have he : (fun x : ℝ => (2 + x) / 3) '' cantorSet =
+        (fun x : ℝ => 3 * x) ⁻¹' ((fun x : ℝ => -2 + x) ⁻¹' cantorSet) := by
+      ext x
+      constructor
+      · rintro ⟨y, hy, rfl⟩
+        change -2 + 3 * ((2 + y) / 3) ∈ cantorSet
+        convert hy using 1; ring
+      · intro hx
+        exact ⟨-2 + 3 * x, hx, by ring⟩
+    rw [he, Real.volume_preimage_mul_left (by norm_num), measure_preimage_add]
+    norm_num
+  open MeasureTheory in
+  have hle : volume cantorSet ≤ ENNReal.ofReal (1 / 3 : ℝ) * volume cantorSet +
+      ENNReal.ofReal (1 / 3 : ℝ) * volume cantorSet := by
+    calc
+      volume cantorSet = volume ((fun x : ℝ => x / 3) '' cantorSet ∪
+          (fun x : ℝ => (2 + x) / 3) '' cantorSet) := congrArg volume cantorSet_eq_union_halves
+      _ ≤ volume ((fun x : ℝ => x / 3) '' cantorSet) +
+          volume ((fun x : ℝ => (2 + x) / 3) '' cantorSet) := measure_union_le _ _
+      _ = _ := by rw [hleft, hright]
+  have hfin : MeasureTheory.volume cantorSet ≠ ⊤ := isCompact_cantorSet.measure_ne_top
+  have hmfin : ENNReal.ofReal (1 / 3 : ℝ) * MeasureTheory.volume cantorSet ≠ ⊤ :=
+    ENNReal.mul_ne_top ENNReal.ofReal_ne_top hfin
+  have hr := ENNReal.toReal_mono (ENNReal.add_ne_top.mpr ⟨hmfin, hmfin⟩) hle
+  rw [ENNReal.toReal_add hmfin hmfin, ENNReal.toReal_mul, ENNReal.toReal_ofReal (by norm_num)] at hr
+  have hz : (MeasureTheory.volume cantorSet).toReal = 0 := by
+    have hn := ENNReal.toReal_nonneg (a := MeasureTheory.volume cantorSet)
+    linarith
+  exact ((ENNReal.toReal_eq_zero_iff _).mp hz).resolve_right hfin
+
+theorem cantor_no_segment (a b : ℝ) (hab : a < b) : ¬ Ioo a b ⊆ CantorSet := by
+  intro hsub
+  have hle := MeasureTheory.measure_mono (μ := MeasureTheory.volume) hsub
+  rw [cantor_volume_zero, Real.volume_Ioo] at hle
+  have hpos : 0 < ENNReal.ofReal (b - a) := ENNReal.ofReal_pos.mpr (sub_pos.mpr hab)
+  exact (not_le_of_gt hpos) hle
+
+theorem pma2_44 : CantorStages 0 = Icc (0 : ℝ) 1 ∧
+    (∀ n, CantorStages (n + 1) =
+      (fun x : ℝ => x / 3) '' CantorStages n ∪
+      (fun x : ℝ => (2 + x) / 3) '' CantorStages n) ∧
+    (∀ n, (CantorIntervals n).length = 2 ^ n ∧ (CantorIntervals n).Nodup ∧
+      (∀ p ∈ CantorIntervals n, p.2 - p.1 = 1 / (3 : ℝ) ^ n) ∧
+      (∀ x, x ∈ CantorStages n ↔ ∃ p ∈ CantorIntervals n, x ∈ Icc p.1 p.2) ∧
+      RudinCompact (CantorStages n)) ∧
+    Antitone CantorStages ∧ CantorSet = ⋂ n, CantorStages n ∧
+    RudinCompact CantorSet ∧ CantorSet.Nonempty ∧ Perfect CantorSet ∧
+    (∀ a b : ℝ, a < b → ¬ Ioo a b ⊆ CantorSet) ∧
+    ¬ CantorSet.Countable ∧ MeasureTheory.volume CantorSet = 0 := by
+  refine ⟨rfl, fun _ => rfl, ?_, preCantorSet_antitone, rfl,
+    (pma2_32_reference _).mpr isCompact_cantorSet, ⟨0, zero_mem_cantorSet⟩,
+    cantor_perfect, cantor_no_segment, ?_, cantor_volume_zero⟩
+  · intro n
+    refine ⟨cantor_intervals_count n, cantor_intervals_nodup n, cantor_intervals_length n, cantor_intervals_reference n, ?_⟩
+    apply (pma2_32_reference _).mpr
+    exact isCompact_Icc.of_isClosed_subset (isClosed_preCantorSet n) preCantorSet_subset_unitInterval
+  · exact perfect_not_countable cantor_perfect ⟨0, zero_mem_cantorSet⟩
+
 end Rudin.PMA.Chapter02
