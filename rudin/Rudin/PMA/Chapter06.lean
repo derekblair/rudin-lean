@@ -12,6 +12,7 @@ import Rudin.PMA.Chapter06.Exceptional
 import Rudin.PMA.Chapter06.Calculus
 import Rudin.PMA.Chapter06.Moment
 import Rudin.PMA.Chapter06.Vector
+import Rudin.PMA.Chapter06.Curve
 
 /-! # PMA Chapter 6: verified sections in dependency order.
 The index is in book order; only the listed nodes have been integrated.
@@ -155,6 +156,16 @@ Principal proof: `pma6_24`. Definitions and supporting proofs: `Chapter06/Vector
 /-! ### PMA-6.25
 
 Principal proof: `pma6_25`. Definitions and supporting proofs: `Chapter06/Vector.lean`.
+-/
+
+/-! ### PMA-6.26
+
+Principal proof: `pma6_26`. Definitions and supporting proofs: `Chapter06/Curve.lean`.
+-/
+
+/-! ### PMA-6.27
+
+Principal proof: `pma6_27`. Definitions and supporting proofs: `Chapter06/Curve.lean`.
 -/
 
 end Rudin.PMA.Chapter06
