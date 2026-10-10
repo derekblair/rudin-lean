@@ -1,6 +1,7 @@
 import Rudin.PMA.Chapter01
 import Rudin.PMA.Chapter01Audit
 import Rudin.PMA.Chapter02
+import Rudin.PMA.Chapter02Audit
 import Rudin.PMA.Chapter03
 import Rudin.PMA.Chapter04
 import Rudin.PMA.Chapter05
