@@ -41,3 +41,13 @@ independently reviewed; final verification includes 14 authored boundary probes
 and a recursive audit of 604 chapter/probe declarations against the three
 permitted axioms. Run `python3 scripts/check_chapter.py 3`; fidelity evidence is
 in `research/pma-ch03-checks.md` and `research/pma-ch03-fidelity.md`.
+
+Chapter 4 is complete: 34 / 34 nodes, each with a local `PMA-4.x done`
+commit and passing default build. All definitions and every contract conjunct
+were independently reviewed before proof. Final verification includes 18 authored
+boundary probes and a recursive audit of 275 chapter/probe declarations against
+the three permitted axioms. Independent actual-source comparison confirms all
+79 distinct reviewed definitions/contracts and all 34 principal proof signatures.
+Run `python3 scripts/check_chapter.py 4`; fidelity evidence is in
+`research/pma-ch04-checks.md`, `research/pma-ch04-fidelity.md`, and
+`research/pma-ch04-production-review.md`.

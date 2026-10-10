@@ -42,7 +42,8 @@ the module structure, so every later lemma builds on verified earlier ones.
 
 Chapter 1: all 37 requested nodes complete with zero proof placeholders.
 Chapter 2: all 47 numbered nodes complete.
-Chapter 3: all 55 numbered nodes complete. Chapters 4–11 follow in order.
+Chapter 3: all 55 numbered nodes complete.
+Chapter 4: all 34 numbered nodes complete. Chapters 5–11 follow in order.
 The default `lake build` compiles boundary probes and audits completed chapter
 declarations for the three permitted axioms. See `PROGRESS.md` and the
 chapter-specific verification logs under `research/`.
