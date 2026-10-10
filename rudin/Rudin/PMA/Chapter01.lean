@@ -937,4 +937,22 @@ theorem pma_complex_sum_succ {n : ℕ} (z : Fin (n + 1) → ℂ) :
     pmaComplexSum z = pmaComplexSum (fun i : Fin n => z i.castSucc) + z (Fin.last n) :=
   Fin.sum_univ_castSucc z
 
+/-! ### PMA-1.35: the squared complex Cauchy–Schwarz inequality. -/
+
+theorem pma_complex_cauchy_schwarz {n : ℕ} (a b : Fin n → ℂ) :
+    pmaComplexAbs (pmaComplexSum (fun j => a j * pmaConjugate (b j))) ^ 2 ≤
+      (∑ j, pmaComplexAbs (a j) ^ 2) * (∑ j, pmaComplexAbs (b j) ^ 2) := by
+  let x : EuclideanSpace ℂ (Fin n) := WithLp.toLp 2 a
+  let y : EuclideanSpace ℂ (Fin n) := WithLp.toLp 2 b
+  have hi : inner ℂ y x = pmaComplexSum (fun j => a j * pmaConjugate (b j)) := by
+    simp [PiLp.inner_apply, RCLike.inner_apply, pmaComplexSum, pmaConjugate, x, y]
+  simp only [pma_complex_abs_eq_norm]
+  rw [← hi]
+  calc
+    ‖inner ℂ y x‖ ^ 2 ≤ (‖y‖ * ‖x‖) ^ 2 :=
+      pow_le_pow_left₀ (norm_nonneg _) (norm_inner_le_norm y x) 2
+    _ = (∑ j, ‖a j‖ ^ 2) * (∑ j, ‖b j‖ ^ 2) := by
+      rw [mul_pow, EuclideanSpace.norm_sq_eq, EuclideanSpace.norm_sq_eq]
+      simp [x, y, mul_comm]
+
 end Rudin.PMA.Chapter01
