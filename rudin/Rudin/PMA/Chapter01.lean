@@ -170,4 +170,97 @@ theorem pma1_8_inf_unique {α : Type*} [LinearOrder α] {E : Set α} {a b : α}
   (pma1_8_inf_reference E a).mp ha |>.unique ((pma1_8_inf_reference E b).mp hb)
 
 
+/-! ### PMA-1.9: examples of suprema and infima. -/
+
+theorem pma1_9_upperBounds : upperBounds rationalBelowSqrtTwo = rationalAboveSqrtTwo := by
+  ext p
+  constructor
+  · intro hp
+    have h1 : (1 : ℚ) ∈ rationalBelowSqrtTwo := by constructor <;> norm_num
+    have hp0 : 0 < p := lt_of_lt_of_le (by norm_num : (0 : ℚ) < 1) (hp h1)
+    refine ⟨hp0, lt_of_not_ge ?_⟩
+    intro hs
+    have hlt : p ^ 2 < 2 := lt_of_le_of_ne hs (pma1_1_no_rational_square p)
+    obtain ⟨q, hq, hpq⟩ := pma1_1_no_largest p ⟨hp0, hlt⟩
+    exact (not_le_of_gt hpq) (hp hq)
+  · rintro ⟨hp0, hp2⟩ x ⟨hx0, hx2⟩
+    by_contra h
+    have : p < x := lt_of_not_ge h
+    nlinarith
+
+theorem pma1_9_lowerBounds : lowerBounds rationalAboveSqrtTwo =
+    rationalBelowSqrtTwo ∪ Set.Iic 0 := by
+  ext p
+  constructor
+  · intro hp
+    by_cases hp0 : 0 < p
+    · left
+      refine ⟨hp0, lt_of_not_ge ?_⟩
+      intro hs
+      have hlt : 2 < p ^ 2 := lt_of_le_of_ne hs (pma1_1_no_rational_square p).symm
+      obtain ⟨q, hq, hqp⟩ := pma1_1_no_smallest p ⟨hp0, hlt⟩
+      exact (not_le_of_gt hqp) (hp hq)
+    · exact Or.inr (le_of_not_gt hp0)
+  · rintro (⟨hp0, hp2⟩ | hp0) x ⟨hx0, hx2⟩
+    · by_contra h
+      have : x < p := lt_of_not_ge h
+      nlinarith
+    · exact le_trans hp0 hx0.le
+
+theorem pma1_9_rational_gap :
+    BddAbove rationalBelowSqrtTwo ∧ BddBelow rationalAboveSqrtTwo ∧
+    ¬ (∃ a : ℚ, IsLUB rationalBelowSqrtTwo a) ∧
+    ¬ (∃ b : ℚ, IsGLB rationalAboveSqrtTwo b) := by
+  have h2 : (2 : ℚ) ∈ rationalAboveSqrtTwo := by constructor <;> norm_num
+  have h1 : (1 : ℚ) ∈ rationalBelowSqrtTwo := by constructor <;> norm_num
+  refine ⟨⟨2, by rwa [pma1_9_upperBounds]⟩, ⟨0, ?_⟩, ?_, ?_⟩
+  · intro p hp; exact hp.1.le
+  · rintro ⟨a, ha⟩
+    have haB : a ∈ rationalAboveSqrtTwo := by simpa [pma1_9_upperBounds] using ha.1
+    obtain ⟨b, hb, hba⟩ := pma1_1_no_smallest a haB
+    have hbU : b ∈ upperBounds rationalBelowSqrtTwo := by simpa [pma1_9_upperBounds] using hb
+    exact (not_le_of_gt hba) (ha.2 hbU)
+  · rintro ⟨b, hb⟩
+    have hbA : b ∈ rationalBelowSqrtTwo ∪ Set.Iic 0 := by
+      simpa [pma1_9_lowerBounds] using hb.1
+    rcases hbA with hbA | hb0
+    · obtain ⟨a, ha, hba⟩ := pma1_1_no_largest b hbA
+      have haL : a ∈ lowerBounds rationalAboveSqrtTwo := by
+        rw [pma1_9_lowerBounds]; exact Or.inl ha
+      exact (not_le_of_gt hba) (hb.2 haL)
+    · have h1L : (1 : ℚ) ∈ lowerBounds rationalAboveSqrtTwo := by
+        rw [pma1_9_lowerBounds]; exact Or.inl h1
+      have := hb.2 h1L
+      change b ≤ 0 at hb0
+      linarith
+
+theorem pma1_9_membership_examples :
+    IsLUB (Set.Iio (0 : ℚ)) 0 ∧ IsLUB (Set.Iic (0 : ℚ)) 0 ∧
+    (0 : ℚ) ∉ Set.Iio 0 ∧ (0 : ℚ) ∈ Set.Iic 0 :=
+  by
+  refine ⟨isLUB_Iio, isLUB_Iic, ?_, ?_⟩ <;> simp
+
+def positiveReciprocals : Set ℚ := {x | ∃ n : ℕ, 0 < n ∧ x = 1 / (n : ℚ)}
+
+theorem pma1_9_reciprocals :
+    IsLUB positiveReciprocals 1 ∧ IsGLB positiveReciprocals 0 ∧
+    (1 : ℚ) ∈ positiveReciprocals ∧ (0 : ℚ) ∉ positiveReciprocals := by
+  have h1 : (1 : ℚ) ∈ positiveReciprocals := ⟨1, by norm_num, by norm_num⟩
+  have hpos : ∀ x ∈ positiveReciprocals, 0 < x := by
+    rintro x ⟨n, hn, rfl⟩; positivity
+  refine ⟨⟨?_, fun b hb => hb h1⟩, ⟨fun x hx => (hpos x hx).le, ?_⟩, h1, ?_⟩
+  · rintro x ⟨n, hn, rfl⟩
+    have hn1 : (1 : ℚ) ≤ n := by exact_mod_cast hn
+    exact (div_le_one (by positivity : (0 : ℚ) < n)).mpr hn1
+  · intro b hb
+    by_contra h
+    have hb0 : 0 < b := lt_of_not_ge h
+    obtain ⟨n, hn⟩ := exists_nat_one_div_lt (K := ℚ) hb0
+    have hm : 1 / ((n + 1 : ℕ) : ℚ) ∈ positiveReciprocals :=
+      ⟨n + 1, Nat.succ_pos n, rfl⟩
+    have hh := hb hm
+    push_cast at hh
+    exact (not_le_of_gt hn) hh
+  · intro h; exact lt_irrefl 0 (hpos 0 h)
+
 end Rudin.PMA.Chapter01
