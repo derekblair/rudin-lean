@@ -1046,4 +1046,48 @@ theorem pma2_42 {k : ℕ} (_hk : 0 < k) {E : Set (EuclideanSpace ℝ (Fin k))}
     (Metric.isCompact_iff_isClosed_bounded.mpr ⟨isClosed_closure, hb.closure⟩) subset_closure
   exact ⟨p, hp⟩
 
+/-! ### PMA-2.43: nonempty perfect Euclidean sets are uncountable. -/
+
+theorem perfect_not_countable {X : Type*} [MetricSpace X] [CompleteSpace X] {P : Set X}
+    (hP : Perfect P) (hne : P.Nonempty) : ¬ P.Countable := by
+  classical
+  obtain ⟨f, hfP, _, hfi⟩ := hP.exists_nat_bool_injection hne
+  intro hcount
+  have hfcount : (Set.range f).Countable := hcount.mono hfP
+  let g : (ℕ → Bool) → Set.range f := fun x => ⟨f x, Set.mem_range_self x⟩
+  have hg : Function.Injective g := fun x y h => hfi (congrArg Subtype.val h)
+  let : Countable (Set.range f) := Set.countable_coe_iff.mpr hfcount
+  have hdomain : Countable (ℕ → Bool) := hg.countable
+  let := hdomain
+  let := Encodable.ofCountable (ℕ → Bool)
+  have hinj : Function.Injective (fun A : Set ℕ => Encodable.encode (fun n => decide (n ∈ A))) := by
+    intro A B h
+    have he := Encodable.encode_injective h
+    ext n
+    simpa using (congrFun he n)
+  exact Function.cantor_injective _ hinj
+
+theorem pma2_43 {k : ℕ} (_hk : 0 < k) {P : Set (EuclideanSpace ℝ (Fin k))}
+    (hP : Perfect P) (hne : P.Nonempty) : ¬ P.Countable :=
+  perfect_not_countable hP hne
+
+theorem pma2_43_corollary (a b : ℝ) (hab : a < b) :
+    ¬ (Icc a b).Countable ∧ ¬ (Ioo a b).Countable := by
+  have hc : ∀ c d : ℝ, c < d → ¬ (Icc c d).Countable := by
+    intro c d hcd
+    apply perfect_not_countable
+    · simpa [closure_Ioo hcd.ne] using (isOpen_Ioo : IsOpen (Ioo c d)).perfect_closure
+    · exact Set.nonempty_Icc.mpr hcd.le
+  refine ⟨hc a b hab, ?_⟩
+  intro h
+  apply hc ((2 * a + b) / 3) ((a + 2 * b) / 3) (by linarith)
+  apply h.mono
+  intro x hx
+  rcases hx with ⟨h₁, h₂⟩
+  constructor <;> linarith
+
+theorem pma2_43_real_uncountable : ¬ (Set.univ : Set ℝ).Countable := by
+  intro h
+  exact (pma2_43_corollary 0 1 (by norm_num)).1 (h.mono (Set.subset_univ _))
+
 end Rudin.PMA.Chapter02

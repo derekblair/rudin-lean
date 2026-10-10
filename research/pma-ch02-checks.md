@@ -48,3 +48,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-2.40 | PASS: Every coordinate cell is compact, including source positive-dimension cases. |
 | PMA-2.41 | PASS: Exact three-way Heine–Borel equivalence, including infinite-subset accumulation IN the target. |
 | PMA-2.42 | PASS: Bounded infinite Euclidean sets have ambient accumulation point; source point need not be set member. |
+| PMA-2.43 | PASS: Nonempty perfect Euclidean sets are uncountable; nondegenerate real intervals and the real line corollaries included. |
