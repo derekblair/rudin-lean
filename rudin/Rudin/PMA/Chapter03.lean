@@ -721,4 +721,56 @@ theorem pma3_20_geometric (x : ℝ) (hx : |x| < 1) :
     ConvergesTo (fun n : ℕ => x^(n+1)) 0 := by
   exact (pma3_1_reference _ _).mpr
     ((tendsto_pow_atTop_nhds_zero_of_abs_lt_one hx).comp (tendsto_add_atTop_nat 1))
+/-! ### PMA-3.21: Ordered series definitions and statement contracts.
+
+`PartialSums a N` contains the first `N` zero-indexed terms. Rudin explicitly
+allows indexing from zero. Positive-indexed notation is represented by `a (n+1)`;
+its exact comparison to sums from 1 through N is part of the definition contract.
+Mathlib's conditional summation filter, rather than its default unconditional
+filter, is the reference for ordinary series convergence.
+-/
+def BlockSum {V : Type*} [AddCommMonoid V] (a : ℕ → V) (p q : ℕ) : V :=
+  ∑ k ∈ Finset.Icc p q, a k
+
+def PartialSums {V : Type*} [AddCommMonoid V] (a : ℕ → V) (N : ℕ) : V :=
+  ∑ n ∈ Finset.range N, a n
+
+def SeriesHasSum {V : Type*} [AddCommMonoid V] [TopologicalSpace V]
+    (a : ℕ → V) (s : V) : Prop := Tendsto (PartialSums a) atTop (𝓝 s)
+
+def SeriesConverges {V : Type*} [AddCommMonoid V] [TopologicalSpace V]
+    (a : ℕ → V) : Prop := ∃ s, SeriesHasSum a s
+
+def SeriesDiverges {V : Type*} [AddCommMonoid V] [TopologicalSpace V]
+    (a : ℕ → V) : Prop := ¬ SeriesConverges a
+
+def Statement_3_21 {V : Type*} [AddCommMonoid V] [TopologicalSpace V] : Prop :=
+  (∀ (a : ℕ → V) N, PartialSums (fun n => a (n+1)) N = BlockSum a 1 N) ∧
+  (∀ (a : ℕ → V) s, SeriesHasSum a s ↔
+    HasSum a s (SummationFilter.conditional ℕ)) ∧
+  (∀ a : ℕ → V, SeriesConverges a ↔ Summable a (SummationFilter.conditional ℕ))
+
+/-! PMA-3.21 proof details: Verified ordered-series reference comparisons. -/
+theorem partialSums_positive_index {V : Type*} [AddCommMonoid V]
+    (a : ℕ → V) (N : ℕ) : PartialSums (fun n => a (n+1)) N = BlockSum a 1 N := by
+  induction N with
+  | zero => simp [PartialSums, BlockSum]
+  | succ N ih =>
+    change (∑ k ∈ Finset.range (N+1), a (k+1)) = ∑ k ∈ Finset.Icc 1 (N+1), a k
+    rw [Finset.sum_range_succ, Finset.sum_Icc_succ_top (by omega)]
+    exact congrArg (fun x => x + a (N+1)) ih
+
+theorem seriesHasSum_iff_conditional {V : Type*} [AddCommMonoid V] [TopologicalSpace V]
+    (a : ℕ → V) (s : V) : SeriesHasSum a s ↔ HasSum a s (.conditional ℕ) := by
+  rw [HasSum, SummationFilter.conditional_filter_eq_map_range, tendsto_map'_iff]
+  rfl
+
+theorem seriesConverges_iff_conditional {V : Type*} [AddCommMonoid V] [TopologicalSpace V]
+    (a : ℕ → V) : SeriesConverges a ↔ Summable a (.conditional ℕ) :=
+  exists_congr fun s => seriesHasSum_iff_conditional a s
+
+theorem node_3_21 {V : Type*} [AddCommMonoid V] [TopologicalSpace V] :
+    Statement_3_21 (V := V) :=
+  ⟨partialSums_positive_index, seriesHasSum_iff_conditional, seriesConverges_iff_conditional⟩
+
 end Rudin.PMA.Chapter03
