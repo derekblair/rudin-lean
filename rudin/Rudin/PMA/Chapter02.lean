@@ -805,4 +805,19 @@ theorem setClosure_eq_closure {X : Type*} [MetricSpace X] (E : Set X) :
     setClosure E = closure E := by
   rw [setClosure, limitPoints_eq_derivedSet, closure_eq_self_union_derivedSet]
 
+/-! ### PMA-2.27: Closure is the smallest closed superset. -/
+theorem closure_closed {X : Type*} [MetricSpace X] (E : Set X) :
+    IsClosedSet (setClosure E) := by
+  rw [isClosedSet_iff_isClosed, setClosure_eq_closure]
+  exact isClosed_closure
+
+theorem closure_eq_self_iff_closed {X : Type*} [MetricSpace X] (E : Set X) :
+    setClosure E = E ↔ IsClosedSet E := by
+  rw [setClosure_eq_closure, isClosedSet_iff_isClosed, closure_eq_iff_isClosed]
+
+theorem closure_minimal {X : Type*} [MetricSpace X] {E F : Set X}
+    (hF : IsClosedSet F) (hEF : E ⊆ F) : setClosure E ⊆ F := by
+  rw [setClosure_eq_closure]
+  exact _root_.closure_minimal hEF ((isClosedSet_iff_isClosed F).mp hF)
+
 end Rudin.PMA.Chapter02
