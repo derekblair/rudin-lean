@@ -1795,4 +1795,102 @@ theorem node_4_33 : Statement_4_33 := by
   · intro h
     exact ⟨h.1, (functionLimitOn_iff_tendsto E f x A h.1).mp h⟩
 
+/-! ### PMA-4.34: Admissible extended arithmetic and uniqueness. -/
+
+def ExtendedAddDefined (A B : EReal) : Prop :=
+  ¬ (A = ⊤ ∧ B = ⊥) ∧ ¬ (A = ⊥ ∧ B = ⊤)
+
+def ExtendedMulDefined (A B : EReal) : Prop :=
+  (A = 0 → B ≠ ⊤ ∧ B ≠ ⊥) ∧ (B = 0 → A ≠ ⊤ ∧ A ≠ ⊥)
+
+def ExtendedDivDefined (A B : EReal) : Prop :=
+  B ≠ 0 ∧ ((A = ⊤ ∨ A = ⊥) → B ≠ ⊤ ∧ B ≠ ⊥)
+
+def Statement_4_34 : Prop :=
+  (∀ (E : Set ℝ) (f : ℝ → ℝ) (x A B : EReal),
+    ExtendedLimitOn E f x A → ExtendedLimitOn E f x B → A = B) ∧
+  (∀ (E : Set ℝ) (f g : ℝ → ℝ) (x A B : EReal),
+    ExtendedLimitOn E f x A → ExtendedLimitOn E g x B →
+      (ExtendedAddDefined A B → ExtendedLimitOn E (fun t => f t + g t) x (A + B)) ∧
+      (ExtendedMulDefined A B → ExtendedLimitOn E (fun t => f t * g t) x (A * B)) ∧
+      (ExtendedDivDefined A B →
+        ExtendedLimitOn (E ∩ {t | g t ≠ 0}) (fun t => f t / g t) x (A / B)))
+
+theorem real_inverse_ereal_limit {F : Filter ℝ} (g : ℝ → ℝ) (B : EReal)
+    (hg : Tendsto (fun t => (g t : EReal)) F (𝓝 B)) (hB : B ≠ 0) :
+    Tendsto (fun t => ((g t)⁻¹ : EReal)) F (𝓝 (B⁻¹)) := by
+  induction B using EReal.rec with
+  | bot =>
+    rw [EReal.inv_bot]
+    exact EReal.tendsto_coe.mpr (tendsto_inv_atBot_zero.comp
+      (EReal.tendsto_coe_nhds_bot_iff.mp hg))
+  | coe b =>
+    have hb : b ≠ 0 := by simpa using hB
+    exact EReal.tendsto_coe.mpr ((EReal.tendsto_coe.mp hg).inv₀ hb)
+  | top =>
+    rw [EReal.inv_top]
+    exact EReal.tendsto_coe.mpr (tendsto_inv_atTop_zero.comp
+      (EReal.tendsto_coe_nhds_top_iff.mp hg))
+
+theorem extendedDivDefined_mul_inverse (A B : EReal) (h : ExtendedDivDefined A B) :
+    ExtendedMulDefined A (B⁻¹) := by
+  induction A using EReal.rec <;> induction B using EReal.rec <;>
+    simp_all [ExtendedDivDefined, ExtendedMulDefined, ← EReal.coe_inv]
+
+theorem extendedApproachFilter_nonzero (E : Set ℝ) (g : ℝ → ℝ) (x B : EReal)
+    (hg : Tendsto (fun t => (g t : EReal)) (ExtendedApproachFilter E x) (𝓝 B))
+    (hB : B ≠ 0) :
+    ExtendedApproachFilter (E ∩ {t | g t ≠ 0}) x = ExtendedApproachFilter E x := by
+  have he : ∀ᶠ t in ExtendedApproachFilter E x, g t ≠ 0 := by
+    simpa using hg.eventually_ne hB
+  have hfilter : ExtendedApproachFilter (E ∩ {t | g t ≠ 0}) x =
+      ExtendedApproachFilter E x ⊓ 𝓟 {t | g t ≠ 0} := by
+    unfold ExtendedApproachFilter
+    rw [inf_assoc, inf_principal]
+    congr 1
+    congr 1
+    ext t
+    simp only [mem_inter_iff, mem_ofPred_eq]
+    tauto
+  rw [hfilter, inf_eq_left.mpr (le_principal_iff.mpr he)]
+
+theorem extendedLimitOn_unique (E : Set ℝ) (f : ℝ → ℝ) (x A B : EReal)
+    (hA : ExtendedLimitOn E f x A) (hB : ExtendedLimitOn E f x B) : A = B := by
+  obtain ⟨hne, hA⟩ := (extendedLimitOn_iff_tendsto E f x A).mp hA
+  have : (ExtendedApproachFilter E x).NeBot := hne
+  exact tendsto_nhds_unique hA ((extendedLimitOn_iff_tendsto E f x B).mp hB).2
+
+theorem extendedReal_tendsto_mul {F : Filter ℝ} (f g : ℝ → ℝ) (A B : EReal)
+    (hf : Tendsto (fun t => (f t : EReal)) F (𝓝 A))
+    (hg : Tendsto (fun t => (g t : EReal)) F (𝓝 B))
+    (h : ExtendedMulDefined A B) :
+    Tendsto (fun t => (f t * g t : EReal)) F (𝓝 (A * B)) := by
+  unfold ExtendedMulDefined at h
+  simpa only [EReal.coe_mul] using EReal.Tendsto.mul hf hg
+    (by tauto) (by tauto) (by tauto) (by tauto)
+
+theorem node_4_34 : Statement_4_34 := by
+  refine ⟨extendedLimitOn_unique, ?_⟩
+  intro E f g x A B hf hg
+  obtain ⟨hne, ht⟩ := (extendedLimitOn_iff_tendsto E f x A).mp hf
+  have hu := ((extendedLimitOn_iff_tendsto E g x B).mp hg).2
+  refine ⟨?_, ?_, ?_⟩
+  · intro h
+    apply (extendedLimitOn_iff_tendsto _ _ _ _).mpr
+    refine ⟨hne, ?_⟩
+    unfold ExtendedAddDefined at h
+    simpa only [EReal.coe_add, Function.comp_def] using
+      (EReal.continuousAt_add (by tauto) (by tauto)).tendsto.comp (ht.prodMk_nhds hu)
+  · intro h
+    exact (extendedLimitOn_iff_tendsto _ _ _ _).mpr
+      ⟨hne, extendedReal_tendsto_mul f g A B ht hu h⟩
+  · intro h
+    have heq := extendedApproachFilter_nonzero E g x B hu h.1
+    apply (extendedLimitOn_iff_tendsto _ _ _ _).mpr
+    rw [heq]
+    refine ⟨hne, ?_⟩
+    have hi := real_inverse_ereal_limit g B hu h.1
+    have hm := extendedReal_tendsto_mul f (fun t => (g t)⁻¹) A (B⁻¹) ht hi
+      (extendedDivDefined_mul_inverse A B h)
+    simpa only [div_eq_mul_inv, EReal.coe_mul, EReal.coe_inv] using hm
 end Rudin.PMA.Chapter04
