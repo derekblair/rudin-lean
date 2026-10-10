@@ -11,7 +11,7 @@ All completed nodes have zero proof placeholders.
 | 02 | Basic Topology | 47 / 47 |
 | 03 | Numerical Sequences and Series | 55 / 55 |
 | 04 | Continuity | 34 / 34 |
-| 05 | Differentiation | 0 |
+| 05 | Differentiation | 0 / 19 |
 | 06 | The Riemann-Stieltjes Integral | 0 |
 | 07 | Sequences and Series of Functions | 0 |
 | 08 | Some Special Functions | 0 |

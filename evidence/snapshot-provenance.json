@@ -1,0 +1,72 @@
+{
+  "created_utc": "2026-10-10T15:38:39.750655+00:00",
+  "source": "/home/derekblair/rudin-lean",
+  "source_head": "97758281a2802ea1700c9b84164c05a2cc64313d",
+  "dependencies": [
+    {
+      "name": "mathlib",
+      "rev": "d13f23b723b8a846827a245b89c10fc7d3f11612"
+    },
+    {
+      "name": "plausible",
+      "rev": "118aa17ee84656b8bd727fef7c458ee8c833385c"
+    },
+    {
+      "name": "LeanSearchClient",
+      "rev": "ddf04cf3949fa556442341e87d47f9f6e6074707"
+    },
+    {
+      "name": "importGraph",
+      "rev": "e928b72544873815af278d38681b31c0293588e3"
+    },
+    {
+      "name": "proofwidgets",
+      "rev": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5"
+    },
+    {
+      "name": "aesop",
+      "rev": "355695d523e41d0554926416cba2a2b3544fbbc9"
+    },
+    {
+      "name": "Qq",
+      "rev": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259"
+    },
+    {
+      "name": "batteries",
+      "rev": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2"
+    },
+    {
+      "name": "Cli",
+      "rev": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204"
+    }
+  ],
+  "source_sha256": {
+    "rudin/Rudin/PMA/Chapter01.lean": "a82aaa52abdf6c9446d12674ee2b3d81829518f3d68035f4e43fd83a7d6da108",
+    "rudin/Rudin/PMA/Chapter02.lean": "7ec4b5443560804666aad9010d2a4600d545973dbb85fe0a8dc7268391d320e7",
+    "rudin/Rudin/PMA/Chapter03.lean": "f711278f4e18ceeb1333cdda759a80635cf935d7c3658c1e984300eeb7808020",
+    "rudin/Rudin/PMA/Chapter04.lean": "71ac9841413d7046b72f943541667d91f77dfc77924fbc588c2dbea277754df8",
+    "rudin/Rudin/PMA/Chapter05.lean": "2b34e95c8ca247daa1a18268cdae162e21a3921a84e135233af3c0a5491bda56",
+    "rudin/Rudin/PMA/Chapter06.lean": "bbe967f4fde229c0c05f7757603d95b579954413ea6af1ec0da29e246e9e615b",
+    "rudin/Rudin/PMA/Chapter07.lean": "50c1bda6fcf9b55ff7b6940aecc23a4085f98891ced15f1b46d3f00d22ba9b20",
+    "rudin/Rudin/PMA/Chapter08.lean": "60b7ec57001c0255f4badb10f72a8282bd2ba485f43eabd2d4d756beeca63c68",
+    "rudin/Rudin/PMA/Chapter09.lean": "d076e21ceaf56a0ae166a1b10f470ebebb2bf08eca627bf3d731fbdc95c45bcc",
+    "rudin/Rudin/PMA/Chapter10.lean": "293c07084cdb2faeb0b2c707b0cbcecc7145adbafc604031946ec2e29bc43f71",
+    "rudin/Rudin/PMA/Chapter11.lean": "3c3a49770fce6e3230ea1849bb273833ebcd20e034c8a294d936b44821fd1b83",
+    "rudin/Rudin/PMA/Chapter01Probes.lean": "799fbd4fbb34aaa973c91913066fe9775c9c4634416a2426197ad86ec9104898",
+    "rudin/Rudin/PMA/Chapter01Audit.lean": "caa5821f89f5c107c43422fd79f0e3b72eb353b89eca2ae849feae3c50b3e2f2",
+    "rudin/Rudin/PMA/Chapter02Audit.lean": "f71f5d315ed5e101b3183fa0095bcb6c92499aed620a3447a7e7ec4ecead7e95",
+    "rudin/Rudin/PMA/Chapter02Probes.lean": "cc380bde145028cb1a7d2a69e77dfa40f84fbe1b42c1401160006e811d65e3fc",
+    "rudin/Rudin/PMA/Chapter03Probes.lean": "3da80d840c8db1cb2aec7049950832528e7f9985fe46869483e0af5cd34b9f0c",
+    "rudin/Rudin/PMA/Chapter03Audit.lean": "bc028b4ea977a38154844f684e4cc2784ec2a490a30f863417f3ef1cb80ce1ab",
+    "rudin/Rudin/PMA/Chapter04Audit.lean": "f1225bcbc2a99ea92a74de1b3c1a1ebdce6588c60bada6f31401e92085467968",
+    "rudin/Rudin/PMA/Chapter04Probes.lean": "3854585ce261b127d2ad1a29d263f72cd40466542fa6f23283e6adf0b17f92d9",
+    "rudin/Rudin.lean": "7a0f88e8b3597f72ce7177389c0167221eae1c7033da065c067ece03b61c1953",
+    "rudin/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+    "rudin/lakefile.toml": "76f6da8cfc4cd594397f62eb3d1947edc0cfa9db25f0fac517974c89e75bff3f",
+    "rudin/lake-manifest.json": "3d3476c312fb2220e92334726052c3b23080ad1f97c3db6cfceedc9a90466d1b",
+    "research/pma-ch05-inventory.md": "4d41bd2e16f4c9a77d7873476fe95294aa89dcb54685a4dd1dffdccbc654d11f",
+    "research/pma-ch05-fidelity.md": "6f2d0f43d27a86464590223f77748e83783c9724dcb3355bbc163d1d8e981b81"
+  },
+  "method": "Independent reflink copies; Git metadata excluded; source-review text copied across filesystem. No hardlinks or shared dependency links.",
+  "book": "Not copied; original local file unchanged."
+}

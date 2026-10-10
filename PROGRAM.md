@@ -26,7 +26,7 @@ One node per numbered item in Rudin's text (Definition, Theorem, Proposition, Le
 
 - Lean `leanprover/lean4:v4.34.1` via elan; Mathlib pinned to the same rev as `~/math-proofs` (see lake-manifest). Never float the toolchain mid-book — API churn rots the corpus.
 - `lake exe cache get` for oleans; never build Mathlib from source.
-- Machine: **bakkie** (standing Lean machine). All agent work via Codex `gpt-6-astra`, `ultra` effort, yolo, in tmux, per Derek's standing rule. Nothing runs on this VM.
+- Current authorized run (2026-10-10): use the existing approved local executor and pinned toolchain. Keep approval and sandbox safeguards enabled. Chapter 5 integration uses a new local branch and local commits only; no push, new interactive session, installation, or remote execution is authorized by this run.
 
 ## Per-node pipeline
 
@@ -62,3 +62,12 @@ rudin-lean/
 - Copyright: theorem statements only, brief. Never reproduce Rudin's proof text or extended exposition — in chat, files, or commits.
 - Before starting each chapter, re-verify no one else has formalized it (landscape moves fast; Meta's ATLAS book list is not public).
 - Exercises deferred to v1-complete. Corollaries/remarks folded into the nearest node.
+
+## Current Chapter 5 production gate
+
+Before integration, independent hostile reviews must accept the exact candidate
+for every node, with reviewers independent of their assigned authorship. Preserve
+those bytes in production, then require source checks, recursive axiom audits,
+and the default build before every section commit. A final production review
+records hashes and evidence. Existing fidelity reviews alone do not satisfy this
+additional gate. No separate `PROVED` stamp is defined by this program.
