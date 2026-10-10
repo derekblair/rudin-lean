@@ -854,4 +854,26 @@ theorem isRelativelyOpen_iff_subtype_open {X : Type*} [MetricSpace X]
       change dist q p < r
       simpa only [dist_comm] using hdist)
 
+/-! ### PMA-2.30: Relatively open sets are ambient open intersections. -/
+theorem relativelyOpen_iff_ambient_intersection {X : Type*} [MetricSpace X]
+    {Y E : Set X} (hEY : E ⊆ Y) :
+    IsRelativelyOpen Y E ↔ ∃ G : Set X, IsOpenSet G ∧ E = Y ∩ G := by
+  rw [isRelativelyOpen_iff_subtype_open hEY, isOpen_induced_iff]
+  constructor
+  · rintro ⟨G,hG,hEq⟩
+    refine ⟨G, (isOpenSet_iff_isOpen G).mpr hG, ?_⟩
+    ext p
+    constructor
+    · intro hp
+      have hx : (⟨p,hEY hp⟩ : Y) ∈ Subtype.val ⁻¹' E := hp
+      rw [← hEq] at hx
+      exact ⟨hEY hp,hx⟩
+    · rintro ⟨hpY,hpG⟩
+      have hx : (⟨p,hpY⟩ : Y) ∈ Subtype.val ⁻¹' G := hpG
+      rw [hEq] at hx
+      exact hx
+  · rintro ⟨G,hG,rfl⟩
+    refine ⟨G,(isOpenSet_iff_isOpen G).mp hG, ?_⟩
+    ext p
+    simp
 end Rudin.PMA.Chapter02
