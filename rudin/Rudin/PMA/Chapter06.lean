@@ -2,6 +2,7 @@ import Rudin.PMA.Chapter06.Basic
 import Rudin.PMA.Chapter06.Definitions
 import Rudin.PMA.Chapter06.Refinement
 import Rudin.PMA.Chapter06.Criterion
+import Rudin.PMA.Chapter06.Integrability
 
 /-! # PMA Chapter 6: verified sections in dependency order.
 The index is in book order; only the listed nodes have been integrated.
@@ -55,6 +56,21 @@ Principal proof: `pma6_6`. Definitions and supporting proofs: `Chapter06/Criteri
 /-! ### PMA-6.7
 
 Principal proof: `pma6_7`. Definitions and supporting proofs: `Chapter06/Criterion.lean`.
+-/
+
+/-! ### PMA-6.8
+
+Principal proof: `pma6_8`. Definitions and supporting proofs: `Chapter06/Integrability.lean`.
+-/
+
+/-! ### PMA-6.11
+
+Principal proof: `pma6_11`. Definitions and supporting proofs: `Chapter06/Integrability.lean`.
+-/
+
+/-! ### PMA-6.13
+
+Principal proof: `pma6_13`. Definitions and supporting proofs: `Chapter06/Integrability.lean`.
 -/
 
 end Rudin.PMA.Chapter06
