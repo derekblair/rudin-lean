@@ -18,3 +18,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-4.10 | PASS: Independent contract PASS; all Euclidean coordinates iff continuity, vector sum and inner product continuity. |
 | PMA-4.11 | PASS: Independent definitions/contract PASS; projections and norm1-Lipschitz; monomials, all finite complex polynomials, rational restricted-domain quotients and norm composition. |
 | PMA-4.12 | PASS: Independent contract PASS; induced metric subtype comparators at each point and globally. |
+| PMA-4.13 | PASS: strict norm bound for all domain points and bounded-range reference, including empty domains. |

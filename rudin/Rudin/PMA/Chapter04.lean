@@ -327,4 +327,27 @@ theorem pma4_12 : pma4_12_contract := by
   · intro X Y _ _ E f
     rw [functionContinuousOn_iff]
     exact continuousOn_iff_continuous_domRestrict
+/-! ### PMA-4.13: Bounded functions -/
+def BoundedFunction {X V : Type*} [NormedAddCommGroup V] (f : X → V) : Prop :=
+  ∃ M : ℝ, ∀ x, ‖f x‖ < M
+
+def pma4_13_contract : Prop :=
+  ∀ {X : Type*} {k : ℕ} (f : X → EuclideanSpace ℝ (Fin k)),
+    BoundedFunction f ↔ Bornology.IsBounded (range f)
+
+theorem boundedFunction_iff_isBounded_range {X V : Type*} [NormedAddCommGroup V]
+    (f : X → V) : BoundedFunction f ↔ Bornology.IsBounded (range f) := by
+  constructor
+  · rintro ⟨M, hM⟩
+    exact isBounded_iff_forall_norm_le.mpr ⟨M, by
+      rintro _ ⟨x, rfl⟩
+      exact (hM x).le⟩
+  · intro h
+    obtain ⟨M, hM⟩ := h.exists_norm_le
+    exact ⟨M + 1, fun x => lt_of_le_of_lt (hM _ ⟨x, rfl⟩) (lt_add_one M)⟩
+
+theorem pma4_13 : pma4_13_contract := by
+  intro X k f
+  exact boundedFunction_iff_isBounded_range f
+
 end Rudin.PMA.Chapter04
