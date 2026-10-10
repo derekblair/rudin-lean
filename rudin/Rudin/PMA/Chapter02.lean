@@ -1354,4 +1354,29 @@ theorem pma2_45_connected_reference {X : Type*} [TopologicalSpace X] (E : Set X)
     · obtain ⟨x, hx⟩ := hA
       exact Set.disjoint_left.mp hsep.1 hx (hright (heq.symm ▸ Or.inl hx))
 
+/-! ### PMA-2.46: separation implies disjointness, and the converse fails. -/
+
+theorem pma2_46_disjoint {X : Type*} [TopologicalSpace X] {A B : Set X}
+    (h : Separated A B) : Disjoint A B :=
+  h.1.mono_right subset_closure
+
+theorem pma2_46_examples :
+    Disjoint (Icc (0 : ℝ) 1) (Ioo 1 2) ∧
+    ¬ Separated (Icc (0 : ℝ) 1) (Ioo 1 2) ∧
+    Separated (Ioo (0 : ℝ) 1) (Ioo 1 2) := by
+  have hc : closure (Ioo (1 : ℝ) 2) = Icc 1 2 := closure_Ioo (by norm_num)
+  have hc' : closure (Ioo (0 : ℝ) 1) = Icc 0 1 := closure_Ioo (by norm_num)
+  refine ⟨Set.disjoint_left.mpr (by intro x hx hy; exact (not_lt_of_ge hx.2) hy.1), ?_, ?_⟩
+  · intro h
+    exact Set.disjoint_left.mp h.1 (show (1 : ℝ) ∈ Icc 0 1 by norm_num)
+      (show (1 : ℝ) ∈ closure (Ioo 1 2) by rw [hc]; norm_num)
+  · simp only [Separated, hc, hc']
+    constructor
+    · apply Set.disjoint_left.mpr
+      intro x hx hy
+      exact (not_lt_of_ge hy.1) hx.2
+    · apply Set.disjoint_left.mpr
+      intro x hx hy
+      exact (not_lt_of_ge hx.2) hy.1
+
 end Rudin.PMA.Chapter02

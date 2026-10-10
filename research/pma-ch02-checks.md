@@ -51,3 +51,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-2.43 | PASS: Nonempty perfect Euclidean sets are uncountable; nondegenerate real intervals and the real line corollaries included. |
 | PMA-2.44 | PASS: Actual ternary-deletion recursive stages, 2^n distinct closed intervals of width3^-n, nested/compact stages, exact Cantor intersection, nonempty/compact/perfect/no segment/uncountable/volume0 all included. |
 | PMA-2.45 | PASS: Separated means both closure-intersections empty; connected means no nonempty separated union, equivalent to IsPreconnected (so empty set qualifies). |
+| PMA-2.46 | PASS: Separated implies disjoint; exact adjacent closed/open and open/open interval examples included. |
