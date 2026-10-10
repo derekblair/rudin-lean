@@ -616,4 +616,33 @@ theorem pma5_10 : pma5_10_contract := by
   refine ⟨x, hx, ?_⟩
   rw [he, mul_div_cancel₀ _ (sub_ne_zero.mpr hab.ne')]
 
+/-! ### PMA-5.11: Derivative signs and monotonicity on an open interval -/
+
+def pma5_11_contract : Prop :=
+  ∀ (f f' : ℝ → ℝ) (a b : ℝ), a < b →
+    (∀ x ∈ Ioo a b, HasDerivAt f (f' x) x) →
+    ((∀ x ∈ Ioo a b, 0 ≤ f' x) → MonotoneOn f (Ioo a b)) ∧
+    ((∀ x ∈ Ioo a b, f' x = 0) → ∀ x ∈ Ioo a b, ∀ y ∈ Ioo a b, f x = f y) ∧
+    ((∀ x ∈ Ioo a b, f' x ≤ 0) → AntitoneOn f (Ioo a b))
+
+theorem pma5_11 : pma5_11_contract := by
+  intro f f' a b _ hf
+  have hc : ContinuousOn f (Ioo a b) := fun x hx => (hf x hx).continuousAt.continuousWithinAt
+  have hd : ∀ x ∈ interior (Ioo a b), HasDerivWithinAt f (f' x) (interior (Ioo a b)) x := by
+    intro x hx
+    exact (hf x (interior_subset hx)).hasDerivWithinAt
+  have hm : (∀ x ∈ Ioo a b, 0 ≤ f' x) → MonotoneOn f (Ioo a b) := fun h =>
+    monotoneOn_of_hasDerivWithinAt_nonneg (convex_Ioo a b) hc hd
+      (fun x hx => h x (interior_subset hx))
+  have ha : (∀ x ∈ Ioo a b, f' x ≤ 0) → AntitoneOn f (Ioo a b) := fun h =>
+    antitoneOn_of_hasDerivWithinAt_nonpos (convex_Ioo a b) hc hd
+      (fun x hx => h x (interior_subset hx))
+  refine ⟨hm, ?_, ha⟩
+  intro hz x hx y hy
+  have hm' := hm (fun z hz' => (hz z hz').ge)
+  have ha' := ha (fun z hz' => (hz z hz').le)
+  rcases le_total x y with hxy | hyx
+  · exact le_antisymm (hm' hx hy hxy) (ha' hx hy hxy)
+  · exact le_antisymm (ha' hy hx hyx) (hm' hy hx hyx)
+
 end Rudin.PMA.Chapter05
