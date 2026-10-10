@@ -588,4 +588,18 @@ theorem pma5_8 : pma5_8_contract := by
   · exact (he.isLocalMax hn).hasDerivAt_eq_zero (hd.hasDerivAt hn)
   · exact (he.isLocalMin hn).hasDerivAt_eq_zero (hd.hasDerivAt hn)
 
+/-! ### PMA-5.9: Cauchy's mean value theorem -/
+
+def pma5_9_contract : Prop :=
+  ∀ (f g f' g' : ℝ → ℝ) (a b : ℝ), a < b →
+    ContinuousOn f (Icc a b) → ContinuousOn g (Icc a b) →
+    (∀ x ∈ Ioo a b, HasDerivAt f (f' x) x) →
+    (∀ x ∈ Ioo a b, HasDerivAt g (g' x) x) →
+    ∃ x ∈ Ioo a b, (f b - f a) * g' x = (g b - g a) * f' x
+
+theorem pma5_9 : pma5_9_contract := by
+  intro f g f' g' a b hab hfc hgc hfd hgd
+  obtain ⟨x, hx, he⟩ := exists_ratio_hasDerivAt_eq_ratio_slope f f' hab hfc hfd g g' hgc hgd
+  exact ⟨x, hx, he.symm⟩
+
 end Rudin.PMA.Chapter05
