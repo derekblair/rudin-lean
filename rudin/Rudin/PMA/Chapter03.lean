@@ -1282,4 +1282,55 @@ theorem node_3_31 : Statement_3_31 := by
   · intro n hn
     exact ⟨factorialTail_positive n,factorialTail_upper hn⟩
 
+/-! ### PMA-3.32: The irrationality of e. -/
+def Statement_3_32 : Prop := Irrational EulerNumber
+
+/-! PMA-3.32 proof details: Verified irrationality by factorial-scaled integer gaps. -/
+theorem factorialPartialSum_scaled_integer (N : ℕ) :
+    ∃ z : ℤ, (N.factorial : ℝ) * FactorialPartialSum N = z := by
+  refine ⟨((∑ k ∈ Finset.range (N+1), N.factorial / k.factorial : ℕ) : ℤ),?_⟩
+  unfold FactorialPartialSum PartialSums
+  rw [Finset.mul_sum]
+  rw [Int.cast_natCast,Nat.cast_sum]
+  apply Finset.sum_congr rfl
+  intro k hk
+  have hkN : k ≤ N := by have := Finset.mem_range.mp hk;omega
+  rw [Nat.cast_div (Nat.factorial_dvd_factorial hkN) (by positivity)]
+  ring
+
+theorem node_3_32 : Statement_3_32 := by
+  intro hrat
+  obtain ⟨q,hq⟩ := hrat
+  let N : ℕ := q.den+1
+  have hN : 1 ≤ N := by dsimp [N];omega
+  have hden : q.den ∣ N.factorial := Nat.dvd_factorial q.den_pos (by dsimp [N];omega)
+  obtain ⟨k,hk⟩ := hden
+  have heint : (N.factorial : ℝ) * EulerNumber = ((k : ℤ)*q.num : ℤ) := by
+    rw [← hq,Rat.cast_def,hk]
+    push_cast
+    have hd : (q.den : ℝ) ≠ 0 := by exact_mod_cast q.den_ne_zero
+    field_simp
+  obtain ⟨z,hz⟩ := factorialPartialSum_scaled_integer N
+  let Z : ℤ := (k : ℤ)*q.num-z
+  have hgap : (Z : ℝ) = (N.factorial : ℝ)*(EulerNumber-FactorialPartialSum N) := by
+    dsimp [Z]
+    push_cast
+    rw [mul_sub,heint,hz]
+    push_cast
+    rfl
+  have hfac : 0 < (N.factorial : ℝ) := by positivity
+  have hZpos : (0 : ℝ) < Z := by rw [hgap];exact mul_pos hfac (factorialTail_positive N)
+  have hZlt : (Z : ℝ) < 1 := by
+    rw [hgap]
+    have hupper := mul_lt_mul_of_pos_left (factorialTail_upper hN) hfac
+    have hNreal : 0 < (N : ℝ) := by exact_mod_cast (show 0 < N by omega)
+    have heq : (N.factorial : ℝ)*(1/((N.factorial : ℝ)*N)) = 1/(N : ℝ) := by
+      field_simp
+    rw [heq] at hupper
+    have hone : 1/(N : ℝ) ≤ 1 := (div_le_one hNreal).mpr (by exact_mod_cast hN)
+    exact hupper.trans_le hone
+  have hZpos' : (0 : ℤ) < Z := by exact_mod_cast hZpos
+  have hZlt' : Z < (1 : ℤ) := by exact_mod_cast hZlt
+  omega
+
 end Rudin.PMA.Chapter03
