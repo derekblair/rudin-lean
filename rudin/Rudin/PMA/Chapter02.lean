@@ -474,4 +474,10 @@ theorem isDenseSet_iff_dense {X : Type*} [MetricSpace X] (E : Set X) :
   simp only [IsDenseSet, isLimitPoint_iff_accPt, Dense,
     closure_eq_self_union_derivedSet, Set.mem_union, mem_derivedSet]
 
+/-! ### PMA-2.19: Every metric neighborhood is open. -/
+theorem neighborhood_isOpen {X : Type*} [MetricSpace X] (p : X) (r : ℝ) :
+    IsOpenSet (neighborhood p r) := by
+  rw [isOpenSet_iff_isOpen, neighborhood_eq_ball]
+  exact Metric.isOpen_ball
+
 end Rudin.PMA.Chapter02
