@@ -1431,4 +1431,37 @@ theorem pma5_16 : pma5_16_contract := by
   · intro E _ _ f g v w s x hf hg
     simpa only [add_comm] using hf.inner ℝ hg
 
+/-! ### PMA-5.17: The scalar mean-value equality fails for a circle -/
+
+def circleCurve (x : ℝ) : ℂ := Complex.exp ((x : ℂ) * Complex.I)
+def circleVelocity (x : ℝ) : ℂ := Complex.I * circleCurve x
+
+def pma5_17_contract : Prop :=
+  (∀ x, circleCurve x = (Real.cos x : ℂ) + (Real.sin x : ℂ) * Complex.I) ∧
+  circleCurve 0 = 1 ∧ circleCurve (2 * Real.pi) = 1 ∧
+  (∀ x, HasDerivAt circleCurve (circleVelocity x) x ∧ ‖circleVelocity x‖ = 1) ∧
+  ¬ ∃ x ∈ Ioo 0 (2 * Real.pi),
+    circleCurve (2 * Real.pi) - circleCurve 0 = (2 * Real.pi) • circleVelocity x
+
+theorem circle_derivative (x : ℝ) : HasDerivAt circleCurve (circleVelocity x) x := by
+  change HasDerivAt (fun t : ℝ => Complex.exp ((t : ℂ) * Complex.I))
+    (Complex.I * Complex.exp ((x : ℂ) * Complex.I)) x
+  simpa [mul_comm] using ((hasDerivAt_id x).ofReal_comp.mul_const Complex.I).cexp
+
+theorem circle_velocity_norm (x : ℝ) : ‖circleVelocity x‖ = 1 := by
+  simp [circleVelocity, circleCurve, Complex.norm_exp]
+
+theorem pma5_17 : pma5_17_contract := by
+  have h0 : circleCurve 0 = 1 := by simp [circleCurve]
+  have hp : circleCurve (2 * Real.pi) = 1 := by
+    simp [circleCurve, Complex.ofReal_mul, Complex.exp_two_pi_mul_I]
+  refine ⟨?_, h0, hp, fun x => ⟨circle_derivative x, circle_velocity_norm x⟩, ?_⟩
+  · intro x
+    simpa [circleCurve] using Complex.exp_mul_I (x : ℂ)
+  · rintro ⟨x, hx, h⟩
+    have hn := congrArg norm h
+    rw [hp, h0, sub_self, norm_zero, norm_smul, circle_velocity_norm, mul_one,
+      Real.norm_eq_abs, abs_of_pos (mul_pos (by norm_num) Real.pi_pos)] at hn
+    exact (mul_pos (by norm_num : (0 : ℝ) < 2) Real.pi_pos).ne' hn.symm
+
 end Rudin.PMA.Chapter05
