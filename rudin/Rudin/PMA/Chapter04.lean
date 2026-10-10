@@ -734,4 +734,70 @@ theorem node_4_25 : Statement_4_25 := by
     · rintro ⟨l, r, hl, hr, rfl⟩
       exact ⟨l, (interval_limit_iff_sides f l hx).mpr ⟨hl, hr⟩⟩
 
+/-! ### PMA-4.26: First- and second-kind discontinuities. -/
+
+def FirstKindDiscontinuityOn {Y : Type*} [MetricSpace Y]
+    (a b : ℝ) (f : ℝ → Y) (x : ℝ) : Prop :=
+  x ∈ Ioo a b ∧ ¬ FunctionContinuousWithinAt (Ioo a b) f x ∧
+    (∃ l, LeftLimitOn a b f x l) ∧ (∃ r, RightLimitOn a b f x r)
+
+def SecondKindDiscontinuityOn {Y : Type*} [MetricSpace Y]
+    (a b : ℝ) (f : ℝ → Y) (x : ℝ) : Prop :=
+  x ∈ Ioo a b ∧ ¬ FunctionContinuousWithinAt (Ioo a b) f x ∧
+    ¬ ((∃ l, LeftLimitOn a b f x l) ∧ (∃ r, RightLimitOn a b f x r))
+
+def Statement_4_26 : Prop :=
+  ∀ (Y : Type*) [MetricSpace Y] (a b : ℝ) (f : ℝ → Y) (x : ℝ),
+    ((FirstKindDiscontinuityOn a b f x ∨ SecondKindDiscontinuityOn a b f x) ↔
+      x ∈ Ioo a b ∧ ¬ FunctionContinuousWithinAt (Ioo a b) f x) ∧
+    ¬ (FirstKindDiscontinuityOn a b f x ∧ SecondKindDiscontinuityOn a b f x) ∧
+    (FirstKindDiscontinuityOn a b f x ↔
+      x ∈ Ioo a b ∧ ∃ l r, LeftLimitOn a b f x l ∧ RightLimitOn a b f x r ∧
+        (l ≠ r ∨ (l = r ∧ l ≠ f x)))
+
+
+theorem continuous_iff_oneSided_eq {Y : Type*} [MetricSpace Y]
+    {a b x : ℝ} (f : ℝ → Y) (hx : x ∈ Ioo a b) {l r : Y}
+    (hl : LeftLimitOn a b f x l) (hr : RightLimitOn a b f x r) :
+    FunctionContinuousWithinAt (Ioo a b) f x ↔ l = f x ∧ r = f x := by
+  rw [interval_continuity_iff f hx]
+  have hl' : Tendsto f (𝓝[<] x) (𝓝 l) := by
+    simpa only [nhdsWithin_Ioo_eq_nhdsLT hx.1] using hl.2.2
+  have hr' : Tendsto f (𝓝[>] x) (𝓝 r) := by
+    simpa only [nhdsWithin_Ioo_eq_nhdsGT hx.2] using hr.2.2
+  constructor
+  · intro hc
+    exact ⟨tendsto_nhds_unique hl' (hc.tendsto.mono_left nhdsWithin_le_nhds),
+      tendsto_nhds_unique hr' (hc.tendsto.mono_left nhdsWithin_le_nhds)⟩
+  · rintro ⟨hlv, hrv⟩
+    rw [continuousAt_iff_punctured_nhds, punctured_nhds_eq_nhdsWithin_sup_nhdsWithin,
+      tendsto_sup]
+    exact ⟨hlv ▸ hl', hrv ▸ hr'⟩
+
+theorem node_4_26 : Statement_4_26 := by
+  classical
+  intro Y _ a b f x
+  refine ⟨?_, ?_, ?_⟩
+  · unfold FirstKindDiscontinuityOn SecondKindDiscontinuityOn
+    tauto
+  · unfold FirstKindDiscontinuityOn SecondKindDiscontinuityOn
+    tauto
+  · constructor
+    · rintro ⟨hx, hnc, ⟨l, hl⟩, ⟨r, hr⟩⟩
+      refine ⟨hx, l, r, hl, hr, ?_⟩
+      by_cases hlr : l = r
+      · right
+        refine ⟨hlr, ?_⟩
+        intro hlf
+        apply hnc
+        exact (continuous_iff_oneSided_eq f hx hl hr).mpr ⟨hlf, hlr ▸ hlf⟩
+      · exact Or.inl hlr
+    · rintro ⟨hx, l, r, hl, hr, hd⟩
+      refine ⟨hx, ?_, ⟨l, hl⟩, ⟨r, hr⟩⟩
+      intro hc
+      obtain ⟨hlf, hrf⟩ := (continuous_iff_oneSided_eq f hx hl hr).mp hc
+      rcases hd with hne | ⟨_, hne⟩
+      · exact hne (hlf.trans hrf.symm)
+      · exact hne hlf
+
 end Rudin.PMA.Chapter04

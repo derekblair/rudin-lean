@@ -30,3 +30,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-4.22 | PASS: image of every connected subset, including the empty set. |
 | PMA-4.23 | PASS: continuous closed-interval restriction, either strict endpoint ordering, and an interior preimage. |
 | PMA-4.25 | PASS: generic metric codomain, exact interval sequence tests, common bilateral limit, and the marked valid left-boundary extension. |
+| PMA-4.26 | PASS: disjoint/exhaustive classification restricted to discontinuities, with unequal limits or an equal limit differing from the value. |
