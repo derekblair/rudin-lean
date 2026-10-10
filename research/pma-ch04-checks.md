@@ -28,3 +28,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-4.20 | PASS: all three noncompact real-set counterexamples, boundedness guard on the third, and every metric-valued function on the integer subspace. |
 | PMA-4.21 | PASS: literal Euclidean cos/sin parametrization, actual equivalence, inverse discontinuity at the image of zero, noncompact interval, and compact unit circle. |
 | PMA-4.22 | PASS: image of every connected subset, including the empty set. |
+| PMA-4.23 | PASS: continuous closed-interval restriction, either strict endpoint ordering, and an interior preimage. |

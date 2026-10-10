@@ -641,4 +641,27 @@ theorem pma4_22 : pma4_22_contract := by
   apply (Chapter02.pma2_45_connected_reference (f '' E)).mpr
   exact ((Chapter02.pma2_45_connected_reference E).mp hE).image f hf.continuousOn
 
+/-! ### PMA-4.23: Intermediate value theorem -/
+def pma4_23_contract : Prop :=
+  ∀ {a b : ℝ}, a < b → ∀ (f : ℝ → ℝ), ContinuousOn f (Icc a b) →
+    ∀ c, ((f a < c ∧ c < f b) ∨ (f b < c ∧ c < f a)) →
+      ∃ x ∈ Ioo a b, f x = c
+
+theorem pma4_23 : pma4_23_contract := by
+  intro a b hab f hf c hc
+  have himage : c ∈ f '' Icc a b := by
+    rcases hc with hc | hc
+    · exact intermediate_value_Icc hab.le hf ⟨hc.1.le, hc.2.le⟩
+    · exact intermediate_value_Icc' hab.le hf ⟨hc.1.le, hc.2.le⟩
+  obtain ⟨x, hx, hfx⟩ := himage
+  refine ⟨x, ⟨?_, ?_⟩, hfx⟩
+  · apply lt_of_le_of_ne hx.1
+    intro hax
+    subst x
+    rcases hc with hc | hc <;> linarith
+  · apply lt_of_le_of_ne hx.2
+    intro hxb
+    subst x
+    rcases hc with hc | hc <;> linarith
+
 end Rudin.PMA.Chapter04
