@@ -197,4 +197,36 @@ theorem pma2_9_reference {A I : Type*} (E : I → Set A) (S T : Set A) :
   · ext x; simp [pmaIntersection]
 
 
+/-! ### PMA-2.10: explicit finite-set and interval-family examples. -/
+theorem pma2_10_finite_examples :
+    ({1,2,3} : Set ℕ) ∪ {2,3,4} = {1,2,3,4} ∧
+    ({1,2,3} : Set ℕ) ∩ {2,3,4} = {2,3} := by
+  constructor <;> ext x <;> simp only [Set.mem_union, Set.mem_inter_iff,
+    Set.mem_insert_iff,Set.mem_singleton_iff] <;> omega
+
+abbrev IntervalFamilyIndex := {x : ℝ // x ∈ Set.Ioc 0 1}
+def intervalFamily (x : IntervalFamilyIndex) : Set ℝ := Set.Ioo 0 x.val
+
+theorem pma2_10_family_subset (x z : IntervalFamilyIndex) :
+    intervalFamily x ⊆ intervalFamily z ↔ x.val ≤ z.val := by
+  simp only [intervalFamily,Set.Ioo_subset_Ioo_iff x.property.1]
+  simp
+
+theorem pma2_10_family_union : (⋃ x : IntervalFamilyIndex,intervalFamily x) = Set.Ioo 0 1 := by
+  ext y
+  simp only [Set.mem_iUnion,intervalFamily,Set.mem_Ioo]
+  constructor
+  · rintro ⟨x,hy0,hyx⟩; exact ⟨hy0,hyx.trans_le x.property.2⟩
+  · intro hy; exact ⟨⟨1,by norm_num⟩,hy⟩
+
+theorem pma2_10_family_intersection : (⋂ x : IntervalFamilyIndex,intervalFamily x) = ∅ := by
+  apply Set.eq_empty_iff_forall_notMem.mpr
+  intro y hy
+  have hh : ∀ x : IntervalFamilyIndex, 0 < y ∧ y < x.val := by
+    simpa only [Set.mem_iInter,intervalFamily,Set.mem_Ioo] using hy
+  have hy1 := hh ⟨1,by norm_num⟩
+  have hx : y / 2 ∈ Set.Ioc (0 : ℝ) 1 := ⟨by linarith,by linarith [hy1.2]⟩
+  have := hh ⟨y/2,hx⟩
+  linarith [hy1.1]
+
 end Rudin.PMA.Chapter02

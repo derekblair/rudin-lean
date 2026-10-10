@@ -15,3 +15,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-2.7 | PASS: Sequences are natural-indexed functions; countably infinite sets are exactly ranges of injective sequences. |
 | PMA-2.8 | PASS: An infinite subset of a countably infinite carrier inherits countability and remains infinite. |
 | PMA-2.9 | PASS: Union/intersection membership matches indexed existential/universal quantification, and empty intersection is equivalent to disjointness. |
+| PMA-2.10 | PASS: Both finite examples and all three (0,1]-indexed interval-family properties match the source; exact inclusion iff x≤z. |
