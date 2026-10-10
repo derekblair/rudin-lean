@@ -753,4 +753,42 @@ theorem finite_union_closed {X I : Type*} [MetricSpace X] [Finite I]
   rw [isClosedSet_iff_isClosed]
   exact isClosed_iUnion_of_finite fun i => (isClosedSet_iff_isClosed _).mp (hF i)
 
+/-! ### PMA-2.25: Infinite intersections of open sets and unions of closed sets. -/
+def shrinkingSegment (n : ℕ) : Set ℝ := Ioo (-(1 / (n+1 : ℝ))) (1 / (n+1 : ℝ))
+
+theorem shrinkingSegment_isOpen (n : ℕ) : IsOpenSet (shrinkingSegment n) :=
+  (isOpenSet_iff_isOpen _).mpr isOpen_Ioo
+
+theorem iInter_shrinkingSegment : (⋂ n, shrinkingSegment n) = ({0} : Set ℝ) := by
+  ext x
+  simp only [mem_iInter, shrinkingSegment, mem_Ioo, mem_singleton_iff]
+  constructor
+  · intro hx
+    have habs : ∀ n : ℕ, |x| < 1 / (n+1 : ℝ) := fun n => abs_lt.mpr (hx n)
+    by_contra h
+    have hpos : 0 < |x| := abs_pos.mpr h
+    obtain ⟨n, hn⟩ := exists_nat_one_div_lt hpos
+    exact (not_lt_of_ge (le_of_lt (habs n))) hn
+  · intro hx
+    subst x
+    intro n
+    have hpos : 0 < 1 / (n+1 : ℝ) := by positivity
+    constructor <;> linarith
+
+theorem iInter_shrinkingSegment_not_open : ¬ IsOpenSet (⋂ n, shrinkingSegment n) := by
+  rw [iInter_shrinkingSegment, isOpenSet_iff_isOpen]
+  exact not_isOpen_singleton 0
+
+theorem closed_complements_shrinkingSegment (n : ℕ) :
+    IsClosedSet ((shrinkingSegment n)ᶜ) := by
+  exact (isClosedSet_iff_isClosed _).mpr isOpen_Ioo.isClosed_compl
+
+theorem iUnion_complements_shrinkingSegment_not_closed :
+    ¬ IsClosedSet (⋃ n, (shrinkingSegment n)ᶜ) := by
+  rw [isClosedSet_iff_isClosed]
+  intro h
+  apply iInter_shrinkingSegment_not_open
+  rw [isOpenSet_iff_isOpen]
+  simpa only [compl_iUnion, compl_compl] using h.isOpen_compl
+
 end Rudin.PMA.Chapter02
