@@ -397,4 +397,27 @@ theorem pma4_17 : pma4_17_contract := by
   intro X Y _ _ _ e he
   exact (e.toHomeomorphOfContinuousClosed he he.isClosedMap).continuous_invFun
 
+/-! ### PMA-4.18: Uniform continuity -/
+def UniformlyContinuous {X Y : Type*} [MetricSpace X] [MetricSpace Y]
+    (f : X → Y) : Prop :=
+  ∀ ε > 0, ∃ δ > 0, ∀ p q, dist p q < δ → dist (f p) (f q) < ε
+
+def pma4_18_contract : Prop :=
+  (∀ {X Y : Type*} [MetricSpace X] [MetricSpace Y] (f : X → Y),
+    UniformlyContinuous f ↔ UniformContinuous f) ∧
+  (∀ {X Y : Type*} [MetricSpace X] [MetricSpace Y] (f : X → Y),
+    UniformlyContinuous f → Continuous f)
+
+theorem uniformlyContinuous_iff_uniformContinuous {X Y : Type*}
+    [MetricSpace X] [MetricSpace Y] (f : X → Y) :
+    UniformlyContinuous f ↔ UniformContinuous f := by
+  exact Metric.uniformContinuous_iff.symm
+
+theorem pma4_18 : pma4_18_contract := by
+  constructor
+  · intro X Y _ _ f
+    exact uniformlyContinuous_iff_uniformContinuous f
+  · intro X Y _ _ f hf
+    exact ((uniformlyContinuous_iff_uniformContinuous f).mp hf).continuous
+
 end Rudin.PMA.Chapter04
