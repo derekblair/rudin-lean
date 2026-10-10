@@ -908,4 +908,15 @@ theorem pma2_32_finite {X : Type u} [TopologicalSpace X] {K : Set X}
     (hK : K.Finite) : RudinCompact K :=
   (pma2_32_reference K).mpr hK.isCompact
 
+/-! ### PMA-2.33: compactness agrees in an ambient space and a metric subspace. -/
+
+theorem pma2_33 {X : Type u} [MetricSpace X] (Y K : Set X) (hKY : K ⊆ Y) :
+    RudinCompact K ↔ RudinCompact ((↑) ⁻¹' K : Set Y) := by
+  rw [pma2_32_reference, pma2_32_reference,
+    Topology.IsEmbedding.subtypeVal.isCompact_iff]
+  have he : ((↑) '' ((↑) ⁻¹' K : Set Y) : Set X) = K := by
+    rw [Set.image_preimage_eq_inter_range]
+    simpa using (Set.inter_eq_left.mpr hKY)
+  rw [he]
+
 end Rudin.PMA.Chapter02
