@@ -2616,4 +2616,197 @@ theorem pma3_52 : pma3_52_contract := by
   · rintro ⟨f, hf, he⟩
     exact ⟨Equiv.ofBijective f hf, he⟩
 
+/-! ### PMA-3.53: the two-positive, one-negative harmonic rearrangement changes the sum. -/
+
+def TwoPositiveOneNegative (n : ℕ) : ℕ :=
+  if n % 3 < 2 then 4 * (n / 3) + 2 * (n % 3) else 2 * (n / 3) + 1
+
+def RearrangedHarmonic (n : ℕ) : ℝ := AlternatingHarmonic (TwoPositiveOneNegative n)
+
+def pma3_53_contract : Prop :=
+  Function.Bijective TwoPositiveOneNegative ∧
+  ∃ s t : ℝ, SeriesHasSum AlternatingHarmonic s ∧ s < 5 / 6 ∧
+    SeriesHasSum RearrangedHarmonic t ∧ t ≠ s ∧
+    PartialSums RearrangedHarmonic 3 = 5 / 6 ∧
+    StrictMono (fun n => PartialSums RearrangedHarmonic (3 * (n + 1))) ∧
+    (5 / 6 : EReal) < Filter.limsup (fun N => ((PartialSums RearrangedHarmonic N : ℝ) : EReal)) atTop
+
+def TwoPositiveOneNegativeInverse (n : ℕ) : ℕ :=
+  if n % 2 = 1 then 3 * (n / 2) + 2
+  else if n % 4 = 0 then 3 * (n / 4) else 3 * (n / 4) + 1
+
+theorem twoPositiveOneNegative_inverse_left :
+    Function.LeftInverse TwoPositiveOneNegativeInverse TwoPositiveOneNegative := by
+  intro n
+  simp only [TwoPositiveOneNegative, TwoPositiveOneNegativeInverse]
+  split_ifs <;> omega
+
+theorem twoPositiveOneNegative_inverse_right :
+    Function.RightInverse TwoPositiveOneNegativeInverse TwoPositiveOneNegative := by
+  intro n
+  simp only [TwoPositiveOneNegativeInverse, TwoPositiveOneNegative]
+  split_ifs <;> omega
+
+theorem twoPositiveOneNegative_bijective : Function.Bijective TwoPositiveOneNegative :=
+  ⟨twoPositiveOneNegative_inverse_left.injective, twoPositiveOneNegative_inverse_right.surjective⟩
+
+theorem rearrangedHarmonic_block_values (n : ℕ) :
+    RearrangedHarmonic (3 * n) = 1 / (4 * n + 1 : ℝ) ∧
+    RearrangedHarmonic (3 * n + 1) = 1 / (4 * n + 3 : ℝ) ∧
+    RearrangedHarmonic (3 * n + 2) = -(1 / (2 * n + 2 : ℝ)) := by
+  have h0 : TwoPositiveOneNegative (3 * n) = 4 * n := by
+    simp [TwoPositiveOneNegative]
+  have h1 : TwoPositiveOneNegative (3 * n + 1) = 4 * n + 2 := by
+    simp [TwoPositiveOneNegative]
+    omega
+  have h2 : TwoPositiveOneNegative (3 * n + 2) = 2 * n + 1 := by
+    simp [TwoPositiveOneNegative]
+    omega
+  simp [RearrangedHarmonic, h0, h1, h2, AlternatingHarmonic, pow_add, pow_mul]
+  constructor
+  · ring
+  · constructor
+    · ring
+    · rw [show 2 * (n : ℝ) + 1 + 1 = 2 * n + 2 by ring]
+      simp [div_eq_mul_inv]
+
+def HarmonicBlock (n : ℕ) : ℝ :=
+  1 / (4 * n + 1 : ℝ) + 1 / (4 * n + 3 : ℝ) - 1 / (2 * n + 2 : ℝ)
+
+theorem harmonicBlock_positive (n : ℕ) : 0 < HarmonicBlock n := by
+  have hx : 0 ≤ (n : ℝ) := Nat.cast_nonneg _
+  unfold HarmonicBlock
+  have hden : 0 < (4 * n + 1 : ℝ) * (4 * n + 3) * (2 * n + 2) := by positivity
+  have he : (1 / (4 * n + 1 : ℝ) + 1 / (4 * n + 3) - 1 / (2 * n + 2)) =
+      (8 * n + 5) / ((4 * n + 1) * (4 * n + 3) * (2 * n + 2)) := by
+    field_simp
+    ring
+  rw [he]
+  exact div_pos (by positivity) hden
+
+theorem harmonicBlock_le_square (n : ℕ) : HarmonicBlock n ≤ 1 / (n + 1 : ℝ) ^ 2 := by
+  have hx : 0 ≤ (n : ℝ) := Nat.cast_nonneg _
+  unfold HarmonicBlock
+  field_simp
+  nlinarith [pow_nonneg hx 3, sq_nonneg (n : ℝ)]
+
+theorem harmonicBlock_summable : Summable HarmonicBlock := by
+  have hs : Summable (fun n : ℕ => 1 / (n + 1 : ℝ) ^ 2) := by
+    simpa only [Nat.cast_add, Nat.cast_one] using
+      (summable_nat_add_iff 1).mpr
+        (Real.summable_one_div_nat_pow.mpr (show 1 < (2 : ℕ) by decide))
+  exact Summable.of_nonneg_of_le (fun n => (harmonicBlock_positive n).le)
+    harmonicBlock_le_square hs
+
+theorem rearrangedHarmonic_partialSums_blocks (N : ℕ) :
+    PartialSums RearrangedHarmonic (3 * N) = PartialSums HarmonicBlock N := by
+  induction N with
+  | zero => simp [PartialSums]
+  | succ N ih =>
+    have hN : 3 * (N + 1) = 3 * N + 1 + 1 + 1 := by omega
+    have hv := rearrangedHarmonic_block_values N
+    rw [hN]
+    simp only [PartialSums, Finset.sum_range_succ] at ih ⊢
+    rw [ih, hv.1, hv.2.1, hv.2.2]
+    simp only [HarmonicBlock]
+    ring
+
+theorem rearrangedHarmonic_residual_bound (N : ℕ) :
+    ‖∑ j ∈ Finset.range (N % 3), RearrangedHarmonic (3 * (N / 3) + j)‖ ≤
+      2 / (4 * (N / 3 : ℕ) + 1 : ℝ) := by
+  have hterm : ∀ j ∈ Finset.range (N % 3),
+      ‖RearrangedHarmonic (3 * (N / 3) + j)‖ ≤ 1 / (4 * (N / 3 : ℕ) + 1 : ℝ) := by
+    intro j hj
+    have hj2 : j < 2 := by have := Finset.mem_range.mp hj; omega
+    have hv := rearrangedHarmonic_block_values (N / 3)
+    rcases (show j = 0 ∨ j = 1 by omega) with rfl | rfl
+    · rw [Nat.add_zero, hv.1, Real.norm_eq_abs, abs_of_pos (by positivity)]
+    · rw [hv.2.1, Real.norm_eq_abs, abs_of_pos (by positivity)]
+      apply one_div_le_one_div_of_le (by positivity)
+      linarith
+  calc
+    ‖∑ j ∈ Finset.range (N % 3), RearrangedHarmonic (3 * (N / 3) + j)‖ ≤
+        ∑ j ∈ Finset.range (N % 3), ‖RearrangedHarmonic (3 * (N / 3) + j)‖ := norm_sum_le _ _
+    _ ≤ ∑ _j ∈ Finset.range (N % 3), 1 / (4 * (N / 3 : ℕ) + 1 : ℝ) := Finset.sum_le_sum hterm
+    _ = (N % 3 : ℕ) / (4 * (N / 3 : ℕ) + 1 : ℝ) := by simp; ring
+    _ ≤ 2 / (4 * (N / 3 : ℕ) + 1 : ℝ) := by
+      apply div_le_div_of_nonneg_right _ (by positivity)
+      exact_mod_cast (show N % 3 ≤ 2 by omega)
+
+theorem rearrangedHarmonic_converges :
+    SeriesHasSum RearrangedHarmonic (∑' n, HarmonicBlock n) := by
+  have hq : Tendsto (fun N : ℕ => N / 3) atTop atTop := by
+    refine Filter.tendsto_atTop.2 fun n => ?_
+    filter_upwards [eventually_ge_atTop (3 * n)] with N hN
+    omega
+  have hb := harmonicBlock_summable.hasSum.tendsto_sum_nat.comp hq
+  have hd : Tendsto (fun N : ℕ => 4 * (N / 3 : ℕ) + 1 : ℕ → ℝ) atTop atTop := by
+    apply tendsto_atTop_mono (fun N => ?_) (tendsto_natCast_atTop_atTop.comp hq)
+    dsimp only [Function.comp_def]
+    nlinarith [Nat.cast_nonneg (α := ℝ) (N / 3)]
+  have hz : Tendsto (fun N : ℕ =>
+      ∑ j ∈ Finset.range (N % 3), RearrangedHarmonic (3 * (N / 3) + j)) atTop (𝓝 0) := by
+    apply squeeze_zero_norm rearrangedHarmonic_residual_bound
+    simpa only [div_eq_mul_inv, Function.comp_def, mul_zero] using
+      (tendsto_inv_atTop_zero.comp hd).const_mul 2
+  have he : ∀ N, PartialSums RearrangedHarmonic N =
+      PartialSums HarmonicBlock (N / 3) +
+        ∑ j ∈ Finset.range (N % 3), RearrangedHarmonic (3 * (N / 3) + j) := by
+    intro N
+    have hN : 3 * (N / 3) + N % 3 = N := by omega
+    have hh := Finset.sum_range_add RearrangedHarmonic (3 * (N / 3)) (N % 3)
+    rw [hN] at hh
+    change PartialSums RearrangedHarmonic N = _ at hh
+    rw [← rearrangedHarmonic_partialSums_blocks]
+    exact hh
+  change Tendsto (PartialSums RearrangedHarmonic) atTop (𝓝 (∑' n, HarmonicBlock n))
+  have hf : PartialSums RearrangedHarmonic = fun N =>
+      PartialSums HarmonicBlock (N / 3) +
+        ∑ j ∈ Finset.range (N % 3), RearrangedHarmonic (3 * (N / 3) + j) := funext he
+  rw [hf]
+  simpa only [add_zero, Function.comp_def, PartialSums] using hb.add hz
+
+theorem rearrangedHarmonic_blocks_strictMono :
+    StrictMono (fun n => PartialSums RearrangedHarmonic (3 * (n + 1))) := by
+  apply strictMono_nat_of_lt_succ
+  intro n
+  rw [rearrangedHarmonic_partialSums_blocks, rearrangedHarmonic_partialSums_blocks]
+  have he : PartialSums HarmonicBlock (n + 1 + 1) =
+      PartialSums HarmonicBlock (n + 1) + HarmonicBlock (n + 1) := by
+    simp [PartialSums, Finset.sum_range_succ]
+  rw [he]
+  exact lt_add_of_pos_right _ (harmonicBlock_positive _)
+
+theorem rearrangedHarmonic_first_block : PartialSums RearrangedHarmonic 3 = 5 / 6 := by
+  have hh := rearrangedHarmonic_partialSums_blocks 1
+  norm_num [PartialSums, HarmonicBlock, Finset.sum_range_succ] at hh ⊢
+  exact hh
+
+theorem pma3_53 : pma3_53_contract := by
+  obtain ⟨s, hs⟩ := alternatingHarmonic_converges
+  have hsraw : Tendsto (fun N => ∑ n ∈ Finset.range N,
+      (-1 : ℝ) ^ n * (1 / (n + 1 : ℝ))) atTop (𝓝 s) := by
+    change Tendsto (fun N => ∑ n ∈ Finset.range N, AlternatingHarmonic n) atTop (𝓝 s) at hs
+    simpa [PartialSums, AlternatingHarmonic, div_eq_mul_inv] using hs
+  have hs5 := reciprocalSucc_antitone.tendsto_le_alternating_series hsraw 2
+  norm_num [Finset.sum_range_succ] at hs5
+  have hslt : s < 5 / 6 := by linarith
+  let t : ℝ := ∑' n, HarmonicBlock n
+  have ht : SeriesHasSum RearrangedHarmonic t := rearrangedHarmonic_converges
+  have htb : Tendsto (fun n => PartialSums RearrangedHarmonic (3 * (n + 1)))
+      atTop (𝓝 t) := ht.comp (tendsto_atTop_mono (fun n => by dsimp; omega) tendsto_id)
+  have htlarge : 5 / 6 < t := by
+    have hstep := rearrangedHarmonic_blocks_strictMono (show (0 : ℕ) < 1 by decide)
+    have hle := rearrangedHarmonic_blocks_strictMono.monotone.ge_of_tendsto htb 1
+    simpa only [Nat.zero_add, mul_one, rearrangedHarmonic_first_block] using hstep.trans_le hle
+  refine ⟨twoPositiveOneNegative_bijective, s, t, hs, hslt, ht,
+    ne_of_gt (hslt.trans htlarge), rearrangedHarmonic_first_block,
+    rearrangedHarmonic_blocks_strictMono, ?_⟩
+  have he := continuous_coe_real_ereal.continuousAt.tendsto.comp ht
+  rw [show Filter.limsup (fun N => ((PartialSums RearrangedHarmonic N : ℝ) : EReal))
+      atTop = (t : EReal) by exact he.limsup_eq]
+  have hcoef : (5 / 6 : EReal) = ((5 / 6 : ℝ) : EReal) := (EReal.coe_div 5 6).symm
+  rw [hcoef]
+  exact_mod_cast htlarge
+
 end Rudin.PMA.Chapter03
