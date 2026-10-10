@@ -664,4 +664,74 @@ theorem pma4_23 : pma4_23_contract := by
     subst x
     rcases hc with hc | hc <;> linarith
 
+/-! ### PMA-4.25: Finite one-sided limits, including interval endpoints. -/
+
+def RightLimitOn {Y : Type*} [MetricSpace Y]
+    (a b : ℝ) (f : ℝ → Y) (x : ℝ) (q : Y) : Prop :=
+  a ≤ x ∧ x < b ∧ Tendsto f (𝓝[Ioo x b] x) (𝓝 q)
+
+def LeftLimitOn {Y : Type*} [MetricSpace Y]
+    (a b : ℝ) (f : ℝ → Y) (x : ℝ) (q : Y) : Prop :=
+  a < x ∧ x ≤ b ∧ Tendsto f (𝓝[Ioo a x] x) (𝓝 q)
+
+def Statement_4_25 : Prop :=
+  ∀ (Y : Type*) [MetricSpace Y] (a b : ℝ) (f : ℝ → Y),
+    (∀ x q, a ≤ x → x < b →
+      (RightLimitOn a b f x q ↔
+        ∀ u : ℕ → ℝ, (∀ n, u n ∈ Ioo x b) → Tendsto u atTop (𝓝 x) →
+          Tendsto (f ∘ u) atTop (𝓝 q))) ∧
+    (∀ x q, a < x → x ≤ b →
+      (LeftLimitOn a b f x q ↔
+        ∀ u : ℕ → ℝ, (∀ n, u n ∈ Ioo a x) → Tendsto u atTop (𝓝 x) →
+          Tendsto (f ∘ u) atTop (𝓝 q))) ∧
+    (∀ x ∈ Ioo a b, ∀ q,
+      FunctionLimitOn (Ioo a b) f x q ↔ LeftLimitOn a b f x q ∧ RightLimitOn a b f x q) ∧
+    (∀ x ∈ Ioo a b,
+      (∃ q, FunctionLimitOn (Ioo a b) f x q) ↔
+        ∃ l r, LeftLimitOn a b f x l ∧ RightLimitOn a b f x r ∧ l = r)
+
+
+theorem interval_punctured_nhds {a b x : ℝ} (hx : x ∈ Ioo a b) :
+    𝓝[Ioo a b \ {x}] x = 𝓝[≠] x := by
+  change 𝓝[Ioo a b ∩ {x}ᶜ] x = 𝓝[≠] x
+  exact nhdsWithin_inter_of_mem (mem_nhdsWithin_of_mem_nhds (Ioo_mem_nhds hx.1 hx.2))
+
+theorem interval_limitPoint {a b x : ℝ} (hx : x ∈ Ioo a b) :
+    Chapter02.IsLimitPoint x (Ioo a b) := by
+  rw [functionLimitPoint_iff_neBot, interval_punctured_nhds hx]
+  infer_instance
+
+theorem interval_continuity_iff {Y : Type*} [MetricSpace Y]
+    {a b x : ℝ} (f : ℝ → Y) (hx : x ∈ Ioo a b) :
+    FunctionContinuousWithinAt (Ioo a b) f x ↔ ContinuousAt f x := by
+  rw [functionContinuousWithinAt_iff _ _ _ hx,
+    continuousWithinAt_iff_continuousAt (Ioo_mem_nhds hx.1 hx.2)]
+
+theorem interval_limit_iff_sides {Y : Type*} [MetricSpace Y]
+    {a b x : ℝ} (f : ℝ → Y) (q : Y) (hx : x ∈ Ioo a b) :
+    FunctionLimitOn (Ioo a b) f x q ↔ LeftLimitOn a b f x q ∧ RightLimitOn a b f x q := by
+  rw [functionLimitOn_iff_tendsto _ _ _ _ (interval_limitPoint hx),
+    interval_punctured_nhds hx, punctured_nhds_eq_nhdsWithin_sup_nhdsWithin, tendsto_sup]
+  simp only [LeftLimitOn, RightLimitOn, hx.1, hx.2, hx.1.le, hx.2.le, true_and,
+    nhdsWithin_Ioo_eq_nhdsLT hx.1, nhdsWithin_Ioo_eq_nhdsGT hx.2]
+
+theorem node_4_25 : Statement_4_25 := by
+  intro Y _ a b f
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · intro x q hax hxb
+    simp only [RightLimitOn, hax, hxb, true_and]
+    exact tendsto_within_iff_all_sequences _ _ _ _
+  · intro x q hax hxb
+    simp only [LeftLimitOn, hax, hxb, true_and]
+    exact tendsto_within_iff_all_sequences _ _ _ _
+  · intro x hx q
+    exact interval_limit_iff_sides f q hx
+  · intro x hx
+    constructor
+    · rintro ⟨q, hq⟩
+      exact ⟨q, q, (interval_limit_iff_sides f q hx).mp hq |>.1,
+        (interval_limit_iff_sides f q hx).mp hq |>.2, rfl⟩
+    · rintro ⟨l, r, hl, hr, rfl⟩
+      exact ⟨l, (interval_limit_iff_sides f l hx).mpr ⟨hl, hr⟩⟩
+
 end Rudin.PMA.Chapter04
