@@ -925,4 +925,16 @@ theorem pma2_34 {X : Type u} [MetricSpace X] {K : Set X}
     (hK : RudinCompact K) : IsClosed K :=
   ((pma2_32_reference K).mp hK).isClosed
 
+/-! ### PMA-2.35: closed subsets of compact sets, and closed intersections, are compact. -/
+
+theorem pma2_35 {X : Type u} [MetricSpace X] {F K : Set X}
+    (hF : IsClosed F) (hK : RudinCompact K) (hFK : F ⊆ K) : RudinCompact F :=
+  (pma2_32_reference F).mpr <|
+    ((pma2_32_reference K).mp hK).of_isClosed_subset hF hFK
+
+theorem pma2_35_corollary {X : Type u} [MetricSpace X] {F K : Set X}
+    (hF : IsClosed F) (hK : RudinCompact K) : RudinCompact (F ∩ K) := by
+  apply pma2_35 (hF.inter (pma2_34 hK)) hK
+  exact Set.inter_subset_right
+
 end Rudin.PMA.Chapter02
