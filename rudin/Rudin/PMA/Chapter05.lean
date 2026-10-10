@@ -1678,3 +1678,25 @@ theorem complexHopital_distinct_limits_probe :
 
 
 end Rudin.PMA.Chapter05
+
+
+/- Assembly source: Chapter05Integration.lean -/
+
+noncomputable section
+open Set Filter
+open scoped Topology
+
+namespace Rudin.PMA.Chapter05
+
+/-- The vector norm-limit uses exactly the source's interior approach, including
+one-sided derivatives at the endpoints of the nondegenerate closed interval. -/
+theorem vectorDerivativeWithin_source_iff
+    {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
+    (f : ℝ → E) (v : E) {a b x : ℝ} (hab : a < b) (hx : x ∈ Icc a b) :
+    VectorDerivativeWithin f v a b x ↔
+      Tendsto (fun t => ‖(t - x)⁻¹ • (f t - f x) - v‖)
+        (𝓝[Ioo a b \ {x}] x) (𝓝 0) := by
+  rw [interval_punctured_Ioo_eq_Icc hab hx]
+  simp only [VectorDerivativeWithin, hab, hx, true_and]
+
+end Rudin.PMA.Chapter05

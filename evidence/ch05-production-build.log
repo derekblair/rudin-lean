@@ -1,0 +1,597 @@
+Chapter 5 production verification logs; commands executed before corresponding commits.
+
+=== 00-candidate ===
+UTC 2026-10-10T16:20:07.469443+00:00
+
+$ /usr/bin/python3 -B scripts/check_chapter.py 5
+Chapter 05: 19/19 completed, 0 queued; source and metadata checks pass.
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache build
+ℹ [8932/8946] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8935/8946] Replayed Rudin.PMA.Chapter02Audit
+info: Rudin/PMA/Chapter02Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter02Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter02.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8938/8946] Replayed Rudin.PMA.Chapter03Audit
+info: Rudin/PMA/Chapter03Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter03Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter03.FidelityProbes: checked 21 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8941/8946] Replayed Rudin.PMA.Chapter04Audit
+info: Rudin/PMA/Chapter04Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter04Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter04.FidelityProbes: checked 24 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8942/8946] Built Rudin.PMA.Chapter05 (14s)
+info: Rudin/PMA/Chapter05.lean:1103:0: PMA 5.13 draft audit: 171 declarations; only propext, Classical.choice, Quot.sound.
+✔ [8943/8946] Built Rudin.PMA.Chapter05Probes (1.0s)
+ℹ [8944/8946] Built Rudin.PMA.Chapter05Audit (2.0s)
+info: Rudin/PMA/Chapter05Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter05: checked 267 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter05Audit.lean:7:0: Axiom audit for Rudin.PMA.Chapter05.FidelityProbes: checked 9 declarations; only propext, Classical.choice, and Quot.sound.
+✔ [8945/8946] Built Rudin (1.9s)
+Build completed successfully (8946 jobs).
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache env lean --stdin
+Axiom audit for Rudin.PMA.Chapter05: checked 267 declarations; only propext, Classical.choice, and Quot.sound.
+Axiom audit for Rudin.PMA.Chapter05.FidelityProbes: checked 9 declarations; only propext, Classical.choice, and Quot.sound.
+
+exit=0
+
+=== 01-preparation ===
+UTC 2026-10-10T16:21:04.592082+00:00
+
+$ /usr/bin/python3 -B scripts/check_chapter.py 5 --partial
+Chapter 05: 0/19 completed, 0 queued; source and metadata checks pass.
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache build
+✔ [8929/8944] Built Rudin.PMA.Chapter05 (138ms)
+ℹ [8933/8944] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8936/8944] Replayed Rudin.PMA.Chapter02Audit
+info: Rudin/PMA/Chapter02Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter02Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter02.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8939/8944] Replayed Rudin.PMA.Chapter03Audit
+info: Rudin/PMA/Chapter03Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter03Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter03.FidelityProbes: checked 21 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8942/8944] Replayed Rudin.PMA.Chapter04Audit
+info: Rudin/PMA/Chapter04Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter04Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter04.FidelityProbes: checked 24 declarations; only propext, Classical.choice, and Quot.sound.
+✔ [8943/8944] Built Rudin (1.7s)
+Build completed successfully (8944 jobs).
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache env lean --stdin
+Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+
+exit=0
+
+=== 02-nodes-through-5-retry-1 ===
+UTC 2026-10-10T16:22:52.719273+00:00
+
+$ /usr/bin/python3 -B scripts/check_chapter.py 5 --partial
+Chapter 05: 5/19 completed, 0 queued; source and metadata checks pass.
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache build
+ℹ [8932/8944] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8935/8944] Replayed Rudin.PMA.Chapter02Audit
+info: Rudin/PMA/Chapter02Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter02Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter02.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8938/8944] Replayed Rudin.PMA.Chapter03Audit
+info: Rudin/PMA/Chapter03Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter03Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter03.FidelityProbes: checked 21 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8941/8944] Replayed Rudin.PMA.Chapter04Audit
+info: Rudin/PMA/Chapter04Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter04Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter04.FidelityProbes: checked 24 declarations; only propext, Classical.choice, and Quot.sound.
+✔ [8942/8944] Built Rudin.PMA.Chapter05 (2.2s)
+Build completed successfully (8944 jobs).
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache env lean --stdin
+Axiom audit for Rudin.PMA.Chapter05: checked 57 declarations; only propext, Classical.choice, and Quot.sound.
+
+exit=0
+
+=== 03-nodes-through-6 ===
+UTC 2026-10-10T16:23:11.569405+00:00
+
+$ /usr/bin/python3 -B scripts/check_chapter.py 5 --partial
+Chapter 05: 6/19 completed, 0 queued; source and metadata checks pass.
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache build
+ℹ [8932/8944] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8935/8944] Replayed Rudin.PMA.Chapter02Audit
+info: Rudin/PMA/Chapter02Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter02Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter02.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8938/8944] Replayed Rudin.PMA.Chapter03Audit
+info: Rudin/PMA/Chapter03Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter03Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter03.FidelityProbes: checked 21 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8941/8944] Replayed Rudin.PMA.Chapter04Audit
+info: Rudin/PMA/Chapter04Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter04Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter04.FidelityProbes: checked 24 declarations; only propext, Classical.choice, and Quot.sound.
+✔ [8942/8944] Built Rudin.PMA.Chapter05 (2.5s)
+✔ [8943/8944] Built Rudin (1.7s)
+Build completed successfully (8944 jobs).
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache env lean --stdin
+Axiom audit for Rudin.PMA.Chapter05: checked 86 declarations; only propext, Classical.choice, and Quot.sound.
+
+exit=0
+
+=== 04-nodes-through-7 ===
+UTC 2026-10-10T16:23:23.371044+00:00
+
+$ /usr/bin/python3 -B scripts/check_chapter.py 5 --partial
+Chapter 05: 7/19 completed, 0 queued; source and metadata checks pass.
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache build
+ℹ [8932/8944] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8935/8944] Replayed Rudin.PMA.Chapter02Audit
+info: Rudin/PMA/Chapter02Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter02Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter02.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8938/8944] Replayed Rudin.PMA.Chapter03Audit
+info: Rudin/PMA/Chapter03Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter03Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter03.FidelityProbes: checked 21 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8941/8944] Replayed Rudin.PMA.Chapter04Audit
+info: Rudin/PMA/Chapter04Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter04Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter04.FidelityProbes: checked 24 declarations; only propext, Classical.choice, and Quot.sound.
+✔ [8942/8944] Built Rudin.PMA.Chapter05 (2.3s)
+✔ [8943/8944] Built Rudin (1.7s)
+Build completed successfully (8944 jobs).
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache env lean --stdin
+Axiom audit for Rudin.PMA.Chapter05: checked 90 declarations; only propext, Classical.choice, and Quot.sound.
+
+exit=0
+
+=== 05-nodes-through-8 ===
+UTC 2026-10-10T16:23:35.199009+00:00
+
+$ /usr/bin/python3 -B scripts/check_chapter.py 5 --partial
+Chapter 05: 8/19 completed, 0 queued; source and metadata checks pass.
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache build
+ℹ [8932/8944] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8935/8944] Replayed Rudin.PMA.Chapter02Audit
+info: Rudin/PMA/Chapter02Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter02Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter02.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8938/8944] Replayed Rudin.PMA.Chapter03Audit
+info: Rudin/PMA/Chapter03Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter03Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter03.FidelityProbes: checked 21 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8941/8944] Replayed Rudin.PMA.Chapter04Audit
+info: Rudin/PMA/Chapter04Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter04Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter04.FidelityProbes: checked 24 declarations; only propext, Classical.choice, and Quot.sound.
+✔ [8942/8944] Built Rudin.PMA.Chapter05 (2.5s)
+✔ [8943/8944] Built Rudin (1.7s)
+Build completed successfully (8944 jobs).
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache env lean --stdin
+Axiom audit for Rudin.PMA.Chapter05: checked 92 declarations; only propext, Classical.choice, and Quot.sound.
+
+exit=0
+
+=== 06-nodes-through-9 ===
+UTC 2026-10-10T16:23:52.838886+00:00
+
+$ /usr/bin/python3 -B scripts/check_chapter.py 5 --partial
+Chapter 05: 9/19 completed, 0 queued; source and metadata checks pass.
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache build
+ℹ [8932/8944] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8935/8944] Replayed Rudin.PMA.Chapter02Audit
+info: Rudin/PMA/Chapter02Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter02Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter02.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8938/8944] Replayed Rudin.PMA.Chapter03Audit
+info: Rudin/PMA/Chapter03Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter03Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter03.FidelityProbes: checked 21 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8941/8944] Replayed Rudin.PMA.Chapter04Audit
+info: Rudin/PMA/Chapter04Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter04Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter04.FidelityProbes: checked 24 declarations; only propext, Classical.choice, and Quot.sound.
+✔ [8942/8944] Built Rudin.PMA.Chapter05 (2.4s)
+✔ [8943/8944] Built Rudin (1.7s)
+Build completed successfully (8944 jobs).
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache env lean --stdin
+Axiom audit for Rudin.PMA.Chapter05: checked 94 declarations; only propext, Classical.choice, and Quot.sound.
+
+exit=0
+
+=== 07-nodes-through-10 ===
+UTC 2026-10-10T16:24:04.560895+00:00
+
+$ /usr/bin/python3 -B scripts/check_chapter.py 5 --partial
+Chapter 05: 10/19 completed, 0 queued; source and metadata checks pass.
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache build
+ℹ [8932/8944] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8935/8944] Replayed Rudin.PMA.Chapter02Audit
+info: Rudin/PMA/Chapter02Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter02Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter02.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8938/8944] Replayed Rudin.PMA.Chapter03Audit
+info: Rudin/PMA/Chapter03Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter03Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter03.FidelityProbes: checked 21 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8941/8944] Replayed Rudin.PMA.Chapter04Audit
+info: Rudin/PMA/Chapter04Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter04Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter04.FidelityProbes: checked 24 declarations; only propext, Classical.choice, and Quot.sound.
+✔ [8942/8944] Built Rudin.PMA.Chapter05 (2.6s)
+✔ [8943/8944] Built Rudin (1.6s)
+Build completed successfully (8944 jobs).
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache env lean --stdin
+Axiom audit for Rudin.PMA.Chapter05: checked 96 declarations; only propext, Classical.choice, and Quot.sound.
+
+exit=0
+
+=== 08-nodes-through-11 ===
+UTC 2026-10-10T16:24:17.315826+00:00
+
+$ /usr/bin/python3 -B scripts/check_chapter.py 5 --partial
+Chapter 05: 11/19 completed, 0 queued; source and metadata checks pass.
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache build
+ℹ [8932/8944] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8935/8944] Replayed Rudin.PMA.Chapter02Audit
+info: Rudin/PMA/Chapter02Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter02Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter02.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8938/8944] Replayed Rudin.PMA.Chapter03Audit
+info: Rudin/PMA/Chapter03Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter03Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter03.FidelityProbes: checked 21 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8941/8944] Replayed Rudin.PMA.Chapter04Audit
+info: Rudin/PMA/Chapter04Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter04Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter04.FidelityProbes: checked 24 declarations; only propext, Classical.choice, and Quot.sound.
+✔ [8942/8944] Built Rudin.PMA.Chapter05 (2.5s)
+✔ [8943/8944] Built Rudin (1.7s)
+Build completed successfully (8944 jobs).
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache env lean --stdin
+Axiom audit for Rudin.PMA.Chapter05: checked 98 declarations; only propext, Classical.choice, and Quot.sound.
+
+exit=0
+
+=== 09-nodes-through-12 ===
+UTC 2026-10-10T16:24:33.866279+00:00
+
+$ /usr/bin/python3 -B scripts/check_chapter.py 5 --partial
+Chapter 05: 12/19 completed, 0 queued; source and metadata checks pass.
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache build
+ℹ [8932/8944] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8935/8944] Replayed Rudin.PMA.Chapter02Audit
+info: Rudin/PMA/Chapter02Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter02Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter02.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8938/8944] Replayed Rudin.PMA.Chapter03Audit
+info: Rudin/PMA/Chapter03Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter03Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter03.FidelityProbes: checked 21 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8941/8944] Replayed Rudin.PMA.Chapter04Audit
+info: Rudin/PMA/Chapter04Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter04Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter04.FidelityProbes: checked 24 declarations; only propext, Classical.choice, and Quot.sound.
+✔ [8942/8944] Built Rudin.PMA.Chapter05 (2.7s)
+✔ [8943/8944] Built Rudin (1.7s)
+Build completed successfully (8944 jobs).
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache env lean --stdin
+Axiom audit for Rudin.PMA.Chapter05: checked 105 declarations; only propext, Classical.choice, and Quot.sound.
+
+exit=0
+
+=== 10-nodes-through-13 ===
+UTC 2026-10-10T16:24:46.094206+00:00
+
+$ /usr/bin/python3 -B scripts/check_chapter.py 5 --partial
+Chapter 05: 13/19 completed, 0 queued; source and metadata checks pass.
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache build
+ℹ [8932/8944] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8935/8944] Replayed Rudin.PMA.Chapter02Audit
+info: Rudin/PMA/Chapter02Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter02Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter02.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8938/8944] Replayed Rudin.PMA.Chapter03Audit
+info: Rudin/PMA/Chapter03Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter03Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter03.FidelityProbes: checked 21 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8941/8944] Replayed Rudin.PMA.Chapter04Audit
+info: Rudin/PMA/Chapter04Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter04Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter04.FidelityProbes: checked 24 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8942/8944] Built Rudin.PMA.Chapter05 (3.7s)
+info: Rudin/PMA/Chapter05.lean:1103:0: PMA 5.13 draft audit: 171 declarations; only propext, Classical.choice, Quot.sound.
+✔ [8943/8944] Built Rudin (1.7s)
+Build completed successfully (8944 jobs).
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache env lean --stdin
+Axiom audit for Rudin.PMA.Chapter05: checked 171 declarations; only propext, Classical.choice, and Quot.sound.
+
+exit=0
+
+=== 11-nodes-through-14 ===
+UTC 2026-10-10T16:24:59.712062+00:00
+
+$ /usr/bin/python3 -B scripts/check_chapter.py 5 --partial
+Chapter 05: 14/19 completed, 0 queued; source and metadata checks pass.
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache build
+ℹ [8932/8944] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8935/8944] Replayed Rudin.PMA.Chapter02Audit
+info: Rudin/PMA/Chapter02Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter02Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter02.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8938/8944] Replayed Rudin.PMA.Chapter03Audit
+info: Rudin/PMA/Chapter03Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter03Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter03.FidelityProbes: checked 21 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8941/8944] Replayed Rudin.PMA.Chapter04Audit
+info: Rudin/PMA/Chapter04Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter04Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter04.FidelityProbes: checked 24 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8942/8944] Built Rudin.PMA.Chapter05 (3.7s)
+info: Rudin/PMA/Chapter05.lean:1103:0: PMA 5.13 draft audit: 171 declarations; only propext, Classical.choice, Quot.sound.
+✔ [8943/8944] Built Rudin (1.7s)
+Build completed successfully (8944 jobs).
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache env lean --stdin
+Axiom audit for Rudin.PMA.Chapter05: checked 180 declarations; only propext, Classical.choice, and Quot.sound.
+
+exit=0
+
+=== 12-nodes-through-15 ===
+UTC 2026-10-10T16:25:32.421025+00:00
+
+$ /usr/bin/python3 -B scripts/check_chapter.py 5 --partial
+Chapter 05: 15/19 completed, 0 queued; source and metadata checks pass.
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache build
+ℹ [8932/8944] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8935/8944] Replayed Rudin.PMA.Chapter02Audit
+info: Rudin/PMA/Chapter02Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter02Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter02.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8938/8944] Replayed Rudin.PMA.Chapter03Audit
+info: Rudin/PMA/Chapter03Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter03Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter03.FidelityProbes: checked 21 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8941/8944] Replayed Rudin.PMA.Chapter04Audit
+info: Rudin/PMA/Chapter04Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter04Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter04.FidelityProbes: checked 24 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8942/8944] Built Rudin.PMA.Chapter05 (4.1s)
+info: Rudin/PMA/Chapter05.lean:1103:0: PMA 5.13 draft audit: 171 declarations; only propext, Classical.choice, Quot.sound.
+✔ [8943/8944] Built Rudin (1.7s)
+Build completed successfully (8944 jobs).
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache env lean --stdin
+Axiom audit for Rudin.PMA.Chapter05: checked 197 declarations; only propext, Classical.choice, and Quot.sound.
+
+exit=0
+
+=== 13-nodes-through-16 ===
+UTC 2026-10-10T16:25:46.137456+00:00
+
+$ /usr/bin/python3 -B scripts/check_chapter.py 5 --partial
+Chapter 05: 16/19 completed, 0 queued; source and metadata checks pass.
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache build
+ℹ [8932/8944] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8935/8944] Replayed Rudin.PMA.Chapter02Audit
+info: Rudin/PMA/Chapter02Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter02Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter02.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8938/8944] Replayed Rudin.PMA.Chapter03Audit
+info: Rudin/PMA/Chapter03Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter03Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter03.FidelityProbes: checked 21 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8941/8944] Replayed Rudin.PMA.Chapter04Audit
+info: Rudin/PMA/Chapter04Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter04Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter04.FidelityProbes: checked 24 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8942/8944] Built Rudin.PMA.Chapter05 (5.5s)
+info: Rudin/PMA/Chapter05.lean:1103:0: PMA 5.13 draft audit: 171 declarations; only propext, Classical.choice, Quot.sound.
+✔ [8943/8944] Built Rudin (1.7s)
+Build completed successfully (8944 jobs).
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache env lean --stdin
+Axiom audit for Rudin.PMA.Chapter05: checked 208 declarations; only propext, Classical.choice, and Quot.sound.
+
+exit=0
+
+=== 14-nodes-through-17 ===
+UTC 2026-10-10T16:26:01.370426+00:00
+
+$ /usr/bin/python3 -B scripts/check_chapter.py 5 --partial
+Chapter 05: 17/19 completed, 0 queued; source and metadata checks pass.
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache build
+ℹ [8932/8944] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8935/8944] Replayed Rudin.PMA.Chapter02Audit
+info: Rudin/PMA/Chapter02Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter02Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter02.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8938/8944] Replayed Rudin.PMA.Chapter03Audit
+info: Rudin/PMA/Chapter03Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter03Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter03.FidelityProbes: checked 21 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8941/8944] Replayed Rudin.PMA.Chapter04Audit
+info: Rudin/PMA/Chapter04Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter04Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter04.FidelityProbes: checked 24 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8942/8944] Built Rudin.PMA.Chapter05 (5.6s)
+info: Rudin/PMA/Chapter05.lean:1103:0: PMA 5.13 draft audit: 171 declarations; only propext, Classical.choice, Quot.sound.
+✔ [8943/8944] Built Rudin (1.7s)
+Build completed successfully (8944 jobs).
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache env lean --stdin
+Axiom audit for Rudin.PMA.Chapter05: checked 216 declarations; only propext, Classical.choice, and Quot.sound.
+
+exit=0
+
+=== 15-nodes-through-18 ===
+UTC 2026-10-10T16:26:21.654914+00:00
+
+$ /usr/bin/python3 -B scripts/check_chapter.py 5 --partial
+Chapter 05: 18/19 completed, 0 queued; source and metadata checks pass.
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache build
+ℹ [8932/8944] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8935/8944] Replayed Rudin.PMA.Chapter02Audit
+info: Rudin/PMA/Chapter02Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter02Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter02.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8938/8944] Replayed Rudin.PMA.Chapter03Audit
+info: Rudin/PMA/Chapter03Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter03Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter03.FidelityProbes: checked 21 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8941/8944] Replayed Rudin.PMA.Chapter04Audit
+info: Rudin/PMA/Chapter04Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter04Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter04.FidelityProbes: checked 24 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8942/8944] Built Rudin.PMA.Chapter05 (5.8s)
+info: Rudin/PMA/Chapter05.lean:1103:0: PMA 5.13 draft audit: 171 declarations; only propext, Classical.choice, Quot.sound.
+✔ [8943/8944] Built Rudin (1.7s)
+Build completed successfully (8944 jobs).
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache env lean --stdin
+Axiom audit for Rudin.PMA.Chapter05: checked 249 declarations; only propext, Classical.choice, and Quot.sound.
+
+exit=0
+
+=== 16-nodes-through-19 ===
+UTC 2026-10-10T16:26:38.141651+00:00
+
+$ /usr/bin/python3 -B scripts/check_chapter.py 5 --partial
+Chapter 05: 19/19 completed, 0 queued; source and metadata checks pass.
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache build
+ℹ [8932/8944] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8935/8944] Replayed Rudin.PMA.Chapter02Audit
+info: Rudin/PMA/Chapter02Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter02Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter02.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8938/8944] Replayed Rudin.PMA.Chapter03Audit
+info: Rudin/PMA/Chapter03Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter03Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter03.FidelityProbes: checked 21 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8941/8944] Replayed Rudin.PMA.Chapter04Audit
+info: Rudin/PMA/Chapter04Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter04Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter04.FidelityProbes: checked 24 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8942/8944] Built Rudin.PMA.Chapter05 (6.1s)
+info: Rudin/PMA/Chapter05.lean:1103:0: PMA 5.13 draft audit: 171 declarations; only propext, Classical.choice, Quot.sound.
+✔ [8943/8944] Built Rudin (1.7s)
+Build completed successfully (8944 jobs).
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache env lean --stdin
+Axiom audit for Rudin.PMA.Chapter05: checked 256 declarations; only propext, Classical.choice, and Quot.sound.
+
+exit=0
+
+=== 17-final-production ===
+UTC 2026-10-10T16:27:23.948966+00:00
+
+$ /usr/bin/python3 -B scripts/check_chapter.py 5
+Chapter 05: 19/19 completed, 0 queued; source and metadata checks pass.
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache build
+ℹ [8932/8946] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8935/8946] Replayed Rudin.PMA.Chapter02Audit
+info: Rudin/PMA/Chapter02Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter02Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter02.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8938/8946] Replayed Rudin.PMA.Chapter03Audit
+info: Rudin/PMA/Chapter03Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter03Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter03.FidelityProbes: checked 21 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8941/8946] Replayed Rudin.PMA.Chapter04Audit
+info: Rudin/PMA/Chapter04Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter04Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter04.FidelityProbes: checked 24 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8942/8946] Built Rudin.PMA.Chapter05 (6.1s)
+info: Rudin/PMA/Chapter05.lean:1103:0: PMA 5.13 draft audit: 171 declarations; only propext, Classical.choice, Quot.sound.
+ℹ [8944/8946] Replayed Rudin.PMA.Chapter05Audit
+info: Rudin/PMA/Chapter05Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter05: checked 267 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter05Audit.lean:7:0: Axiom audit for Rudin.PMA.Chapter05.FidelityProbes: checked 9 declarations; only propext, Classical.choice, and Quot.sound.
+✔ [8945/8946] Built Rudin (1.7s)
+Build completed successfully (8946 jobs).
+
+exit=0
+
+$ /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake --no-cache env lean --stdin
+Axiom audit for Rudin.PMA.Chapter05: checked 267 declarations; only propext, Classical.choice, and Quot.sound.
+Axiom audit for Rudin.PMA.Chapter05.FidelityProbes: checked 9 declarations; only propext, Classical.choice, and Quot.sound.
+
+exit=0

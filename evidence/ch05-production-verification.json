@@ -1,0 +1,511 @@
+{
+  "verified_utc": "2026-10-10T16:27:37.654282+00:00",
+  "base": "97758281a2802ea1700c9b84164c05a2cc64313d",
+  "branch": "codex/pma-ch05-integration",
+  "completed_nodes": 19,
+  "queued_nodes": 0,
+  "chapter_declarations_audited": 267,
+  "standalone_probes": 9,
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "final_code_sha256": {
+    "rudin/Rudin/PMA/Chapter05.lean": "55acec19c187d4ae0d6bfc37c78ee32df5711a997f3d4e0aeea876eb876904cb",
+    "rudin/Rudin/PMA/Chapter05Probes.lean": "a59995311bfe25b74920cee0aef6ed6ed3674c4568374058c141c1fcb0f96093",
+    "rudin/Rudin/PMA/Chapter05Audit.lean": "d8dbffc66740e026638a4c0bba1dbcacfb69594b706c92116aef9435fa18a0d9",
+    "rudin/Rudin.lean": "ecb07140e6e5bdb8e69b82312225fcdddd761e37588f0e53871e64be0c5ca73e"
+  },
+  "hostile_gate": {
+    "a": "evidence/ch05-hostile-review-a.md",
+    "b": "evidence/ch05-hostile-review-b.md",
+    "verdict": "PASS"
+  },
+  "commits_before_final_verification": [
+    {
+      "commit": "72446436f7b369a2828f0603ecd98bae2e8e8bb1",
+      "message": "PMA Chapter 5 accepted inventory and production review",
+      "nodes": 0,
+      "validation": "01-preparation",
+      "staged_paths": [
+        "PROGRAM.md",
+        "PROGRESS.md",
+        "evidence/ch05-hostile-review-a.md",
+        "evidence/ch05-hostile-review-b.md",
+        "evidence/pma-ch05-source-review.md",
+        "evidence/snapshot-provenance.json",
+        "research/pma-ch05-fidelity.md",
+        "research/pma-ch05-inventory.md",
+        "research/pma-ch05-production-review.md"
+      ]
+    },
+    {
+      "commit": "b6086c338bdf5946450012d7c74dacb00dc6250a",
+      "message": "PMA-5.1\u20135.5 done",
+      "nodes": 5,
+      "validation": "02-nodes-through-5-retry-1",
+      "staged_paths": [
+        "PROGRESS.md",
+        "rudin/Rudin/PMA/Chapter05.lean"
+      ]
+    },
+    {
+      "commit": "77cb9d3f962c86e4ac3b793c5c5f3a43f0aa184c",
+      "message": "PMA-5.6 done",
+      "nodes": 6,
+      "validation": "03-nodes-through-6",
+      "staged_paths": [
+        "PROGRESS.md",
+        "rudin/Rudin/PMA/Chapter05.lean"
+      ]
+    },
+    {
+      "commit": "2734ab0b415b11a312b4f91dc712dbf56eadbbb3",
+      "message": "PMA-5.7 done",
+      "nodes": 7,
+      "validation": "04-nodes-through-7",
+      "staged_paths": [
+        "PROGRESS.md",
+        "rudin/Rudin/PMA/Chapter05.lean"
+      ]
+    },
+    {
+      "commit": "74b37006a208eaa43563e493ddd28e62fd170d5a",
+      "message": "PMA-5.8 done",
+      "nodes": 8,
+      "validation": "05-nodes-through-8",
+      "staged_paths": [
+        "PROGRESS.md",
+        "rudin/Rudin/PMA/Chapter05.lean"
+      ]
+    },
+    {
+      "commit": "d999c0e0f19823c1771bdfb7b61d1c6142469d18",
+      "message": "PMA-5.9 done",
+      "nodes": 9,
+      "validation": "06-nodes-through-9",
+      "staged_paths": [
+        "PROGRESS.md",
+        "rudin/Rudin/PMA/Chapter05.lean"
+      ]
+    },
+    {
+      "commit": "c94eeb08ec98cc86bfed85bb8bec72645793ee62",
+      "message": "PMA-5.10 done",
+      "nodes": 10,
+      "validation": "07-nodes-through-10",
+      "staged_paths": [
+        "PROGRESS.md",
+        "rudin/Rudin/PMA/Chapter05.lean"
+      ]
+    },
+    {
+      "commit": "59ce40476ed134c1e66948b4f6de95131fcb8054",
+      "message": "PMA-5.11 done",
+      "nodes": 11,
+      "validation": "08-nodes-through-11",
+      "staged_paths": [
+        "PROGRESS.md",
+        "rudin/Rudin/PMA/Chapter05.lean"
+      ]
+    },
+    {
+      "commit": "79d8a2c8e5669db263e706bffe79b4365e13556b",
+      "message": "PMA-5.12 done",
+      "nodes": 12,
+      "validation": "09-nodes-through-12",
+      "staged_paths": [
+        "PROGRESS.md",
+        "rudin/Rudin/PMA/Chapter05.lean"
+      ]
+    },
+    {
+      "commit": "214da83ff9582cf3fed7e537cefc1ba03ee91d15",
+      "message": "PMA-5.13 done",
+      "nodes": 13,
+      "validation": "10-nodes-through-13",
+      "staged_paths": [
+        "PROGRESS.md",
+        "rudin/Rudin/PMA/Chapter05.lean"
+      ]
+    },
+    {
+      "commit": "365c259dddfeabdbfc8995d8005e29949b18ab9a",
+      "message": "PMA-5.14 done",
+      "nodes": 14,
+      "validation": "11-nodes-through-14",
+      "staged_paths": [
+        "PROGRESS.md",
+        "rudin/Rudin/PMA/Chapter05.lean"
+      ]
+    },
+    {
+      "commit": "ddd84618a6fd9863c709a352c060706cf6b6782a",
+      "message": "PMA-5.15 done",
+      "nodes": 15,
+      "validation": "12-nodes-through-15",
+      "staged_paths": [
+        "PROGRESS.md",
+        "rudin/Rudin/PMA/Chapter05.lean"
+      ]
+    },
+    {
+      "commit": "2a4500e1a7676c737e29faaaaf10f628043f5892",
+      "message": "PMA-5.16 done",
+      "nodes": 16,
+      "validation": "13-nodes-through-16",
+      "staged_paths": [
+        "PROGRESS.md",
+        "rudin/Rudin/PMA/Chapter05.lean"
+      ]
+    },
+    {
+      "commit": "66505b3a31cd20d9e747a0c65514de94638b5d52",
+      "message": "PMA-5.17 done",
+      "nodes": 17,
+      "validation": "14-nodes-through-17",
+      "staged_paths": [
+        "PROGRESS.md",
+        "rudin/Rudin/PMA/Chapter05.lean"
+      ]
+    },
+    {
+      "commit": "e7713c54f1c0c03ab0936de6c22c0a55b80cbcce",
+      "message": "PMA-5.18 done",
+      "nodes": 18,
+      "validation": "15-nodes-through-18",
+      "staged_paths": [
+        "PROGRESS.md",
+        "rudin/Rudin/PMA/Chapter05.lean"
+      ]
+    },
+    {
+      "commit": "f4ab1a4da3b651c43a9e6760a4e7b2b874914f3f",
+      "message": "PMA-5.19 done",
+      "nodes": 19,
+      "validation": "16-nodes-through-19",
+      "staged_paths": [
+        "PROGRESS.md",
+        "rudin/Rudin/PMA/Chapter05.lean"
+      ]
+    }
+  ],
+  "validations": [
+    {
+      "label": "00-candidate",
+      "nodes": 19,
+      "utc": "2026-10-10T16:20:34.706087+00:00",
+      "build_exit": 0,
+      "coverage_exit": 0,
+      "audit_exit": 0,
+      "log": "/home/derekblair/Documents/Codex/2026-10-10/task/rudin-ch05-isolated/evidence/ch06-ch05-production-logs/00-candidate.log",
+      "source_sha256": "55acec19c187d4ae0d6bfc37c78ee32df5711a997f3d4e0aeea876eb876904cb",
+      "build_summary": [
+        "Build completed successfully (8946 jobs)."
+      ],
+      "audit_summary": [
+        "Axiom audit for Rudin.PMA.Chapter05: checked 267 declarations; only propext, Classical.choice, and Quot.sound.",
+        "Axiom audit for Rudin.PMA.Chapter05.FidelityProbes: checked 9 declarations; only propext, Classical.choice, and Quot.sound."
+      ]
+    },
+    {
+      "label": "01-preparation",
+      "nodes": 0,
+      "utc": "2026-10-10T16:21:13.342699+00:00",
+      "build_exit": 0,
+      "coverage_exit": 0,
+      "audit_exit": 0,
+      "log": "/home/derekblair/Documents/Codex/2026-10-10/task/rudin-ch05-isolated/evidence/ch06-ch05-production-logs/01-preparation.log",
+      "source_sha256": "2b34e95c8ca247daa1a18268cdae162e21a3921a84e135233af3c0a5491bda56",
+      "build_summary": [
+        "Build completed successfully (8944 jobs)."
+      ],
+      "audit_summary": [
+        "Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.",
+        "Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.",
+        "Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.",
+        "Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound."
+      ],
+      "commit": "72446436f7b369a2828f0603ecd98bae2e8e8bb1"
+    },
+    {
+      "label": "02-nodes-through-5-retry-1",
+      "nodes": 5,
+      "utc": "2026-10-10T16:23:00.332794+00:00",
+      "build_exit": 0,
+      "coverage_exit": 0,
+      "audit_exit": 0,
+      "log": "/home/derekblair/Documents/Codex/2026-10-10/task/rudin-ch05-isolated/evidence/ch06-ch05-production-logs/02-nodes-through-5-retry-1.log",
+      "source_sha256": "17e805533ec48c67c0ae9fd14243c94674ee9eab8f9a8cd882e149a5084fc1ee",
+      "build_summary": [
+        "Build completed successfully (8944 jobs)."
+      ],
+      "audit_summary": [
+        "Axiom audit for Rudin.PMA.Chapter05: checked 57 declarations; only propext, Classical.choice, and Quot.sound."
+      ],
+      "commit": "b6086c338bdf5946450012d7c74dacb00dc6250a"
+    },
+    {
+      "label": "03-nodes-through-6",
+      "nodes": 6,
+      "utc": "2026-10-10T16:23:20.983770+00:00",
+      "build_exit": 0,
+      "coverage_exit": 0,
+      "audit_exit": 0,
+      "log": "/home/derekblair/Documents/Codex/2026-10-10/task/rudin-ch05-isolated/evidence/ch06-ch05-production-logs/03-nodes-through-6.log",
+      "source_sha256": "e5f9fd83c6217025016fd0026c04d252c029fd4627a4b1de8faa56d977c5ebd6",
+      "build_summary": [
+        "Build completed successfully (8944 jobs)."
+      ],
+      "audit_summary": [
+        "Axiom audit for Rudin.PMA.Chapter05: checked 86 declarations; only propext, Classical.choice, and Quot.sound."
+      ],
+      "commit": "77cb9d3f962c86e4ac3b793c5c5f3a43f0aa184c"
+    },
+    {
+      "label": "04-nodes-through-7",
+      "nodes": 7,
+      "utc": "2026-10-10T16:23:32.817587+00:00",
+      "build_exit": 0,
+      "coverage_exit": 0,
+      "audit_exit": 0,
+      "log": "/home/derekblair/Documents/Codex/2026-10-10/task/rudin-ch05-isolated/evidence/ch06-ch05-production-logs/04-nodes-through-7.log",
+      "source_sha256": "93d900f50bb28793b9dc4ab0253c333795237b9d0de0ef7c0b7fcb99e0f56606",
+      "build_summary": [
+        "Build completed successfully (8944 jobs)."
+      ],
+      "audit_summary": [
+        "Axiom audit for Rudin.PMA.Chapter05: checked 90 declarations; only propext, Classical.choice, and Quot.sound."
+      ],
+      "commit": "2734ab0b415b11a312b4f91dc712dbf56eadbbb3"
+    },
+    {
+      "label": "05-nodes-through-8",
+      "nodes": 8,
+      "utc": "2026-10-10T16:23:44.658515+00:00",
+      "build_exit": 0,
+      "coverage_exit": 0,
+      "audit_exit": 0,
+      "log": "/home/derekblair/Documents/Codex/2026-10-10/task/rudin-ch05-isolated/evidence/ch06-ch05-production-logs/05-nodes-through-8.log",
+      "source_sha256": "5fc4172b28afb7e0486b6b7de49c45f62cee7707f6e6b09a55c2056448eb719c",
+      "build_summary": [
+        "Build completed successfully (8944 jobs)."
+      ],
+      "audit_summary": [
+        "Axiom audit for Rudin.PMA.Chapter05: checked 92 declarations; only propext, Classical.choice, and Quot.sound."
+      ],
+      "commit": "74b37006a208eaa43563e493ddd28e62fd170d5a"
+    },
+    {
+      "label": "06-nodes-through-9",
+      "nodes": 9,
+      "utc": "2026-10-10T16:24:02.140039+00:00",
+      "build_exit": 0,
+      "coverage_exit": 0,
+      "audit_exit": 0,
+      "log": "/home/derekblair/Documents/Codex/2026-10-10/task/rudin-ch05-isolated/evidence/ch06-ch05-production-logs/06-nodes-through-9.log",
+      "source_sha256": "3e81ff4a1e9294732c29eadaee6f8f601cb7771c9d234eed6f7fd100fe29b357",
+      "build_summary": [
+        "Build completed successfully (8944 jobs)."
+      ],
+      "audit_summary": [
+        "Axiom audit for Rudin.PMA.Chapter05: checked 94 declarations; only propext, Classical.choice, and Quot.sound."
+      ],
+      "commit": "d999c0e0f19823c1771bdfb7b61d1c6142469d18"
+    },
+    {
+      "label": "07-nodes-through-10",
+      "nodes": 10,
+      "utc": "2026-10-10T16:24:14.122057+00:00",
+      "build_exit": 0,
+      "coverage_exit": 0,
+      "audit_exit": 0,
+      "log": "/home/derekblair/Documents/Codex/2026-10-10/task/rudin-ch05-isolated/evidence/ch06-ch05-production-logs/07-nodes-through-10.log",
+      "source_sha256": "f35878ba75f06b4023c83841872a4b72054e51ead40d4904f7aa56736179e23b",
+      "build_summary": [
+        "Build completed successfully (8944 jobs)."
+      ],
+      "audit_summary": [
+        "Axiom audit for Rudin.PMA.Chapter05: checked 96 declarations; only propext, Classical.choice, and Quot.sound."
+      ],
+      "commit": "c94eeb08ec98cc86bfed85bb8bec72645793ee62"
+    },
+    {
+      "label": "08-nodes-through-11",
+      "nodes": 11,
+      "utc": "2026-10-10T16:24:27.038546+00:00",
+      "build_exit": 0,
+      "coverage_exit": 0,
+      "audit_exit": 0,
+      "log": "/home/derekblair/Documents/Codex/2026-10-10/task/rudin-ch05-isolated/evidence/ch06-ch05-production-logs/08-nodes-through-11.log",
+      "source_sha256": "e5e0607b70699f4348d4c879d7e4903d6b6bcf6aec92b7588bafac2c8aa6778e",
+      "build_summary": [
+        "Build completed successfully (8944 jobs)."
+      ],
+      "audit_summary": [
+        "Axiom audit for Rudin.PMA.Chapter05: checked 98 declarations; only propext, Classical.choice, and Quot.sound."
+      ],
+      "commit": "59ce40476ed134c1e66948b4f6de95131fcb8054"
+    },
+    {
+      "label": "09-nodes-through-12",
+      "nodes": 12,
+      "utc": "2026-10-10T16:24:43.627162+00:00",
+      "build_exit": 0,
+      "coverage_exit": 0,
+      "audit_exit": 0,
+      "log": "/home/derekblair/Documents/Codex/2026-10-10/task/rudin-ch05-isolated/evidence/ch06-ch05-production-logs/09-nodes-through-12.log",
+      "source_sha256": "3fb6a7310e3b76703a5440350511a4bd78a364adc22e0f93e052b93b32ef7e72",
+      "build_summary": [
+        "Build completed successfully (8944 jobs)."
+      ],
+      "audit_summary": [
+        "Axiom audit for Rudin.PMA.Chapter05: checked 105 declarations; only propext, Classical.choice, and Quot.sound."
+      ],
+      "commit": "79d8a2c8e5669db263e706bffe79b4365e13556b"
+    },
+    {
+      "label": "10-nodes-through-13",
+      "nodes": 13,
+      "utc": "2026-10-10T16:24:56.995131+00:00",
+      "build_exit": 0,
+      "coverage_exit": 0,
+      "audit_exit": 0,
+      "log": "/home/derekblair/Documents/Codex/2026-10-10/task/rudin-ch05-isolated/evidence/ch06-ch05-production-logs/10-nodes-through-13.log",
+      "source_sha256": "c667aab7192a2c1ca04cd86c2f606d75464208b7c316d6c793a46c671b809d77",
+      "build_summary": [
+        "Build completed successfully (8944 jobs)."
+      ],
+      "audit_summary": [
+        "Axiom audit for Rudin.PMA.Chapter05: checked 171 declarations; only propext, Classical.choice, and Quot.sound."
+      ],
+      "commit": "214da83ff9582cf3fed7e537cefc1ba03ee91d15"
+    },
+    {
+      "label": "11-nodes-through-14",
+      "nodes": 14,
+      "utc": "2026-10-10T16:25:10.633316+00:00",
+      "build_exit": 0,
+      "coverage_exit": 0,
+      "audit_exit": 0,
+      "log": "/home/derekblair/Documents/Codex/2026-10-10/task/rudin-ch05-isolated/evidence/ch06-ch05-production-logs/11-nodes-through-14.log",
+      "source_sha256": "ad93353e1dec692a5327db652598ccb82d6bf31ffbb8f9b87218ac4469a11751",
+      "build_summary": [
+        "Build completed successfully (8944 jobs)."
+      ],
+      "audit_summary": [
+        "Axiom audit for Rudin.PMA.Chapter05: checked 180 declarations; only propext, Classical.choice, and Quot.sound."
+      ],
+      "commit": "365c259dddfeabdbfc8995d8005e29949b18ab9a"
+    },
+    {
+      "label": "12-nodes-through-15",
+      "nodes": 15,
+      "utc": "2026-10-10T16:25:43.606654+00:00",
+      "build_exit": 0,
+      "coverage_exit": 0,
+      "audit_exit": 0,
+      "log": "/home/derekblair/Documents/Codex/2026-10-10/task/rudin-ch05-isolated/evidence/ch06-ch05-production-logs/12-nodes-through-15.log",
+      "source_sha256": "f22b67cc6e92cd75b84c71932c034226c2692f6730c10063eaba44c9a7eec533",
+      "build_summary": [
+        "Build completed successfully (8944 jobs)."
+      ],
+      "audit_summary": [
+        "Axiom audit for Rudin.PMA.Chapter05: checked 197 declarations; only propext, Classical.choice, and Quot.sound."
+      ],
+      "commit": "ddd84618a6fd9863c709a352c060706cf6b6782a"
+    },
+    {
+      "label": "13-nodes-through-16",
+      "nodes": 16,
+      "utc": "2026-10-10T16:25:58.482584+00:00",
+      "build_exit": 0,
+      "coverage_exit": 0,
+      "audit_exit": 0,
+      "log": "/home/derekblair/Documents/Codex/2026-10-10/task/rudin-ch05-isolated/evidence/ch06-ch05-production-logs/13-nodes-through-16.log",
+      "source_sha256": "762c6721cb4115f765b00c051451773f71fb1fbaa8c4a6c60bb0a64e8edb35f6",
+      "build_summary": [
+        "Build completed successfully (8944 jobs)."
+      ],
+      "audit_summary": [
+        "Axiom audit for Rudin.PMA.Chapter05: checked 208 declarations; only propext, Classical.choice, and Quot.sound."
+      ],
+      "commit": "2a4500e1a7676c737e29faaaaf10f628043f5892"
+    },
+    {
+      "label": "14-nodes-through-17",
+      "nodes": 17,
+      "utc": "2026-10-10T16:26:14.073634+00:00",
+      "build_exit": 0,
+      "coverage_exit": 0,
+      "audit_exit": 0,
+      "log": "/home/derekblair/Documents/Codex/2026-10-10/task/rudin-ch05-isolated/evidence/ch06-ch05-production-logs/14-nodes-through-17.log",
+      "source_sha256": "879a12497ef6c83ef9c61ff5df0d617109c0e152eaafffa614bfbdff9697fb4f",
+      "build_summary": [
+        "Build completed successfully (8944 jobs)."
+      ],
+      "audit_summary": [
+        "Axiom audit for Rudin.PMA.Chapter05: checked 216 declarations; only propext, Classical.choice, and Quot.sound."
+      ],
+      "commit": "66505b3a31cd20d9e747a0c65514de94638b5d52"
+    },
+    {
+      "label": "15-nodes-through-18",
+      "nodes": 18,
+      "utc": "2026-10-10T16:26:34.498936+00:00",
+      "build_exit": 0,
+      "coverage_exit": 0,
+      "audit_exit": 0,
+      "log": "/home/derekblair/Documents/Codex/2026-10-10/task/rudin-ch05-isolated/evidence/ch06-ch05-production-logs/15-nodes-through-18.log",
+      "source_sha256": "7740c91843a281375f9955d09124adecd24e9b7fb584cfd25c38fc1999cc3918",
+      "build_summary": [
+        "Build completed successfully (8944 jobs)."
+      ],
+      "audit_summary": [
+        "Axiom audit for Rudin.PMA.Chapter05: checked 249 declarations; only propext, Classical.choice, and Quot.sound."
+      ],
+      "commit": "e7713c54f1c0c03ab0936de6c22c0a55b80cbcce"
+    },
+    {
+      "label": "16-nodes-through-19",
+      "nodes": 19,
+      "utc": "2026-10-10T16:26:51.371664+00:00",
+      "build_exit": 0,
+      "coverage_exit": 0,
+      "audit_exit": 0,
+      "log": "/home/derekblair/Documents/Codex/2026-10-10/task/rudin-ch05-isolated/evidence/ch06-ch05-production-logs/16-nodes-through-19.log",
+      "source_sha256": "772adc648c4b8b4e2a27b74a18cf10ac54b5299c0548fe716c2a6295b8000d59",
+      "build_summary": [
+        "Build completed successfully (8944 jobs)."
+      ],
+      "audit_summary": [
+        "Axiom audit for Rudin.PMA.Chapter05: checked 256 declarations; only propext, Classical.choice, and Quot.sound."
+      ],
+      "commit": "f4ab1a4da3b651c43a9e6760a4e7b2b874914f3f"
+    },
+    {
+      "label": "17-final-production",
+      "nodes": 19,
+      "utc": "2026-10-10T16:27:37.654282+00:00",
+      "build_exit": 0,
+      "coverage_exit": 0,
+      "audit_exit": 0,
+      "log": "/home/derekblair/Documents/Codex/2026-10-10/task/rudin-ch05-isolated/evidence/ch06-ch05-production-logs/17-final-production.log",
+      "source_sha256": "55acec19c187d4ae0d6bfc37c78ee32df5711a997f3d4e0aeea876eb876904cb",
+      "build_summary": [
+        "Build completed successfully (8946 jobs)."
+      ],
+      "audit_summary": [
+        "Axiom audit for Rudin.PMA.Chapter05: checked 267 declarations; only propext, Classical.choice, and Quot.sound.",
+        "Axiom audit for Rudin.PMA.Chapter05.FidelityProbes: checked 9 declarations; only propext, Classical.choice, and Quot.sound."
+      ]
+    }
+  ],
+  "final_commit": "The commit containing this report is the final production verification commit.",
+  "remote_action": "none; no push",
+  "integration_notes": [
+    "First 5.1\u20135.5 prefix passed build/audit but git diff --check rejected an added blank line at EOF. No commit occurred; temporary prefix whitespace was corrected and all checks rerun."
+  ],
+  "grouping": "5.1\u20135.5 share a section commit because contracts precede proofs; 5.6\u20135.19 are individual."
+}

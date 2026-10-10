@@ -1,0 +1,29 @@
+{
+  "verified_utc": "2026-10-10T15:53:18.010422+00:00",
+  "scope": "PMA5.1 through PMA5.19, accepted main-text inventory; isolated preparation only",
+  "completed_nodes": 19,
+  "queued_nodes": 0,
+  "build_jobs": 8946,
+  "chapter_declarations_audited": 267,
+  "standalone_probes_included": 9,
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "shared_status": "## main...origin/main [ahead 178]\n?? research/pma-ch05-fidelity.md\n?? research/pma-ch05-inventory.md\n",
+  "shared_head": "97758281a2802ea1700c9b84164c05a2cc64313d",
+  "production_sha256": {
+    "rudin/Rudin/PMA/Chapter05.lean": "55acec19c187d4ae0d6bfc37c78ee32df5711a997f3d4e0aeea876eb876904cb",
+    "rudin/Rudin/PMA/Chapter05Probes.lean": "a59995311bfe25b74920cee0aef6ed6ed3674c4568374058c141c1fcb0f96093",
+    "rudin/Rudin/PMA/Chapter05Audit.lean": "d8dbffc66740e026638a4c0bba1dbcacfb69594b706c92116aef9435fa18a0d9",
+    "rudin/Rudin.lean": "ecb07140e6e5bdb8e69b82312225fcdddd761e37588f0e53871e64be0c5ca73e"
+  },
+  "integration_blocker": "Shared-checkout ownership confirmation and separate production integration/commit authorization remain pending.",
+  "review_patch": {
+    "file": "CHAPTER05.patch",
+    "sha256": "b2d09f997cd63cab34d4bd7d147bd173062ce8a903e0b17df503a57805ddea20",
+    "basis": "Source HEAD 97758281a2802ea1700c9b84164c05a2cc64313d; includes source-checkout untracked Chapter5 research as new files. For review; not applied.",
+    "limitation": "Patch excludes independent dependency copies, local path overrides and isolated runtime helper scripts. Use the isolated workspace commands for replay; production integration must reconcile existing untracked research and execution-policy documentation."
+  }
+}

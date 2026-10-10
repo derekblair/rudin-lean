@@ -1,0 +1,54 @@
+{
+  "nodes": [
+    "PMA-5.1",
+    "PMA-5.2",
+    "PMA-5.3",
+    "PMA-5.4",
+    "PMA-5.5",
+    "PMA-5.6",
+    "PMA-5.7",
+    "PMA-5.8",
+    "PMA-5.9",
+    "PMA-5.10",
+    "PMA-5.11",
+    "PMA-5.12",
+    "PMA-5.13",
+    "PMA-5.14",
+    "PMA-5.15",
+    "PMA-5.16",
+    "PMA-5.17",
+    "PMA-5.18",
+    "PMA-5.19"
+  ],
+  "sources": [
+    {
+      "draft": "Chapter05OpeningDraft.lean",
+      "sha256": "879ab85337e9e2a697459b7b834a3003201a1ef023580f5baa18abf9ef19bc44"
+    },
+    {
+      "draft": "Chapter05OscillationDraft.lean",
+      "sha256": "5435a5f94465a0017c7d1bafd4b73d4aa7db7ee292911d435f42561a044c4a2a"
+    },
+    {
+      "draft": "Chapter05MiddleDraft.lean",
+      "sha256": "dc609125c4364b857f0c6d1d64088ab4094c1f561bc5b55ee1d3fdc523ecc2b0"
+    },
+    {
+      "draft": "Chapter05LHopitalDraft.lean",
+      "sha256": "fcdfd806b3a52876c0aa465f293b46dfcf315604f4fb33b846253755840d8ca0"
+    },
+    {
+      "draft": "Chapter05TaylorDraft.lean",
+      "sha256": "b294ca03411cd208e5d9afc5e23fe9ceadd213c1333552edba3a917da8abb737"
+    },
+    {
+      "draft": "Chapter05VectorDraft.lean",
+      "sha256": "296861f877fc4c63b2e9df5814a7d8e51374427c018b5a491c39b979e8885e41"
+    },
+    {
+      "draft": "Chapter05Integration.lean",
+      "sha256": "93b2e6db417ea6f2236bd6956bb9c1efad7a2f62b55b2685f1405d0e0179d861"
+    }
+  ],
+  "chapter_sha256": "55acec19c187d4ae0d6bfc37c78ee32df5711a997f3d4e0aeea876eb876904cb"
+}

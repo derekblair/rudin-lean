@@ -1,0 +1,13 @@
+ℹ [8933/8944] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8936/8944] Replayed Rudin.PMA.Chapter02Audit
+info: Rudin/PMA/Chapter02Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter02Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter02.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8939/8944] Replayed Rudin.PMA.Chapter03Audit
+info: Rudin/PMA/Chapter03Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter03Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter03.FidelityProbes: checked 21 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8942/8944] Replayed Rudin.PMA.Chapter04Audit
+info: Rudin/PMA/Chapter04Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter04Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter04.FidelityProbes: checked 24 declarations; only propext, Classical.choice, and Quot.sound.
+Build completed successfully (8944 jobs).

@@ -2,9 +2,9 @@
 
 ## Current verdict
 
-**Inventory review pending. Formal-statement review pending. Production comparison, semantic probes, default build, and chapter axiom audit pending.** This report currently records only the bounded prior-art check. It gives no acceptance verdict for a Chapter 5 inventory or Lean contract, and no Chapter 5 mathematical statements or proofs have been authored by this reviewer.
+**Isolated preparation: all 19 nodes proved and independently accepted.** The later independent source review is preserved at `../evidence/pma-ch05-source-review.md`. The historical prior-art evidence below is retained unchanged. The assembled isolated chapter passes the default build and recursive axiom audit (267 declarations, including nine standalone probes). Production integration is now verified on a local branch after fresh hostile reviews; see `pma-ch05-production-review.md`. No push was performed. A pinned baseline default build passed in the isolated workspace (see `../evidence/baseline-build.log`).
 
-Chapter 4 was closed before Chapter 5 extraction began. The next review stages are independent acceptance of the Chapter 5 source inventory, followed by back-translation and typechecking of the actual statement contracts before proofs begin. The root agent retains ownership of production modules and git operations.
+Historical pre-proof plan (subsequently completed): Chapter 4 was closed before Chapter 5 extraction began. The next review stages were independent acceptance of the Chapter 5 source inventory, followed by back-translation and typechecking of the actual statement contracts before proofs begin. The root agent retains ownership of production modules and git operations.
 
 ## Bounded prior-art check
 
@@ -53,12 +53,20 @@ The complete path lists, retrieval timestamps, and fetched source snapshots are 
 
 ## Source inventory review
 
-Pending the completed inventory and independent source review. No node count, completeness claim, source correction, or per-node verdict is asserted yet.
+The later independent review accepted all 19 informal inventory nodes and attached consequences. Its verdict applies to the source inventory only, not to Lean statement/proof completion. See `../evidence/pma-ch05-source-review.md`.
 
 ## Formal statement review
 
-Pending accepted inventory and the actual typed contract files. Every definition and proposition conjunct will be checked against the accepted source inventory before a formal-statement verdict is recorded.
+All definitions and proposition conjuncts were reviewed against the accepted inventory before proof; fresh reviewers then accepted all six final node groups. The seven assembly inputs preserve reviewed declarations/proofs verbatim apart from moving imports and omitting diagnostic print commands. See `pma-ch05-checks.md` and `../evidence/ch05-assembly.json`.
 
 ## Final verification
 
-Pending production statements/proofs, independent boundary probes, a passing default `lake build`, zero-placeholder checks, and a complete recursive chapter axiom audit allowing only `propext`, `Classical.choice`, and `Quot.sound`.
+Passed in isolated preparation: nineteen principal theorems, independent boundary probes, default build (8,946 jobs), source/coverage/metadata checker (19/19, zero queued), and recursive audit of 267 chapter declarations including nine standalone probes. Only `propext`, `Classical.choice`, and `Quot.sound` occur. Final build evidence: `../evidence/ch05-final-build.log`. This does not claim production integration, publication, or textbook-order restrictions on the underlying Mathlib proofs.
+
+## Production integration update
+
+The exact reviewed source has now been integrated with local section commits,
+per-commit default builds and recursive axiom audits. Fresh hostile reviews
+cover all nineteen nodes independently of their authors. Production evidence
+is recorded separately in `pma-ch05-production-review.md`; historical isolated
+results above retain their original context. No remote publication occurred.

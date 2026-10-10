@@ -4,9 +4,7 @@ Hostile review gate: **PASS for all nineteen nodes in the exact candidate**.
 Review A covers 5.1–5.6 and 5.13–5.19; review B covers 5.7–5.12.
 Each reviewer is independent of the nodes reviewed. Reports: [A](../evidence/ch05-hostile-review-a.md), [B](../evidence/ch05-hostile-review-b.md).
 
-Production verification is being recorded incrementally; the complete candidate
-passed the preliminary production build/audit before section history was assembled.
-No Chapter 5 proof completion is asserted for the preparation-only commit.
+Production verification: **PASS, 19/19 nodes, zero queued**.
 
 Base: `97758281a2802ea1700c9b84164c05a2cc64313d`; branch: `codex/pma-ch05-integration`. Local commits only; no push or remote update.
 
@@ -35,3 +33,10 @@ for the recursive namespace audit. At repository root use
 `python3 -B scripts/check_chapter.py 5` (`--partial` during prefixes).
 No isolated local-package overrides, dependency copies, installs, fetches,
 session changes, credentials, book files, or Chapter 6 edits were integrated.
+
+The final build includes the canonical Chapter 5 probes and recursive audit.
+The audit checks 267 declarations, including nine standalone probes, with
+only `propext`, `Classical.choice`, and `Quot.sound`. All four final code
+hashes match the hostile-reviewed candidate exactly. Detailed per-commit
+records and build output are in `../evidence/ch05-production-verification.json`
+and `../evidence/ch05-production-build.log`.

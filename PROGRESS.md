@@ -58,3 +58,8 @@ section is grouped to preserve reviewed declaration order; later nodes
 are integrated individually. Each section commit requires a passing default
 build, source check, and recursive axiom audit. Final standalone probe and
 production verification evidence is recorded when the chapter closes.
+
+Chapter 5 final verification is complete: 19/19, zero queued nodes, nine
+standalone probes, and 267 recursively audited declarations using only the
+three standard axioms. Exact final code hashes match both hostile reviews.
+See `research/pma-ch05-production-review.md` and production verification logs.
