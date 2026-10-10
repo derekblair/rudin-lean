@@ -973,4 +973,20 @@ theorem node_3_28 : Statement_3_28 := by
     (Real.summable_one_div_nat_rpow (p := p)) using 1; simp
 
 
+/-! ### PMA-3.23: Terms of a convergent series and the harmonic counterexample. -/
+def Statement_3_23 : Prop :=
+  (∀ a : ℕ → ℂ, SeriesConverges a → Tendsto a atTop (𝓝 0)) ∧
+  Tendsto (PSeriesTerm 1) atTop (𝓝 0) ∧ SeriesDiverges (PSeriesTerm 1)
+
+/-! PMA-3.23 proof details: Verified zero-term condition and harmonic counterexample. -/
+theorem node_3_23 : Statement_3_23 := by
+  refine ⟨fun _ h => series_terms_tendsto_zero h, ?_, ?_⟩
+  · have heq : PSeriesTerm 1 = (fun n : ℕ => 1/((n : ℝ)+1)) := by
+      funext n
+      simp [PSeriesTerm]
+    rw [heq]
+    exact tendsto_one_div_add_atTop_nhds_zero_nat
+  · exact (node_3_28 1).not.mpr (by norm_num)
+
+
 end Rudin.PMA.Chapter03

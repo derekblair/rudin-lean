@@ -33,3 +33,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.26 | PASS: sum for every `0≤x<1`, including zero, and divergence for every `x≥1`. |
 | PMA-3.27 | PASS: positive indices, nonnegative terms including zero, non-strict decrease, exact condensation weights and indices. |
 | PMA-3.28 | PASS: real exponent, positive indices, equivalence with `p>1`. |
+| PMA-3.23 | PASS: vanishing terms and the actual divergent harmonic counterexample. |
