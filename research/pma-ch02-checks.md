@@ -41,3 +41,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-2.33 | PASS: Subspace and ambient compactness coincide under K⊆Y via subtype embedding/image. |
 | PMA-2.34 | PASS: Metric compact subsets are closed, using IsCompact.isClosed. |
 | PMA-2.35 | PASS: Closed subsets and closed intersections of compact sets are compact. |
+| PMA-2.36 | PASS: Arbitrary compact family with nonempty intersections of every finite subfamily has a common point (including empty index); nested nonempty compact-sequence corollary included. |

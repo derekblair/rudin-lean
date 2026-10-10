@@ -937,4 +937,33 @@ theorem pma2_35_corollary {X : Type u} [MetricSpace X] {F K : Set X}
   apply pma2_35 (hF.inter (pma2_34 hK)) hK
   exact Set.inter_subset_right
 
+/-! ### PMA-2.36: compact sets with the finite intersection property have a common point. -/
+
+theorem pma2_36 {X : Type u} [MetricSpace X] {ι : Type*}
+    (K : ι → Set X) (hK : ∀ i, RudinCompact (K i))
+    (hfinite : ∀ t : Finset ι, (⋂ i ∈ t, K i).Nonempty) :
+    (⋂ i, K i).Nonempty := by
+  classical
+  rcases isEmpty_or_nonempty ι with hι | hι
+  · let := hι
+    simpa using hfinite (∅ : Finset ι)
+  · let := hι
+    let i₀ : ι := Classical.choice inferInstance
+    have h : (K i₀ ∩ ⋂ i, K i).Nonempty := by
+      apply ((pma2_32_reference (K i₀)).mp (hK i₀)).inter_iInter_nonempty K
+        (fun i => pma2_34 (hK i))
+      intro t
+      obtain ⟨x, hx⟩ := hfinite (insert i₀ t)
+      refine ⟨x, ?_, ?_⟩
+      · exact Set.mem_iInter.mp (Set.mem_iInter.mp hx i₀) (Finset.mem_insert_self _ _)
+      · simp only [Set.mem_iInter] at hx ⊢
+        exact fun i hi => hx i (Finset.mem_insert_of_mem hi)
+    exact h.mono Set.inter_subset_right
+
+theorem pma2_36_corollary {X : Type u} [MetricSpace X] (K : ℕ → Set X)
+    (hK : ∀ n, RudinCompact (K n)) (hne : ∀ n, (K n).Nonempty)
+    (hdec : ∀ n, K (n + 1) ⊆ K n) : (⋂ n, K n).Nonempty :=
+  IsCompact.nonempty_iInter_of_sequence_nonempty_isCompact_isClosed K hdec hne
+    ((pma2_32_reference (K 0)).mp (hK 0)) (fun n => pma2_34 (hK n))
+
 end Rudin.PMA.Chapter02
