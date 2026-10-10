@@ -226,4 +226,15 @@ theorem pma4_7 : pma4_7_contract := by
   have hu := (functionContinuousWithinAt_iff (f '' E) g (f p) hg.1).mp hg
   exact hu.comp ht (fun x hx => mem_image_of_mem f hx)
 
+/-! ### PMA-4.8: Open and closed inverse images -/
+def pma4_8_contract : Prop :=
+  ∀ {X Y : Type*} [MetricSpace X] [MetricSpace Y] (f : X → Y),
+    (FunctionContinuousOn univ f ↔ ∀ V : Set Y, IsOpen V → IsOpen (f ⁻¹' V)) ∧
+    (FunctionContinuousOn univ f ↔ ∀ C : Set Y, IsClosed C → IsClosed (f ⁻¹' C))
+
+theorem pma4_8 : pma4_8_contract := by
+  intro X Y _ _ f
+  rw [functionContinuousOn_univ_iff]
+  exact ⟨continuous_def, continuous_iff_isClosed⟩
+
 end Rudin.PMA.Chapter04
