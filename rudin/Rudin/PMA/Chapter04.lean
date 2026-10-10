@@ -56,4 +56,45 @@ theorem pma4_1 : pma4_1_contract := by
   intro X Y _ _ E f p q hp
   exact functionLimitOn_iff_tendsto E f p q hp
 
+/-! ### PMA-4.2: Sequential criterion and uniqueness -/
+def pma4_2_contract : Prop :=
+  (∀ {X Y : Type*} [MetricSpace X] [MetricSpace Y] (E : Set X)
+    (f : X → Y) (p : X) (q : Y), Chapter02.IsLimitPoint p E →
+      (FunctionLimitOn E f p q ↔ ∀ s : ℕ → X,
+        (∀ n, s n ∈ E ∧ s n ≠ p) → Tendsto s atTop (𝓝 p) →
+          Tendsto (f ∘ s) atTop (𝓝 q))) ∧
+  (∀ {X Y : Type*} [MetricSpace X] [MetricSpace Y] (E : Set X)
+    (f : X → Y) (p : X) (q r : Y),
+      FunctionLimitOn E f p q → FunctionLimitOn E f p r → q = r)
+
+theorem tendsto_within_iff_all_sequences {X Y : Type*} [MetricSpace X] [MetricSpace Y]
+    (S : Set X) (f : X → Y) (p : X) (q : Y) :
+    Tendsto f (𝓝[S] p) (𝓝 q) ↔ ∀ s : ℕ → X,
+      (∀ n, s n ∈ S) → Tendsto s atTop (𝓝 p) → Tendsto (f ∘ s) atTop (𝓝 q) := by
+  constructor
+  · intro hf s hs ht
+    exact hf.comp (tendsto_nhdsWithin_iff.mpr ⟨ht, Eventually.of_forall hs⟩)
+  · intro h
+    apply tendsto_iff_seq_tendsto.mpr
+    intro s hs
+    obtain ⟨ht, he⟩ := tendsto_nhdsWithin_iff.mp hs
+    obtain ⟨N, hN⟩ := eventually_atTop.mp he
+    have hshift := h (fun n => s (n + N))
+      (fun n => hN (n + N) (Nat.le_add_left N n)) (ht.comp (tendsto_add_atTop_nat N))
+    exact (tendsto_add_atTop_iff_nat N).mp hshift
+
+theorem functionLimitOn_unique {X Y : Type*} [MetricSpace X] [MetricSpace Y]
+    (E : Set X) (f : X → Y) (p : X) (q r : Y)
+    (hq : FunctionLimitOn E f p q) (hr : FunctionLimitOn E f p r) : q = r := by
+  have : (𝓝[E \ {p}] p).NeBot := (functionLimitPoint_iff_neBot E p).mp hq.1
+  exact tendsto_nhds_unique ((functionLimitOn_iff_tendsto E f p q hq.1).mp hq)
+    ((functionLimitOn_iff_tendsto E f p r hr.1).mp hr)
+
+theorem pma4_2 : pma4_2_contract := by
+  constructor
+  · intro X Y _ _ E f p q hp
+    rw [functionLimitOn_iff_tendsto E f p q hp, tendsto_within_iff_all_sequences]
+    simp only [Set.mem_sdiff, mem_singleton_iff]
+  · exact fun E f p q r => functionLimitOn_unique E f p q r
+
 end Rudin.PMA.Chapter04

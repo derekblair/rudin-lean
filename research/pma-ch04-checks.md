@@ -7,3 +7,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | Node | Independent fidelity verdict and reference |
 |---|---|
 | PMA-4.1 | PASS: Independent definition/contract PASS; exact epsilon–delta punctured limit, ambient accumulation, Tendsto comparator and NeBot equivalence. |
+| PMA-4.2 | PASS: Independent contract PASS; every punctured-domain sequence criterion and uniqueness under nontrivial approach; Mathlib filter sequential comparator. |
