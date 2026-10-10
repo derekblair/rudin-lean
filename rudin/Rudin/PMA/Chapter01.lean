@@ -926,4 +926,15 @@ theorem pma_complex_abs_properties (z w : ℂ) :
   exact ⟨norm_pos_iff, norm_zero, Complex.norm_conj z, norm_mul z w,
     Complex.abs_re_le_norm z, norm_add_le z w⟩
 
+/-! ### PMA-1.34: summation notation for n complex terms (indexed by Fin n). -/
+
+def pmaComplexSum {n : ℕ} (z : Fin n → ℂ) : ℂ := ∑ i, z i
+
+theorem pma_complex_sum_zero : pmaComplexSum (n := 0) (fun i => Fin.elim0 i) = 0 := by
+  simp [pmaComplexSum]
+
+theorem pma_complex_sum_succ {n : ℕ} (z : Fin (n + 1) → ℂ) :
+    pmaComplexSum z = pmaComplexSum (fun i : Fin n => z i.castSucc) + z (Fin.last n) :=
+  Fin.sum_univ_castSucc z
+
 end Rudin.PMA.Chapter01

@@ -43,3 +43,4 @@ folded into 1.1 under PROGRAM.md's rule for remarks. The requested target count 
 | PMA-1.31 | PASS: Conjugation preserves sums/products; sum/difference with conjugate recover parts; the product is nonnegative real and positive off zero. | Ring-hom mapping; Complex.add_conj/sub_conj/mul_conj and normSq positivity. |
 | PMA-1.32 | PASS: Absolute value is the nonnegative real square root of the real conjugate product. | Real.sqrt normSq is definitionally the norm; nonnegative-square characterization proved. |
 | PMA-1.33 | PASS: All five modulus properties are present: positivity/zero, conjugation, product, real-part bound and triangle inequality. | norm_pos_iff/zero/mul/add; Complex.norm_conj and abs_re_le_norm. |
+| PMA-1.34 | PASS: Finite complex summation is the sum of n entries. | Fin n indexing represents the source n-term list; zero/successor unfolding verified. |
