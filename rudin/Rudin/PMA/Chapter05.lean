@@ -1167,4 +1167,174 @@ theorem pma5_14 : pma5_14_contract := by
   intro f s n k x hx hk h
   exact h.lower hx hk
 
+/-! ### PMA-5.15 — Taylor's theorem under the source differentiability hypotheses -/
+
+/-- The derivatives that occur in the hypothesis must actually exist; only the highest
+predecessor is explicitly assumed continuous. No continuity is assumed of the nth derivative. -/
+def TaylorHypotheses (f : ℝ → ℝ) (a b : ℝ) (n : ℕ) : Prop :=
+  (∀ x ∈ Icc a b, HigherExistsWithin f (Icc a b) (n - 1) x) ∧
+  ContinuousOn (iteratedDerivWithin (n - 1) f (Icc a b)) (Icc a b) ∧
+  (∀ x ∈ Ioo a b, HigherExistsWithin f (Icc a b) n x)
+
+def TaylorPolynomialValue (f : ℝ → ℝ) (a b : ℝ) (n : ℕ) (α β : ℝ) : ℝ :=
+  ∑ k ∈ Finset.range n, iteratedDerivWithin k f (Icc a b) α * (β - α) ^ k / k !
+
+def pma5_15_contract : Prop :=
+  (∀ (f : ℝ → ℝ) (a b : ℝ) (n : ℕ) (α β : ℝ),
+    a < b → 1 ≤ n → TaylorHypotheses f a b n → α ∈ Icc a b → β ∈ Icc a b →
+    α ≠ β → ∃ x ∈ uIoo α β,
+      f β = TaylorPolynomialValue f a b n α β +
+        iteratedDerivWithin n f (Icc a b) x * (β - α) ^ n / n !) ∧
+  (∀ (f : ℝ → ℝ) (a b : ℝ) (n : ℕ) (α β M : ℝ),
+    a < b → 1 ≤ n → TaylorHypotheses f a b n → α ∈ Icc a b → β ∈ Icc a b →
+    α ≠ β → (∀ x ∈ uIoo α β, |iteratedDerivWithin n f (Icc a b) x| ≤ M) →
+    |f β - TaylorPolynomialValue f a b n α β| ≤ M * |β - α| ^ n / n !) ∧
+  (∀ (f : ℝ → ℝ) (a b α β : ℝ),
+    a < b → TaylorHypotheses f a b 1 → α ∈ Icc a b → β ∈ Icc a b → α ≠ β →
+    ∃ x ∈ uIoo α β, f β - f α = (β - α) * derivWithin f (Icc a b) x)
+
+theorem higherExists_contDiffOn {f : ℝ → ℝ} {s : Set ℝ} {n : ℕ}
+    (hex : ∀ x ∈ s, HigherExistsWithin f s n x)
+    (hcont : ContinuousOn (iteratedDerivWithin n f s) s) :
+    ContDiffOn ℝ n f s := by
+  apply contDiffOn_of_continuousOn_differentiableOn_deriv
+  · intro k hk
+    have hkn : k ≤ n := by exact_mod_cast hk
+    rcases Nat.eq_or_lt_of_le hkn with heq | hlt
+    · simpa only [heq] using hcont
+    · intro x hx
+      exact ((hex x hx).lower hx (Nat.succ_le_of_lt hlt)).2.continuousWithinAt
+  · intro k hk x hx
+    have hkn : k < n := by exact_mod_cast hk
+    exact ((hex x hx).lower hx (Nat.succ_le_of_lt hkn)).2
+
+theorem iteratedDerivWithin_subset_of_contDiff {f : ℝ → ℝ} {s t : Set ℝ}
+    {N k : ℕ} (hst : s ⊆ t) (hs : UniqueDiffOn ℝ s) (ht : UniqueDiffOn ℝ t)
+    (hf : ContDiffOn ℝ N f t) (hk : k ≤ N) {x : ℝ} (hx : x ∈ s) :
+    iteratedDerivWithin k f s x = iteratedDerivWithin k f t x := by
+  unfold iteratedDerivWithin
+  rw [iteratedFDerivWithin_subset hst hs ht (hf.of_le (by exact_mod_cast hk)) hx]
+
+theorem taylor_remainder_successor {f : ℝ → ℝ} {a b α β : ℝ} {m : ℕ}
+    (hab : a < b) (hf : TaylorHypotheses f a b (m + 1))
+    (hα : α ∈ Icc a b) (hβ : β ∈ Icc a b) (hne : α ≠ β) :
+    ∃ x ∈ uIoo α β,
+      f β = TaylorPolynomialValue f a b (m + 1) α β +
+        iteratedDerivWithin (m + 1) f (Icc a b) x * (β - α) ^ (m + 1) / (m + 1) ! := by
+  have hfull : UniqueDiffOn ℝ (Icc a b) := uniqueDiffOn_Icc hab
+  have hsmall : UniqueDiffOn ℝ (uIcc α β) := uniqueDiffOn_uIcc hne
+  have hsub : uIcc α β ⊆ Icc a b := uIcc_subset_Icc hα hβ
+  have hsubopen : uIoo α β ⊆ Ioo a b := by
+    intro x hx
+    rcases le_total α β with h | h
+    · simp only [uIoo, min_eq_left h, max_eq_right h, mem_Ioo] at hx
+      exact ⟨lt_of_le_of_lt hα.1 hx.1, lt_of_lt_of_le hx.2 hβ.2⟩
+    · simp only [uIoo, min_eq_right h, max_eq_left h, mem_Ioo] at hx
+      exact ⟨lt_of_le_of_lt hβ.1 hx.1, lt_of_lt_of_le hx.2 hα.2⟩
+  have hcd : ContDiffOn ℝ m f (Icc a b) := higherExists_contDiffOn
+    (by simpa [TaylorHypotheses] using hf.1) (by simpa using hf.2.1)
+  have heq : ∀ k ≤ m, EqOn (iteratedDerivWithin k f (uIcc α β))
+      (iteratedDerivWithin k f (Icc a b)) (uIcc α β) := by
+    intro k hk x hx
+    exact iteratedDerivWithin_subset_of_contDiff hsub hsmall hfull hcd hk hx
+  have hd : ∀ x ∈ uIoo α β,
+      DifferentiableWithinAt ℝ (iteratedDerivWithin m f (Icc a b)) (Icc a b) x := by
+    intro x hx
+    exact (hf.2.2 x (hsubopen hx)).2
+  have hdsmall : DifferentiableOn ℝ (iteratedDerivWithin m f (uIcc α β)) (uIoo α β) := by
+    intro x hx
+    exact ((hd x hx).mono (Ioo_subset_Icc_self.trans hsub)).congr
+      (fun y hy => heq m le_rfl (Ioo_subset_Icc_self hy))
+      (heq m le_rfl (Ioo_subset_Icc_self hx))
+  obtain ⟨x, hx, hrem⟩ := taylor_mean_remainder_lagrange hne (hcd.mono hsub) hdsmall
+  have hn : iteratedDerivWithin (m + 1) f (uIcc α β) x =
+      iteratedDerivWithin (m + 1) f (Icc a b) x := by
+    rw [iteratedDerivWithin_succ]
+    rw [derivWithin_congr (heq m le_rfl) (heq m le_rfl (Ioo_subset_Icc_self hx))]
+    simpa only [iteratedDerivWithin_succ] using
+      derivWithin_subset hsub (hsmall x (Ioo_subset_Icc_self hx)) (hd x hx)
+  have hp : taylorWithinEval f m (uIcc α β) α β =
+      TaylorPolynomialValue f a b (m + 1) α β := by
+    rw [taylor_within_apply]
+    unfold TaylorPolynomialValue
+    apply Finset.sum_congr rfl
+    intro k hk
+    rw [heq k (Nat.le_of_lt_succ (Finset.mem_range.mp hk)) left_mem_uIcc]
+    simp only [smul_eq_mul]
+    ring
+  rw [hn, hp] at hrem
+  exact ⟨x, hx, by linarith⟩
+
+theorem taylor_remainder {f : ℝ → ℝ} {a b α β : ℝ} {n : ℕ}
+    (hab : a < b) (hn : 1 ≤ n) (hf : TaylorHypotheses f a b n)
+    (hα : α ∈ Icc a b) (hβ : β ∈ Icc a b) (hne : α ≠ β) :
+    ∃ x ∈ uIoo α β,
+      f β = TaylorPolynomialValue f a b n α β +
+        iteratedDerivWithin n f (Icc a b) x * (β - α) ^ n / n ! := by
+  obtain ⟨m, rfl⟩ := Nat.exists_eq_succ_of_ne_zero (by omega : n ≠ 0)
+  exact taylor_remainder_successor hab hf hα hβ hne
+
+theorem taylor_remainder_bound {f : ℝ → ℝ} {a b α β M : ℝ} {n : ℕ}
+    (hab : a < b) (hn : 1 ≤ n) (hf : TaylorHypotheses f a b n)
+    (hα : α ∈ Icc a b) (hβ : β ∈ Icc a b) (hne : α ≠ β)
+    (hbound : ∀ x ∈ uIoo α β, |iteratedDerivWithin n f (Icc a b) x| ≤ M) :
+    |f β - TaylorPolynomialValue f a b n α β| ≤ M * |β - α| ^ n / n ! := by
+  obtain ⟨x, hx, hrem⟩ := taylor_remainder hab hn hf hα hβ hne
+  have hdiff : f β - TaylorPolynomialValue f a b n α β =
+      iteratedDerivWithin n f (Icc a b) x * (β - α) ^ n / n ! := by linarith
+  rw [hdiff, abs_div, abs_mul, abs_pow, abs_of_nonneg (show (0 : ℝ) ≤ n ! from Nat.cast_nonneg _)]
+  exact div_le_div_of_nonneg_right
+    (mul_le_mul_of_nonneg_right (hbound x hx) (pow_nonneg (abs_nonneg _) _))
+    (Nat.cast_nonneg _)
+
+theorem taylor_order_one {f : ℝ → ℝ} {a b α β : ℝ}
+    (hab : a < b) (hf : TaylorHypotheses f a b 1)
+    (hα : α ∈ Icc a b) (hβ : β ∈ Icc a b) (hne : α ≠ β) :
+    ∃ x ∈ uIoo α β, f β - f α = (β - α) * derivWithin f (Icc a b) x := by
+  obtain ⟨x, hx, hrem⟩ := taylor_remainder hab le_rfl hf hα hβ hne
+  refine ⟨x, hx, ?_⟩
+  simp only [TaylorPolynomialValue, Finset.sum_range_one, iteratedDerivWithin_zero,
+    pow_zero, Nat.factorial_zero, Nat.cast_one, mul_one, div_one, iteratedDerivWithin_one,
+    pow_one, Nat.factorial_one] at hrem
+  linarith
+
+theorem pma5_15 : pma5_15_contract := by
+  exact ⟨fun _ _ _ _ _ _ => taylor_remainder,
+    fun _ _ _ _ _ _ _ => taylor_remainder_bound,
+    fun _ _ _ _ _ => taylor_order_one⟩
+
+/-! ### Boundary and non-vacuity probes -/
+
+theorem higherExists_zero (f : ℝ → ℝ) (s : Set ℝ) (x : ℝ) :
+    HigherExistsWithin f s 0 x := trivial
+
+/-- The source existence predicate rejects the totalized derivative at the cusp. -/
+theorem higherExists_abs_zero_probe :
+    ¬ HigherExistsWithin abs (Icc (-1 : ℝ) 1) 1 0 := by
+  intro h
+  have hd : DifferentiableWithinAt ℝ abs (Icc (-1 : ℝ) 1) 0 := by
+    simpa only [iteratedDerivWithin_zero] using h.2
+  apply not_differentiableAt_abs_zero
+  exact hd.differentiableAt (Icc_mem_nhds (by norm_num) (by norm_num))
+
+/-- Order one recovers the usual MVT hypotheses without asking for endpoint derivatives. -/
+theorem taylorHypotheses_one_iff {f : ℝ → ℝ} {a b : ℝ} :
+    TaylorHypotheses f a b 1 ↔
+      ContinuousOn f (Icc a b) ∧ DifferentiableOn ℝ f (Ioo a b) := by
+  constructor
+  · intro h
+    refine ⟨by simpa only [Nat.sub_self, iteratedDerivWithin_zero] using h.2.1, ?_⟩
+    intro x hx
+    have hd : DifferentiableWithinAt ℝ f (Icc a b) x := by
+      simpa only [iteratedDerivWithin_zero] using (h.2.2 x hx).2
+    exact hd.mono Ioo_subset_Icc_self
+  · intro h
+    refine ⟨fun _ _ => trivial, ?_, ?_⟩
+    · simpa only [Nat.sub_self, iteratedDerivWithin_zero] using h.1
+    · intro x hx
+      refine ⟨Eventually.of_forall (fun _ => trivial), ?_⟩
+      simpa only [iteratedDerivWithin_zero] using
+        ((h.2 x hx).differentiableAt (isOpen_Ioo.mem_nhds hx)).differentiableWithinAt
+
+
 end Rudin.PMA.Chapter05
