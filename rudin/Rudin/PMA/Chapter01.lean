@@ -913,4 +913,17 @@ theorem pma_complex_abs_spec (z : ℂ) :
   rw [pma_complex_abs_eq_norm, Complex.sq_norm]
   exact (Complex.mul_conj z).symm
 
+/-! ### PMA-1.33: the five stated properties of absolute value. -/
+
+theorem pma_complex_abs_properties (z w : ℂ) :
+    (0 < pmaComplexAbs z ↔ z ≠ 0) ∧
+    pmaComplexAbs 0 = 0 ∧
+    pmaComplexAbs (pmaConjugate z) = pmaComplexAbs z ∧
+    pmaComplexAbs (z * w) = pmaComplexAbs z * pmaComplexAbs w ∧
+    |pmaRealPart z| ≤ pmaComplexAbs z ∧
+    pmaComplexAbs (z + w) ≤ pmaComplexAbs z + pmaComplexAbs w := by
+  simp only [pma_complex_abs_eq_norm, pmaConjugate, pmaRealPart]
+  exact ⟨norm_pos_iff, norm_zero, Complex.norm_conj z, norm_mul z w,
+    Complex.abs_re_le_norm z, norm_add_le z w⟩
+
 end Rudin.PMA.Chapter01
