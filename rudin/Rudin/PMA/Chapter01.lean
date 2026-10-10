@@ -829,4 +829,23 @@ theorem pma_complex_field_axioms :
     (∀ x y z : ℂ, x * (y + z) = x * y + x * z) :=
   pma_field_axioms
 
+/-! ### PMA-1.26: the real-axis pairs preserve addition and multiplication. -/
+
+theorem pma_real_axis_add (a b : ℝ) :
+    pmaComplexPair a 0 + pmaComplexPair b 0 = pmaComplexPair (a + b) 0 := by
+  simp [pma_complex_pair_add]
+
+theorem pma_real_axis_mul (a b : ℝ) :
+    pmaComplexPair a 0 * pmaComplexPair b 0 = pmaComplexPair (a * b) 0 := by
+  simp [pma_complex_pair_mul]
+
+theorem pma_real_axis_embedding (a : ℝ) : pmaComplexPair a 0 = (a : ℂ) := rfl
+
+theorem pma_real_axis_inv (a : ℝ) :
+    pmaComplexPair a⁻¹ 0 = (pmaComplexPair a 0)⁻¹ := Complex.ofReal_inv a
+
+theorem pma_real_axis_injective : Function.Injective (fun a : ℝ => pmaComplexPair a 0) := by
+  intro a b h
+  exact congrArg Complex.re h
+
 end Rudin.PMA.Chapter01
