@@ -19,3 +19,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-2.11 | PASS: All source union/intersection commutative, associative, distributive, empty and inclusion laws are included. |
 | PMA-2.12 | PASS: Countably infinite indexed sets have an infinite countable union; at-most-countable union corollary included via Set.countable_iUnion. |
 | PMA-2.13 | PASS: Positive finite tuples are countably infinite and the rational corollary is included; Fin n product countability and infinitude. |
+| PMA-2.14 | PASS: All binary infinite sequences are uncountable; direct diagonal contradiction matches digit set Fin 2. |

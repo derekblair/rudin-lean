@@ -265,4 +265,16 @@ theorem pma2_13_rationals : RudinCountable ℚ := by
   change Nonempty (ℚ ≃ ℕ)
   infer_instance
 
+/-! ### PMA-2.14: binary sequences are uncountable. -/
+theorem pma2_14 : RudinUncountable (ℕ → Fin 2) := by
+  apply (pma2_4_uncountable_reference _).mpr
+  intro hc
+  let := hc
+  obtain ⟨f,hf⟩ := exists_surjective_nat (ℕ → Fin 2)
+  let d : ℕ → Fin 2 := fun n => if f n n = 0 then 1 else 0
+  obtain ⟨n,hn⟩ := hf d
+  have hd : f n n = d n := congrFun hn n
+  by_cases hzero : f n n = 0
+  · simp [d,hzero] at hd
+  · simp [d,hzero] at hd
 end Rudin.PMA.Chapter02
