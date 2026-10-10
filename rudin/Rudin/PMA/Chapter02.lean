@@ -277,4 +277,27 @@ theorem pma2_14 : RudinUncountable (ℕ → Fin 2) := by
   by_cases hzero : f n n = 0
   · simp [d,hzero] at hd
   · simp [d,hzero] at hd
+/-! ### PMA-2.15: Distance functions and metric spaces. -/
+def IsDistanceFunction {X : Type*} (d : X → X → ℝ) : Prop :=
+  (∀ p q, p ≠ q → 0 < d p q) ∧ (∀ p, d p p = 0) ∧
+    (∀ p q, d p q = d q p) ∧ (∀ p q r, d p q ≤ d p r + d r q)
+
+@[instance_reducible] def metricSpaceOfDistance {X : Type*} (d : X → X → ℝ)
+    (h : IsDistanceFunction d) : MetricSpace X where
+  dist := d
+  dist_self := h.2.1
+  dist_comm := h.2.2.1
+  dist_triangle := fun p q r => h.2.2.2 p r q
+  eq_of_dist_eq_zero := by
+    intro p q hpq
+    by_contra hp
+    exact (ne_of_gt (h.1 p q hp)) hpq
+
+theorem distanceFunction_of_metric {X : Type*} [MetricSpace X] :
+    IsDistanceFunction (dist : X → X → ℝ) :=
+  ⟨fun _ _ h => dist_pos.mpr h, dist_self, dist_comm, fun p q r => dist_triangle p r q⟩
+
+theorem metricSpaceOfDistance_dist {X : Type*} (d : X → X → ℝ)
+    (h : IsDistanceFunction d) : (metricSpaceOfDistance d h).dist = d := rfl
+
 end Rudin.PMA.Chapter02
