@@ -2072,4 +2072,33 @@ theorem pma3_44 : pma3_44_contract := by
   change SeriesConverges (fun n => (c n : ℂ) * z ^ n)
   simpa [mul_comm] using hsum
 
+/-! ### PMA-3.45: absolute convergence and its implication. -/
+
+def SeriesAbsolutelyConverges {V : Type*} [NormedAddCommGroup V] (a : ℕ → V) : Prop :=
+  SeriesConverges (fun n => ‖a n‖)
+
+def pma3_45_contract : Prop := ∀ a : ℕ → ℂ,
+  SeriesAbsolutelyConverges a → SeriesConverges a
+
+theorem seriesAbsolutelyConverges_iff_summable_norm {V : Type*} [NormedAddCommGroup V]
+    (a : ℕ → V) : SeriesAbsolutelyConverges a ↔ Summable (fun n => ‖a n‖) := by
+  constructor
+  · rintro ⟨s, hs⟩
+    obtain ⟨M, hM⟩ := hs.bddAbove_range
+    apply summable_of_sum_range_le (fun _ => norm_nonneg _)
+    exact fun N => hM (Set.mem_range_self N)
+  · intro h
+    exact ⟨∑' n, ‖a n‖, h.hasSum.tendsto_sum_nat⟩
+
+theorem absolute_implies_convergence {V : Type*} [NormedAddCommGroup V] [CompleteSpace V]
+    {a : ℕ → V} (h : SeriesAbsolutelyConverges a) : SeriesConverges a :=
+  seriesConverges_of_summable_norm ((seriesAbsolutelyConverges_iff_summable_norm a).mp h)
+
+theorem powerSeries_interior_absolute (c : ℕ → ℂ) (z : ℂ)
+    (hz : (‖z‖₊ : ℝ≥0∞) < PowerSeriesRadius c) :
+    SeriesAbsolutelyConverges (PowerSeriesTerms c z) :=
+  (seriesAbsolutelyConverges_iff_summable_norm _).mpr (powerSeries_interior_summable_norm c z hz)
+
+theorem pma3_45 : pma3_45_contract := fun _ h => absolute_implies_convergence h
+
 end Rudin.PMA.Chapter03
