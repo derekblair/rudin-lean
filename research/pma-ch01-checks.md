@@ -47,3 +47,27 @@ folded into 1.1 under PROGRAM.md's rule for remarks. The requested target count 
 | PMA-1.35 | PASS: Squared modulus of the sum of a_j times conjugate b_j is bounded by the product of the two sums of squared moduli. | Euclidean complex inner product with the correct conjugation orientation; norm_inner_le_norm and norm_sq_eq. |
 | PMA-1.36 | PASS: Euclidean k-space has real coordinates, coordinate addition/scaling, dot product and square-root sum-of-squares norm. | EuclideanSpace ℝ (Fin k), PiLp.inner_apply and EuclideanSpace.norm_eq; k=0 is a harmless additional dimension. |
 | PMA-1.37 | PASS: All six stated properties hold: nonnegativity, definiteness, homogeneity, real Schwarz, vector triangle and distance triangle. | Normed/inner-product-space references, including norm_sub_le_norm_sub_add_norm_sub. |
+| PMA-1.38 | PASS: the Euclidean norm defines the distance metric; dimension one/two identify isometrically with the real line/complex plane, preserving the corresponding absolute values. | dist_eq_norm and metric axioms; PiLp.equivOfUnique; Complex.orthonormalBasisOneI linear isometries. |
+
+Final definition review added explicit nonempty-set, non-strict-order notation,
+finite extended-real and zero-vector comparators; these expose existing inherited
+contracts without changing the preceding mathematical statements. Independent
+review approved these additions. The source omission of positive-root uniqueness
+is also refuted by the ±1 probe.
+
+The audit module is imported by the root library, so the default build checks all
+chapter and probe declarations, including private and generated names. The audit
+checker was separately tested with an injected private nonstandard axiom and
+correctly rejected it. Only the three standard axioms are permitted.
+
+Final validation: `lake build` passed with Chapter01, Chapter01Probes,
+Chapter01Audit and the root library. The axiom audit checked **210 chapter
+declarations** and **23 probe declarations**, with no nonstandard axioms.
+`python3 scripts/check_chapter01.py` passed with 37/37 nodes, matching progress,
+no completed nodes left in the queue, and no forbidden proof/declaration tokens.
+All 37 nodes passed independent semantic review. No node was deferred.
+
+Build/commit timings available from this run are recorded in
+`pma-ch01-calibration.json`; unavailable per-node token and separate drafting/proof
+measurements are explicitly null. No performance estimates are inferred from
+parallel drafting or Git timestamps.

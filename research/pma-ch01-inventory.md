@@ -1,7 +1,7 @@
 # PMA Chapter 1 Inventory — "The Real and Complex Number Systems" (3rd ed.)
 
-Source: `~/workspace/formalization/sources/pma3.pdf` (3rd edition, verified from archive.org).
-Scope: every numbered Definition, Theorem, Proposition, Lemma, Corollary, worked Example, plus numbered Remarks/Notation/Discussion items, in Rudin's own numbering. (Rudin skips 1.2 — the numbering jumps 1.1 → 1.3.) The Appendix (Steps 1–9, unnumbered Dedekind-cut construction proving Theorem 1.19) and the 18 end-of-chapter Exercises are not numbered nodes and are noted separately below.
+Source: originally `~/workspace/formalization/sources/pma3.pdf` (3rd edition, verified from archive.org). Statements rechecked on 2026-10-09 against the [Lehman College third-edition scan](https://www.lehman.edu/faculty/rbettiol/lehman_teaching/2020mat320/baby_Rudin.pdf).
+Scope: every numbered Definition, Theorem, Proposition, Lemma, Corollary, worked Example, plus numbered Remarks/Notation/Discussion items, in Rudin's own numbering. (The third edition also has a Remark 1.2. It is folded into PMA-1.1 under PROGRAM.md’s rule for remarks; the 37 requested targets below retain their identifiers.) The Appendix (Steps 1–9, unnumbered Dedekind-cut construction proving Theorem 1.19) and the 18 end-of-chapter Exercises are not numbered nodes and are noted separately below.
 
 ## Numbered nodes
 
@@ -12,7 +12,7 @@ Scope: every numbered Definition, Theorem, Proposition, Lemma, Corollary, worked
 - **PMA-1.6** (definition) — Ordered set: a set in which an order is defined.
 - **PMA-1.7** (definition) — Bounded above/below; upper and lower bounds of a subset.
 - **PMA-1.8** (definition) — Least upper bound (supremum, sup E) and greatest lower bound (infimum, inf E).
-- **PMA-1.9** (example) — (a) A has no sup and B no inf in ℚ; (b) sup E may or may not belong to E; (c) for E = {1/n}, sup E = 1 ∈ E and inf E = 0 ∉ E.
+- **PMA-1.9** (example) — (a) A has no sup and B no inf in ℚ; (b) the rational sets {r : r < 0} and {r : r ≤ 0} both have sup 0, respectively outside/inside the set; (c) for E = {1/n}, sup E = 1 ∈ E and inf E = 0 ∉ E.
 - **PMA-1.10** (definition) — Least-upper-bound property of an ordered set.
 - **PMA-1.11** (theorem) — An ordered set with the least-upper-bound property also has the greatest-lower-bound property (inf B = sup of its lower bounds). Deps: PMA-1.8, PMA-1.10.
 - **PMA-1.12** (definition) — Field: a set with addition and multiplication satisfying axioms (A1)–(A5), (M1)–(M5), and the distributive law (D).
@@ -24,7 +24,7 @@ Scope: every numbered Definition, Theorem, Proposition, Lemma, Corollary, worked
 - **PMA-1.18** (proposition) — Ordered-field consequences: sign of −x; multiplication by positive/negative preserves/reverses inequalities; x ≠ 0 ⇒ x² > 0 (hence 1 > 0); 0 < x < y ⇒ 0 < 1/y < 1/x. Deps: PMA-1.16, PMA-1.17.
 - **PMA-1.19** (theorem) — Existence of an ordered field ℝ with the least-upper-bound property containing ℚ as a subfield. Proved in the Appendix via Dedekind cuts (Steps 1–9). Deps: PMA-1.12, PMA-1.17, PMA-1.10.
 - **PMA-1.20** (theorem) — (a) Archimedean property: for x > 0, some positive integer n has nx > y; (b) ℚ is dense in ℝ. Deps: PMA-1.19.
-- **PMA-1.21** (theorem) — For every real x > 0 and integer n > 0 there is exactly one positive real y with yⁿ = x (nth roots). Deps: PMA-1.19.
+- **PMA-1.21** (theorem) — For every real x > 0 and integer n > 0 there is exactly one positive real y with yⁿ = x (nth roots); positive nth roots are multiplicative (the unnumbered corollary). The printed uniqueness sentence omits “positive”; this restriction is necessary for even n and agrees with the surrounding construction. Deps: PMA-1.19.
 - **PMA-1.22** (discussion) — Every positive real is the supremum of its finite decimal truncations; infinite decimals correspond to reals (decimals not used further).
 - **PMA-1.23** (definition) — Extended real number system: ℝ ∪ {−∞, +∞} with extended order and arithmetic conventions for the infinities.
 - **PMA-1.24** (definition) — Complex number as an ordered pair (a, b) of reals, with equality, addition, and multiplication defined componentwise.
@@ -59,4 +59,4 @@ Scope: every numbered Definition, Theorem, Proposition, Lemma, Corollary, worked
 | Remarks | 2 | 1.13, 1.38 |
 | Notation | 1 | 1.34 |
 | Discussion | 1 | 1.22 |
-| **Total** | **37** | (1.2 does not exist; numbering jumps 1.1 → 1.3) |
+| **Total** | **37** | (Remark 1.2 is folded into PMA-1.1) |

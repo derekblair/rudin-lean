@@ -7,7 +7,7 @@ All completed nodes have zero proof placeholders.
 
 | Chapter | Title | Nodes formalized |
 |---|---|---|
-| 01 | The Real and Complex Number Systems | 36 / 37 |
+| 01 | The Real and Complex Number Systems | 37 / 37 |
 | 02 | Basic Topology | 0 |
 | 03 | Numerical Sequences and Series | 0 |
 | 04 | Continuity | 0 |
@@ -18,3 +18,11 @@ All completed nodes have zero proof placeholders.
 | 09 | Functions of Several Variables | 0 |
 | 10 | Integration of Differential Forms | 0 |
 | 11 | The Lebesgue Theory | 0 |
+
+Chapter 1 is complete. Each target has its own local `PMA-1.x done` commit,
+with a passing build. The final build includes independent boundary probes and
+an audit of 210 chapter declarations and 23 probe declarations against the
+three permitted axioms.
+The chapter source, inventory, and queue are checked by
+`python3 scripts/check_chapter01.py`. Detailed fidelity evidence is in
+`research/pma-ch01-checks.md` and `research/pma-ch01-fidelity.md`.

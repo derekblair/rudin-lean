@@ -1,0 +1,149 @@
+{
+  "date": "2026-10-09",
+  "machine": "bakkie",
+  "lean": "4.34.1",
+  "completed_nodes": 37,
+  "measurement": "Serial build plus local commit; earlier records rounded from tool output, later records measured by time.monotonic.",
+  "records": [
+    {
+      "node": "PMA-1.3",
+      "build_and_commit_seconds": 6.2
+    },
+    {
+      "node": "PMA-1.4",
+      "build_and_commit_seconds": 6.4
+    },
+    {
+      "node": "PMA-1.5",
+      "build_and_commit_seconds": 6.4
+    },
+    {
+      "node": "PMA-1.6",
+      "build_and_commit_seconds": 6.4
+    },
+    {
+      "node": "PMA-1.7",
+      "build_and_commit_seconds": 6.3
+    },
+    {
+      "node": "PMA-1.8",
+      "build_and_commit_seconds": 6.5
+    },
+    {
+      "node": "PMA-1.9",
+      "build_and_commit_seconds": 6.5
+    },
+    {
+      "node": "PMA-1.10",
+      "build_and_commit_seconds": 6.5
+    },
+    {
+      "node": "PMA-1.11",
+      "build_and_commit_seconds": 6.5
+    },
+    {
+      "node": "PMA-1.12",
+      "build_and_commit_seconds": 6.5
+    },
+    {
+      "node": "PMA-1.13",
+      "build_and_commit_seconds": 6.5
+    },
+    {
+      "node": "PMA-1.14",
+      "build_and_commit_seconds": 6.6
+    },
+    {
+      "node": "PMA-1.15",
+      "build_and_commit_seconds": 6.6
+    },
+    {
+      "node": "PMA-1.16",
+      "build_and_commit_seconds": 6.7
+    },
+    {
+      "node": "PMA-1.17",
+      "build_and_commit_seconds": 6.8
+    },
+    {
+      "node": "PMA-1.18",
+      "build_and_commit_seconds": 7.2
+    },
+    {
+      "node": "PMA-1.19",
+      "build_and_commit_seconds": 6.8
+    },
+    {
+      "node": "PMA-1.20",
+      "build_and_commit_seconds": 7.1
+    },
+    {
+      "node": "PMA-1.21",
+      "build_and_commit_seconds": 7.0
+    },
+    {
+      "node": "PMA-1.23",
+      "build_and_commit_seconds": 6.973
+    },
+    {
+      "node": "PMA-1.24",
+      "build_and_commit_seconds": 6.987
+    },
+    {
+      "node": "PMA-1.25",
+      "build_and_commit_seconds": 7.066
+    },
+    {
+      "node": "PMA-1.26",
+      "build_and_commit_seconds": 7.068
+    },
+    {
+      "node": "PMA-1.27",
+      "build_and_commit_seconds": 7.078
+    },
+    {
+      "node": "PMA-1.28",
+      "build_and_commit_seconds": 7.074
+    },
+    {
+      "node": "PMA-1.29",
+      "build_and_commit_seconds": 7.083
+    },
+    {
+      "node": "PMA-1.30",
+      "build_and_commit_seconds": 6.976
+    },
+    {
+      "node": "PMA-1.31",
+      "build_and_commit_seconds": 6.981
+    },
+    {
+      "node": "PMA-1.32",
+      "build_and_commit_seconds": 7.285
+    },
+    {
+      "node": "PMA-1.33",
+      "build_and_commit_seconds": 7.269
+    },
+    {
+      "node": "PMA-1.34",
+      "build_and_commit_seconds": 7.184
+    },
+    {
+      "node": "PMA-1.35",
+      "build_and_commit_seconds": 7.272
+    },
+    {
+      "node": "PMA-1.36",
+      "build_and_commit_seconds": 7.29
+    },
+    {
+      "node": "PMA-1.37",
+      "build_and_commit_seconds": 7.465
+    }
+  ],
+  "statement_formalization_seconds": null,
+  "proof_seconds": null,
+  "tokens_per_node": null,
+  "limitations": "Statements and proofs were drafted in parallel batches. The runtime did not expose attributable per-node token counters or separate statement/proof durations. These unavailable measurements are left null rather than estimated. Git commit timestamps provide the serial integration history, not proof-generation time."
+}

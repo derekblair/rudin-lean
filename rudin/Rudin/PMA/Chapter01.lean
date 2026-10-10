@@ -68,6 +68,7 @@ theorem pma1_1_no_smallest (p : ℚ) (hp : p ∈ rationalAboveSqrtTwo) :
 
 def IsMember {α : Type*} (x : α) (A : Set α) : Prop := x ∈ A
 def IsEmptySet {α : Type*} (A : Set α) : Prop := ∀ x, x ∉ A
+def IsNonemptySet {α : Type*} (A : Set α) : Prop := ∃ x, x ∈ A
 def IsSubset {α : Type*} (A B : Set α) : Prop := ∀ x, x ∈ A → x ∈ B
 def IsProperSubset {α : Type*} (A B : Set α) : Prop :=
   IsSubset A B ∧ ∃ x, x ∈ B ∧ x ∉ A
@@ -82,6 +83,12 @@ theorem pma1_3_reference {α : Type*} (A B : Set α) (x : α) :
     classical
     simp only [not_forall, exists_prop]
   · exact Set.Subset.antisymm_iff
+
+theorem pma1_3_nonempty_reference {α : Type*} (A : Set α) :
+    (IsNonemptySet A ↔ A.Nonempty) ∧ (IsNonemptySet A ↔ ¬ IsEmptySet A) := by
+  classical
+  refine ⟨Iff.rfl, ?_⟩
+  simp only [IsNonemptySet, IsEmptySet, not_forall, not_not]
 
 /-! ### PMA-1.4: the notation for rational numbers. -/
 
@@ -110,6 +117,10 @@ theorem pma1_5_exactly_one {α : Type*} {r : α → α → Prop}
 theorem pma1_5_linearOrder (α : Type*) [LinearOrder α] :
     OrderAxioms ((· < ·) : α → α → Prop) :=
   ⟨lt_irrefl, lt_trichotomy, fun {_ _ _} hxy hyz => lt_trans hxy hyz⟩
+
+theorem pma1_5_order_notation {α : Type*} [LinearOrder α] (x y : α) :
+    (y > x ↔ x < y) ∧ (x ≤ y ↔ x < y ∨ x = y) ∧ (x ≤ y ↔ ¬ y < x) :=
+  ⟨Iff.rfl, le_iff_lt_or_eq, not_lt.symm⟩
 
 /-! ### PMA-1.6: an ordered set is a carrier equipped with an order. -/
 
@@ -793,6 +804,19 @@ theorem pma_extended_real_not_field :
   obtain ⟨y, hy⟩ := h ⊤
   induction y using EReal.rec <;> simp at hy
 
+def pmaFiniteExtendedReal (x : PMAExtendedReal) : Prop := ∃ r : ℝ, x = r
+
+theorem pma_finite_extended_real_reference (x : PMAExtendedReal) :
+    pmaFiniteExtendedReal x ↔ x ≠ ⊥ ∧ x ≠ ⊤ := by
+  constructor
+  · rintro ⟨r, rfl⟩
+    simp
+  · rintro ⟨hb, ht⟩
+    rcases pma_extended_real_cases x with hbot | hfinite | htop
+    · exact False.elim (hb hbot)
+    · exact hfinite
+    · exact False.elim (ht htop)
+
 /-! ### PMA-1.24: Mathlib's complex structure is the real ordered-pair construction. -/
 
 def pmaComplexPair (a b : ℝ) : ℂ := ⟨a, b⟩
@@ -981,6 +1005,9 @@ theorem pma_euclidean_norm_inner {k : ℕ} (x : PMAEuclideanSpace k) :
   rw [pma_euclidean_norm_coordinates, pma_inner_product_coordinates]
   simp [sq]
 
+theorem pma_euclidean_zero_coordinates {k : ℕ} (j : Fin k) :
+    (0 : PMAEuclideanSpace k) j = 0 := rfl
+
 /-! ### PMA-1.37: norm properties, including the distance triangle inequality. -/
 
 theorem pma_euclidean_norm_properties {k : ℕ} (a : ℝ) (x y z : PMAEuclideanSpace k) :
@@ -992,5 +1019,47 @@ theorem pma_euclidean_norm_properties {k : ℕ} (a : ℝ) (x y z : PMAEuclideanS
     pmaEuclideanNorm (x - z) ≤ pmaEuclideanNorm (x - y) + pmaEuclideanNorm (y - z) := by
   exact ⟨norm_nonneg x, norm_eq_zero, by simpa [pmaEuclideanNorm] using norm_smul a x,
     abs_real_inner_le_norm x y, norm_add_le x y, norm_sub_le_norm_sub_add_norm_sub x y z⟩
+
+/-! ### PMA-1.38: the induced metric and the real-line and complex-plane identifications. -/
+
+def pmaEuclideanDistance {k : ℕ} (x y : PMAEuclideanSpace k) : ℝ :=
+  pmaEuclideanNorm (x - y)
+
+theorem pma_euclidean_distance_eq {k : ℕ} (x y : PMAEuclideanSpace k) :
+    pmaEuclideanDistance x y = dist x y := (dist_eq_norm x y).symm
+
+theorem pma_euclidean_metric_properties {k : ℕ} (x y z : PMAEuclideanSpace k) :
+    0 ≤ pmaEuclideanDistance x y ∧
+    (pmaEuclideanDistance x y = 0 ↔ x = y) ∧
+    pmaEuclideanDistance x y = pmaEuclideanDistance y x ∧
+    pmaEuclideanDistance x z ≤ pmaEuclideanDistance x y + pmaEuclideanDistance y z := by
+  simp only [pma_euclidean_distance_eq]
+  exact ⟨dist_nonneg, dist_eq_zero, dist_comm x y, dist_triangle x y z⟩
+
+def pmaRealLineEquiv : PMAEuclideanSpace 1 ≃ₗᵢ[ℝ] ℝ :=
+  { (PiLp.equivOfUnique 2 ℝ (fun _ : Fin 1 => ℝ)).toLinearEquiv with
+    norm_map' := by
+      intro x
+      simp [PiLp.equivOfUnique, EuclideanSpace.norm_eq, Real.sqrt_sq_eq_abs] }
+
+theorem pma_real_line_equiv_apply (x : PMAEuclideanSpace 1) : pmaRealLineEquiv x = x 0 := rfl
+
+theorem pma_real_line_norm (x : PMAEuclideanSpace 1) :
+    pmaEuclideanNorm x = |pmaRealLineEquiv x| := by
+  change ‖x‖ = |pmaRealLineEquiv x|
+  rw [← Real.norm_eq_abs]
+  exact (pmaRealLineEquiv.norm_map x).symm
+
+def pmaComplexPlaneEquiv : PMAEuclideanSpace 2 ≃ₗᵢ[ℝ] ℂ :=
+  Complex.orthonormalBasisOneI.repr.symm
+
+theorem pma_complex_plane_equiv_apply (x : PMAEuclideanSpace 2) :
+    pmaComplexPlaneEquiv x = pmaComplexPair (x 0) (x 1) := by
+  rw [pma_complex_pair_representation]
+  exact Complex.orthonormalBasisOneI_repr_symm_apply x
+
+theorem pma_complex_plane_norm (x : PMAEuclideanSpace 2) :
+    pmaEuclideanNorm x = pmaComplexAbs (pmaComplexPlaneEquiv x) :=
+  (pmaComplexPlaneEquiv.norm_map x).symm
 
 end Rudin.PMA.Chapter01
