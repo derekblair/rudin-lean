@@ -955,4 +955,22 @@ theorem node_3_27 : Statement_3_27 := by
     (eventually_atTop.mpr ⟨1,ha⟩)
     (eventually_atTop.mpr ⟨1,fun n hn => hmono n (n+1) hn (by omega)⟩)
 
+/-! ### PMA-3.28: Real p-series, including the divergent equality case. -/
+def PSeriesTerm (p : ℝ) (n : ℕ) : ℝ := 1 / ((n+1 : ℝ) ^ p)
+
+def Statement_3_28 : Prop := ∀ p : ℝ, SeriesConverges (PSeriesTerm p) ↔ 1 < p
+
+/-! PMA-3.28 proof details: Verified p-series, supplying PMA-3.23's counterexample. -/
+theorem pSeries_nonneg (p : ℝ) (n : ℕ) : 0 ≤ PSeriesTerm p n := by
+  unfold PSeriesTerm
+  positivity
+
+theorem node_3_28 : Statement_3_28 := by
+  intro p
+  rw [seriesConverges_iff_summable_nonneg (pSeries_nonneg p)]
+  unfold PSeriesTerm
+  convert (summable_nat_add_iff (f := fun n : ℕ => 1/((n : ℝ)^p)) 1).trans
+    (Real.summable_one_div_nat_rpow (p := p)) using 1; simp
+
+
 end Rudin.PMA.Chapter03
