@@ -12,3 +12,4 @@ folded into 1.1 under PROGRAM.md's rule for remarks. The requested target count 
 | Node | Independent back-translation and fidelity | Reference/probe |
 |---|---|---|
 | PMA-1.1 | PASS: every rational has square unequal to 2; each positive rational below/above the threshold has a larger/smaller witness on the same side. | `irrational_sqrt_two`, `irrational_sqrt_ratCast_iff_of_nonneg`; witnesses verified by rational algebra. |
+| PMA-1.3 | PASS: Membership, empty sets, inclusion, strict inclusion and mutual-inclusion equality match the source. | Explicit iff comparisons to Set membership/emptiness/subset/ssubset/equality. |

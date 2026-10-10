@@ -5,7 +5,7 @@ all with zero `sorry`s). Updated as chapters land.
 
 | Chapter | Title | Nodes formalized |
 |---|---|---|
-| 01 | The Real and Complex Number Systems | 1 / 37 |
+| 01 | The Real and Complex Number Systems | 2 / 37 |
 | 02 | Basic Topology | 0 |
 | 03 | Numerical Sequences and Series | 0 |
 | 04 | Continuity | 0 |

@@ -60,4 +60,23 @@ theorem pma1_1_no_smallest (p : ℚ) (hp : p ∈ rationalAboveSqrtTwo) :
   nlinarith
 
 
+/-! ### PMA-1.3: elementary set terminology. -/
+
+def IsMember {α : Type*} (x : α) (A : Set α) : Prop := x ∈ A
+def IsEmptySet {α : Type*} (A : Set α) : Prop := ∀ x, x ∉ A
+def IsSubset {α : Type*} (A B : Set α) : Prop := ∀ x, x ∈ A → x ∈ B
+def IsProperSubset {α : Type*} (A B : Set α) : Prop :=
+  IsSubset A B ∧ ∃ x, x ∈ B ∧ x ∉ A
+
+theorem pma1_3_reference {α : Type*} (A B : Set α) (x : α) :
+    (IsMember x A ↔ x ∈ A) ∧ (IsEmptySet A ↔ A = ∅) ∧
+    (IsSubset A B ↔ A ⊆ B) ∧ (IsProperSubset A B ↔ A ⊂ B) ∧
+    (A = B ↔ IsSubset A B ∧ IsSubset B A) := by
+  refine ⟨Iff.rfl, ?_, Iff.rfl, ?_, ?_⟩
+  · simp [IsEmptySet, Set.eq_empty_iff_forall_notMem]
+  · simp only [IsProperSubset, IsSubset, Set.ssubset_def, Set.subset_def]
+    classical
+    simp only [not_forall, exists_prop]
+  · exact Set.Subset.antisymm_iff
+
 end Rudin.PMA.Chapter01
