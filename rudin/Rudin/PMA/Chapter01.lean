@@ -489,4 +489,23 @@ theorem pma_archimedean (x y : ℝ) (hx : 0 < x) :
 theorem pma_rational_density (x y : ℝ) (hxy : x < y) :
     ∃ q : ℚ, x < (q : ℝ) ∧ (q : ℝ) < y := exists_rat_btwn hxy
 
+/-! ### PMA-1.21: Positive real nth roots -/
+
+/-- The root is uniquely determined among positive reals. The source's printed
+uniqueness sentence omits positivity; for even exponents unrestricted uniqueness
+is false, so the intended positive-root conclusion is explicit here. -/
+theorem pma_positive_nth_root (x : ℝ) (n : ℕ) (hx : 0 < x) (hn : 0 < n) :
+    ∃! y : ℝ, 0 < y ∧ y ^ n = x := by
+  refine ⟨x ^ ((n : ℝ)⁻¹), ?_, ?_⟩
+  · exact ⟨Real.rpow_pos_of_pos hx _, Real.rpow_inv_natCast_pow hx.le hn.ne'⟩
+  · intro y hy
+    apply (pow_left_inj₀ hy.1.le (Real.rpow_pos_of_pos hx _).le hn.ne').mp
+    rw [hy.2, Real.rpow_inv_natCast_pow hx.le hn.ne']
+
+/-- The unnumbered corollary following the nth-root theorem: the positive
+nth root of a product is the product of the positive nth roots. -/
+theorem pma_positive_nth_root_mul (a b : ℝ) (n : ℕ) (ha : 0 < a) (hb : 0 < b)
+    (_hn : 0 < n) :
+    (a * b) ^ ((n : ℝ)⁻¹) = a ^ ((n : ℝ)⁻¹) * b ^ ((n : ℝ)⁻¹) :=
+  Real.mul_rpow ha.le hb.le
 end Rudin.PMA.Chapter01
