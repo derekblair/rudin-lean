@@ -715,4 +715,10 @@ theorem complexSegment_classification {a b : ℝ} (hab : a < b) :
     exact ((isCompact_Icc : IsCompact (Icc a b)).image Complex.continuous_ofReal).isBounded.subset
       (Set.image_mono Ioo_subset_Icc_self)
 
+/-! ### PMA-2.22: De Morgan's law for arbitrary unions. -/
+theorem complement_iUnion {X I : Type*} (E : I → Set X) :
+    complement (⋃ i, E i) = ⋂ i, complement (E i) := by
+  ext x
+  simp [complement]
+
 end Rudin.PMA.Chapter02
