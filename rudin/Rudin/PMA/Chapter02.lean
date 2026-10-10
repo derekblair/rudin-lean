@@ -500,4 +500,219 @@ theorem finite_no_limitPoint {X : Type*} [MetricSpace X] {E : Set X}
   intro hp
   exact limitPoint_infinite_neighborhood hp zero_lt_one (hE.inter_of_left _)
 
+/-! ### PMA-2.21: Classification of the seven example sets. -/
+
+def complexIntegers : Set ℂ := Set.range (fun n : ℤ => (n : ℂ))
+def reciprocalIntegers : Set ℂ := Set.range (fun n : ℕ => Complex.ofReal (1 / (n+1 : ℝ)))
+def complexSegment (a b : ℝ) : Set ℂ := Complex.ofReal '' Ioo a b
+
+private theorem real_subset_not_open {E : Set ℂ} (hne : E.Nonempty)
+    (hreal : ∀ z ∈ E, z.im = 0) : ¬ IsOpenSet E := by
+  intro h
+  obtain ⟨p,hp⟩ := hne
+  obtain ⟨r,hr,hpr⟩ := h p hp
+  have him : (p + ((r/2 : ℝ) : ℂ) * Complex.I).im = r/2 := by
+    simp [hreal p hp]
+  have hnorm : ‖((r/2 : ℝ) : ℂ) * Complex.I‖ < r := by
+    simp only [norm_mul, Complex.norm_real, Complex.norm_I, mul_one,
+      Real.norm_eq_abs, abs_of_pos (by positivity : 0 < r/2)]
+    linarith
+  have hdist : dist p (p+((r/2 : ℝ) : ℂ)*Complex.I) < r := by
+    simpa [dist_eq_norm', add_sub_cancel_left] using hnorm
+  have hp' := hpr hdist
+  have hzero := hreal _ hp'
+  rw [him] at hzero
+  linarith
+
+private theorem nonempty_finite_not_perfect {E : Set ℂ} (hne : E.Nonempty)
+    (hfin : E.Finite) : ¬ IsPerfectSet E := by
+  intro hp
+  obtain ⟨p,hpE⟩ := hne
+  exact finite_no_limitPoint hfin p (hp.2 p hpE)
+
+private theorem nonempty_finite_not_open {E : Set ℂ} (hne : E.Nonempty)
+    (hfin : E.Finite) : ¬ IsOpenSet E := by
+  intro ho
+  obtain ⟨p,hpE⟩ := hne
+  have hacc := ((isOpenSet_iff_isOpen E).mp ho).preperfect p hpE
+  exact finite_no_limitPoint hfin p ((isLimitPoint_iff_accPt p E).mpr hacc)
+
+theorem openUnitBall_classification :
+    ¬ IsClosedSet (Metric.ball (0 : ℂ) 1) ∧
+      IsOpenSet (Metric.ball (0 : ℂ) 1) ∧
+      ¬ IsPerfectSet (Metric.ball (0 : ℂ) 1) ∧
+      IsBoundedSet (Metric.ball (0 : ℂ) 1) := by
+  have hnclosed : ¬ IsClosedSet (Metric.ball (0 : ℂ) 1) := by
+    rw [isClosedSet_iff_isClosed]
+    intro hc
+    have hEq := hc.closure_eq
+    rw [closure_ball 0 one_ne_zero] at hEq
+    have hmem : (1 : ℂ) ∈ Metric.closedBall 0 1 := by simp
+    rw [hEq] at hmem
+    simp at hmem
+  refine ⟨hnclosed, (isOpenSet_iff_isOpen _).mpr Metric.isOpen_ball,
+    fun h => hnclosed h.1, ?_⟩
+  exact (isBoundedSet_iff_isBounded _).mpr Metric.isBounded_ball
+
+theorem closedUnitBall_classification :
+    IsClosedSet (Metric.closedBall (0 : ℂ) 1) ∧
+      ¬ IsOpenSet (Metric.closedBall (0 : ℂ) 1) ∧
+      IsPerfectSet (Metric.closedBall (0 : ℂ) 1) ∧
+      IsBoundedSet (Metric.closedBall (0 : ℂ) 1) := by
+  refine ⟨(isClosedSet_iff_isClosed _).mpr Metric.isClosed_closedBall, ?_, ?_,
+    (isBoundedSet_iff_isBounded _).mpr Metric.isBounded_closedBall⟩
+  · rw [isOpenSet_iff_isOpen]
+    intro ho
+    have hEq := ho.interior_eq
+    rw [interior_closedBall 0 one_ne_zero] at hEq
+    have hmem : (1 : ℂ) ∈ Metric.closedBall 0 1 := by simp
+    rw [← hEq] at hmem
+    simp at hmem
+  · rw [isPerfectSet_iff_perfect, ← closure_ball 0 one_ne_zero]
+    exact Metric.isOpen_ball.perfect_closure
+
+theorem finite_complex_set_classification {E : Set ℂ} (hne : E.Nonempty)
+    (hfin : E.Finite) :
+    IsClosedSet E ∧ ¬ IsOpenSet E ∧ ¬ IsPerfectSet E ∧ IsBoundedSet E := by
+  exact ⟨(isClosedSet_iff_isClosed _).mpr hfin.isClosed,
+    nonempty_finite_not_open hne hfin, nonempty_finite_not_perfect hne hfin,
+    (isBoundedSet_iff_isBounded _).mpr hfin.isBounded⟩
+
+private theorem complexIntegers_no_limitPoint (p : ℂ) : ¬ IsLimitPoint p complexIntegers := by
+  intro hp
+  have hclosed : IsClosed complexIntegers := Complex.isClosed_range_intCast
+  have hdiscrete : IsDiscrete complexIntegers :=
+    Complex.isClosedEmbedding_intCast.isEmbedding.isDiscrete_range
+  have hdisjoint := (isClosed_and_discrete_iff.mp ⟨hclosed,hdiscrete⟩) p
+  have hbot : 𝓝[≠] p ⊓ 𝓟 complexIntegers = ⊥ := hdisjoint.eq_bot
+  have hacc := (isLimitPoint_iff_accPt p complexIntegers).mp hp
+  exact hacc.ne hbot
+
+theorem complexIntegers_classification :
+    IsClosedSet complexIntegers ∧ ¬ IsOpenSet complexIntegers ∧
+      ¬ IsPerfectSet complexIntegers ∧ ¬ IsBoundedSet complexIntegers := by
+  refine ⟨(isClosedSet_iff_isClosed _).mpr Complex.isClosed_range_intCast, ?_, ?_, ?_⟩
+  · apply real_subset_not_open (E := complexIntegers) ⟨0,⟨0,by simp⟩⟩
+    rintro z ⟨n,rfl⟩
+    simp
+  · intro hp
+    exact complexIntegers_no_limitPoint 0 (hp.2 0 ⟨0,by simp⟩)
+  · rintro ⟨M,q,h⟩
+    obtain ⟨n,hn⟩ := exists_nat_gt (M + ‖q‖)
+    have hmem : (n : ℂ) ∈ complexIntegers := ⟨(n : ℤ),by simp⟩
+    have hd := h (n : ℂ) hmem
+    have hnorm : ‖(n : ℂ)‖ ≤ dist (n : ℂ) q + ‖q‖ := by
+      simpa [dist_eq_norm] using norm_sub_norm_le (n : ℂ) q
+    have hn' : ‖(n : ℂ)‖ = (n : ℝ) := by simp
+    rw [hn'] at hnorm
+    linarith
+
+private theorem reciprocal_positive (n : ℕ) : 0 < 1 / (n+1 : ℝ) := by positivity
+
+private theorem reciprocal_le_one (n : ℕ) : 1 / (n+1 : ℝ) ≤ 1 := by
+  apply (div_le_one (by positivity)).mpr
+  exact_mod_cast (Nat.le_add_left 1 n)
+
+theorem reciprocalIntegers_zero_limitPoint : IsLimitPoint (0 : ℂ) reciprocalIntegers := by
+  intro r hr
+  obtain ⟨n,hn⟩ := exists_nat_one_div_lt hr
+  refine ⟨Complex.ofReal (1 / (n+1 : ℝ)), ⟨n,rfl⟩, ?_, ?_⟩
+  · exact Complex.ofReal_ne_zero.mpr (ne_of_gt (reciprocal_positive n))
+  · rw [← Complex.ofReal_zero, Complex.isometry_ofReal.dist_eq, Real.dist_eq]
+    simpa only [zero_sub, abs_neg, abs_of_pos (reciprocal_positive n)] using hn
+
+private theorem reciprocalIntegers_member_not_limitPoint (n : ℕ) :
+    ¬ IsLimitPoint (Complex.ofReal (1 / (n+1 : ℝ))) reciprocalIntegers := by
+  let δ : ℝ := 1 / (n+1 : ℝ) - 1 / (n+2 : ℝ)
+  have hδ : 0 < δ := by
+    dsimp [δ]
+    exact sub_pos.mpr (one_div_lt_one_div_of_lt (by positivity) (by linarith))
+  intro hp
+  obtain ⟨q,⟨m,rfl⟩,hqp,hd⟩ := hp δ hδ
+  have hmn : m ≠ n := by
+    intro h
+    subst m
+    exact hqp rfl
+  have hd' : |1 / (n+1 : ℝ) - 1 / (m+1 : ℝ)| < δ := by
+    rw [Complex.isometry_ofReal.dist_eq, Real.dist_eq] at hd
+    exact hd
+  rcases lt_or_gt_of_ne hmn with hmn | hnm
+  · have hbound : 1 / (n+2 : ℝ) ≤ 1 / (n+1 : ℝ) :=
+      one_div_le_one_div_of_le (by positivity) (by linarith)
+    have hmn' : (m+1 : ℝ) ≤ (n : ℝ) := by exact_mod_cast hmn
+    have hn0 : 0 < (n : ℝ) := by exact_mod_cast (lt_of_le_of_lt (Nat.zero_le m) hmn)
+    have hnm' : 1 / (n : ℝ) ≤ 1 / (m+1 : ℝ) :=
+      one_div_le_one_div_of_le (by positivity) hmn'
+    have hgap : 1 / (n+1 : ℝ) - 1 / (n+2 : ℝ) ≤
+        1 / (n : ℝ) - 1 / (n+1 : ℝ) := by
+      field_simp
+      nlinarith
+    have hh := (abs_lt.mp hd').1
+    dsimp [δ] at hh
+    linarith
+  · have hnm' : (n+2 : ℝ) ≤ (m+1 : ℝ) := by exact_mod_cast (show n+2 ≤ m+1 by omega)
+    have hbound : 1 / (m+1 : ℝ) ≤ 1 / (n+2 : ℝ) :=
+      one_div_le_one_div_of_le (by positivity) hnm'
+    have hh := (abs_lt.mp hd').2
+    dsimp [δ] at hh
+    linarith
+
+theorem reciprocalIntegers_no_member_limitPoint :
+    ∀ p ∈ reciprocalIntegers, ¬ IsLimitPoint p reciprocalIntegers := by
+  rintro p ⟨n,rfl⟩
+  exact reciprocalIntegers_member_not_limitPoint n
+
+theorem reciprocalIntegers_classification :
+    ¬ IsClosedSet reciprocalIntegers ∧ ¬ IsOpenSet reciprocalIntegers ∧
+      ¬ IsPerfectSet reciprocalIntegers ∧ IsBoundedSet reciprocalIntegers := by
+  have hnotclosed : ¬ IsClosedSet reciprocalIntegers := by
+    intro hc
+    have hm := hc 0 reciprocalIntegers_zero_limitPoint
+    obtain ⟨n,hn⟩ := hm
+    change Complex.ofReal (1 / (n+1 : ℝ)) = 0 at hn
+    have hn' : (1 / (n+1 : ℝ)) = 0 := Complex.ofReal_injective hn
+    exact ne_of_gt (reciprocal_positive n) hn'
+  refine ⟨hnotclosed, ?_, fun h => hnotclosed h.1, ?_⟩
+  · apply real_subset_not_open (E := reciprocalIntegers) ⟨1,⟨0,by norm_num⟩⟩
+    rintro z ⟨n,rfl⟩
+    simp
+  · refine ⟨2,0,?_⟩
+    rintro p ⟨n,rfl⟩
+    rw [← Complex.ofReal_zero, Complex.isometry_ofReal.dist_eq, Real.dist_eq]
+    rw [sub_zero,abs_of_pos (reciprocal_positive n)]
+    exact lt_of_le_of_lt (reciprocal_le_one n) (by norm_num)
+
+theorem complex_universe_classification :
+    IsClosedSet (univ : Set ℂ) ∧ IsOpenSet (univ : Set ℂ) ∧
+      IsPerfectSet (univ : Set ℂ) ∧ ¬ IsBoundedSet (univ : Set ℂ) := by
+  refine ⟨(isClosedSet_iff_isClosed _).mpr isClosed_univ,
+    (isOpenSet_iff_isOpen _).mpr isOpen_univ, ?_, ?_⟩
+  · rw [isPerfectSet_iff_perfect]
+    exact ⟨isClosed_univ,isOpen_univ.preperfect⟩
+  · rw [isBoundedSet_iff_isBounded]
+    exact NormedSpace.unbounded_univ ℂ ℂ
+
+theorem complexSegment_classification {a b : ℝ} (hab : a < b) :
+    ¬ IsClosedSet (complexSegment a b) ∧ ¬ IsOpenSet (complexSegment a b) ∧
+      ¬ IsPerfectSet (complexSegment a b) ∧ IsBoundedSet (complexSegment a b) ∧
+      IsOpenSet (segment a b) := by
+  have hnotclosed : ¬ IsClosedSet (complexSegment a b) := by
+    intro hc
+    have hpre := ((isClosedSet_iff_isClosed _).mp hc).preimage Complex.continuous_ofReal
+    have heq : Complex.ofReal ⁻¹' complexSegment a b = Ioo a b := by
+      exact Set.preimage_image_eq _ Complex.ofReal_injective
+    rw [heq] at hpre
+    have hcl : a ∈ closure (Ioo a b) := by
+      rw [closure_Ioo hab.ne]
+      exact ⟨le_rfl,hab.le⟩
+    exact (hpre.closure_subset hcl).1.false
+  refine ⟨hnotclosed, ?_, fun h => hnotclosed h.1, ?_,
+    (isOpenSet_iff_isOpen _).mpr isOpen_Ioo⟩
+  · apply real_subset_not_open ((Set.nonempty_Ioo.mpr hab).image Complex.ofReal)
+    rintro z ⟨x,hx,rfl⟩
+    simp
+  · rw [isBoundedSet_iff_isBounded]
+    exact ((isCompact_Icc : IsCompact (Icc a b)).image Complex.continuous_ofReal).isBounded.subset
+      (Set.image_mono Ioo_subset_Icc_self)
+
 end Rudin.PMA.Chapter02
