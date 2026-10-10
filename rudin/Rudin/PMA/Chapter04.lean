@@ -160,4 +160,44 @@ theorem pma4_4 : pma4_4_contract := by
     exact ⟨(functionLimitOn_iff_tendsto E _ p _ hf.1).mpr (ht.add hu),
       (functionLimitOn_iff_tendsto E _ p _ hf.1).mpr (ht.inner hu)⟩
 
+/-! ### PMA-4.5: Continuity and isolated points -/
+def FunctionContinuousWithinAt {X Y : Type*} [MetricSpace X] [MetricSpace Y]
+    (E : Set X) (f : X → Y) (p : X) : Prop :=
+  p ∈ E ∧ ∀ ε > 0, ∃ δ > 0, ∀ x ∈ E, dist x p < δ → dist (f x) (f p) < ε
+
+def FunctionContinuousOn {X Y : Type*} [MetricSpace X] [MetricSpace Y]
+    (E : Set X) (f : X → Y) : Prop := ∀ p ∈ E, FunctionContinuousWithinAt E f p
+
+
+def pma4_5_contract : Prop :=
+  (∀ {X Y : Type*} [MetricSpace X] [MetricSpace Y] (E : Set X)
+    (f : X → Y) (p : X), p ∈ E →
+      (FunctionContinuousWithinAt E f p ↔ ContinuousWithinAt f E p)) ∧
+  (∀ {X Y : Type*} [MetricSpace X] [MetricSpace Y] (E : Set X) (f : X → Y),
+    FunctionContinuousOn E f ↔ ContinuousOn f E) ∧
+  (∀ {X Y : Type*} [MetricSpace X] [MetricSpace Y] (E : Set X)
+    (f : X → Y) (p : X), Chapter02.IsIsolatedPoint p E → FunctionContinuousWithinAt E f p)
+
+theorem functionContinuousWithinAt_iff {X Y : Type*} [MetricSpace X] [MetricSpace Y]
+    (E : Set X) (f : X → Y) (p : X) (hp : p ∈ E) :
+    FunctionContinuousWithinAt E f p ↔ ContinuousWithinAt f E p := by
+  simp only [FunctionContinuousWithinAt, hp, true_and, Metric.continuousWithinAt_iff]
+
+theorem functionContinuousOn_iff {X Y : Type*} [MetricSpace X] [MetricSpace Y]
+    (E : Set X) (f : X → Y) : FunctionContinuousOn E f ↔ ContinuousOn f E := by
+  unfold FunctionContinuousOn ContinuousOn
+  exact forall₂_congr fun p hp => functionContinuousWithinAt_iff E f p hp
+
+theorem functionContinuousOn_univ_iff {X Y : Type*} [MetricSpace X] [MetricSpace Y]
+    (f : X → Y) : FunctionContinuousOn univ f ↔ Continuous f := by
+  rw [functionContinuousOn_iff, continuousOn_univ]
+
+theorem pma4_5 : pma4_5_contract := by
+  refine ⟨fun E f p hp => functionContinuousWithinAt_iff E f p hp,
+    fun E f => functionContinuousOn_iff E f, ?_⟩
+  intro X Y _ _ E f p hp
+  apply (functionContinuousWithinAt_iff E f p hp.1).mpr
+  apply continuousWithinAt_of_not_accPt
+  exact fun h => hp.2 ((Chapter02.isLimitPoint_iff_accPt p E).mpr h)
+
 end Rudin.PMA.Chapter04
