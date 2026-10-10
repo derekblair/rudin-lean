@@ -24,3 +24,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.16 | PASS: all extended subsequential limits, their supremum/infimum, and filter limsup/liminf comparators. |
 | PMA-3.17 | PASS: membership, eventual strict bounds beyond the extremum, and unique characterization for both extrema. |
 | PMA-3.18 | PASS: arbitrary surjective rational enumeration, all real limits and both infinities; exact shifted oscillatory formula; finite-limit equivalence. |
+| PMA-3.19 | PASS: eventual inequality and both extended extrema. |

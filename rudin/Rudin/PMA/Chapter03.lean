@@ -665,4 +665,14 @@ theorem pma3_18_convergence (s : ℕ → ℝ) (x : ℝ) :
     exact ⟨he.limsup_eq, he.liminf_eq⟩
   · rintro ⟨hupper, hlower⟩
     exact EReal.tendsto_coe.mp (tendsto_of_liminf_eq_limsup hlower hupper)
+/-! ### PMA-3.19: eventual inequalities compare upper and lower limits. -/
+
+theorem pma3_19 (s t : ℕ → ℝ) (h : ∃ N, ∀ n ≥ N, s n ≤ t n) :
+    LowerLimit s ≤ LowerLimit t ∧ UpperLimit s ≤ UpperLimit t := by
+  have he : ∀ᶠ n in atTop, (s n : EReal) ≤ (t n : EReal) := by
+    obtain ⟨N, hN⟩ := h
+    exact eventually_atTop.mpr ⟨N, fun n hn => EReal.coe_le_coe_iff.mpr (hN n hn)⟩
+  rw [pma3_16_lower_reference, pma3_16_lower_reference,
+    pma3_16_upper_reference, pma3_16_upper_reference]
+  exact ⟨liminf_le_liminf he, limsup_le_limsup he⟩
 end Rudin.PMA.Chapter03
