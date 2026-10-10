@@ -35,3 +35,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.28 | PASS: real exponent, positive indices, equivalence with `p>1`. |
 | PMA-3.23 | PASS: vanishing terms and the actual divergent harmonic counterexample. |
 | PMA-3.29 | PASS: log power criterion and both iterated-log examples, starting at 2 and 3 respectively. |
+| PMA-3.30 | PASS: factorial initial value/recursion, ordinary factorial-series sum, and exponential reference. |

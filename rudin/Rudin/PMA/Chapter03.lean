@@ -1220,4 +1220,24 @@ theorem node_3_29 : Statement_3_29 := by
     norm_num
   · exact (iteratedLogSeries_criterion 2 (by norm_num)).mpr (by norm_num)
 
+/-! ### PMA-3.30: The factorial series defines e. -/
+noncomputable def EulerNumber : ℝ := ∑' n : ℕ, 1 / (n.factorial : ℝ)
+
+def FactorialPartialSum (n : ℕ) : ℝ := PartialSums (fun k => 1/(k.factorial : ℝ)) (n+1)
+
+def Statement_3_30 : Prop :=
+  Nat.factorial 0 = 1 ∧
+  (∀ n : ℕ, Nat.factorial (n+1) = (n+1) * Nat.factorial n) ∧
+  SeriesHasSum (fun n : ℕ => 1/(n.factorial : ℝ)) EulerNumber ∧ EulerNumber = Real.exp 1
+
+/-! PMA-3.30 proof details: Verified definition of e and its exponential comparator. -/
+theorem factorialSeries_hasSum : HasSum (fun n : ℕ => 1/(n.factorial : ℝ)) (Real.exp 1) := by
+  simpa only [one_pow,← Real.exp_eq_exp_ℝ] using NormedSpace.expSeries_div_hasSum_exp (1 : ℝ)
+
+theorem eulerNumber_eq_exp_one : EulerNumber = Real.exp 1 := factorialSeries_hasSum.tsum_eq
+
+theorem node_3_30 : Statement_3_30 := by
+  exact ⟨rfl,Nat.factorial_succ,by rw [eulerNumber_eq_exp_one]; exact factorialSeries_hasSum.tendsto_sum_nat,
+    eulerNumber_eq_exp_one⟩
+
 end Rudin.PMA.Chapter03
