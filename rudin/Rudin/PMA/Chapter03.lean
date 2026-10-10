@@ -1967,4 +1967,21 @@ theorem pma3_38 : pma3_38_contract := by
   intro c
   exact ⟨PowerSeriesRadius c, powerSeries_interior c, powerSeries_exterior c⟩
 
+/-! ### PMA-3.39: Cauchy–Hadamard radius, including zero and infinite radii. -/
+
+def pma3_39_contract : Prop :=
+  (∀ c, RootLimsup c = 0 → PowerSeriesRadius c = ⊤) ∧
+  (∀ c, RootLimsup c = ⊤ → PowerSeriesRadius c = 0) ∧
+  (∀ c z, (‖z‖₊ : ℝ≥0∞) < PowerSeriesRadius c →
+    SeriesConverges (PowerSeriesTerms c z)) ∧
+  (∀ c z, PowerSeriesRadius c < (‖z‖₊ : ℝ≥0∞) →
+    ¬ SeriesConverges (PowerSeriesTerms c z))
+
+theorem pma3_39 : pma3_39_contract := by
+  refine ⟨?_, ?_, powerSeries_interior, powerSeries_exterior⟩
+  · intro c hc
+    simp [PowerSeriesRadius, hc]
+  · intro c hc
+    simp [PowerSeriesRadius, hc]
+
 end Rudin.PMA.Chapter03

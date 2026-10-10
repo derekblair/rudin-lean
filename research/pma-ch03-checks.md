@@ -44,3 +44,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.37 | PASS: positive real terms, both root/ratio inequalities in `ENNReal`, including infinity. |
 | PMA-3.36 | PASS: convergence-criterion dominance, both failure-to-zero conclusions, constant-one boundary counterexample. |
 | PMA-3.38 | PASS: coefficient times power definition, partial-sum comparator, convergence disk with zero/infinite radii permitted. |
+| PMA-3.39 | PASS: inverse root limsup radius, inverse-zero/infinity cases, strict inside/outside criteria. |
