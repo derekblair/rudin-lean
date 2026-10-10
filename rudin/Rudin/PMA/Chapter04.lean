@@ -630,4 +630,15 @@ theorem circleParam_contract_of_equiv
 theorem pma4_21 : pma4_21_contract :=
   circleParam_contract_of_equiv circleParameterEquiv circleParameterEquiv_apply
 
+/-! ### PMA-4.22: Connected images -/
+def pma4_22_contract : Prop :=
+  ∀ {X Y : Type*} [MetricSpace X] [MetricSpace Y] (f : X → Y)
+    (E : Set X), Continuous f → Chapter02.RudinConnected E →
+      Chapter02.RudinConnected (f '' E)
+
+theorem pma4_22 : pma4_22_contract := by
+  intro X Y _ _ f E hf hE
+  apply (Chapter02.pma2_45_connected_reference (f '' E)).mpr
+  exact ((Chapter02.pma2_45_connected_reference E).mp hE).image f hf.continuousOn
+
 end Rudin.PMA.Chapter04
