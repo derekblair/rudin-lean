@@ -800,4 +800,321 @@ theorem node_4_26 : Statement_4_26 := by
       · exact hne (hlf.trans hrf.symm)
       · exact hne hlf
 
+/-! ### PMA-4.27: Four discontinuity examples. -/
+
+def DirichletFunction (x : ℝ) : ℝ := by
+  classical
+  exact if Irrational x then 0 else 1
+
+def RationalIdentity (x : ℝ) : ℝ := by
+  classical
+  exact if Irrational x then 0 else x
+
+def PiecewiseJump (x : ℝ) : ℝ :=
+  if x < -2 then x + 2 else if x < 0 then -x - 2 else x + 2
+
+def OscillatingSine (x : ℝ) : ℝ := if x = 0 then 0 else Real.sin (x⁻¹)
+
+def Statement_4_27 : Prop :=
+  (∀ x : ℝ,
+    ¬ ContinuousAt DirichletFunction x ∧
+    ¬ (∃ q : ℝ, Tendsto DirichletFunction (𝓝[<] x) (𝓝 q)) ∧
+    ¬ (∃ q : ℝ, Tendsto DirichletFunction (𝓝[>] x) (𝓝 q))) ∧
+  (∀ a b x : ℝ, x ∈ Ioo a b → SecondKindDiscontinuityOn a b DirichletFunction x) ∧
+  (∀ x : ℝ, (ContinuousAt RationalIdentity x ↔ x = 0) ∧
+    (x ≠ 0 →
+      ¬ (∃ q : ℝ, Tendsto RationalIdentity (𝓝[<] x) (𝓝 q)) ∧
+      ¬ (∃ q : ℝ, Tendsto RationalIdentity (𝓝[>] x) (𝓝 q)))) ∧
+  (∀ x ∈ Ioo (-3 : ℝ) 1,
+    FunctionContinuousWithinAt (Ioo (-3 : ℝ) 1) PiecewiseJump x ↔ x ≠ 0) ∧
+  LeftLimitOn (-3) 1 PiecewiseJump 0 (-2) ∧ RightLimitOn (-3) 1 PiecewiseJump 0 2 ∧
+  FirstKindDiscontinuityOn (-3) 1 PiecewiseJump 0 ∧
+  (∀ x : ℝ, ContinuousAt OscillatingSine x ↔ x ≠ 0) ∧
+  ¬ (∃ q : ℝ, Tendsto OscillatingSine (𝓝[<] (0 : ℝ)) (𝓝 q)) ∧
+  ¬ (∃ q : ℝ, Tendsto OscillatingSine (𝓝[>] (0 : ℝ)) (𝓝 q)) ∧
+  (∀ a b : ℝ, a < 0 → 0 < b → SecondKindDiscontinuityOn a b OscillatingSine 0)
+
+
+def SideApproach (right : Bool) (x : ℝ) : Filter ℝ :=
+  if right then 𝓝[>] x else 𝓝[<] x
+
+theorem sideApproach_le_nhds (right : Bool) (x : ℝ) : SideApproach right x ≤ 𝓝 x := by
+  cases right <;> exact nhdsWithin_le_nhds
+
+theorem dense_sideApproach_neBot (right : Bool) (x : ℝ) {S : Set ℝ} (hS : Dense S) :
+    (SideApproach right x ⊓ 𝓟 S).NeBot := by
+  cases right
+  · apply (nhdsLT_basis x).inf_principal_neBot_iff.mpr
+    intro a ha
+    obtain ⟨y, hyS, hy⟩ := hS.exists_mem_open isOpen_Ioo (nonempty_Ioo.mpr ha)
+    exact ⟨y, hy, hyS⟩
+  · apply (nhdsGT_basis x).inf_principal_neBot_iff.mpr
+    intro b hb
+    obtain ⟨y, hyS, hy⟩ := hS.exists_mem_open isOpen_Ioo (nonempty_Ioo.mpr hb)
+    exact ⟨y, hy, hyS⟩
+
+theorem side_limit_eq_of_dense (right : Bool) {x q : ℝ} {f g : ℝ → ℝ}
+    {S : Set ℝ} (hS : Dense S) (hfg : ∀ y ∈ S, f y = g y)
+    (hg : ContinuousAt g x) (hf : Tendsto f (SideApproach right x) (𝓝 q)) : q = g x := by
+  let F := SideApproach right x ⊓ 𝓟 S
+  have : F.NeBot := dense_sideApproach_neBot right x hS
+  have he : f =ᶠ[F] g := by
+    have hs : S ∈ F := mem_inf_of_right (by simp)
+    filter_upwards [hs] with y hy
+    exact hfg y hy
+  exact tendsto_nhds_unique_of_eventuallyEq (hf.mono_left inf_le_left)
+    (hg.tendsto.mono_left (inf_le_left.trans (sideApproach_le_nhds right x))) he
+
+theorem dense_rational_points : Dense {x : ℝ | ¬ Irrational x} := by
+  apply (Rat.denseRange_cast : DenseRange ((↑) : ℚ → ℝ)).mono
+  rintro x ⟨q, rfl⟩
+  exact q.not_irrational
+
+theorem dirichlet_no_side_limit (right : Bool) (x : ℝ) :
+    ¬ ∃ q : ℝ, Tendsto DirichletFunction (SideApproach right x) (𝓝 q) := by
+  classical
+  rintro ⟨q, hq⟩
+  have h0 : q = 0 := side_limit_eq_of_dense right dense_irrational
+    (g := fun _ => 0) (by intro y hy; change Irrational y at hy; simp [DirichletFunction, hy]) continuousAt_const hq
+  have h1 : q = 1 := side_limit_eq_of_dense right dense_rational_points
+    (g := fun _ => 1) (by intro y hy; change ¬ Irrational y at hy; simp [DirichletFunction, hy]) continuousAt_const hq
+  linarith
+
+theorem dirichlet_not_continuousAt (x : ℝ) : ¬ ContinuousAt DirichletFunction x := by
+  intro hc
+  exact dirichlet_no_side_limit false x
+    ⟨DirichletFunction x, hc.tendsto.mono_left nhdsWithin_le_nhds⟩
+
+theorem rationalIdentity_no_side_limit (right : Bool) {x : ℝ} (hx : x ≠ 0) :
+    ¬ ∃ q : ℝ, Tendsto RationalIdentity (SideApproach right x) (𝓝 q) := by
+  classical
+  rintro ⟨q, hq⟩
+  have h0 : q = 0 := side_limit_eq_of_dense right dense_irrational
+    (g := fun _ => 0) (by intro y hy; change Irrational y at hy; simp [RationalIdentity, hy]) continuousAt_const hq
+  have hxq : q = x := side_limit_eq_of_dense right dense_rational_points
+    (g := id) (by intro y hy; change ¬ Irrational y at hy; simp [RationalIdentity, hy]) continuousAt_id hq
+  exact hx (hxq.symm.trans h0)
+
+theorem rationalIdentity_continuousAt_zero : ContinuousAt RationalIdentity 0 := by
+  classical
+  rw [Metric.continuousAt_iff]
+  intro ε hε
+  refine ⟨ε, hε, ?_⟩
+  intro y hy
+  by_cases hi : Irrational y
+  · simp [RationalIdentity, hi, hε]
+  · simpa [RationalIdentity, hi] using hy
+
+theorem rationalIdentity_continuousAt_iff (x : ℝ) : ContinuousAt RationalIdentity x ↔ x = 0 := by
+  constructor
+  · intro hc
+    by_contra hx
+    exact rationalIdentity_no_side_limit false hx
+      ⟨RationalIdentity x, hc.tendsto.mono_left nhdsWithin_le_nhds⟩
+  · rintro rfl
+    exact rationalIdentity_continuousAt_zero
+
+theorem oscillatingSine_neg (x : ℝ) : OscillatingSine (-x) = -OscillatingSine x := by
+  by_cases hx : x = 0
+  · simp [hx, OscillatingSine]
+  · simp [OscillatingSine, hx, inv_neg, Real.sin_neg]
+
+theorem oscillatingSine_attains_near_zero_right {b c : ℝ}
+    (hb : 0 < b) (hc : -1 ≤ c ∧ c ≤ 1) :
+    ∃ x ∈ Ioo 0 b, OscillatingSine x = c := by
+  have hp : 0 < 2 * Real.pi := by positivity
+  obtain ⟨n, hn⟩ := exists_nat_gt ((b⁻¹ - Real.arcsin c) / (2 * Real.pi))
+  have hphase : b⁻¹ < Real.arcsin c + (n : ℝ) * (2 * Real.pi) := by
+    have h := (div_lt_iff₀ hp).mp hn
+    linarith
+  have hphasepos : 0 < Real.arcsin c + (n : ℝ) * (2 * Real.pi) :=
+    (inv_pos.mpr hb).trans hphase
+  refine ⟨(Real.arcsin c + (n : ℝ) * (2 * Real.pi))⁻¹,
+    ⟨inv_pos.mpr hphasepos, ?_⟩, ?_⟩
+  · simpa only [inv_inv] using
+      (inv_lt_inv₀ hphasepos (inv_pos.mpr hb)).mpr hphase
+  · simp only [OscillatingSine, ne_of_gt (inv_pos.mpr hphasepos), ↓reduceIte, inv_inv,
+      Real.sin_add_nat_mul_two_pi, Real.sin_arcsin hc.1 hc.2]
+
+theorem oscillatingSine_attains_near_zero_left {a c : ℝ}
+    (ha : a < 0) (hc : -1 ≤ c ∧ c ≤ 1) :
+    ∃ x ∈ Ioo a 0, OscillatingSine x = c := by
+  obtain ⟨x, hx, hxc⟩ := oscillatingSine_attains_near_zero_right (neg_pos.mpr ha)
+    (c := -c) ⟨by linarith [hc.2], by linarith [hc.1]⟩
+  refine ⟨-x, ⟨by linarith [hx.2], by linarith [hx.1]⟩, ?_⟩
+  rw [oscillatingSine_neg, hxc, neg_neg]
+
+theorem oscillatingSine_mem_unit_interval (x : ℝ) :
+    -1 ≤ OscillatingSine x ∧ OscillatingSine x ≤ 1 := by
+  by_cases hx : x = 0
+  · simp [OscillatingSine, hx]
+  · simp only [OscillatingSine, hx, ↓reduceIte]
+    exact ⟨Real.neg_one_le_sin _, Real.sin_le_one _⟩
+
+theorem oscillatingSine_continuousAt_of_ne_zero {x : ℝ} (hx : x ≠ 0) :
+    ContinuousAt OscillatingSine x := by
+  apply (Real.continuous_sin.continuousAt.comp (continuousAt_inv₀ hx)).congr_of_eventuallyEq
+  filter_upwards [eventually_ne_nhds hx] with y hy
+  simp only [OscillatingSine, hy, ↓reduceIte, Function.comp_apply]
+
+
+theorem piecewiseJump_eq_if_abs (x : ℝ) :
+    PiecewiseJump x = if x < 0 then -|x + 2| else x + 2 := by
+  by_cases hx : x < -2
+  · have hx0 : x < 0 := by linarith
+    simp only [PiecewiseJump, hx, hx0, ↓reduceIte, abs_of_neg (by linarith : x + 2 < 0), neg_neg]
+  · by_cases hx0 : x < 0
+    · simp only [PiecewiseJump, hx, hx0, ↓reduceIte,
+        abs_of_nonneg (by linarith : 0 ≤ x + 2)]
+      ring
+    · simp only [PiecewiseJump, hx, hx0, ↓reduceIte]
+
+theorem piecewiseJump_continuousAt_of_ne_zero {x : ℝ} (hx : x ≠ 0) :
+    ContinuousAt PiecewiseJump x := by
+  by_cases hx0 : x < 0
+  · apply ((continuous_id.add continuous_const).abs.neg :
+      Continuous (fun x : ℝ => -|x + 2|)).continuousAt.congr_of_eventuallyEq
+    filter_upwards [Iio_mem_nhds hx0] with y hy
+    change y < 0 at hy
+    change PiecewiseJump y = -|y + 2|
+    simp only [piecewiseJump_eq_if_abs, hy, ↓reduceIte]
+  · have hxpos : 0 < x := lt_of_le_of_ne (le_of_not_gt hx0) (Ne.symm hx)
+    apply (continuous_id.add continuous_const : Continuous (fun x : ℝ => x + 2)).continuousAt.congr_of_eventuallyEq
+    filter_upwards [Ioi_mem_nhds hxpos] with y hy
+    change 0 < y at hy
+    change PiecewiseJump y = y + 2
+    simp only [piecewiseJump_eq_if_abs, not_lt.mpr hy.le, ↓reduceIte]
+
+theorem piecewiseJump_not_continuousWithin_zero :
+    ¬ FunctionContinuousWithinAt (Ioo (-3 : ℝ) 1) PiecewiseJump 0 := by
+  rintro ⟨_, hε⟩
+  obtain ⟨δ, hδ, hclose⟩ := hε 1 zero_lt_one
+  have hm : 0 < min δ 1 := lt_min hδ zero_lt_one
+  let x : ℝ := -(min δ 1) / 2
+  have hx0 : x < 0 := by dsimp [x]; linarith
+  have hxneg2 : ¬ x < -2 := by dsimp [x]; linarith [min_le_right δ 1]
+  have hxE : x ∈ Ioo (-3 : ℝ) 1 := by
+    dsimp [x]
+    constructor <;> linarith [min_le_right δ 1]
+  have hxd : dist x 0 < δ := by
+    rw [Real.dist_eq, sub_zero, abs_of_neg hx0]
+    dsimp [x]
+    linarith [min_le_left δ 1]
+  have hc := hclose x hxE hxd
+  have hfx : PiecewiseJump x = -x - 2 := by
+    simp only [PiecewiseJump, hxneg2, hx0, ↓reduceIte]
+  have hf0 : PiecewiseJump 0 = 2 := by norm_num [PiecewiseJump]
+  rw [hfx, hf0, Real.dist_eq, abs_of_neg (by dsimp [x]; linarith [min_le_right δ 1] : -x - 2 - 2 < 0)] at hc
+  dsimp [x] at hc
+  linarith [min_le_right δ 1]
+
+theorem piecewiseJump_leftLimit : LeftLimitOn (-3) 1 PiecewiseJump 0 (-2) := by
+  refine ⟨by norm_num, by norm_num, ?_⟩
+  have hc : Tendsto (fun x : ℝ => -x - 2) (𝓝 0) (𝓝 (-2)) := by
+    convert (continuous_id.neg.sub continuous_const :
+      Continuous (fun x : ℝ => -x - 2)).continuousAt (x := 0) |>.tendsto using 1
+    · ext x
+      rfl
+    · norm_num
+  have heq : PiecewiseJump =ᶠ[𝓝[Ioo (-3 : ℝ) 0] 0] (fun x => -x - 2) := by
+    filter_upwards [self_mem_nhdsWithin,
+      mem_nhdsWithin_of_mem_nhds (Ioi_mem_nhds (by norm_num : (-2 : ℝ) < 0))] with y hy hnear
+    change -2 < y at hnear
+    simp only [PiecewiseJump, not_lt.mpr hnear.le, hy.2, ↓reduceIte]
+  exact (hc.mono_left nhdsWithin_le_nhds).congr' heq.symm
+
+theorem piecewiseJump_rightLimit : RightLimitOn (-3) 1 PiecewiseJump 0 2 := by
+  refine ⟨by norm_num, by norm_num, ?_⟩
+  have hc : Tendsto (fun x : ℝ => x + 2) (𝓝 0) (𝓝 2) := by
+    convert (continuous_id.add continuous_const :
+      Continuous (fun x : ℝ => x + 2)).continuousAt (x := 0) |>.tendsto using 1
+    · ext x
+      rfl
+    · norm_num
+  have heq : PiecewiseJump =ᶠ[𝓝[Ioo (0 : ℝ) 1] 0] (fun x => x + 2) := by
+    filter_upwards [self_mem_nhdsWithin] with y hy
+    have hy2 : ¬ y < -2 := by linarith [hy.1]
+    simp only [PiecewiseJump, hy2, not_lt.mpr hy.1.le, ↓reduceIte]
+  exact (hc.mono_left nhdsWithin_le_nhds).congr' heq.symm
+
+theorem piecewiseJump_example_contract :
+    (∀ x ∈ Ioo (-3 : ℝ) 1,
+      FunctionContinuousWithinAt (Ioo (-3 : ℝ) 1) PiecewiseJump x ↔ x ≠ 0) ∧
+    LeftLimitOn (-3) 1 PiecewiseJump 0 (-2) ∧ RightLimitOn (-3) 1 PiecewiseJump 0 2 ∧
+    FirstKindDiscontinuityOn (-3) 1 PiecewiseJump 0 := by
+  refine ⟨?_, piecewiseJump_leftLimit, piecewiseJump_rightLimit,
+    ⟨by norm_num, piecewiseJump_not_continuousWithin_zero,
+      ⟨-2, piecewiseJump_leftLimit⟩, ⟨2, piecewiseJump_rightLimit⟩⟩⟩
+  intro x hxE
+  constructor
+  · intro hc hx
+    subst x
+    exact piecewiseJump_not_continuousWithin_zero hc
+  · intro hx
+    refine ⟨hxE, ?_⟩
+    exact Metric.continuousWithinAt_iff.mp
+      (piecewiseJump_continuousAt_of_ne_zero hx).continuousWithinAt
+
+
+
+theorem oscillatingSine_no_side_limit (right : Bool) :
+    ¬ ∃ q : ℝ, Tendsto OscillatingSine (SideApproach right 0) (𝓝 q) := by
+  rintro ⟨q, hq⟩
+  have he : ∀ᶠ t in SideApproach right 0, dist (OscillatingSine t) q < 1 :=
+    hq.eventually (Metric.ball_mem_nhds q zero_lt_one)
+  cases right
+  · obtain ⟨a, ha, has⟩ := (nhdsLT_basis (0 : ℝ)).mem_iff.mp he
+    obtain ⟨u, hu, hv⟩ := oscillatingSine_attains_near_zero_left ha (c := 1) ⟨by norm_num, le_rfl⟩
+    obtain ⟨v, hvs, hvv⟩ := oscillatingSine_attains_near_zero_left ha (c := -1) ⟨le_rfl, by norm_num⟩
+    have h1 : dist (1 : ℝ) q < 1 := hv ▸ has hu
+    have hm1 : dist (-1 : ℝ) q < 1 := hvv ▸ has hvs
+    rw [Real.dist_eq] at h1 hm1
+    linarith [(abs_lt.mp h1).2, (abs_lt.mp hm1).1]
+  · obtain ⟨b, hb, hbs⟩ := (nhdsGT_basis (0 : ℝ)).mem_iff.mp he
+    obtain ⟨u, hu, hv⟩ := oscillatingSine_attains_near_zero_right hb (c := 1) ⟨by norm_num, le_rfl⟩
+    obtain ⟨v, hvs, hvv⟩ := oscillatingSine_attains_near_zero_right hb (c := -1) ⟨le_rfl, by norm_num⟩
+    have h1 : dist (1 : ℝ) q < 1 := hv ▸ hbs hu
+    have hm1 : dist (-1 : ℝ) q < 1 := hvv ▸ hbs hvs
+    rw [Real.dist_eq] at h1 hm1
+    linarith [(abs_lt.mp h1).2, (abs_lt.mp hm1).1]
+
+theorem oscillatingSine_not_continuousAt_zero : ¬ ContinuousAt OscillatingSine 0 := by
+  intro hc
+  exact oscillatingSine_no_side_limit false
+    ⟨OscillatingSine 0, hc.tendsto.mono_left nhdsWithin_le_nhds⟩
+
+theorem oscillatingSine_continuousAt_iff (x : ℝ) : ContinuousAt OscillatingSine x ↔ x ≠ 0 := by
+  constructor
+  · intro hc hx
+    subst x
+    exact oscillatingSine_not_continuousAt_zero hc
+  · exact oscillatingSine_continuousAt_of_ne_zero
+
+theorem secondKind_of_no_left {a b x : ℝ} {f : ℝ → ℝ} (hx : x ∈ Ioo a b)
+    (hnc : ¬ ContinuousAt f x) (hnl : ¬ ∃ q : ℝ, Tendsto f (𝓝[<] x) (𝓝 q)) :
+    SecondKindDiscontinuityOn a b f x := by
+  refine ⟨hx, fun hc => hnc ((interval_continuity_iff f hx).mp hc), ?_⟩
+  rintro ⟨⟨q, hq⟩, _⟩
+  apply hnl
+  exact ⟨q, by simpa only [nhdsWithin_Ioo_eq_nhdsLT hx.1] using hq.2.2⟩
+
+theorem node_4_27 : Statement_4_27 := by
+  refine ⟨?_, ?_, ?_, piecewiseJump_example_contract.1,
+    piecewiseJump_leftLimit, piecewiseJump_rightLimit,
+    piecewiseJump_example_contract.2.2.2,
+    oscillatingSine_continuousAt_iff,
+    oscillatingSine_no_side_limit false, oscillatingSine_no_side_limit true, ?_⟩
+  · intro x
+    exact ⟨dirichlet_not_continuousAt x, dirichlet_no_side_limit false x,
+      dirichlet_no_side_limit true x⟩
+  · intro a b x hx
+    exact secondKind_of_no_left hx (dirichlet_not_continuousAt x)
+      (dirichlet_no_side_limit false x)
+  · intro x
+    exact ⟨rationalIdentity_continuousAt_iff x, fun hx =>
+      ⟨rationalIdentity_no_side_limit false hx, rationalIdentity_no_side_limit true hx⟩⟩
+  · intro a b ha hb
+    exact secondKind_of_no_left ⟨ha, hb⟩ oscillatingSine_not_continuousAt_zero
+      (oscillatingSine_no_side_limit false)
+
 end Rudin.PMA.Chapter04
