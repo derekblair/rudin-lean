@@ -50,3 +50,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.43 | PASS: zero-index translation of source alternating parity, non-strict magnitude decrease and vanishing terms. |
 | PMA-3.44 | PASS: radius one, real decreasing coefficients, zero limit, and all unit-circle points except one. |
 | PMA-3.45 | PASS: ordinary convergence of norm series and implication for ordinary complex series. |
+| PMA-3.40 | PASS: all five exact coefficients and radii, all stated boundary classifications, zero heads for positive-index reciprocals. |

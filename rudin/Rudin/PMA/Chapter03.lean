@@ -2101,4 +2101,152 @@ theorem powerSeries_interior_absolute (c : ℕ → ℂ) (z : ℂ)
 
 theorem pma3_45 : pma3_45_contract := fun _ h => absolute_implies_convergence h
 
+/-! ### PMA-3.40: five radii and their stated boundary behaviors. -/
+
+def RapidCoefficients (n : ℕ) : ℂ := (n : ℂ) ^ n
+def FactorialCoefficients (n : ℕ) : ℂ := ((n.factorial : ℂ))⁻¹
+def ReciprocalCoefficients (p : ℕ) (n : ℕ) : ℂ := ((n : ℂ) ^ p)⁻¹
+
+def pma3_40_contract : Prop :=
+  PowerSeriesRadius RapidCoefficients = 0 ∧
+  PowerSeriesRadius FactorialCoefficients = ⊤ ∧
+  PowerSeriesRadius (fun _ => (1 : ℂ)) = 1 ∧
+  PowerSeriesRadius (ReciprocalCoefficients 1) = 1 ∧
+  PowerSeriesRadius (ReciprocalCoefficients 2) = 1 ∧
+  (∀ z : ℂ, ‖z‖ = 1 → ¬ SeriesConverges (PowerSeriesTerms (fun _ => 1) z)) ∧
+  ¬ SeriesConverges (PowerSeriesTerms (ReciprocalCoefficients 1) 1) ∧
+  (∀ z : ℂ, ‖z‖ = 1 → z ≠ 1 →
+    SeriesConverges (PowerSeriesTerms (ReciprocalCoefficients 1) z)) ∧
+  (∀ z : ℂ, ‖z‖ = 1 → SeriesConverges (PowerSeriesTerms (ReciprocalCoefficients 2) z))
+
+theorem advanced_seriesConverges_nat_add_iff {V : Type*} [NormedAddCommGroup V]
+    (a : ℕ → V) (k : ℕ) : SeriesConverges (fun n => a (n + k)) ↔ SeriesConverges a := by
+  have hs : ∀ N, PartialSums (fun n => a (n + k)) N =
+      PartialSums a (N + k) - PartialSums a k := by
+    intro N
+    unfold PartialSums
+    rw [Nat.add_comm N k, Finset.sum_range_add]
+    simp only [add_sub_cancel_left]
+    congr 1
+    funext n
+    rw [Nat.add_comm]
+  constructor
+  · rintro ⟨A, hA⟩
+    have ht := hA.add_const (PartialSums a k)
+    simp only [hs, sub_add_cancel] at ht
+    exact ⟨A + PartialSums a k, (tendsto_add_atTop_iff_nat k).mp ht⟩
+  · rintro ⟨A, hA⟩
+    refine ⟨A - PartialSums a k, ?_⟩
+    have ht := (hA.comp (tendsto_add_atTop_nat k)).sub_const (PartialSums a k)
+    change Tendsto (PartialSums (fun n => a (n + k))) atTop (𝓝 (A - PartialSums a k))
+    have he : PartialSums (fun n => a (n + k)) =
+        fun N => PartialSums a (N + k) - PartialSums a k := funext hs
+    rw [he]
+    exact ht
+
+theorem rapidCoefficients_radius : PowerSeriesRadius RapidCoefficients = 0 := by
+  have ht : Tendsto (fun n => ENNReal.ofReal (NthRootNorm RapidCoefficients n))
+      atTop (𝓝 ⊤) := by
+    apply ENNReal.tendsto_nat_nhds_top.congr'
+    filter_upwards [eventually_ne_atTop 0] with n hn
+    simp only [NthRootNorm, RapidCoefficients, norm_pow, Complex.norm_natCast, one_div]
+    rw [Real.pow_rpow_inv_natCast (Nat.cast_nonneg _) hn]
+    simp
+  simp [PowerSeriesRadius, RootLimsup, ht.limsup_eq]
+
+theorem factorialCoefficients_radius : PowerSeriesRadius FactorialCoefficients = ⊤ := by
+  rw [powerSeriesRadius_reference]
+  apply FormalMultilinearSeries.ofScalars_radius_eq_top_of_tendsto
+  · exact Filter.Eventually.of_forall fun n => by simp [FactorialCoefficients, Nat.factorial_ne_zero]
+  · have he : (fun n => ‖FactorialCoefficients n.succ‖ / ‖FactorialCoefficients n‖) =
+        fun n : ℕ => 1 / (n + 1 : ℝ) := by
+      funext n
+      have hf : (n.factorial : ℝ) ≠ 0 := by positivity
+      simp only [FactorialCoefficients, norm_inv, Complex.norm_natCast]
+      simp only [Nat.factorial_succ, Nat.cast_mul, Nat.cast_add, Nat.cast_one]
+      field_simp
+    rw [he]
+    exact tendsto_one_div_add_atTop_nhds_zero_nat
+
+theorem reciprocalCoefficients_radius {p : ℕ} (_hp : p ≠ 0) :
+    PowerSeriesRadius (ReciprocalCoefficients p) = 1 := by
+  rw [powerSeriesRadius_reference]
+  have ht : Tendsto (fun n => ‖ReciprocalCoefficients p n.succ‖ /
+      ‖ReciprocalCoefficients p n‖) atTop (𝓝 (1 : ℝ≥0)) := by
+    have hh := (tendsto_natCast_div_add_atTop (𝕜 := ℝ) 1).pow p
+    simp only [one_pow] at hh
+    apply hh.congr'
+    filter_upwards [eventually_ne_atTop 0] with n hn
+    have hn0 : (n : ℝ) ≠ 0 := Nat.cast_ne_zero.mpr hn
+    simp only [ReciprocalCoefficients, norm_inv, norm_pow, Complex.norm_natCast]
+    simp only [Nat.cast_succ, div_pow]
+    field_simp
+  simpa using FormalMultilinearSeries.ofScalars_radius_eq_inv_of_tendsto ℂ
+    (ReciprocalCoefficients p) (r := 1) (by norm_num) ht
+
+theorem constantCoefficients_radius : PowerSeriesRadius (fun _ => (1 : ℂ)) = 1 := by
+  simp [PowerSeriesRadius, RootLimsup, NthRootNorm, Filter.limsup_const]
+
+theorem nonnegative_seriesConverges_iff_summable (a : ℕ → ℝ) (ha : ∀ n, 0 ≤ a n) :
+    SeriesConverges a ↔ Summable a := by
+  constructor
+  · rintro ⟨A, hA⟩
+    exact ((hasSum_iff_tendsto_nat_of_nonneg ha A).mpr hA).summable
+  · intro h
+    exact ⟨∑' n, a n, h.hasSum.tendsto_sum_nat⟩
+
+theorem reciprocalSucc_antitone : Antitone (fun n : ℕ => 1 / (n + 1 : ℝ)) := by
+  intro m n hmn
+  apply one_div_le_one_div_of_le (by positivity)
+  exact_mod_cast Nat.add_le_add_right hmn 1
+
+theorem harmonic_power_boundary (z : ℂ) (hz : ‖z‖ = 1) (hz1 : z ≠ 1) :
+    SeriesConverges (PowerSeriesTerms (ReciprocalCoefficients 1) z) := by
+  obtain ⟨A, hA⟩ := pma3_42 (fun n => z ^ n) (fun n => 1 / (n + 1 : ℝ))
+    (powerSeries_unit_geometric_bounded z hz hz1) reciprocalSucc_antitone
+    tendsto_one_div_add_atTop_nhds_zero_nat
+  apply (advanced_seriesConverges_nat_add_iff _ 1).mp
+  refine ⟨z * A, ?_⟩
+  have ht := hA.const_mul z
+  change Tendsto (fun N => ∑ n ∈ Finset.range N,
+    PowerSeriesTerms (ReciprocalCoefficients 1) z (n + 1)) atTop (𝓝 (z * A))
+  simpa [PartialSums, PowerSeriesTerms, ReciprocalCoefficients, pow_succ,
+    Finset.mul_sum, mul_comm, mul_left_comm, mul_assoc] using ht
+
+theorem harmonic_power_one_diverges :
+    ¬ SeriesConverges (PowerSeriesTerms (ReciprocalCoefficients 1) 1) := by
+  rintro ⟨A, hA⟩
+  have ht := Complex.continuous_re.continuousAt.tendsto.comp hA
+  have hs : SeriesConverges (fun n : ℕ => 1 / (n : ℝ)) := by
+    refine ⟨A.re, ?_⟩
+    change Tendsto (fun N => ∑ n ∈ Finset.range N, 1 / (n : ℝ)) atTop (𝓝 A.re)
+    simpa [Function.comp_def, PartialSums, PowerSeriesTerms, ReciprocalCoefficients,
+      Complex.re_sum] using ht
+  exact Real.not_summable_one_div_natCast
+    ((nonnegative_seriesConverges_iff_summable _ (fun n => by positivity)).mp hs)
+
+theorem square_power_boundary (z : ℂ) (hz : ‖z‖ = 1) :
+    SeriesConverges (PowerSeriesTerms (ReciprocalCoefficients 2) z) := by
+  apply seriesConverges_of_summable_norm
+  have hs := Real.summable_one_div_nat_pow.mpr (show 1 < (2 : ℕ) by decide)
+  convert hs using 1
+  funext n
+  simp [PowerSeriesTerms, ReciprocalCoefficients, norm_pow, hz, one_div]
+
+theorem pma3_40 : pma3_40_contract := by
+  refine ⟨rapidCoefficients_radius, factorialCoefficients_radius,
+    constantCoefficients_radius, reciprocalCoefficients_radius (by decide),
+    reciprocalCoefficients_radius (by decide), ?_, harmonic_power_one_diverges,
+    harmonic_power_boundary, square_power_boundary⟩
+  intro z hz hconv
+  obtain ⟨A, hA⟩ := hconv
+  have ht := (seriesHasSum_term_tendsto_zero hA).norm
+  have he : (fun n => ‖PowerSeriesTerms (fun _ => 1) z n‖) = fun _ => (1 : ℝ) := by
+    funext n
+    simp [PowerSeriesTerms, norm_pow, hz]
+  rw [he] at ht
+  simp only [norm_zero] at ht
+  have : (1 : ℝ) = 0 := tendsto_nhds_unique tendsto_const_nhds ht
+  norm_num at this
+
 end Rudin.PMA.Chapter03
