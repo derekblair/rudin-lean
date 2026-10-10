@@ -1,5 +1,9 @@
 import Mathlib
 
+noncomputable section
+
+open scoped BigOperators ComplexConjugate
+
 /-!
 # Rudin, *Principles of Mathematical Analysis* (3rd ed.)
 
@@ -718,5 +722,75 @@ theorem pma_decimal_value_of_positive_real (x : ℝ) (hx : 0 < x) :
   (pma_decimal_value_isLUB _ _).unique (pma_positive_real_decimal_expansion x hx)
 
 end
+
+/-! ### PMA-1.23: the extended reals, the order, and the stated infinity conventions. -/
+
+abbrev PMAExtendedReal := EReal
+
+theorem pma_extended_real_cases (x : PMAExtendedReal) :
+    x = ⊥ ∨ (∃ r : ℝ, x = r) ∨ x = ⊤ := by
+  induction x using EReal.rec with
+  | bot => exact Or.inl rfl
+  | coe r => exact Or.inr (Or.inl ⟨r, rfl⟩)
+  | top => exact Or.inr (Or.inr rfl)
+
+theorem pma_extended_real_order (x : ℝ) :
+    (⊥ : PMAExtendedReal) < x ∧ (x : PMAExtendedReal) < ⊤ :=
+  ⟨EReal.bot_lt_coe x, EReal.coe_lt_top x⟩
+
+theorem pma_extended_real_arithmetic (x : ℝ) :
+    (x : PMAExtendedReal) + ⊤ = ⊤ ∧
+    (x : PMAExtendedReal) + ⊥ = ⊥ ∧
+    (x : PMAExtendedReal) - ⊤ = ⊥ ∧
+    (x : PMAExtendedReal) / ⊤ = 0 ∧
+    (x : PMAExtendedReal) / ⊥ = 0 ∧
+    (0 < x → (x : PMAExtendedReal) * ⊤ = ⊤ ∧
+      (x : PMAExtendedReal) * ⊥ = ⊥) ∧
+    (x < 0 → (x : PMAExtendedReal) * ⊤ = ⊥ ∧
+      (x : PMAExtendedReal) * ⊥ = ⊤) := by
+  refine ⟨EReal.coe_add_top x, EReal.add_bot _, EReal.sub_top _,
+    EReal.div_top, EReal.div_bot, ?_, ?_⟩
+  · intro hx
+    exact ⟨EReal.coe_mul_top_of_pos hx, EReal.coe_mul_bot_of_pos hx⟩
+  · intro hx
+    exact ⟨EReal.coe_mul_top_of_neg hx, EReal.coe_mul_bot_of_neg hx⟩
+
+theorem pma_extended_real_completeness (E : Set PMAExtendedReal) (_hE : E.Nonempty) :
+    (∃ a, IsLUB E a) ∧ (∃ a, IsGLB E a) :=
+  ⟨⟨sSup E, isLUB_sSup E⟩, ⟨sInf E, isGLB_sInf E⟩⟩
+
+theorem pma_extended_sup_of_unbounded (E : Set ℝ) (hE : E.Nonempty)
+    (h : ¬ BddAbove E) : IsLUB ((fun x : ℝ => (x : PMAExtendedReal)) '' E) ⊤ := by
+  refine ⟨fun _ _ => le_top, ?_⟩
+  intro z hz
+  induction z using EReal.rec with
+  | bot =>
+    obtain ⟨r, hr⟩ := hE
+    exact False.elim ((not_le_of_gt (EReal.bot_lt_coe r))
+      (hz (Set.mem_image_of_mem _ hr)))
+  | coe r =>
+    exact False.elim (h ⟨r, fun y hy =>
+      EReal.coe_le_coe_iff.mp (hz (Set.mem_image_of_mem _ hy))⟩)
+  | top => exact le_rfl
+
+theorem pma_extended_inf_of_unbounded (E : Set ℝ) (hE : E.Nonempty)
+    (h : ¬ BddBelow E) : IsGLB ((fun x : ℝ => (x : PMAExtendedReal)) '' E) ⊥ := by
+  refine ⟨fun _ _ => bot_le, ?_⟩
+  intro z hz
+  induction z using EReal.rec with
+  | bot => exact le_rfl
+  | coe r =>
+    exact False.elim (h ⟨r, fun y hy =>
+      EReal.coe_le_coe_iff.mp (hz (Set.mem_image_of_mem _ hy))⟩)
+  | top =>
+    obtain ⟨r, hr⟩ := hE
+    exact False.elim ((not_le_of_gt (EReal.coe_lt_top r))
+      (hz (Set.mem_image_of_mem _ hr)))
+
+theorem pma_extended_real_not_field :
+    ¬ (∀ x : PMAExtendedReal, ∃ y, x + y = 0) := by
+  intro h
+  obtain ⟨y, hy⟩ := h ⊤
+  induction y using EReal.rec <;> simp at hy
 
 end Rudin.PMA.Chapter01
