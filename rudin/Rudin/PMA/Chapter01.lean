@@ -463,4 +463,16 @@ theorem pma_ordered_field_consequences {K : Type*} [Field K] [LinearOrder K]
   · intro x y hx hxy
     exact ⟨inv_pos.mpr (hx.trans hxy), (inv_lt_inv₀ (hx.trans hxy) hx).mpr hxy⟩
 
+/-! ### PMA-1.19: Existence of the real number system -/
+
+/-- Mathlib's real numbers provide the complete ordered field in the theorem,
+and the rational cast realizes the rational numbers as a subfield. -/
+theorem pma_real_number_system :
+    pmaFieldAxioms ℝ ∧ pmaOrderedFieldAxioms ℝ ∧ HasLUBProperty ℝ ∧
+      ∃ e : ℚ →+* ℝ, Function.Injective e ∧ StrictMono e := by
+  refine ⟨pma_field_axioms, pma_ordered_field_axioms, ?_, ?_⟩
+  · intro E hE hbounded
+    exact ⟨sSup E, isLUB_csSup hE hbounded⟩
+  · exact ⟨Rat.castHom ℝ, Rat.cast_injective, fun _ _ h => Rat.cast_lt.mpr h⟩
+
 end Rudin.PMA.Chapter01
