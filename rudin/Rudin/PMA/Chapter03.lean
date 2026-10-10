@@ -1333,4 +1333,98 @@ theorem node_3_32 : Statement_3_32 := by
   have hZlt' : Z < (1 : ℤ) := by exact_mod_cast hZlt
   omega
 
+/-! ### PMA-3.33: Root test with nonnegative extended-real limits.
+
+For n ≥ 1, `NthRootNorm` is exactly the source's nth root. Its totalized value
+at n = 0 does not affect limits at infinity. ENNReal includes the case +∞.
+-/
+noncomputable def NthRootNorm {V : Type*} [NormedAddCommGroup V]
+    (a : ℕ → V) (n : ℕ) : ℝ := ‖a n‖ ^ (1/(n : ℝ))
+
+noncomputable def RootLimsup {V : Type*} [NormedAddCommGroup V]
+    (a : ℕ → V) : ENNReal := limsup (fun n => ENNReal.ofReal (NthRootNorm a n)) atTop
+
+noncomputable def RootLiminf {V : Type*} [NormedAddCommGroup V]
+    (a : ℕ → V) : ENNReal := liminf (fun n => ENNReal.ofReal (NthRootNorm a n)) atTop
+
+def Statement_3_33 : Prop :=
+  (∀ a : ℕ → ℂ, RootLimsup a < 1 → SeriesConverges a) ∧
+  (∀ a : ℕ → ℂ, 1 < RootLimsup a → SeriesDiverges a) ∧
+  RootLimsup (PSeriesTerm 1) = 1 ∧ RootLimsup (PSeriesTerm 2) = 1 ∧
+  SeriesDiverges (PSeriesTerm 1) ∧ SeriesConverges (PSeriesTerm 2)
+
+/-! PMA-3.33 proof details: Root test via the Cauchy-Hadamard reference. -/
+theorem rootLimsup_eq_radius_inv {𝕜 : Type*} [RCLike 𝕜] (a : ℕ → 𝕜) :
+    RootLimsup a = (FormalMultilinearSeries.ofScalars 𝕜 a).radius⁻¹ := by
+  rw [FormalMultilinearSeries.radius_inv_eq_limsup]
+  unfold RootLimsup
+  congr 1
+  funext n
+  rw [← ENNReal.ofReal_coe_nnreal]
+  congr 1
+  rw [NNReal.coe_rpow]
+  simp only [NthRootNorm,coe_nnnorm,FormalMultilinearSeries.ofScalars_norm]
+
+theorem root_test_summable_norm {𝕜 : Type*} [RCLike 𝕜] {a : ℕ → 𝕜}
+    (hroot : RootLimsup a < 1) : Summable (fun n => ‖a n‖) := by
+  let p := FormalMultilinearSeries.ofScalars 𝕜 a
+  have hr : (1 : ENNReal) < p.radius := by
+    apply ENNReal.inv_lt_inv.mp
+    rw [rootLimsup_eq_radius_inv] at hroot
+    simpa only [inv_one,p] using hroot
+  simpa only [p,FormalMultilinearSeries.ofScalars_norm,NNReal.coe_one,one_pow,mul_one]
+    using p.summable_norm_mul_pow (r := 1) hr
+
+theorem root_test_not_terms_zero {𝕜 : Type*} [RCLike 𝕜] {a : ℕ → 𝕜}
+    (hroot : 1 < RootLimsup a) : ¬ Tendsto a atTop (𝓝 0) := by
+  intro ha
+  let p := FormalMultilinearSeries.ofScalars 𝕜 a
+  have hnorm : Tendsto (fun n => ‖p n‖ * ((1 : NNReal) : ℝ)^n) atTop (𝓝 0) := by
+    simpa only [p,FormalMultilinearSeries.ofScalars_norm,NNReal.coe_one,one_pow,mul_one,norm_zero]
+      using ha.norm
+  have hr : (1 : ENNReal) ≤ p.radius := p.le_radius_of_tendsto hnorm
+  have hr' := (ENNReal.inv_lt_one).mpr hroot
+  rw [rootLimsup_eq_radius_inv,inv_inv] at hr'
+  exact not_lt_of_ge hr hr'
+
+theorem pSeries_ratio_tendsto (p : ℝ) :
+    Tendsto (fun n => ‖PSeriesTerm p (n+1)‖ / ‖PSeriesTerm p n‖) atTop (𝓝 1) := by
+  have hsmall : Tendsto (fun n : ℕ => 1/((n : ℝ)+2)) atTop (𝓝 0) := by
+    have hh := (tendsto_one_div_add_atTop_nhds_zero_nat :
+      Tendsto (fun n : ℕ => 1/((n : ℝ)+1)) atTop (𝓝 0)).comp (tendsto_add_atTop_nat 1)
+    convert hh using 1
+    funext n
+    simp only [Function.comp_def,Nat.cast_add,Nat.cast_one]
+    congr 1
+    ring_nf
+  have hbase : Tendsto (fun n : ℕ => ((n : ℝ)+1)/((n : ℝ)+2)) atTop (𝓝 1) := by
+    have hb := (tendsto_const_nhds : Tendsto (fun _ : ℕ => (1 : ℝ)) atTop (𝓝 1)).sub hsmall
+    simp only [sub_zero] at hb
+    convert hb using 1
+    funext n
+    field_simp [show (n : ℝ)+2 ≠ 0 by positivity]
+    ring_nf
+  have hp := hbase.rpow_const (p := p) (Or.inl (by norm_num : (1 : ℝ) ≠ 0))
+  simpa only [Real.one_rpow] using hp.congr (fun n => by
+    rw [Real.norm_eq_abs,Real.norm_eq_abs,abs_of_nonneg (pSeries_nonneg p (n+1)),
+      abs_of_nonneg (pSeries_nonneg p n)]
+    simp only [PSeriesTerm,Nat.cast_add,Nat.cast_one]
+    rw [Real.div_rpow (by positivity) (by positivity)]
+    field_simp [(Real.rpow_pos_of_pos (by positivity : 0 < (n : ℝ)+1) p).ne',
+      (Real.rpow_pos_of_pos (by positivity : 0 < (n : ℝ)+1+1) p).ne']
+    ring_nf)
+
+theorem pSeries_rootLimsup (p : ℝ) : RootLimsup (PSeriesTerm p) = 1 := by
+  rw [rootLimsup_eq_radius_inv]
+  have h := FormalMultilinearSeries.ofScalars_radius_eq_inv_of_tendsto
+    ℝ (PSeriesTerm p) (r := 1) (by norm_num) (pSeries_ratio_tendsto p)
+  simp only [h,ENNReal.coe_one,inv_one]
+
+theorem node_3_33 : Statement_3_33 := by
+  refine ⟨fun a h => seriesConverges_of_summable (root_test_summable_norm h).of_norm,
+    fun a h hs => root_test_not_terms_zero h (series_terms_tendsto_zero hs),
+    pSeries_rootLimsup 1,pSeries_rootLimsup 2,?_,?_⟩
+  · exact fun hs => (by norm_num : ¬ (1 : ℝ) < 1) ((node_3_28 1).mp hs)
+  · exact (node_3_28 2).mpr (by norm_num)
+
 end Rudin.PMA.Chapter03

@@ -38,3 +38,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.30 | PASS: factorial initial value/recursion, ordinary factorial-series sum, and exponential reference. |
 | PMA-3.31 | PASS: source exponential limit and strict two-sided tail estimate with inclusive factorial partial sum. |
 | PMA-3.32 | PASS: irrationality of the defined Euler number. |
+| PMA-3.33 | PASS: extended nonnegative root limsup, strict convergence/divergence criteria, both boundary witnesses. |
