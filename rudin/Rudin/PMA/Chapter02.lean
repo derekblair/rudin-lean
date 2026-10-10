@@ -981,4 +981,42 @@ theorem pma2_38 (a b : ℕ → ℝ) (hab : ∀ n, a n ≤ b n)
   IsCompact.nonempty_iInter_of_sequence_nonempty_isCompact_isClosed _ hdec
     (fun n => Set.nonempty_Icc.mpr (hab n)) isCompact_Icc (fun _ => isClosed_Icc)
 
+/-! ### PMA-2.39: nested nonempty Euclidean cells have nonempty intersection. -/
+
+def ClosedCell (k : ℕ) (a b : Fin k → ℝ) : Set (EuclideanSpace ℝ (Fin k)) :=
+  {x | ∀ j, a j ≤ x j ∧ x j ≤ b j}
+
+theorem closedCell_nonempty {k : ℕ} {a b : Fin k → ℝ} (hab : ∀ j, a j ≤ b j) :
+    (ClosedCell k a b).Nonempty :=
+  ⟨WithLp.toLp 2 a, fun j => ⟨le_refl _, hab j⟩⟩
+
+theorem closedCell_isClosed {k : ℕ} (a b : Fin k → ℝ) :
+    IsClosed (ClosedCell k a b) := by
+  have he : ClosedCell k a b = ⋂ j, (fun x : EuclideanSpace ℝ (Fin k) => x j) ⁻¹' Icc (a j) (b j) := by
+    ext x; simp [ClosedCell]
+  rw [he]
+  exact isClosed_iInter fun j => isClosed_Icc.preimage (PiLp.continuous_apply 2 (fun _ : Fin k => ℝ) j)
+
+theorem closedCell_isCompact {k : ℕ} (a b : Fin k → ℝ) :
+    IsCompact (ClosedCell k a b) := by
+  let e := EuclideanSpace.equiv (Fin k) ℝ
+  have hc : IsCompact (Set.pi Set.univ (fun j => Icc (a j) (b j))) :=
+    isCompact_univ_pi (fun _ => isCompact_Icc)
+  convert hc.image e.symm.continuous using 1
+  ext x
+  constructor
+  · intro hx
+    refine ⟨e x, ?_, e.symm_apply_apply x⟩
+    exact fun j _ => hx j
+  · rintro ⟨y, hy, rfl⟩
+    exact fun j => hy j (Set.mem_univ j)
+
+theorem pma2_39 {k : ℕ} (_hk : 0 < k) (a b : ℕ → Fin k → ℝ)
+    (hab : ∀ n j, a n j ≤ b n j)
+    (hdec : ∀ n, ClosedCell k (a (n + 1)) (b (n + 1)) ⊆ ClosedCell k (a n) (b n)) :
+    (⋂ n, ClosedCell k (a n) (b n)).Nonempty := by
+  exact IsCompact.nonempty_iInter_of_sequence_nonempty_isCompact_isClosed _ hdec
+    (fun n => closedCell_nonempty (hab n)) (closedCell_isCompact (a 0) (b 0))
+    (fun n => closedCell_isClosed (a n) (b n))
+
 end Rudin.PMA.Chapter02
