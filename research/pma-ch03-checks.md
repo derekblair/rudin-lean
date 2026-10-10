@@ -17,3 +17,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.9 | PASS: `ENNReal` diameter, pairwise supremum reference, tail range, unqualified Cauchy equivalence. |
 | PMA-3.10 | PASS: diameter unchanged by closure, nonempty decreasing compact stages, unique intersection point. |
 | PMA-3.11 | PASS: convergent implies Cauchy, compact Cauchy convergence, Euclidean equivalence. |
+| PMA-3.12 | PASS: literal sequential completeness, `CompleteSpace` reference, compact/Euclidean/closed cases, rational incompleteness. |

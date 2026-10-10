@@ -374,4 +374,46 @@ theorem pma3_11_euclidean {k : ℕ} (s : ℕ → EuclideanSpace ℝ (Fin k)) :
   obtain ⟨p, hp⟩ := cauchySeq_tendsto_of_complete ((pma3_8_reference _).mp h)
   exact ⟨p, (pma3_1_reference _ _).mpr hp⟩
 
+/-! ### PMA-3.12: completeness, closed subspaces, and rational incompleteness. -/
+
+def RudinComplete (X : Type*) [MetricSpace X] : Prop :=
+  ∀ s : ℕ → X, RudinCauchy s → SequenceConverges s
+
+theorem pma3_12_reference (X : Type*) [MetricSpace X] :
+    RudinComplete X ↔ CompleteSpace X := by
+  constructor
+  · intro h
+    apply Metric.complete_of_cauchySeq_tendsto
+    intro s hs
+    obtain ⟨p, hp⟩ := h s ((pma3_8_reference _).mpr hs)
+    exact ⟨p, (pma3_1_reference _ _).mp hp⟩
+  · intro h
+    let := h
+    intro s hs
+    obtain ⟨p, hp⟩ := cauchySeq_tendsto_of_complete ((pma3_8_reference _).mp hs)
+    exact ⟨p, (pma3_1_reference _ _).mpr hp⟩
+
+theorem pma3_12_compact (X : Type*) [MetricSpace X] [CompactSpace X] :
+    RudinComplete X := (pma3_12_reference _).mpr inferInstance
+
+theorem pma3_12_euclidean (k : ℕ) : RudinComplete (EuclideanSpace ℝ (Fin k)) :=
+  (pma3_12_reference _).mpr inferInstance
+
+theorem pma3_12_closed {X : Type*} [MetricSpace X] (hX : RudinComplete X)
+    {E : Set X} (hE : IsClosed E) : RudinComplete E := by
+  let : CompleteSpace X := (pma3_12_reference _).mp hX
+  exact (pma3_12_reference _).mpr hE.isComplete.completeSpace_coe
+
+theorem pma3_12_rational : ¬ RudinComplete ℚ := by
+  intro h
+  let : CompleteSpace ℚ := (pma3_12_reference _).mp h
+  have hclosed : IsClosed (range ((↑) : ℚ → ℝ)) :=
+    Rat.isUniformEmbedding_coe_real.isClosedEmbedding.isClosed_range
+  have hfull : range ((↑) : ℚ → ℝ) = univ := by
+    have hdense : DenseRange ((↑) : ℚ → ℝ) := Rat.denseRange_cast
+    simpa only [hclosed.closure_eq] using hdense.closure_range
+  apply irrational_sqrt_two
+  rw [hfull]
+  exact mem_univ _
+
 end Rudin.PMA.Chapter03
