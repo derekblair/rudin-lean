@@ -830,4 +830,28 @@ theorem supremum_mem_closed {E : Set ℝ} (hE : E.Nonempty) (hb : BddAbove E)
     (hc : IsClosedSet E) : sSup E ∈ E :=
   ((isClosedSet_iff_isClosed E).mp hc).csSup_mem hE hb
 
+/-! ### PMA-2.29: Relative openness in a metric subspace. -/
+def IsRelativelyOpen {X : Type*} [MetricSpace X] (Y E : Set X) : Prop :=
+  ∀ p ∈ E, ∃ r : ℝ, 0 < r ∧ ∀ q ∈ Y, dist p q < r → q ∈ E
+
+theorem isRelativelyOpen_iff_subtype_open {X : Type*} [MetricSpace X]
+    {Y E : Set X} (hEY : E ⊆ Y) :
+    IsRelativelyOpen Y E ↔ IsOpen (Subtype.val ⁻¹' E : Set Y) := by
+  rw [Metric.isOpen_iff]
+  constructor
+  · intro h p hp
+    obtain ⟨r, hr, hpr⟩ := h p hp
+    refine ⟨r, hr, ?_⟩
+    intro q hq
+    apply hpr q q.property
+    change dist (q : X) (p : X) < r at hq
+    simpa only [dist_comm] using hq
+  · intro h p hp
+    obtain ⟨r, hr, hpr⟩ := h ⟨p, hEY hp⟩ hp
+    refine ⟨r, hr, ?_⟩
+    intro q hq hdist
+    exact hpr (show (⟨q,hq⟩ : Y) ∈ Metric.ball ⟨p,hEY hp⟩ r by
+      change dist q p < r
+      simpa only [dist_comm] using hdist)
+
 end Rudin.PMA.Chapter02

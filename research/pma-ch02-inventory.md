@@ -41,7 +41,7 @@ Terminology: Rudin's **countable** means countably infinite (bijection with posi
 - **PMA-2.33** (theorem, p.37) — For `K⊆Y⊆X`, compactness of `K` relative to `Y` is equivalent to compactness relative to `X`. Deps: 2.30, 2.32.
 - **PMA-2.34** (theorem, p.37) — Compact subsets of metric spaces are closed. Deps: 2.18, 2.32.
 - **PMA-2.35** (theorem, p.37) — A closed subset of a compact set is compact. Deps: 2.23, 2.32; includes intersections with ambient closed sets.
-- **PMA-2.36** (theorem, pp.38–39) — A nonempty family of compact sets with every finite subfamily having nonempty intersection has nonempty total intersection; in particular a decreasing sequence of nonempty compact sets has nonempty intersection (unnumbered corollary). Deps: 2.34–2.35.
+- **PMA-2.36** (theorem, pp.38–39) — A family of compact sets with every finite subfamily having nonempty intersection has nonempty total intersection; in particular a decreasing sequence of nonempty compact sets has nonempty intersection (unnumbered corollary). Deps: 2.34–2.35.
 - **PMA-2.37** (theorem, p.38) — An infinite subset of a compact set has a limit point in that compact set. Deps: 2.18, 2.32.
 - **PMA-2.38** (theorem, p.38) — A decreasing sequence of nonempty closed bounded real intervals has nonempty intersection. Deps: 1.19, 2.17.
 - **PMA-2.39** (theorem, p.39) — A decreasing sequence of `k`-cells, for positive integer `k`, has nonempty intersection. Deps: 2.17, 2.38.
@@ -56,7 +56,7 @@ Terminology: Rudin's **countable** means countably infinite (bijection with posi
 
 ## Scope and fidelity notes
 
-- PMA-2.36 makes a nonempty family explicit. For an empty family in an empty ambient metric space, the printed implication needs an ambient nonemptiness convention; the nonempty-family formulation captures its intended finite-intersection argument.
+- PMA-2.36 quantifies all finite subfamilies, including the empty one. Its empty intersection is the ambient space, so the hypothesis itself ensures ambient nonemptiness and also covers empty index families. No additional index nonemptiness premise is needed.
 - PMA-2.18's ball-containment definition of boundedness includes an ambient center. Equivalence to Mathlib `Bornology.IsBounded` needs a nonempty ambient space; do not silently omit this condition for empty metric spaces.
 - PMA-2.17 uses strictly ordered cell endpoints, while membership uses non-strict inequalities. Results for degenerate closed boxes are valid generalizations, provided the book's nondegenerate case is still covered.
 - PMA-2.21's finite-set row requires a nonempty finite subset of the complex plane; its segment row requires `a<b`. All seven rows and the relative-openness contrast belong to the example node.

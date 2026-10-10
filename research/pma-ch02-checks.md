@@ -34,3 +34,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-2.26 | PASS: Closure is set union its punctured accumulation points; closure_eq_self_union_derivedSet comparator. |
 | PMA-2.27 | PASS: Closure closedness, fixed-set iff closed and minimal closed superset are all proved. |
 | PMA-2.28 | PASS: Nonempty bounded-above real supremum lies in closure and hence the set if closed; sSup-closure reference. |
+| PMA-2.29 | PASS: Relative openness gives positive-radius balls intersected with the subspace; subtype-openness comparator preserves ambient center/member quantifiers. |
