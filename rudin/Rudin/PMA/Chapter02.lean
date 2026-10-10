@@ -820,4 +820,14 @@ theorem closure_minimal {X : Type*} [MetricSpace X] {E F : Set X}
   rw [setClosure_eq_closure]
   exact _root_.closure_minimal hEF ((isClosedSet_iff_isClosed F).mp hF)
 
+/-! ### PMA-2.28: A supremum belongs to the closure. -/
+theorem supremum_mem_closure {E : Set ℝ} (hE : E.Nonempty) (hb : BddAbove E) :
+    sSup E ∈ setClosure E := by
+  rw [setClosure_eq_closure]
+  exact csSup_mem_closure hE hb
+
+theorem supremum_mem_closed {E : Set ℝ} (hE : E.Nonempty) (hb : BddAbove E)
+    (hc : IsClosedSet E) : sSup E ∈ E :=
+  ((isClosedSet_iff_isClosed E).mp hc).csSup_mem hE hb
+
 end Rudin.PMA.Chapter02

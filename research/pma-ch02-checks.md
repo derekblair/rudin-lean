@@ -33,3 +33,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-2.25 | PASS: Infinite shrinking open intervals intersect in singleton0 which is not open; closed-set union counterexample gives a nonclosed union. |
 | PMA-2.26 | PASS: Closure is set union its punctured accumulation points; closure_eq_self_union_derivedSet comparator. |
 | PMA-2.27 | PASS: Closure closedness, fixed-set iff closed and minimal closed superset are all proved. |
+| PMA-2.28 | PASS: Nonempty bounded-above real supremum lies in closure and hence the set if closed; sSup-closure reference. |
