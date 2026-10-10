@@ -536,4 +536,133 @@ theorem pma3_17_lower (s : ℕ → ℝ) :
     · rw [pma3_16_lower_reference]
       exact ((pma3_5_reference _ _).mp hl).liminf_le
 
+/-! ### PMA-3.18: rational, oscillatory, and convergent examples. -/
+
+private theorem rational_tail_dense (q : ℕ → ℚ) (hq : Function.Surjective q) (N : ℕ) :
+    Dense ((fun n => ((q n : ℝ) : EReal)) '' Set.Ici N) := by
+  let f : ℕ → EReal := fun n => ((q n : ℝ) : EReal)
+  have hd : Dense (range f) := by
+    change Dense (range ((fun r : ℚ => ((r : ℝ) : EReal)) ∘ q))
+    rw [Set.range_comp, hq.range_eq, Set.image_univ]
+    exact EReal.denseRange_ratCast
+  have hfin : (f '' Set.Iio N).Finite := (Set.finite_Iio N).image f
+  have hd' := hd.sdiff_finite hfin
+  apply hd'.mono
+  intro x hx
+  rcases hx.1 with ⟨n, rfl⟩
+  have hn : N ≤ n := by
+    by_contra h
+    exact hx.2 ⟨n, by simp only [Set.mem_Iio]; omega, rfl⟩
+  exact ⟨n, Set.mem_Ici.mpr hn, rfl⟩
+
+private theorem rational_cluster_every_ereal (q : ℕ → ℚ) (hq : Function.Surjective q)
+    (x : EReal) : MapClusterPt x atTop (fun n => ((q n : ℝ) : EReal)) := by
+  rw [mapClusterPt_atTop_iff_forall_mem_closure]
+  intro N
+  rw [(rational_tail_dense q hq N).closure_eq]
+  trivial
+
+theorem pma3_18_rational (q : ℕ → ℚ) (hq : Function.Surjective q) :
+    (∀ x : ℝ, IsSubsequentialLimit (fun n => (q n : ℝ)) x) ∧
+    UpperLimit (fun n => (q n : ℝ)) = ⊤ ∧ LowerLimit (fun n => (q n : ℝ)) = ⊥ := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro x
+    obtain ⟨φ, hφ, ht⟩ := (pma3_5_reference _ (x : EReal)).mpr
+      (rational_cluster_every_ereal q hq x)
+    refine ⟨φ, hφ, ?_⟩
+    apply EReal.tendsto_coe.mp
+    simpa [Function.comp_def] using ht
+  · apply eq_top_iff.mpr
+    exact le_sSup ((pma3_5_reference _ ⊤).mpr (rational_cluster_every_ereal q hq ⊤))
+  · apply eq_bot_iff.mpr
+    exact sInf_le ((pma3_5_reference _ ⊥).mpr (rational_cluster_every_ereal q hq ⊥))
+
+def AlternatingLimitSequence (n : ℕ) : ℝ :=
+  (-1 : ℝ)^(n+1) / (1 + 1/(n+1 : ℝ))
+
+private theorem alternating_limit_sequence_bounds (n : ℕ) :
+    -1 ≤ AlternatingLimitSequence n ∧ AlternatingLimitSequence n ≤ 1 := by
+  have hpos : 0 < (1 + 1/(n+1 : ℝ)) := by positivity
+  have hge : 1 ≤ (1 + 1/(n+1 : ℝ)) := by
+    have hnonneg : 0 ≤ 1/(n+1 : ℝ) := by positivity
+    linarith
+  apply abs_le.mp
+  calc
+    |AlternatingLimitSequence n| = 1/(1 + 1/(n+1 : ℝ)) := by
+      simp only [AlternatingLimitSequence, abs_div, abs_pow, abs_neg, abs_one,
+        one_pow, abs_of_pos hpos]
+    _ ≤ 1 := by
+      simpa using one_div_le_one_div_of_le (show (0 : ℝ) < 1 by norm_num) hge
+
+private theorem alternating_subsequential_bounds {x : EReal}
+    (hx : x ∈ ExtendedSubsequentialLimits AlternatingLimitSequence) : -1 ≤ x ∧ x ≤ 1 := by
+  obtain ⟨φ, hφ, ht⟩ := hx
+  apply IsClosed.mem_of_tendsto isClosed_Icc ht
+  apply Eventually.of_forall
+  intro n
+  constructor
+  · change (-1 : EReal) ≤ (AlternatingLimitSequence (φ n) : EReal)
+    simpa only [EReal.coe_neg, EReal.coe_one] using
+      EReal.coe_le_coe_iff.mpr (alternating_limit_sequence_bounds (φ n)).1
+  · change (AlternatingLimitSequence (φ n) : EReal) ≤ 1
+    simpa only [EReal.coe_one] using
+      EReal.coe_le_coe_iff.mpr (alternating_limit_sequence_bounds (φ n)).2
+
+private theorem alternating_reciprocal_denominator_tendsto :
+    Tendsto (fun n : ℕ => 1/(1 + 1/(n+1 : ℝ))) atTop (𝓝 1) := by
+  have hden : Tendsto (fun n : ℕ => 1 + 1/(n+1 : ℝ)) atTop (𝓝 1) := by
+    simpa using (tendsto_const_nhds : Tendsto (fun _ : ℕ => (1 : ℝ)) atTop (𝓝 1)).add
+      (tendsto_one_div_add_atTop_nhds_zero_nat (𝕜 := ℝ))
+  convert hden.inv₀ (show (1 : ℝ) ≠ 0 by norm_num) using 1
+  ext n
+  simp only [one_div]
+  simp
+
+private theorem alternating_limit_positive_subsequence :
+    IsSubsequentialLimit (fun n => (AlternatingLimitSequence n : EReal)) 1 := by
+  have hb := alternating_reciprocal_denominator_tendsto
+  have hφ : StrictMono (fun n : ℕ => 2*n+1) := by
+    intro a b hab
+    change 2*a+1 < 2*b+1
+    omega
+  have ht : Tendsto (AlternatingLimitSequence ∘ fun n : ℕ => 2*n+1) atTop (𝓝 1) := by
+    convert hb.comp hφ.tendsto_atTop using 1
+    ext n
+    simp [AlternatingLimitSequence, pow_add, pow_mul]
+  refine ⟨fun n => 2*n+1, hφ, ?_⟩
+  simpa [Function.comp_def] using EReal.tendsto_coe.mpr ht
+
+private theorem alternating_limit_negative_subsequence :
+    IsSubsequentialLimit (fun n => (AlternatingLimitSequence n : EReal)) (-1) := by
+  have hb := alternating_reciprocal_denominator_tendsto
+  have hφ : StrictMono (fun n : ℕ => 2*n) := by
+    intro a b hab
+    change 2*a < 2*b
+    omega
+  have ht : Tendsto (AlternatingLimitSequence ∘ fun n : ℕ => 2*n) atTop (𝓝 (-1)) := by
+    convert (hb.comp hφ.tendsto_atTop).neg using 1
+    ext n
+    simp [AlternatingLimitSequence, pow_add, pow_mul, div_eq_mul_inv]
+  refine ⟨fun n => 2*n, hφ, ?_⟩
+  simpa [Function.comp_def] using EReal.tendsto_coe.mpr ht
+
+theorem pma3_18_alternating :
+    UpperLimit AlternatingLimitSequence = 1 ∧ LowerLimit AlternatingLimitSequence = -1 := by
+  constructor
+  · apply le_antisymm
+    · exact sSup_le (fun x hx => (alternating_subsequential_bounds hx).2)
+    · exact le_sSup alternating_limit_positive_subsequence
+  · apply le_antisymm
+    · exact sInf_le alternating_limit_negative_subsequence
+    · exact le_sInf (fun x hx => (alternating_subsequential_bounds hx).1)
+
+theorem pma3_18_convergence (s : ℕ → ℝ) (x : ℝ) :
+    ConvergesTo s x ↔ UpperLimit s = (x : EReal) ∧ LowerLimit s = (x : EReal) := by
+  rw [pma3_1_reference, pma3_16_upper_reference, pma3_16_lower_reference]
+  constructor
+  · intro ht
+    have he := EReal.tendsto_coe.mpr ht
+    exact ⟨he.limsup_eq, he.liminf_eq⟩
+  · rintro ⟨hupper, hlower⟩
+    exact EReal.tendsto_coe.mp (tendsto_of_liminf_eq_limsup hlower hupper)
 end Rudin.PMA.Chapter03
