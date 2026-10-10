@@ -1025,4 +1025,17 @@ theorem pma2_40 {k : ℕ} (_hk : 0 < k) (a b : Fin k → ℝ) (_hab : ∀ j, a j
     RudinCompact (ClosedCell k a b) :=
   (pma2_32_reference _).mpr (closedCell_isCompact a b)
 
+/-! ### PMA-2.41: closed and bounded, compact, and the infinite-subset accumulation property agree. -/
+
+def InfiniteSubsetAccumulation {X : Type*} [TopologicalSpace X] (E : Set X) : Prop :=
+  ∀ A ⊆ E, A.Infinite → ∃ p ∈ E, AccPt p (𝓟 A)
+
+theorem pma2_41 {k : ℕ} (_hk : 0 < k) (E : Set (EuclideanSpace ℝ (Fin k))) :
+    ((IsClosed E ∧ Bornology.IsBounded E) ↔ RudinCompact E) ∧
+    (RudinCompact E ↔ InfiniteSubsetAccumulation E) := by
+  refine ⟨(Metric.isCompact_iff_isClosed_bounded).symm.trans (pma2_32_reference E).symm, ?_⟩
+  rw [pma2_32_reference]
+  exact ⟨fun h => fun A hAE hA => hA.exists_accPt_of_subset_isCompact h hAE,
+    fun h => (isCountablyCompact_iff_infinite_subset_has_accPt.mpr h).isCompact⟩
+
 end Rudin.PMA.Chapter02
