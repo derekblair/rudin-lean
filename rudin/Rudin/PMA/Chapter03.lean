@@ -181,4 +181,35 @@ theorem pma3_1_ambient :
       (continuous_subtype_val.tendsto p).comp ((pma3_1_reference _ _).mp hp)
   have heq : p.val = 0 := tendsto_nhds_unique hval hreal
   exact (ne_of_gt p.property) heq
+/-! ### PMA-3.2: neighborhoods, uniqueness, boundedness, and limit points. -/
+
+theorem pma3_2_neighborhood {X : Type*} [MetricSpace X] (s : ℕ → X) (p : X) :
+    ConvergesTo s p ↔ ∀ r > 0, {n | s n ∉ Chapter02.neighborhood p r}.Finite := by
+  rw [pma3_1_reference, Metric.tendsto_nhds]
+  simp only [← Nat.cofinite_eq_atTop, Filter.eventually_cofinite,
+    Chapter02.neighborhood, mem_ofPred_eq, dist_comm]
+
+theorem pma3_2_unique {X : Type*} [MetricSpace X] {s : ℕ → X} {p q : X}
+    (hp : ConvergesTo s p) (hq : ConvergesTo s q) : p = q :=
+  tendsto_nhds_unique ((pma3_1_reference _ _).mp hp) ((pma3_1_reference _ _).mp hq)
+
+theorem pma3_2_bounded {X : Type*} [MetricSpace X] {s : ℕ → X}
+    (h : SequenceConverges s) : SequenceBounded s := by
+  obtain ⟨p, hp⟩ := h
+  exact (pma3_1_bounded_reference _).mpr
+    (Metric.isBounded_range_of_tendsto _ ((pma3_1_reference _ _).mp hp))
+
+theorem pma3_2_limitPoint {X : Type*} [MetricSpace X] {E : Set X} {p : X}
+    (h : Chapter02.IsLimitPoint p E) :
+    ∃ s : ℕ → X, (∀ n, s n ∈ E) ∧ ConvergesTo s p := by
+  classical
+  have hex (n : ℕ) : ∃ q ∈ E, q ≠ p ∧ dist p q < 1/(n+1 : ℝ) :=
+    h _ (by positivity)
+  choose s hE hne hd using hex
+  refine ⟨s, hE, (pma3_1_reference _ _).mpr ?_⟩
+  apply tendsto_iff_dist_tendsto_zero.mpr
+  apply squeeze_zero (fun _ => dist_nonneg)
+    (fun n => (by simpa only [dist_comm] using (hd n).le))
+  exact tendsto_one_div_add_atTop_nhds_zero_nat
+
 end Rudin.PMA.Chapter03
