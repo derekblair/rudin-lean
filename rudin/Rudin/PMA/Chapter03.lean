@@ -2475,4 +2475,85 @@ theorem pma3_49 : pma3_49_contract := by
   rintro ⟨A, hA⟩
   exact hnot (seriesHasSum_term_tendsto_zero hA)
 
+/-! ### PMA-3.50: Mertens's theorem requires only one absolute factor. -/
+
+def pma3_50_contract : Prop := ∀ (a b : ℕ → ℂ) (A B : ℂ),
+  SeriesHasSum a A → SeriesHasSum b B →
+  (SeriesAbsolutelyConverges a ∨ SeriesAbsolutelyConverges b) →
+  SeriesHasSum (CauchyProduct a b) (A * B)
+
+theorem cauchyProduct_partialSums (a b : ℕ → ℂ) (N : ℕ) :
+    PartialSums (CauchyProduct a b) N =
+      ∑ k ∈ Finset.range N, a k * PartialSums b (N - k) := by
+  induction N with
+  | zero => simp [PartialSums]
+  | succ N ih =>
+    have hinner : (∑ k ∈ Finset.range N, a k * PartialSums b (N + 1 - k)) =
+        (∑ k ∈ Finset.range N, a k * PartialSums b (N - k)) +
+        ∑ k ∈ Finset.range N, a k * b (N - k) := by
+      rw [← Finset.sum_add_distrib]
+      apply Finset.sum_congr rfl
+      intro k hk
+      have hNk : N + 1 - k = N - k + 1 := by
+        have hkN := Finset.mem_range.mp hk
+        omega
+      rw [hNk]
+      simp [PartialSums, Finset.sum_range_succ, mul_add]
+    change PartialSums (CauchyProduct a b) (N + 1) = _
+    rw [show PartialSums (CauchyProduct a b) (N + 1) =
+      PartialSums (CauchyProduct a b) N + CauchyProduct a b N by
+        simp [PartialSums, Finset.sum_range_succ]]
+    rw [ih, Finset.sum_range_succ, hinner]
+    simp only [CauchyProduct, Finset.sum_range_succ, Nat.sub_self]
+    simp [PartialSums]
+    ring
+
+theorem cauchyProduct_comm (a b : ℕ → ℂ) : CauchyProduct a b = CauchyProduct b a := by
+  funext n
+  rw [pma3_48 a b n, pma3_48 b a n]
+  calc
+    (∑ kl ∈ Finset.HasAntidiagonal.antidiagonal n, a kl.1 * b kl.2) =
+        ∑ kl ∈ Finset.HasAntidiagonal.antidiagonal n, b kl.swap.1 * a kl.swap.2 := by
+      apply Finset.sum_congr rfl
+      intro kl hkl
+      simp [mul_comm]
+    _ = _ := by
+      simpa using (Finset.Nat.sum_antidiagonal_swap (n := n)
+        (f := fun kl : ℕ × ℕ => b kl.1 * a kl.2))
+
+theorem mertens_left {a b : ℕ → ℂ} {A B : ℂ} (ha : SeriesHasSum a A)
+    (hb : SeriesHasSum b B) (habs : SeriesAbsolutelyConverges a) :
+    SeriesHasSum (CauchyProduct a b) (A * B) := by
+  have hnorm := (seriesAbsolutelyConverges_iff_summable_norm a).mp habs
+  have hasum : HasSum a A := (hasSum_iff_tendsto_nat_of_summable_norm hnorm).mpr ha
+  obtain ⟨M, hM⟩ := hb.norm.bddAbove_range
+  have hMb : ∀ N, ‖PartialSums b N‖ ≤ M := fun N => hM (Set.mem_range_self N)
+  have ht : Tendsto (fun N => ∑' k, a k * PartialSums b (N - k)) atTop
+      (𝓝 (∑' k, a k * B)) := by
+    apply tendsto_tsum_of_dominated_convergence (hnorm.mul_right M)
+    · intro k
+      exact (hb.comp (tendsto_sub_atTop_nat k)).const_mul (a k)
+    · apply Filter.Eventually.of_forall
+      intro N k
+      rw [norm_mul]
+      exact mul_le_mul_of_nonneg_left (hMb (N - k)) (norm_nonneg _)
+  rw [(hasum.mul_right B).tsum_eq] at ht
+  have hfinite : ∀ N, (∑' k, a k * PartialSums b (N - k)) =
+      PartialSums (CauchyProduct a b) N := by
+    intro N
+    rw [tsum_eq_sum (s := Finset.range N)]
+    · exact (cauchyProduct_partialSums a b N).symm
+    · intro k hk
+      have hNk : N ≤ k := Nat.le_of_not_gt (by simpa using hk)
+      simp [Nat.sub_eq_zero_of_le hNk, PartialSums]
+  change Tendsto (PartialSums (CauchyProduct a b)) atTop (𝓝 (A * B))
+  simpa only [hfinite] using ht
+
+theorem pma3_50 : pma3_50_contract := by
+  intro a b A B ha hb hab
+  rcases hab with hab | hab
+  · exact mertens_left ha hb hab
+  · rw [cauchyProduct_comm a b, mul_comm]
+    exact mertens_left hb ha hab
+
 end Rudin.PMA.Chapter03
