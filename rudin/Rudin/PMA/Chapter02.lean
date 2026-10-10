@@ -184,4 +184,17 @@ theorem pma2_8 {A : Type*} (S T : Set A) (hS : RudinCountable S)
   exact (pma2_4_countable_reference T).mpr
     ⟨hcS.mono hTS, hT.to_subtype⟩
 
+/-! ### PMA-2.9: indexed unions, intersections, and disjointness. -/
+def pmaUnion {A I : Type*} (E : I → Set A) : Set A := {x | ∃ i, x ∈ E i}
+def pmaIntersection {A I : Type*} (E : I → Set A) : Set A := {x | ∀ i, x ∈ E i}
+def pmaDisjoint {A : Type*} (S T : Set A) : Prop := S ∩ T = ∅
+
+theorem pma2_9_reference {A I : Type*} (E : I → Set A) (S T : Set A) :
+    pmaUnion E = ⋃ i, E i ∧ pmaIntersection E = ⋂ i, E i ∧
+    (pmaDisjoint S T ↔ Disjoint S T) := by
+  refine ⟨?_,?_,Set.disjoint_iff_inter_eq_empty.symm⟩
+  · ext x; simp [pmaUnion]
+  · ext x; simp [pmaIntersection]
+
+
 end Rudin.PMA.Chapter02
