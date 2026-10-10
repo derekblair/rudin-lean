@@ -1,9 +1,21 @@
-/-!
-# Rudin, *Principles of Mathematical Analysis* (3rd ed.)
+import Rudin.PMA.Chapter06.Basic
+import Rudin.PMA.Chapter06.Definitions
 
-## Chapter 6: The Riemann-Stieltjes Integral
+/-! # PMA Chapter 6: verified sections in dependency order.
+The index is in book order; only the listed nodes have been integrated.
+Each imported support module preserves its independently reviewed source bytes. -/
 
-Every definition, theorem, and corollary from this chapter is
-formalized below in dependency order. Zero `sorry`s: anything
-not yet proved is tracked in `QUEUE.md`, never as a `sorry` here.
+open Set
+namespace Rudin.PMA.Chapter06
+
+/-! ### PMA-6.1
+
+Principal proof: `pma6_1`. Definitions and supporting proofs: `Chapter06/Definitions.lean`.
 -/
+
+/-! ### PMA-6.2
+
+Principal proof: `pma6_2`. Definitions and supporting proofs: `Chapter06/Definitions.lean`.
+-/
+
+end Rudin.PMA.Chapter06
