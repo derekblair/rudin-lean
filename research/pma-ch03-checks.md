@@ -13,3 +13,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.5 | PASS: strictly increasing subsequence indices, actual composition, subsequential limit, every-subsequence equivalence, cluster-point reference. |
 | PMA-3.6 | PASS: compact-set membership and bounded Euclidean subsequences. |
 | PMA-3.7 | PASS: closed set of all subsequential limits. |
+| PMA-3.8 | PASS: literal two-index Cauchy criterion and `CauchySeq` reference. |

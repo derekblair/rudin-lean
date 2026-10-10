@@ -305,4 +305,11 @@ theorem pma3_7 {X : Type*} [MetricSpace X] (s : ℕ → X) :
   simpa only [pma3_5_reference, MapClusterPt] using
     (isClosed_setOfPred_clusterPt (f := map s atTop))
 
+/-! ### PMA-3.8: the literal Cauchy criterion. -/
+
+def RudinCauchy {X : Type*} [MetricSpace X] (s : ℕ → X) : Prop :=
+  ∀ ε > 0, ∃ N : ℕ, ∀ m ≥ N, ∀ n ≥ N, dist (s m) (s n) < ε
+
+theorem pma3_8_reference {X : Type*} [MetricSpace X] (s : ℕ → X) :
+    RudinCauchy s ↔ CauchySeq s := Metric.cauchySeq_iff.symm
 end Rudin.PMA.Chapter03
