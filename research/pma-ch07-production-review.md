@@ -1,6 +1,6 @@
 # Chapter 7 production integration review
 
-Status: Verified candidate accepted; incremental local integration in progress.
+Status: PASS: fresh production build, source, exact principal coverage, accepted-contract comparisons and recursive axiom gates complete.
 
 Branch `codex/pma-ch05-integration`, starting Chapter 6 HEAD `cc4328264872054cb72115dfcb3e025b1695ed5c`; main remains `97758281a2802ea1700c9b84164c05a2cc64313d`. No push or remote action is authorized or performed.
 

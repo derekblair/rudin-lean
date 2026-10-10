@@ -2,7 +2,7 @@
 
 **Goal:** Complete Lean 4 + Mathlib formalization of Walter Rudin's *Principles of Mathematical Analysis* (3rd ed.) — every definition, every theorem, zero sorrys — at https://github.com/derekblair/rudin-lean. Then *Real and Complex Analysis*, then *Functional Analysis*, novelty increasing at each step.
 
-**Status:** Chapter 1 complete: 37 / 37 requested nodes (2026-10-09), zero proof placeholders, standard axioms only. Chapter 2 complete: 47 / 47 nodes, zero proof placeholders, standard axioms only. Chapter 3 complete: 55 / 55 nodes, zero proof placeholders, standard axioms only. Chapter 4 complete: 34 / 34 nodes, zero proof placeholders, standard axioms only. Chapter 5 complete: 19 / 19 nodes, zero proof placeholders, standard axioms only, with independent hostile review and production verification. Chapter 6 complete: 27 / 27 nodes and all accepted attached consequences, independent fidelity/hostile review and exact production verification complete. Chapters 7–11 are pending in production. Dependency order: 1 → 11.
+**Status:** Chapter 1 complete: 37 / 37 requested nodes (2026-10-09), zero proof placeholders, standard axioms only. Chapter 2 complete: 47 / 47 nodes, zero proof placeholders, standard axioms only. Chapter 3 complete: 55 / 55 nodes, zero proof placeholders, standard axioms only. Chapter 4 complete: 34 / 34 nodes, zero proof placeholders, standard axioms only. Chapter 5 complete: 19 / 19 nodes, zero proof placeholders, standard axioms only, with independent hostile review and production verification. Chapter 6 complete: 27 / 27 nodes and all accepted attached consequences, independent fidelity/hostile review and exact production verification complete. Chapter 7 complete: 33 / 33 nodes and all accepted attached consequences, independent fidelity/two hostile review sets, and exact production verification complete. Chapters 8–11 are pending in production. Dependency order: 1 → 11.
 
 ## The book (3rd ed.)
 
@@ -79,8 +79,7 @@ history and evidence. Chapter 6 source must match the final independently review
 and hostile-reviewed candidate. Require a fresh production default build, actual
 principal theorem lookup, source checks and recursive axiom audit before every
 section commit. Preserve all approved code bytes; group nodes by their real module
-dependencies. Chapter 7 work remains in the isolated workspace until separately
-integrated. No push or remote write is authorized.
+dependencies. Chapter 7 integration is governed by the later production gate below. No push or remote write is authorized.
 
 ## Current Chapter 7 production gate
 

@@ -1,3 +1,11 @@
+# Chapter 7 production fidelity status
+
+All 33 nodes and accepted attached consequences are integrated locally. The 15 canonical source hashes match the independently and hostile-reviewed candidate; fresh production source, default build, exact principal, contract and recursive axiom gates pass. See `pma-ch07-production-review.md` and `evidence/ch07-production-verification.json`.
+
+## Historical isolated fidelity record
+
+The record below is retained unchanged. Its isolated commands and pending-production wording are historical and superseded in this checkout by the production evidence above.
+
 # PMA Chapter 7 fidelity record
 
 The isolated candidate implements all **33 accepted numbered nodes**, 7.1–7.33, including their attached consequences. Exercises remain excluded. All nine independent final source/proof reviews accept their assigned nodes; no author reviews their own implementation. Those reviews are separate from the two full additional hostile-review coverage sets below.

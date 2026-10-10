@@ -48,7 +48,10 @@ Chapter 5: all 19 numbered nodes complete, with independent hostile review and
 production build/axiom verification.
 Chapter 6: all 27 numbered nodes and attached consequences complete, including
 complex specializations, with exact production build, recursive axiom and
-independent fidelity/hostile gates. Chapters 7–11 follow in order.
+independent fidelity/hostile gates.
+Chapter 7: all 33 numbered nodes and attached consequences complete, with exact
+production source/build/kernel/axiom gates and independent fidelity plus two
+complete hostile-review sets. Chapters 8–11 follow in order.
 The default `lake build` compiles boundary probes and audits completed chapter
 declarations for the three permitted axioms. See `PROGRESS.md` and the
 chapter-specific verification logs under `research/`.

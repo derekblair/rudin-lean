@@ -10,8 +10,14 @@ import Rudin.PMA.Chapter07.NoSubsequence
 import Rudin.PMA.Chapter07.Equicontinuity
 import Rudin.PMA.Chapter07.Algebra
 
-/-! # PMA Chapter 7: verified sections in dependency order.
-Only the indexed nodes below are integrated; each imported module retains its frozen reviewed bytes. -/
+/-!
+# PMA Chapter 7: Sequences and Series of Functions
+
+All 33 accepted main-text nodes have proof declarations in this isolated integration.
+The index follows source order; support modules follow their mathematical dependencies.
+Independent fidelity and additional hostile reviews are tracked in evidence/ch07*.
+Whole-chapter verification is tracked separately from principal-proof existence.
+-/
 
 namespace Rudin.PMA.Chapter07
 
