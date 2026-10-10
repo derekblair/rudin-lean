@@ -4,6 +4,7 @@ import Rudin.PMA.Chapter07.Examples
 import Rudin.PMA.Chapter07.RationalIndicator
 import Rudin.PMA.Chapter07.MTest
 import Rudin.PMA.Chapter07.Calculus
+import Rudin.PMA.Chapter07.Continuity
 
 /-! # PMA Chapter 7: verified sections in dependency order.
 Only the indexed nodes below are integrated; each imported module retains its frozen reviewed bytes. -/
@@ -48,6 +49,26 @@ Principal proof: `pma7_9`. Definitions and supporting proofs: `Chapter07/Foundat
 
 /-! ### PMA-7.10
 Principal proof: `pma7_10`. Definitions and supporting proofs: `Chapter07/MTest.lean`.
+-/
+
+/-! ### PMA-7.11
+Principal proof: `pma7_11`. Definitions and supporting proofs: `Chapter07/Continuity.lean`.
+-/
+
+/-! ### PMA-7.12
+Principal proof: `pma7_12`. Definitions and supporting proofs: `Chapter07/Continuity.lean`.
+-/
+
+/-! ### PMA-7.13
+Principal proof: `pma7_13`. Definitions and supporting proofs: `Chapter07/Continuity.lean`.
+-/
+
+/-! ### PMA-7.14
+Principal proof: `pma7_14`. Definitions and supporting proofs: `Chapter07/Continuity.lean`.
+-/
+
+/-! ### PMA-7.15
+Principal proof: `pma7_15`. Definitions and supporting proofs: `Chapter07/Continuity.lean`.
 -/
 
 /-! ### PMA-7.16
