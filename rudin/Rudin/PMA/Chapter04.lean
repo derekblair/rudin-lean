@@ -247,4 +247,24 @@ theorem pma4_9 : pma4_9_contract := by
   intro X _ f g hf hg
   exact ⟨hf.add hg, hf.mul hg, fun h => hf.div hg h⟩
 
+/-! ### PMA-4.10: Coordinates and Euclidean operations -/
+def pma4_10_contract : Prop :=
+  (∀ {X : Type*} [MetricSpace X] {k : ℕ} (f : X → EuclideanSpace ℝ (Fin k)),
+    Continuous f ↔ ∀ i, Continuous (fun x => f x i)) ∧
+  (∀ {X : Type*} [MetricSpace X] {k : ℕ} (f g : X → EuclideanSpace ℝ (Fin k)),
+    Continuous f → Continuous g → Continuous (VectorSum f g) ∧ Continuous (InnerFunction f g))
+
+theorem continuous_euclidean_iff_coordinates {X : Type*} [MetricSpace X] {k : ℕ}
+    (f : X → EuclideanSpace ℝ (Fin k)) : Continuous f ↔ ∀ i, Continuous (fun x => f x i) := by
+  constructor
+  · intro h i
+    exact (PiLp.continuous_apply 2 (fun _ : Fin k => ℝ) i).comp h
+  · intro h
+    exact (PiLp.continuous_toLp (p := 2) (β := fun _ : Fin k => ℝ)).comp (continuous_pi h)
+
+theorem pma4_10 : pma4_10_contract := by
+  refine ⟨fun f => continuous_euclidean_iff_coordinates f, ?_⟩
+  intro X _ k f g hf hg
+  exact ⟨hf.add hg, hf.inner hg⟩
+
 end Rudin.PMA.Chapter04
