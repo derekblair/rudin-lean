@@ -508,4 +508,215 @@ theorem pma_positive_nth_root_mul (a b : ℝ) (n : ℕ) (ha : 0 < a) (hb : 0 < b
     (_hn : 0 < n) :
     (a * b) ^ ((n : ℝ)⁻¹) = a ^ ((n : ℝ)⁻¹) * b ^ ((n : ℝ)⁻¹) :=
   Real.mul_rpow ha.le hb.le
+noncomputable section
+
+open scoped BigOperators
+
+/-! ### PMA-1.22: finite decimal truncations and the real number specified by an expansion. -/
+
+def pmaDecimalTruncation (x : ℝ) (n : ℕ) : ℝ :=
+  (⌊(10 : ℝ) ^ n * x⌋ : ℝ) / (10 : ℝ) ^ n
+
+theorem pma_decimal_truncation_le (x : ℝ) (n : ℕ) : pmaDecimalTruncation x n ≤ x := by
+  unfold pmaDecimalTruncation
+  apply (div_le_iff₀ (by positivity : 0 < (10 : ℝ) ^ n)).2
+  simpa [mul_comm] using Int.floor_le ((10 : ℝ) ^ n * x)
+
+theorem pma_decimal_truncation_error (x : ℝ) (n : ℕ) :
+    x - pmaDecimalTruncation x n < 1 / (10 : ℝ) ^ n := by
+  have hp : 0 < (10 : ℝ) ^ n := by positivity
+  have hf := Int.lt_floor_add_one ((10 : ℝ) ^ n * x)
+  unfold pmaDecimalTruncation
+  apply (lt_div_iff₀ hp).2
+  rw [sub_mul, div_mul_cancel₀ _ hp.ne']
+  linarith
+
+theorem pma_decimal_truncation_isLUB (x : ℝ) (_hx : 0 < x) :
+    IsLUB (Set.range (pmaDecimalTruncation x)) x := by
+  refine ⟨?_, ?_⟩
+  · rintro _ ⟨n, rfl⟩
+    exact pma_decimal_truncation_le x n
+  · intro y hy
+    by_contra hxy
+    have he : 0 < x - y := sub_pos.mpr (lt_of_not_ge hxy)
+    obtain ⟨n, hn⟩ : ∃ n : ℕ, (1 / 10 : ℝ) ^ n < x - y :=
+      exists_pow_lt_of_lt_one he (by norm_num)
+    have hn' : 1 / (10 : ℝ) ^ n < x - y := by
+      simpa [div_pow] using hn
+    have hbound := hy (Set.mem_range_self n)
+    have herror := pma_decimal_truncation_error x n
+    linarith
+
+def pmaDecimalInitial (x : ℝ) : ℕ := ⌊x⌋.toNat
+
+theorem pma_decimal_initial_spec (x : ℝ) (hx : 0 < x) :
+    (pmaDecimalInitial x : ℝ) ≤ x ∧ x < (pmaDecimalInitial x : ℝ) + 1 := by
+  have hc : (pmaDecimalInitial x : ℝ) = (⌊x⌋ : ℝ) := by
+    unfold pmaDecimalInitial
+    rw [← Int.cast_natCast, Int.toNat_of_nonneg (Int.floor_nonneg.mpr hx.le)]
+  rw [hc]
+  exact ⟨Int.floor_le x, Int.lt_floor_add_one x⟩
+
+theorem pma_decimal_initial_maximal (x : ℝ) (hx : 0 < x) (m : ℤ) :
+    (m : ℝ) ≤ x ↔ m ≤ (pmaDecimalInitial x : ℤ) := by
+  rw [pmaDecimalInitial, Int.toNat_of_nonneg (Int.floor_nonneg.mpr hx.le)]
+  exact Int.le_floor.symm
+
+def pmaDecimalDigit (x : ℝ) (n : ℕ) : Fin 10 :=
+  ⟨(⌊(10 : ℝ) ^ (n + 1) * x⌋ % 10).toNat,
+    (Int.toNat_lt_of_ne_zero (by decide : (10 : ℕ) ≠ 0)).2
+      (Int.emod_lt_of_pos _ (by norm_num))⟩
+
+def pmaDecimalPartial (d₀ : ℕ) (d : ℕ → Fin 10) (n : ℕ) : ℝ :=
+  d₀ + ∑ j ∈ Finset.range n, (d j : ℝ) / (10 : ℝ) ^ (j + 1)
+
+theorem pma_decimal_digit_cast (x : ℝ) (n : ℕ) :
+    (pmaDecimalDigit x n : ℤ) = ⌊(10 : ℝ) ^ (n + 1) * x⌋ % 10 := by
+  change ((⌊(10 : ℝ) ^ (n + 1) * x⌋ % 10).toNat : ℤ) = _
+  exact Int.toNat_of_nonneg (Int.emod_nonneg _ (by norm_num))
+
+theorem pma_decimal_digit_recurrence (x : ℝ) (n : ℕ) :
+    ⌊(10 : ℝ) ^ (n + 1) * x⌋ =
+      10 * ⌊(10 : ℝ) ^ n * x⌋ + (pmaDecimalDigit x n : ℤ) := by
+  have hf : ⌊(10 : ℝ) ^ (n + 1) * x⌋ / 10 = ⌊(10 : ℝ) ^ n * x⌋ := by
+    calc
+      ⌊(10 : ℝ) ^ (n + 1) * x⌋ / 10 = ⌊((10 : ℝ) ^ (n + 1) * x) / 10⌋ := by
+        simpa using (Int.floor_div_natCast ((10 : ℝ) ^ (n + 1) * x) 10).symm
+      _ = ⌊(10 : ℝ) ^ n * x⌋ := by
+        congr 1
+        rw [pow_succ]
+        ring
+  rw [pma_decimal_digit_cast, ← hf]
+  exact (Int.mul_ediv_add_emod _ _).symm
+
+theorem pma_decimal_truncation_succ (x : ℝ) (n : ℕ) :
+    pmaDecimalTruncation x (n + 1) =
+      pmaDecimalTruncation x n + (pmaDecimalDigit x n : ℝ) / (10 : ℝ) ^ (n + 1) := by
+  unfold pmaDecimalTruncation
+  rw [pma_decimal_digit_recurrence]
+  push_cast
+  rw [pow_succ]
+  have hp : (10 : ℝ) ^ n ≠ 0 := by positivity
+  field_simp
+
+theorem pma_decimal_digit_spec (x : ℝ) (n : ℕ) :
+    pmaDecimalTruncation x n + (pmaDecimalDigit x n : ℝ) / (10 : ℝ) ^ (n + 1) ≤ x ∧
+    x < pmaDecimalTruncation x n + ((pmaDecimalDigit x n : ℝ) + 1) /
+      (10 : ℝ) ^ (n + 1) := by
+  constructor
+  · rw [← pma_decimal_truncation_succ]
+    exact pma_decimal_truncation_le x (n + 1)
+  · have he := pma_decimal_truncation_error x (n + 1)
+    rw [pma_decimal_truncation_succ] at he
+    rw [add_div]
+    linarith
+
+theorem pma_decimal_digit_maximal (x : ℝ) (n : ℕ) (m : ℤ) :
+    pmaDecimalTruncation x n + (m : ℝ) / (10 : ℝ) ^ (n + 1) ≤ x ↔
+      m ≤ (pmaDecimalDigit x n : ℤ) := by
+  have hd := pma_decimal_digit_spec x n
+  have hp : 0 ≤ (10 : ℝ) ^ (n + 1) := by positivity
+  constructor
+  · intro hm
+    by_contra hle
+    have hsucc : (pmaDecimalDigit x n : ℤ) + 1 ≤ m := by omega
+    have hc : (pmaDecimalDigit x n : ℝ) + 1 ≤ (m : ℝ) := by exact_mod_cast hsucc
+    have ht := add_le_add (le_rfl : pmaDecimalTruncation x n ≤ pmaDecimalTruncation x n)
+      (div_le_div_of_nonneg_right hc hp)
+    exact (not_le_of_gt hd.2) (ht.trans hm)
+  · intro hm
+    have hc : (m : ℝ) ≤ (pmaDecimalDigit x n : ℝ) := by exact_mod_cast hm
+    exact (add_le_add (le_rfl : pmaDecimalTruncation x n ≤ pmaDecimalTruncation x n)
+      (div_le_div_of_nonneg_right hc hp)).trans hd.1
+
+theorem pma_decimal_truncation_eq_partial (x : ℝ) (hx : 0 < x) (n : ℕ) :
+    pmaDecimalTruncation x n =
+      pmaDecimalPartial (pmaDecimalInitial x) (pmaDecimalDigit x) n := by
+  induction n with
+  | zero =>
+    have hf : 0 ≤ ⌊x⌋ := Int.floor_nonneg.mpr hx.le
+    simp only [pmaDecimalTruncation, pow_zero, one_mul, div_one, pmaDecimalPartial,
+      Finset.range_zero, Finset.sum_empty, add_zero, pmaDecimalInitial]
+    rw [← Int.cast_natCast, Int.toNat_of_nonneg hf]
+  | succ n ih =>
+    rw [pma_decimal_truncation_succ, ih]
+    simp [pmaDecimalPartial, Finset.sum_range_succ, add_assoc]
+
+theorem pma_positive_real_decimal_expansion (x : ℝ) (hx : 0 < x) :
+    IsLUB (Set.range (pmaDecimalPartial (pmaDecimalInitial x) (pmaDecimalDigit x))) x := by
+  convert pma_decimal_truncation_isLUB x hx using 1
+  congr 1
+  funext n
+  exact (pma_decimal_truncation_eq_partial x hx n).symm
+
+theorem pma_decimal_partial_succ (d₀ : ℕ) (d : ℕ → Fin 10) (n : ℕ) :
+    pmaDecimalPartial d₀ d (n + 1) =
+      pmaDecimalPartial d₀ d n + (d n : ℝ) / (10 : ℝ) ^ (n + 1) := by
+  simp [pmaDecimalPartial, Finset.sum_range_succ, add_assoc]
+
+theorem pma_decimal_partial_nonneg (d₀ : ℕ) (d : ℕ → Fin 10) (n : ℕ) :
+    0 ≤ pmaDecimalPartial d₀ d n := by
+  unfold pmaDecimalPartial
+  positivity
+
+theorem pma_decimal_partial_monotone (d₀ : ℕ) (d : ℕ → Fin 10) :
+    Monotone (pmaDecimalPartial d₀ d) := by
+  apply monotone_nat_of_le_succ
+  intro n
+  rw [pma_decimal_partial_succ]
+  apply le_add_of_nonneg_right
+  positivity
+
+theorem pma_decimal_partial_bound (d₀ : ℕ) (d : ℕ → Fin 10) (n : ℕ) :
+    pmaDecimalPartial d₀ d n ≤ d₀ + 1 - 1 / (10 : ℝ) ^ n := by
+  induction n with
+  | zero => simp [pmaDecimalPartial]
+  | succ n ih =>
+    have hd : (d n : ℝ) ≤ 9 := by
+      exact_mod_cast (Nat.le_pred_of_lt (d n).isLt)
+    calc
+      pmaDecimalPartial d₀ d (n + 1) =
+          pmaDecimalPartial d₀ d n + (d n : ℝ) / (10 : ℝ) ^ (n + 1) :=
+        pma_decimal_partial_succ d₀ d n
+      _ ≤ (d₀ + 1 - 1 / (10 : ℝ) ^ n) + 9 / (10 : ℝ) ^ (n + 1) :=
+        add_le_add ih (div_le_div_of_nonneg_right hd (by positivity))
+      _ = d₀ + 1 - 1 / (10 : ℝ) ^ (n + 1) := by
+        rw [pow_succ]
+        have hp : (10 : ℝ) ^ n ≠ 0 := by positivity
+        field_simp
+        ring
+
+theorem pma_decimal_partials_bounded (d₀ : ℕ) (d : ℕ → Fin 10) :
+    BddAbove (Set.range (pmaDecimalPartial d₀ d)) := by
+  refine ⟨d₀ + 1, ?_⟩
+  rintro _ ⟨n, rfl⟩
+  exact (pma_decimal_partial_bound d₀ d n).trans (sub_le_self _ (by positivity))
+
+def pmaDecimalValue (d₀ : ℕ) (d : ℕ → Fin 10) : ℝ :=
+  sSup (Set.range (pmaDecimalPartial d₀ d))
+
+theorem pma_decimal_value_isLUB (d₀ : ℕ) (d : ℕ → Fin 10) :
+    IsLUB (Set.range (pmaDecimalPartial d₀ d)) (pmaDecimalValue d₀ d) :=
+  isLUB_csSup (Set.range_nonempty _) (pma_decimal_partials_bounded d₀ d)
+
+theorem pma_decimal_value_unique (d₀ : ℕ) (d : ℕ → Fin 10) :
+    ∃! x : ℝ, IsLUB (Set.range (pmaDecimalPartial d₀ d)) x := by
+  exact ⟨pmaDecimalValue d₀ d, pma_decimal_value_isLUB d₀ d,
+    fun _ hx => hx.unique (pma_decimal_value_isLUB d₀ d)⟩
+
+theorem pma_decimal_value_bounds (d₀ : ℕ) (d : ℕ → Fin 10) :
+    (d₀ : ℝ) ≤ pmaDecimalValue d₀ d ∧ pmaDecimalValue d₀ d ≤ d₀ + 1 := by
+  have h := pma_decimal_value_isLUB d₀ d
+  constructor
+  · simpa [pmaDecimalPartial] using h.1 (Set.mem_range_self 0)
+  · apply h.2
+    rintro _ ⟨n, rfl⟩
+    exact (pma_decimal_partial_bound d₀ d n).trans (sub_le_self _ (by positivity))
+
+theorem pma_decimal_value_of_positive_real (x : ℝ) (hx : 0 < x) :
+    pmaDecimalValue (pmaDecimalInitial x) (pmaDecimalDigit x) = x :=
+  (pma_decimal_value_isLUB _ _).unique (pma_positive_real_decimal_expansion x hx)
+
+end
+
 end Rudin.PMA.Chapter01
