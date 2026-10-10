@@ -21,3 +21,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-4.13 | PASS: strict norm bound for all domain points and bounded-range reference, including empty domains. |
 | PMA-4.14 | PASS: arbitrary compact metric domain and continuous metric-valued image. |
 | PMA-4.15 | PASS: closed and bounded Euclidean image and literal boundedness. |
+| PMA-4.16 | PASS: nonempty compact domain, actual supremum/infimum equalities, and global maximum/minimum inequalities. |

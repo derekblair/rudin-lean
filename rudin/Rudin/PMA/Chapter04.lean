@@ -370,4 +370,22 @@ theorem pma4_15 : pma4_15_contract := by
   have hc := isCompact_range hf
   exact ⟨hc.isClosed, hc.isBounded, (boundedFunction_iff_isBounded_range f).mpr hc.isBounded⟩
 
+/-! ### PMA-4.16: Attained supremum and infimum -/
+def pma4_16_contract : Prop :=
+  ∀ {X : Type*} [MetricSpace X] [CompactSpace X] [Nonempty X]
+    (f : X → ℝ), Continuous f →
+      (∃ xmax, f xmax = sSup (range f) ∧ ∀ x, f x ≤ f xmax) ∧
+      (∃ xmin, f xmin = sInf (range f) ∧ ∀ x, f xmin ≤ f x)
+
+theorem pma4_16 : pma4_16_contract := by
+  intro X _ _ _ f hf
+  obtain ⟨xmax, _, hmax, hle⟩ := isCompact_univ.exists_sSup_image_eq_and_ge
+    (Set.univ_nonempty : (Set.univ : Set X).Nonempty) hf.continuousOn
+  obtain ⟨xmin, _, hmin, hge⟩ := isCompact_univ.exists_sInf_image_eq_and_le
+    (Set.univ_nonempty : (Set.univ : Set X).Nonempty) hf.continuousOn
+  refine ⟨⟨xmax, ?_, fun x => hle x (mem_univ x)⟩,
+    ⟨xmin, ?_, fun x => hge x (mem_univ x)⟩⟩
+  · simpa only [image_univ] using hmax.symm
+  · simpa only [image_univ] using hmin.symm
+
 end Rudin.PMA.Chapter04
