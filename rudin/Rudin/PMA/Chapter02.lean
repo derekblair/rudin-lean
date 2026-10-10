@@ -919,4 +919,10 @@ theorem pma2_33 {X : Type u} [MetricSpace X] (Y K : Set X) (hKY : K ⊆ Y) :
     simpa using (Set.inter_eq_left.mpr hKY)
   rw [he]
 
+/-! ### PMA-2.34: compact subsets of metric spaces are closed. -/
+
+theorem pma2_34 {X : Type u} [MetricSpace X] {K : Set X}
+    (hK : RudinCompact K) : IsClosed K :=
+  ((pma2_32_reference K).mp hK).isClosed
+
 end Rudin.PMA.Chapter02

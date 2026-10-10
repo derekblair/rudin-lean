@@ -39,3 +39,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-2.31 | PASS: Open-cover family has ambient open members and covers the target union; membership comparator. |
 | PMA-2.32 | PASS: Finite-subcover compactness is equivalent to IsCompact, and finite sets are compact. |
 | PMA-2.33 | PASS: Subspace and ambient compactness coincide under K⊆Y via subtype embedding/image. |
+| PMA-2.34 | PASS: Metric compact subsets are closed, using IsCompact.isClosed. |
