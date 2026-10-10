@@ -312,4 +312,30 @@ def RudinCauchy {X : Type*} [MetricSpace X] (s : ℕ → X) : Prop :=
 
 theorem pma3_8_reference {X : Type*} [MetricSpace X] (s : ℕ → X) :
     RudinCauchy s ↔ CauchySeq s := Metric.cauchySeq_iff.symm
+/-! ### PMA-3.9: extended diameter and the tail-diameter criterion. -/
+
+def RudinDiameter {X : Type*} [MetricSpace X] (E : Set X) : ENNReal := Metric.ediam E
+def TailRange {X : Type*} (s : ℕ → X) (N : ℕ) : Set X := s '' Ici N
+
+theorem pma3_9_reference {X : Type*} [MetricSpace X] (E : Set X) :
+    RudinDiameter E = sSup (Set.image2 edist E E) := Metric.ediam_eq_sSup E
+
+theorem pma3_9_tail {X : Type*} [MetricSpace X] (s : ℕ → X) :
+    RudinCauchy s ↔ Tendsto (fun N => RudinDiameter (TailRange s N)) atTop (𝓝 0) := by
+  rw [pma3_8_reference, EMetric.cauchySeq_iff, ENNReal.tendsto_nhds_zero]
+  constructor
+  · intro h ε hε
+    obtain ⟨N, hN⟩ := h ε hε
+    refine eventually_atTop.mpr ⟨N, fun M hM => ?_⟩
+    apply Metric.ediam_le
+    rintro x ⟨i, hi, rfl⟩ y ⟨j, hj, rfl⟩
+    exact (hN i (hM.trans hi) j (hM.trans hj)).le
+  · intro h ε hε
+    obtain ⟨δ, hδ, hδε⟩ := ENNReal.lt_iff_exists_nnreal_btwn.mp hε
+    obtain ⟨N, hN⟩ := eventually_atTop.mp (h δ hδ)
+    refine ⟨N, fun m hm n hn => ?_⟩
+    have hm' : s m ∈ TailRange s N := ⟨m, hm, rfl⟩
+    have hn' : s n ∈ TailRange s N := ⟨n, hn, rfl⟩
+    exact lt_of_le_of_lt ((Metric.edist_le_ediam_of_mem hm' hn').trans (hN N le_rfl)) hδε
+
 end Rudin.PMA.Chapter03

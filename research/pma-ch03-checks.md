@@ -14,3 +14,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.6 | PASS: compact-set membership and bounded Euclidean subsequences. |
 | PMA-3.7 | PASS: closed set of all subsequential limits. |
 | PMA-3.8 | PASS: literal two-index Cauchy criterion and `CauchySeq` reference. |
+| PMA-3.9 | PASS: `ENNReal` diameter, pairwise supremum reference, tail range, unqualified Cauchy equivalence. |
