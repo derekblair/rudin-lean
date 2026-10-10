@@ -44,4 +44,31 @@ theorem pma2_2_oneToOne_alternative {A B : Type*} (f : A → B) :
     by_contra hxy
     exact h x y hxy hfx
 
+/-! ### PMA-2.3: equinumerosity and equivalence relations. -/
+def Equinumerous (A B : Type*) : Prop := Nonempty (A ≃ B)
+def PMAEquivalenceRelation {A : Type*} (r : A → A → Prop) : Prop :=
+  (∀ x, r x x) ∧ (∀ x y, r x y → r y x) ∧
+  (∀ x y z, r x y → r y z → r x z)
+
+theorem pma2_3_reference {A : Type*} (r : A → A → Prop) :
+    PMAEquivalenceRelation r ↔ Equivalence r := by
+  constructor
+  · rintro ⟨hr,hs,ht⟩
+    exact ⟨hr,fun h => hs _ _ h,fun h₁ h₂ => ht _ _ _ h₁ h₂⟩
+  · intro h
+    exact ⟨h.refl,fun _ _ => h.symm,fun _ _ _ => h.trans⟩
+
+theorem pma2_3_reflexive (A : Type*) : Equinumerous A A := ⟨Equiv.refl A⟩
+theorem pma2_3_symmetric {A B : Type*} : Equinumerous A B → Equinumerous B A :=
+  fun ⟨e⟩ => ⟨e.symm⟩
+theorem pma2_3_transitive {A B C : Type*} :
+    Equinumerous A B → Equinumerous B C → Equinumerous A C :=
+  fun ⟨e⟩ ⟨f⟩ => ⟨e.trans f⟩
+
+theorem pma2_3_bijection {A B : Type*} :
+    Equinumerous A B ↔ ∃ f : A → B, Function.Bijective f := by
+  constructor
+  · rintro ⟨e⟩; exact ⟨e,e.bijective⟩
+  · rintro ⟨f,hf⟩; exact ⟨Equiv.ofBijective f hf⟩
+
 end Rudin.PMA.Chapter02
