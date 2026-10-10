@@ -338,4 +338,22 @@ theorem pma3_9_tail {X : Type*} [MetricSpace X] (s : ℕ → X) :
     have hn' : s n ∈ TailRange s N := ⟨n, hn, rfl⟩
     exact lt_of_le_of_lt ((Metric.edist_le_ediam_of_mem hm' hn').trans (hN N le_rfl)) hδε
 
+/-! ### PMA-3.10: closure diameters and singleton compact intersections. -/
+
+theorem pma3_10_closure {X : Type*} [MetricSpace X] (E : Set X) :
+    RudinDiameter (closure E) = RudinDiameter E := Metric.ediam_closure E
+
+theorem pma3_10_intersection {X : Type*} [MetricSpace X] (K : ℕ → Set X)
+    (hc : ∀ n, IsCompact (K n)) (hne : ∀ n, (K n).Nonempty)
+    (hdec : ∀ n, K (n+1) ⊆ K n)
+    (hd : Tendsto (fun n => RudinDiameter (K n)) atTop (𝓝 0)) :
+    ∃! p, p ∈ ⋂ n, K n := by
+  obtain ⟨p, hp⟩ := IsCompact.nonempty_iInter_of_sequence_nonempty_isCompact_isClosed
+    K hdec hne (hc 0) (fun n => (hc n).isClosed)
+  refine ⟨p, hp, fun q hq => ?_⟩
+  have hbound (n : ℕ) : edist q p ≤ RudinDiameter (K n) :=
+    Metric.edist_le_ediam_of_mem (mem_iInter.mp hq n) (mem_iInter.mp hp n)
+  have hzero : edist q p ≤ 0 := ge_of_tendsto hd (Eventually.of_forall hbound)
+  exact edist_eq_zero.mp (le_antisymm hzero bot_le)
+
 end Rudin.PMA.Chapter03
