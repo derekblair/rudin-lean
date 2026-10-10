@@ -79,4 +79,13 @@ theorem pma1_3_reference {α : Type*} (A B : Set α) (x : α) :
     simp only [not_forall, exists_prop]
   · exact Set.Subset.antisymm_iff
 
+/-! ### PMA-1.4: the notation for rational numbers. -/
+
+abbrev RationalNumbers := ℚ
+
+theorem pma1_4_fraction (q : RationalNumbers) :
+    ∃ a b : ℤ, b ≠ 0 ∧ q = (a : ℚ) / (b : ℚ) := by
+  refine ⟨q.num, q.den, by exact_mod_cast q.den_ne_zero, ?_⟩
+  simpa using (Rat.num_div_den q).symm
+
 end Rudin.PMA.Chapter01
