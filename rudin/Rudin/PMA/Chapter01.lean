@@ -793,4 +793,22 @@ theorem pma_extended_real_not_field :
   obtain ⟨y, hy⟩ := h ⊤
   induction y using EReal.rec <;> simp at hy
 
+/-! ### PMA-1.24: Mathlib's complex structure is the real ordered-pair construction. -/
+
+def pmaComplexPair (a b : ℝ) : ℂ := ⟨a, b⟩
+
+theorem pma_complex_pair_exhaustive (z : ℂ) : ∃ a b : ℝ, z = pmaComplexPair a b :=
+  ⟨z.re, z.im, rfl⟩
+
+theorem pma_complex_pair_eq (a b c d : ℝ) :
+    pmaComplexPair a b = pmaComplexPair c d ↔ a = c ∧ b = d :=
+  Complex.ext_iff
+
+theorem pma_complex_pair_add (a b c d : ℝ) :
+    pmaComplexPair a b + pmaComplexPair c d = pmaComplexPair (a + c) (b + d) := rfl
+
+theorem pma_complex_pair_mul (a b c d : ℝ) :
+    pmaComplexPair a b * pmaComplexPair c d =
+      pmaComplexPair (a * c - b * d) (a * d + b * c) := rfl
+
 end Rudin.PMA.Chapter01
