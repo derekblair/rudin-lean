@@ -18,3 +18,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.10 | PASS: diameter unchanged by closure, nonempty decreasing compact stages, unique intersection point. |
 | PMA-3.11 | PASS: convergent implies Cauchy, compact Cauchy convergence, Euclidean equivalence. |
 | PMA-3.12 | PASS: literal sequential completeness, `CompleteSpace` reference, compact/Euclidean/closed cases, rational incompleteness. |
+| PMA-3.13 | PASS: consecutive non-strict inequalities, increasing/decreasing alternative, `Monotone`/`Antitone` references. |

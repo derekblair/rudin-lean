@@ -416,4 +416,18 @@ theorem pma3_12_rational : ¬ RudinComplete ℚ := by
   rw [hfull]
   exact mem_univ _
 
+/-! ### PMA-3.13: non-strict real monotonicity. -/
+
+def IncreasingSequence (s : ℕ → ℝ) : Prop := ∀ n, s n ≤ s (n+1)
+def DecreasingSequence (s : ℕ → ℝ) : Prop := ∀ n, s (n+1) ≤ s n
+def MonotonicSequence (s : ℕ → ℝ) : Prop := IncreasingSequence s ∨ DecreasingSequence s
+
+theorem pma3_13_increasing_reference (s : ℕ → ℝ) :
+    IncreasingSequence s ↔ Monotone s := by
+  exact ⟨monotone_nat_of_le_succ, fun h n => h (Nat.le_succ n)⟩
+
+theorem pma3_13_decreasing_reference (s : ℕ → ℝ) :
+    DecreasingSequence s ↔ Antitone s := by
+  exact ⟨antitone_nat_of_succ_le, fun h n => h (Nat.le_succ n)⟩
+
 end Rudin.PMA.Chapter03
