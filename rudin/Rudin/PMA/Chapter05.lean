@@ -540,3 +540,38 @@ theorem oscillationQuadratic_offZero_formula_wrong_at_zero :
 end
 
 end Rudin.PMA.Chapter05
+
+
+/- Assembly source: Chapter05MiddleDraft.lean -/
+
+noncomputable section
+open Set Filter Topology
+
+namespace Rudin.PMA.Chapter05
+
+/-! ### PMA-5.7: Local extrema in a metric space -/
+
+def MetricLocalMaximum {X : Type*} [MetricSpace X] (f : X → ℝ) (p : X) : Prop :=
+  ∃ δ > 0, ∀ q, dist p q < δ → f q ≤ f p
+
+def MetricLocalMinimum {X : Type*} [MetricSpace X] (f : X → ℝ) (p : X) : Prop :=
+  ∃ δ > 0, ∀ q, dist p q < δ → f p ≤ f q
+
+def pma5_7_contract : Prop :=
+  ∀ {X : Type*} [MetricSpace X] (f : X → ℝ) (p : X),
+    (MetricLocalMaximum f p ↔ IsLocalMax f p) ∧
+    (MetricLocalMinimum f p ↔ IsLocalMin f p)
+
+theorem pma5_7 : pma5_7_contract := by
+  intro X _ f p
+  constructor
+  · change (∃ δ > 0, ∀ q, dist p q < δ → f q ≤ f p) ↔
+      ∀ᶠ q in 𝓝 p, f q ≤ f p
+    rw [Metric.eventually_nhds_iff]
+    simp only [dist_comm]
+  · change (∃ δ > 0, ∀ q, dist p q < δ → f p ≤ f q) ↔
+      ∀ᶠ q in 𝓝 p, f p ≤ f q
+    rw [Metric.eventually_nhds_iff]
+    simp only [dist_comm]
+
+end Rudin.PMA.Chapter05
