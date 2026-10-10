@@ -1605,4 +1605,76 @@ theorem pma5_18 : pma5_18_contract := by
       complexHopital_ratio_bound x hx⟩
   · simpa using (Complex.continuous_ofReal.tendsto (0 : ℝ)).mono_left nhdsWithin_le_nhds
 
+/-! ### PMA-5.19: The norm mean-value inequality and its consequences -/
+
+def pma5_19_contract : Prop :=
+  ∀ {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+    (f f' : ℝ → E) (a b : ℝ), a < b → ContinuousOn f (Icc a b) →
+    (∀ x ∈ Ioo a b, HasDerivAt f (f' x) x) →
+    (∃ x ∈ Ioo a b, ‖f b - f a‖ ≤ (b - a) * ‖f' x‖) ∧
+    (∀ M : ℝ, (∀ x ∈ Ioo a b, ‖f' x‖ ≤ M) → ‖f b - f a‖ ≤ (b - a) * M) ∧
+    (BddAbove ((fun x => ‖f' x‖) '' Ioo a b) →
+      ‖f b - f a‖ ≤ (b - a) * sSup ((fun x => ‖f' x‖) '' Ioo a b))
+
+theorem exists_norm_mean_value {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+    (f f' : ℝ → E) (a b : ℝ) (hab : a < b) (hf : ContinuousOn f (Icc a b))
+    (hd : ∀ x ∈ Ioo a b, HasDerivAt f (f' x) x) :
+    ∃ x ∈ Ioo a b, ‖f b - f a‖ ≤ (b - a) * ‖f' x‖ := by
+  let v := f b - f a
+  have hg : ContinuousOn (fun t => ⟪v, f t⟫_ℝ) (Icc a b) := continuousOn_const.inner hf
+  have hgd : ∀ x ∈ Ioo a b,
+      HasDerivAt (fun t => ⟪v, f t⟫_ℝ) ⟪v, f' x⟫_ℝ x := by
+    intro x hx
+    simpa using (hasDerivAt_const x v).inner ℝ (hd x hx)
+  obtain ⟨x, hx, heq⟩ := exists_hasDerivAt_eq_slope
+    (fun t => ⟪v, f t⟫_ℝ) (fun t => ⟪v, f' t⟫_ℝ) hab hg hgd
+  refine ⟨x, hx, ?_⟩
+  rw [← inner_sub_right, show f b - f a = v from rfl, real_inner_self_eq_norm_sq] at heq
+  have he : ‖v‖^2 = (b - a) * ⟪v, f' x⟫_ℝ := by
+    have := (eq_div_iff (sub_ne_zero.mpr hab.ne')).mp heq
+    nlinarith
+  have hh := mul_le_mul_of_nonneg_left (real_inner_le_norm v (f' x)) (sub_nonneg.mpr hab.le)
+  change ‖v‖ ≤ (b - a) * ‖f' x‖
+  by_cases hv : ‖v‖ = 0
+  · rw [hv]
+    positivity
+  · have hvp : 0 < ‖v‖ := lt_of_le_of_ne (norm_nonneg v) (Ne.symm hv)
+    nlinarith
+
+theorem pma5_19 : pma5_19_contract := by
+  intro E _ _ f f' a b hab hf hd
+  have hm := exists_norm_mean_value f f' a b hab hf hd
+  have hu : ∀ M : ℝ, (∀ x ∈ Ioo a b, ‖f' x‖ ≤ M) →
+      ‖f b - f a‖ ≤ (b - a) * M := by
+    intro M hM
+    obtain ⟨x, hx, h⟩ := hm
+    exact h.trans (mul_le_mul_of_nonneg_left (hM x hx) (sub_nonneg.mpr hab.le))
+  refine ⟨hm, hu, ?_⟩
+  intro hbdd
+  exact hu _ (fun x hx => le_csSup hbdd ⟨x, hx, rfl⟩)
+
+/-! Boundary and nonvacuity probes for the source-sensitive cases. -/
+
+theorem vector_derivative_left_endpoint_probe :
+    VectorDerivativeWithin (fun t : ℝ => (t : ℂ)) 1 0 1 0 := by
+  apply (vectorDerivativeWithin_iff _ _ _ _ _).mpr
+  exact ⟨by norm_num, by simp, (hasDerivAt_id (0 : ℝ)).ofReal_comp.hasDerivWithinAt⟩
+
+theorem vector_derivative_right_endpoint_probe :
+    VectorDerivativeWithin (fun t : ℝ => (t : ℂ)) 1 0 1 1 := by
+  apply (vectorDerivativeWithin_iff _ _ _ _ _).mpr
+  exact ⟨by norm_num, by simp, (hasDerivAt_id (1 : ℝ)).ofReal_comp.hasDerivWithinAt⟩
+
+theorem vector_derivative_degenerate_interval_probe {E : Type*}
+    [NormedAddCommGroup E] [NormedSpace ℝ E] (f : ℝ → E) (v : E) (a : ℝ) :
+    ¬ VectorDerivativeWithin f v a a a := by
+  intro h
+  exact (lt_irrefl a) h.1
+
+theorem complexHopital_distinct_limits_probe :
+    ¬ Tendsto (fun x : ℝ => (x : ℂ) / complexHopitalG x) (𝓝[>] 0) (𝓝 0) := by
+  intro h
+  exact one_ne_zero (tendsto_nhds_unique complexHopital_quotient_limit h)
+
+
 end Rudin.PMA.Chapter05
