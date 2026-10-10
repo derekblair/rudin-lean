@@ -6,6 +6,7 @@ import Rudin.PMA.Chapter06.Integrability
 import Rudin.PMA.Chapter06.Monotone
 import Rudin.PMA.Chapter06.Split
 import Rudin.PMA.Chapter06.Properties
+import Rudin.PMA.Chapter06.Jump
 
 /-! # PMA Chapter 6: verified sections in dependency order.
 The index is in book order; only the listed nodes have been integrated.
@@ -84,6 +85,21 @@ Principal proof: `pma6_12`. Definitions and supporting proofs: `Chapter06/Proper
 /-! ### PMA-6.13
 
 Principal proof: `pma6_13`. Definitions and supporting proofs: `Chapter06/Integrability.lean`.
+-/
+
+/-! ### PMA-6.14
+
+Principal proof: `pma6_14`. Definitions and supporting proofs: `Chapter06/Jump.lean`.
+-/
+
+/-! ### PMA-6.15
+
+Principal proof: `pma6_15`. Definitions and supporting proofs: `Chapter06/Jump.lean`.
+-/
+
+/-! ### PMA-6.16
+
+Principal proof: `pma6_16`. Definitions and supporting proofs: `Chapter06/Jump.lean`.
 -/
 
 end Rudin.PMA.Chapter06
