@@ -1019,4 +1019,10 @@ theorem pma2_39 {k : ℕ} (_hk : 0 < k) (a b : ℕ → Fin k → ℝ)
     (fun n => closedCell_nonempty (hab n)) (closedCell_isCompact (a 0) (b 0))
     (fun n => closedCell_isClosed (a n) (b n))
 
+/-! ### PMA-2.40: every Euclidean cell is compact. -/
+
+theorem pma2_40 {k : ℕ} (_hk : 0 < k) (a b : Fin k → ℝ) (_hab : ∀ j, a j ≤ b j) :
+    RudinCompact (ClosedCell k a b) :=
+  (pma2_32_reference _).mpr (closedCell_isCompact a b)
+
 end Rudin.PMA.Chapter02
