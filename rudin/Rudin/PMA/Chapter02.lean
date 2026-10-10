@@ -721,4 +721,15 @@ theorem complement_iUnion {X I : Type*} (E : I → Set X) :
   ext x
   simp [complement]
 
+/-! ### PMA-2.23: Open and closed complements. -/
+theorem open_iff_complement_closed {X : Type*} [MetricSpace X] (E : Set X) :
+    IsOpenSet E ↔ IsClosedSet (complement E) := by
+  rw [isOpenSet_iff_isOpen, isClosedSet_iff_isClosed, complement_eq_compl,
+    isClosed_compl_iff]
+
+theorem closed_iff_complement_open {X : Type*} [MetricSpace X] (E : Set X) :
+    IsClosedSet E ↔ IsOpenSet (complement E) := by
+  rw [isOpenSet_iff_isOpen, isClosedSet_iff_isClosed, complement_eq_compl,
+    isOpen_compl_iff]
+
 end Rudin.PMA.Chapter02
