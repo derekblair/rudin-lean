@@ -1240,4 +1240,46 @@ theorem node_3_30 : Statement_3_30 := by
   exact ⟨rfl,Nat.factorial_succ,by rw [eulerNumber_eq_exp_one]; exact factorialSeries_hasSum.tendsto_sum_nat,
     eulerNumber_eq_exp_one⟩
 
+/-! ### PMA-3.31: A second limit for e and the factorial tail estimate. -/
+def Statement_3_31 : Prop :=
+  Tendsto (fun n : ℕ => (1 + 1/(n : ℝ))^n) atTop (𝓝 EulerNumber) ∧
+  ∀ n : ℕ, 1 ≤ n →
+    0 < EulerNumber - FactorialPartialSum n ∧
+      EulerNumber - FactorialPartialSum n < 1/((n.factorial : ℝ) * n)
+
+/-! PMA-3.31 proof details: Verified exponential limit and strict factorial-tail estimate. -/
+theorem factorialTail_positive (n : ℕ) : 0 < EulerNumber - FactorialPartialSum n := by
+  have hnonneg : ∀ k : ℕ, 0 ≤ 1/(k.factorial : ℝ) := fun k => by positivity
+  have hle := factorialSeries_hasSum.summable.sum_le_tsum (Finset.range (n+2))
+    (fun k _ => hnonneg k)
+  have hpos : 0 < 1/((n+1).factorial : ℝ) := by positivity
+  change (∑ k ∈ Finset.range (n+2), 1/(k.factorial : ℝ)) ≤ EulerNumber at hle
+  rw [show n+2 = (n+1)+1 by omega,Finset.sum_range_succ] at hle
+  unfold FactorialPartialSum PartialSums
+  linarith
+
+theorem factorialTail_upper {n : ℕ} (hn : 1 ≤ n) :
+    EulerNumber - FactorialPartialSum n < 1/((n.factorial : ℝ)*n) := by
+  have hbound : |Real.exp 1 - FactorialPartialSum n| ≤
+      ((n+1 : ℕ)+1 : ℝ)/(((n+1).factorial : ℝ)*(n+1 : ℕ)) := by
+    simpa only [FactorialPartialSum,PartialSums,one_pow,abs_one,one_mul,
+      Nat.succ_eq_add_one,Nat.cast_add,Nat.cast_one]
+      using Real.exp_bound (x := 1) (by norm_num) (n := n+1) (by omega)
+  rw [← eulerNumber_eq_exp_one] at hbound
+  have hnreal : 0 < (n : ℝ) := by exact_mod_cast (show 0 < n by omega)
+  have hfac : 0 < (n.factorial : ℝ) := by positivity
+  have hlt : ((n+1 : ℕ)+1 : ℝ)/(((n+1).factorial : ℝ)*(n+1 : ℕ)) <
+      1/((n.factorial : ℝ)*n) := by
+    apply (div_lt_div_iff₀ (by positivity) (by positivity)).mpr
+    simp only [Nat.factorial_succ,Nat.cast_mul,Nat.cast_add,Nat.cast_one]
+    nlinarith
+  exact lt_of_le_of_lt (le_trans (le_abs_self _) hbound) hlt
+
+theorem node_3_31 : Statement_3_31 := by
+  constructor
+  · rw [eulerNumber_eq_exp_one]
+    simpa only [one_div] using Real.tendsto_one_add_div_pow_exp 1
+  · intro n hn
+    exact ⟨factorialTail_positive n,factorialTail_upper hn⟩
+
 end Rudin.PMA.Chapter03
