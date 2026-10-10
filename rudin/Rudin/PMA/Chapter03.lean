@@ -675,4 +675,50 @@ theorem pma3_19 (s t : ℕ → ℝ) (h : ∃ N, ∀ n ≥ N, s n ≤ t n) :
   rw [pma3_16_lower_reference, pma3_16_lower_reference,
     pma3_16_upper_reference, pma3_16_upper_reference]
   exact ⟨liminf_le_liminf he, limsup_le_limsup he⟩
+/-! ### PMA-3.20: the five special sequence limits, with positive indices. -/
+
+private theorem positive_natCast_tendsto :
+    Tendsto (fun n : ℕ => (n+1 : ℝ)) atTop atTop := by
+  simpa only [Nat.cast_add, Nat.cast_one, Function.comp_def] using
+    (tendsto_natCast_atTop_atTop (R := ℝ)).comp (tendsto_add_atTop_nat 1)
+
+theorem pma3_20_reciprocal (p : ℝ) (hp : 0 < p) :
+    ConvergesTo (fun n : ℕ => 1 / (n+1 : ℝ)^p) 0 := by
+  apply (pma3_1_reference _ _).mpr
+  convert ((tendsto_rpow_atTop hp).comp positive_natCast_tendsto).inv_tendsto_atTop using 1
+  ext n
+  simp only [one_div]
+  rfl
+
+theorem pma3_20_root_const (p : ℝ) (hp : 0 < p) :
+    ConvergesTo (fun n : ℕ => p^(1/(n+1 : ℝ))) 1 := by
+  apply (pma3_1_reference _ _).mpr
+  simpa only [Function.comp_def, Real.rpow_zero] using
+    (Real.continuousAt_const_rpow (ne_of_gt hp)).tendsto.comp
+      (tendsto_one_div_add_atTop_nhds_zero_nat (𝕜 := ℝ))
+
+theorem pma3_20_root_index :
+    ConvergesTo (fun n : ℕ => (n+1 : ℝ)^(1/(n+1 : ℝ))) 1 := by
+  exact (pma3_1_reference _ _).mpr (tendsto_rpow_div.comp positive_natCast_tendsto)
+
+theorem pma3_20_power_over_exp (p α : ℝ) (hp : 0 < p) :
+    ConvergesTo (fun n : ℕ => (n+1 : ℝ)^α / (1+p)^(n+1)) 0 := by
+  apply (pma3_1_reference _ _).mpr
+  have hb : 0 < Real.log (1+p) := Real.log_pos (by linarith)
+  have h := (tendsto_exp_mul_div_rpow_atTop α (Real.log (1+p)) hb).inv_tendsto_atTop
+  have hs := h.comp positive_natCast_tendsto
+  convert hs using 1
+  ext n
+  change (n+1 : ℝ)^α / (1+p)^(n+1) =
+    (Real.exp (Real.log (1+p) * (n+1 : ℝ)) / (n+1 : ℝ)^α)⁻¹
+  rw [inv_div]
+  congr 1
+  rw [mul_comm]
+  rw [show (n : ℝ) + 1 = ((n+1 : ℕ) : ℝ) by norm_cast]
+  rw [Real.exp_nat_mul, Real.exp_log (by linarith)]
+
+theorem pma3_20_geometric (x : ℝ) (hx : |x| < 1) :
+    ConvergesTo (fun n : ℕ => x^(n+1)) 0 := by
+  exact (pma3_1_reference _ _).mpr
+    ((tendsto_pow_atTop_nhds_zero_of_abs_lt_one hx).comp (tendsto_add_atTop_nat 1))
 end Rudin.PMA.Chapter03
