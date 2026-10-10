@@ -862,4 +862,31 @@ theorem seriesConverges_nat_add_iff {V : Type*} [NormedAddCommGroup V]
     rw [heq] at hh
     exact ⟨_,hh⟩
 
+/-! ### PMA-3.24: Nonnegative series and bounded partial sums. -/
+def Statement_3_24 : Prop :=
+  ∀ a : ℕ → ℝ, (∀ n, 0 ≤ a n) →
+    (SeriesConverges a ↔ Bornology.IsBounded (Set.range (PartialSums a)))
+
+/-! PMA-3.24 proof details: Nonnegative series are equivalent to bounded partial sums. -/
+theorem seriesConverges_iff_summable_nonneg {a : ℕ → ℝ} (ha : ∀ n, 0 ≤ a n) :
+    SeriesConverges a ↔ Summable a := by
+  unfold SeriesConverges
+  exact exists_congr fun s => (hasSum_iff_tendsto_nat_of_nonneg ha s).symm
+
+theorem seriesConverges_of_summable {V : Type*} [AddCommMonoid V] [TopologicalSpace V]
+    {a : ℕ → V} (ha : Summable a) : SeriesConverges a :=
+  ⟨_,ha.hasSum.tendsto_sum_nat⟩
+
+theorem node_3_24 : Statement_3_24 := by
+  intro a ha
+  constructor
+  · rintro ⟨s,hs⟩
+    exact Metric.isBounded_range_of_tendsto (PartialSums a) hs
+  · intro h
+    rw [seriesConverges_iff_summable_nonneg ha]
+    obtain ⟨C,hC⟩ := h.bddAbove
+    apply summable_of_sum_range_le ha
+    intro n
+    exact hC (Set.mem_range_self n)
+
 end Rudin.PMA.Chapter03
