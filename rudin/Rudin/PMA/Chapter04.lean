@@ -1324,4 +1324,312 @@ theorem node_4_30 : Statement_4_30 := by
   · exact ((intervalIncreasing_iff_monotoneOn a b f).mp hi).countable_not_continuousWithinAt
   · exact ((intervalDecreasing_iff_antitoneOn a b f).mp hd).countable_not_continuousWithinAt
 
+/-! ### PMA-4.31: Every prescribed positive summable jump family; both sided variants. -/
+
+def JumpSumLeft {ι : Type*} (p c : ι → ℝ) (x : ℝ) : ℝ :=
+  ∑' i, if p i < x then c i else 0
+
+def JumpSumRight {ι : Type*} (p c : ι → ℝ) (x : ℝ) : ℝ :=
+  ∑' i, if p i ≤ x then c i else 0
+
+def Statement_4_31 : Prop :=
+  (∀ (ι : Type*) [Countable ι] (a b : ℝ) (p c : ι → ℝ),
+    Function.Injective p → (∀ i, p i ∈ Ioo a b) → (∀ i, 0 < c i) → Summable c →
+      IntervalIncreasing a b (JumpSumLeft p c) ∧
+      IntervalIncreasing a b (JumpSumRight p c) ∧
+      (∀ x ∈ Ioo a b,
+        LeftLimitOn a b (JumpSumLeft p c) x (JumpSumLeft p c x) ∧
+        RightLimitOn a b (JumpSumLeft p c) x (JumpSumRight p c x) ∧
+        LeftLimitOn a b (JumpSumRight p c) x (JumpSumLeft p c x) ∧
+        RightLimitOn a b (JumpSumRight p c) x (JumpSumRight p c x)) ∧
+      (∀ x ∈ Ioo a b,
+        (FunctionContinuousWithinAt (Ioo a b) (JumpSumLeft p c) x ↔ x ∉ range p) ∧
+        (FunctionContinuousWithinAt (Ioo a b) (JumpSumRight p c) x ↔ x ∉ range p)) ∧
+      (∀ i, JumpSumRight p c (p i) - JumpSumLeft p c (p i) = c i)) ∧
+  (∀ (a b : ℝ) (E : Set ℝ), E.Countable → E ⊆ Ioo a b →
+    ∃ f g : ℝ → ℝ,
+      IntervalIncreasing a b f ∧ IntervalIncreasing a b g ∧
+      (∀ x ∈ Ioo a b, LeftLimitOn a b f x (f x) ∧ RightLimitOn a b g x (g x)) ∧
+      {x ∈ Ioo a b | ¬ FunctionContinuousWithinAt (Ioo a b) f x} = E ∧
+      {x ∈ Ioo a b | ¬ FunctionContinuousWithinAt (Ioo a b) g x} = E)
+
+
+theorem jump_step_bound (P : Prop) [Decidable P] {c : ℝ} (hc : 0 ≤ c) :
+    ‖if P then c else 0‖ ≤ c := by
+  by_cases hp : P
+  · simp [hp, Real.norm_eq_abs, abs_of_nonneg hc]
+  · simp [hp, hc]
+
+theorem jumpSumLeft_summable {ι : Type*} {p c : ι → ℝ} (hc : Summable c)
+    (hpos : ∀ i, 0 ≤ c i) (x : ℝ) : Summable (fun i => if p i < x then c i else 0) :=
+  hc.of_norm_bounded (fun i => jump_step_bound _ (hpos i))
+
+theorem jumpSumRight_summable {ι : Type*} {p c : ι → ℝ} (hc : Summable c)
+    (hpos : ∀ i, 0 ≤ c i) (x : ℝ) : Summable (fun i => if p i ≤ x then c i else 0) :=
+  hc.of_norm_bounded (fun i => jump_step_bound _ (hpos i))
+
+theorem jumpSumLeft_monotone {ι : Type*} {p c : ι → ℝ} (hc : Summable c)
+    (hpos : ∀ i, 0 ≤ c i) : Monotone (JumpSumLeft p c) := by
+  intro x y hxy
+  apply (jumpSumLeft_summable hc hpos x).tsum_le_tsum _ (jumpSumLeft_summable hc hpos y)
+  intro i
+  by_cases hx : p i < x
+  · simp [hx, hx.trans_le hxy]
+  · by_cases hy : p i < y <;> simp [hx, hy, hpos i]
+
+theorem jumpSumRight_monotone {ι : Type*} {p c : ι → ℝ} (hc : Summable c)
+    (hpos : ∀ i, 0 ≤ c i) : Monotone (JumpSumRight p c) := by
+  intro x y hxy
+  apply (jumpSumRight_summable hc hpos x).tsum_le_tsum _ (jumpSumRight_summable hc hpos y)
+  intro i
+  by_cases hx : p i ≤ x
+  · simp [hx, hx.trans hxy]
+  · by_cases hy : p i ≤ y <;> simp [hx, hy, hpos i]
+
+theorem jump_strict_step_left (p c x : ℝ) :
+    Tendsto (fun t => if p < t then c else 0) (𝓝[<] x) (𝓝 (if p < x then c else 0)) := by
+  by_cases hp : p < x
+  · simp only [hp, ↓reduceIte]
+    apply tendsto_const_nhds.congr'
+    filter_upwards [mem_nhdsWithin_of_mem_nhds (Ioi_mem_nhds hp)] with t ht
+    change p < t at ht
+    simp [ht]
+  · simp only [hp, ↓reduceIte]
+    apply tendsto_const_nhds.congr'
+    filter_upwards [self_mem_nhdsWithin] with t ht
+    change t < x at ht
+    simp [not_lt.mpr (ht.le.trans (le_of_not_gt hp))]
+
+theorem jump_strict_step_right (p c x : ℝ) :
+    Tendsto (fun t => if p < t then c else 0) (𝓝[>] x) (𝓝 (if p ≤ x then c else 0)) := by
+  by_cases hp : p ≤ x
+  · simp only [hp, ↓reduceIte]
+    apply tendsto_const_nhds.congr'
+    filter_upwards [self_mem_nhdsWithin] with t ht
+    change x < t at ht
+    simp [hp.trans_lt ht]
+  · simp only [hp, ↓reduceIte]
+    apply tendsto_const_nhds.congr'
+    filter_upwards [mem_nhdsWithin_of_mem_nhds (Iio_mem_nhds (lt_of_not_ge hp))] with t ht
+    change t < p at ht
+    simp [not_lt.mpr ht.le]
+
+theorem jump_inclusive_step_left (p c x : ℝ) :
+    Tendsto (fun t => if p ≤ t then c else 0) (𝓝[<] x) (𝓝 (if p < x then c else 0)) := by
+  by_cases hp : p < x
+  · simp only [hp, ↓reduceIte]
+    apply tendsto_const_nhds.congr'
+    filter_upwards [mem_nhdsWithin_of_mem_nhds (Ioi_mem_nhds hp)] with t ht
+    change p < t at ht
+    simp [ht.le]
+  · simp only [hp, ↓reduceIte]
+    apply tendsto_const_nhds.congr'
+    filter_upwards [self_mem_nhdsWithin] with t ht
+    change t < x at ht
+    simp [not_le.mpr (ht.trans_le (le_of_not_gt hp))]
+
+theorem jump_inclusive_step_right (p c x : ℝ) :
+    Tendsto (fun t => if p ≤ t then c else 0) (𝓝[>] x) (𝓝 (if p ≤ x then c else 0)) := by
+  by_cases hp : p ≤ x
+  · simp only [hp, ↓reduceIte]
+    apply tendsto_const_nhds.congr'
+    filter_upwards [self_mem_nhdsWithin] with t ht
+    change x < t at ht
+    simp [hp.trans ht.le]
+  · simp only [hp, ↓reduceIte]
+    apply tendsto_const_nhds.congr'
+    filter_upwards [mem_nhdsWithin_of_mem_nhds (Iio_mem_nhds (lt_of_not_ge hp))] with t ht
+    change t < p at ht
+    simp [not_le.mpr ht]
+
+theorem jumpSumLeft_left_tendsto {ι : Type*} {p c : ι → ℝ} (hc : Summable c)
+    (hpos : ∀ i, 0 ≤ c i) (x : ℝ) :
+    Tendsto (JumpSumLeft p c) (𝓝[<] x) (𝓝 (JumpSumLeft p c x)) :=
+  tendsto_tsum_of_dominated_convergence hc (fun i => jump_strict_step_left (p i) (c i) x)
+    (Eventually.of_forall fun _ i => jump_step_bound _ (hpos i))
+
+theorem jumpSumLeft_right_tendsto {ι : Type*} {p c : ι → ℝ} (hc : Summable c)
+    (hpos : ∀ i, 0 ≤ c i) (x : ℝ) :
+    Tendsto (JumpSumLeft p c) (𝓝[>] x) (𝓝 (JumpSumRight p c x)) :=
+  tendsto_tsum_of_dominated_convergence hc (fun i => jump_strict_step_right (p i) (c i) x)
+    (Eventually.of_forall fun _ i => jump_step_bound _ (hpos i))
+
+theorem jumpSumRight_left_tendsto {ι : Type*} {p c : ι → ℝ} (hc : Summable c)
+    (hpos : ∀ i, 0 ≤ c i) (x : ℝ) :
+    Tendsto (JumpSumRight p c) (𝓝[<] x) (𝓝 (JumpSumLeft p c x)) :=
+  tendsto_tsum_of_dominated_convergence hc (fun i => jump_inclusive_step_left (p i) (c i) x)
+    (Eventually.of_forall fun _ i => jump_step_bound _ (hpos i))
+
+theorem jumpSumRight_right_tendsto {ι : Type*} {p c : ι → ℝ} (hc : Summable c)
+    (hpos : ∀ i, 0 ≤ c i) (x : ℝ) :
+    Tendsto (JumpSumRight p c) (𝓝[>] x) (𝓝 (JumpSumRight p c x)) :=
+  tendsto_tsum_of_dominated_convergence hc (fun i => jump_inclusive_step_right (p i) (c i) x)
+    (Eventually.of_forall fun _ i => jump_step_bound _ (hpos i))
+
+
+theorem jumpSum_jump_eq {ι : Type*} {p c : ι → ℝ} (hp : Function.Injective p)
+    (hc : Summable c) (hpos : ∀ i, 0 ≤ c i) (i : ι) :
+    JumpSumRight p c (p i) - JumpSumLeft p c (p i) = c i := by
+  unfold JumpSumRight JumpSumLeft
+  rw [← (jumpSumRight_summable hc hpos (p i)).tsum_sub (jumpSumLeft_summable hc hpos (p i))]
+  rw [tsum_eq_single i]
+  · simp
+  · intro j hji
+    have hne : p j ≠ p i := fun he => hji (hp he)
+    by_cases hlt : p j < p i
+    · simp [hlt, hlt.le]
+    · have hle : ¬ p j ≤ p i := fun he => hlt (lt_of_le_of_ne he hne)
+      simp [hlt, hle]
+
+theorem jumpSum_eq_off_range {ι : Type*} {p c : ι → ℝ} {x : ℝ} (hx : x ∉ range p) :
+    JumpSumLeft p c x = JumpSumRight p c x := by
+  apply tsum_congr
+  intro i
+  have hne : p i ≠ x := fun he => hx ⟨i, he⟩
+  by_cases hlt : p i < x
+  · simp [hlt, hlt.le]
+  · have hle : ¬ p i ≤ x := fun he => hlt (lt_of_le_of_ne he hne)
+    simp [hlt, hle]
+
+theorem jumpSumLeft_continuous_iff {ι : Type*} {p c : ι → ℝ}
+    (hp : Function.Injective p) (hc : Summable c) (hpos : ∀ i, 0 < c i) (x : ℝ) :
+    ContinuousAt (JumpSumLeft p c) x ↔ x ∉ range p := by
+  have hnonneg : ∀ i, 0 ≤ c i := fun i => (hpos i).le
+  constructor
+  · intro hf hxin
+    obtain ⟨i, rfl⟩ := hxin
+    have he := tendsto_nhds_unique (jumpSumLeft_right_tendsto hc hnonneg (p i))
+      (hf.tendsto.mono_left nhdsWithin_le_nhds)
+    have hjump := jumpSum_jump_eq hp hc hnonneg i
+    rw [he, sub_self] at hjump
+    linarith [hpos i]
+  · intro hx
+    rw [continuousAt_iff_punctured_nhds, punctured_nhds_eq_nhdsWithin_sup_nhdsWithin,
+      tendsto_sup]
+    exact ⟨jumpSumLeft_left_tendsto hc hnonneg x,
+      (jumpSum_eq_off_range hx).symm ▸ jumpSumLeft_right_tendsto hc hnonneg x⟩
+
+theorem jumpSumRight_continuous_iff {ι : Type*} {p c : ι → ℝ}
+    (hp : Function.Injective p) (hc : Summable c) (hpos : ∀ i, 0 < c i) (x : ℝ) :
+    ContinuousAt (JumpSumRight p c) x ↔ x ∉ range p := by
+  have hnonneg : ∀ i, 0 ≤ c i := fun i => (hpos i).le
+  constructor
+  · intro hf hxin
+    obtain ⟨i, rfl⟩ := hxin
+    have he := tendsto_nhds_unique (jumpSumRight_left_tendsto hc hnonneg (p i))
+      (hf.tendsto.mono_left nhdsWithin_le_nhds)
+    have hjump := jumpSum_jump_eq hp hc hnonneg i
+    rw [he, sub_self] at hjump
+    linarith [hpos i]
+  · intro hx
+    rw [continuousAt_iff_punctured_nhds, punctured_nhds_eq_nhdsWithin_sup_nhdsWithin,
+      tendsto_sup]
+    exact ⟨jumpSum_eq_off_range hx ▸ jumpSumRight_left_tendsto hc hnonneg x,
+      jumpSumRight_right_tendsto hc hnonneg x⟩
+
+theorem jumpSum_family_contract :
+    ∀ (ι : Type*) [Countable ι] (a b : ℝ) (p c : ι → ℝ),
+    Function.Injective p → (∀ i, p i ∈ Ioo a b) → (∀ i, 0 < c i) → Summable c →
+      IntervalIncreasing a b (JumpSumLeft p c) ∧
+      IntervalIncreasing a b (JumpSumRight p c) ∧
+      (∀ x ∈ Ioo a b,
+        LeftLimitOn a b (JumpSumLeft p c) x (JumpSumLeft p c x) ∧
+        RightLimitOn a b (JumpSumLeft p c) x (JumpSumRight p c x) ∧
+        LeftLimitOn a b (JumpSumRight p c) x (JumpSumLeft p c x) ∧
+        RightLimitOn a b (JumpSumRight p c) x (JumpSumRight p c x)) ∧
+      (∀ x ∈ Ioo a b,
+        (FunctionContinuousWithinAt (Ioo a b) (JumpSumLeft p c) x ↔ x ∉ range p) ∧
+        (FunctionContinuousWithinAt (Ioo a b) (JumpSumRight p c) x ↔ x ∉ range p)) ∧
+      (∀ i, JumpSumRight p c (p i) - JumpSumLeft p c (p i) = c i) := by
+  intro ι _ a b p c hp _ hpos hc
+  have hnonneg : ∀ i, 0 ≤ c i := fun i => (hpos i).le
+  refine ⟨(intervalIncreasing_iff_monotoneOn a b _).mpr
+    ((jumpSumLeft_monotone (p := p) hc hnonneg).monotoneOn (Ioo a b)),
+    (intervalIncreasing_iff_monotoneOn a b _).mpr
+    ((jumpSumRight_monotone (p := p) hc hnonneg).monotoneOn (Ioo a b)), ?_, ?_,
+    jumpSum_jump_eq hp hc hnonneg⟩
+  · intro x hx
+    refine ⟨⟨hx.1, hx.2.le, ?_⟩, ⟨hx.1.le, hx.2, ?_⟩,
+      ⟨hx.1, hx.2.le, ?_⟩, ⟨hx.1.le, hx.2, ?_⟩⟩
+    · rw [nhdsWithin_Ioo_eq_nhdsLT hx.1]
+      exact jumpSumLeft_left_tendsto hc hnonneg x
+    · rw [nhdsWithin_Ioo_eq_nhdsGT hx.2]
+      exact jumpSumLeft_right_tendsto hc hnonneg x
+    · rw [nhdsWithin_Ioo_eq_nhdsLT hx.1]
+      exact jumpSumRight_left_tendsto hc hnonneg x
+    · rw [nhdsWithin_Ioo_eq_nhdsGT hx.2]
+      exact jumpSumRight_right_tendsto hc hnonneg x
+  · intro x hx
+    rw [interval_continuity_iff _ hx, interval_continuity_iff _ hx]
+    exact ⟨jumpSumLeft_continuous_iff hp hc hpos x, jumpSumRight_continuous_iff hp hc hpos x⟩
+
+
+universe u
+
+theorem exists_positive_summable_countable (ι : Type*) [Countable ι] :
+    ∃ c : ι → ℝ, (∀ i, 0 < c i) ∧ Summable c := by
+  let _ : Encodable ι := Encodable.ofCountable ι
+  exact ⟨fun i => (1 / 2 : ℝ) ^ Encodable.encode i,
+    fun i => pow_pos (by norm_num) _, summable_geometric_two_encode⟩
+
+theorem statement_4_31_of_weighted_family
+    (hfamily : ∀ (ι : Type u) [Countable ι] (a b : ℝ) (p c : ι → ℝ),
+      Function.Injective p → (∀ i, p i ∈ Ioo a b) → (∀ i, 0 < c i) → Summable c →
+        IntervalIncreasing a b (JumpSumLeft p c) ∧
+        IntervalIncreasing a b (JumpSumRight p c) ∧
+        (∀ x ∈ Ioo a b,
+          LeftLimitOn a b (JumpSumLeft p c) x (JumpSumLeft p c x) ∧
+          RightLimitOn a b (JumpSumLeft p c) x (JumpSumRight p c x) ∧
+          LeftLimitOn a b (JumpSumRight p c) x (JumpSumLeft p c x) ∧
+          RightLimitOn a b (JumpSumRight p c) x (JumpSumRight p c x)) ∧
+        (∀ x ∈ Ioo a b,
+          (FunctionContinuousWithinAt (Ioo a b) (JumpSumLeft p c) x ↔ x ∉ range p) ∧
+          (FunctionContinuousWithinAt (Ioo a b) (JumpSumRight p c) x ↔ x ∉ range p)) ∧
+        (∀ i, JumpSumRight p c (p i) - JumpSumLeft p c (p i) = c i)) :
+    Statement_4_31.{u} := by
+  refine ⟨hfamily, ?_⟩
+  intro a b E hE hsub
+  let _ : Countable E := hE.to_subtype
+  let p : ULift.{u} E → ℝ := fun i => i.down.val
+  have hpinj : Function.Injective p := by
+    intro x y hxy
+    apply ULift.ext
+    exact Subtype.ext hxy
+  obtain ⟨c, hcpos, hcsum⟩ := exists_positive_summable_countable (ULift.{u} E)
+  obtain ⟨hfl, hgr, hlimits, hcont, _⟩ := hfamily (ULift.{u} E) a b p c
+    hpinj (fun i => hsub i.down.property) hcpos hcsum
+  refine ⟨JumpSumLeft p c, JumpSumRight p c, hfl, hgr, ?_, ?_, ?_⟩
+  · intro x hx
+    exact ⟨(hlimits x hx).1, (hlimits x hx).2.2.2⟩
+  · ext x
+    constructor
+    · rintro ⟨hx, hnc⟩
+      by_contra hxe
+      have hnr : x ∉ range p := by
+        rintro ⟨y, rfl⟩
+        exact hxe y.down.property
+      exact hnc ((hcont x hx).1.mpr hnr)
+    · intro hxE
+      have hx := hsub hxE
+      refine ⟨hx, ?_⟩
+      intro hc
+      exact ((hcont x hx).1.mp hc) ⟨⟨⟨x, hxE⟩⟩, rfl⟩
+  · ext x
+    constructor
+    · rintro ⟨hx, hnc⟩
+      by_contra hxe
+      have hnr : x ∉ range p := by
+        rintro ⟨y, rfl⟩
+        exact hxe y.down.property
+      exact hnc ((hcont x hx).2.mpr hnr)
+    · intro hxE
+      have hx := hsub hxE
+      refine ⟨hx, ?_⟩
+      intro hc
+      exact ((hcont x hx).2.mp hc) ⟨⟨⟨x, hxE⟩⟩, rfl⟩
+
+
+theorem node_4_31 : Statement_4_31 :=
+  statement_4_31_of_weighted_family jumpSum_family_contract
+
 end Rudin.PMA.Chapter04
