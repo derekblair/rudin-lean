@@ -231,4 +231,33 @@ theorem pma3_3_reciprocal {s : ℕ → ℂ} {a : ℂ}
     (hs : ConvergesTo s a) (_hn : ∀ n, s n ≠ 0) (ha : a ≠ 0) :
     ConvergesTo (fun n => (s n)⁻¹) a⁻¹ :=
   (pma3_1_reference _ _).mpr (((pma3_1_reference _ _).mp hs).inv₀ ha)
+/-! ### PMA-3.4: Euclidean coordinates and algebra. -/
+
+theorem pma3_4_coordinates {k : ℕ} (s : ℕ → EuclideanSpace ℝ (Fin k))
+    (p : EuclideanSpace ℝ (Fin k)) :
+    ConvergesTo s p ↔ ∀ i, ConvergesTo (fun n => s n i) (p i) := by
+  constructor
+  · intro hs i
+    exact (pma3_1_reference _ _).mpr
+      (((PiLp.continuous_apply 2 (fun _ : Fin k => ℝ) i).tendsto p).comp
+        ((pma3_1_reference _ _).mp hs))
+  · intro hs
+    have hpi : Tendsto (fun n => WithLp.ofLp (s n)) atTop (𝓝 (WithLp.ofLp p)) :=
+      tendsto_pi_nhds.mpr (fun i => (pma3_1_reference _ _).mp (hs i))
+    exact (pma3_1_reference _ _).mpr
+      (((PiLp.continuous_toLp 2 (fun _ : Fin k => ℝ)).tendsto _).comp hpi)
+
+theorem pma3_4_algebra {k : ℕ} {s t : ℕ → EuclideanSpace ℝ (Fin k)}
+    {a b : EuclideanSpace ℝ (Fin k)} {β : ℕ → ℝ} {c : ℝ}
+    (hs : ConvergesTo s a) (ht : ConvergesTo t b) (hc : ConvergesTo β c) :
+    ConvergesTo (fun n => s n + t n) (a+b) ∧
+    ConvergesTo (fun n => inner ℝ (s n) (t n)) (inner ℝ a b) ∧
+    ConvergesTo (fun n => β n • s n) (c • a) := by
+  have hs' := (pma3_1_reference _ _).mp hs
+  have ht' := (pma3_1_reference _ _).mp ht
+  have hc' := (pma3_1_reference _ _).mp hc
+  exact ⟨(pma3_1_reference _ _).mpr (hs'.add ht'),
+    (pma3_1_reference _ _).mpr (hs'.inner ht'),
+    (pma3_1_reference _ _).mpr (hc'.smul hs')⟩
+
 end Rudin.PMA.Chapter03
