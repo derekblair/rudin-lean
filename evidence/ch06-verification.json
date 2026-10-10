@@ -1,0 +1,172 @@
+{
+  "created_utc": "2026-10-10T16:38:17.669061+00:00",
+  "scope": "PMA Chapter 6 numbered main text and accepted attached consequences; exercises excluded",
+  "status": "PASS: isolated proof, fidelity, hostile, integration, coverage and axiom gates complete",
+  "nodes_completed": 27,
+  "nodes_total": 27,
+  "nodes_queued": 0,
+  "scope_omissions": [],
+  "source_inventory_kind_counts": {
+    "definitions": 6,
+    "theorems": 20,
+    "substantive_remarks": 1
+  },
+  "toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "baseline_build": {
+    "command": "./lake-local build",
+    "exit_code": 0,
+    "jobs": 8946,
+    "log": "evidence/ch06-baseline-build.log"
+  },
+  "final_build": {
+    "command": "./lake-local build",
+    "exit_code": 0,
+    "jobs": 8963,
+    "warnings": 0,
+    "errors": 0,
+    "log": "evidence/ch06-final-build.log"
+  },
+  "kernel_coverage": {
+    "principal_theorems": 27,
+    "explicit_complex_bridges": 2,
+    "checked_declaration_kind": "thmInfo"
+  },
+  "recursive_axiom_audit": {
+    "namespace": "Rudin.PMA.Chapter06",
+    "declarations": 457,
+    "included_probe_namespace_declarations": 25,
+    "authored_standalone_probe_theorems": 13,
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "forbidden_axioms": []
+  },
+  "fidelity_review": "all accepted; full mapping research/pma-ch06-fidelity.md",
+  "hostile_reviews": {
+    "A": {
+      "status": "PASS",
+      "nodes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "report": "evidence/ch06-hostile-a.md"
+    },
+    "B": {
+      "status": "PASS",
+      "nodes": [
+        14,
+        15,
+        16,
+        18
+      ],
+      "report": "evidence/ch06-hostile-b.md"
+    },
+    "C": {
+      "status": "PASS",
+      "nodes": [
+        17,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "report": "evidence/ch06-hostile-c.md"
+    }
+  },
+  "preservation": {
+    "protected_chapter5_files": 26,
+    "unrelated_production_baseline_files": 21,
+    "pins_unchanged": true,
+    "production_main_unchanged": true,
+    "copied_book": false,
+    "log": "evidence/ch06-preservation-check.log"
+  },
+  "chapter5_production": {
+    "branch": "codex/pma-ch05-integration",
+    "head": "8f8d71a5122c0dbfdfa277ad746c34fa46f7eb2b",
+    "base": "97758281a2802ea1700c9b84164c05a2cc64313d",
+    "new_local_commits": 17,
+    "status": "clean",
+    "pushed": false,
+    "independent_check": "evidence/ch06-ch05-independent-finalcheck.md"
+  },
+  "chapter6_production_integrated": false,
+  "chapter6_committed": false,
+  "remote_operations": false,
+  "remaining_program_scope": "Chapters 7\u201311; exact inventories and dependency graphs not established",
+  "code_sha256": {
+    "rudin/Rudin/PMA/Chapter06/Basic.lean": "5192b99092c0fc7da7109b1e3ffd90446db62c73845b935172643456b46a3915",
+    "rudin/Rudin/PMA/Chapter06/Calculus.lean": "ac36c016490bd347b592af764c1c6e5f544a6cd09ad7aac0c59a4c79da6c3c18",
+    "rudin/Rudin/PMA/Chapter06/Criterion.lean": "e88daabe91d0ddd9145c79ff4aecbfd5c054b30fd27ea86c0a1b7743e3488715",
+    "rudin/Rudin/PMA/Chapter06/Curve.lean": "0fcd03a02ba4b7c7a57a647b14befac8b93fa006238ed13abc910849362d1b50",
+    "rudin/Rudin/PMA/Chapter06/Definitions.lean": "13adade605f2cff6904a9b5d24f06057595d0c760abc140dfd7831608c5ccf81",
+    "rudin/Rudin/PMA/Chapter06/Endpoint.lean": "b4518141434d43a5d28f97944ba85b9af1c98cff1b19c910bddc2d4a70fe3e4b",
+    "rudin/Rudin/PMA/Chapter06/Exceptional.lean": "f611a715e8c85e43989fa9a196ceb7d93b55b40b9b3674dfd3bb98398fdfabfa",
+    "rudin/Rudin/PMA/Chapter06/Integrability.lean": "001823e4c51a56b9c0d0afbe13801a757200178eac396081dec3b7abb91d5cec",
+    "rudin/Rudin/PMA/Chapter06/Jump.lean": "ab56704088a99d95c29755f2ada3c7a491ea55af5f24be7cf19b51283e96c47a",
+    "rudin/Rudin/PMA/Chapter06/Moment.lean": "21ccfad2cbbc3cbd0726a62a190f6092fd2b376690233dd340435b38bb89deb5",
+    "rudin/Rudin/PMA/Chapter06/Monotone.lean": "93a69abdd3e242baa92eace347b551042157da49b4a83078e06abd469d832598",
+    "rudin/Rudin/PMA/Chapter06/Properties.lean": "a50ff1516880bd4110cb95e7b81baf44a64980ca2400aa1e377f2b093e8634c1",
+    "rudin/Rudin/PMA/Chapter06/Refinement.lean": "d1590f0b5df2fec5986358b6d84c255a4535a90df0ac70b8bc5f4bbec9c6fcb0",
+    "rudin/Rudin/PMA/Chapter06/Split.lean": "d235d56777fc5e5a25db12e834769fd2192273d55a9d5921ceb80b857499a888",
+    "rudin/Rudin/PMA/Chapter06/Vector.lean": "1830138b9712dc5c6bd97293c0396df8160da84c25be76f55f0069dc3962ff98",
+    "rudin/Rudin/PMA/Chapter06.lean": "845f356f126f288456cf210526ecb29523776bff6f6cfe89a4ebba369747a373",
+    "rudin/Rudin/PMA/Chapter06Audit.lean": "a1f606949d6368a1b1ba25dcafd00600ffa35921c1e357bfba8f256c53fe2d77",
+    "rudin/Rudin/PMA/Chapter06Probes.lean": "4f68e96188e2ac11fb3729cb345ff8a1c21640eba7f5cf1a8a7007f3bd58d9c9",
+    "rudin/Rudin.lean": "a8c7df04d0c3761a9a9004dc477a2c0d1e664ca1c526caea408c367fcf67aab8"
+  },
+  "artifact_sha256": {
+    "PROGRAM.md": "55bab5071db09619154f02a0d0e8320df1535ce4ad8e2a060f79eaec8b23c6e4",
+    "PROGRESS.md": "22afbbe7255b6a1fe80f2912e745bb30ec0ede94224dc8a8dc5ff0a7dfa06a80",
+    "QUEUE.md": "f1bafe3428dd3ca5a847088f78c2087f2174dcb304968c983e15471c0779e82c",
+    "README-ISOLATED.md": "bc8c29fc85e869dadc49a6c67a8fe0df74ed064007a489db87294fba5507fe99",
+    "evidence/ch06-baseline-build.log": "6ee9721c414deb8ba0c47d2e588f078d35b4bc9560b8844920b6076090b44daa",
+    "evidence/ch06-basic-independent-review.md": "d6651ee372bc4de90e19d15b7c22e7c433b96ef0ef3673aa95f861078673d346",
+    "evidence/ch06-calculus-final-review.md": "3c447e2a49198a5467b8bc4684928ef38674c23acf6d6aed9d7142afc02ac1bb",
+    "evidence/ch06-calculus-independent-review.md": "db97e8260065cb49dfcb39277d7151c3f666653c067c7f7f230bd12c6fce109c",
+    "evidence/ch06-curves-independent-review.md": "246e17dd65be94adb2c23c2685a3e0b3d974ace4d88ff70ee4008c7b99c1ae23",
+    "evidence/ch06-definitions-final-review.md": "dddfd17310a2601706c252c33278e155e4c62aa74410a709076c0dcfb3490757",
+    "evidence/ch06-exceptional-independent-review.md": "be1cacb2d0031db83837975f68322314c77af51e07d5a8bdc71df6a84797f28a",
+    "evidence/ch06-final-build.log": "57067777839e21ed96a6a49907d3a0c5ea43db0b817d4935612391f572ede715",
+    "evidence/ch06-final-code-hashes.json": "08bb0e83eeeebd2bd23287a2e77d94b936d77b8e48d913d370daf2cb2cd09843",
+    "evidence/ch06-final-source-checks.log": "02f551d14473eb65ae774b52f090f3e4cc0d1afd3566a0aec06a63fadcfb51af",
+    "evidence/ch06-hostile-a.md": "ed7183e406d1d9a00fb0987ac8e6b238fc9769faf5913b4c9fa322566e0826ae",
+    "evidence/ch06-hostile-b.md": "d078d1a028cf3c17bab0055b66e294037151428ecc94311241b6a771a8d2dd37",
+    "evidence/ch06-hostile-c.md": "e5fa1deceff0a545e2091ae12c7986f34c5bc2215127a079ac56e8c980545e7a",
+    "evidence/ch06-integrability-independent-review.md": "ef94e377115aa38dc6a7eba82643ac941ad8db23267ec299cb0d0c5ca2e2def2",
+    "evidence/ch06-jump-moment-independent-review.md": "9708cadd6c388e094cfd4b91f675dfafff7048d2db7578072a8e0ffbdaedd1e2",
+    "evidence/ch06-monotone-independent-review.md": "28634156048c49be6fc75fd2c574c44c9bd9f01b718de87c2546d80246cd9433",
+    "evidence/ch06-preservation-check.log": "1d2ccbe924612ec12facb4105b7e994adf1021a987869f429cf3aed73f36aac4",
+    "evidence/ch06-probes-design.md": "69fcb3bb0cf3f6848e6362606d25edd88433e1e7777a1b668b3d8e4d56ce251c",
+    "evidence/ch06-properties-independent-review.md": "1f92bec0887dd69bbcc6a3e74428afd76516e75cf1f6476c19612253dd2cf493",
+    "evidence/ch06-root-foundation-review.md": "4fe2c79e6b0b2237e5a072c5f2a65fd6ba031bfc080061899c3b623cd6538846",
+    "evidence/ch06-source-independent-review.md": "12b3c5d700fde254d7245034ab03d31982f2434c8961c69b31298363b93e6d96",
+    "evidence/ch06-vector-final-review.md": "29ebf8a6c63556641a678b1c1f49c467d9d13375aeb59f529dc76e23bc1869ce",
+    "research/pma-ch06-checks.md": "76c01b0f7e10c187fa8ea98fa61e78e83d275c5b520a589dd3d977033e138da8",
+    "research/pma-ch06-fidelity.md": "e4b8c8d6cd3f208449c0a9d1ca525d1d15564c2fef18c647728aee9b3d43a448",
+    "research/pma-ch06-inventory.md": "5e2ead64c3941180f1b3cf4bd8d086c980e40b19df36363c046d3b463f24a68f",
+    "scripts/check_chapter.py": "0f035c5241e86639d31fceb2420c1e954abc0c85786ff864c265ca92d3aed179",
+    "scripts/check_chapter06_preservation.py": "6e21ae6941095a07b65f147da33791ee7921b3fd9c673e90ad269ee9b91504ac"
+  },
+  "completed_utc": "2026-10-10T16:39:26.737145+00:00",
+  "integration_independent_review": "evidence/ch06-integration-independent-review.md"
+}

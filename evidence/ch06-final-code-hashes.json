@@ -1,0 +1,21 @@
+{
+  "rudin/Rudin/PMA/Chapter06/Basic.lean": "5192b99092c0fc7da7109b1e3ffd90446db62c73845b935172643456b46a3915",
+  "rudin/Rudin/PMA/Chapter06/Calculus.lean": "ac36c016490bd347b592af764c1c6e5f544a6cd09ad7aac0c59a4c79da6c3c18",
+  "rudin/Rudin/PMA/Chapter06/Criterion.lean": "e88daabe91d0ddd9145c79ff4aecbfd5c054b30fd27ea86c0a1b7743e3488715",
+  "rudin/Rudin/PMA/Chapter06/Curve.lean": "0fcd03a02ba4b7c7a57a647b14befac8b93fa006238ed13abc910849362d1b50",
+  "rudin/Rudin/PMA/Chapter06/Definitions.lean": "13adade605f2cff6904a9b5d24f06057595d0c760abc140dfd7831608c5ccf81",
+  "rudin/Rudin/PMA/Chapter06/Endpoint.lean": "b4518141434d43a5d28f97944ba85b9af1c98cff1b19c910bddc2d4a70fe3e4b",
+  "rudin/Rudin/PMA/Chapter06/Exceptional.lean": "f611a715e8c85e43989fa9a196ceb7d93b55b40b9b3674dfd3bb98398fdfabfa",
+  "rudin/Rudin/PMA/Chapter06/Integrability.lean": "001823e4c51a56b9c0d0afbe13801a757200178eac396081dec3b7abb91d5cec",
+  "rudin/Rudin/PMA/Chapter06/Jump.lean": "ab56704088a99d95c29755f2ada3c7a491ea55af5f24be7cf19b51283e96c47a",
+  "rudin/Rudin/PMA/Chapter06/Moment.lean": "21ccfad2cbbc3cbd0726a62a190f6092fd2b376690233dd340435b38bb89deb5",
+  "rudin/Rudin/PMA/Chapter06/Monotone.lean": "93a69abdd3e242baa92eace347b551042157da49b4a83078e06abd469d832598",
+  "rudin/Rudin/PMA/Chapter06/Properties.lean": "a50ff1516880bd4110cb95e7b81baf44a64980ca2400aa1e377f2b093e8634c1",
+  "rudin/Rudin/PMA/Chapter06/Refinement.lean": "d1590f0b5df2fec5986358b6d84c255a4535a90df0ac70b8bc5f4bbec9c6fcb0",
+  "rudin/Rudin/PMA/Chapter06/Split.lean": "d235d56777fc5e5a25db12e834769fd2192273d55a9d5921ceb80b857499a888",
+  "rudin/Rudin/PMA/Chapter06/Vector.lean": "1830138b9712dc5c6bd97293c0396df8160da84c25be76f55f0069dc3962ff98",
+  "rudin/Rudin/PMA/Chapter06.lean": "845f356f126f288456cf210526ecb29523776bff6f6cfe89a4ebba369747a373",
+  "rudin/Rudin/PMA/Chapter06Audit.lean": "a1f606949d6368a1b1ba25dcafd00600ffa35921c1e357bfba8f256c53fe2d77",
+  "rudin/Rudin/PMA/Chapter06Probes.lean": "4f68e96188e2ac11fb3729cb345ff8a1c21640eba7f5cf1a8a7007f3bd58d9c9",
+  "rudin/Rudin.lean": "a8c7df04d0c3761a9a9004dc477a2c0d1e664ca1c526caea408c367fcf67aab8"
+}

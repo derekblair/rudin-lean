@@ -45,7 +45,11 @@ def main():
         missing = set(expected) - set(found) - queued
         if missing:
             errors.append(f'Nodes neither completed nor queued: {sorted(missing)}')
-    for path in [chapter_path, ROOT / f'rudin/Rudin/PMA/Chapter{nn}Probes.lean']:
+    source_paths = [chapter_path, ROOT / f'rudin/Rudin/PMA/Chapter{nn}Probes.lean']
+    support_dir = ROOT / f'rudin/Rudin/PMA/Chapter{nn}'
+    if support_dir.exists():
+        source_paths.extend(sorted(support_dir.rglob('*.lean')))
+    for path in source_paths:
         if not path.exists():
             continue
         code = lean_code(path.read_text())
