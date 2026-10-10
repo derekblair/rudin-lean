@@ -864,4 +864,17 @@ theorem pma_complex_pair_representation (a b : ℝ) :
     pmaComplexPair a b = (a : ℂ) + (b : ℂ) * pmaImaginaryUnit := by
   apply Complex.ext <;> simp [pmaComplexPair, pmaImaginaryUnit, Complex.mul_re, Complex.mul_im]
 
+/-! ### PMA-1.30: conjugation and real and imaginary parts. -/
+
+def pmaConjugate (z : ℂ) : ℂ := conj z
+def pmaRealPart (z : ℂ) : ℝ := z.re
+def pmaImaginaryPart (z : ℂ) : ℝ := z.im
+
+theorem pma_conjugate_pair (a b : ℝ) :
+    pmaConjugate (pmaComplexPair a b) = pmaComplexPair a (-b) := rfl
+
+theorem pma_parts_pair (a b : ℝ) :
+    pmaRealPart (pmaComplexPair a b) = a ∧ pmaImaginaryPart (pmaComplexPair a b) = b :=
+  ⟨rfl, rfl⟩
+
 end Rudin.PMA.Chapter01
