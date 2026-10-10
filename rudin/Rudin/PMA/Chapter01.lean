@@ -137,4 +137,37 @@ theorem pma1_7_reference {α : Type*} [LE α] (E : Set α) (b : α) :
     (IsBoundedAbove E ↔ BddAbove E) ∧ (IsBoundedBelow E ↔ BddBelow E) :=
   ⟨Iff.rfl, Iff.rfl, Iff.rfl, Iff.rfl⟩
 
+/-! ### PMA-1.8: supremum and infimum by exclusion of better bounds. -/
+
+def IsSupremum {α : Type*} [LT α] [LE α] (E : Set α) (a : α) : Prop :=
+  IsUpperBound E a ∧ ∀ b, b < a → ¬ IsUpperBound E b
+
+def IsInfimum {α : Type*} [LT α] [LE α] (E : Set α) (a : α) : Prop :=
+  IsLowerBound E a ∧ ∀ b, a < b → ¬ IsLowerBound E b
+
+theorem pma1_8_sup_reference {α : Type*} [LinearOrder α] (E : Set α) (a : α) :
+    IsSupremum E a ↔ IsLUB E a := by
+  constructor
+  · rintro ⟨ha, hmin⟩
+    exact ⟨ha, fun b hb => le_of_not_gt (fun hba => hmin b hba hb)⟩
+  · rintro ⟨ha, hmin⟩
+    exact ⟨ha, fun b hb hbound => (not_le_of_gt hb) (hmin hbound)⟩
+
+theorem pma1_8_inf_reference {α : Type*} [LinearOrder α] (E : Set α) (a : α) :
+    IsInfimum E a ↔ IsGLB E a := by
+  constructor
+  · rintro ⟨ha, hmax⟩
+    exact ⟨ha, fun b hb => le_of_not_gt (fun hab => hmax b hab hb)⟩
+  · rintro ⟨ha, hmax⟩
+    exact ⟨ha, fun b hb hbound => (not_le_of_gt hb) (hmax hbound)⟩
+
+theorem pma1_8_sup_unique {α : Type*} [LinearOrder α] {E : Set α} {a b : α}
+    (ha : IsSupremum E a) (hb : IsSupremum E b) : a = b :=
+  (pma1_8_sup_reference E a).mp ha |>.unique ((pma1_8_sup_reference E b).mp hb)
+
+theorem pma1_8_inf_unique {α : Type*} [LinearOrder α] {E : Set α} {a b : α}
+    (ha : IsInfimum E a) (hb : IsInfimum E b) : a = b :=
+  (pma1_8_inf_reference E a).mp ha |>.unique ((pma1_8_inf_reference E b).mp hb)
+
+
 end Rudin.PMA.Chapter01
