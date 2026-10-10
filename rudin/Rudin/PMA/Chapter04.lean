@@ -1303,4 +1303,25 @@ theorem node_4_29 : Statement_4_29 := by
   exact ⟨fun hf => increasing_interval_limits ((intervalIncreasing_iff_monotoneOn a b f).mp hf),
     fun hf => decreasing_interval_limits ((intervalDecreasing_iff_antitoneOn a b f).mp hf)⟩
 
+/-! ### PMA-4.30: Countability of monotonic discontinuities. -/
+
+def Statement_4_30 : Prop :=
+  ∀ (a b : ℝ) (f : ℝ → ℝ), IntervalMonotonic a b f →
+    {x ∈ Ioo a b | ¬ FunctionContinuousWithinAt (Ioo a b) f x}.Countable
+
+
+theorem node_4_30 : Statement_4_30 := by
+  intro a b f hf
+  have heq : {x ∈ Ioo a b | ¬ FunctionContinuousWithinAt (Ioo a b) f x} =
+      {x ∈ Ioo a b | ¬ ContinuousWithinAt f (Ioo a b) x} := by
+    ext x
+    simp only [mem_ofPred_eq]
+    by_cases hx : x ∈ Ioo a b
+    · simp only [hx, true_and, functionContinuousWithinAt_iff _ _ _ hx]
+    · simp only [hx, false_and]
+  rw [heq]
+  rcases hf with hi | hd
+  · exact ((intervalIncreasing_iff_monotoneOn a b f).mp hi).countable_not_continuousWithinAt
+  · exact ((intervalDecreasing_iff_antitoneOn a b f).mp hd).countable_not_continuousWithinAt
+
 end Rudin.PMA.Chapter04

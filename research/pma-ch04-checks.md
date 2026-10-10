@@ -35,3 +35,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-4.24 | PASS: exact sin(1/x) function with zero value at zero, full strict intermediate-value property, and discontinuity at zero. |
 | PMA-4.28 | PASS: non-strict increasing/decreasing interval inequalities and all Mathlib monotonicity references. |
 | PMA-4.29 | PASS: both finite one-sided limits as the specified suprema/infima, value inequalities, and cross-point ordering for both directions. |
+| PMA-4.30 | PASS: at-most-countability of exactly the interior discontinuity set. |
