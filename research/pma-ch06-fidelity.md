@@ -1,3 +1,14 @@
+# Chapter 6 production fidelity status
+
+The exact reviewed Chapter 6 bytes are now integrated locally. Semantic
+acceptance is preserved by the 19-file hash identity check and fresh production
+build, source and axiom gates. See `pma-ch06-production-review.md`.
+
+## Historical isolated fidelity mapping
+
+The original report below is retained unchanged; its pending-production wording
+is superseded for this checkout by the production review.
+
 # Chapter 6 fidelity record
 
 Scope: all 27 numbered main-text items, with the attached consequences listed in

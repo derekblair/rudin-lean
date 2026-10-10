@@ -70,3 +70,11 @@ Section commits preserve frozen reviewed modules and follow their actual import
 dependencies. Each section requires the default build, kernel theorem checks,
 source checks and a recursive axiom audit. Unintegrated nodes are pending
 integration; none is being labeled a resistant mathematical node.
+
+Chapter 6 production verification is complete: all 27 nodes and their accepted
+attached consequences, both explicit complex bridges, 13 authored standalone
+probes and 457 recursively audited declarations (including 25 probe-namespace
+declarations). Only the three permitted axioms occur. Final source is byte-for-byte
+identical to the independently reviewed and hostile-reviewed candidate.
+See `research/pma-ch06-production-review.md`. Chapters 7–11 remain pending in
+this checkout; Chapter 7 work is separately authorized in the isolated workspace.

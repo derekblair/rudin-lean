@@ -1,6 +1,6 @@
 # Chapter 6 production integration review
 
-Status: Verified candidate accepted; local integration is in progress.
+Status: PASS: exact production build, source, kernel coverage, recursive axiom, fidelity and hostile gates complete.
 
 Branch: `codex/pma-ch05-integration`. Starting Chapter 5 commit: `8f8d71a5122c0dbfdfa277ad746c34fa46f7eb2b`.
 The original main remains `97758281a2802ea1700c9b84164c05a2cc64313d`. No push or other remote write is authorized or performed.

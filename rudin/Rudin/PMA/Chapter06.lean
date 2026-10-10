@@ -5,18 +5,24 @@ import Rudin.PMA.Chapter06.Criterion
 import Rudin.PMA.Chapter06.Integrability
 import Rudin.PMA.Chapter06.Monotone
 import Rudin.PMA.Chapter06.Split
-import Rudin.PMA.Chapter06.Properties
-import Rudin.PMA.Chapter06.Jump
 import Rudin.PMA.Chapter06.Endpoint
 import Rudin.PMA.Chapter06.Exceptional
+import Rudin.PMA.Chapter06.Properties
+import Rudin.PMA.Chapter06.Jump
 import Rudin.PMA.Chapter06.Calculus
 import Rudin.PMA.Chapter06.Moment
 import Rudin.PMA.Chapter06.Vector
 import Rudin.PMA.Chapter06.Curve
 
-/-! # PMA Chapter 6: verified sections in dependency order.
-The index is in book order; only the listed nodes have been integrated.
-Each imported support module preserves its independently reviewed source bytes. -/
+/-!
+# PMA Chapter 6: The Riemann–Stieltjes Integral
+
+All 27 numbered main-text nodes and their accepted attached consequences.
+Proofs are organized in the imported modules; the index below follows book order.
+The underlying integral uses closed-cell Darboux sums for arbitrary nondecreasing
+integrators. `Chapter06Audit` checks actual proof declarations as well as the
+transitive axiom dependencies of every declaration in the chapter namespace.
+-/
 
 open Set
 namespace Rudin.PMA.Chapter06
