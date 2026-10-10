@@ -443,4 +443,24 @@ theorem pma_ordered_field_axioms_iff {K : Type*} [Field K] [LinearOrder K] :
     let := h
     exact pma_ordered_field_axioms
 
+/-! ### PMA-1.18: Ordered-field consequences -/
+
+theorem pma_ordered_field_consequences {K : Type*} [Field K] [LinearOrder K]
+    [IsStrictOrderedRing K] :
+    (∀ x : K, 0 < x ↔ -x < 0) ∧
+    (∀ x y z : K, x < y → 0 < z → x * z < y * z) ∧
+    (∀ x y z : K, x < y → z < 0 → y * z < x * z) ∧
+    (∀ x : K, x ≠ 0 → 0 < x ^ 2) ∧
+    (0 < (1 : K)) ∧
+    (∀ x y : K, 0 < x → x < y → 0 < y⁻¹ ∧ y⁻¹ < x⁻¹) := by
+  refine ⟨fun _ => neg_lt_zero.symm, ?_, ?_, ?_, zero_lt_one, ?_⟩
+  · intro x y z h hz
+    exact mul_lt_mul_of_pos_right h hz
+  · intro x y z h hz
+    exact mul_lt_mul_of_neg_right h hz
+  · intro x hx
+    exact sq_pos_of_ne_zero hx
+  · intro x y hx hxy
+    exact ⟨inv_pos.mpr (hx.trans hxy), (inv_lt_inv₀ (hx.trans hxy) hx).mpr hxy⟩
+
 end Rudin.PMA.Chapter01
