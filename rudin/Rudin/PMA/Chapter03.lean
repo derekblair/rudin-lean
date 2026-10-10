@@ -298,4 +298,11 @@ theorem pma3_6_euclidean {k : ℕ} (s : ℕ → EuclideanSpace ℝ (Fin k))
     ((pma3_1_bounded_reference _).mp h) (fun n => mem_range_self n)
   exact ⟨p, φ, hφ, hlim⟩
 
+/-! ### PMA-3.7: the set of subsequential limits is closed. -/
+
+theorem pma3_7 {X : Type*} [MetricSpace X] (s : ℕ → X) :
+    IsClosed {p | IsSubsequentialLimit s p} := by
+  simpa only [pma3_5_reference, MapClusterPt] using
+    (isClosed_setOfPred_clusterPt (f := map s atTop))
+
 end Rudin.PMA.Chapter03
