@@ -287,4 +287,64 @@ theorem pma1_11 {α : Type*} [LinearOrder α] (h : HasLUBProperty α)
   have hupper : BddAbove (lowerBounds B) := ⟨b, fun a ha => ha hb⟩
   obtain ⟨a, ha⟩ := h (lowerBounds B) hbelow hupper
   exact ⟨a, ha, isLUB_lowerBounds.mp ha⟩
+/-! ### PMA-1.12: Field axioms -/
+
+/-- Rudin's field axioms. Closure of the two operations is expressed by their
+types; the two identity elements and existence of inverses are explicit. -/
+def pmaFieldAxioms (K : Type*) [Add K] [Mul K] [Zero K] [One K] : Prop :=
+  (∀ x y : K, x + y = y + x) ∧
+  (∀ x y z : K, (x + y) + z = x + (y + z)) ∧
+  (∀ x : K, x + 0 = x) ∧
+  (∀ x : K, ∃ y : K, x + y = 0) ∧
+  (∀ x y : K, x * y = y * x) ∧
+  (∀ x y z : K, (x * y) * z = x * (y * z)) ∧
+  (1 : K) ≠ 0 ∧
+  (∀ x : K, x * 1 = x) ∧
+  (∀ x : K, x ≠ 0 → ∃ y : K, x * y = 1) ∧
+  (∀ x y z : K, x * (y + z) = x * y + x * z)
+
+/-- Each clause of the stated field axioms holds in a Mathlib field. -/
+theorem pma_field_axioms {K : Type*} [Field K] : pmaFieldAxioms K := by
+  refine ⟨add_comm, add_assoc, add_zero, ?_, mul_comm, mul_assoc,
+    one_ne_zero, mul_one, ?_, mul_add⟩
+  · intro x
+    exact ⟨-x, add_neg_cancel x⟩
+  · intro x hx
+    exact ⟨x⁻¹, mul_inv_cancel₀ hx⟩
+
+/-- Conversely, the stated axioms reconstruct a Mathlib field with the same
+addition, multiplication, zero, and one. Choosing inverses supplies notation. -/
+noncomputable abbrev pmaFieldOfAxioms {K : Type*} [Add K] [Mul K] [Zero K] [One K]
+    (h : pmaFieldAxioms K) : Field K := by
+  classical
+  rcases h with ⟨hac, haa, haz, hai, hmc, hma, h10, hm1, hmi, hd⟩
+  letI : Neg K := ⟨fun x => Classical.choose (hai x)⟩
+  letI : Inv K := ⟨fun x => if hx : x = 0 then 0 else Classical.choose (hmi x hx)⟩
+  refine Field.ofMinimalAxioms K haa ?_ ?_ hma hmc ?_ ?_ ?_ hd ⟨1, 0, h10⟩
+  · intro x
+    rw [hac]
+    exact haz x
+  · intro x
+    change Classical.choose (hai x) + x = 0
+    rw [hac]
+    exact Classical.choose_spec (hai x)
+  · intro x
+    rw [hmc]
+    exact hm1 x
+  · intro x hx
+    change x * (if h : x = 0 then 0 else Classical.choose (hmi x h)) = 1
+    rw [dite_eq_right hx]
+    exact Classical.choose_spec (hmi x hx)
+  · change (if h : (0 : K) = 0 then 0 else Classical.choose (hmi 0 h)) = 0
+    rw [dite_eq_left rfl]
+
+theorem pma_field_axioms_operations {K : Type*} [Add K] [Mul K] [Zero K] [One K]
+    (h : pmaFieldAxioms K) :
+    (pmaFieldOfAxioms h).toAdd = ‹Add K› ∧
+    (pmaFieldOfAxioms h).toMul = ‹Mul K› ∧
+    (pmaFieldOfAxioms h).toZero = ‹Zero K› ∧
+    (pmaFieldOfAxioms h).toOne = ‹One K› := by
+  rcases h with ⟨hac, haa, haz, hai, hmc, hma, h10, hm1, hmi, hd⟩
+  exact ⟨rfl, rfl, rfl, rfl⟩
+
 end Rudin.PMA.Chapter01
