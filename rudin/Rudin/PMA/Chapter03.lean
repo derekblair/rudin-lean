@@ -1869,4 +1869,36 @@ theorem node_3_37 : Statement_3_37 := by
     exact ENNReal.inv_le_inv.mp hi
   · exact rootLimsup_le_ratioLimsup (Eventually.of_forall (fun n => (hc n).ne'))
 
+/-! ### PMA-3.36: Precise dominance of the convergence criteria.
+
+The source's inconclusiveness remark is interpreted as referring to convergence
+criteria. The constant sequence records the failure of the stronger full-test
+interpretation: root limsup 1 coexists with eventual ratios 1 and divergence.
+-/
+def Statement_3_36 : Prop :=
+  (∀ a : ℕ → ℂ, (∀ᶠ n in atTop, a n ≠ 0) →
+    RatioLimsup a < 1 → RootLimsup a < 1) ∧
+  (∀ a : ℕ → ℂ, (∀ᶠ n in atTop, a n ≠ 0) →
+    1 ≤ RootLimsup a → 1 ≤ RatioLimsup a) ∧
+  (∀ a : ℕ → ℂ, 1 < RootLimsup a → ¬ Tendsto a atTop (𝓝 0)) ∧
+  (∀ a : ℕ → ℂ, (∀ᶠ n in atTop, a n ≠ 0) →
+    (∀ᶠ n in atTop, 1 ≤ RatioNorm a n) → ¬ Tendsto a atTop (𝓝 0)) ∧
+  RootLimsup (fun _ : ℕ => (1 : ℂ)) = 1 ∧
+  (∀ n : ℕ, RatioNorm (fun _ : ℕ => (1 : ℂ)) n = 1) ∧
+  SeriesDiverges (fun _ : ℕ => (1 : ℂ))
+
+/-! PMA-3.36 proof details: Verified dominance and the full-test counterexample. -/
+theorem node_3_36 : Statement_3_36 := by
+  refine ⟨fun a hnz h => lt_of_le_of_lt (rootLimsup_le_ratioLimsup hnz) h,
+    fun a hnz h => h.trans (rootLimsup_le_ratioLimsup hnz),
+    fun a h => root_test_not_terms_zero h,
+    fun a hnz h => ratio_test_not_terms_zero hnz h,?_,?_,?_⟩
+  · simp [RootLimsup,NthRootNorm]
+  · intro n
+    simp [RatioNorm]
+  · intro hs
+    have hz := series_terms_tendsto_zero hs
+    have h1 : Tendsto (fun _ : ℕ => (1 : ℂ)) atTop (𝓝 1) := tendsto_const_nhds
+    have he := tendsto_nhds_unique h1 hz
+    norm_num at he
 end Rudin.PMA.Chapter03
