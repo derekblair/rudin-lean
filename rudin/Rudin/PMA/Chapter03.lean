@@ -1427,4 +1427,67 @@ theorem node_3_33 : Statement_3_33 := by
   · exact fun hs => (by norm_num : ¬ (1 : ℝ) < 1) ((node_3_28 1).mp hs)
   · exact (node_3_28 2).mpr (by norm_num)
 
+/-! ### PMA-3.34: Ratio test with explicitly defined eventual denominators. -/
+noncomputable def RatioNorm {V : Type*} [NormedAddCommGroup V]
+    (a : ℕ → V) (n : ℕ) : ℝ := ‖a (n+1)‖ / ‖a n‖
+
+noncomputable def RatioLimsup {V : Type*} [NormedAddCommGroup V]
+    (a : ℕ → V) : ENNReal := limsup (fun n => ENNReal.ofReal (RatioNorm a n)) atTop
+
+noncomputable def RatioLiminf {V : Type*} [NormedAddCommGroup V]
+    (a : ℕ → V) : ENNReal := liminf (fun n => ENNReal.ofReal (RatioNorm a n)) atTop
+
+def Statement_3_34 : Prop :=
+  (∀ a : ℕ → ℂ, (∀ᶠ n in atTop, a n ≠ 0) →
+    RatioLimsup a < 1 → SeriesConverges a) ∧
+  (∀ a : ℕ → ℂ, (∀ᶠ n in atTop, a n ≠ 0) →
+    (∀ᶠ n in atTop, 1 ≤ RatioNorm a n) → SeriesDiverges a) ∧
+  Tendsto (RatioNorm (PSeriesTerm 1)) atTop (𝓝 1) ∧
+  Tendsto (RatioNorm (PSeriesTerm 2)) atTop (𝓝 1) ∧
+  SeriesDiverges (PSeriesTerm 1) ∧ SeriesConverges (PSeriesTerm 2)
+
+/-! PMA-3.34 proof details: Verified norm-ratio convergence and divergence criteria. -/
+theorem ratio_test_summable_norm {V : Type*} [NormedAddCommGroup V] {a : ℕ → V}
+    (hnz : ∀ᶠ n in atTop, a n ≠ 0) (h : RatioLimsup a < 1) :
+    Summable (fun n => ‖a n‖) := by
+  obtain ⟨b,hb,hb1⟩ := exists_between h
+  have hbtop : b ≠ ⊤ := ne_top_of_lt hb1
+  have hb1real : b.toReal < 1 := by
+    simpa only [ENNReal.toReal_one] using
+      (ENNReal.toReal_lt_toReal hbtop (by simp)).mpr hb1
+  have he : ∀ᶠ n in atTop, ENNReal.ofReal (RatioNorm a n) < b :=
+    eventually_lt_of_limsup_lt hb
+  apply summable_of_ratio_norm_eventually_le hb1real
+  filter_upwards [he,hnz] with n hn hnz'
+  simp only [Real.norm_eq_abs,abs_of_nonneg (norm_nonneg _)]
+  have hratio : RatioNorm a n < b.toReal :=
+    (ENNReal.ofReal_lt_iff_lt_toReal (by unfold RatioNorm;positivity) hbtop).mp hn
+  exact le_of_lt ((div_lt_iff₀ (norm_pos_iff.mpr hnz')).mp hratio)
+
+theorem ratio_test_not_terms_zero {V : Type*} [NormedAddCommGroup V] {a : ℕ → V}
+    (hnz : ∀ᶠ n in atTop, a n ≠ 0)
+    (h : ∀ᶠ n in atTop, 1 ≤ RatioNorm a n) : ¬ Tendsto a atTop (𝓝 0) := by
+  intro ha
+  obtain ⟨N,hN⟩ := eventually_atTop.mp (hnz.and h)
+  have hbound : ∀ n, N ≤ n → ‖a N‖ ≤ ‖a n‖ := by
+    intro n hn
+    induction n,hn using Nat.le_induction with
+    | base => exact le_rfl
+    | succ n hn ih =>
+      have hstep := (le_div_iff₀ (norm_pos_iff.mpr (hN n hn).1)).mp (hN n hn).2
+      simp only [one_mul] at hstep
+      exact ih.trans hstep
+  have hnorm := ha.norm
+  simp only [norm_zero] at hnorm
+  have hsmall := hnorm.eventually_lt_const (norm_pos_iff.mpr (hN N le_rfl).1)
+  obtain ⟨n,hn,hnN⟩ := (hsmall.and (eventually_ge_atTop N)).exists
+  exact not_lt_of_ge (hbound n hnN) hn
+
+theorem node_3_34 : Statement_3_34 := by
+  refine ⟨fun a hnz h => seriesConverges_of_summable (ratio_test_summable_norm hnz h).of_norm,
+    fun a hnz h hs => ratio_test_not_terms_zero hnz h (series_terms_tendsto_zero hs),
+    pSeries_ratio_tendsto 1,pSeries_ratio_tendsto 2,?_,?_⟩
+  · exact fun hs => (by norm_num : ¬ (1 : ℝ) < 1) ((node_3_28 1).mp hs)
+  · exact (node_3_28 2).mpr (by norm_num)
+
 end Rudin.PMA.Chapter03
