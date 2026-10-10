@@ -491,4 +491,49 @@ theorem pma3_16_lower_reference (s : ℕ → ℝ) :
   simp_rw [pma3_5_reference]
   exact (isLeast_mapClusterPt_liminf (u := fun n => (s n : EReal)) (f := atTop)).csInf_eq
 
+/-! ### PMA-3.17: the characterizations of upper and lower limits. -/
+
+def IsUpperLimitCharacterization (s : ℕ → ℝ) (u : EReal) : Prop :=
+  u ∈ ExtendedSubsequentialLimits s ∧
+  ∀ x : EReal, u < x → ∃ N, ∀ n ≥ N, (s n : EReal) < x
+def IsLowerLimitCharacterization (s : ℕ → ℝ) (l : EReal) : Prop :=
+  l ∈ ExtendedSubsequentialLimits s ∧
+  ∀ x : EReal, x < l → ∃ N, ∀ n ≥ N, x < (s n : EReal)
+
+theorem pma3_17_upper (s : ℕ → ℝ) :
+    IsUpperLimitCharacterization s (UpperLimit s) ∧
+    ∀ u, IsUpperLimitCharacterization s u → u = UpperLimit s := by
+  constructor
+  · constructor
+    · change IsSubsequentialLimit (fun n => (s n : EReal)) (UpperLimit s)
+      rw [pma3_5_reference, pma3_16_upper_reference]
+      exact MapClusterPt.limsup
+    · intro x hx
+      rw [pma3_16_upper_reference] at hx
+      exact eventually_atTop.mp (eventually_lt_of_limsup_lt hx)
+  · rintro u ⟨hu, hbound⟩
+    apply le_antisymm
+    · rw [pma3_16_upper_reference]
+      exact ((pma3_5_reference _ _).mp hu).le_limsup
+    · rw [pma3_16_upper_reference]
+      exact (limsup_le_iff).mpr (fun x hx => eventually_atTop.mpr (hbound x hx))
+
+theorem pma3_17_lower (s : ℕ → ℝ) :
+    IsLowerLimitCharacterization s (LowerLimit s) ∧
+    ∀ l, IsLowerLimitCharacterization s l → l = LowerLimit s := by
+  constructor
+  · constructor
+    · change IsSubsequentialLimit (fun n => (s n : EReal)) (LowerLimit s)
+      rw [pma3_5_reference, pma3_16_lower_reference]
+      exact MapClusterPt.liminf
+    · intro x hx
+      rw [pma3_16_lower_reference] at hx
+      exact eventually_atTop.mp (eventually_lt_of_lt_liminf hx)
+  · rintro l ⟨hl, hbound⟩
+    apply le_antisymm
+    · rw [pma3_16_lower_reference]
+      exact (le_liminf_iff).mpr (fun x hx => eventually_atTop.mpr (hbound x hx))
+    · rw [pma3_16_lower_reference]
+      exact ((pma3_5_reference _ _).mp hl).liminf_le
+
 end Rudin.PMA.Chapter03
