@@ -2049,4 +2049,27 @@ theorem pma3_43 : pma3_43_contract := by
   change Tendsto (fun N => ∑ n ∈ Finset.range N, c n) atTop (𝓝 s)
   simpa [he] using hsum
 
+/-! ### PMA-3.44: boundary convergence for decreasing coefficients tending to zero. -/
+
+def pma3_44_contract : Prop := ∀ c : ℕ → ℝ,
+  PowerSeriesRadius (fun n => (c n : ℂ)) = 1 → Antitone c → Tendsto c atTop (𝓝 0) →
+  ∀ z : ℂ, ‖z‖ = 1 → z ≠ 1 →
+    SeriesConverges (PowerSeriesTerms (fun n => (c n : ℂ)) z)
+
+theorem powerSeries_unit_geometric_bounded (z : ℂ) (hz : ‖z‖ = 1) (hz1 : z ≠ 1) :
+    ∃ M : ℝ, ∀ N, ‖PartialSums (fun n => z ^ n) N‖ ≤ M := by
+  refine ⟨2 / ‖z - 1‖, ?_⟩
+  intro N
+  rw [PartialSums, geom_sum_eq hz1, norm_div]
+  apply div_le_div_of_nonneg_right ?_ (norm_nonneg _)
+  calc
+    ‖z ^ N - 1‖ ≤ ‖z ^ N‖ + ‖(1 : ℂ)‖ := norm_sub_le _ _
+    _ = 2 := by simp [norm_pow, hz]; norm_num
+
+theorem pma3_44 : pma3_44_contract := by
+  intro c hR hc hc0 z hz hz1
+  have hsum := pma3_42 (fun n => z ^ n) c (powerSeries_unit_geometric_bounded z hz hz1) hc hc0
+  change SeriesConverges (fun n => (c n : ℂ) * z ^ n)
+  simpa [mul_comm] using hsum
+
 end Rudin.PMA.Chapter03

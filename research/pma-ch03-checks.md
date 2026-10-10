@@ -48,3 +48,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.41 | PASS: inclusive source sum and correct initial partial sum at `p=0`, using half-open difference sum. |
 | PMA-3.42 | PASS: bounded complex partial sums and decreasing real factors tending to zero. |
 | PMA-3.43 | PASS: zero-index translation of source alternating parity, non-strict magnitude decrease and vanishing terms. |
+| PMA-3.44 | PASS: radius one, real decreasing coefficients, zero limit, and all unit-circle points except one. |
