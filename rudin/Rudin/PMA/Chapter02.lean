@@ -241,4 +241,15 @@ theorem pma2_11 {A : Type*} (S T U : Set A) :
     Set.subset_union_left, Set.inter_subset_left, Set.union_empty S,
     Set.inter_empty S, fun h => ⟨Set.union_eq_right.mpr h,Set.inter_eq_left.mpr h⟩⟩
 
+/-! ### PMA-2.12: countable unions. -/
+theorem pma2_12 {A : Type*} (E : ℕ → Set A) (h : ∀ n, RudinCountable (E n)) :
+    RudinCountable (⋃ n,E n) := by
+  have hc : ∀ n,(E n).Countable := fun n => ((pma2_4_countable_reference _).mp (h n)).1
+  have hi : (E 0).Infinite := infinite_coe_iff.mp (((pma2_4_countable_reference _).mp (h 0)).2)
+  exact (pma2_4_countable_reference _).mpr
+    ⟨Set.countable_iUnion hc, (hi.mono (Set.subset_iUnion E 0)).to_subtype⟩
+
+theorem pma2_12_corollary {A I : Type*} [Countable I] (E : I → Set A)
+    (h : ∀ i,(E i).Countable) : (⋃ i,E i).Countable := Set.countable_iUnion h
+
 end Rudin.PMA.Chapter02
