@@ -1781,4 +1781,92 @@ theorem node_3_35 : Statement_3_35 := by
   · rw [hb.2]
     norm_num
 
+/-! ### PMA-3.37: Positive real roots lie between ratio lower and upper limits. -/
+def Statement_3_37 : Prop :=
+  ∀ c : ℕ → ℝ, (∀ n, 0 < c n) →
+    RatioLiminf c ≤ RootLiminf c ∧ RootLimsup c ≤ RatioLimsup c
+
+/-! PMA-3.37 proof details: Ratio upper bounds control roots through weighted series. -/
+theorem rootLimsup_le_ratioLimsup {𝕜 : Type*} [RCLike 𝕜] {a : ℕ → 𝕜}
+    (hnz : ∀ᶠ n in atTop, a n ≠ 0) : RootLimsup a ≤ RatioLimsup a := by
+  apply le_of_forall_gt_imp_ge_of_dense
+  intro B hB
+  by_cases hBtop : B = ⊤
+  · simp [hBtop]
+  obtain ⟨C,hC,hCB⟩ := exists_between hB
+  have hCtop : C ≠ ⊤ := ne_top_of_lt hCB
+  let b : NNReal := B.toNNReal
+  let r : NNReal := b⁻¹
+  have hbcoe : (b : ENNReal) = B := ENNReal.coe_toNNReal hBtop
+  have hbpos : 0 < b := by
+    apply NNReal.coe_pos.mp
+    change 0 < B.toReal
+    exact ENNReal.toReal_pos (ne_of_gt (lt_of_le_of_lt (zero_le : (0 : ENNReal) ≤ RatioLimsup a) hB)) hBtop
+  have hBre : (b : ℝ) = B.toReal := rfl
+  have hCre : C.toReal < (b : ℝ) := by
+    rw [hBre]
+    exact (ENNReal.toReal_lt_toReal hCtop hBtop).mpr hCB
+  have hgeom : C.toReal*(r : ℝ) < 1 := by
+    simp only [r,NNReal.coe_inv]
+    rw [← div_eq_mul_inv,div_lt_one (NNReal.coe_pos.mpr hbpos)]
+    exact hCre
+  have he : ∀ᶠ n in atTop, ENNReal.ofReal (RatioNorm a n) < C :=
+    eventually_lt_of_limsup_lt hC
+  have hs : Summable (fun n => ‖a n‖*(r : ℝ)^n) := by
+    apply summable_of_ratio_norm_eventually_le hgeom
+    filter_upwards [he,hnz] with n hn hnz'
+    have hratio : RatioNorm a n < C.toReal :=
+      (ENNReal.ofReal_lt_iff_lt_toReal (by unfold RatioNorm;positivity) hCtop).mp hn
+    have hstep : ‖a (n+1)‖ ≤ C.toReal*‖a n‖ :=
+      le_of_lt ((div_lt_iff₀ (norm_pos_iff.mpr hnz')).mp hratio)
+    rw [Real.norm_eq_abs,Real.norm_eq_abs,abs_of_nonneg (by positivity),
+      abs_of_nonneg (by positivity)]
+    calc
+      ‖a (n+1)‖*(r : ℝ)^(n+1) = (‖a (n+1)‖*(r : ℝ)^n)*(r : ℝ) := by rw [pow_succ];ring
+      _ ≤ (C.toReal*‖a n‖*(r : ℝ)^n)*(r : ℝ) :=
+        mul_le_mul_of_nonneg_right
+          (mul_le_mul_of_nonneg_right hstep (by positivity)) (by positivity)
+      _ = (C.toReal*(r : ℝ))*(‖a n‖*(r : ℝ)^n) := by ring
+  have hr : (r : ENNReal) ≤ (FormalMultilinearSeries.ofScalars 𝕜 a).radius := by
+    apply FormalMultilinearSeries.le_radius_of_summable
+    simpa only [FormalMultilinearSeries.ofScalars_norm] using hs
+  rw [rootLimsup_eq_radius_inv]
+  have h := ENNReal.inv_le_inv.mpr hr
+  simpa only [r,ENNReal.coe_inv hbpos.ne',inv_inv,hbcoe] using h
+
+theorem rootLimsup_reciprocal {c : ℕ → ℝ} (hc : ∀ n, 0 < c n) :
+    RootLimsup (fun n => 1/c n) = (RootLiminf c)⁻¹ := by
+  unfold RootLimsup RootLiminf
+  rw [ENNReal.inv_liminf]
+  congr 1
+  funext n
+  simp only [NthRootNorm,Real.norm_eq_abs,abs_of_pos (hc n),one_div,
+    abs_of_pos (inv_pos.mpr (hc n))]
+  rw [Real.inv_rpow (hc n).le,
+    ENNReal.ofReal_inv_of_pos (Real.rpow_pos_of_pos (hc n) _)]
+
+theorem ratioLimsup_reciprocal {c : ℕ → ℝ} (hc : ∀ n, 0 < c n) :
+    RatioLimsup (fun n => 1/c n) = (RatioLiminf c)⁻¹ := by
+  unfold RatioLimsup RatioLiminf
+  rw [ENNReal.inv_liminf]
+  congr 1
+  funext n
+  have heq : RatioNorm (fun n => 1/c n) n = (RatioNorm c n)⁻¹ := by
+    simp only [RatioNorm,Real.norm_eq_abs,abs_of_pos (hc n),abs_of_pos (hc (n+1)),
+      abs_of_pos (one_div_pos.mpr (hc n)),abs_of_pos (one_div_pos.mpr (hc (n+1)))]
+    field_simp
+  rw [heq,ENNReal.ofReal_inv_of_pos]
+  unfold RatioNorm
+  rw [Real.norm_eq_abs,Real.norm_eq_abs,abs_of_pos (hc n),abs_of_pos (hc (n+1))]
+  exact div_pos (hc (n+1)) (hc n)
+
+theorem node_3_37 : Statement_3_37 := by
+  intro c hc
+  constructor
+  · have hi := rootLimsup_le_ratioLimsup (a := fun n => 1/c n)
+      (Eventually.of_forall (fun n => ne_of_gt (one_div_pos.mpr (hc n))))
+    rw [rootLimsup_reciprocal hc,ratioLimsup_reciprocal hc] at hi
+    exact ENNReal.inv_le_inv.mp hi
+  · exact rootLimsup_le_ratioLimsup (Eventually.of_forall (fun n => (hc n).ne'))
+
 end Rudin.PMA.Chapter03
