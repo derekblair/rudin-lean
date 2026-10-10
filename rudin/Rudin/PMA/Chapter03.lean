@@ -916,4 +916,22 @@ theorem node_3_25 : Statement_3_25 := by
   filter_upwards [hdom] with n hn
   simpa only [Real.norm_eq_abs,abs_of_nonneg hn.1] using hn.2
 
+/-! ### PMA-3.26: Nonnegative geometric series. -/
+def Statement_3_26 : Prop :=
+  (∀ x : ℝ, 0 ≤ x → x < 1 → SeriesHasSum (fun n : ℕ => x^n) (1/(1-x))) ∧
+  (∀ x : ℝ, 1 ≤ x → SeriesDiverges (fun n : ℕ => x^n))
+
+/-! PMA-3.26 proof details: Verified geometric series. -/
+theorem node_3_26 : Statement_3_26 := by
+  constructor
+  · intro x hx hx1
+    change Tendsto (fun N : ℕ => ∑ n ∈ Finset.range N, x^n) atTop (𝓝 (1/(1-x)))
+    simpa only [one_div] using (hasSum_geometric_of_lt_one hx hx1).tendsto_sum_nat
+  · intro x hx hconv
+    have hz := series_terms_tendsto_zero hconv
+    have hp : ∀ n : ℕ, 1 ≤ x^n := fun n => one_le_pow₀ hx
+    have hh := hz.eventually (gt_mem_nhds (show (0 : ℝ) < 1 by norm_num))
+    obtain ⟨n,hn⟩ := hh.exists
+    exact not_lt_of_ge (hp n) hn
+
 end Rudin.PMA.Chapter03

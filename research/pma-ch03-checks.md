@@ -30,3 +30,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.22 | PASS: complete complex Cauchy criterion with inclusive blocks and the displayed `≤ε`. |
 | PMA-3.24 | PASS: nonnegative real terms and bounded partial sums. |
 | PMA-3.25 | PASS: eventual norm comparison and eventual nonnegative divergent lower comparison. |
+| PMA-3.26 | PASS: sum for every `0≤x<1`, including zero, and divergence for every `x≥1`. |
