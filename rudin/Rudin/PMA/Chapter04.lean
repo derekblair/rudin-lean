@@ -211,4 +211,19 @@ theorem pma4_6 : pma4_6_contract := by
   rw [functionContinuousWithinAt_iff E f p hp, functionLimitOn_iff_tendsto E f p (f p) ha]
   exact continuousWithinAt_sdiff_self.symm
 
+/-! ### PMA-4.7: Composition -/
+def Compose {X Y Z : Type*} (f : X → Y) (g : Y → Z) (x : X) : Z := g (f x)
+def pma4_7_contract : Prop :=
+  ∀ {X Y Z : Type*} [MetricSpace X] [MetricSpace Y] [MetricSpace Z]
+    (E : Set X) (f : X → Y) (g : Y → Z) (p : X),
+    FunctionContinuousWithinAt E f p →
+      FunctionContinuousWithinAt (f '' E) g (f p) → FunctionContinuousWithinAt E (Compose f g) p
+
+theorem pma4_7 : pma4_7_contract := by
+  intro X Y Z _ _ _ E f g p hf hg
+  apply (functionContinuousWithinAt_iff E _ p hf.1).mpr
+  have ht := (functionContinuousWithinAt_iff E f p hf.1).mp hf
+  have hu := (functionContinuousWithinAt_iff (f '' E) g (f p) hg.1).mp hg
+  exact hu.comp ht (fun x hx => mem_image_of_mem f hx)
+
 end Rudin.PMA.Chapter04
