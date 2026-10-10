@@ -3703,4 +3703,15 @@ theorem pma3_54 : pma3_54_contract := by
   · exact hendpoints.1.comp (tendsto_add_atTop_nat 1)
   · exact hendpoints.2
 
+/-! ### PMA-3.55: absolute convergence permits every rearrangement with the same sum. -/
+
+def pma3_55_contract : Prop := ∀ (a : ℕ → ℂ) (A : ℂ),
+  SeriesAbsolutelyConverges a → SeriesHasSum a A →
+  ∀ e : Equiv.Perm ℕ, SeriesHasSum (a ∘ e) A
+
+theorem pma3_55 : pma3_55_contract := by
+  intro a A ha hA e
+  have hnorm := (seriesAbsolutelyConverges_iff_summable_norm a).mp ha
+  have hsum : HasSum a A := (hasSum_iff_tendsto_nat_of_summable_norm hnorm).mpr hA
+  exact (e.hasSum_iff.mpr hsum).tendsto_sum_nat
 end Rudin.PMA.Chapter03
