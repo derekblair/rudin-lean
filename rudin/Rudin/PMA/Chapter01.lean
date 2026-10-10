@@ -848,4 +848,10 @@ theorem pma_real_axis_injective : Function.Injective (fun a : ℝ => pmaComplexP
   intro a b h
   exact congrArg Complex.re h
 
+/-! ### PMA-1.27: the imaginary unit. -/
+
+def pmaImaginaryUnit : ℂ := pmaComplexPair 0 1
+
+theorem pma_imaginary_unit_eq : pmaImaginaryUnit = Complex.I := rfl
+
 end Rudin.PMA.Chapter01

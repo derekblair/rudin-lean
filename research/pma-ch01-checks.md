@@ -36,3 +36,4 @@ folded into 1.1 under PROGRAM.md's rule for remarks. The requested target count 
 | PMA-1.24 | PASS: Complex numbers are exactly ordered real pairs with coordinate equality, addition and the prescribed multiplication. | Complex structure extensionality and definitionally identical pair operations. |
 | PMA-1.25 | PASS: The complex pair operations satisfy every field axiom, with the prescribed zero and one. | All A/M/D clauses match pmaFieldAxioms ℂ; Mathlib complex Field instance. |
 | PMA-1.26 | PASS: Real-axis pairs preserve arithmetic and injectively identify the real field inside the complex field. | Coordinate formulas; ofReal_inv; real-part injectivity. |
+| PMA-1.27 | PASS: The imaginary unit is the pair (0,1). | Definitional comparison with Complex.I. |
