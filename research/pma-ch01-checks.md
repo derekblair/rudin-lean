@@ -23,3 +23,4 @@ folded into 1.1 under PROGRAM.md's rule for remarks. The requested target count 
 | PMA-1.11 | PASS: Every nonempty bounded-below subset has an infimum equal to the supremum of its lower bounds. | isLUB_lowerBounds equivalence with IsGLB; one common witness returned. |
 | PMA-1.12 | PASS: Closure is in operation types; commutativity, associativity, identities, inverses and distributivity reproduce every A/M/D clause, including 1≠0. | Mathlib Field implies the predicate; Field.ofMinimalAxioms reconstructs a Field preserving primitive operations. |
 | PMA-1.13 | PASS: Field notation, natural powers and the rational field agree with the remarks. | sub_eq_add_neg, div_eq_mul_inv, power recursion, generic field axioms specialized to ℚ. |
+| PMA-1.14 | PASS: Additive cancellation, uniqueness of identity/inverse and double negation hold using only additive axioms. | AddCommGroup lemmas add_left_cancel, eq_neg_of_add_eq_zero_right, neg_neg. |

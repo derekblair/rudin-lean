@@ -364,4 +364,17 @@ theorem pma_field_notation {K : Type*} [Field K] (x y : K) (n : ℕ) :
 
 theorem pma_rationals_are_a_field : pmaFieldAxioms ℚ := pma_field_axioms
 
+/-! ### PMA-1.14: Consequences of the addition axioms -/
+
+theorem pma_addition_consequences {K : Type*} [AddCommGroup K] :
+    (∀ x y z : K, x + y = x + z → y = z) ∧
+    (∀ x y : K, x + y = x → y = 0) ∧
+    (∀ x y : K, x + y = 0 → y = -x) ∧
+    (∀ x : K, -(-x) = x) := by
+  refine ⟨fun _ _ _ h => add_left_cancel h, ?_, ?_, neg_neg⟩
+  · intro x y h
+    exact add_left_cancel (h.trans (add_zero x).symm)
+  · intro x y h
+    exact eq_neg_of_add_eq_zero_right h
+
 end Rudin.PMA.Chapter01
