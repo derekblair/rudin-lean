@@ -12,7 +12,7 @@ All completed nodes have zero proof placeholders.
 | 03 | Numerical Sequences and Series | 55 / 55 |
 | 04 | Continuity | 34 / 34 |
 | 05 | Differentiation | 19 / 19 |
-| 06 | The Riemann-Stieltjes Integral | 2 / 27 |
+| 06 | The Riemann-Stieltjes Integral | 4 / 27 |
 | 07 | Sequences and Series of Functions | 0 |
 | 08 | Some Special Functions | 0 |
 | 09 | Functions of Several Variables | 0 |
@@ -64,8 +64,8 @@ standalone probes, and 267 recursively audited declarations using only the
 three standard axioms. Exact final code hashes match both hostile reviews.
 See `research/pma-ch05-production-review.md` and production verification logs.
 
-Chapter 6 local integration: 2/27 accepted numbered nodes.
-Completed nodes: 6.1, 6.2.
+Chapter 6 local integration: 4/27 accepted numbered nodes.
+Completed nodes: 6.1, 6.2, 6.3, 6.4.
 Section commits preserve frozen reviewed modules and follow their actual import
 dependencies. Each section requires the default build, kernel theorem checks,
 source checks and a recursive axiom audit. Unintegrated nodes are pending
