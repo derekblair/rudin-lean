@@ -151,4 +151,30 @@ theorem pma2_6_characterization {A : Type*} (S : Set A) :
   · rintro ⟨T,hT,he⟩ hfin
     exact pma2_6_finite S T hfin hT he
 
+/-! ### PMA-2.7: sequences and injective enumerations. -/
+abbrev PMASequence (A : Type*) := ℕ → A
+
+theorem pma2_7_enumeration {A : Type*} (S : Set A) :
+    RudinCountable S ↔ ∃ f : PMASequence A,
+      Function.Injective f ∧ Set.range f = S := by
+  constructor
+  · rintro ⟨e⟩
+    refine ⟨fun n => (e.symm n).val, ?_, ?_⟩
+    · intro m n h
+      apply e.symm.injective
+      exact Subtype.ext h
+    · ext a
+      constructor
+      · rintro ⟨n,rfl⟩; exact (e.symm n).property
+      · intro ha
+        exact ⟨e ⟨a,ha⟩, congrArg Subtype.val (e.symm_apply_apply ⟨a,ha⟩)⟩
+  · rintro ⟨f,hf,hr⟩
+    refine ⟨(Equiv.ofBijective (fun n : ℕ => (⟨f n,by rw [← hr]; exact Set.mem_range_self n⟩ : S)) ?_).symm⟩
+    constructor
+    · intro m n h; exact hf (congrArg Subtype.val h)
+    · intro a
+      have ha : a.val ∈ Set.range f := hr.symm ▸ a.property
+      obtain ⟨n,hn⟩ := ha
+      exact ⟨n,Subtype.ext hn⟩
+
 end Rudin.PMA.Chapter02
