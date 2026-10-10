@@ -41,9 +41,11 @@ the module structure, so every later lemma builds on verified earlier ones.
 ## Status
 
 Chapter 1: all 37 requested nodes complete with zero proof placeholders.
-The default `lake build` also compiles boundary probes and audits every chapter
-declaration for the three permitted axioms. Chapters 2–11 remain scaffolds.
-See `PROGRESS.md` and `research/pma-ch01-checks.md`.
+Chapter 2: all 47 numbered nodes complete. Chapters 3–11 follow in order.
+The default `lake build` compiles boundary probes and audits completed chapter
+declarations for the three permitted axioms. See `PROGRESS.md` and the
+chapter-specific verification logs under `research/`.
 
-Run `python3 scripts/check_chapter01.py` for source/coverage/metadata checks,
+Run `python3 scripts/check_chapter.py N` for a completed chapter’s
+source/coverage/metadata checks,
 and run `lake build` from `rudin/` for Lean verification.

@@ -26,3 +26,11 @@ three permitted axioms.
 The chapter source, inventory, and queue are checked by
 `python3 scripts/check_chapter01.py`. Detailed fidelity evidence is in
 `research/pma-ch01-checks.md` and `research/pma-ch01-fidelity.md`.
+
+Chapter 2 is complete: 47 / 47 nodes, each with a local `PMA-2.x done`
+commit and passing build. Final verification compiles 13 independent
+boundary probes and audits 289 namespace declarations (275 chapter
+declarations plus 14 probe declarations including compiler-generated code).
+Only the three permitted axioms occur. Run
+`python3 scripts/check_chapter.py 2`; fidelity evidence is in
+`research/pma-ch02-checks.md` and `research/pma-ch02-fidelity.md`.
