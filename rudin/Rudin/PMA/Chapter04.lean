@@ -1720,4 +1720,79 @@ theorem node_4_32 : Statement_4_32 :=
   ⟨extendedNeighborhood_top, extendedNeighborhood_bot, extendedNeighborhood_coe,
     extendedNeighborhood_refines, extendedNeighborhood_trace⟩
 
+/-! ### PMA-4.33: Extended limits with nonvacuous punctured approach. -/
+
+def ExtendedAccumulation (E : Set ℝ) (x : EReal) : Prop :=
+  ∀ V : Set ℝ, ExtendedNeighborhood x V → ∃ t ∈ E, (t : EReal) ≠ x ∧ t ∈ V
+
+def ExtendedApproachFilter (E : Set ℝ) (x : EReal) : Filter ℝ :=
+  Filter.comap (fun t : ℝ => (t : EReal)) (𝓝 x) ⊓
+    𝓟 (E ∩ {t : ℝ | (t : EReal) ≠ x})
+
+def ExtendedLimitOn (E : Set ℝ) (f : ℝ → ℝ) (x A : EReal) : Prop :=
+  ExtendedAccumulation E x ∧
+    ∀ W : Set ℝ, ExtendedNeighborhood A W →
+      ∃ V : Set ℝ, ExtendedNeighborhood x V ∧
+        ∀ t ∈ E, (t : EReal) ≠ x → t ∈ V → f t ∈ W
+
+def Statement_4_33 : Prop :=
+  (∀ (E : Set ℝ) (x : EReal),
+    ExtendedAccumulation E x ↔ (ExtendedApproachFilter E x).NeBot) ∧
+  (∀ (E : Set ℝ) (f : ℝ → ℝ) (x A : EReal),
+    ExtendedLimitOn E f x A ↔
+      (ExtendedApproachFilter E x).NeBot ∧
+        Tendsto (fun t => (f t : EReal)) (ExtendedApproachFilter E x) (𝓝 A)) ∧
+  (∀ (E : Set ℝ) (f : ℝ → ℝ) (x A : ℝ),
+    ExtendedLimitOn E f (x : EReal) (A : EReal) ↔ FunctionLimitOn E f x A)
+
+theorem extendedAccumulation_iff_neBot (E : Set ℝ) (x : EReal) :
+    ExtendedAccumulation E x ↔ (ExtendedApproachFilter E x).NeBot := by
+  rw [ExtendedApproachFilter, (extendedTraceFilter_basis x).inf_principal_neBot_iff]
+  unfold ExtendedAccumulation
+  apply forall₂_congr
+  intro V hV
+  simp only [Set.Nonempty, mem_inter_iff, mem_ofPred_eq]
+  aesop
+
+theorem extendedLimitOn_iff_tendsto (E : Set ℝ) (f : ℝ → ℝ) (x A : EReal) :
+    ExtendedLimitOn E f x A ↔ (ExtendedApproachFilter E x).NeBot ∧
+      Tendsto (fun t => (f t : EReal)) (ExtendedApproachFilter E x) (𝓝 A) := by
+  have ht : Tendsto (fun t => (f t : EReal)) (ExtendedApproachFilter E x) (𝓝 A) ↔
+      ∀ W, ExtendedNeighborhood A W → ∃ V, ExtendedNeighborhood x V ∧
+        ∀ t ∈ E, (t : EReal) ≠ x → t ∈ V → f t ∈ W := by
+    change Tendsto ((fun t : ℝ => (t : EReal)) ∘ f) (ExtendedApproachFilter E x) (𝓝 A) ↔ _
+    rw [← tendsto_comap_iff]
+    change Tendsto f (Filter.comap (fun t : ℝ => (t : EReal)) (𝓝 x) ⊓
+      𝓟 (E ∩ {t : ℝ | (t : EReal) ≠ x}))
+        (Filter.comap (fun t : ℝ => (t : EReal)) (𝓝 A)) ↔ _
+    rw [((extendedTraceFilter_basis x).inf_principal _).tendsto_iff (extendedTraceFilter_basis A)]
+    apply forall₂_congr
+    intro W hW
+    apply exists_congr
+    intro V
+    simp only [mem_inter_iff, mem_ofPred_eq]
+    aesop
+  rw [ExtendedLimitOn, extendedAccumulation_iff_neBot, ht]
+
+theorem extendedApproachFilter_coe (E : Set ℝ) (x : ℝ) :
+    ExtendedApproachFilter E (x : EReal) = 𝓝[E \ {x}] x := by
+  unfold ExtendedApproachFilter
+  rw [← EReal.isEmbedding_coe.isInducing.nhds_eq_comap]
+  have hset : E ∩ {t : ℝ | (t : EReal) ≠ (x : EReal)} = E \ {x} := by
+    ext t
+    simp
+  rw [hset]
+  rfl
+
+theorem node_4_33 : Statement_4_33 := by
+  refine ⟨extendedAccumulation_iff_neBot, extendedLimitOn_iff_tendsto, ?_⟩
+  intro E f x A
+  rw [extendedLimitOn_iff_tendsto, extendedApproachFilter_coe, EReal.tendsto_coe,
+    ← functionLimitPoint_iff_neBot]
+  constructor
+  · rintro ⟨hp, hf⟩
+    exact (functionLimitOn_iff_tendsto E f x A hp).mpr hf
+  · intro h
+    exact ⟨h.1, (functionLimitOn_iff_tendsto E f x A h.1).mp h⟩
+
 end Rudin.PMA.Chapter04

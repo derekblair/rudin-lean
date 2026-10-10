@@ -38,3 +38,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-4.30 | PASS: at-most-countability of exactly the interior discontinuity set. |
 | PMA-4.31 | PASS: injective arbitrary countable point families, every positive summable weight family, both sided constructions, exact prescribed jumps, and empty/finite/infinite set realization. |
 | PMA-4.32 | PASS: literal real traces of rays/intervals and both cofinal neighborhood-basis references. |
+| PMA-4.33 | PASS: literal corrected punctured accumulation/limit tests, exact approach filter, nontriviality and Tendsto references, and finite-limit equivalence. |
