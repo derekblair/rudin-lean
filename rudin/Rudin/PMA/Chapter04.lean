@@ -200,4 +200,15 @@ theorem pma4_5 : pma4_5_contract := by
   apply continuousWithinAt_of_not_accPt
   exact fun h => hp.2 ((Chapter02.isLimitPoint_iff_accPt p E).mpr h)
 
+/-! ### PMA-4.6: Continuity as a function limit -/
+def pma4_6_contract : Prop :=
+  ∀ {X Y : Type*} [MetricSpace X] [MetricSpace Y] (E : Set X)
+    (f : X → Y) (p : X), p ∈ E → Chapter02.IsLimitPoint p E →
+      (FunctionContinuousWithinAt E f p ↔ FunctionLimitOn E f p (f p))
+
+theorem pma4_6 : pma4_6_contract := by
+  intro X Y _ _ E f p hp ha
+  rw [functionContinuousWithinAt_iff E f p hp, functionLimitOn_iff_tendsto E f p (f p) ha]
+  exact continuousWithinAt_sdiff_self.symm
+
 end Rudin.PMA.Chapter04

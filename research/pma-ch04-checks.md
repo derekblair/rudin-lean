@@ -11,3 +11,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-4.3 | PASS: Independent definition/contract PASS; pointwise complex/vector operations, restricted quotient domain, constants and real inequalities. |
 | PMA-4.4 | PASS: Independent contract PASS; sums/products, restricted quotient with only nonzero denominator limit, Euclidean vector sum/inner limits; Tendsto algebra. |
 | PMA-4.5 | PASS: Independent definition/contract PASS; literal point/on continuity comparators and automatic isolated-point continuity. |
+| PMA-4.6 | PASS: Independent contract PASS; domain membership and accumulation, continuity iff punctured limit equals actual value; sdiff-self comparator. |
