@@ -1197,4 +1197,110 @@ theorem node_4_28 : Statement_4_28 := by
   exact ⟨intervalIncreasing_iff_monotoneOn a b f, intervalDecreasing_iff_antitoneOn a b f,
     or_congr (intervalIncreasing_iff_monotoneOn a b f) (intervalDecreasing_iff_antitoneOn a b f)⟩
 
+/-! ### PMA-4.29: Finite one-sided limits of monotonic functions. -/
+
+def IntervalLeftSup (a : ℝ) (f : ℝ → ℝ) (x : ℝ) : ℝ := sSup (f '' Ioo a x)
+def IntervalRightInf (b : ℝ) (f : ℝ → ℝ) (x : ℝ) : ℝ := sInf (f '' Ioo x b)
+def IntervalLeftInf (a : ℝ) (f : ℝ → ℝ) (x : ℝ) : ℝ := sInf (f '' Ioo a x)
+def IntervalRightSup (b : ℝ) (f : ℝ → ℝ) (x : ℝ) : ℝ := sSup (f '' Ioo x b)
+
+def Statement_4_29 : Prop :=
+  ∀ (a b : ℝ) (f : ℝ → ℝ),
+    (IntervalIncreasing a b f →
+      (∀ x ∈ Ioo a b,
+        LeftLimitOn a b f x (IntervalLeftSup a f x) ∧
+        RightLimitOn a b f x (IntervalRightInf b f x) ∧
+        IntervalLeftSup a f x ≤ f x ∧ f x ≤ IntervalRightInf b f x) ∧
+      (∀ x y : ℝ, a < x → x < y → y < b →
+        IntervalRightInf b f x ≤ IntervalLeftSup a f y)) ∧
+    (IntervalDecreasing a b f →
+      (∀ x ∈ Ioo a b,
+        LeftLimitOn a b f x (IntervalLeftInf a f x) ∧
+        RightLimitOn a b f x (IntervalRightSup b f x) ∧
+        f x ≤ IntervalLeftInf a f x ∧ IntervalRightSup b f x ≤ f x) ∧
+      (∀ x y : ℝ, a < x → x < y → y < b →
+        IntervalLeftInf a f y ≤ IntervalRightSup b f x))
+
+
+theorem increasing_interval_limits {a b : ℝ} {f : ℝ → ℝ}
+    (hf : MonotoneOn f (Ioo a b)) :
+    (∀ x ∈ Ioo a b,
+      LeftLimitOn a b f x (IntervalLeftSup a f x) ∧
+      RightLimitOn a b f x (IntervalRightInf b f x) ∧
+      IntervalLeftSup a f x ≤ f x ∧ f x ≤ IntervalRightInf b f x) ∧
+    (∀ x y : ℝ, a < x → x < y → y < b →
+      IntervalRightInf b f x ≤ IntervalLeftSup a f y) := by
+  have hLB (x : ℝ) (hx : x ∈ Ioo a b) : BddAbove (f '' Ioo a x) := by
+    refine ⟨f x, ?_⟩
+    rintro _ ⟨t, ht, rfl⟩
+    exact hf ⟨ht.1, ht.2.trans hx.2⟩ hx ht.2.le
+  have hRB (x : ℝ) (hx : x ∈ Ioo a b) : BddBelow (f '' Ioo x b) := by
+    refine ⟨f x, ?_⟩
+    rintro _ ⟨t, ht, rfl⟩
+    exact hf hx ⟨hx.1.trans ht.1, ht.2⟩ ht.1.le
+  constructor
+  · intro x hx
+    have hML : MonotoneOn f (Ioo a x) := hf.mono fun t ht => ⟨ht.1, ht.2.trans hx.2⟩
+    have hMR : MonotoneOn f (Ioo x b) := hf.mono fun t ht => ⟨hx.1.trans ht.1, ht.2⟩
+    refine ⟨⟨hx.1, hx.2.le, ?_⟩, ⟨hx.1.le, hx.2, ?_⟩, ?_, ?_⟩
+    · rw [nhdsWithin_Ioo_eq_nhdsLT hx.1]
+      exact hML.tendsto_nhdsWithin_Ioo_left (nonempty_Ioo.mpr hx.1) (hLB x hx)
+    · rw [nhdsWithin_Ioo_eq_nhdsGT hx.2]
+      exact hMR.tendsto_nhdsWithin_Ioo_right (nonempty_Ioo.mpr hx.2) (hRB x hx)
+    · apply csSup_le ((nonempty_Ioo.mpr hx.1).image f)
+      rintro _ ⟨t, ht, rfl⟩
+      exact hf ⟨ht.1, ht.2.trans hx.2⟩ hx ht.2.le
+    · apply le_csInf ((nonempty_Ioo.mpr hx.2).image f)
+      rintro _ ⟨t, ht, rfl⟩
+      exact hf hx ⟨hx.1.trans ht.1, ht.2⟩ ht.1.le
+  · intro x y hax hxy hyb
+    obtain ⟨z, hxz, hzy⟩ := exists_between hxy
+    exact (csInf_le (hRB x ⟨hax, hxy.trans hyb⟩)
+      (mem_image_of_mem f ⟨hxz, hzy.trans hyb⟩)).trans
+      (le_csSup (hLB y ⟨hax.trans hxy, hyb⟩)
+        (mem_image_of_mem f ⟨hax.trans hxz, hzy⟩))
+
+theorem decreasing_interval_limits {a b : ℝ} {f : ℝ → ℝ}
+    (hf : AntitoneOn f (Ioo a b)) :
+    (∀ x ∈ Ioo a b,
+      LeftLimitOn a b f x (IntervalLeftInf a f x) ∧
+      RightLimitOn a b f x (IntervalRightSup b f x) ∧
+      f x ≤ IntervalLeftInf a f x ∧ IntervalRightSup b f x ≤ f x) ∧
+    (∀ x y : ℝ, a < x → x < y → y < b →
+      IntervalLeftInf a f y ≤ IntervalRightSup b f x) := by
+  have hLB (x : ℝ) (hx : x ∈ Ioo a b) : BddBelow (f '' Ioo a x) := by
+    refine ⟨f x, ?_⟩
+    rintro _ ⟨t, ht, rfl⟩
+    exact hf ⟨ht.1, ht.2.trans hx.2⟩ hx ht.2.le
+  have hRB (x : ℝ) (hx : x ∈ Ioo a b) : BddAbove (f '' Ioo x b) := by
+    refine ⟨f x, ?_⟩
+    rintro _ ⟨t, ht, rfl⟩
+    exact hf hx ⟨hx.1.trans ht.1, ht.2⟩ ht.1.le
+  constructor
+  · intro x hx
+    have hML : AntitoneOn f (Ioo a x) := hf.mono fun t ht => ⟨ht.1, ht.2.trans hx.2⟩
+    have hMR : AntitoneOn f (Ioo x b) := hf.mono fun t ht => ⟨hx.1.trans ht.1, ht.2⟩
+    refine ⟨⟨hx.1, hx.2.le, ?_⟩, ⟨hx.1.le, hx.2, ?_⟩, ?_, ?_⟩
+    · rw [nhdsWithin_Ioo_eq_nhdsLT hx.1]
+      exact hML.tendsto_nhdsWithin_Ioo_left (nonempty_Ioo.mpr hx.1) (hLB x hx)
+    · rw [nhdsWithin_Ioo_eq_nhdsGT hx.2]
+      exact hMR.tendsto_nhdsWithin_Ioo_right (nonempty_Ioo.mpr hx.2) (hRB x hx)
+    · apply le_csInf ((nonempty_Ioo.mpr hx.1).image f)
+      rintro _ ⟨t, ht, rfl⟩
+      exact hf ⟨ht.1, ht.2.trans hx.2⟩ hx ht.2.le
+    · apply csSup_le ((nonempty_Ioo.mpr hx.2).image f)
+      rintro _ ⟨t, ht, rfl⟩
+      exact hf hx ⟨hx.1.trans ht.1, ht.2⟩ ht.1.le
+  · intro x y hax hxy hyb
+    obtain ⟨z, hxz, hzy⟩ := exists_between hxy
+    exact (csInf_le (hLB y ⟨hax.trans hxy, hyb⟩)
+      (mem_image_of_mem f ⟨hax.trans hxz, hzy⟩)).trans
+      (le_csSup (hRB x ⟨hax, hxy.trans hyb⟩)
+        (mem_image_of_mem f ⟨hxz, hzy.trans hyb⟩))
+
+theorem node_4_29 : Statement_4_29 := by
+  intro a b f
+  exact ⟨fun hf => increasing_interval_limits ((intervalIncreasing_iff_monotoneOn a b f).mp hf),
+    fun hf => decreasing_interval_limits ((intervalDecreasing_iff_antitoneOn a b f).mp hf)⟩
+
 end Rudin.PMA.Chapter04
