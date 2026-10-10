@@ -7,6 +7,7 @@ import Rudin.PMA.Chapter07.Calculus
 import Rudin.PMA.Chapter07.Continuity
 import Rudin.PMA.Chapter07.Nowhere
 import Rudin.PMA.Chapter07.NoSubsequence
+import Rudin.PMA.Chapter07.Equicontinuity
 
 /-! # PMA Chapter 7: verified sections in dependency order.
 Only the indexed nodes below are integrated; each imported module retains its frozen reviewed bytes. -/
@@ -85,8 +86,32 @@ Principal proof: `pma7_17`. Definitions and supporting proofs: `Chapter07/Calcul
 Principal proof: `pma7_18`. Definitions and supporting proofs: `Chapter07/Nowhere.lean`.
 -/
 
+/-! ### PMA-7.19
+Principal proof: `pma7_19`. Definitions and supporting proofs: `Chapter07/Equicontinuity.lean`.
+-/
+
 /-! ### PMA-7.20
 Principal proof: `pma7_20`. Definitions and supporting proofs: `Chapter07/NoSubsequence.lean`.
+-/
+
+/-! ### PMA-7.21
+Principal proof: `pma7_21`. Definitions and supporting proofs: `Chapter07/Equicontinuity.lean`.
+-/
+
+/-! ### PMA-7.22
+Principal proof: `pma7_22`. Definitions and supporting proofs: `Chapter07/Equicontinuity.lean`.
+-/
+
+/-! ### PMA-7.23
+Principal proof: `pma7_23`. Definitions and supporting proofs: `Chapter07/Equicontinuity.lean`.
+-/
+
+/-! ### PMA-7.24
+Principal proof: `pma7_24`. Definitions and supporting proofs: `Chapter07/Equicontinuity.lean`.
+-/
+
+/-! ### PMA-7.25
+Principal proof: `pma7_25`. Definitions and supporting proofs: `Chapter07/Equicontinuity.lean`.
 -/
 
 end Rudin.PMA.Chapter07
