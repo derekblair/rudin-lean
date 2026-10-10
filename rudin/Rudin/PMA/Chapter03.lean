@@ -430,4 +430,25 @@ theorem pma3_13_decreasing_reference (s : ℕ → ℝ) :
     DecreasingSequence s ↔ Antitone s := by
   exact ⟨antitone_nat_of_succ_le, fun h n => h (Nat.le_succ n)⟩
 
+/-! ### PMA-3.14: convergence of bounded monotonic real sequences. -/
+
+theorem pma3_14 (s : ℕ → ℝ) (hm : MonotonicSequence s) :
+    SequenceConverges s ↔ SequenceBounded s := by
+  refine ⟨pma3_2_bounded, fun hb => ?_⟩
+  have hbound := (pma3_1_bounded_reference _).mp hb
+  obtain ⟨R, hR⟩ := hbound.exists_norm_le
+  have hupper : BddAbove (range s) := by
+    refine ⟨R, ?_⟩
+    rintro _ ⟨n, rfl⟩
+    exact (le_abs_self _).trans (by simpa only [Real.norm_eq_abs] using hR _ (mem_range_self n))
+  have hlower : BddBelow (range s) := by
+    refine ⟨-R, ?_⟩
+    rintro _ ⟨n, rfl⟩
+    have hnorm := hR _ (mem_range_self n)
+    exact (abs_le.mp (by simpa only [Real.norm_eq_abs] using hnorm)).1
+  rcases hm with hi | hd
+  · exact ⟨⨆ n, s n, (pma3_1_reference _ _).mpr
+      (tendsto_atTop_ciSup ((pma3_13_increasing_reference _).mp hi) hupper)⟩
+  · exact ⟨⨅ n, s n, (pma3_1_reference _ _).mpr
+      (tendsto_atTop_ciInf ((pma3_13_decreasing_reference _).mp hd) hlower)⟩
 end Rudin.PMA.Chapter03
