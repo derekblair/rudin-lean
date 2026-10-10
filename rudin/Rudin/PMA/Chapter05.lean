@@ -602,4 +602,18 @@ theorem pma5_9 : pma5_9_contract := by
   obtain ⟨x, hx, he⟩ := exists_ratio_hasDerivAt_eq_ratio_slope f f' hab hfc hfd g g' hgc hgd
   exact ⟨x, hx, he.symm⟩
 
+/-! ### PMA-5.10: The real mean value theorem -/
+
+def pma5_10_contract : Prop :=
+  ∀ (f f' : ℝ → ℝ) (a b : ℝ), a < b →
+    ContinuousOn f (Icc a b) →
+    (∀ x ∈ Ioo a b, HasDerivAt f (f' x) x) →
+    ∃ x ∈ Ioo a b, f b - f a = (b - a) * f' x
+
+theorem pma5_10 : pma5_10_contract := by
+  intro f f' a b hab hfc hfd
+  obtain ⟨x, hx, he⟩ := exists_hasDerivAt_eq_slope f f' hab hfc hfd
+  refine ⟨x, hx, ?_⟩
+  rw [he, mul_div_cancel₀ _ (sub_ne_zero.mpr hab.ne')]
+
 end Rudin.PMA.Chapter05
