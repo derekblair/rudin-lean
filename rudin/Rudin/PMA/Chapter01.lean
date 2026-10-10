@@ -955,4 +955,30 @@ theorem pma_complex_cauchy_schwarz {n : ℕ} (a b : Fin n → ℂ) :
       rw [mul_pow, EuclideanSpace.norm_sq_eq, EuclideanSpace.norm_sq_eq]
       simp [x, y, mul_comm]
 
+/-! ### PMA-1.36: Euclidean k-space and its coordinate operations. -/
+
+abbrev PMAEuclideanSpace (k : ℕ) := EuclideanSpace ℝ (Fin k)
+
+def pmaInnerProduct {k : ℕ} (x y : PMAEuclideanSpace k) : ℝ := inner ℝ x y
+def pmaEuclideanNorm {k : ℕ} (x : PMAEuclideanSpace k) : ℝ := ‖x‖
+
+theorem pma_euclidean_add_coordinates {k : ℕ} (x y : PMAEuclideanSpace k) (j : Fin k) :
+    (x + y) j = x j + y j := rfl
+
+theorem pma_euclidean_smul_coordinates {k : ℕ} (a : ℝ) (x : PMAEuclideanSpace k)
+    (j : Fin k) : (a • x) j = a * x j := rfl
+
+theorem pma_inner_product_coordinates {k : ℕ} (x y : PMAEuclideanSpace k) :
+    pmaInnerProduct x y = ∑ j, x j * y j := by
+  simp [pmaInnerProduct, PiLp.inner_apply, mul_comm]
+
+theorem pma_euclidean_norm_coordinates {k : ℕ} (x : PMAEuclideanSpace k) :
+    pmaEuclideanNorm x = Real.sqrt (∑ j, x j ^ 2) := by
+  simp [pmaEuclideanNorm, EuclideanSpace.norm_eq]
+
+theorem pma_euclidean_norm_inner {k : ℕ} (x : PMAEuclideanSpace k) :
+    pmaEuclideanNorm x = Real.sqrt (pmaInnerProduct x x) := by
+  rw [pma_euclidean_norm_coordinates, pma_inner_product_coordinates]
+  simp [sq]
+
 end Rudin.PMA.Chapter01
