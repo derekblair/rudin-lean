@@ -2358,4 +2358,16 @@ theorem pma3_47 : pma3_47_contract := by
   · change Tendsto (fun N => ∑ n ∈ Finset.range N, c * a n) atTop (𝓝 (c * A))
     simpa [PartialSums, Finset.mul_sum] using ha.const_mul c
 
+/-! ### PMA-3.48: the Cauchy product coefficients. -/
+
+def CauchyProduct {R : Type*} [Semiring R] (a b : ℕ → R) (n : ℕ) : R :=
+  ∑ k ∈ Finset.range (n + 1), a k * b (n - k)
+
+def pma3_48_contract : Prop := ∀ (a b : ℕ → ℂ) (n : ℕ),
+  CauchyProduct a b n = ∑ kl ∈ Finset.HasAntidiagonal.antidiagonal n, a kl.1 * b kl.2
+
+theorem pma3_48 : pma3_48_contract := by
+  intro a b n
+  exact (Finset.Nat.sum_antidiagonal_eq_sum_range_succ (fun k l => a k * b l) n).symm
+
 end Rudin.PMA.Chapter03
