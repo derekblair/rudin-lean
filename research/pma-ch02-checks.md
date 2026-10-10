@@ -37,3 +37,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-2.29 | PASS: Relative openness gives positive-radius balls intersected with the subspace; subtype-openness comparator preserves ambient center/member quantifiers. |
 | PMA-2.30 | PASS: Relative openness iff equality with subspace intersect some ambient open set; subtype-inducing theorem. |
 | PMA-2.31 | PASS: Open-cover family has ambient open members and covers the target union; membership comparator. |
+| PMA-2.32 | PASS: Finite-subcover compactness is equivalent to IsCompact, and finite sets are compact. |

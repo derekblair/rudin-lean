@@ -886,4 +886,26 @@ theorem pma2_31_reference {X : Type*} [TopologicalSpace X] (E : Set X)
     OpenCover E G ↔ (∀ i, IsOpen (G i)) ∧ ∀ x ∈ E, ∃ i, x ∈ G i := by
   simp [OpenCover, Set.subset_def]
 
+/-! ### PMA-2.32: compactness is the finite subcover property; finite sets are compact. -/
+
+universe u
+
+def RudinCompact {X : Type u} [TopologicalSpace X] (K : Set X) : Prop :=
+  ∀ {ι : Type u} (G : ι → Set X), OpenCover K G →
+    ∃ t : Finset ι, K ⊆ ⋃ i ∈ t, G i
+
+theorem pma2_32_reference {X : Type u} [TopologicalSpace X] (K : Set X) :
+    RudinCompact K ↔ IsCompact K := by
+  constructor
+  · intro h
+    apply isCompact_iff_finite_subcover.mpr
+    intro ι G ho hc
+    exact h G ⟨ho, hc⟩
+  · intro h ι G hG
+    exact h.elim_finite_subcover G hG.1 hG.2
+
+theorem pma2_32_finite {X : Type u} [TopologicalSpace X] {K : Set X}
+    (hK : K.Finite) : RudinCompact K :=
+  (pma2_32_reference K).mpr hK.isCompact
+
 end Rudin.PMA.Chapter02
