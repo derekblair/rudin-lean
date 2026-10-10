@@ -22,3 +22,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-4.14 | PASS: arbitrary compact metric domain and continuous metric-valued image. |
 | PMA-4.15 | PASS: closed and bounded Euclidean image and literal boundedness. |
 | PMA-4.16 | PASS: nonempty compact domain, actual supremum/infimum equalities, and global maximum/minimum inequalities. |
+| PMA-4.17 | PASS: continuous actual bijection and continuity of its inverse. |

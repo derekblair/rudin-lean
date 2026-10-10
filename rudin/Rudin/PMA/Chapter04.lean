@@ -388,4 +388,13 @@ theorem pma4_16 : pma4_16_contract := by
   · simpa only [image_univ] using hmax.symm
   · simpa only [image_univ] using hmin.symm
 
+/-! ### PMA-4.17: Continuous inverse from a compact domain -/
+def pma4_17_contract : Prop :=
+  ∀ {X Y : Type*} [MetricSpace X] [MetricSpace Y] [CompactSpace X]
+    (e : X ≃ Y), Continuous e → Continuous e.symm
+
+theorem pma4_17 : pma4_17_contract := by
+  intro X Y _ _ _ e he
+  exact (e.toHomeomorphOfContinuousClosed he he.isClosedMap).continuous_invFun
+
 end Rudin.PMA.Chapter04
