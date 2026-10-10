@@ -116,4 +116,39 @@ theorem pma2_4_uncountable_reference (A : Type*) : RudinUncountable A ↔ ¬ Cou
 /-! ### PMA-2.5: integers are countably infinite. -/
 theorem pma2_5 : RudinCountable ℤ := ⟨Equiv.intEquivNat⟩
 
+/-! ### PMA-2.6: finite and infinite sets compared with proper subsets. -/
+theorem pma2_6_finite {A : Type*} (S T : Set A) (hS : S.Finite) (hTS : T ⊂ S) :
+    ¬ Equinumerous S T := by
+  rintro ⟨e⟩
+  let : Finite S := hS.to_subtype
+  let f : S → S := fun x => ⟨e x, hTS.subset (e x).property⟩
+  have hf : Function.Injective f := by
+    intro x y h
+    apply e.injective
+    apply Subtype.ext
+    exact congrArg (fun z : S => z.val) h
+  have hs : Function.Surjective f := Finite.surjective_of_injective hf
+  obtain ⟨a,ha,hna⟩ := Set.exists_of_ssubset hTS
+  obtain ⟨x,hx⟩ := hs ⟨a,ha⟩
+  have he : (e x).val = a := congrArg Subtype.val hx
+  exact hna (he ▸ (e x).property)
+
+theorem pma2_6_infinite {A : Type*} (S : Set A) (hS : S.Infinite) :
+    ∃ T : Set A, T ⊂ S ∧ Equinumerous S T := by
+  obtain ⟨a,ha⟩ := hS.nonempty
+  refine ⟨S \ {a}, ?_, ?_⟩
+  · refine Set.ssubset_iff_subset_ne.mpr ⟨Set.sdiff_subset, ?_⟩
+    intro heq
+    have : a ∈ S \ {a} := heq.symm ▸ ha
+    exact this.2 (by simp)
+  · exact Cardinal.eq.mp
+      (Cardinal.mk_sdiff_eq_left_of_finite hS (Set.finite_singleton a)).symm
+
+theorem pma2_6_characterization {A : Type*} (S : Set A) :
+    S.Infinite ↔ ∃ T : Set A, T ⊂ S ∧ Equinumerous S T := by
+  constructor
+  · exact pma2_6_infinite S
+  · rintro ⟨T,hT,he⟩ hfin
+    exact pma2_6_finite S T hfin hT he
+
 end Rudin.PMA.Chapter02
