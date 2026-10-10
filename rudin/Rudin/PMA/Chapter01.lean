@@ -392,4 +392,14 @@ theorem pma_multiplication_consequences {K : Type*} [GroupWithZero K] :
   · intro x _
     exact inv_inv x
 
+/-! ### PMA-1.16: Zero products and signs -/
+
+theorem pma_field_sign_consequences {K : Type*} [Field K] :
+    (∀ x : K, 0 * x = 0) ∧
+    (∀ x y : K, x * y = 0 → x = 0 ∨ y = 0) ∧
+    (∀ x y : K, (-x) * y = -(x * y) ∧ -(x * y) = x * (-y)) ∧
+    (∀ x y : K, (-x) * (-y) = x * y) := by
+  exact ⟨zero_mul, fun _ _ h => mul_eq_zero.mp h,
+    fun x y => ⟨neg_mul x y, (mul_neg x y).symm⟩, neg_mul_neg⟩
+
 end Rudin.PMA.Chapter01
