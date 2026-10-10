@@ -934,4 +934,25 @@ theorem node_3_26 : Statement_3_26 := by
     obtain ⟨n,hn⟩ := hh.exists
     exact not_lt_of_ge (hp n) hn
 
+/-! ### PMA-3.27: Cauchy condensation, with the source's positive indices. -/
+def Statement_3_27 : Prop :=
+  ∀ a : ℕ → ℝ, (∀ n, 1 ≤ n → 0 ≤ a n) →
+    (∀ m n, 1 ≤ m → m ≤ n → a n ≤ a m) →
+    (SeriesConverges (fun n => a (n+1)) ↔
+      SeriesConverges (fun k : ℕ => (2 : ℝ)^k * a (2^k)))
+
+/-! PMA-3.27 proof details: Verified condensation with positive-index coefficients. -/
+theorem node_3_27 : Statement_3_27 := by
+  intro a ha hmono
+  have hnonneg : ∀ n : ℕ, 0 ≤ a (n+1) := fun n => ha (n+1) (by omega)
+  have hdnonneg : ∀ k : ℕ, 0 ≤ (2 : ℝ)^k * a (2^k) := by
+    intro k
+    exact mul_nonneg (by positivity) (ha _ (Nat.one_le_two_pow))
+  rw [seriesConverges_iff_summable_nonneg hnonneg,
+    seriesConverges_iff_summable_nonneg hdnonneg,summable_nat_add_iff 1]
+  symm
+  exact summable_condensed_iff_of_eventually_nonneg
+    (eventually_atTop.mpr ⟨1,ha⟩)
+    (eventually_atTop.mpr ⟨1,fun n hn => hmono n (n+1) hn (by omega)⟩)
+
 end Rudin.PMA.Chapter03

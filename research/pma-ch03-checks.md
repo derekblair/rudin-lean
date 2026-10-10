@@ -31,3 +31,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.24 | PASS: nonnegative real terms and bounded partial sums. |
 | PMA-3.25 | PASS: eventual norm comparison and eventual nonnegative divergent lower comparison. |
 | PMA-3.26 | PASS: sum for every `0≤x<1`, including zero, and divergence for every `x≥1`. |
+| PMA-3.27 | PASS: positive indices, nonnegative terms including zero, non-strict decrease, exact condensation weights and indices. |
