@@ -356,4 +356,22 @@ theorem pma3_10_intersection {X : Type*} [MetricSpace X] (K : ℕ → Set X)
   have hzero : edist q p ≤ 0 := ge_of_tendsto hd (Eventually.of_forall hbound)
   exact edist_eq_zero.mp (le_antisymm hzero bot_le)
 
+/-! ### PMA-3.11: convergence and Cauchy sequences. -/
+
+theorem pma3_11_convergent {X : Type*} [MetricSpace X] {s : ℕ → X}
+    (h : SequenceConverges s) : RudinCauchy s := by
+  obtain ⟨p, hp⟩ := h
+  exact (pma3_8_reference _).mpr ((pma3_1_reference _ _).mp hp).cauchySeq
+
+theorem pma3_11_compact {X : Type*} [MetricSpace X] [CompactSpace X]
+    {s : ℕ → X} (h : RudinCauchy s) : SequenceConverges s := by
+  obtain ⟨p, hp⟩ := cauchySeq_tendsto_of_complete ((pma3_8_reference _).mp h)
+  exact ⟨p, (pma3_1_reference _ _).mpr hp⟩
+
+theorem pma3_11_euclidean {k : ℕ} (s : ℕ → EuclideanSpace ℝ (Fin k)) :
+    SequenceConverges s ↔ RudinCauchy s := by
+  refine ⟨pma3_11_convergent, fun h => ?_⟩
+  obtain ⟨p, hp⟩ := cauchySeq_tendsto_of_complete ((pma3_8_reference _).mp h)
+  exact ⟨p, (pma3_1_reference _ _).mpr hp⟩
+
 end Rudin.PMA.Chapter03
