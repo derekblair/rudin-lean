@@ -645,4 +645,97 @@ theorem pma5_11 : pma5_11_contract := by
   · exact le_antisymm (hm' hx hy hxy) (ha' hx hy hxy)
   · exact le_antisymm (ha' hy hx hyx) (hm' hy hx hyx)
 
+/-! ### PMA-5.12: Darboux's theorem and absence of simple derivative discontinuities -/
+
+def pma5_12_contract : Prop :=
+  ∀ (f f' : ℝ → ℝ) (a b : ℝ), a < b →
+    (∀ x ∈ Icc a b, HasDerivWithinAt f (f' x) (Icc a b) x) →
+    (∀ m, ((f' a < m ∧ m < f' b) ∨ (f' b < m ∧ m < f' a)) →
+      ∃ x ∈ Ioo a b, f' x = m) ∧
+    (∀ x l, Chapter04.LeftLimitOn a b f' x l → l = f' x) ∧
+    (∀ x r, Chapter04.RightLimitOn a b f' x r → r = f' x) ∧
+    (∀ x, ¬ Chapter04.FirstKindDiscontinuityOn a b f' x)
+
+theorem derivative_leftLimit_eq {f f' : ℝ → ℝ} {a b x l : ℝ}
+    (hf : ∀ y ∈ Icc a b, HasDerivWithinAt f (f' y) (Icc a b) y)
+    (hl : Chapter04.LeftLimitOn a b f' x l) : l = f' x := by
+  have hsub : Ioo a x ⊆ Icc a b := fun y hy => ⟨hy.1.le, hy.2.le.trans hl.2.1⟩
+  have hd : DifferentiableOn ℝ f (Ioo a x) := fun y hy =>
+    ((hf y (hsub hy)).mono hsub).differentiableWithinAt
+  have hc : ContinuousWithinAt f (Ioo a x) x :=
+    (hf x ⟨hl.1.le, hl.2.1⟩).continuousWithinAt.mono hsub
+  have he : f' =ᶠ[𝓝[<] x] deriv f := by
+    filter_upwards [Ioo_mem_nhdsLT hl.1] with y hy
+    exact ((hf y (hsub hy)).hasDerivAt
+      (mem_of_superset (Ioo_mem_nhds hy.1 (hy.2.trans_le hl.2.1)) Ioo_subset_Icc_self)).deriv.symm
+  have ht : Tendsto f' (𝓝[<] x) (𝓝 l) := by
+    simpa only [nhdsWithin_Ioo_eq_nhdsLT hl.1] using hl.2.2
+  have hdl := hasDerivWithinAt_Iic_of_tendsto_deriv hd hc (Ioo_mem_nhdsLT hl.1) (ht.congr' he)
+  have hdl' : HasDerivWithinAt f l (Icc a x) x := hdl.mono Icc_subset_Iic_self
+  have hdf' : HasDerivWithinAt f (f' x) (Icc a x) x :=
+    (hf x ⟨hl.1.le, hl.2.1⟩).mono (Icc_subset_Icc le_rfl hl.2.1)
+  exact (uniqueDiffOn_Icc hl.1 x ⟨hl.1.le, le_rfl⟩).eq_deriv _ hdl' hdf'
+
+theorem derivative_rightLimit_eq {f f' : ℝ → ℝ} {a b x r : ℝ}
+    (hf : ∀ y ∈ Icc a b, HasDerivWithinAt f (f' y) (Icc a b) y)
+    (hr : Chapter04.RightLimitOn a b f' x r) : r = f' x := by
+  have hsub : Ioo x b ⊆ Icc a b := fun y hy => ⟨hr.1.trans hy.1.le, hy.2.le⟩
+  have hd : DifferentiableOn ℝ f (Ioo x b) := fun y hy =>
+    ((hf y (hsub hy)).mono hsub).differentiableWithinAt
+  have hc : ContinuousWithinAt f (Ioo x b) x :=
+    (hf x ⟨hr.1, hr.2.1.le⟩).continuousWithinAt.mono hsub
+  have he : f' =ᶠ[𝓝[>] x] deriv f := by
+    filter_upwards [Ioo_mem_nhdsGT hr.2.1] with y hy
+    exact ((hf y (hsub hy)).hasDerivAt
+      (mem_of_superset (Ioo_mem_nhds (hr.1.trans_lt hy.1) hy.2) Ioo_subset_Icc_self)).deriv.symm
+  have ht : Tendsto f' (𝓝[>] x) (𝓝 r) := by
+    simpa only [nhdsWithin_Ioo_eq_nhdsGT hr.2.1] using hr.2.2
+  have hdr := hasDerivWithinAt_Ici_of_tendsto_deriv hd hc (Ioo_mem_nhdsGT hr.2.1) (ht.congr' he)
+  have hdr' : HasDerivWithinAt f r (Icc x b) x := hdr.mono Icc_subset_Ici_self
+  have hdf' : HasDerivWithinAt f (f' x) (Icc x b) x :=
+    (hf x ⟨hr.1, hr.2.1.le⟩).mono (Icc_subset_Icc hr.1 le_rfl)
+  exact (uniqueDiffOn_Icc hr.2.1 x ⟨le_rfl, hr.2.1.le⟩).eq_deriv _ hdr' hdf'
+
+theorem pma5_12 : pma5_12_contract := by
+  intro f f' a b hab hf
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · intro m hm
+    rcases hm with ⟨ham, hmb⟩ | ⟨hbm, hma⟩
+    · exact exists_hasDerivWithinAt_eq_of_gt_of_lt hab.le hf ham hmb
+    · exact exists_hasDerivWithinAt_eq_of_lt_of_gt hab.le hf hma hbm
+  · intro x l hl
+    exact derivative_leftLimit_eq hf hl
+  · intro x r hr
+    exact derivative_rightLimit_eq hf hr
+  · intro x hx
+    obtain ⟨l, hl⟩ := hx.2.2.1
+    obtain ⟨r, hr⟩ := hx.2.2.2
+    exact hx.2.1 ((Chapter04.continuous_iff_oneSided_eq f' hx.1 hl hr).mpr
+      ⟨derivative_leftLimit_eq hf hl, derivative_rightLimit_eq hf hr⟩)
+
+/-! Boundary probes: interior extremum is essential, and a one-sided endpoint
+derivative need not be a two-sided derivative of the chosen total extension. -/
+
+theorem middle_probe_endpoint_fermat_failure :
+    HasDerivWithinAt (fun x : ℝ => x) 1 (Icc 0 1) 0 ∧
+    IsLocalMinOn (fun x : ℝ => x) (Icc 0 1) 0 ∧ (1 : ℝ) ≠ 0 := by
+  refine ⟨hasDerivWithinAt_id 0 _, ?_, one_ne_zero⟩
+  change ∀ᶠ x in 𝓝[Icc (0 : ℝ) 1] 0, 0 ≤ x
+  filter_upwards [self_mem_nhdsWithin] with x hx using hx.1
+
+theorem middle_probe_oneSided_abs :
+    (∀ x ∈ Icc (0 : ℝ) 1, HasDerivWithinAt abs 1 (Icc 0 1) x) ∧
+    ¬ DifferentiableAt ℝ (abs : ℝ → ℝ) 0 := by
+  refine ⟨?_, not_differentiableAt_abs_zero⟩
+  intro x hx
+  exact (hasDerivWithinAt_id x (Icc 0 1)).congr_of_mem
+    (fun y hy => abs_of_nonneg hy.1) hx
+
+theorem middle_probe_MVT_without_endpoint_differentiability :
+    (∃ x ∈ Ioo (0 : ℝ) 1, |(1 : ℝ)| - |(0 : ℝ)| = (1 - 0) * (1 : ℝ)) ∧
+    ¬ DifferentiableAt ℝ (abs : ℝ → ℝ) 0 := by
+  refine ⟨pma5_10 abs (fun _ => 1) 0 1 zero_lt_one continuous_abs.continuousOn ?_,
+    not_differentiableAt_abs_zero⟩
+  exact fun x hx => hasDerivAt_abs_pos hx.1
+
 end Rudin.PMA.Chapter05
