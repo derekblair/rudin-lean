@@ -5,6 +5,7 @@ import Rudin.PMA.Chapter02Audit
 import Rudin.PMA.Chapter03
 import Rudin.PMA.Chapter03Audit
 import Rudin.PMA.Chapter04
+import Rudin.PMA.Chapter04Audit
 import Rudin.PMA.Chapter05
 import Rudin.PMA.Chapter06
 import Rudin.PMA.Chapter07
