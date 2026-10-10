@@ -46,3 +46,4 @@ folded into 1.1 under PROGRAM.md's rule for remarks. The requested target count 
 | PMA-1.34 | PASS: Finite complex summation is the sum of n entries. | Fin n indexing represents the source n-term list; zero/successor unfolding verified. |
 | PMA-1.35 | PASS: Squared modulus of the sum of a_j times conjugate b_j is bounded by the product of the two sums of squared moduli. | Euclidean complex inner product with the correct conjugation orientation; norm_inner_le_norm and norm_sq_eq. |
 | PMA-1.36 | PASS: Euclidean k-space has real coordinates, coordinate addition/scaling, dot product and square-root sum-of-squares norm. | EuclideanSpace ℝ (Fin k), PiLp.inner_apply and EuclideanSpace.norm_eq; k=0 is a harmless additional dimension. |
+| PMA-1.37 | PASS: All six stated properties hold: nonnegativity, definiteness, homogeneity, real Schwarz, vector triangle and distance triangle. | Normed/inner-product-space references, including norm_sub_le_norm_sub_add_norm_sub. |

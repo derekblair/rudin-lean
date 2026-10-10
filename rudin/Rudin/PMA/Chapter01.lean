@@ -981,4 +981,16 @@ theorem pma_euclidean_norm_inner {k : ℕ} (x : PMAEuclideanSpace k) :
   rw [pma_euclidean_norm_coordinates, pma_inner_product_coordinates]
   simp [sq]
 
+/-! ### PMA-1.37: norm properties, including the distance triangle inequality. -/
+
+theorem pma_euclidean_norm_properties {k : ℕ} (a : ℝ) (x y z : PMAEuclideanSpace k) :
+    0 ≤ pmaEuclideanNorm x ∧
+    (pmaEuclideanNorm x = 0 ↔ x = 0) ∧
+    pmaEuclideanNorm (a • x) = |a| * pmaEuclideanNorm x ∧
+    |pmaInnerProduct x y| ≤ pmaEuclideanNorm x * pmaEuclideanNorm y ∧
+    pmaEuclideanNorm (x + y) ≤ pmaEuclideanNorm x + pmaEuclideanNorm y ∧
+    pmaEuclideanNorm (x - z) ≤ pmaEuclideanNorm (x - y) + pmaEuclideanNorm (y - z) := by
+  exact ⟨norm_nonneg x, norm_eq_zero, by simpa [pmaEuclideanNorm] using norm_smul a x,
+    abs_real_inner_le_norm x y, norm_add_le x y, norm_sub_le_norm_sub_add_norm_sub x y z⟩
+
 end Rudin.PMA.Chapter01
