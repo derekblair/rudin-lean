@@ -1490,4 +1490,295 @@ theorem node_3_34 : Statement_3_34 := by
   · exact fun hs => (by norm_num : ¬ (1 : ℝ) < 1) ((node_3_28 1).mp hs)
   · exact (node_3_28 2).mpr (by norm_num)
 
+/-! ### PMA-3.35: Two convergent series whose ratio convergence test fails.
+
+The definitions use a zero head at index 0 and exactly Rudin's coefficients
+at positive indices, as specified separately in the contracts.
+-/
+noncomputable def RatioExampleA (n : ℕ) : ℝ :=
+  if n = 0 then 0 else if n % 2 = 1 then 1/(2 : ℝ)^((n+1)/2) else 1/(3 : ℝ)^(n/2)
+
+noncomputable def RatioExampleB (n : ℕ) : ℝ :=
+  if n = 0 then 0 else if n % 2 = 1 then 1/((2 : ℝ)*4^(n/2)) else 1/(4 : ℝ)^(n/2-1)
+
+def Statement_3_35 : Prop :=
+  (∀ n : ℕ, 1 ≤ n → RatioExampleA (2*n-1) = 1/(2 : ℝ)^n ∧
+    RatioExampleA (2*n) = 1/(3 : ℝ)^n) ∧
+  RatioLiminf RatioExampleA = 0 ∧ RatioLimsup RatioExampleA = ⊤ ∧
+  RootLiminf RatioExampleA = ENNReal.ofReal (1/Real.sqrt 3) ∧
+  RootLimsup RatioExampleA = ENNReal.ofReal (1/Real.sqrt 2) ∧
+  SeriesConverges RatioExampleA ∧ ¬ RatioLimsup RatioExampleA < 1 ∧
+  (∀ n : ℕ, 1 ≤ n → RatioExampleB (2*n-1) = 1/((2 : ℝ)*4^(n-1)) ∧
+    RatioExampleB (2*n) = 1/(4 : ℝ)^(n-1)) ∧
+  RatioLiminf RatioExampleB = ENNReal.ofReal (1/8) ∧
+  RatioLimsup RatioExampleB = 2 ∧
+  Tendsto (NthRootNorm RatioExampleB) atTop (𝓝 (1/2)) ∧
+  SeriesConverges RatioExampleB ∧ ¬ RatioLimsup RatioExampleB < 1
+
+/-! PMA-3.35 proof details: Splitting limits into even and odd indices. -/
+theorem nat_atTop_even_odd :
+    (atTop : Filter ℕ) = map (fun n => 2*n) atTop ⊔ map (fun n => 2*n+1) atTop := by
+  ext S
+  simp only [Filter.mem_sup,Filter.mem_map]
+  change (∀ᶠ n in atTop, n ∈ S) ↔
+    (∀ᶠ n in atTop, 2*n ∈ S) ∧ (∀ᶠ n in atTop, 2*n+1 ∈ S)
+  simp only [eventually_atTop]
+  constructor
+  · rintro ⟨N,hN⟩
+    exact ⟨⟨N,fun n hn => hN (2*n) (by omega)⟩,
+      ⟨N,fun n hn => hN (2*n+1) (by omega)⟩⟩
+  · rintro ⟨⟨N,hN⟩,⟨M,hM⟩⟩
+    refine ⟨2*(N+M+1),fun n hn => ?_⟩
+    have hd : n%2 = 0 ∨ n%2 = 1 := by omega
+    rcases hd with hd | hd
+    · have he : n = 2*(n/2) := by omega
+      rw [he]
+      exact hN (n/2) (by omega)
+    · have he : n = 2*(n/2)+1 := by omega
+      rw [he]
+      exact hM (n/2) (by omega)
+
+theorem tendsto_of_even_odd {X : Type*} [TopologicalSpace X] {u : ℕ → X} {x : X}
+    (he : Tendsto (fun n => u (2*n)) atTop (𝓝 x))
+    (ho : Tendsto (fun n => u (2*n+1)) atTop (𝓝 x)) : Tendsto u atTop (𝓝 x) := by
+  rw [nat_atTop_even_odd]
+  exact tendsto_sup.mpr ⟨(tendsto_map'_iff).mpr he,(tendsto_map'_iff).mpr ho⟩
+
+theorem limsup_even_odd {u : ℕ → ENNReal} :
+    limsup u atTop = max (limsup (fun n => u (2*n)) atTop)
+      (limsup (fun n => u (2*n+1)) atTop) := by
+  nth_rw 1 [nat_atTop_even_odd]
+  rw [limsup_sup_filter]
+  rfl
+
+theorem liminf_even_odd {u : ℕ → ENNReal} :
+    liminf u atTop = min (liminf (fun n => u (2*n)) atTop)
+      (liminf (fun n => u (2*n+1)) atTop) := by
+  nth_rw 1 [nat_atTop_even_odd]
+  rw [liminf_sup_filter]
+  rfl
+
+theorem ratioExampleA_odd (n : ℕ) : RatioExampleA (2*n+1) = 1/(2 : ℝ)^(n+1) := by
+  simp [RatioExampleA,show (2*n+1)%2 = 1 by omega,
+    show (2*n+1+1)/2 = n+1 by omega]
+
+theorem ratioExampleA_even (n : ℕ) : RatioExampleA (2*n+2) = 1/(3 : ℝ)^(n+1) := by
+  simp [RatioExampleA,
+    show (2*n+2)/2 = n+1 by omega]
+
+theorem ratioExampleB_odd (n : ℕ) : RatioExampleB (2*n+1) = 1/((2 : ℝ)*4^n) := by
+  simp [RatioExampleB,show (2*n+1)%2 = 1 by omega,
+    show (2*n+1)/2 = n by omega]
+
+theorem ratioExampleB_even (n : ℕ) : RatioExampleB (2*n+2) = 1/(4 : ℝ)^n := by
+  simp [RatioExampleB,
+    show (2*n+2)/2 = n+1 by omega]
+
+theorem ratioExampleA_ratio_odd (n : ℕ) :
+    RatioNorm RatioExampleA (2*n+1) = (2/3 : ℝ)^(n+1) := by
+  unfold RatioNorm
+  rw [show 2*n+1+1 = 2*n+2 by omega,ratioExampleA_even,ratioExampleA_odd]
+  rw [Real.norm_eq_abs,Real.norm_eq_abs,abs_of_pos (by positivity),abs_of_pos (by positivity)]
+  rw [div_pow]
+  field_simp
+
+theorem ratioExampleA_ratio_even (n : ℕ) :
+    RatioNorm RatioExampleA (2*n+2) = (1/2 : ℝ)*(3/2 : ℝ)^(n+1) := by
+  unfold RatioNorm
+  rw [show 2*n+2+1 = 2*(n+1)+1 by omega,ratioExampleA_odd,ratioExampleA_even]
+  rw [Real.norm_eq_abs,Real.norm_eq_abs,abs_of_pos (by positivity),abs_of_pos (by positivity)]
+  rw [div_pow,pow_succ]
+  field_simp
+
+theorem ratioExampleB_ratio_odd (n : ℕ) : RatioNorm RatioExampleB (2*n+1) = 2 := by
+  unfold RatioNorm
+  rw [show 2*n+1+1 = 2*n+2 by omega,ratioExampleB_even,ratioExampleB_odd]
+  rw [Real.norm_eq_abs,Real.norm_eq_abs,abs_of_pos (by positivity),abs_of_pos (by positivity)]
+  field_simp
+
+theorem ratioExampleB_ratio_even (n : ℕ) : RatioNorm RatioExampleB (2*n+2) = 1/8 := by
+  unfold RatioNorm
+  rw [show 2*n+2+1 = 2*(n+1)+1 by omega,ratioExampleB_odd,ratioExampleB_even]
+  rw [Real.norm_eq_abs,Real.norm_eq_abs,abs_of_pos (by positivity),abs_of_pos (by positivity)]
+  rw [pow_succ]
+  field_simp
+  ring
+
+theorem root_one_div_pow (b : ℝ) (hb : 0 < b) (k m : ℕ) :
+    (1/b^k)^(1/(m : ℝ)) = b^(-(k : ℝ)/(m : ℝ)) := by
+  rw [one_div,Real.inv_rpow (by positivity),← Real.rpow_natCast,
+    ← Real.rpow_mul hb.le,← Real.rpow_neg hb.le]
+  congr 1
+  ring
+
+theorem rpow_negative_half (b : ℝ) (hb : 0 ≤ b) :
+    b^(-(1/2 : ℝ)) = 1/Real.sqrt b := by
+  rw [Real.rpow_neg hb,← Real.sqrt_eq_rpow]
+  simp only [one_div]
+
+theorem ratioExampleA_root_even (n : ℕ) :
+    NthRootNorm RatioExampleA (2*n+2) = 1/Real.sqrt 3 := by
+  unfold NthRootNorm
+  rw [ratioExampleA_even,Real.norm_eq_abs,abs_of_pos (by positivity),
+    root_one_div_pow 3 (by norm_num)]
+  have he : -((n+1 : ℕ) : ℝ)/(2*n+2 : ℕ) = -(1/2 : ℝ) := by
+    push_cast
+    field_simp
+  rw [he,rpow_negative_half 3 (by norm_num)]
+
+theorem ratioExampleA_root_odd_tendsto :
+    Tendsto (fun n => NthRootNorm RatioExampleA (2*n+1)) atTop (𝓝 (1/Real.sqrt 2)) := by
+  have hlinear : Tendsto (fun n : ℕ => ((n : ℝ)+1)/(2*n+1)) atTop (𝓝 (1/2 : ℝ)) := by
+    simpa only [one_mul,mul_one,add_comm,mul_comm] using
+      tendsto_add_mul_div_add_mul_atTop_nhds (𝕜 := ℝ) 1 1 1 (d := 2) (by norm_num)
+  have hexp := hlinear.neg
+  have hpow := (tendsto_const_nhds : Tendsto (fun _ : ℕ => (2 : ℝ)) atTop (𝓝 2)).rpow hexp
+    (Or.inl (by norm_num : (2 : ℝ) ≠ 0))
+  rw [rpow_negative_half 2 (by norm_num)] at hpow
+  convert hpow using 1
+  funext n
+  unfold NthRootNorm
+  rw [ratioExampleA_odd,Real.norm_eq_abs,abs_of_pos (by positivity),
+    root_one_div_pow 2 (by norm_num)]
+  push_cast
+  congr 1
+  ring
+
+theorem ratioExampleB_root_odd (n : ℕ) : NthRootNorm RatioExampleB (2*n+1) = 1/2 := by
+  unfold NthRootNorm
+  rw [ratioExampleB_odd,Real.norm_eq_abs,abs_of_pos (by positivity)]
+  have he : (2 : ℝ)*4^n = 2^(2*n+1) := by
+    rw [pow_succ,pow_mul]
+    norm_num
+    ring
+  rw [he,root_one_div_pow 2 (by norm_num)]
+  have he' : -((2*n+1 : ℕ) : ℝ)/(2*n+1 : ℕ) = -(1 : ℝ) := by
+    rw [neg_div,div_self (by positivity)]
+  rw [he',Real.rpow_neg_one]
+  norm_num
+
+theorem ratioExampleB_root_even_tendsto :
+    Tendsto (fun n => NthRootNorm RatioExampleB (2*n+2)) atTop (𝓝 (1/2 : ℝ)) := by
+  have hlinear : Tendsto (fun n : ℕ => (n : ℝ)/(2*n+2)) atTop (𝓝 (1/2 : ℝ)) := by
+    simpa only [one_mul,mul_one,zero_add,add_zero,add_comm,mul_comm] using
+      tendsto_add_mul_div_add_mul_atTop_nhds (𝕜 := ℝ) 0 2 1 (d := 2) (by norm_num)
+  have hpow := (tendsto_const_nhds : Tendsto (fun _ : ℕ => (4 : ℝ)) atTop (𝓝 4)).rpow hlinear.neg
+    (Or.inl (by norm_num : (4 : ℝ) ≠ 0))
+  rw [rpow_negative_half 4 (by norm_num)] at hpow
+  norm_num at hpow
+  convert hpow using 1
+  funext n
+  unfold NthRootNorm
+  rw [ratioExampleB_even,Real.norm_eq_abs,abs_of_pos (by positivity),
+    root_one_div_pow 4 (by norm_num)]
+  push_cast
+  congr 1
+  ring
+
+theorem tendsto_even_of_shift {X : Type*} {l : Filter X} {u : ℕ → X}
+    (h : Tendsto (fun n => u (2*n+2)) atTop l) : Tendsto (fun n => u (2*n)) atTop l := by
+  apply (tendsto_add_atTop_iff_nat 1).mp
+  simpa only [Nat.mul_add,mul_one] using h
+
+theorem ratioExampleA_ratio_limits :
+    RatioLiminf RatioExampleA = 0 ∧ RatioLimsup RatioExampleA = ⊤ := by
+  have ho : Tendsto (fun n => RatioNorm RatioExampleA (2*n+1)) atTop (𝓝 0) := by
+    simpa only [ratioExampleA_ratio_odd,Function.comp_def] using
+      (tendsto_pow_atTop_nhds_zero_of_lt_one (by norm_num : (0 : ℝ) ≤ 2/3)
+        (by norm_num : (2/3 : ℝ) < 1)).comp (tendsto_add_atTop_nat 1)
+  have he' : Tendsto (fun n => RatioNorm RatioExampleA (2*n+2)) atTop atTop := by
+    simpa only [ratioExampleA_ratio_even,Function.comp_def] using
+      ((tendsto_pow_atTop_atTop_of_one_lt (by norm_num : (1 : ℝ) < 3/2)).comp
+        (tendsto_add_atTop_nat 1)).const_mul_atTop (by norm_num : (0 : ℝ) < 1/2)
+  have he := ENNReal.tendsto_ofReal_nhds_top.mpr (tendsto_even_of_shift he')
+  have ho' := ENNReal.tendsto_ofReal ho
+  simp only [ENNReal.ofReal_zero] at ho'
+  constructor
+  · unfold RatioLiminf
+    rw [liminf_even_odd,he.liminf_eq,ho'.liminf_eq]
+    simp
+  · unfold RatioLimsup
+    rw [limsup_even_odd,he.limsup_eq,ho'.limsup_eq]
+    simp
+
+theorem ratioExampleA_root_limits :
+    RootLiminf RatioExampleA = ENNReal.ofReal (1/Real.sqrt 3) ∧
+      RootLimsup RatioExampleA = ENNReal.ofReal (1/Real.sqrt 2) := by
+  have he' : Tendsto (fun n => NthRootNorm RatioExampleA (2*n+2)) atTop
+      (𝓝 (1/Real.sqrt 3)) := by
+    simp only [ratioExampleA_root_even]
+    exact tendsto_const_nhds
+  have he := ENNReal.tendsto_ofReal (tendsto_even_of_shift he')
+  have ho := ENNReal.tendsto_ofReal ratioExampleA_root_odd_tendsto
+  have hle : ENNReal.ofReal (1/Real.sqrt 3) ≤ ENNReal.ofReal (1/Real.sqrt 2) := by
+    apply ENNReal.ofReal_le_ofReal
+    exact one_div_le_one_div_of_le (by positivity) (Real.sqrt_le_sqrt (by norm_num))
+  constructor
+  · unfold RootLiminf
+    rw [liminf_even_odd,he.liminf_eq,ho.liminf_eq,min_eq_left hle]
+  · unfold RootLimsup
+    rw [limsup_even_odd,he.limsup_eq,ho.limsup_eq,max_eq_right hle]
+
+theorem ratioExampleB_ratio_limits :
+    RatioLiminf RatioExampleB = ENNReal.ofReal (1/8) ∧ RatioLimsup RatioExampleB = 2 := by
+  have he' : Tendsto (fun n => RatioNorm RatioExampleB (2*n+2)) atTop (𝓝 (1/8 : ℝ)) := by
+    simp only [ratioExampleB_ratio_even]
+    exact tendsto_const_nhds
+  have ho' : Tendsto (fun n => RatioNorm RatioExampleB (2*n+1)) atTop (𝓝 (2 : ℝ)) := by
+    simp only [ratioExampleB_ratio_odd]
+    exact tendsto_const_nhds
+  have he := ENNReal.tendsto_ofReal (tendsto_even_of_shift he')
+  have ho := ENNReal.tendsto_ofReal ho'
+  have hle : ENNReal.ofReal (1/8) ≤ ENNReal.ofReal 2 := by norm_num
+  constructor
+  · unfold RatioLiminf
+    rw [liminf_even_odd,he.liminf_eq,ho.liminf_eq,min_eq_left hle]
+  · unfold RatioLimsup
+    rw [limsup_even_odd,he.limsup_eq,ho.limsup_eq,max_eq_right hle]
+    norm_num
+
+theorem ratioExampleB_root_tendsto :
+    Tendsto (NthRootNorm RatioExampleB) atTop (𝓝 (1/2 : ℝ)) := by
+  apply tendsto_of_even_odd
+  · exact tendsto_even_of_shift ratioExampleB_root_even_tendsto
+  · simp only [ratioExampleB_root_odd]
+    exact tendsto_const_nhds
+
+theorem node_3_35 : Statement_3_35 := by
+  have ha := ratioExampleA_ratio_limits
+  have har := ratioExampleA_root_limits
+  have hb := ratioExampleB_ratio_limits
+  refine ⟨?_,ha.1,ha.2,har.1,har.2,?_,?_,?_,hb.1,hb.2,ratioExampleB_root_tendsto,?_,?_⟩
+  · intro n hn
+    constructor
+    · have he : 2*n-1 = 2*(n-1)+1 := by omega
+      rw [he,ratioExampleA_odd,show n-1+1 = n by omega]
+    · have he : 2*n = 2*(n-1)+2 := by omega
+      rw [he,ratioExampleA_even,show n-1+1 = n by omega]
+  · apply seriesConverges_of_summable
+    apply Summable.of_norm
+    apply root_test_summable_norm
+    rw [har.2,ENNReal.ofReal_lt_one]
+    apply (div_lt_one (by positivity : 0 < Real.sqrt 2)).mpr
+    have hsq := Real.sq_sqrt (by norm_num : (0 : ℝ) ≤ 2)
+    have hnonneg := Real.sqrt_nonneg 2
+    nlinarith
+  · rw [ha.2]
+    simp
+  · intro n hn
+    constructor
+    · have he : 2*n-1 = 2*(n-1)+1 := by omega
+      rw [he,ratioExampleB_odd]
+    · have he : 2*n = 2*(n-1)+2 := by omega
+      rw [he,ratioExampleB_even]
+  · apply seriesConverges_of_summable
+    apply Summable.of_norm
+    apply root_test_summable_norm
+    have hr := (ENNReal.tendsto_ofReal ratioExampleB_root_tendsto).limsup_eq
+    change RootLimsup RatioExampleB = ENNReal.ofReal (1/2) at hr
+    rw [hr]
+    norm_num
+  · rw [hb.2]
+    norm_num
+
 end Rudin.PMA.Chapter03

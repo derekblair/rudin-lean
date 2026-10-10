@@ -40,3 +40,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.32 | PASS: irrationality of the defined Euler number. |
 | PMA-3.33 | PASS: extended nonnegative root limsup, strict convergence/divergence criteria, both boundary witnesses. |
 | PMA-3.34 | PASS: eventual nonzero denominators, both source criteria, ratio-one witnesses. |
+| PMA-3.35 | PASS: both exact positive-index coefficient patterns; every ratio/root extremum, infinite ratio case, ordinary convergence and ratio convergence failure. |
