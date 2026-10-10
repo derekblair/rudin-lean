@@ -475,4 +475,18 @@ theorem pma_real_number_system :
     exact ⟨sSup E, isLUB_csSup hE hbounded⟩
   · exact ⟨Rat.castHom ℝ, Rat.cast_injective, fun _ _ h => Rat.cast_lt.mpr h⟩
 
+/-! ### PMA-1.20: Archimedean property and rational density -/
+
+theorem pma_archimedean (x y : ℝ) (hx : 0 < x) :
+    ∃ n : ℕ, 0 < n ∧ y < (n : ℝ) * x := by
+  obtain ⟨n, hn⟩ := exists_nat_gt (y / x)
+  refine ⟨n + 1, Nat.succ_pos n, ?_⟩
+  have hn' : y < (n : ℝ) * x := (div_lt_iff₀ hx).mp hn
+  have : (n : ℝ) * x < ((n + 1 : ℕ) : ℝ) * x := by
+    exact mul_lt_mul_of_pos_right (by exact_mod_cast Nat.lt_succ_self n) hx
+  exact hn'.trans this
+
+theorem pma_rational_density (x y : ℝ) (hxy : x < y) :
+    ∃ q : ℚ, x < (q : ℝ) ∧ (q : ℝ) < y := exists_rat_btwn hxy
+
 end Rudin.PMA.Chapter01
