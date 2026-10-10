@@ -1,9 +1,25 @@
-/-!
-# Rudin, *Principles of Mathematical Analysis* (3rd ed.)
+import Rudin.PMA.Chapter07.Basic
+import Rudin.PMA.Chapter07.Foundations
 
-## Chapter 7: Sequences and Series of Functions
+/-! # PMA Chapter 7: verified sections in dependency order.
+Only the indexed nodes below are integrated; each imported module retains its frozen reviewed bytes. -/
 
-Every definition, theorem, and corollary from this chapter is
-formalized below in dependency order. Zero `sorry`s: anything
-not yet proved is tracked in `QUEUE.md`, never as a `sorry` here.
+namespace Rudin.PMA.Chapter07
+
+/-! ### PMA-7.1
+Principal proof: `pma7_1`. Definitions and supporting proofs: `Chapter07/Foundations.lean`.
 -/
+
+/-! ### PMA-7.7
+Principal proof: `pma7_7`. Definitions and supporting proofs: `Chapter07/Foundations.lean`.
+-/
+
+/-! ### PMA-7.8
+Principal proof: `pma7_8`. Definitions and supporting proofs: `Chapter07/Foundations.lean`.
+-/
+
+/-! ### PMA-7.9
+Principal proof: `pma7_9`. Definitions and supporting proofs: `Chapter07/Foundations.lean`.
+-/
+
+end Rudin.PMA.Chapter07

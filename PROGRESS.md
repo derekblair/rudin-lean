@@ -13,7 +13,7 @@ All completed nodes have zero proof placeholders.
 | 04 | Continuity | 34 / 34 |
 | 05 | Differentiation | 19 / 19 |
 | 06 | The Riemann-Stieltjes Integral | 27 / 27 |
-| 07 | Sequences and Series of Functions | 0 / 33 |
+| 07 | Sequences and Series of Functions | 4 / 33 |
 | 08 | Some Special Functions | 0 |
 | 09 | Functions of Several Variables | 0 |
 | 10 | Integration of Differential Forms | 0 |
@@ -78,6 +78,6 @@ declarations). Only the three permitted axioms occur. Final source is byte-for-b
 identical to the independently reviewed and hostile-reviewed candidate.
 See `research/pma-ch06-production-review.md`. Chapter 7 integration status is recorded below; Chapters 8–11 remain pending in this checkout.
 
-Chapter 7 local integration: 0/33 accepted numbered nodes.
-Completed nodes: none yet.
+Chapter 7 local integration: 4/33 accepted numbered nodes.
+Completed nodes: 7.1, 7.7, 7.8, 7.9.
 Frozen modules are committed in their actual dependency order; node groups may be nonnumeric. Every local commit requires the default build, exact principal coverage, accepted-contract comparisons, source checks and recursive permitted-axiom audits. Pending integration is not a resistant proof node.
