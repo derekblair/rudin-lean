@@ -31,8 +31,12 @@ def main():
         errors.append('A node has the wrong chapter number')
     if any(n not in expected for n in found):
         errors.append('Source has nodes not found in inventory')
-    if found != [n for n in expected if n in found]:
-        errors.append('Source nodes differ from inventory dependency order')
+    order_section = re.search(r'^## Formalization order\n(.*)', inventory, re.M | re.S)
+    planned = re.findall(r'`(PMA-\d+\.\d+(?:-[a-z]+)?)`', order_section.group(1)) if order_section else expected
+    if len(planned) != len(set(planned)) or set(planned) != set(expected):
+        errors.append('Formalization order must list every inventory node exactly once')
+    if found != [n for n in planned if n in found]:
+        errors.append('Source nodes differ from the declared dependency order')
     queue = (ROOT / 'QUEUE.md').read_text()
     queued = set(re.findall(r'^(?:#+\s+|[-*]\s+\*\*)(PMA-\d+\.\d+(?:-[a-z]+)?)\b', queue, re.M))
     if queued.intersection(found):
