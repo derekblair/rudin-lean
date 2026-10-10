@@ -966,4 +966,11 @@ theorem pma2_36_corollary {X : Type u} [MetricSpace X] (K : ℕ → Set X)
   IsCompact.nonempty_iInter_of_sequence_nonempty_isCompact_isClosed K hdec hne
     ((pma2_32_reference (K 0)).mp (hK 0)) (fun n => pma2_34 (hK n))
 
+/-! ### PMA-2.37: infinite subsets of compact sets have accumulation points in those compact sets. -/
+
+theorem pma2_37 {X : Type u} [MetricSpace X] {E K : Set X}
+    (hE : E.Infinite) (hEK : E ⊆ K) (hK : RudinCompact K) :
+    ∃ p ∈ K, AccPt p (𝓟 E) :=
+  hE.exists_accPt_of_subset_isCompact ((pma2_32_reference K).mp hK) hEK
+
 end Rudin.PMA.Chapter02
