@@ -347,4 +347,21 @@ theorem pma_field_axioms_operations {K : Type*} [Add K] [Mul K] [Zero K] [One K]
   rcases h with ⟨hac, haa, haz, hai, hmc, hma, h10, hm1, hmi, hd⟩
   exact ⟨rfl, rfl, rfl, rfl⟩
 
+/-! ### PMA-1.13: Inverses, powers, and the rational field -/
+
+/-- The arithmetic notation introduced in the remarks agrees with the field
+operations. Natural powers include the usual zeroth-power convention. -/
+theorem pma_field_notation {K : Type*} [Field K] (x y : K) (n : ℕ) :
+    x - y = x + (-y) ∧ x / y = x * (1 / y) ∧
+    x ^ 2 = x * x ∧ x ^ 3 = (x * x) * x ∧
+    (2 : K) * x = x + x ∧ (3 : K) * x = (x + x) + x ∧
+    x ^ 0 = 1 ∧ x ^ (n + 1) = x ^ n * x := by
+  refine ⟨sub_eq_add_neg x y, ?_, pow_two x, ?_, ?_, ?_, pow_zero x, pow_succ x n⟩
+  · simp only [div_eq_mul_inv, one_mul]
+  · simp only [pow_succ, pow_zero, one_mul]
+  · ring
+  · ring
+
+theorem pma_rationals_are_a_field : pmaFieldAxioms ℚ := pma_field_axioms
+
 end Rudin.PMA.Chapter01
