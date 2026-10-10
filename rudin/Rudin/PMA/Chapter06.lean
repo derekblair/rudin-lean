@@ -9,6 +9,7 @@ import Rudin.PMA.Chapter06.Properties
 import Rudin.PMA.Chapter06.Jump
 import Rudin.PMA.Chapter06.Endpoint
 import Rudin.PMA.Chapter06.Exceptional
+import Rudin.PMA.Chapter06.Calculus
 
 /-! # PMA Chapter 6: verified sections in dependency order.
 The index is in book order; only the listed nodes have been integrated.
@@ -107,6 +108,31 @@ Principal proof: `pma6_15`. Definitions and supporting proofs: `Chapter06/Jump.l
 /-! ### PMA-6.16
 
 Principal proof: `pma6_16`. Definitions and supporting proofs: `Chapter06/Jump.lean`.
+-/
+
+/-! ### PMA-6.17
+
+Principal proof: `pma6_17`. Definitions and supporting proofs: `Chapter06/Calculus.lean`.
+-/
+
+/-! ### PMA-6.19
+
+Principal proof: `pma6_19`. Definitions and supporting proofs: `Chapter06/Calculus.lean`.
+-/
+
+/-! ### PMA-6.20
+
+Principal proof: `pma6_20`. Definitions and supporting proofs: `Chapter06/Calculus.lean`.
+-/
+
+/-! ### PMA-6.21
+
+Principal proof: `pma6_21`. Definitions and supporting proofs: `Chapter06/Calculus.lean`.
+-/
+
+/-! ### PMA-6.22
+
+Principal proof: `pma6_22`. Definitions and supporting proofs: `Chapter06/Calculus.lean`.
 -/
 
 end Rudin.PMA.Chapter06
