@@ -989,4 +989,235 @@ theorem node_3_23 : Statement_3_23 := by
   · exact (node_3_28 1).not.mpr (by norm_num)
 
 
+/-! ### PMA-3.29: Logarithmic and iterated-logarithmic series. -/
+def LogSeriesTerm (p : ℝ) (n : ℕ) : ℝ :=
+  1 / ((n+2 : ℝ) * (Real.log (n+2 : ℝ))^p)
+
+def IteratedLogSeriesTerm (p : ℝ) (n : ℕ) : ℝ :=
+  1 / ((n+3 : ℝ) * Real.log (n+3 : ℝ) * (Real.log (Real.log (n+3 : ℝ)))^p)
+
+def Statement_3_29 : Prop :=
+  (∀ p : ℝ, SeriesConverges (LogSeriesTerm p) ↔ 1 < p) ∧
+  SeriesDiverges (IteratedLogSeriesTerm 1) ∧ SeriesConverges (IteratedLogSeriesTerm 2)
+
+
+def unshiftedLogTerm (p : ℝ) (n : ℕ) : ℝ := 1 / ((n : ℝ) * (Real.log (n : ℝ))^p)
+
+lemma logTerm_nonneg (p : ℝ) (n : ℕ) : 0 ≤ LogSeriesTerm p n := by
+  unfold LogSeriesTerm
+  have hl : 0 < Real.log (n+2 : ℝ) := Real.log_pos (by norm_cast; omega)
+  exact one_div_nonneg.mpr (mul_nonneg (by positivity) (Real.rpow_nonneg (le_of_lt hl) p))
+
+lemma logTerm_summable_iff (p : ℝ) :
+    SeriesConverges (LogSeriesTerm p) ↔ Summable (unshiftedLogTerm p) := by
+  rw [seriesConverges_iff_summable_nonneg (logTerm_nonneg p)]
+  change Summable (fun n : ℕ => 1 / ((n+2 : ℝ) * (Real.log (n+2 : ℝ))^p)) ↔ _
+  simpa only [unshiftedLogTerm, Nat.cast_add, Nat.cast_ofNat] using
+    (summable_nat_add_iff (f := unshiftedLogTerm p) 2)
+
+lemma unshiftedLog_condensation (p : ℝ) (hp : 0 ≤ p) :
+    Summable (unshiftedLogTerm p) ↔ 1 < p := by
+  have hlog : 0 < Real.log 2 := Real.log_pos (by norm_num)
+  have hcond : (Summable fun k : ℕ => (2 : ℝ)^k * unshiftedLogTerm p (2^k)) ↔
+      Summable (unshiftedLogTerm p) := by
+    apply summable_condensed_iff_of_eventually_nonneg
+    · apply eventually_atTop.mpr
+      refine ⟨2, fun n hn => ?_⟩
+      unfold unshiftedLogTerm
+      have hnpos : 0 < (n : ℝ) := by exact_mod_cast (show 0 < n by omega)
+      have hl : 0 < Real.log (n : ℝ) := Real.log_pos (by exact_mod_cast (show 1 < n by omega))
+      positivity
+    · apply eventually_atTop.mpr
+      refine ⟨2, fun n hn => ?_⟩
+      have hnpos : 0 < (n : ℝ) := by exact_mod_cast (show 0 < n by omega)
+      have hl : 0 < Real.log (n : ℝ) := Real.log_pos (by exact_mod_cast (show 1 < n by omega))
+      have hnn : (n : ℝ) ≤ (n+1 : ℝ) := by norm_cast; omega
+      have hlle := Real.log_le_log hnpos hnn
+      have hrle := Real.rpow_le_rpow (le_of_lt hl) hlle hp
+      unfold unshiftedLogTerm
+      apply one_div_le_one_div_of_le (mul_pos hnpos (Real.rpow_pos_of_pos hl p))
+      simpa only [Nat.cast_add, Nat.cast_one] using
+        (mul_le_mul hnn hrle (Real.rpow_nonneg (le_of_lt hl) _) (by positivity))
+  have heq : (fun k : ℕ => (2 : ℝ)^k * unshiftedLogTerm p (2^k)) =ᶠ[atTop]
+      (fun k : ℕ => (1 / (Real.log 2)^p) * (1 / (k : ℝ)^p)) := by
+    apply eventually_atTop.mpr
+    refine ⟨1, fun k hk => ?_⟩
+    have hknonneg : 0 ≤ (k : ℝ) := by positivity
+    have htwo : (2 : ℝ)^k ≠ 0 := by positivity
+    have hkp : (k : ℝ)^p ≠ 0 := ne_of_gt (Real.rpow_pos_of_pos (by exact_mod_cast (show 0 < k by omega)) p)
+    have hlp : (Real.log 2)^p ≠ 0 := ne_of_gt (Real.rpow_pos_of_pos hlog p)
+    simp only [unshiftedLogTerm, Nat.cast_pow, Nat.cast_ofNat, Real.log_pow]
+    rw [Real.mul_rpow hknonneg (le_of_lt hlog)]
+    field_simp
+  rw [← hcond, summable_congr_atTop heq, summable_mul_left_iff (by positivity)]
+  exact Real.summable_one_div_nat_rpow
+
+lemma logSeries_criterion (p : ℝ) : SeriesConverges (LogSeriesTerm p) ↔ 1 < p := by
+  rw [logTerm_summable_iff]
+  by_cases hp : 0 ≤ p
+  · exact unshiftedLog_condensation p hp
+  have hp0 : p ≤ 0 := le_of_lt (lt_of_not_ge hp)
+  have hnonsummable : ¬ Summable (unshiftedLogTerm p) := by
+    intro hs
+    have hh : Summable (fun n : ℕ => 1 / (n : ℝ)) := by
+      apply hs.of_norm_bounded_eventually_nat
+      have hlog := (Real.tendsto_log_atTop.comp (tendsto_natCast_atTop_atTop (R := ℝ))).eventually_ge_atTop 1
+      filter_upwards [hlog, eventually_ge_atTop 1] with n hl hn
+      change 1 ≤ Real.log (n : ℝ) at hl
+      have hnpos : 0 < (n : ℝ) := by exact_mod_cast (show 0 < n by omega)
+      have hpow := Real.rpow_le_one_of_one_le_of_nonpos hl hp0
+      have hpowpos : 0 < (Real.log (n : ℝ))^p := Real.rpow_pos_of_pos (by linarith) p
+      simp only [Real.norm_eq_abs, abs_of_pos (one_div_pos.mpr hnpos), unshiftedLogTerm]
+      apply one_div_le_one_div_of_le (mul_pos hnpos hpowpos)
+      simpa using mul_le_mul_of_nonneg_left hpow (le_of_lt hnpos)
+    have hbad := Real.summable_one_div_nat_rpow (p := 1)
+    simp only [Real.rpow_one] at hbad
+    have : (1 : ℝ) < 1 := hbad.mp hh
+    exact lt_irrefl _ this
+  exact iff_of_false hnonsummable (by linarith)
+
+def unshiftedIteratedLogTerm (p : ℝ) (n : ℕ) : ℝ :=
+  1 / ((n : ℝ) * Real.log (n : ℝ) * (Real.log (Real.log (n : ℝ)))^p)
+
+def condensedIteratedLogTerm (p : ℝ) (k : ℕ) : ℝ :=
+  1 / ((k : ℝ) * Real.log 2 * (Real.log ((k : ℝ) * Real.log 2))^p)
+
+lemma log_nat_large (n : ℕ) (hn : 4 ≤ n) : 1 < Real.log (n : ℝ) := by
+  have h4 : 1 < Real.log 4 := by
+    have h2 := Real.log_two_gt_d9
+    have he : Real.log 4 = 2 * Real.log 2 := by
+      convert Real.log_pow (2 : ℝ) 2 using 1; norm_num
+    linarith
+  exact h4.trans_le (Real.log_le_log (by norm_num) (by exact_mod_cast hn))
+
+lemma iteratedLog_condensation (p : ℝ) (hp : 0 ≤ p) :
+    Summable (unshiftedIteratedLogTerm p) ↔ Summable (condensedIteratedLogTerm p) := by
+  have hc : (Summable fun k : ℕ => (2 : ℝ)^k * unshiftedIteratedLogTerm p (2^k)) ↔
+      Summable (unshiftedIteratedLogTerm p) := by
+    apply summable_condensed_iff_of_eventually_nonneg
+    · apply eventually_atTop.mpr
+      refine ⟨4, fun n hn => ?_⟩
+      have hl := log_nat_large n hn
+      have hll : 0 < Real.log (Real.log (n : ℝ)) := Real.log_pos hl
+      unfold unshiftedIteratedLogTerm
+      positivity
+    · apply eventually_atTop.mpr
+      refine ⟨4, fun n hn => ?_⟩
+      have hnpos : 0 < (n : ℝ) := by exact_mod_cast (show 0 < n by omega)
+      have hl := log_nat_large n hn
+      have hlpos : 0 < Real.log (n : ℝ) := by linarith
+      have hllpos := Real.log_pos hl
+      have hnn : (n : ℝ) ≤ (n+1 : ℝ) := by norm_cast; omega
+      have hlle := Real.log_le_log hnpos hnn
+      have hllle := Real.log_le_log hlpos hlle
+      have hrle := Real.rpow_le_rpow (le_of_lt hllpos) hllle hp
+      have hmul := mul_le_mul hnn hlle (le_of_lt hlpos) (by positivity)
+      have hmul3 := mul_le_mul hmul hrle (Real.rpow_nonneg (le_of_lt hllpos) p)
+        (mul_nonneg (by positivity) ((le_of_lt hlpos).trans hlle))
+      unfold unshiftedIteratedLogTerm
+      apply one_div_le_one_div_of_le (mul_pos (mul_pos hnpos hlpos) (Real.rpow_pos_of_pos hllpos p))
+      simpa only [Nat.cast_add, Nat.cast_one] using hmul3
+  have heq : (fun k : ℕ => (2 : ℝ)^k * unshiftedIteratedLogTerm p (2^k)) =ᶠ[atTop]
+      condensedIteratedLogTerm p := by
+    apply eventually_atTop.mpr
+    refine ⟨2, fun k hk => ?_⟩
+    have hkn : 0 < (k : ℝ) := by exact_mod_cast (show 0 < k by omega)
+    have hl : 0 < Real.log 2 := Real.log_pos (by norm_num)
+    have h2 : (2 : ℝ)^k ≠ 0 := by positivity
+    unfold unshiftedIteratedLogTerm condensedIteratedLogTerm
+    simp only [Nat.cast_pow, Nat.cast_ofNat, Real.log_pow]
+    field_simp
+  rw [← hc, summable_congr_atTop heq]
+
+lemma iteratedLog_comparison (p : ℝ) (hp : 0 ≤ p) :
+    ∀ᶠ n in atTop,
+      0 ≤ unshiftedLogTerm p n ∧ 0 ≤ condensedIteratedLogTerm p n ∧
+      condensedIteratedLogTerm p n ≤ ((2 : ℝ)^p / Real.log 2) * unshiftedLogTerm p n ∧
+      unshiftedLogTerm p n ≤ (Real.log 2 * (2 : ℝ)^p) * condensedIteratedLogTerm p n := by
+  have hl2 : 0 < Real.log 2 := Real.log_pos (by norm_num)
+  have hA : 0 < (2 : ℝ)^p := Real.rpow_pos_of_pos (by norm_num) p
+  have hlog := (Real.tendsto_log_atTop.comp (tendsto_natCast_atTop_atTop (R := ℝ))).eventually_ge_atTop
+    (max 1 (2 * |Real.log (Real.log 2)|))
+  filter_upwards [hlog, eventually_ge_atTop 1] with n hl hn
+  change max 1 (2 * |Real.log (Real.log 2)|) ≤ Real.log (n : ℝ) at hl
+  have hnp : 0 < (n : ℝ) := by exact_mod_cast (show 0 < n by omega)
+  have hL : 0 < Real.log (n : ℝ) := lt_of_lt_of_le (by norm_num) ((le_max_left _ _).trans hl)
+  have hab : 2 * |Real.log (Real.log 2)| ≤ Real.log (n : ℝ) := (le_max_right _ _).trans hl
+  have he : Real.log ((n : ℝ) * Real.log 2) = Real.log (n : ℝ) + Real.log (Real.log 2) :=
+    Real.log_mul (ne_of_gt hnp) (ne_of_gt hl2)
+  have hlow : Real.log (n : ℝ) / 2 ≤ Real.log ((n : ℝ) * Real.log 2) := by
+    rw [he]
+    have := neg_abs_le (Real.log (Real.log 2))
+    linarith
+  have hupp : Real.log ((n : ℝ) * Real.log 2) ≤ 2 * Real.log (n : ℝ) := by
+    rw [he]
+    have := le_abs_self (Real.log (Real.log 2))
+    linarith
+  have hM : 0 < Real.log ((n : ℝ) * Real.log 2) := (half_pos hL).trans_le hlow
+  have hLp := Real.rpow_pos_of_pos hL p
+  have hMp := Real.rpow_pos_of_pos hM p
+  have hpup := Real.rpow_le_rpow (le_of_lt hM) hupp hp
+  rw [Real.mul_rpow (by norm_num) (le_of_lt hL)] at hpup
+  have hplo := Real.rpow_le_rpow (by positivity : 0 ≤ Real.log (n : ℝ) / 2) hlow hp
+  rw [Real.div_rpow (le_of_lt hL) (by norm_num) p] at hplo
+  have hLMA : (Real.log (n : ℝ))^p ≤ (2 : ℝ)^p * (Real.log ((n : ℝ) * Real.log 2))^p := by
+    have hh := (div_le_iff₀ hA).mp hplo
+    simpa only [mul_comm] using hh
+  have h1 := one_div_le_one_div_of_le (mul_pos hnp hLp)
+    (mul_le_mul_of_nonneg_left hLMA (le_of_lt hnp))
+  have h2 := one_div_le_one_div_of_le (mul_pos (mul_pos hnp hl2) hMp)
+    (mul_le_mul_of_nonneg_left hpup (le_of_lt (mul_pos hnp hl2)))
+  refine ⟨by unfold unshiftedLogTerm; positivity,
+    by unfold condensedIteratedLogTerm; positivity, ?_, ?_⟩
+  · unfold condensedIteratedLogTerm unshiftedLogTerm
+    have hh := mul_le_mul_of_nonneg_left h1 (le_of_lt (div_pos hA hl2))
+    convert hh using 1; field_simp
+  · unfold condensedIteratedLogTerm unshiftedLogTerm
+    have hh := mul_le_mul_of_nonneg_left h2 (le_of_lt (mul_pos hl2 hA))
+    convert hh using 1; field_simp
+
+lemma iteratedLog_summable_iff (p : ℝ) (hp : 0 ≤ p) :
+    Summable (unshiftedIteratedLogTerm p) ↔ 1 < p := by
+  rw [iteratedLog_condensation p hp]
+  have hc := iteratedLog_comparison p hp
+  have hl2 : 0 < Real.log 2 := Real.log_pos (by norm_num)
+  have hA : 0 < (2 : ℝ)^p := Real.rpow_pos_of_pos (by norm_num) p
+  have heq : Summable (condensedIteratedLogTerm p) ↔ Summable (unshiftedLogTerm p) := by
+    constructor
+    · intro hf
+      apply (hf.mul_left (Real.log 2 * (2 : ℝ)^p)).of_norm_bounded_eventually_nat
+      filter_upwards [hc] with n hn
+      simpa only [Real.norm_eq_abs, abs_of_nonneg hn.1] using hn.2.2.2
+    · intro hg
+      apply (hg.mul_left ((2 : ℝ)^p / Real.log 2)).of_norm_bounded_eventually_nat
+      filter_upwards [hc] with n hn
+      simpa only [Real.norm_eq_abs, abs_of_nonneg hn.2.1] using hn.2.2.1
+  rw [heq]
+  exact unshiftedLog_condensation p hp
+
+lemma iteratedLogTerm_nonneg (p : ℝ) (n : ℕ) : 0 ≤ IteratedLogSeriesTerm p n := by
+  have h3 : 1 < Real.log 3 := by linarith [Real.log_three_gt_d9]
+  have hl : 1 < Real.log (n+3 : ℝ) :=
+    h3.trans_le (Real.log_le_log (by norm_num) (by norm_cast; omega))
+  have hll : 0 < Real.log (Real.log (n+3 : ℝ)) := Real.log_pos hl
+  unfold IteratedLogSeriesTerm
+  positivity
+
+lemma iteratedLogSeries_criterion (p : ℝ) (hp : 0 ≤ p) :
+    SeriesConverges (IteratedLogSeriesTerm p) ↔ 1 < p := by
+  rw [seriesConverges_iff_summable_nonneg (iteratedLogTerm_nonneg p)]
+  have hs : Summable (IteratedLogSeriesTerm p) ↔ Summable (unshiftedIteratedLogTerm p) := by
+    change Summable (fun n : ℕ => 1 / ((n+3 : ℝ) * Real.log (n+3 : ℝ) * (Real.log (Real.log (n+3 : ℝ)))^p)) ↔ _
+    simpa only [unshiftedIteratedLogTerm, Nat.cast_add, Nat.cast_ofNat] using
+      (summable_nat_add_iff (f := unshiftedIteratedLogTerm p) 3)
+  rw [hs]
+  exact iteratedLog_summable_iff p hp
+
+theorem node_3_29 : Statement_3_29 := by
+  refine ⟨logSeries_criterion, ?_, ?_⟩
+  · unfold SeriesDiverges
+    rw [iteratedLogSeries_criterion 1 (by norm_num)]
+    norm_num
+  · exact (iteratedLogSeries_criterion 2 (by norm_num)).mpr (by norm_num)
+
 end Rudin.PMA.Chapter03
