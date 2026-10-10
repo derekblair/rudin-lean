@@ -22,3 +22,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-2.14 | PASS: All binary infinite sequences are uncountable; direct diagonal contradiction matches digit set Fin 2. |
 | PMA-2.15 | PASS: Distance predicate has precisely positivity/zero/symmetry/triangle axioms; MetricSpace constructor and reverse comparator preserve the distance. |
 | PMA-2.16 | PASS: Euclidean, real and complex norm-difference distances and inherited subset metrics match definitions. |
+| PMA-2.17 | PASS: All four interval endpoint conventions, k-cell coordinates, open/closed norm balls and convexity contract match reference definitions; all stated convex examples included. |

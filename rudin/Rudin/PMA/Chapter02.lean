@@ -328,4 +328,70 @@ theorem subset_isDistanceFunction {X : Type*} [MetricSpace X] (Y : Set X) :
     IsDistanceFunction (fun p q : Y => dist (p : X) (q : X)) :=
   distanceFunction_of_metric
 
+/-! ### PMA-2.17: Intervals, cells, balls, and convex sets.
+
+The definitions extend to arbitrary radii and endpoints; in particular they cover
+Rudin's positive radii and strictly ordered cell endpoints. -/
+def segment (a b : ℝ) : Set ℝ := {x | a < x ∧ x < b}
+def interval (a b : ℝ) : Set ℝ := {x | a ≤ x ∧ x ≤ b}
+def leftClosedInterval (a b : ℝ) : Set ℝ := {x | a ≤ x ∧ x < b}
+def rightClosedInterval (a b : ℝ) : Set ℝ := {x | a < x ∧ x ≤ b}
+def kCell {k : ℕ} (a b : Fin k → ℝ) : Set (EuclideanSpace ℝ (Fin k)) :=
+  {x | ∀ i, a i ≤ x i ∧ x i ≤ b i}
+def openEuclideanBall {k : ℕ} (x : EuclideanSpace ℝ (Fin k)) (r : ℝ) :=
+  {y | ‖y - x‖ < r}
+def closedEuclideanBall {k : ℕ} (x : EuclideanSpace ℝ (Fin k)) (r : ℝ) :=
+  {y | ‖y - x‖ ≤ r}
+def IsConvexSet {V : Type*} [AddCommGroup V] [Module ℝ V] (E : Set V) : Prop :=
+  ∀ x ∈ E, ∀ y ∈ E, ∀ t : ℝ, 0 < t → t < 1 → t • x + (1-t) • y ∈ E
+
+theorem segment_eq_Ioo (a b : ℝ) : segment a b = Ioo a b := rfl
+theorem interval_eq_Icc (a b : ℝ) : interval a b = Icc a b := rfl
+theorem leftClosedInterval_eq_Ico (a b : ℝ) : leftClosedInterval a b = Ico a b := rfl
+theorem rightClosedInterval_eq_Ioc (a b : ℝ) : rightClosedInterval a b = Ioc a b := rfl
+
+theorem openEuclideanBall_eq_ball {k : ℕ} (x : EuclideanSpace ℝ (Fin k)) (r : ℝ) :
+    openEuclideanBall x r = Metric.ball x r := by
+  ext y
+  simp [openEuclideanBall, Metric.mem_ball, dist_eq_norm]
+
+theorem closedEuclideanBall_eq_closedBall {k : ℕ} (x : EuclideanSpace ℝ (Fin k))
+    (r : ℝ) : closedEuclideanBall x r = Metric.closedBall x r := by
+  ext y
+  simp [closedEuclideanBall, Metric.mem_closedBall, dist_eq_norm]
+
+theorem isConvexSet_iff_convex {V : Type*} [AddCommGroup V] [Module ℝ V]
+    (E : Set V) : IsConvexSet E ↔ Convex ℝ E := by
+  constructor
+  · intro h x hx y hy a b ha hb hab
+    by_cases ha0 : a = 0
+    · simpa [ha0, (by linarith : b = 1)] using hy
+    by_cases hb0 : b = 0
+    · simpa [hb0, (by linarith : a = 1)] using hx
+    have ha1 : a < 1 := by
+      have hbpos : 0 < b := lt_of_le_of_ne hb (Ne.symm hb0)
+      linarith
+    have hb' : b = 1-a := by linarith
+    subst b
+    exact h x hx y hy a (lt_of_le_of_ne ha (Ne.symm ha0)) ha1
+  · intro h x hx y hy t ht ht1
+    exact h hx hy (le_of_lt ht) (by linarith) (by ring)
+
+theorem openEuclideanBall_convex {k : ℕ} (x : EuclideanSpace ℝ (Fin k)) (r : ℝ) :
+    IsConvexSet (openEuclideanBall x r) := by
+  rw [isConvexSet_iff_convex, openEuclideanBall_eq_ball]
+  exact convex_ball x r
+
+theorem closedEuclideanBall_convex {k : ℕ} (x : EuclideanSpace ℝ (Fin k)) (r : ℝ) :
+    IsConvexSet (closedEuclideanBall x r) := by
+  rw [isConvexSet_iff_convex, closedEuclideanBall_eq_closedBall]
+  exact convex_closedBall x r
+
+theorem kCell_convex {k : ℕ} (a b : Fin k → ℝ) : IsConvexSet (kCell a b) := by
+  intro x hx y hy t ht ht1 i
+  have hx' := hx i
+  have hy' := hy i
+  change a i ≤ t * x i + (1-t) * y i ∧ t * x i + (1-t) * y i ≤ b i
+  constructor <;> nlinarith
+
 end Rudin.PMA.Chapter02
