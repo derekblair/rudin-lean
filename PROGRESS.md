@@ -8,7 +8,7 @@ All completed nodes have zero proof placeholders.
 | Chapter | Title | Nodes formalized |
 |---|---|---|
 | 01 | The Real and Complex Number Systems | 37 / 37 |
-| 02 | Basic Topology | 15 / 47 |
+| 02 | Basic Topology | 16 / 47 |
 | 03 | Numerical Sequences and Series | 0 |
 | 04 | Continuity | 0 |
 | 05 | Differentiation | 0 |

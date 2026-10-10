@@ -300,4 +300,32 @@ theorem distanceFunction_of_metric {X : Type*} [MetricSpace X] :
 theorem metricSpaceOfDistance_dist {X : Type*} (d : X → X → ℝ)
     (h : IsDistanceFunction d) : (metricSpaceOfDistance d h).dist = d := rfl
 
+/-! ### PMA-2.16: Euclidean metrics and the metric induced on a subset. -/
+theorem euclidean_distance (k : ℕ) (x y : EuclideanSpace ℝ (Fin k)) :
+    dist x y = ‖x - y‖ := dist_eq_norm x y
+
+theorem euclidean_isDistanceFunction (k : ℕ) :
+    IsDistanceFunction (fun x y : EuclideanSpace ℝ (Fin k) => ‖x - y‖) := by
+  simpa only [← dist_eq_norm] using
+    (distanceFunction_of_metric (X := EuclideanSpace ℝ (Fin k)))
+
+theorem real_distance (x y : ℝ) : dist x y = |x-y| := Real.dist_eq x y
+
+theorem complex_distance (x y : ℂ) : dist x y = ‖x-y‖ := dist_eq_norm x y
+
+theorem real_isDistanceFunction :
+    IsDistanceFunction (fun x y : ℝ => |x-y|) := by
+  simpa only [← Real.dist_eq] using (distanceFunction_of_metric (X := ℝ))
+
+theorem complex_isDistanceFunction :
+    IsDistanceFunction (fun x y : ℂ => ‖x-y‖) := by
+  simpa only [← dist_eq_norm] using (distanceFunction_of_metric (X := ℂ))
+
+theorem subset_distance {X : Type*} [MetricSpace X] (Y : Set X) (p q : Y) :
+    dist p q = dist (p : X) (q : X) := rfl
+
+theorem subset_isDistanceFunction {X : Type*} [MetricSpace X] (Y : Set X) :
+    IsDistanceFunction (fun p q : Y => dist (p : X) (q : X)) :=
+  distanceFunction_of_metric
+
 end Rudin.PMA.Chapter02
