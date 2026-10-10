@@ -46,3 +46,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.38 | PASS: coefficient times power definition, partial-sum comparator, convergence disk with zero/infinite radii permitted. |
 | PMA-3.39 | PASS: inverse root limsup radius, inverse-zero/infinity cases, strict inside/outside criteria. |
 | PMA-3.41 | PASS: inclusive source sum and correct initial partial sum at `p=0`, using half-open difference sum. |
+| PMA-3.42 | PASS: bounded complex partial sums and decreasing real factors tending to zero. |

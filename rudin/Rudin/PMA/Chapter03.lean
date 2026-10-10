@@ -2011,4 +2011,19 @@ theorem pma3_41 : pma3_41_contract := by
       ring
     _ = _ := by rw [h, hs]; ring
 
+/-! ### PMA-3.42: Dirichlet's test with ordinary convergence. -/
+
+def pma3_42_contract : Prop := ∀ (a : ℕ → ℂ) (b : ℕ → ℝ),
+  (∃ M : ℝ, ∀ N, ‖PartialSums a N‖ ≤ M) → Antitone b → Tendsto b atTop (𝓝 0) →
+  SeriesConverges (fun n => a n * (b n : ℂ))
+
+theorem pma3_42 : pma3_42_contract := by
+  intro a b hb hba hb0
+  obtain ⟨M, hM⟩ := hb
+  have hc := hba.cauchySeq_series_mul_of_tendsto_zero_of_bounded hb0 hM
+  obtain ⟨s, hs⟩ := cauchySeq_tendsto_of_complete hc
+  refine ⟨s, ?_⟩
+  change Tendsto (fun N => ∑ n ∈ Finset.range N, a n * (b n : ℂ)) atTop (𝓝 s)
+  simpa [Complex.real_smul, mul_comm] using hs
+
 end Rudin.PMA.Chapter03
