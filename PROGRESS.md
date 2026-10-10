@@ -34,3 +34,10 @@ declarations plus 14 probe declarations including compiler-generated code).
 Only the three permitted axioms occur. Run
 `python3 scripts/check_chapter.py 2`; fidelity evidence is in
 `research/pma-ch02-checks.md` and `research/pma-ch02-fidelity.md`.
+
+Chapter 3 is complete: 55 / 55 nodes, each with a local `PMA-3.x done`
+commit and passing default build. All source definitions and statements were
+independently reviewed; final verification includes 14 authored boundary probes
+and a recursive audit of 604 chapter/probe declarations against the three
+permitted axioms. Run `python3 scripts/check_chapter.py 3`; fidelity evidence is
+in `research/pma-ch03-checks.md` and `research/pma-ch03-fidelity.md`.
