@@ -107,4 +107,17 @@ theorem pma1_5_linearOrder (α : Type*) [LinearOrder α] :
     OrderAxioms ((· < ·) : α → α → Prop) :=
   ⟨lt_irrefl, lt_trichotomy, fun {_ _ _} hxy hyz => lt_trans hxy hyz⟩
 
+/-! ### PMA-1.6: an ordered set is a carrier equipped with an order. -/
+
+structure OrderedSet where
+  carrier : Type*
+  less : carrier → carrier → Prop
+  order : OrderAxioms less
+
+def orderedSetOfLinearOrder (α : Type*) [LinearOrder α] : OrderedSet :=
+  ⟨α, (· < ·), pma1_5_linearOrder α⟩
+
+theorem pma1_6_rational_order (r s : ℚ) : r < s ↔ 0 < s - r :=
+  (sub_pos).symm
+
 end Rudin.PMA.Chapter01

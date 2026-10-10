@@ -15,3 +15,4 @@ folded into 1.1 under PROGRAM.md's rule for remarks. The requested target count 
 | PMA-1.3 | PASS: Membership, empty sets, inclusion, strict inclusion and mutual-inclusion equality match the source. | Explicit iff comparisons to Set membership/emptiness/subset/ssubset/equality. |
 | PMA-1.4 | PASS: The chapter notation denotes all rational numbers. | Alias of ℚ; every element has an integer numerator and nonzero integer denominator. |
 | PMA-1.5 | PASS: Irreflexivity, trichotomy and transitivity give exactly one of the three source alternatives. | Pairwise exclusion proof; every Mathlib LinearOrder satisfies these axioms. |
+| PMA-1.6 | PASS: An ordered carrier is equipped with a relation satisfying the preceding order axioms. | Construction from LinearOrder; rational order iff positive difference. |
