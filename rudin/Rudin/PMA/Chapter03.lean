@@ -2249,4 +2249,99 @@ theorem pma3_40 : pma3_40_contract := by
   have : (1 : ℝ) = 0 := tendsto_nhds_unique tendsto_const_nhds ht
   norm_num at this
 
+/-! ### PMA-3.46: nonabsolute convergence, positive terms, and absolute convergence tests. -/
+
+def SeriesNonabsolutelyConverges {V : Type*} [NormedAddCommGroup V] (a : ℕ → V) : Prop :=
+  SeriesConverges a ∧ ¬ SeriesAbsolutelyConverges a
+
+def AlternatingHarmonic (n : ℕ) : ℝ := (-1 : ℝ) ^ n / (n + 1 : ℝ)
+def NegativeAlternatingHarmonic (n : ℕ) : ℝ := -AlternatingHarmonic n
+
+def pma3_46_contract : Prop :=
+  (∀ a : ℕ → ℝ, (∀ n, 0 ≤ a n) →
+    (SeriesAbsolutelyConverges a ↔ SeriesConverges a)) ∧
+  SeriesNonabsolutelyConverges NegativeAlternatingHarmonic ∧
+  (∀ c z, (‖z‖₊ : ℝ≥0∞) < PowerSeriesRadius c →
+    SeriesAbsolutelyConverges (PowerSeriesTerms c z)) ∧
+  (∀ (a : ℕ → ℂ) (b : ℕ → ℝ), (∃ N, ∀ n ≥ N, ‖a n‖ ≤ b n) →
+    SeriesConverges b → SeriesAbsolutelyConverges a) ∧
+  (∀ a : ℕ → ℂ, RootLimsup a < 1 → SeriesAbsolutelyConverges a) ∧
+  (∀ a : ℕ → ℂ, (∃ N, ∀ n ≥ N, a n ≠ 0) →
+    (Filter.limsup (fun n => ENNReal.ofReal (‖a (n + 1)‖ / ‖a n‖)) atTop < 1) →
+    SeriesAbsolutelyConverges a)
+
+theorem alternatingHarmonic_converges : SeriesConverges AlternatingHarmonic := by
+  obtain ⟨A, hA⟩ := reciprocalSucc_antitone.tendsto_alternating_series_of_tendsto_zero
+    tendsto_one_div_add_atTop_nhds_zero_nat
+  refine ⟨A, ?_⟩
+  change Tendsto (fun N => ∑ n ∈ Finset.range N, AlternatingHarmonic n) atTop (𝓝 A)
+  simpa [AlternatingHarmonic, div_eq_mul_inv] using hA
+
+theorem alternatingHarmonic_not_absolute : ¬ SeriesAbsolutelyConverges AlternatingHarmonic := by
+  intro h
+  have hs := (seriesAbsolutelyConverges_iff_summable_norm _).mp h
+  have he : (fun n => ‖AlternatingHarmonic n‖) = fun n : ℕ => 1 / (n + 1 : ℝ) := by
+    funext n
+    simp [AlternatingHarmonic, norm_div, norm_pow, Real.norm_eq_abs,
+      abs_of_pos (show 0 < (n : ℝ) + 1 by positivity)]
+  rw [he] at hs
+  exact Real.not_summable_one_div_natCast ((summable_nat_add_iff 1).mp (by
+    simpa only [Nat.cast_add, Nat.cast_one] using hs))
+
+theorem advanced_comparison_absolute {a : ℕ → ℂ} {b : ℕ → ℝ}
+    (hbound : ∃ N, ∀ n ≥ N, ‖a n‖ ≤ b n) (hb : SeriesConverges b) :
+    SeriesAbsolutelyConverges a := by
+  obtain ⟨N, hN⟩ := hbound
+  have htail : SeriesConverges (fun n => b (n + N)) :=
+    (advanced_seriesConverges_nat_add_iff b N).mpr hb
+  have hn : ∀ n, 0 ≤ b (n + N) := fun n =>
+    (norm_nonneg (a (n + N))).trans (hN (n + N) (Nat.le_add_left N n))
+  have hbS := (nonnegative_seriesConverges_iff_summable _ hn).mp htail
+  apply (seriesAbsolutelyConverges_iff_summable_norm a).mpr
+  apply (summable_nat_add_iff N).mp
+  exact Summable.of_nonneg_of_le (fun _ => norm_nonneg _)
+    (fun n => hN (n + N) (Nat.le_add_left N n)) hbS
+
+theorem advanced_root_absolute {a : ℕ → ℂ} (h : RootLimsup a < 1) :
+    SeriesAbsolutelyConverges a := by
+  have hz : (‖(1 : ℂ)‖₊ : ℝ≥0∞) < PowerSeriesRadius a := by
+    simpa [PowerSeriesRadius] using ENNReal.one_lt_inv.mpr h
+  have he : PowerSeriesTerms a 1 = a := by funext n; simp [PowerSeriesTerms]
+  rw [← he]
+  exact powerSeries_interior_absolute a 1 hz
+
+theorem advanced_ratio_absolute {a : ℕ → ℂ}
+    (hnz : ∃ N, ∀ n ≥ N, a n ≠ 0)
+    (h : Filter.limsup (fun n => ENNReal.ofReal (‖a (n + 1)‖ / ‖a n‖)) atTop < 1) :
+    SeriesAbsolutelyConverges a := by
+  obtain ⟨r, hr, hr1⟩ := exists_between h
+  have hrT : r ≠ ⊤ := ne_of_lt (hr1.trans (by simp))
+  have hrR : r.toReal < 1 := by
+    exact (ENNReal.toReal_lt_toReal hrT (by simp)).mpr hr1
+  have he := Filter.eventually_lt_of_limsup_lt hr
+  obtain ⟨N, hN⟩ := hnz
+  have hnorm : Summable (fun n => ‖a n‖) := by
+    apply summable_of_ratio_norm_eventually_le hrR
+    filter_upwards [he, eventually_ge_atTop N] with n hn hnN
+    have hd : 0 < ‖a n‖ := norm_pos_iff.mpr (hN n hnN)
+    have hratio : ‖a (n + 1)‖ / ‖a n‖ < r.toReal :=
+      (ENNReal.ofReal_lt_iff_lt_toReal (by positivity) hrT).mp hn
+    simpa only [norm_norm] using (div_le_iff₀ hd).mp hratio.le
+  exact (seriesAbsolutelyConverges_iff_summable_norm a).mpr hnorm
+
+theorem pma3_46 : pma3_46_contract := by
+  refine ⟨?_, ?_, powerSeries_interior_absolute, fun _ _ => advanced_comparison_absolute,
+    fun _ => advanced_root_absolute, fun _ => advanced_ratio_absolute⟩
+  · intro a ha
+    simp only [SeriesAbsolutelyConverges, Real.norm_eq_abs, abs_of_nonneg (ha _)]
+  · constructor
+    · obtain ⟨A, hA⟩ := alternatingHarmonic_converges
+      refine ⟨-A, ?_⟩
+      change Tendsto (fun N => ∑ n ∈ Finset.range N, NegativeAlternatingHarmonic n)
+        atTop (𝓝 (-A))
+      simpa [NegativeAlternatingHarmonic, PartialSums, Finset.sum_neg_distrib] using hA.neg
+    · intro h
+      apply alternatingHarmonic_not_absolute
+      simpa [SeriesAbsolutelyConverges, NegativeAlternatingHarmonic] using h
+
 end Rudin.PMA.Chapter03

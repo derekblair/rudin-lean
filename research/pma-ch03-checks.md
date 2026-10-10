@@ -51,3 +51,4 @@ and followed by a passing default build and namespace axiom audit before its loc
 | PMA-3.44 | PASS: radius one, real decreasing coefficients, zero limit, and all unit-circle points except one. |
 | PMA-3.45 | PASS: ordinary convergence of norm series and implication for ordinary complex series. |
 | PMA-3.40 | PASS: all five exact coefficients and radii, all stated boundary classifications, zero heads for positive-index reciprocals. |
+| PMA-3.46 | PASS: actual nonabsolute definition/example; nonnegative equivalence; absolute inside-disk, comparison, root and guarded ratio conclusions. |

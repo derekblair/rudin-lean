@@ -9,7 +9,7 @@ All completed nodes have zero proof placeholders.
 |---|---|---|
 | 01 | The Real and Complex Number Systems | 37 / 37 |
 | 02 | Basic Topology | 47 / 47 |
-| 03 | Numerical Sequences and Series | 45 / 55 |
+| 03 | Numerical Sequences and Series | 46 / 55 |
 | 04 | Continuity | 0 |
 | 05 | Differentiation | 0 |
 | 06 | The Riemann-Stieltjes Integral | 0 |
