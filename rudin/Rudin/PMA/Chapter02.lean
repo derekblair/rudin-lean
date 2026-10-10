@@ -791,4 +791,18 @@ theorem iUnion_complements_shrinkingSegment_not_closed :
   rw [isOpenSet_iff_isOpen]
   simpa only [compl_iUnion, compl_compl] using h.isOpen_compl
 
+/-! ### PMA-2.26: Closure as a set together with its limit points. -/
+def limitPoints {X : Type*} [MetricSpace X] (E : Set X) : Set X :=
+  {p | IsLimitPoint p E}
+def setClosure {X : Type*} [MetricSpace X] (E : Set X) : Set X := E ∪ limitPoints E
+
+theorem limitPoints_eq_derivedSet {X : Type*} [MetricSpace X] (E : Set X) :
+    limitPoints E = derivedSet E := by
+  ext p
+  exact isLimitPoint_iff_accPt p E
+
+theorem setClosure_eq_closure {X : Type*} [MetricSpace X] (E : Set X) :
+    setClosure E = closure E := by
+  rw [setClosure, limitPoints_eq_derivedSet, closure_eq_self_union_derivedSet]
+
 end Rudin.PMA.Chapter02
