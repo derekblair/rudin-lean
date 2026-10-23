@@ -1,9 +1,9 @@
 {
-  "scope": "Independently reviewed frozen Chapter10 through node 46: completed nodes 1-42 and 44-46, with exact incomplete 43 contract and compiled partial results. Index, audits and probes are separate gates.",
+  "scope": "Independent final Chapter10 production review: all51 exact numbered contracts,50 completed principals (1-42 and44-51), and exact incomplete43 contract with compiled partial results. Integration index, cumulative audits and default build are separate gates.",
   "date": "2026-10-23",
-  "production_module_count": 99,
-  "numbered_principal_count": 45,
-  "kernel_status": "All 99 production modules compiled successfully in the parent serialized build process; 45 complete numbered principals. Node43 full principal is absent. Reviewer ran no builds.",
+  "production_module_count": 114,
+  "numbered_principal_count": 50,
+  "kernel_status": "All114 production modules and all61 independent public assertions compiled in the parent serialized process. Parent reports final combined audit green:50 principals/comparators,2212 recursive declarations and202 probe-subset declarations; default build green9149 jobs. Full43 principal is absent. Reviewer ran no builds.",
   "reviewer_authorship_exception": "None: ch8_fidelity authored no Chapter10 production module.",
   "files": [
     {
@@ -883,6 +883,136 @@
       "independent_reviewer": "ch8_fidelity",
       "review_evidence": "research/pma-ch10-source-review.md",
       "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Torus.lean",
+      "sha256": "e758c81ed1cb1c977a5eda076f7d5f66383e6dd2c5dd9c5ce3fea439da85ab86",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/TorusGeometry.lean",
+      "sha256": "37a1cd22cb5d8f5ce275a6b2b4ff306dba171cb3949c582f88c68e2cb3c1b19c",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/TorusCalculus.lean",
+      "sha256": "89e8ff9cc88e2b7710d304e773a4d6245e096f41838773f06e812da8c5291178",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CellImageVolume.lean",
+      "sha256": "138f6b4a8c6b4fef83a011fd24342234127b888d974f8dc96d3aec7dd4487ba9",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/TorusVolume.lean",
+      "sha256": "7d1637005c623335b726437eef7e745e3baa35e8bae071d9056776c89ab17283",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CellFTC.lean",
+      "sha256": "36ed2e975589dafa415531280856c4616f97a47582a47054e3b1dbc1ed4a87ca",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CellFaces.lean",
+      "sha256": "8f3217a1ae8fdd7552da027ebdd164d3c83c41448db87cc4284eea0ecc9cc8e1",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CubicalStokes.lean",
+      "sha256": "62164222376f27a950fb8b216771f5c296d4136dad2b48972911d7b83935a753",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/TorusBoundary.lean",
+      "sha256": "4efa8867e713b3625d4712aa5fae5b0256ab0749c159be1ae270c91de9d61e55",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/TorusProof.lean",
+      "sha256": "0131a917bca7234f878412237feac7e577d328805ff7e74ff28ada11bd936880",
+      "principal_nodes": [
+        "PMA-10.47"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Circulation.lean",
+      "sha256": "80ba039da397ad26dbf326663ffeb37473f92e68131974ad2e4830bcecdadc4c",
+      "principal_nodes": [
+        "PMA-10.48"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Flux.lean",
+      "sha256": "8af692d0277eab23b489897a777081cbfe6a95938be9d4c6f9c0535ae8594d85",
+      "principal_nodes": [
+        "PMA-10.49"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SurfaceChains.lean",
+      "sha256": "1c5d40a150a9aad8996fd197db1d19311edaf17bb3ef9a1a667e768ea6144a49",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ClassicalStokes.lean",
+      "sha256": "6887663b1df78e92e25d8adb83af1e06f768b979b0dcf6be3ae844548a7561bb",
+      "principal_nodes": [
+        "PMA-10.50"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/DivergenceTheorem.lean",
+      "sha256": "e5b4644a2239a6ddead2d3220e5ae763ce58f9ab62d390c26245c389e5efa15d",
+      "principal_nodes": [
+        "PMA-10.51"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
     }
   ],
   "completed_nodes": [
@@ -930,9 +1060,16 @@
     42,
     44,
     45,
-    46
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
   ],
   "incomplete_nodes": [
     "PMA-10.43"
-  ]
+  ],
+  "independent_public_probe_assertions": 61,
+  "independent_probe_modules": 25
 }

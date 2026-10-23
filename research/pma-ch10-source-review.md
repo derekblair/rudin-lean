@@ -608,3 +608,69 @@ The complete DivergenceTheorem proof is independently accepted at the parent-rep
 - `TorusVolume` reviewed SHA256: `7d1637005c623335b726437eef7e745e3baa35e8bae071d9056776c89ab17283`.
 - `DivergenceTheorem` reviewed SHA256: `e5b4644a2239a6ddead2d3220e5ae763ce58f9ab62d390c26245c389e5efa15d`.
 - Exact accepted51 contract SHA256: `899b7958ee21bc207d02007bc85ded8cc76a3185c868ae4c4233f7e89f3cdce0`.
+
+### Torus volume and cubical boundary review
+
+Final TorusCalculus, CellImageVolume and TorusVolume were reread after the parent-reported successful compiler passes. The corrections are expression normalization and typed finite-coordinate evaluation; the actual derivative order, native volume, ordinary image volume and area formulas retain their accepted meanings. The complete torus principal assembly is structurally faithful but depends on the still-pending all-continuous-form boundary proof.
+
+CellFTC, CellFaces and CubicalStokes were independently read in full and accepted mathematically as drafts: ordered coordinate deletion and actual face integrals give the alternating upper-minus-lower formula, valid for degenerate cells and dimension-zero faces. The proof passes from scalar FTC to C1 differential forms, through genuine C2 pullback, then invokes the already-proved C1 approximation/separation theorem to obtain equality for every continuous form. No regularity restriction on the eventual boundary functional has been introduced. Compiler reconciliation of these three modules remains pending. The 50/51 modules are parent-reported green. The current index/audit explicitly excludes43 and additionally checks that no full principal theorem exists for that queued node.
+
+| Module | Reviewed SHA256 |
+| --- | --- |
+| Torus | `e758c81ed1cb1c977a5eda076f7d5f66383e6dd2c5dd9c5ce3fea439da85ab86` |
+| TorusGeometry | `37a1cd22cb5d8f5ce275a6b2b4ff306dba171cb3949c582f88c68e2cb3c1b19c` |
+| TorusCalculus | `89e8ff9cc88e2b7710d304e773a4d6245e096f41838773f06e812da8c5291178` |
+| CellImageVolume | `138f6b4a8c6b4fef83a011fd24342234127b888d974f8dc96d3aec7dd4487ba9` |
+| TorusVolume | `7d1637005c623335b726437eef7e745e3baa35e8bae071d9056776c89ab17283` |
+| CellFTC | `36ed2e975589dafa415531280856c4616f97a47582a47054e3b1dbc1ed4a87ca` |
+| CellFaces | `93718010de37cb4baf8e25e5cfe9034639e854aff25411482e44b31a73b90dcc` |
+| CubicalStokes | `49bd9e4860411f71269488181a84d7a7fab290437dcefe422ac877a492f02fa5` |
+| SurfaceChains | `1c5d40a150a9aad8996fd197db1d19311edaf17bb3ef9a1a667e768ea6144a49` |
+| ClassicalStokes | `6887663b1df78e92e25d8adb83af1e06f768b979b0dcf6be3ae844548a7561bb` |
+| Circulation | `80ba039da397ad26dbf326663ffeb37473f92e68131974ad2e4830bcecdadc4c` |
+| Flux | `8af692d0277eab23b489897a777081cbfe6a95938be9d4c6f9c0535ae8594d85` |
+
+### Torus all-continuous-form boundary draft review
+
+TorusBoundary was read in full and independently accepted mathematically. Both angular face pairs are equal as actual maps on the same deleted-coordinate cells. The radius-zero face retains a circle image but has a zero first tangent, so homogeneous two-form evaluation vanishes; native continuity/integrability precedes its zero integral. The upper radial face is identified with the actual outer torus on the equal parameter cell. The cubical signed sum therefore gives the stated boundary functional for every continuous two-form, with no C1 premise. The full47 assembly combines precisely these facts with the previously accepted geometric, normal, volume and area statements. Compilation of the boundary/assembly remains pending.
+
+- `TorusBoundary` draft SHA256: `34ecd28689cad099b103a4c55415ee3cbfc1464c1749931a3c732b6eb1c7ca3b`.
+- `TorusProof` draft SHA256: `0131a917bca7234f878412237feac7e577d328805ff7e74ff28ada11bd936880`.
+
+Parent reports all four new scalar/volume/area clients and the two later vector-integral clients compiled green, and both ClassicalCalculusProbes compiled green; cumulative independent public assertion count is58 before the new torus probes. The three new TorusProbes exercise an absolute-value continuous coefficient on the collapsed inner face, closed-form vanishing via the actual bounding chain, and the independent corner normal orientation. They are authored and not yet compiled.
+
+### Final independent production reconciliation
+
+All final15 production modules were reconciled against the preceding full semantic reviews. The last TorusBoundary changes only normalize literal finite-coordinate insertion, typed2×2 determinants, actual face domain/map equalities, and the typed three-term signed sum. Its all-continuous-form boundary claim and zero-inner-tangent argument are unchanged. The final TorusProof assembly proves the exact preaccepted47 contract without extra hypotheses. All five final numbered contract hashes47–51 match their earlier accepted values. Every one of the99 previously canonical production hashes and every previously accepted contract text remains unchanged.
+
+Parent reports every production module and all torus probes compiled green. The final canonical manifest contains114 production modules and50 completed numbered principals:1–42 and44–51. The exact43 statement is retained as an accepted source contract, with its final C2 vector-potential clause unresolved, a needs-insight queue entry, no full principal theorem, and no completion marker. It is not counted among the50 completed nodes. All51 numbered contracts and both31 component contracts are captured exactly.
+
+The25 independently authored probe modules contain61 public theorem assertions, counted directly from the files and all parent-reported green. The last three test a merely continuous absolute-value coefficient on the collapsed torus face, vanishing of a closed form via the actual solid-torus chain, and the positive-x normal at the parameter corner. Recursive axiom-audit declaration subsets are a separate parent count. This reviewer authored no Chapter10 production proof, performed no build or git mutation, and made no changes to Chapters1–9 or pinned inputs. Final cumulative audit/default build and final repository integrity checks remain the parent’s gates. Review/canonical files are now frozen pending read-only final reconciliation.
+
+| Final added production module | Accepted compiled SHA256 |
+| --- | --- |
+| Torus | `e758c81ed1cb1c977a5eda076f7d5f66383e6dd2c5dd9c5ce3fea439da85ab86` |
+| TorusGeometry | `37a1cd22cb5d8f5ce275a6b2b4ff306dba171cb3949c582f88c68e2cb3c1b19c` |
+| TorusCalculus | `89e8ff9cc88e2b7710d304e773a4d6245e096f41838773f06e812da8c5291178` |
+| CellImageVolume | `138f6b4a8c6b4fef83a011fd24342234127b888d974f8dc96d3aec7dd4487ba9` |
+| TorusVolume | `7d1637005c623335b726437eef7e745e3baa35e8bae071d9056776c89ab17283` |
+| CellFTC | `36ed2e975589dafa415531280856c4616f97a47582a47054e3b1dbc1ed4a87ca` |
+| CellFaces | `8f3217a1ae8fdd7552da027ebdd164d3c83c41448db87cc4284eea0ecc9cc8e1` |
+| CubicalStokes | `62164222376f27a950fb8b216771f5c296d4136dad2b48972911d7b83935a753` |
+| TorusBoundary | `4efa8867e713b3625d4712aa5fae5b0256ab0749c159be1ae270c91de9d61e55` |
+| TorusProof | `0131a917bca7234f878412237feac7e577d328805ff7e74ff28ada11bd936880` |
+| Circulation | `80ba039da397ad26dbf326663ffeb37473f92e68131974ad2e4830bcecdadc4c` |
+| Flux | `8af692d0277eab23b489897a777081cbfe6a95938be9d4c6f9c0535ae8594d85` |
+| SurfaceChains | `1c5d40a150a9aad8996fd197db1d19311edaf17bb3ef9a1a667e768ea6144a49` |
+| ClassicalStokes | `6887663b1df78e92e25d8adb83af1e06f768b979b0dcf6be3ae844548a7561bb` |
+| DivergenceTheorem | `e5b4644a2239a6ddead2d3220e5ae763ce58f9ab62d390c26245c389e5efa15d` |
+
+| Final node | Exact accepted contract SHA256 |
+| --- | --- |
+| PMA-10.47 | `d91eedae86dba0b1bd6ef708637645c97f207b687e3129b182bbd00aea5bb221` |
+| PMA-10.48 | `5a4d595c7889794a701c6ee1e41b3d6024aec2bc4a7e33b5455fca7152a4c287` |
+| PMA-10.49 | `90467561b969679bbf9f7c7c114432fa500ee7805a3ef56b1943d754cd393668` |
+| PMA-10.50 | `c3dd13777f0c4fb026e9eb7864d8d5a32b0f28a0baf1dd76e2aa8b98f5c25005` |
+| PMA-10.51 | `899b7958ee21bc207d02007bc85ded8cc76a3185c868ae4c4233f7e89f3cdce0` |
+
+Final parent gate report (batch28311): the combined audit passed50 principal lookups/type comparators and checked2212 recursive declarations, including202 declarations in the probe namespace dependency subset. All61 public probe assertions passed; the default build passed9149 jobs; the full source checker reports50/51 completed with exactly one explicitly queued node43. No active Lean process remains. These results supersede the pending-gate wording immediately above; the final repository integrity receipt/commit is parent-owned.

@@ -4,7 +4,7 @@ Statements that resisted proof automation and are waiting for a
 mathematician's idea. Each entry records: chapter, statement reference,
 what was tried, and what seems to be missing.
 
-_PMA-10.43 has an unresolved C2 vector-potential clause, recorded below. Chapters 1–7 are complete. The isolated Chapter 8 lane covers 8.1–8.6; 8.7–8.22 remain pending rather than attempted-and-blocked. Chapter 9 is complete at 43/43 numbered nodes; Chapter 10 work is active under the user’s new instruction; Chapter 11 is pending. All completed nodes have passing builds and axiom audits._
+_PMA-10.43 has an unresolved C2 vector-potential clause, recorded below. Chapters 1–7 are complete. The isolated Chapter 8 lane covers 8.1–8.6; 8.7–8.22 remain pending rather than attempted-and-blocked. Chapter 9 is complete at 43/43 numbered nodes; Chapter 10 has 50/51 completed nodes and one queued node; Chapter 11 is pending. All completed nodes have passing builds and axiom audits._
 
 ## PMA-10.43 — C2 vector potential from C1 divergence-free data
 
@@ -38,3 +38,9 @@ C1 conclusion or strengthened to a C2 input. See
 `research/pma-ch10-potential-regularity.md` for exact evidence and limitations.
 Later independent nodes may be completed in book order with this explicit gap;
 none is counted as completing PMA-10.43.
+
+Chapter 10 final lane scope: PMA-10.1–10.42 and 10.44–10.51 are completed.
+PMA-10.43 above is the sole needs-insight entry. There are no unattempted
+Chapter10 nodes and no proof placeholders. All 50 actual principal theorem
+lookups and contract comparisons are required by Chapter10Audit; the same
+audit explicitly rejects an asserted principal for the queued node.

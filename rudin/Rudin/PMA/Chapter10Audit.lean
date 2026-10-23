@@ -21,6 +21,9 @@ import Rudin.PMA.Chapter10.CellTriangulationProbes
 import Rudin.PMA.Chapter10.VectorFieldProbes
 import Rudin.PMA.Chapter10.ScalarPotentialProbes
 import Rudin.PMA.Chapter10.VolumeAreaProbes
+import Rudin.PMA.Chapter10.TorusProbes
+import Rudin.PMA.Chapter10.VectorIntegrationProbes
+import Rudin.PMA.Chapter10.ClassicalCalculusProbes
 import Rudin.PMA.Chapter01Audit
 
 set_option autoImplicit false
@@ -71,18 +74,27 @@ example : pma10_42_contract := pma10_42
 example : pma10_44_contract := pma10_44
 example : pma10_45_contract := pma10_45
 example : pma10_46_contract := pma10_46
+example : pma10_47_contract := pma10_47
+example : pma10_48_contract := pma10_48
+example : pma10_49_contract := pma10_49
+example : pma10_50_contract := pma10_50
+example : pma10_51_contract := pma10_51
 end Rudin.PMA.Chapter10.ContractComparators
 
 run_cmd do
   let env ← Lean.getEnv
-  for i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 44, 45, 46] do
+  for i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+    11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+    21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+    31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+    41, 42, 44, 45, 46, 47, 48, 49, 50, 51] do
     let n := Lean.Name.str `Rudin.PMA.Chapter10 ("pma10_" ++ toString i)
     match env.find? n with
     | some (.thmInfo _) => pure ()
     | _ => throwError "Missing completed Chapter 10 proof: {n}"
   if (env.find? `Rudin.PMA.Chapter10.pma10_43).isSome then
     throwError "Queued PMA-10.43 must not have a principal theorem"
-  Lean.logInfo "PMA Chapter 10 coverage: 45 principal theorems and 45 contract type comparisons."
+  Lean.logInfo "PMA Chapter 10 coverage: 50 principal theorems and 50 contract type comparisons."
 
 run_cmd Rudin.PMA.Audit.checkNamespaceAxioms `Rudin.PMA.Chapter10
 run_cmd Rudin.PMA.Audit.checkNamespaceAxioms `Rudin.PMA.Chapter10.FidelityProbes

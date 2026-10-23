@@ -1,7 +1,7 @@
 {
   "reviewer": "ch8_fidelity",
   "date": "2026-10-23",
-  "status": "Independent semantic acceptance of exact Chapter10 contracts 1-46, including both 10.31 component contracts. Node43 full contract is explicitly unproved; completed principals are 1-42 and 44-46. Compilation and probes are separate gates.",
+  "status": "Independent semantic acceptance of all51 exact numbered Chapter10 contracts plus both10.31 component contracts. Completed principals are1-42 and44-51 (50 total). Exact43 remains unproved, with three clauses separately proved and its weaker C1 vector helper explicitly identified. No contract was weakened to erase the gap.",
   "extraction": "Declaration text from def through final term; trailing whitespace normalized to one newline; excludes subsequent declaration/comment.",
   "files": [
     {
@@ -404,6 +404,56 @@
         "pma10_46_contract": {
           "sha256": "2975a19e91bf84c2b03ad59728c085a9fc34912a1953efd545fbe80dc90b7c1d",
           "text": "def pma10_46_contract : Prop :=\n  (∀ (E : Set (Euclidean 3)) (Φ : Surface 2 3 E),\n    (∀ u : Coord 2, surfaceNormal Φ u = coordEquivEuclidean 3\n      ![surfaceCoordinateJacobian Φ u 1 2, surfaceCoordinateJacobian Φ u 2 0,\n        surfaceCoordinateJacobian Φ u 0 1]) ∧\n    (∀ f : Euclidean 3 → ℝ, ContinuousOn f (Φ.map '' Φ.domain.carrier) →\n      Φ.domain.Integrable (areaIntegrand Φ f) ∧\n      areaIntegral Φ f = Φ.domain.integral (fun u => f (Φ.map u) * ‖surfaceNormal Φ u‖)) ∧\n    Φ.domain.Integrable (fun u => ‖surfaceNormal Φ u‖) ∧\n    surfaceArea Φ = Φ.domain.integral (fun u => ‖surfaceNormal Φ u‖) ∧\n    (∀ u ∈ Φ.domain.carrier,\n      let A := surfaceTangent Φ u\n      let a := A (Pi.single 0 1)\n      let b := A (Pi.single 1 1)\n      let N := surfaceNormal Φ u\n      inner ℝ N a = 0 ∧ inner ℝ N b = 0 ∧\n      (∀ v : Coord 2, inner ℝ N (A v) = 0) ∧\n      Matrix.det (fun i j : Fin 3 => (![a, b, N] j) i) = ‖N‖ ^ 2 ∧\n      Module.finrank ℝ A.toLinearMap.range ≤ 2 ∧\n      (Module.finrank ℝ A.toLinearMap.range = 2 ↔ N ≠ 0) ∧\n      (Module.finrank ℝ A.toLinearMap.range < 2 ↔ N = 0) ∧\n      (surfaceTangentPlane Φ u : Set (Euclidean 3)) = range (fun v => Φ.map u + A v) ∧\n      Module.finrank ℝ (surfaceTangentPlane Φ u).direction = Module.finrank ℝ A.toLinearMap.range ∧\n      (Module.finrank ℝ A.toLinearMap.range = 2 →\n        0 < Matrix.det (fun i j : Fin 3 => (![a, b, N] j) i)))) ∧\n  (∀ (C : Cell 2) (p : Euclidean 3) (A : Coord 2 →L[ℝ] Euclidean 3),\n    let N := cross3 (A (Pi.single 0 1)) (A (Pi.single 1 1))\n    (∀ u, surfaceNormal (affineRectangleSurface C p A) u = N) ∧\n    surfaceArea (affineRectangleSurface C p A) = ‖N‖ * (volume C.carrier).toReal ∧\n    surfaceArea (affineRectangleSurface C p A) =\n      ‖N‖ * ((C.upper 0 - C.lower 0) * (C.upper 1 - C.lower 1)) ∧\n    surfaceArea (affineRectangleSurface (Cell.unit 2) p A) = ‖N‖)\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Torus.lean",
+      "file_sha256": "e758c81ed1cb1c977a5eda076f7d5f66383e6dd2c5dd9c5ce3fea439da85ab86",
+      "contracts": {
+        "pma10_47_contract": {
+          "sha256": "d91eedae86dba0b1bd6ef708637645c97f207b687e3129b182bbd00aea5bb221",
+          "text": "def pma10_47_contract : Prop :=\n  ∀ (a b : ℝ) (ha : 0 < a), a < b →\n    (torusSolidSurface a b ha).IsC2 ∧ (torusOuterSurface a b).IsC2 ∧\n    InjOn (torusMap b) (interior (torusCell a ha).carrier) ∧\n    torusMap b '' (torusCell a ha).carrier = solidTorus a b ∧\n    (∀ u, torusJacobian b u = u 0 * (b + u 0 * Real.sin (u 1))) ∧\n    (∀ u ∈ (torusCell a ha).carrier,\n      0 ≤ torusJacobian b u ∧ (0 < torusJacobian b u ↔ 0 < u 0)) ∧\n    (torusSolidSurface a b ha).domain.Integrable\n      (surfaceIntegrand (torusSolidSurface a b ha) volumeForm) ∧\n    (∀ u, surfaceIntegrand (torusSolidSurface a b ha) volumeForm u = torusJacobian b u) ∧\n    surfaceIntegral (torusSolidSurface a b ha) volumeForm = 2 * Real.pi ^ 2 * a ^ 2 * b ∧\n    (volume (solidTorus a b)).toReal = 2 * Real.pi ^ 2 * a ^ 2 * b ∧\n    (∃ Γ : SimplexChain 3 3 univ,\n      (∀ ω : FormField 3, IsFormOn univ 3 ω →\n        chainIntegral ω Γ = surfaceIntegral (torusSolidSurface a b ha) ω) ∧\n      (∀ ω : FormField 3, IsFormOn univ 2 ω →\n        chainIntegral ω (chainBoundary Γ) = surfaceIntegral (torusOuterSurface a b) ω)) ∧\n    (∀ u ∈ torusOuterCell.carrier,\n      surfaceNormal (torusOuterSurface a b) u =\n        (a * (b + a * Real.sin (u 0))) • torusUnitNormal u ∧\n      ‖torusUnitNormal u‖ = 1 ∧ 0 < a * (b + a * Real.sin (u 0)) ∧\n      ‖surfaceNormal (torusOuterSurface a b) u‖ = a * (b + a * Real.sin (u 0)) ∧\n      ∀ s ∈ Ioo 0 (b - a), torusOuterMap a b u + s • torusUnitNormal u ∉ solidTorus a b) ∧\n    (torusOuterSurface a b).domain.Integrable (fun u => ‖surfaceNormal (torusOuterSurface a b) u‖) ∧\n    surfaceArea (torusOuterSurface a b) = 4 * Real.pi ^ 2 * a * b ∧\n    (∀ x ∈ solidTorus a b, x 2 ≤ b + a) ∧\n    torusOuterMap a b ![Real.pi / 2, Real.pi / 2] = (b + a) • coordinateVector 3 2 ∧\n    surfaceNormal (torusOuterSurface a b) ![Real.pi / 2, Real.pi / 2] =\n      (a * (b + a)) • coordinateVector 3 2\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Circulation.lean",
+      "file_sha256": "80ba039da397ad26dbf326663ffeb37473f92e68131974ad2e4830bcecdadc4c",
+      "contracts": {
+        "pma10_48_contract": {
+          "sha256": "5a4d595c7889794a701c6ee1e41b3d6024aec2bc4a7e33b5455fca7152a4c287",
+          "text": "def pma10_48_contract : Prop :=\n  (∀ (v e : Euclidean 3), ‖e‖ = 1 →\n    ‖directionWithFallback v e‖ = 1 ∧ v = ‖v‖ • directionWithFallback v e ∧\n    ∀ w : Euclidean 3, inner ℝ w (directionWithFallback v e) * ‖v‖ = inner ℝ w v) ∧\n  (∀ (E : Set (Euclidean 3)) (γ : Surface 1 3 E) (F : VectorField),\n    ContinuousOn F (γ.map '' γ.domain.carrier) →\n    (∀ u, ‖curveUnitTangent γ u‖ = 1 ∧\n      curveVelocity γ u = ‖curveVelocity γ u‖ • curveUnitTangent γ u) ∧\n    γ.domain.Integrable (surfaceIntegrand γ (vectorOneForm F)) ∧\n    γ.domain.Integrable (fun u => ∑ i : Fin 3, F (γ.map u) i * curveVelocity γ u i) ∧\n    γ.domain.Integrable (circulationIntegrand γ F) ∧\n    γ.domain.Integrable (fun u => inner ℝ (F (γ.map u)) (curveUnitTangent γ u) * ‖curveVelocity γ u‖) ∧\n    surfaceIntegral γ (vectorOneForm F) = circulation γ F ∧\n    circulation γ F = γ.domain.integral (fun u => ∑ i : Fin 3, F (γ.map u) i * curveVelocity γ u i) ∧\n    circulation γ F = γ.domain.integral\n      (fun u => inner ℝ (F (γ.map u)) (curveUnitTangent γ u) * ‖curveVelocity γ u‖)) ∧\n  (∀ (E : Set (Euclidean 3)) (γ : Surface 1 3 E) (C : Cell 1), γ.domain = .cell C →\n    Chapter06.RectifiableCurveOn γ.toCurve.map (C.lower 0) (C.upper 0) ∧\n    Chapter06.CurveLength γ.toCurve.map (C.lower 0) (C.upper 0) =\n      ENNReal.ofReal (γ.domain.integral (fun u => ‖curveVelocity γ u‖)))\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Flux.lean",
+      "file_sha256": "8af692d0277eab23b489897a777081cbfe6a95938be9d4c6f9c0535ae8594d85",
+      "contracts": {
+        "pma10_49_contract": {
+          "sha256": "90467561b969679bbf9f7c7c114432fa500ee7805a3ef56b1943d754cd393668",
+          "text": "def pma10_49_contract : Prop :=\n  ∀ (E : Set (Euclidean 3)) (Φ : Surface 2 3 E) (F : VectorField),\n    ContinuousOn F (Φ.map '' Φ.domain.carrier) →\n    (∀ u, ‖surfaceUnitNormal Φ u‖ = 1 ∧\n      surfaceNormal Φ u = ‖surfaceNormal Φ u‖ • surfaceUnitNormal Φ u) ∧\n    Φ.domain.Integrable (surfaceIntegrand Φ (vectorTwoForm F)) ∧\n    Φ.domain.Integrable (fluxIntegrand Φ F) ∧\n    Φ.domain.Integrable (fun u => inner ℝ (F (Φ.map u)) (surfaceUnitNormal Φ u) * ‖surfaceNormal Φ u‖) ∧\n    surfaceIntegral Φ (vectorTwoForm F) = flux Φ F ∧\n    flux Φ F = Φ.domain.integral\n      (fun u => inner ℝ (F (Φ.map u)) (surfaceUnitNormal Φ u) * ‖surfaceNormal Φ u‖) ∧\n    (∀ (u : Coord 2) (e : Euclidean 3), ‖e‖ = 1 →\n      inner ℝ (F (Φ.map u)) (directionWithFallback (surfaceNormal Φ u) e) * ‖surfaceNormal Φ u‖ =\n        fluxIntegrand Φ F u)\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ClassicalStokes.lean",
+      "file_sha256": "6887663b1df78e92e25d8adb83af1e06f768b979b0dcf6be3ae844548a7561bb",
+      "contracts": {
+        "pma10_50_contract": {
+          "sha256": "c3dd13777f0c4fb026e9eb7864d8d5a32b0f28a0baf1dd76e2aa8b98f5c25005",
+          "text": "def pma10_50_contract : Prop :=\n  ∀ (E : Set (Euclidean 3)), IsOpen E → ∀ (Φ : Surface 2 3 E) (h₂ : Φ.IsC2)\n    (F : VectorField), ContDiffOn ℝ 1 F E →\n    flux Φ (curl F) = chainCirculation F (Φ.boundaryChain h₂) ∧\n    flux Φ (curl F) = Φ.domain.integral\n      (fun u => inner ℝ (curl F (Φ.map u)) (surfaceUnitNormal Φ u) * ‖surfaceNormal Φ u‖) ∧\n    Φ.domain.Integrable (fluxIntegrand Φ (curl F)) ∧\n    Φ.domain.Integrable\n      (fun u => inner ℝ (curl F (Φ.map u)) (surfaceUnitNormal Φ u) * ‖surfaceNormal Φ u‖) ∧\n    (∀ σ : C2Simplex 1 3 E, σ ∈ (Φ.boundaryChain h₂).support →\n      σ.toSurface.domain.Integrable (circulationIntegrand σ.toSurface F) ∧\n      σ.toSurface.domain.Integrable\n        (fun u => inner ℝ (F (σ.map u)) (curveUnitTangent σ.toSurface u) * ‖curveVelocity σ.toSurface u‖)) ∧\n    chainCirculation F (Φ.boundaryChain h₂) = (Φ.boundaryChain h₂).sum\n      (fun σ z => (z : ℝ) * σ.toSurface.domain.integral\n        (fun u => inner ℝ (F (σ.map u)) (curveUnitTangent σ.toSurface u) * ‖curveVelocity σ.toSurface u‖))\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/DivergenceTheorem.lean",
+      "file_sha256": "e5b4644a2239a6ddead2d3220e5ae763ce58f9ab62d390c26245c389e5efa15d",
+      "contracts": {
+        "pma10_51_contract": {
+          "sha256": "899b7958ee21bc207d02007bc85ded8cc76a3185c868ae4c4233f7e89f3cdce0",
+          "text": "def pma10_51_contract : Prop :=\n  ∀ (E : Set (Euclidean 3)), IsOpen E → ∀ (R : PositiveRegion 3 E)\n    (F : VectorField), ContDiffOn ℝ 1 F E →\n    IntegrableOn (divergence F) R.carrier ∧\n    regionIntegral R (divergence F) = chainIntegral (densityForm (divergence F)) R.chain ∧\n    regionIntegral R (divergence F) = chainFlux F R.boundary ∧\n    chainFlux F R.boundary = R.boundary.sum (fun σ z => (z : ℝ) *\n      σ.toSurface.domain.integral\n        (fun u => inner ℝ (F (σ.map u)) (surfaceUnitNormal σ.toSurface u) * ‖surfaceNormal σ.toSurface u‖)) ∧\n    (∀ i : Fin R.size, (R.piece i).simplex.toSurface.domain.Integrable\n      (surfaceIntegrand (R.piece i).simplex.toSurface (densityForm (divergence F)))) ∧\n    (∀ σ : C2Simplex 2 3 E, σ ∈ R.boundary.support →\n      σ.toSurface.domain.Integrable (fluxIntegrand σ.toSurface F) ∧\n      σ.toSurface.domain.Integrable\n        (fun u => inner ℝ (F (σ.map u)) (surfaceUnitNormal σ.toSurface u) * ‖surfaceNormal σ.toSurface u‖)) ∧\n    (∀ (T : PositiveRegion 3 E), R.carrier = T.carrier → ∀ H : VectorField,\n      ContinuousOn H E → chainFlux H R.boundary = chainFlux H T.boundary)\n"
         }
       }
     }

@@ -23,6 +23,11 @@ import Rudin.PMA.Chapter10.VectorPotentials
 import Rudin.PMA.Chapter10.VolumeElements
 import Rudin.PMA.Chapter10.PlanarGreen
 import Rudin.PMA.Chapter10.AreaElements
+import Rudin.PMA.Chapter10.TorusProof
+import Rudin.PMA.Chapter10.Circulation
+import Rudin.PMA.Chapter10.Flux
+import Rudin.PMA.Chapter10.ClassicalStokes
+import Rudin.PMA.Chapter10.DivergenceTheorem
 
 import Rudin.PMA.Chapter10.PuncturedPlane
 import Rudin.PMA.Chapter10.PuncturedSphere
@@ -220,6 +225,26 @@ Principal proof: `pma10_45`. Definitions and proofs: `Chapter10/PlanarGreen.lean
 
 /-! ### PMA-10.46
 Principal proof: `pma10_46`. Definitions and proofs: `Chapter10/AreaElements.lean`.
+-/
+
+/-! ### PMA-10.47
+Principal proof: `pma10_47`. Definitions and proofs: `Chapter10/TorusProof.lean`.
+-/
+
+/-! ### PMA-10.48
+Principal proof: `pma10_48`. Definitions and proofs: `Chapter10/Circulation.lean`.
+-/
+
+/-! ### PMA-10.49
+Principal proof: `pma10_49`. Definitions and proofs: `Chapter10/Flux.lean`.
+-/
+
+/-! ### PMA-10.50
+Principal proof: `pma10_50`. Definitions and proofs: `Chapter10/ClassicalStokes.lean`.
+-/
+
+/-! ### PMA-10.51
+Principal proof: `pma10_51`. Definitions and proofs: `Chapter10/DivergenceTheorem.lean`.
 -/
 
 end Rudin.PMA.Chapter10

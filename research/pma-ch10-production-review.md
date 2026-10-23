@@ -1,7 +1,8 @@
-# Chapter 10 production verification — work in progress
+# Chapter 10 production verification — final lane report
 
-The complete source inventory contains 51 numbered nodes. Integration proceeds
-in book order; later proof drafts do not count as completed nodes.
+The complete source inventory contains 51 numbered nodes. Fifty are proved in
+book order: 10.1–10.42 and 10.44–10.51. The exact C2 vector-potential clause
+at 10.43 remains in the needs-insight queue; it has no full principal theorem.
 
 ## Opening native integration section: 10.1–10.4
 
@@ -221,7 +222,7 @@ source unchanged. After recompilation and independent hash reconciliation,
 all `evidence/ch10-section10-*` gates pass:38 principal declarations/contracts,
 1608 recursively audited declarations including149 in the probe subset, only
 the three permitted axioms, and default build9106 jobs. Source and exact-byte
-checks preserve all82 earlier chapter sources and all three project pins.
+checks preserve all 82 earlier chapter sources and all three project pins.
 
 ## Poincaré, coordinate transport, triangulation, and fields: 10.39–10.42
 
@@ -262,5 +263,55 @@ an image-only continuous density, the negative area sign for y dx, and a
 nonconstant rank-one zero-area surface. The cumulative count is 54. All
 section12 gates pass: 45 completed principals/contracts (1–42 and44–46),
 1969 recursively audited declarations (170 in the probe subset), only the
-three permitted axioms, and default build9131 jobs. All82 prior source files
+three permitted axioms, and default build9131 jobs. All 82 prior source files
 and three pins remain unchanged. One numbered node is queued, not completed.
+
+## Torus and classical vector calculus: 10.47–10.51
+
+The final fifteen production modules complete the actual torus geometry,
+Jacobian, native volume and area, ordinary image volume, and outward normal.
+The boundary proof derives a signed cell-face formula from the native FTC,
+transports it to every continuous form, cancels the periodic faces, and proves
+zero contribution from the nonconstant radius-zero face by its zero tangent.
+Circulation and flux are genuine native integrals with parameter-indexed unit
+vectors and arbitrary unit fallback at zero. The Chapter6 curve-length bridge
+is explicit. Classical Stokes covers every C2 cell/simplex surface, and the
+divergence theorem uses ordinary region volume and the actual induced outward
+flux, independent of the admissible positive decomposition.
+
+Seven new independent assertions cover the nonconstant collapsed torus face
+with an absolute-value coefficient, closed forms on the actual torus boundary,
+the normal at a different parameter corner, stationary-curve circulation and
+length, rank-one flux, rank-one cell-boundary circulation, and the identity
+field's volume/flux factor. There are 61 public assertions across 25 probe modules.
+
+The final section13 gate checks 50 actual principal declarations and50 accepted
+contract comparisons; it explicitly requires the queued pma10_43 principal to
+be absent. The recursive audit covers 2212 Chapter10 declarations, including
+the 202-declaration probe subset. Only propext, Classical.choice and Quot.sound
+occur. The default build passes with 9149 jobs. The full source check, without
+--partial, accounts for all 51 nodes as 50 completed and one queued. Exact-byte
+review covers 114 production modules; all 82 earlier chapter source files and
+three project pins remain unchanged. Final receipts are
+`evidence/ch10-section13-*` and `evidence/ch10-final-manifest.json`.
+
+## Remaining mathematical obligation
+
+The exact fourth clause of 10.43 asks for a C2 vector potential from C1
+divergence-free input on a domain C2-equivalent to a convex open set. The
+proved Poincaré primitive has C1 coefficients. Unlike the scalar-potential
+case, a curl identity does not determine all first derivatives and does not
+supply the C2 upgrade. The source clause was independently checked at high
+resolution; the literature investigation has established neither its proof nor
+a counterexample at this exact endpoint. Its contract remains intact. The
+forward identities, full C2 scalar converse, form bridges and separately named
+C1 vector converse are proved and audited, but do not complete the numbered
+node. See QUEUE.md and research/pma-ch10-43-needs-insight.md.
+
+Every accepted section had a passing default build and permitted-axiom audit
+before its local commit. All project builds used the pinned toolchain. One
+accidental overlap of two failed draft checks after section5 is disclosed in
+the task log; neither was acceptance evidence, and all subsequent successful
+production gates ran sequentially. No push, PR, merge, install, pin change, or
+other-branch edit was performed. Development compile transcripts are retained
+with the task log separately from the committed successful production receipts.

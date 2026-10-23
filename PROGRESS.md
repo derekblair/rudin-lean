@@ -16,7 +16,7 @@ All completed nodes have zero proof placeholders.
 | 07 | Sequences and Series of Functions | 33 / 33 |
 | 08 | Some Special Functions | 6 / 22 |
 | 09 | Functions of Several Variables | 43 / 43 |
-| 10 | Integration of Differential Forms | 45 / 51 |
+| 10 | Integration of Differential Forms | 50 / 51 |
 | 11 | The Lebesgue Theory | 0 |
 
 Chapter 1 is complete. Each target has its own local `PMA-1.x done` commit,
@@ -164,3 +164,18 @@ converse and a separately named C1 vector converse are proved, but the numbered
 node is not completed. Nodes 10.44–10.46 add ordinary image volume/density
 integrals, Green's theorem with both area formulas, and surface normals, tangent
 planes and native surface area at every rank.
+
+Nodes 10.47–10.51 add the literal solid torus with native and ordinary volume,
+native area, outward normals and all-continuous-form boundary equality; native
+circulation and flux including zero-speed/zero-normal points; classical Stokes
+for C2 cell and simplex surfaces; and the ordinary-volume divergence theorem
+with independent positive boundary decomposition. Final lane scope is 50/51;
+only the exact C2 vector-potential clause in10.43 is queued.
+
+Chapter10 final production gates: 50 actual principal checks and contract
+comparisons, 61 independent public assertions across 25 modules, and 2212
+recursively audited declarations (202 in the probe subset), with only propext,
+Classical.choice and Quot.sound. All 114 production modules match reviewed
+hashes. The full source check and default build (9149 jobs) pass. All 82
+Chapter1–9 source files and three pinned project files are unchanged. See
+research/pma-ch10-production-review.md and evidence/ch10-final-manifest.json.

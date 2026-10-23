@@ -154,4 +154,107 @@ Additional source10.15 work is in `NativeSeparation.lean` and
 `FormSeparation.lean`: positive-volume native boxes detect a nonzero continuous
 coefficient, coordinate-plane derivatives yield the determinant pairing with
 the standard exterior basis, and the resulting actual surface integral
-contradicts functional vanishing. Their compiler gates remain pending.
+contradicts functional vanishing. Both `NativeSeparation` and `FormSeparation` have passed their compiler gates; the full functional separation proof retains independent semantic acceptance.
+
+
+## Exterior differentiation and pullback drafts
+
+The source18–20 contracts are in `ExteriorDerivative.lean`. Its derivative is
+an explicit finite sum of coefficient partial derivatives with `dx_i` multiplied
+on the left. `CoordinateDifferentiation.lean` has compiled and supplies ordinary
+partial product rules and C² mixed-partial symmetry. `ExactOneForms.lean` proves
+the native curve FTC, including actual native integrability and path/closed-curve
+conclusions; the ellipse computation rules out a C¹ primitive for `x dy`.
+`ExteriorDerivativeRules.lean` proves graded Leibniz and `d² = 0` by finite
+coefficient sums and antisymmetric cancellation. These full proof drafts have
+independent semantic acceptance; remaining compiler gates are owned by root.
+
+`PullbackRegularity.lean` supplies coefficientwise closure under sums, scalar
+multiplication, and wedge products. The exterior-algebra pullback of each basis
+wedge is explicitly a product of coordinate differentials. This yields C^r
+pullback regularity from C^(r+1) regularity of the map and C^r regularity of the
+form, including the continuous case required in21.
+
+`PullbackDifferentiation.lean` proves the scalar chain rule in the same native
+exterior model. C² coordinate functions give closed products of their exact
+differentials. Applying the finite-sum and variable-scalar product rules to the
+standard coefficient expansion then proves22: `d(T*ω) = T*(dω)` with only C¹
+regularity of `ω`. This avoids adding a second derivative hypothesis on the
+source form. Both new files are full proof drafts; semantic and compiler gates
+are still pending at this note's update.
+
+
+## Differentiation gates and scalar Stokes ingredient
+
+Root's serialized builds have now passed `ExteriorDerivative`, `ExactOneForms`,
+`ExteriorDerivativeRules`, `PullbackRegularity`, and `PullbackDifferentiation`.
+Thus the exact source18–20 and22 production proofs are compiled; root's separate
+21/23–25 modules are also green. The independent source reviewer accepted all
+full proof drafts and was sent final compiled hashes and proof-only corrections.
+Final section probes and recursive axiom audits remain root-owned gates.
+
+`SimplexFTC.lean` is a new complete proof draft for the scalar ingredient of33.
+It preserves the actual order of all coordinates except the selected inserted
+coordinate, proves explicit native existence on both sides, and uses a direct
+product-measure disintegration followed by the already connected one-dimensional
+FTC. The proof includes zero-dimensional faces and collapsed fibers. It is
+independent of chain orientation; the top-face vertex permutation is a separate
+geometry obligation documented in `pma-ch10-stokes-dependencies.md`. Its full proof has independent mathematical acceptance and its serialized compiler
+gate is now green. The final native existence claims are unchanged.
+
+
+## Standard simplex Stokes assembly
+
+`StandardSimplexSurface.lean` exposes the identity-coordinate C² simplex for the
+general transport lane. `StokesCoefficients.lean` supplies the omitted-coordinate
+coefficient functionals, their C¹ regularity, and differentiation through finite
+exterior-basis expansions. Both have passed root's serialized compiler.
+
+`SimplexStokes.lean` is now a complete proof draft of the independently accepted
+standard simplex Stokes contract. Its upper-face identification uses the actual
+affine vertex permutation `i.cycleRange.symm`; each lower face keeps the original
+order of its surviving coordinates. The signed evaluation lemmas live in the
+geometry lane's `SimplexFormFaces.lean`. Native finite-sum and subtraction rules,
+the scalar FTC, and the explicit face integrands then assemble the actual
+integer-chain boundary integral. The final assembly's semantic and compiler
+gates are pending; no unchecked result is being reported as complete.
+
+## Stokes gate and exact forms
+
+The complete standard-simplex calculation in `SimplexStokes.lean` has now passed
+root's serialized compiler. Root's general C² simplex/finite-chain wrapper
+`ChainStokes.lean` is also green, exposing the full source10.33 contract. The
+independent reviewer accepted the complete coefficient proof and received its
+final compiled hash. This note does not replace root's remaining section probes
+or recursive audit.
+
+For10.34, `SimplexSeparation.lean` proves that actual integrals over affine
+coordinate simplices separate every coefficient. Its scalar positivity lemma
+uses a small inner cell to establish positive simplex measure; no exact simplex
+volume is needed. `SimplexBoundarySquared.lean` cancels each deleted-vertex pair
+with the reversed deletion order using the pinned `Fin` parity identity.
+`ClosedExact.lean` then applies Stokes twice to a C¹ exact form and its C¹
+primitive. This preserves the source regularity without applying the C²
+`d²=0` theorem to a merely C¹ primitive. These three full drafts have accepted
+contracts and pending compiler gates at this update.
+
+## Later Poincare API boundary
+
+Pinned `Mathlib/MeasureTheory/Integral/CurveIntegral/Poincare.lean` proves only
+the one-form Poincare lemma. Its most convenient open-domain interface is
+`Convex.exists_forall_hasFDerivAt_of_fderiv_symmetric` (line379): on a convex open
+set, a differentiable operator-valued one-form with symmetric derivative has a
+primitive whose Frechet derivative is the given form. This can supply the
+one-form case after an explicit coordinate/exterior bridge, and a C¹ given
+form gives a C² potential through the usual derivative regularity criterion.
+It does not establish the arbitrary-degree source10.39 theorem. A higher-degree
+radial homotopy proof still needs genuine coefficient algebra and parameter
+integral differentiation; the pinned dominated differentiation interfaces are
+in `Mathlib/Analysis/Calculus/ParametricIntegral.lean`.
+# Coordinate primitives and Poincare continuation (2026-10-23)
+
+Source 10.38 is now compiled through `ConvexPrimitives.pma10_38`. Its proof uses the global smooth selection on convex projection fibers (`ConvexSections`, `ConvexLinearSections`, `PrefixCoordinates`) and a compact parameter integral (`ConvexPrimitiveIntegral`). The independent source reviewer accepted the complete construction, including the empty/unbounded domain possibilities and the zero-dimensional prefix.
+
+Source 10.39 has a complete proof draft in `CoefficientIntegrals`, `ContractionCalculus`, `RadialHomotopy`, `RadialPrimitive`, and `Poincare`. The root agent's `ContractionAlgebra` supplies the compiled grade-lowering and Euler identities. The analytic construction integrates the radial contraction coefficientwise and proves its exterior derivative by the scalar fundamental theorem. It uses only C1 input coefficients and produces a C1 primitive in every positive degree. The compiler gates are still pending; this paragraph does not claim 10.39 complete.
+
+The separate source 10.43 C2 vector-potential regularity obligation is tracked in `pma-ch10-potential-regularity.md`. It is not inferred from the C1 primitive of 10.39.
