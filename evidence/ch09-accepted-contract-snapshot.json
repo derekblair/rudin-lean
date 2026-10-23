@@ -55,7 +55,7 @@
           "text": "def pma9_21_contract : Prop :=\n  ∀ n m (f : Euclidean n → Euclidean m) (E : Set (Euclidean n)),\n    IsOpen E → (C1On f E ↔ ContinuousPartialsOn f E)\n"
         }
       },
-      "proof_review_status": "Independent proof-body review accepted; parent reported kernel compilation green; other production gates separate."
+      "proof_review_status": "Independent proof-body review accepted; parent reported kernel compilation green; node9.21 proof and Mathlib bridge independently reviewed by root; integration gates separate."
     },
     {
       "path": "rudin/Rudin/PMA/Chapter09/FixedPoint.lean",
@@ -70,7 +70,7 @@
           "text": "def pma9_23_contract : Prop :=\n  ∀ (X : Type*) [MetricSpace X] [CompleteSpace X] [Nonempty X] (f : X → X),\n    IsContraction f → ∃ p : X, f p = p ∧ (∀ q : X, f q = q → q = p) ∧\n      ∀ x : X, Tendsto (fun n : ℕ => f^[n] x) atTop (𝓝 p)\n"
         }
       },
-      "proof_review_status": "Independent proof-body review accepted; parent reported kernel compilation green; other production gates separate."
+      "proof_review_status": "Independent proof-body review accepted; parent reported kernel compilation green; node9.21 proof and Mathlib bridge independently reviewed by root; integration gates separate."
     },
     {
       "path": "rudin/Rudin/PMA/Chapter09/Inverse.lean",
@@ -85,7 +85,7 @@
           "text": "def pma9_25_contract : Prop :=\n  (∀ n (E : Set (Euclidean n)) (f : Euclidean n → Euclidean n),\n    IsOpen E → C1On f E → (∀ x ∈ E, (fderiv ℝ f x).IsInvertible) →\n    (∀ W : Set (Euclidean n), IsOpen W → W ⊆ E → IsOpen (f '' W)) ∧\n    ∀ a ∈ E, ∃ U : Set (Euclidean n),\n      IsOpen U ∧ a ∈ U ∧ U ⊆ E ∧ InjOn f U) ∧\n  (∃ f : Euclidean 2 → Euclidean 2,\n    C1On f univ ∧ (∀ x, (fderiv ℝ f x).IsInvertible) ∧ ¬ Function.Injective f)\n"
         }
       },
-      "proof_review_status": "Independent proof-body review accepted; parent reported kernel compilation green; other production gates separate."
+      "proof_review_status": "Independent proof-body review accepted; parent reported kernel compilation green; node9.21 proof and Mathlib bridge independently reviewed by root; integration gates separate."
     },
     {
       "path": "rudin/Rudin/PMA/Chapter09/Rank.lean",
@@ -104,7 +104,7 @@
           "text": "def pma9_32_contract : Prop :=\n  ∀ (n m r : ℕ) (E : Set (Euclidean n)) (F : Euclidean n → Euclidean m)\n      (a : Euclidean n) (P : Operator m m),\n    IsOpen E → a ∈ E → C1On F E →\n    (∀ x ∈ E, operatorRank (fderiv ℝ F x) = r) →\n    IsProjection P.toLinearMap → P.toLinearMap.range = (fderiv ℝ F a).toLinearMap.range →\n    ∃ N : RankNormalForm F E a P,\n      r ≤ min m n ∧\n      Module.finrank ℝ (fderiv ℝ F a).toLinearMap.ker = n - r ∧\n      F '' N.H.target =\n        {y | ∃ z ∈ rangeMap (fderiv ℝ F a) '' N.H.source,\n          y = (z : Euclidean m) + N.phi z} ∧\n      BijOn P (F '' N.H.target) ((fderiv ℝ F a) '' N.H.source) ∧\n      (∀ x ∈ N.H.source, ∀ y ∈ N.H.source,\n        F (N.H x) = F (N.H y) ↔ fderiv ℝ F a x = fderiv ℝ F a y) ∧\n      (∀ x ∈ N.H.source,\n        {y ∈ N.H.source | F (N.H y) = F (N.H x)} =\n          {y ∈ N.H.source | y - x ∈ (fderiv ℝ F a).toLinearMap.ker}) ∧\n      (∀ x ∈ N.H.source,\n        {z ∈ N.H.target | F z = F (N.H x)} =\n          N.H '' {y ∈ N.H.source | y - x ∈ (fderiv ℝ F a).toLinearMap.ker})\n"
         }
       },
-      "proof_review_status": "Independent proof-body review accepted; parent reported kernel compilation green; other production gates separate."
+      "proof_review_status": "Independent proof-body review accepted; parent reported kernel compilation green; node9.21 proof and Mathlib bridge independently reviewed by root; integration gates separate."
     },
     {
       "path": "rudin/Rudin/PMA/Chapter09/Determinants.lean",
@@ -135,7 +135,7 @@
           "text": "def pma9_38_contract : Prop :=\n  (∀ (n : ℕ) (f : Euclidean n → Euclidean n) (x : Euclidean n),\n    DifferentiableAt ℝ f x →\n      jacobian f x = LinearMap.det (fderiv ℝ f x).toLinearMap ∧\n      ((fderiv ℝ f x).IsInvertible ↔ jacobian f x ≠ 0)) ∧\n  (∀ (n m : ℕ) (f : Euclidean n × Euclidean m → Euclidean n)\n      (z : Euclidean n × Euclidean m), DifferentiableAt ℝ f z →\n    (((fderiv ℝ f z).comp\n      (ContinuousLinearMap.inl ℝ (Euclidean n) (Euclidean m))).IsInvertible ↔\n        partialJacobian f z ≠ 0))\n"
         }
       },
-      "proof_review_status": "Independent proof-body review accepted; parent reported kernel compilation green; other production gates separate."
+      "proof_review_status": "Independent proof-body review accepted; parent reported kernel compilation green; node9.21 proof and Mathlib bridge independently reviewed by root; integration gates separate."
     },
     {
       "path": "rudin/Rudin/PMA/Chapter09/HigherDerivatives.lean",
@@ -154,11 +154,11 @@
           "text": "def pma9_41_contract : Prop :=\n  (∀ (f : Euclidean 2 → ℝ) (E : Set (Euclidean 2)) (p : Euclidean 2),\n    IsOpen E → p ∈ E →\n    (∀ q ∈ E, ∃ d, HasCoordinatePartial f q 0 d) →\n    (∀ q ∈ E, ∃ d, HasCoordinatePartial (fun z => coordinatePartial f z 0) q 1 d) →\n    (∀ q ∈ E, ∃ d, HasCoordinatePartial f q 1 d) →\n    ContinuousAt (fun q => secondCoordinatePartial f q 1 0) p →\n    HasCoordinatePartial (fun q => coordinatePartial f q 1) p 0\n      (secondCoordinatePartial f p 1 0)) ∧\n  (∀ n (f : Euclidean n → ℝ) (E : Set (Euclidean n)), IsOpen E → ScalarC2On f E →\n    ∀ p ∈ E, ∀ i j, secondCoordinatePartial f p i j = secondCoordinatePartial f p j i)\n"
         }
       },
-      "proof_review_status": "Independent proof-body review accepted; parent reported kernel compilation green; other production gates separate."
+      "proof_review_status": "Independent proof-body review accepted; parent reported kernel compilation green; node9.21 proof and Mathlib bridge independently reviewed by root; integration gates separate."
     },
     {
       "path": "rudin/Rudin/PMA/Chapter09/ParameterIntegrals.lean",
-      "file_sha256": "19c0e4ab1c59393ffed07191014384cc9b52f4d3c844650d5c2e70df28821142",
+      "file_sha256": "af81da0e7d5b23b5b3b3c1e13941496457743b4c86f74d6a950640866990e1c4",
       "contracts": {
         "pma9_42_contract": {
           "sha256": "7c5769565b13a486d70bbf816e3cac1d856f297f2f9c265870124567b7181f20",
@@ -168,7 +168,8 @@
           "sha256": "5873551a7e9803e2fdb910cc6631369e42e43c5dc7521e395814f57e212f90e4",
           "text": "def pma9_43_contract : Prop :=\n  (∀ t, ImproperAbsolutelyIntegrable (gaussianCosIntegrand t) ∧\n    ImproperAbsolutelyIntegrable (gaussianSinIntegrand t)) ∧\n  (∀ t, HasImproperWholeLineIntegral (gaussianCosIntegrand t) (gaussianCosTransform t) ∧\n    HasImproperWholeLineIntegral (gaussianSinIntegrand t) (gaussianSinTransform t)) ∧\n  (∀ t, HasDerivAt gaussianCosTransform (gaussianSinTransform t) t) ∧\n  (∀ t, 2 * gaussianSinTransform t + t * gaussianCosTransform t = 0) ∧\n  (∀ t, gaussianCosTransform t = Real.sqrt Real.pi * Real.exp (-(t ^ 2) / 4))\n"
         }
-      }
+      },
+      "proof_review_status": "Independent proof-body review accepted; parent reported kernel compilation green; node9.21 proof and Mathlib bridge independently reviewed by root; integration gates separate."
     },
     {
       "path": "rudin/Rudin/PMA/Chapter09/Linear.lean",
@@ -211,7 +212,7 @@
           "text": "def pma9_9_contract : Prop :=\n  (∀ (X Y Z : Type*) [AddCommGroup X] [Module ℝ X]\n      [AddCommGroup Y] [Module ℝ Y] [AddCommGroup Z] [Module ℝ Z]\n      (n m k : ℕ) (bX : Basis (Fin n) ℝ X) (bY : Basis (Fin m) ℝ Y)\n      (bZ : Basis (Fin k) ℝ Z),\n    (∀ (A : X →ₗ[ℝ] Y) (i : Fin m) (j : Fin n),\n      LinearMap.toMatrix bX bY A i j = bY.repr (A (bX j)) i) ∧\n    (∀ (A : X →ₗ[ℝ] Y) (x : X) (i : Fin m),\n      bY.repr (A x) i = ∑ j, LinearMap.toMatrix bX bY A i j * bX.repr x j) ∧\n    (∀ A : X →ₗ[ℝ] Y, A.range = Submodule.span ℝ (range (fun j => A (bX j)))) ∧\n    Function.Bijective (LinearMap.toMatrix bX bY) ∧\n    (∀ (A : X →ₗ[ℝ] Y) (B : Y →ₗ[ℝ] Z),\n      LinearMap.toMatrix bX bZ (B.comp A) =\n        LinearMap.toMatrix bY bZ B * LinearMap.toMatrix bX bY A)) ∧\n  (∀ (n m : ℕ) (A : Operator n m),\n    ‖A‖ ≤ Real.sqrt (∑ i, ∑ j, (operatorMatrix A i j) ^ 2)) ∧\n  (∀ (T : Type*) [MetricSpace T] (n m : ℕ) (A : T → Operator n m),\n    (∀ i j, Continuous (fun t => operatorMatrix (A t) i j)) → Continuous A)\n"
         }
       },
-      "proof_review_status": "Independent proof-body review accepted; parent reported kernel compilation green; other production gates separate."
+      "proof_review_status": "Independent proof-body review accepted; parent reported kernel compilation green; node9.21 proof and Mathlib bridge independently reviewed by root; integration gates separate."
     },
     {
       "path": "rudin/Rudin/PMA/Chapter09/Implicit.lean",
@@ -230,7 +231,7 @@
           "text": "def pma9_28_contract : Prop :=\n  ∀ n m (E : Set (Euclidean n × Euclidean m))\n    (f : Euclidean n × Euclidean m → Euclidean n) a b,\n    IsOpen E → (a,b) ∈ E → C1On f E → f (a,b) = 0 →\n    (blockX (fderiv ℝ f (a,b))).IsInvertible →\n    ∃ g U W, ImplicitNeighborhood f E a b g U W ∧\n      HasFDerivAt g (-(blockX (fderiv ℝ f (a,b))).inverse.comp\n        (blockY (fderiv ℝ f (a,b)))) b ∧\n      ∀ i j, (∑ k : Fin n,\n        blockX (fderiv ℝ f (a,b)) (coordinateVector n k) i *\n          componentPartial g b k j) +\n        blockY (fderiv ℝ f (a,b)) (coordinateVector m j) i = 0\n"
         }
       },
-      "proof_review_status": "Independent proof-body review accepted; parent reported kernel compilation green; other production gates separate."
+      "proof_review_status": "Independent proof-body review accepted; parent reported kernel compilation green; node9.21 proof and Mathlib bridge independently reviewed by root; integration gates separate."
     },
     {
       "path": "rudin/Rudin/PMA/Chapter09/ImplicitExample.lean",
@@ -241,7 +242,7 @@
           "text": "def pma9_29_contract : Prop :=\n  C1On implicitExample univ ∧ implicitExample (implicitExampleA,implicitExampleB) = 0 ∧\n  (∀ h k, fderiv ℝ implicitExample (implicitExampleA,implicitExampleB) (h,k) =\n    WithLp.toLp 2 ![2*h 0+3*h 1+k 0-4*k 1, -6*h 0+h 1+2*k 0-k 2]) ∧\n  (blockX (fderiv ℝ implicitExample (implicitExampleA,implicitExampleB))).IsInvertible ∧\n  (∀ z, (blockX (fderiv ℝ implicitExample (implicitExampleA,implicitExampleB))).inverse z =\n    WithLp.toLp 2 ![(z 0-3*z 1)/20, (6*z 0+2*z 1)/20]) ∧\n  ∃ g U W, ImplicitNeighborhood implicitExample univ implicitExampleA implicitExampleB g U W ∧\n    ∀ k, fderiv ℝ g implicitExampleB k =\n      WithLp.toLp 2 ![k 0/4+k 1/5-3*k 2/20, -k 0/2+6*k 1/5+k 2/10]\n"
         }
       },
-      "proof_review_status": "Independent proof-body review accepted; parent reported kernel compilation green; other production gates separate."
+      "proof_review_status": "Independent proof-body review accepted; parent reported kernel compilation green; node9.21 proof and Mathlib bridge independently reviewed by root; integration gates separate."
     }
   ]
 }
