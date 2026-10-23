@@ -1,9 +1,10 @@
+import Rudin.PMA.Chapter08.PowerSeriesFoundations
+
 /-!
-# Rudin, *Principles of Mathematical Analysis* (3rd ed.)
+# PMA Chapter 8: Some Special Functions
 
-## Chapter 8: Some Special Functions
-
-Every definition, theorem, and corollary from this chapter is
-formalized below in dependency order. Zero `sorry`s: anything
-not yet proved is tracked in `QUEUE.md`, never as a `sorry` here.
+Partial local work: eight supporting lemmas for the opening Power Series
+section are kernel checked. No complete numbered Chapter 8 node is claimed.
+PMA 8.1 still needs termwise differentiation and its all-orders corollary;
+PMA 8.2–8.5 remain outside this first foundational group.
 -/
