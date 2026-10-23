@@ -1,7 +1,7 @@
 {
   "reviewer": "ch8_fidelity",
   "date": "2026-10-23",
-  "status": "Independent semantic acceptance of exact Chapter10 contracts 1-35, including both substantive component contracts of 10.31; production compilation and probes are separate gates.",
+  "status": "Independent semantic acceptance of exact Chapter10 contracts 1-38, including both substantive component contracts of 10.31; production compilation and probes are separate gates.",
   "extraction": "Declaration text from def through final term; trailing whitespace normalized to one newline; excludes subsequent declaration/comment.",
   "files": [
     {
@@ -299,6 +299,30 @@
         "pma10_35_contract": {
           "sha256": "e5d325ba964d6702bc0c8623dad095902c3ef3054e5b33ad86ed5832e507aa00",
           "text": "def pma10_35_contract : Prop :=\n  (\u2200 (n : \u2115) (E : Set (Euclidean n)) (\u03c9 : FormField n),\n    IsOpen E \u2192 IsCFormOn 1 E 1 \u03c9 \u2192\n      (IsClosedOn E 1 \u03c9 \u2194 \u2200 x \u2208 E, \u2200 i j : Fin n,\n        coordinatePartial (formCoefficient \u03c9 {j}) x i =\n          coordinatePartial (formCoefficient \u03c9 {i}) x j)) \u2227\n  (\u2200 (n : \u2115) (E : Set (Euclidean n)) (\u03c9 : FormField n),\n    IsOpen E \u2192 IsFormOn E 1 \u03c9 \u2192\n      (IsExactOn E 1 \u03c9 \u2194 \u2203 f : Euclidean n \u2192 \u211d, ContDiffOn \u211d 1 f E \u2227\n        \u2200 x \u2208 E, \u2200 i : Fin n, coordinatePartial f x i = formCoefficient \u03c9 {i} x)) \u2227\n  (\u2200 (k n : \u2115) (E : Set (Euclidean n)) (\u03c9 : FormField n),\n    IsOpen E \u2192 IsFormOn E (k + 1) \u03c9 \u2192 IsExactOn E (k + 1) \u03c9 \u2192\n      \u2200 \u0393 \u0394 : SimplexChain (k + 1) n E,\n        ChainEq (chainBoundary \u0393) (chainBoundary \u0394) \u2192 chainIntegral \u03c9 \u0393 = chainIntegral \u03c9 \u0394) \u2227\n  (\u2200 (k n : \u2115) (E : Set (Euclidean n)) (\u03c9 : FormField n),\n    IsOpen E \u2192 IsFormOn E (k + 1) \u03c9 \u2192 IsExactOn E (k + 1) \u03c9 \u2192\n      \u2200 \u0393 : SimplexChain (k + 1) n E,\n        ChainEq (chainBoundary \u0393) 0 \u2192 chainIntegral \u03c9 \u0393 = 0) \u2227\n  (\u2200 (k n : \u2115) (E : Set (Euclidean n)) (\u03c9 : FormField n),\n    IsOpen E \u2192 IsClosedOn E k \u03c9 \u2192 \u2200 \u0393 : SimplexChain (k + 1) n E,\n      chainIntegral \u03c9 (chainBoundary \u0393) = 0) \u2227\n  (\u2200 (k n : \u2115) (E : Set (Euclidean n)) (\u0393 : SimplexChain (k + 2) n E),\n    chainBoundary (chainBoundary \u0393) = 0 \u2227 ChainEq (chainBoundary (chainBoundary \u0393)) 0)\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PuncturedExamples.lean",
+      "file_sha256": "fa512f76a8101325d5633993cb6cdcfa612a66321bd08759d709662a951301c1",
+      "contracts": {
+        "pma10_36_contract": {
+          "sha256": "ec77dde836b21e286618440539c956fc0f7331f04c4a92d820ce4b8b6cd5894c",
+          "text": "def pma10_36_contract : Prop :=\n  IsClosedOn (puncturedSpace 2) 1 angularForm \u2227\n  \u00ac IsExactOn (puncturedSpace 2) 1 angularForm \u2227\n  \u2200 r : \u211d, 0 < r \u2192 \u2203 \u03b3 : Surface 1 2 (puncturedSpace 2),\n    \u03b3.domain = .cell ellipseCell \u2227 \u03b3.map = puncturedCircleMap r \u2227\n    \u03b3.map 0 = \u03b3.map (fun _ => 2 * Real.pi) \u2227\n    \u03b3.domain.Integrable (surfaceIntegrand \u03b3 angularForm) \u2227\n    surfaceIntegral \u03b3 angularForm = 2 * Real.pi \u2227 surfaceIntegral \u03b3 angularForm \u2260 0 \u2227\n    \u2203 \u03c3 : C2Simplex 1 2 (puncturedSpace 2),\n      \u03c3.map = (fun u => puncturedCircleMap r (fun _ => 2 * Real.pi * u 0)) \u2227\n      (\u2200 \u03c9 : FormField 2, IsFormOn (puncturedSpace 2) 1 \u03c9 \u2192\n        chainIntegral \u03c9 (Finsupp.single \u03c3 1) = surfaceIntegral \u03b3 \u03c9) \u2227\n      ChainEq (chainBoundary (Finsupp.single \u03c3 1)) 0 \u2227\n      \u00ac \u2203 \u0394 : SimplexChain 2 2 (puncturedSpace 2),\n        ChainEq (chainBoundary \u0394) (Finsupp.single \u03c3 1)\n"
+        },
+        "pma10_37_contract": {
+          "sha256": "8e63e0a796227c2ea86840b490eee63cd376b84e9038c5f93be339214de83da3",
+          "text": "def pma10_37_contract : Prop :=\n  (\u2200 x : Euclidean 3, \u2016x\u2016 ^ 3 =\n    Real.rpow (x 0 ^ 2 + x 1 ^ 2 + x 2 ^ 2) (3 / 2 : \u211d)) \u2227\n  IsClosedOn (puncturedSpace 3) 2 radialForm \u2227\n  \u00ac IsExactOn (puncturedSpace 3) 2 radialForm \u2227\n  \u2203 \u03a6 : Surface 2 3 (puncturedSpace 3),\n    \u03a6.domain = .cell sphereRectangleCell \u2227 \u03a6.map = sphereRectangleMap \u2227\n    (\u2200 u \u2208 sphereRectangleCell.carrier, surfaceIntegrand \u03a6 radialForm u = Real.sin (u 0)) \u2227\n    \u03a6.domain.Integrable (surfaceIntegrand \u03a6 radialForm) \u2227\n    surfaceIntegral \u03a6 radialForm = 4 * Real.pi \u2227 surfaceIntegral \u03a6 radialForm \u2260 0 \u2227\n    \u2203 \u0393 : SimplexChain 2 3 (puncturedSpace 3),\n      (\u2200 \u03c9 : FormField 3, IsFormOn (puncturedSpace 3) 2 \u03c9 \u2192\n        chainIntegral \u03c9 \u0393 = surfaceIntegral \u03a6 \u03c9) \u2227\n      ChainEq (chainBoundary \u0393) 0 \u2227\n      \u00ac \u2203 \u0394 : SimplexChain 3 3 (puncturedSpace 3), ChainEq (chainBoundary \u0394) \u0393\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ConvexPrimitives.lean",
+      "file_sha256": "4bf04a34e5ff6c8b9e2a4ba2d04923ba94d9e47e9fe70110b68699b691c81432",
+      "contracts": {
+        "pma10_38_contract": {
+          "sha256": "f5959d2e0fd06b471b059ca49f46235f36a18b36cb7b0b55b85052eaa2236d1f",
+          "text": "def pma10_38_contract : Prop :=\n  \u2200 (n : \u2115) (E : Set (Euclidean n)) (f : Euclidean n \u2192 \u211d) (p : Fin n),\n    IsOpen E \u2192 Convex \u211d E \u2192 ContDiffOn \u211d 1 f E \u2192\n      (\u2200 x \u2208 E, \u2200 j : Fin n, p < j \u2192 coordinatePartial f x j = 0) \u2192\n      \u2203 F : Euclidean n \u2192 \u211d, ContDiffOn \u211d 1 F E \u2227\n        (\u2200 x \u2208 E, coordinatePartial F x p = f x) \u2227\n        (\u2200 x \u2208 E, \u2200 j : Fin n, p < j \u2192 coordinatePartial F x j = 0)\n"
         }
       }
     }

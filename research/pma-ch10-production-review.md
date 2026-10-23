@@ -197,3 +197,28 @@ and 1407 recursively audited declarations including the 138-declaration probe
 subset. Only propext, Classical.choice, and Quot.sound occur. Default build:
 9090 jobs. All sequential gates in `evidence/ch10-section9-*` pass, preserving
 82 earlier chapter source files and three pinned project files.
+
+## Punctured domains and convex primitives: 10.36–10.38
+
+Fourteen additional reviewed modules prove the punctured plane and space
+examples with their actual native circle and sphere integrals, respectively
+2π and4π. Actual normalized C2 simplex chains preserve every continuous
+test-form integral, and their cycles cannot be boundaries even functionally.
+The coordinate-primitive theorem uses a proved global C1 section of a convex
+projection and differentiation under the compact parameter integral; it
+retains arbitrary convex open domains and vanishing later partials.
+
+Four new independent assertions test signed circle multiplicity, addition of
+an arbitrary boundary to the sphere obstruction, a moving convex strip with
+no common fiber basepoint, and a first-coordinate primitive on an unbounded
+ray. The cumulative assertion count is45. Canonical records contain79 reviewed
+production modules and38 numbered contracts. The37 contract binder was renamed
+from reserved Lean syntax, with exact alpha-equivalence verified.
+
+The combined import audit exposed a new helper-name collision with10.5; the
+new prefix projection and its local helpers were renamed, leaving the earlier
+source unchanged. After recompilation and independent hash reconciliation,
+all `evidence/ch10-section10-*` gates pass:38 principal declarations/contracts,
+1608 recursively audited declarations including149 in the probe subset, only
+the three permitted axioms, and default build9106 jobs. Source and exact-byte
+checks preserve all82 earlier chapter sources and all three project pins.

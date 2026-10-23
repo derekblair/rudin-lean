@@ -465,3 +465,47 @@ Complete CellNormalization, AngularForm and PuncturedPlane proof drafts are math
 - `RadialForm.lean`: `6dc3334e7dfbcbd8c40959be8c7d78ae88732113be08543bfe8610f042459251`.
 
 The complete parent-compiled ContractionAlgebra support module is independently accepted at SHA256 `88ca65184eb91fb9341f02a4804810ffb81760a321dd807a69ba4563130669d1`. The zero-quadratic Clifford contraction has the correct minus sign when passing a coordinate covector; induction proves homogeneous degree lowering. The coordinate degree operator is then proved equal to scalar multiplication by the exterior degree, including degree zero and components above the ambient dimension. This is algebraic support for the prospective Poincare proof, not a replacement for it.
+
+All nine new independent public assertions through35 are now parent-compiled: BoundaryExamplesProbes2, StokesProbes3, PositiveBoundaryProbes1, and ClosedFormProbes3. The cumulative number of explicitly authored public assertions is41. This differs from the audit's138-declaration recursive probe subset, which also includes helpers and generated declarations. The cumulative audit checked1407 declarations and all35 principals/contracts; the parent reports the default9090-job build and source/integrity gates passed. Exact new probe snapshots:
+
+- `BoundaryExamplesProbes.lean`: `fa3f88ae672a3da131703bbfbd65306f666ff218d1df0e01a6c5d2eb885334e3`.
+- `StokesProbes.lean`: `8e86ea6f2ebfc256cc66a8ab52b437a5540235b286b9964668c1dbc0b3495238`.
+- `PositiveBoundaryProbes.lean`: `32eb97c6aa063782b1e8a6f0d77f74723697dc463bbfa9f4c9e2e7c219c89c09`.
+- `ClosedFormProbes.lean`: `0532f0959ae55412e609cad4425eb34f00c8b1cdd3bf13b52c7bef4d7767ca92`.
+
+The complete38 construction is independently accepted mathematically. ConvexSections and ConvexLinearSections have been reported compiled; PrefixCoordinates, ConvexPrimitiveIntegral and principal assembly remain subject to the parent compiler. The partition-of-unity section is genuinely constructed on the entire open projected convex domain. Projection keeps precisely the coordinates preceding p, including a zero-dimensional base when p=0. Its composed retraction has vanishing derivatives in every coordinate j>=p. The parameter integral differentiates to the endpoint value by applying the one-dimensional FTC to t times the input function along the section segment; vanishing later input partials supplies exactly the required reduction. The output is globally C1 on E and preserves all later zero partials. Contract38 remains byte-for-byte at its accepted hash. Draft snapshots:
+
+- `ConvexSections.lean`: `7327ba06c8604c6c0d4503fc4f7ce7acf112e0860f25c6912b9663010a27dba9`.
+- `ConvexLinearSections.lean`: `1561723368effda3cadbb264f7cc19f08dfba4d82915e3484d0556a2799fa413`.
+- `PrefixCoordinates.lean`: `d72e985e09119c5d2fc1e7da364e2601165a23fe13c5d88752213726673e666c`.
+- `ConvexPrimitiveIntegral.lean`: `14e1f9e68ec7c130ca8e7a47078883cf39c9fe02eba12902640175e5b608bcc5`.
+- `ConvexPrimitives.lean`: `4bf04a34e5ff6c8b9e2a4ba2d04923ba94d9e47e9fe70110b68699b691c81432`.
+
+### Final production reconciliation for36–38
+
+All14 added production modules are independently accepted at the parent-compiled bytes below. The complete sphere proof derives the actual radial density from the position/tangent determinant and integrates it over the literal spherical rectangle. Actual normalized two-triangle transport and the all-continuous-form32 cancellation yield the cycle; its native nonzero integral proves nonexactness and functional nonbounding. Final36/38 repairs only expose derivative function applications, coordinate projections and interval endpoints, and remove duplicate wedge helpers.
+
+Contract37 has one parser-only text change: the existential binder Sigma was renamed Phi because the former is reserved notation. Replacing current `Φ` with `Σ` mechanically reproduces the previously accepted `14646cac00df6bfa48e54e49e7cb743e644350d326f78704d5d533589da02e39` hash. The current exact contract hash is `8e63e0a796227c2ea86840b490eee63cd376b84e9038c5f93be339214de83da3`; its semantics are unchanged. Contracts36 and38 are byte-for-byte unchanged.
+
+The parent authorized canonical extension:79 production modules and38 numbered contracts; all65 prior production hashes remain unchanged. PuncturedProbes passed, and ConvexPrimitiveProbes remains a separate final compiler gate at this update.
+
+| Module | Accepted final SHA256 |
+| --- | --- |
+| AngularForm | `dbd1904ffdc805d22f675617d0ea7557a4666452d9f43e10311473785758c6ef` |
+| CellNormalization | `fea342cbe7c4172c4090a8fa8b27a2d4b84d65c4fdbd7b0cbff3b6c025473b42` |
+| ConvexLinearSections | `1561723368effda3cadbb264f7cc19f08dfba4d82915e3484d0556a2799fa413` |
+| ConvexPrimitiveIntegral | `1edba792c19faf1f6412410bc42d6af0d58c4bc7b079321f4ec21422f47c7a2e` |
+| ConvexPrimitives | `4bf04a34e5ff6c8b9e2a4ba2d04923ba94d9e47e9fe70110b68699b691c81432` |
+| ConvexSections | `7327ba06c8604c6c0d4503fc4f7ce7acf112e0860f25c6912b9663010a27dba9` |
+| ParametricC1 | `b13d71c14c8385b14ea4ae91971999a51b2b90f659e43b030125a824a0ae6179` |
+| PrefixCoordinates | `d72e985e09119c5d2fc1e7da364e2601165a23fe13c5d88752213726673e666c` |
+| PuncturedExamples | `fa512f76a8101325d5633993cb6cdcfa612a66321bd08759d709662a951301c1` |
+| PuncturedPlane | `b418425dd45d4e372b64bf86d38445c624db9c01efae5720168c9ba6d87d0de3` |
+| PuncturedSphere | `acfa4deceaa9f13b4d9fffd0b937bc0a6a8e7061c4cbfe07103238a0491ce128` |
+| RadialForm | `08f7c014bd42c8519d02406c02e7ddafa44b48d9af222b9e5066edb2644ff98f` |
+| RectangleChains | `41950015ab44b7384ba6554dedad1e0cea01cfe86e9f80644f696234890735ea` |
+| RectangleNormalization | `3c89b2eab3c575c4455f0c32a4ea250229429830e209ca949ccbb203f0cc0a85` |
+
+### Compiled prefix-helper namespace repair
+
+The combined through38 audit exposed a collision with the earlier committed Primitive.prefixProjection. The new PrefixCoordinates helper and its dependent local lemma names were uniformly renamed to coordinatePrefixProjection. Replacing that new identifier by the old identifier reproduces the entire previously accepted file SHA exactly; there are no other byte changes, and the numbered38 contract is unchanged. Parent reports the combined38 audit and both ConvexPrimitiveProbes green. Exact reaccepted PrefixCoordinates SHA256: `21cee477d4b7926ed20d2667fa628ce29a0f70f3bd1ce1c2b681cca86a76740c`. Canonical review remains79 production modules/38 numbered nodes; cumulative independent public probe assertions are45.

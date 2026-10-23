@@ -16,7 +16,7 @@ All completed nodes have zero proof placeholders.
 | 07 | Sequences and Series of Functions | 33 / 33 |
 | 08 | Some Special Functions | 6 / 22 |
 | 09 | Functions of Several Variables | 43 / 43 |
-| 10 | Integration of Differential Forms | 35 / 51 |
+| 10 | Integration of Differential Forms | 38 / 51 |
 | 11 | The Lebesgue Theory | 0 |
 
 Chapter 1 is complete. Each target has its own local `PMA-1.x done` commit,
@@ -150,3 +150,6 @@ Degenerate simplices and dimension zero retain their native integrals.
 Nodes 10.31–10.35 add positive boundaries independent of parametrization for
 continuous forms, C1 square subdivision, the sphere boundary, general simplex
 chain Stokes, exact and closed forms, and their boundary and potential consequences.
+
+Nodes 10.36–10.38 add the punctured plane and space obstructions, actual circle
+and sphere chain integrals, and coordinate primitives on arbitrary convex open domains.

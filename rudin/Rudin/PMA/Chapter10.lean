@@ -16,6 +16,10 @@ import Rudin.PMA.Chapter10.BoundaryDefinitions
 import Rudin.PMA.Chapter10.SphereBoundary
 import Rudin.PMA.Chapter10.ClosedFormConsequences
 
+import Rudin.PMA.Chapter10.PuncturedPlane
+import Rudin.PMA.Chapter10.PuncturedSphere
+import Rudin.PMA.Chapter10.ConvexPrimitives
+
 /-!
 # PMA Chapter 10: Integration of Differential Forms
 
@@ -164,6 +168,18 @@ Principal proof: `pma10_34`. Definitions and proofs: `Chapter10/ClosedExact.lean
 
 /-! ### PMA-10.35
 Principal proof: `pma10_35`. Definitions and proofs: `Chapter10/ClosedFormConsequences.lean`.
+-/
+
+/-! ### PMA-10.36
+Principal proof: `pma10_36`. Definitions and proofs: `Chapter10/PuncturedPlane.lean`.
+-/
+
+/-! ### PMA-10.37
+Principal proof: `pma10_37`. Definitions and proofs: `Chapter10/PuncturedSphere.lean`.
+-/
+
+/-! ### PMA-10.38
+Principal proof: `pma10_38`. Definitions and proofs: `Chapter10/ConvexPrimitives.lean`.
 -/
 
 end Rudin.PMA.Chapter10
