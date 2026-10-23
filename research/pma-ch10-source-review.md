@@ -509,3 +509,57 @@ The parent authorized canonical extension:79 production modules and38 numbered c
 ### Compiled prefix-helper namespace repair
 
 The combined through38 audit exposed a collision with the earlier committed Primitive.prefixProjection. The new PrefixCoordinates helper and its dependent local lemma names were uniformly renamed to coordinatePrefixProjection. Replacing that new identifier by the old identifier reproduces the entire previously accepted file SHA exactly; there are no other byte changes, and the numbered38 contract is unchanged. Parent reports the combined38 audit and both ConvexPrimitiveProbes green. Exact reaccepted PrefixCoordinates SHA256: `21cee477d4b7926ed20d2667fa628ce29a0f70f3bd1ce1c2b681cca86a76740c`. Canonical review remains79 production modules/38 numbered nodes; cumulative independent public probe assertions are45.
+
+### Source contracts40,41,42,44,46 and vector correspondence review
+
+Exact contracts are independently accepted against printed pp.280–285. Contract40 preserves fixed-degree exactness under a genuine two-sided C2 domain equivalence; its additional convex corollary quantifies all positive degrees. Contract41 exhibits the finite affine staircase maps for arbitrary dimension and possibly degenerate cells, native C1 integral equality, C2 chain realization, literal induced boundary and Stokes equality. Contract42 has both continuous vector/form correspondences, inverse coefficient maps with the required cyclic middle minus, uniqueness on the original domain, and the ordinary Cartesian gradient/curl/divergence. Contract44 uses the original C1 surface and image-only density continuity; positive full-dimensional Jacobian and injectivity enter precisely the ordinary image-integral equality. Contract46 retains all ranks, arbitrary C1 two-surfaces, image-only continuous densities, actual native area, ordered minors/normal, full tangent range, and translated degenerate affine rectangles.
+
+The complete VectorFields proof has been read independently and accepted at the compiled hash below. Its coefficient reconstruction handles every non-degree-two basis coefficient and explicitly proves the middle cyclic minus. All regularity assertions are proved through native coordinate partials. CellTriangulation and VolumeElements full principal proof bodies were also read;41 support-module review is continuing, while44 compilation remains pending.40 compilation depends on39.46 has no numbered proof yet. Canonical manifests remain through38.
+
+| Node | Module | Contract SHA256 | Current module SHA256 |
+| --- | --- | --- | --- |
+| 40 | DiffeomorphicExactness | `48f6a74cfe8deddb928b69c5bcae874d966c4b16337f9960945b8434cac4e9ea` | `c5d66c04f33476cb3d375f50d0e1debc4c83c6f2447f92294acda9e76a0710b1` |
+| 41 | CellTriangulation | `1bb03415620354c69046a6dd4184920e35c9501eb59d107576c89ee693072d59` | `05b470cda814f680aa38ffd4d29cae1051fde51233d0cf84f93f811e67230b81` |
+| 42 | VectorFields | `711c104ce04518fc82308d7318ef21fc9592161029c391e73954afb9f6b70165` | `39ea65f583ee3129f4974264abb946e5a313e43693f56aa758c55df91247c6f8` |
+| 44 | VolumeElements | `70d2f4f6b718e513d5d0e34042217d61b9f27abe221b0ce5377b104d821a89ca` | `79810785fb060df94957f8242f120abfcd24d3c619abbc7888e0013d6e0f9cbe` |
+| 46 | AreaElements | `2975a19e91bf84c2b03ad59728c085a9fc34912a1953efd545fbe80dc90b7c1d` | `adb34da9f82073cbbd7454940aa8541af4c5f8fcfd792439ee6f41e3e828dc47` |
+
+### Independent proof review of39 and41 support modules
+
+All five39 calculus modules were read in full. The finite exterior coefficient integral is C1 by the joint parameter theorem, differentiates under each actual scalar integral, and retains degree. The contraction identity and degree Euler factor give the radial homotopy derivative exactly; the endpoint t^(k+1) vanishes at0 even for the scalar-primitive case k=0. Convexity supplies the entire interpolation segment; the empty-domain case does not assume a basepoint. This establishes a C1 primitive from precisely the original C1 closed-form premise, with no C2 assumption. The mathematical proof is accepted, pending final compiler reconciliation for the radial modules.
+
+The full41 support proof is independently accepted: cumulative-coordinate geometry gives determinant1 and exact simplex/chamber images; coordinate permutations yield an actual finite cover and disjoint chamber interiors; convex frontier nullity is used only after native slice existence. Arbitrary-cell normalization separates strictly positive widths from genuine collapsed sides, proving the latter integral zero by actual zero parameter volume. Final triangulation preserves C1 native integrals and realizes C2 surfaces as literal finite chains, then applies actual chain Stokes. Parent reports all41 modules green. Exact snapshots:
+
+| Module | SHA256 |
+| --- | --- |
+| CoefficientIntegrals | `8aaed53432bdab12b620924a44150fbe3eea247b6a1ea5d0beb957d04028146d` |
+| ContractionCalculus | `355db0a3dadb79b287f8196d108004eb274fef3f5fb6739e90972482ca356653` |
+| RadialHomotopy | `e1bf0ebfe6bd60b864508dda5baae296f638a66cab6386c38e45488693361edc` |
+| RadialPrimitive | `9b65a97c8102f22f22ce609a230015bfea702997896093a6eea0dc4b2693a55b` |
+| Poincare | `26acef677a2bf51e404c7802b3d521fba76cbcd8f5c332def5fa878c95a9ee71` |
+| CumulativeCoordinates | `32c55887473b5da41a4d429a84f1b4d6c254230b01277bf27fd12fa25f6f1cbc` |
+| StaircaseGeometry | `f27e0869c8dbee3d3d3d124a217161f89d8210729734480eab2f5d0bf6631e36` |
+| StaircaseIntegrals | `b1ceb949e81342fe0d857e254de1053d05ab9d632c8f4a707eee09a3815dd965` |
+| CellIntegralNormalization | `1382a82cdef8ea757c40d06c4011df6888221f61abdecb7ae81af1175b0f15aa` |
+| CellTriangulation | `05b470cda814f680aa38ffd4d29cae1051fde51233d0cf84f93f811e67230b81` |
+
+### Torus contract47 and area proof46
+
+The exact47 contract is accepted before numbered proof: literal parameter order (t,u,v), source signs, interior-only injectivity, full closed solid-torus image, native volume and ordinary volume, every-continuous-form chain representation and boundary equality, directed normal with positive density, native area, and explicit highest-z point are retained. The interval0<s<b−a in outwardness is valid because a+s<b preserves the positive revolution radius; no false assertion about an entire normal ray is made. Contract SHA256: `d91eedae86dba0b1bd6ef708637645c97f207b687e3129b182bbd00aea5bb221`.
+
+The complete46 proof draft was independently read and is mathematically accepted, pending compilation: the ordered cross product is tied to actual Jacobian minors; rank equivalence uses linear independence of both derivative columns and rank-nullity; native area comes from the actual constant parameter integral, including all ranks and zero widths. The flux helper computes the cyclic two-form evaluation against this same normal. Draft AreaElements SHA256: `1aa91fdaf847b9df76629ea5fb8c5def76271e6af67ac5cc93f3ec98c2d7eb1d`.
+
+### Green45 exact contract and proof review
+
+The full PlanarGreen draft is independently accepted mathematically: arbitrary source-admissible positive planar regions, C1 coefficients on the given open domain, native existence on each piece and boundary face, and the explicit ordinary-region/native-chain bridge. The derivative density is D_x(beta)−D_y(alpha), with both source area formulas correctly signed. Compiler expression normalization is pending. Contract SHA256: `c878c69e965c3a5bc96830a4e2fc9e6898f3d9582fa7b114f50fbc91a05a8b86`; reviewed draft file SHA256: `490de9dc6b22711ce4e4d04579980a880a667e380032048aacecabf8195322f5`.
+
+### Frozen compiled reconciliation through42
+
+Parent reports39–42 and all five new independent public probe assertions green. The only delta after the39 mathematical snapshot is the RadialPrimitive proof normalization of finite function sums and Pi function powers; the complete final proof was reread, with all hypotheses/conclusions and the radial FTC argument unchanged. Final RadialPrimitive SHA256: `ebc055888fc02b4412fa3b2db019ffcbbfb66a14996f81b219c26de26585c7ec`. All other new module bytes match their preceding accepted snapshots. All79 prior canonical module hashes and all38 prior numbered contract texts were checked unchanged before extension. The canonical records now contain93 production modules and42 numbered contracts (plus both source31 component contracts). Cumulative independent public assertions are50; recursively audited dependency subsets are counted separately by the parent. No Chapter10 production proof was authored by this reviewer.
+
+### Torus geometry/calculus mathematical review
+
+TorusGeometry and TorusCalculus were read completely and accepted mathematically as proof drafts, pending compiler reconciliation. Image surjectivity uses two genuine nonnegative polar representations; injectivity is restricted to the strict parameter interior, where radius and both angles are recovered. Local outwardness and the maximum-z claim follow from the explicit solid-torus level function. Derivative matrices retain parameter order, give the positive Jacobian factor and ordered normal, and the native volume/area calculations use actual nested integrals and full-period trigonometric cancellation. The ordinary-image volume bridge and six-face functional boundary remain separate outstanding47 work. Draft snapshots:
+
+- `TorusGeometry`: `6b6a095b230e579b8cabfac3d135097be1aca74a57a65bcc56b531329fc71906`.
+- `TorusCalculus`: `cca5e26c9912223f3cd98a9349658bf566b5c33e267b5e832429608978cc10f0`.

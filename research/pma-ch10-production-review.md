@@ -222,3 +222,20 @@ all `evidence/ch10-section10-*` gates pass:38 principal declarations/contracts,
 1608 recursively audited declarations including149 in the probe subset, only
 the three permitted axioms, and default build9106 jobs. Source and exact-byte
 checks preserve all82 earlier chapter sources and all three project pins.
+
+## Poincaré, coordinate transport, triangulation, and fields: 10.39–10.42
+
+Fourteen further reviewed modules construct the C1 radial homotopy primitive
+on arbitrary convex open domains, transport exactness degree by degree through
+actual C2 domain equivalences, and give finite affine cell triangulations. The
+triangulation proves native integral equality, including collapsed cells and
+dimension zero, and exhibits the induced actual chain boundary. Vector fields
+are identified with genuine one- and two-forms, retaining the cyclic signs.
+
+Five new independent assertions exercise closed two-form cycles, fixed-degree
+transport, collapsed and zero-dimensional cells, and the middle cyclic vector
+component. The cumulative assertion count is 50. Canonical records contain
+93 production modules and 42 numbered contracts. All section11 gates pass:
+42 actual principals/contracts, 1832 recursively audited declarations (158
+in the probe subset), only the three permitted axioms, and default build
+9123 jobs. All 82 earlier source files and three project pins are unchanged.

@@ -1,9 +1,9 @@
 {
-  "scope": "Independently reviewed frozen Chapter10 sections through punctured-domain examples and convex coordinate primitives, nodes 1-38; integration index, audits and probes are separate gates.",
+  "scope": "Independently reviewed frozen Chapter10 sections through convex exactness, cell triangulation and vector-field correspondences, nodes 1-42; integration index, audits and probes are separate gates.",
   "date": "2026-10-23",
-  "production_module_count": 79,
-  "numbered_principal_count": 38,
-  "kernel_status": "All 79 production modules compiled successfully in the parent serialized build process. Reviewer ran no builds.",
+  "production_module_count": 93,
+  "numbered_principal_count": 42,
+  "kernel_status": "All 93 production modules compiled successfully in the parent serialized build process. Reviewer ran no builds.",
   "reviewer_authorship_exception": "None: ch8_fidelity authored no Chapter10 production module.",
   "files": [
     {
@@ -703,6 +703,126 @@
       "path": "rudin/Rudin/PMA/Chapter10/RectangleNormalization.lean",
       "sha256": "3c89b2eab3c575c4455f0c32a4ea250229429830e209ca949ccbb203f0cc0a85",
       "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ContractionAlgebra.lean",
+      "sha256": "88ca65184eb91fb9341f02a4804810ffb81760a321dd807a69ba4563130669d1",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CoefficientIntegrals.lean",
+      "sha256": "8aaed53432bdab12b620924a44150fbe3eea247b6a1ea5d0beb957d04028146d",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ContractionCalculus.lean",
+      "sha256": "355db0a3dadb79b287f8196d108004eb274fef3f5fb6739e90972482ca356653",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/RadialHomotopy.lean",
+      "sha256": "e1bf0ebfe6bd60b864508dda5baae296f638a66cab6386c38e45488693361edc",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/RadialPrimitive.lean",
+      "sha256": "ebc055888fc02b4412fa3b2db019ffcbbfb66a14996f81b219c26de26585c7ec",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Poincare.lean",
+      "sha256": "26acef677a2bf51e404c7802b3d521fba76cbcd8f5c332def5fa878c95a9ee71",
+      "principal_nodes": [
+        "PMA-10.39"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ExactnessTransport.lean",
+      "sha256": "1bbb23ac0c1534b20af24eb64a497a9120568f8ea2fc93a2d89755dd088964f7",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/DiffeomorphicExactness.lean",
+      "sha256": "c5d66c04f33476cb3d375f50d0e1debc4c83c6f2447f92294acda9e76a0710b1",
+      "principal_nodes": [
+        "PMA-10.40"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CumulativeCoordinates.lean",
+      "sha256": "32c55887473b5da41a4d429a84f1b4d6c254230b01277bf27fd12fa25f6f1cbc",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/StaircaseGeometry.lean",
+      "sha256": "f27e0869c8dbee3d3d3d124a217161f89d8210729734480eab2f5d0bf6631e36",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/StaircaseIntegrals.lean",
+      "sha256": "b1ceb949e81342fe0d857e254de1053d05ab9d632c8f4a707eee09a3815dd965",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CellIntegralNormalization.lean",
+      "sha256": "1382a82cdef8ea757c40d06c4011df6888221f61abdecb7ae81af1175b0f15aa",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CellTriangulation.lean",
+      "sha256": "05b470cda814f680aa38ffd4d29cae1051fde51233d0cf84f93f811e67230b81",
+      "principal_nodes": [
+        "PMA-10.41"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/VectorFields.lean",
+      "sha256": "39ea65f583ee3129f4974264abb946e5a313e43693f56aa758c55df91247c6f8",
+      "principal_nodes": [
+        "PMA-10.42"
+      ],
       "independent_reviewer": "ch8_fidelity",
       "review_evidence": "research/pma-ch10-source-review.md",
       "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"

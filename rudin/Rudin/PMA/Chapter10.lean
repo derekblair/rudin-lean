@@ -15,6 +15,10 @@ import Rudin.PMA.Chapter10.ChainMaps
 import Rudin.PMA.Chapter10.BoundaryDefinitions
 import Rudin.PMA.Chapter10.SphereBoundary
 import Rudin.PMA.Chapter10.ClosedFormConsequences
+import Rudin.PMA.Chapter10.Poincare
+import Rudin.PMA.Chapter10.DiffeomorphicExactness
+import Rudin.PMA.Chapter10.CellTriangulation
+import Rudin.PMA.Chapter10.VectorFields
 
 import Rudin.PMA.Chapter10.PuncturedPlane
 import Rudin.PMA.Chapter10.PuncturedSphere
@@ -180,6 +184,22 @@ Principal proof: `pma10_37`. Definitions and proofs: `Chapter10/PuncturedSphere.
 
 /-! ### PMA-10.38
 Principal proof: `pma10_38`. Definitions and proofs: `Chapter10/ConvexPrimitives.lean`.
+-/
+
+/-! ### PMA-10.39
+Principal proof: `pma10_39`. Definitions and proofs: `Chapter10/Poincare.lean`.
+-/
+
+/-! ### PMA-10.40
+Principal proof: `pma10_40`. Definitions and proofs: `Chapter10/DiffeomorphicExactness.lean`.
+-/
+
+/-! ### PMA-10.41
+Principal proof: `pma10_41`. Definitions and proofs: `Chapter10/CellTriangulation.lean`.
+-/
+
+/-! ### PMA-10.42
+Principal proof: `pma10_42`. Definitions and proofs: `Chapter10/VectorFields.lean`.
 -/
 
 end Rudin.PMA.Chapter10

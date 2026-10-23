@@ -16,7 +16,7 @@ All completed nodes have zero proof placeholders.
 | 07 | Sequences and Series of Functions | 33 / 33 |
 | 08 | Some Special Functions | 6 / 22 |
 | 09 | Functions of Several Variables | 43 / 43 |
-| 10 | Integration of Differential Forms | 38 / 51 |
+| 10 | Integration of Differential Forms | 42 / 51 |
 | 11 | The Lebesgue Theory | 0 |
 
 Chapter 1 is complete. Each target has its own local `PMA-1.x done` commit,
@@ -153,3 +153,7 @@ chain Stokes, exact and closed forms, and their boundary and potential consequen
 
 Nodes 10.36–10.38 add the punctured plane and space obstructions, actual circle
 and sphere chain integrals, and coordinate primitives on arbitrary convex open domains.
+
+Nodes 10.39–10.42 add the Poincaré lemma in every positive degree, transport
+under C² domain equivalence, actual finite affine cell triangulation with native
+integrals and induced chain boundaries, and the vector/form correspondence.
