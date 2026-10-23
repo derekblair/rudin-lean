@@ -1,0 +1,193 @@
+{
+  "base": "53968a9",
+  "unchanged_files": [
+    {
+      "path": "rudin/Rudin/PMA/Chapter01.lean",
+      "sha256": "a82aaa52abdf6c9446d12674ee2b3d81829518f3d68035f4e43fd83a7d6da108"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter01Audit.lean",
+      "sha256": "caa5821f89f5c107c43422fd79f0e3b72eb353b89eca2ae849feae3c50b3e2f2"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter01Probes.lean",
+      "sha256": "799fbd4fbb34aaa973c91913066fe9775c9c4634416a2426197ad86ec9104898"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter02.lean",
+      "sha256": "7ec4b5443560804666aad9010d2a4600d545973dbb85fe0a8dc7268391d320e7"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter02Audit.lean",
+      "sha256": "f71f5d315ed5e101b3183fa0095bcb6c92499aed620a3447a7e7ec4ecead7e95"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter02Probes.lean",
+      "sha256": "cc380bde145028cb1a7d2a69e77dfa40f84fbe1b42c1401160006e811d65e3fc"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter03.lean",
+      "sha256": "f711278f4e18ceeb1333cdda759a80635cf935d7c3658c1e984300eeb7808020"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter03Audit.lean",
+      "sha256": "bc028b4ea977a38154844f684e4cc2784ec2a490a30f863417f3ef1cb80ce1ab"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter03Probes.lean",
+      "sha256": "3da80d840c8db1cb2aec7049950832528e7f9985fe46869483e0af5cd34b9f0c"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter04.lean",
+      "sha256": "71ac9841413d7046b72f943541667d91f77dfc77924fbc588c2dbea277754df8"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter04Audit.lean",
+      "sha256": "f1225bcbc2a99ea92a74de1b3c1a1ebdce6588c60bada6f31401e92085467968"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter04Probes.lean",
+      "sha256": "3854585ce261b127d2ad1a29d263f72cd40466542fa6f23283e6adf0b17f92d9"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter05.lean",
+      "sha256": "55acec19c187d4ae0d6bfc37c78ee32df5711a997f3d4e0aeea876eb876904cb"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter05Audit.lean",
+      "sha256": "d8dbffc66740e026638a4c0bba1dbcacfb69594b706c92116aef9435fa18a0d9"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter05Probes.lean",
+      "sha256": "a59995311bfe25b74920cee0aef6ed6ed3674c4568374058c141c1fcb0f96093"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06.lean",
+      "sha256": "845f356f126f288456cf210526ecb29523776bff6f6cfe89a4ebba369747a373"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Basic.lean",
+      "sha256": "5192b99092c0fc7da7109b1e3ffd90446db62c73845b935172643456b46a3915"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Calculus.lean",
+      "sha256": "ac36c016490bd347b592af764c1c6e5f544a6cd09ad7aac0c59a4c79da6c3c18"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Criterion.lean",
+      "sha256": "e88daabe91d0ddd9145c79ff4aecbfd5c054b30fd27ea86c0a1b7743e3488715"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Curve.lean",
+      "sha256": "0fcd03a02ba4b7c7a57a647b14befac8b93fa006238ed13abc910849362d1b50"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Definitions.lean",
+      "sha256": "13adade605f2cff6904a9b5d24f06057595d0c760abc140dfd7831608c5ccf81"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Endpoint.lean",
+      "sha256": "b4518141434d43a5d28f97944ba85b9af1c98cff1b19c910bddc2d4a70fe3e4b"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Exceptional.lean",
+      "sha256": "f611a715e8c85e43989fa9a196ceb7d93b55b40b9b3674dfd3bb98398fdfabfa"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Integrability.lean",
+      "sha256": "001823e4c51a56b9c0d0afbe13801a757200178eac396081dec3b7abb91d5cec"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Jump.lean",
+      "sha256": "ab56704088a99d95c29755f2ada3c7a491ea55af5f24be7cf19b51283e96c47a"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Moment.lean",
+      "sha256": "21ccfad2cbbc3cbd0726a62a190f6092fd2b376690233dd340435b38bb89deb5"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Monotone.lean",
+      "sha256": "93a69abdd3e242baa92eace347b551042157da49b4a83078e06abd469d832598"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Properties.lean",
+      "sha256": "a50ff1516880bd4110cb95e7b81baf44a64980ca2400aa1e377f2b093e8634c1"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Refinement.lean",
+      "sha256": "d1590f0b5df2fec5986358b6d84c255a4535a90df0ac70b8bc5f4bbec9c6fcb0"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Split.lean",
+      "sha256": "d235d56777fc5e5a25db12e834769fd2192273d55a9d5921ceb80b857499a888"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Vector.lean",
+      "sha256": "1830138b9712dc5c6bd97293c0396df8160da84c25be76f55f0069dc3962ff98"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06Audit.lean",
+      "sha256": "a1f606949d6368a1b1ba25dcafd00600ffa35921c1e357bfba8f256c53fe2d77"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06Probes.lean",
+      "sha256": "4f68e96188e2ac11fb3729cb345ff8a1c21640eba7f5cf1a8a7007f3bd58d9c9"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07.lean",
+      "sha256": "c84a119e20c57e2629f69ab024b36f607e105b2b9ec5f7b7ab2be1273647df9b"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/Algebra.lean",
+      "sha256": "44ebf1128a6a4f6409b4784c648ccecaf804a1ab354c406c02dcde638fde65c2"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/Basic.lean",
+      "sha256": "b6b8b58999ad0025fd3ab28bc0ba3a4df5a07cc395158b99a14c05055bfa2b1a"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/Calculus.lean",
+      "sha256": "0bc805601a65a1261e944ae9d180b3cb0344c0d9484fc766f1d3df6c3411580d"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/Continuity.lean",
+      "sha256": "8dae8b99a9de2d8b996c47e62ad3ae5396efb503b36a686374f0349a4efa1977"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/Equicontinuity.lean",
+      "sha256": "baffc08a75f000487493d784939d9b9af42f7c3b4441a52d73a6664aa9ec6ff0"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/Examples.lean",
+      "sha256": "a25907d75b1bae77638eaaea291888989f6d9f319f0d2cea71ee74c9a25f9bd5"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/Foundations.lean",
+      "sha256": "941938d68a48db2a4e0ab70ba0b39d51828fc91602a4583ab449f8ad1c4d5742"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/MTest.lean",
+      "sha256": "c364dc78a12a188264c39c24f8dfd5da1edc699491442d18cf78b2565aef3e05"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/NoSubsequence.lean",
+      "sha256": "a0f5e92e41fe61bbda351ab4a0497ef621ec7f3ceb7f136f742dfaca2c69f7b6"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/Nowhere.lean",
+      "sha256": "6d04835c41bda7f4315fc7ac3e65c32b1ccc1e778b8ea145a424193d7d406612"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/RationalIndicator.lean",
+      "sha256": "edcdd11545100cbd19fb90d3382d5baf8a5a7b34907ca7afdf44560ad53fbe3d"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07Audit.lean",
+      "sha256": "338546f35755b21968ca88666203755db29c35f45905674e274f2c1700223326"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07Probes.lean",
+      "sha256": "3f8ab677255b71a28bb0f31823efd0af5e767eff7f508529cf2d9286203375e0"
+    }
+  ]
+}

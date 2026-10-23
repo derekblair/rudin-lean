@@ -1,0 +1,43 @@
+✖ [8927/8927] Building Rudin.PMA.Chapter08.Abel (214s)
+trace: .> LEAN_PATH=/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/Cli/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/batteries/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/Qq/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/aesop/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/importGraph/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/plausible/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/mathlib/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/lib/lean /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean /home/derekblair/projects/book-formalization/rudin-lean/rudin/Rudin/PMA/Chapter08/Abel.lean -o /home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/lib/lean/Rudin/PMA/Chapter08/Abel.olean -i /home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/lib/lean/Rudin/PMA/Chapter08/Abel.ilean -c /home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/ir/Rudin/PMA/Chapter08/Abel.c --setup /home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/ir/Rudin/PMA/Chapter08/Abel.setup.json --json
+error: Rudin/PMA/Chapter08/Abel.lean:53:6: Type mismatch: After simplification, term
+  Tendsto.mono_left (Continuous.tendsto (Continuous.div_const continuous_id R) R) nhdsWithin_le_nhds
+ has type
+  Tendsto (fun x => id x / R) (𝓝[?m.84] R) (𝓝 (id R / R))
+but is expected to have type
+  Tendsto (fun x => x / R) (𝓝[<] R) (𝓝 1)
+warning: Rudin/PMA/Chapter08/Abel.lean:63:13: This simp argument is unused:
+  abelPowerSeries
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Function.comp_apply, Complex.ofReal_div]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter08/Abel.lean:63:30: This simp argument is unused:
+  Function.comp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [abelPowerSeries, Complex.ofReal_div]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter08/Abel.lean:72:36: `if_pos` has been deprecated: Use `ite_eq_left` instead
+error: Rudin/PMA/Chapter08/Abel.lean:75:30: Application type mismatch: The argument
+  hx
+has type
+  x ∈ Iio R
+but is expected to have type
+  ?m.75 < ?m.76
+in the application
+  ne_of_lt hx
+error: Rudin/PMA/Chapter08/Abel.lean:75:2: `simp` made no progress
+warning: Rudin/PMA/Chapter08/Abel.lean:72:36: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [abelEndpointExtension]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+info: Rudin/PMA/Chapter08/Abel.lean:104:0: 'Rudin.PMA.Chapter08.pma8_2' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+Some required targets logged failures:
+- Rudin.PMA.Chapter08.Abel
+error: build failed

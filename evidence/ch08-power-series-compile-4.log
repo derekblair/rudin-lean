@@ -1,0 +1,22 @@
+✖ [8927/8927] Building Rudin.PMA.Chapter08.PowerSeries (108s)
+trace: .> LEAN_PATH=/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/Cli/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/batteries/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/Qq/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/aesop/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/importGraph/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/plausible/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/mathlib/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/lib/lean /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean /home/derekblair/projects/book-formalization/rudin-lean/rudin/Rudin/PMA/Chapter08/PowerSeries.lean -o /home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/lib/lean/Rudin/PMA/Chapter08/PowerSeries.olean -i /home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/lib/lean/Rudin/PMA/Chapter08/PowerSeries.ilean -c /home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/ir/Rudin/PMA/Chapter08/PowerSeries.c --setup /home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/ir/Rudin/PMA/Chapter08/PowerSeries.setup.json --json
+error: Rudin/PMA/Chapter08/PowerSeries.lean:52:57: Type mismatch: After simplification, term
+  h x hx'
+ has type
+  @Tendsto ℕ ℂ (Chapter03.PartialSums fun n => ↑x ^ n * c n) atTop (𝓝 (f x))
+but is expected to have type
+  @Tendsto ℕ ℂ (fun n => ∑ x_1 ∈ Finset.range n, ↑x ^ x_1 * c x_1) atTop (𝓝 (f x))
+warning: Rudin/PMA/Chapter08/PowerSeries.lean:78:10: `ext` did not consume the patterns `v`
+
+Note: This linter can be disabled with `set_option linter.unusedRCasesPattern false`
+error: Rudin/PMA/Chapter08/PowerSeries.lean:140:6: Type mismatch: After simplification, term
+  HasSum.tendsto_sum_nat (hk.hasSum hmem)
+ has type
+  @Tendsto ℕ ℂ (fun n => ∑ x_1 ∈ Finset.range n, ↑x ^ x_1 * (↑((x_1 + 1).ascFactorial k) * c (x_1 + k))) atTop
+    (𝓝 (iteratedDeriv k f x))
+but is expected to have type
+  @Tendsto ℕ ℂ (Chapter03.PartialSums fun n => ↑x ^ n * (↑((n + 1).ascFactorial k) * c (n + k))) atTop
+    (𝓝 (iteratedDeriv k f x))
+Some required targets logged failures:
+- Rudin.PMA.Chapter08.PowerSeries
+error: build failed

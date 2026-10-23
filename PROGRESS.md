@@ -14,7 +14,7 @@ All completed nodes have zero proof placeholders.
 | 05 | Differentiation | 19 / 19 |
 | 06 | The Riemann-Stieltjes Integral | 27 / 27 |
 | 07 | Sequences and Series of Functions | 33 / 33 |
-| 08 | Some Special Functions | 0 |
+| 08 | Some Special Functions | 5 / 22 |
 | 09 | Functions of Several Variables | 0 |
 | 10 | Integration of Differential Forms | 0 |
 | 11 | The Lebesgue Theory | 0 |
@@ -76,10 +76,20 @@ attached consequences, both explicit complex bridges, 13 authored standalone
 probes and 457 recursively audited declarations (including 25 probe-namespace
 declarations). Only the three permitted axioms occur. Final source is byte-for-byte
 identical to the independently reviewed and hostile-reviewed candidate.
-See `research/pma-ch06-production-review.md`. Chapter 7 integration status is recorded below; Chapters 8–11 remain pending in this checkout.
+See `research/pma-ch06-production-review.md`. Chapter 7 integration status is recorded below; Chapter 8 local work is recorded at the end.
 
 Chapter 7 local integration: 33/33 accepted numbered nodes.
 Completed nodes: 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13, 7.14, 7.15, 7.16, 7.17, 7.18, 7.19, 7.20, 7.21, 7.22, 7.23, 7.24, 7.25, 7.26, 7.27, 7.28, 7.29, 7.30, 7.31, 7.32, 7.33.
 Frozen modules are committed in their actual dependency order; node groups may be nonnumeric. Every local commit requires the default build, exact principal coverage, accepted-contract comparisons, source checks and recursive permitted-axiom audits. Pending integration is not a resistant proof node.
 
-Chapter 7 production verification is complete: 33 nodes and all accepted attached consequences, 33 accepted-contract comparisons, 51 boundary assertions with 7 probe support theorems, and 392 recursively audited declarations including the 67-declaration probe namespace subset. Only the three standard axioms occur. All 15 canonical files match the independently reviewed candidate and both complete hostile-review coverage sets. Explicit pinned-library forward dependencies do not count as later-chapter completion. See `research/pma-ch07-production-review.md`. Chapters 8–11 remain pending in production; Chapter 8 work is separately isolated.
+Chapter 7 production verification is complete: 33 nodes and all accepted attached consequences, 33 accepted-contract comparisons, 51 boundary assertions with 7 probe support theorems, and 392 recursively audited declarations including the 67-declaration probe namespace subset. Only the three standard axioms occur. All 15 canonical files match the independently reviewed candidate and both complete hostile-review coverage sets. Explicit pinned-library forward dependencies do not count as later-chapter completion. See `research/pma-ch07-production-review.md`. Chapter 8 work is separately isolated on its authorized local branch; Chapters 9–11 remain pending.
+
+Chapter 8 local lane: the power-series section covers numbered nodes 8.1–8.5,
+with the requested addition, Cauchy multiplication, and native termwise integration
+supplements. The complete source inventory has 22 numbered items. The brief’s
+numeric topic ranges differ from the third edition: exponential/logarithmic
+functions and attached real powers belong to 8.6. Verification and independent
+source review are recorded in `research/pma-ch08-checks.md`. The first section has 11 independent clients and a recursive permitted-axiom
+audit of 74 declarations (13 in the probe subset), with 5 actual principal
+theorems and contract comparisons. The default build is a pre-commit gate.
+Later nodes remain pending; none has been classified as a resistant proof node.

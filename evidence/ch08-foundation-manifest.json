@@ -1,0 +1,27 @@
+{
+  "section": "PMA-8.1\u20138.5 power series",
+  "source_sha256": {
+    "rudin/Rudin.lean": "966e82e25167fb7fa0327ae27238c5438eea3a901804fc2450bb9f922214a5ce",
+    "rudin/Rudin/PMA/Chapter08.lean": "ddcd32d2aca1b8f0cb0d3b9a14d66a8dbb4e44ea8900b9dfeef27e3bbac4345f",
+    "rudin/Rudin/PMA/Chapter08Audit.lean": "df44ee9c84b5a15f4eb2a38a3d3f08972eefcc99e8cdfb04b1287725b942ec91",
+    "rudin/Rudin/PMA/Chapter08Probes.lean": "093390f7774efef783fc3e1d5d5e66d79ff5b0c42225a59f99db8d27a57d543c",
+    "rudin/Rudin/PMA/Chapter08/PowerSeries.lean": "af7669152ab11b348b454ccfacb37928c67be845b7428377bd29dfd6e6552518",
+    "rudin/Rudin/PMA/Chapter08/Abel.lean": "2a7a23da0c64df9c38dff6975bd0f5e34f1a428a5d4fa86480c35b7498260239",
+    "rudin/Rudin/PMA/Chapter08/DoubleSeries.lean": "7cb78d7c111d3be2a9bc0f5e67a02c0020e988ba39e24f67db050787aae57e7e",
+    "rudin/Rudin/PMA/Chapter08/Taylor.lean": "9c666fab54b9e7a3a7b7ac073e5b9ca9a8a7d2d31e2ccb7a7be303af472c0347",
+    "rudin/Rudin/PMA/Chapter08/Operations.lean": "2b4ce0759198e1a2c854a8398d7b285c5edd64de0d36fd19aa3ba824245ae07a"
+  },
+  "principal_theorems": 5,
+  "independent_probe_theorems": 11,
+  "audited_namespace_declarations": 74,
+  "probe_namespace_subset": 13,
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "audit_log": "evidence/ch08-foundation-audit.log",
+  "probe_build_log": "evidence/ch08-foundation-probes-final.log",
+  "default_build_log": "evidence/ch08-foundation-default-build.log",
+  "source_checks_log": "evidence/ch08-source-checks-foundation.log"
+}

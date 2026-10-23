@@ -1,0 +1,13 @@
+✖ [8928/8928] Building Rudin.PMA.Chapter08.Taylor (2.4s)
+trace: .> LEAN_PATH=/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/Cli/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/batteries/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/Qq/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/aesop/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/importGraph/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/plausible/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/mathlib/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/lib/lean /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean /home/derekblair/projects/book-formalization/rudin-lean/rudin/Rudin/PMA/Chapter08/Taylor.lean -o /home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/lib/lean/Rudin/PMA/Chapter08/Taylor.olean -i /home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/lib/lean/Rudin/PMA/Chapter08/Taylor.ilean -c /home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/ir/Rudin/PMA/Chapter08/Taylor.c --setup /home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/ir/Rudin/PMA/Chapter08/Taylor.setup.json --json
+error: Rudin/PMA/Chapter08/Taylor.lean:19:36: expected token
+error: Rudin/PMA/Chapter08/Taylor.lean:27:8: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+⊢ pma8_4_contract
+error: Rudin/PMA/Chapter08/Taylor.lean:45:40: expected token
+error: Rudin/PMA/Chapter08/Taylor.lean:51:8: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+⊢ pma8_5_contract
+Some required targets logged failures:
+- Rudin.PMA.Chapter08.Taylor
+error: build failed

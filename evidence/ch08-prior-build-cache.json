@@ -1,0 +1,1605 @@
+{
+  "prior_build": "/home/derekblair/projects/math/math-review/audit-work/rudin-build",
+  "toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "unchanged_modules": [
+    {
+      "source": "Rudin/PMA/Chapter01.lean",
+      "sha256": "a82aaa52abdf6c9446d12674ee2b3d81829518f3d68035f4e43fd83a7d6da108",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter01.ilean.hash",
+          "sha256": "47f19f9bbb36553e6994a45030f6ac29eb14a31b2fed5741c249ca0d085e5d5e"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter01.trace",
+          "sha256": "4b70d78f0d322a1cacd3560a3f33ed94b18467350d569d7a73b346e7e77dd0f5"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter01.ilean",
+          "sha256": "12c034be2e9cc983ee0f787e7cc13c2ecb73e84b1b9bb2b9dddbd53818318a9e"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter01.olean",
+          "sha256": "7e1fcb5967607721ade81422d29b1fc6b8ece20922732f958bec84383b1f2d9d"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter01.olean.hash",
+          "sha256": "547a7e7df01353994eb991b1424297f2f73fb5e8987ef69835a6bd8c6e602039"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter01.c",
+          "sha256": "e89bad029cbecbd56c0bacc8cd28073b7025bf619799840904802ddc91e34e0d"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter01.c.hash",
+          "sha256": "35d64cda9520f721a52b0c8f99d4efa4e03d8866d4f1dbcab044a54e63833836"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter01Audit.lean",
+      "sha256": "caa5821f89f5c107c43422fd79f0e3b72eb353b89eca2ae849feae3c50b3e2f2",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter01Audit.ilean",
+          "sha256": "104cd7dc2943aecfcf519463c04b24b3e7454c64738bc84038064fcd864830d7"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter01Audit.ilean.hash",
+          "sha256": "6ed1e4c5edbb605013fba661fef5dfa01106b34adeeef70c6e0741448fa40dbf"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter01Audit.trace",
+          "sha256": "b7bcac6e1e7c3622735b5791b8f9b6d4b12ae5072c00d01b6a71abf0dbb7e2cc"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter01Audit.olean",
+          "sha256": "5a1e879ac231f369dd169b97dd41293335f779dc845a155b8f708e224ee9a658"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter01Audit.olean.hash",
+          "sha256": "bd80adfe7fee8a1078fdec19903ed0068075637cfb5200799411c3129cb19c9f"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter01Audit.c",
+          "sha256": "237bf92e4674b0474b9deb2dca790d87e2c0a2d8beec26fd02e49d5000d96eda"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter01Audit.c.hash",
+          "sha256": "e6693099241bfd3deac8163771e07e69697f045eb4b588be8b01ac619023a083"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter01Probes.lean",
+      "sha256": "799fbd4fbb34aaa973c91913066fe9775c9c4634416a2426197ad86ec9104898",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter01Probes.olean",
+          "sha256": "a1c900b443b21e80f19d2f1754b9e966704b40442a2358cefa3a699595d68a87"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter01Probes.ilean",
+          "sha256": "ae6e99a70367fa09e2ca0d09aa9eb80ac2a60bfa871e498e9524f151e461247d"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter01Probes.ilean.hash",
+          "sha256": "d319d5debcf558972f6f32e7ba5f2e45e6fc8345707b26800496ec114ab3549e"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter01Probes.trace",
+          "sha256": "53915fa9c4f0b27b2e543ce33fa28dafe8cc39230480c60fa9e423c4c8f7629f"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter01Probes.olean.hash",
+          "sha256": "acaef5d09fa63565ec5dbc27e1f06aced0b96173b5d35adbbafd2815fe108a38"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter01Probes.c",
+          "sha256": "2b2cb8c14cacb3faf258b59e202130e321736e911d257eb1a70eae2129ff9334"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter01Probes.c.hash",
+          "sha256": "a7940ce07f8cd2529d5da7ee16b61cfadc32dd776d740b4a864a83dff2f13210"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter02.lean",
+      "sha256": "7ec4b5443560804666aad9010d2a4600d545973dbb85fe0a8dc7268391d320e7",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter02.ilean.hash",
+          "sha256": "b59b7af9bcc264e78a00c50847f74c9cbe0f25f8aecbff6eadb83d5a684df60a"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter02.olean.hash",
+          "sha256": "0a3bbed45edcd7385faca6ccfebb7721793c105cb46c13a631161bc4ed8e91ee"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter02.trace",
+          "sha256": "d580b0ebed9321ffe81dfff82835226ed86a977c23b3803d7df2b1657cf51a5d"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter02.ilean",
+          "sha256": "030befe395d7331f46d058a3787e0cbce9ba544c0aa9b36647e8e8fe2464c6e0"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter02.olean",
+          "sha256": "e526f16704a2c98e02c18893f2d71d8753c05b2c11dfcc719bb6825f640d7ac6"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter02.c",
+          "sha256": "f82fbd282f56c05b4f42828c4c02ec3d32d9170a7eb14d2453a1b9f6cf4dad63"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter02.c.hash",
+          "sha256": "3a16318cbc591e6e6b235ce26f424cc03ec5cde9c3fc6f8f124434174791af4e"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter02Audit.lean",
+      "sha256": "f71f5d315ed5e101b3183fa0095bcb6c92499aed620a3447a7e7ec4ecead7e95",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter02Audit.olean.hash",
+          "sha256": "3123c9ce06bb0c2bfc8903ddcc2759935866511d6b8de78f7fa078b625bba4ac"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter02Audit.ilean",
+          "sha256": "2492e4714aafc3cce94fcf0cc2d091a33fcd3cb8e5af1d5da981e9c0c35b04cb"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter02Audit.trace",
+          "sha256": "e463448e3b4fe5d9b6ea7313731c3b26cde52046ae032b7f607ceba3e41f46e9"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter02Audit.ilean.hash",
+          "sha256": "1658f2358b78a01ac6e5d9f500a48a78377fca4350e4f08c5123d1e51cbc5ce1"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter02Audit.olean",
+          "sha256": "30b8ba2cc517db79546c73fc45530707c59013410b8b14d4859e1d05a8e21839"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter02Audit.c",
+          "sha256": "a5839d0fa6ae3a053a8dddcfc79c4b1858dee2c8a908ff613280b340c1fd9f7a"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter02Audit.c.hash",
+          "sha256": "7d9db4bc890c0cdf6c7e4ad8b90636d7ebf760dd780ac89e8988c2bd479694bd"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter02Probes.lean",
+      "sha256": "cc380bde145028cb1a7d2a69e77dfa40f84fbe1b42c1401160006e811d65e3fc",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter02Probes.ilean.hash",
+          "sha256": "0e72d2b0839df9d98f151125da8e5c8ae8cc00bc8222670c5c9b434d8b13ee70"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter02Probes.ilean",
+          "sha256": "cedae46feceb82d5381a343bd5fd7711c40d730cfe2adb84a2d0832cdf012e38"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter02Probes.olean.hash",
+          "sha256": "8c7d355d5a05c94368568312191343f87d5095e0cc26bf264139a2301463a091"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter02Probes.trace",
+          "sha256": "7310edc326fa2a09060a1fa553f7b882e4a4b6bf34dc920a86bc715e813d1613"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter02Probes.olean",
+          "sha256": "52307cc0b9a398cca90f60388e9e3f7782d7175c6487724de0177fcfb6913867"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter02Probes.c",
+          "sha256": "c14c1f80845ea12be23413bff46e03a1a20d52832f49baaecc5af15317775bec"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter02Probes.c.hash",
+          "sha256": "83ba0fcb79cbe812a377ebd9623183057824de079dbda98f576bbfddbb585ca8"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter03.lean",
+      "sha256": "f711278f4e18ceeb1333cdda759a80635cf935d7c3658c1e984300eeb7808020",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter03.trace",
+          "sha256": "c2f1a0e38d6f88312bbcb5df28afa7e8c2949a373d2885da1cf3117ad9c5c13c"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter03.olean",
+          "sha256": "b4cd08075020b760115b052af1c6d9945c6d238de8712a600e3c005f9d0199c4"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter03.ilean.hash",
+          "sha256": "05899a85d5b065b819777f9af2b2a47575dc29c1dee6750dfe4f81633a82a0ae"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter03.ilean",
+          "sha256": "725d0258ca81252e53d9d5558f481a71a3e7bf35a6058ef29315b732164c47b9"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter03.olean.hash",
+          "sha256": "1a73fa06de7cbcb506468914630dfaea614b9ae56a444a4acda53e2ede4c0087"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter03.c",
+          "sha256": "4726b77e4f1b5e28e8a0973b3ef7604af8621671ca71502fe3dde7585f263841"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter03.c.hash",
+          "sha256": "6ab7f467791af833396c905ae068ffe67fe65a18d614601be5a7e3fbee339295"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter03Audit.lean",
+      "sha256": "bc028b4ea977a38154844f684e4cc2784ec2a490a30f863417f3ef1cb80ce1ab",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter03Audit.ilean",
+          "sha256": "f3fe8ec99b5b96fed4b422a1289e7380388fe2867e9e436aa3e50eef85fbb613"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter03Audit.trace",
+          "sha256": "86607630fe9f0cfc8dd02edb35b8b5aab88aa7220ee73873afb0e0e0c338eafb"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter03Audit.olean.hash",
+          "sha256": "fa78f7688a38792c141e976b84000f51efbe623b487e64aeec19872be5dbae93"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter03Audit.olean",
+          "sha256": "55f1fa172baffc123ace69f7c7f22d45d70e1b61f40950bb1197b5322ab2cc35"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter03Audit.ilean.hash",
+          "sha256": "6aaf17044bdc697bde78da8251c6e04a73ccc3def8c4189e4dc58b06dcf20dd2"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter03Audit.c",
+          "sha256": "3eac7173254ce20c44fc64498a604259077cb561feaccaa3a18147f1ed782055"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter03Audit.c.hash",
+          "sha256": "ad9433400880276fad1366a34c26bceb6f08091135c4d957c91899033bf98221"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter03Probes.lean",
+      "sha256": "3da80d840c8db1cb2aec7049950832528e7f9985fe46869483e0af5cd34b9f0c",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter03Probes.olean",
+          "sha256": "aab2b83f24577b2848aa055ccf1152b9c3f6a6e85094f5404ba56d3ab05718ae"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter03Probes.ilean.hash",
+          "sha256": "31015c23ee1e6ecef7e89e9f8ff756e134558020c7ad524b992fa35b084970b5"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter03Probes.olean.hash",
+          "sha256": "0e3aeda79e24fa797ffb025b6d9679d0172ac319dab67475dfcf716554439168"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter03Probes.ilean",
+          "sha256": "c57e3a818befc74876b6b716aa941c0364ff0c53aabd0b843e6590750c0925c1"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter03Probes.trace",
+          "sha256": "ee1c14a9633204ef82baea9c610aa8fc7a251df2abdaf084efc8e81ba4ca20f1"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter03Probes.c",
+          "sha256": "782829dd02ea268ef43e657b87039a17f84e69b378e9fc55920cfd7b14181ea2"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter03Probes.c.hash",
+          "sha256": "2e9d484aa22710c10c128485bcf47a822eb2fabe61325a6d87635919275c4eee"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter04.lean",
+      "sha256": "71ac9841413d7046b72f943541667d91f77dfc77924fbc588c2dbea277754df8",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter04.olean",
+          "sha256": "027669153a7c380a350b9e380689acfa3bf33fb62865a56ce2bcd25fc69c2461"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter04.ilean",
+          "sha256": "3ce6d6dcb5d1763f27be50c29eed6c8d2744fe5fa770f4ca9ddc48e550b3fdbc"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter04.ilean.hash",
+          "sha256": "c6ee6a5347c8fc6f8fb7c50480c1d0cbf8d3f7cf57b10e959999c33bf3d514a5"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter04.trace",
+          "sha256": "a565dd73dbb69777792feb8d4a1fb8e7010a767f79974d742eb09932987e3615"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter04.olean.hash",
+          "sha256": "2bd14a22e26e19b1f488c6b8dc5d10bbb71d254102fcdbc9a82f78c19aabf904"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter04.c",
+          "sha256": "e49286aaa5d08c12e49873753d03b338d4ca7e81b13f566f2bad35aa0f4e634b"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter04.c.hash",
+          "sha256": "bfdf4470b61c89fb38f6ff70f0950917d6d72f05b8e3f5fd3af0d26dc839a667"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter04Audit.lean",
+      "sha256": "f1225bcbc2a99ea92a74de1b3c1a1ebdce6588c60bada6f31401e92085467968",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter04Audit.olean",
+          "sha256": "79068a57d0785745e85ac60762046a9b0ce4293cfe841719244b6b5706a415bb"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter04Audit.ilean.hash",
+          "sha256": "52aaa436e4347f7a7af6cd57c509428f5c482403845d3fa5a661c4d308e3884e"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter04Audit.ilean",
+          "sha256": "687f62230ec7343ad49d0be819a106fc1d8259f5c19b3b7eaebeaee0158e9f3d"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter04Audit.olean.hash",
+          "sha256": "d2a0fb8c1dc9effddbefcc183ce7cad8667f37f9abaeff8f0d17ef7ab035866a"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter04Audit.trace",
+          "sha256": "66725613cb06f9305492fb6534416b0a13a461f619ac83c6029c1fa7d1596dd5"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter04Audit.c",
+          "sha256": "7c151935d779dd7e10e502ef75ce844c9201cfbb3ad952ef8568421524a1b97b"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter04Audit.c.hash",
+          "sha256": "091484a84d27b1f6da191774793de07b26aae8b3b1aa3e35ca41bf7699614da1"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter04Probes.lean",
+      "sha256": "3854585ce261b127d2ad1a29d263f72cd40466542fa6f23283e6adf0b17f92d9",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter04Probes.ilean",
+          "sha256": "512bd87d1ef64b85af1a493163f82750e7d6a432873b75cd91cc89e23adf693c"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter04Probes.olean",
+          "sha256": "df4d88ced2bba9dfba9991344d6ed33d92ca1038de315020b67f6adf85829b25"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter04Probes.ilean.hash",
+          "sha256": "03209cf87f9998ce4155ca52a898283f310f00bc978489f215b3093f71a91d21"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter04Probes.trace",
+          "sha256": "9d6fdd5f764161d6702e01948eb06e700ea5317cf56f69bf3e12e1fd95bae363"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter04Probes.olean.hash",
+          "sha256": "862156e457002d9a03db2692cfd1449996bf4dc8697d5415c1e244dfdc445e06"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter04Probes.c.hash",
+          "sha256": "9bd507ce222fb5d98e4d95aa4b6e260caa798b1468c114e2d0681bb121c8c174"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter04Probes.c",
+          "sha256": "4e9277d2b2c278a2be11546c12b5a187c3e67fd811ce9a366089a2075159e8e4"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter05.lean",
+      "sha256": "55acec19c187d4ae0d6bfc37c78ee32df5711a997f3d4e0aeea876eb876904cb",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter05.trace",
+          "sha256": "0e1b1b567e52b1946eaaa67f4fd4172a94cff904a2aef17d2783f5e9b02af244"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter05.olean",
+          "sha256": "7aff5c1e2bd37b764e582735e2742734912f69ee4fb62500692f3fe239cb050b"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter05.olean.hash",
+          "sha256": "5662a6693948a6020ea82802bb5ce81ad79a898711b9f5949489cf21aa40dd06"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter05.ilean.hash",
+          "sha256": "103b10f106b889790e6a6b7480692a9862240790a101d9ca803e690e26893514"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter05.ilean",
+          "sha256": "1cc3e398acaac36796c8d7caad116cbbc518894f77d889265c0d043989974494"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter05.c.hash",
+          "sha256": "e763af491db94faff1841831ace0a690861876bbd1a93aebf32a29f56c778142"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter05.c",
+          "sha256": "a1cf3f7b88d8cdf32457c1e0a94a1636631dcbb382729b15649ea778deff140d"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter05Audit.lean",
+      "sha256": "d8dbffc66740e026638a4c0bba1dbcacfb69594b706c92116aef9435fa18a0d9",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter05Audit.olean.hash",
+          "sha256": "4f4fad165139376cde9a990bea2dbec93b9088f01fbca56fe2751b513e6e64c8"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter05Audit.olean",
+          "sha256": "490f2987ce323b1367cfb764bab6927ed17ee64bddb400eac1f31deba1d31955"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter05Audit.ilean",
+          "sha256": "b0a90dc4d143dc215c3b3b55d12ed9391a09274f87dfdef14cc388d85a8eef9e"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter05Audit.ilean.hash",
+          "sha256": "faa4cb75b6d1187557b7da6f0f7e09dc060d7ff7b168618372e8430c386f3e1a"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter05Audit.trace",
+          "sha256": "fdbaa82e2b7680cf0be6105f8e8bc20abda458125f3cfae4f5132ba65c00b46c"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter05Audit.c",
+          "sha256": "9b1aff24aa7daf330c489d383e7bfbc6ed67423584082eb3cbc8454ed9f81531"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter05Audit.c.hash",
+          "sha256": "a23babca28c022d79df62d156cbc26beb9933ebbe8ac892315cd830559e534ba"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter05Probes.lean",
+      "sha256": "a59995311bfe25b74920cee0aef6ed6ed3674c4568374058c141c1fcb0f96093",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter05Probes.ilean.hash",
+          "sha256": "f15716c000a3fbc461d781698b23b3f66eb6986a1fb13a15903a536db9d344cc"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter05Probes.olean.hash",
+          "sha256": "a1675ef0ce5775c710b309f05c67a033e59095f159bb23e2bb9a0cfb15ecc4ab"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter05Probes.olean",
+          "sha256": "304a20d9cde6aee8647b93d33bc3f024bfb32e7baf16c8b5d9c4fffca2df5baf"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter05Probes.trace",
+          "sha256": "245747e58d6b794620fafaa2d59717dd683a941a0f3882a6dc0ae9e05677e852"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter05Probes.ilean",
+          "sha256": "9016ca9a59c7050e233e248ba6ee5c093a9b212cf27af4ce3643a35077bcab79"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter05Probes.c.hash",
+          "sha256": "84bea1adaa95bc783bb75a206a3baf75cc39c13431cebc49a8a11ad816198c71"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter05Probes.c",
+          "sha256": "c48d88470eab748e0fee1f274e68acb424c8e7eaabf570d615bc06e12378e811"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter06/Basic.lean",
+      "sha256": "5192b99092c0fc7da7109b1e3ffd90446db62c73845b935172643456b46a3915",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Basic.trace",
+          "sha256": "a149ddb99c0d99962c51054e31f6f389589c759886ec195b2a450b04558aef14"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Basic.olean",
+          "sha256": "c90da32f4d3eaad0e5dd5e5ee641bd3522a32a872477ee766541fd953e1426b0"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Basic.ilean",
+          "sha256": "7ac3449210d8f64b6b4e81103608901cd0f15a1ecdff78b8c36d68b84b86fc94"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Basic.olean.hash",
+          "sha256": "5ec3753ee8e89aaac4be5f1c6e3f4bb0379ca7347549c0c728f48c85283c9f58"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Basic.ilean.hash",
+          "sha256": "b340b338ce3b8c529f8af6e6a754cf71e625cb53ba4df625a14964c18e36fb8c"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Basic.c.hash",
+          "sha256": "c06089102c5a111d5e06216b879167ca710e23d5fab19162d3432fc4c748a60e"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Basic.c",
+          "sha256": "a79f95709795ec2fb77c9d32419b55090728461ec8c3927c78938885dc0a26f2"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter06/Calculus.lean",
+      "sha256": "ac36c016490bd347b592af764c1c6e5f544a6cd09ad7aac0c59a4c79da6c3c18",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Calculus.ilean",
+          "sha256": "bf1ff32d0e0151d7ef2a13f6d43880a59f08ccfb7d2a0428dd97633918dc6fa6"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Calculus.olean.hash",
+          "sha256": "d7393e9bb6b7f2ae6a666c1a27f3c8ef403c47b166bc364c29a7f3099173728e"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Calculus.ilean.hash",
+          "sha256": "b80e2e93a9a74396881680fa0623e0b8f1aadf5a7d0a6d451223611be5d30429"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Calculus.trace",
+          "sha256": "ffb8fde6374fcdab7184ce950fc3270156b3302f5238ed25a9d39eeb46eee946"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Calculus.olean",
+          "sha256": "eec3e4ffbcc8f509b9f0b6aa2fcb67607ed851454205ea96fad38447d24cd212"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Calculus.c",
+          "sha256": "1405b444a21383be99e0ea9b10223d5c8036abe90a3a3814edcf7dc301f5bc53"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Calculus.c.hash",
+          "sha256": "abe1d9ee885b37cb685a560061c611a34969ba04347c48da8e0cfebcc61980b5"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter06/Criterion.lean",
+      "sha256": "e88daabe91d0ddd9145c79ff4aecbfd5c054b30fd27ea86c0a1b7743e3488715",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Criterion.olean.hash",
+          "sha256": "9e8cf1de689fa2b96e3e7390c139ecd316e72b82d2d01c4b33a55b72f44d5a29"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Criterion.olean",
+          "sha256": "ab3f7e9df8bd222b3e1c38102c871b39a935946d4964ff217de4dbdd7ad454bd"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Criterion.ilean.hash",
+          "sha256": "a9ef09941a217a47dfecc6477f975b8dc8e899ed92ffddf22698f5b324e52b8e"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Criterion.trace",
+          "sha256": "daf93ae5fa4a23524bd4fc7a60dbb8aad268ed215eca90324d74b42250cd9ed2"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Criterion.ilean",
+          "sha256": "649c56fd0cae1500920fbd764f4c45d172c34033b98610d0ba2078bcde57207c"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Criterion.c",
+          "sha256": "8b09a950118ed03a1c6518a71b1cb52208da773daf3dcca7fbdf8d4b0cc04956"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Criterion.c.hash",
+          "sha256": "8e6c58d481aeb803bc9fc64043a699be088c6142e952ce2000f9d65e3fac0b16"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter06/Curve.lean",
+      "sha256": "0fcd03a02ba4b7c7a57a647b14befac8b93fa006238ed13abc910849362d1b50",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Curve.olean.hash",
+          "sha256": "2a0a7a97a4d5977a171162d37c68707ad2ce8c11529189f6807bee3aa88838cd"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Curve.ilean",
+          "sha256": "63f0200f3547639f26aa7cbbf98416fa6b5cef25e8bf32c1bf5ad01c3207a311"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Curve.trace",
+          "sha256": "520d427a628fc209046e9bc5013db8d08f957910825ce88883474bbaa2e55ebc"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Curve.ilean.hash",
+          "sha256": "9345471fe5ef4eae4d452fe8659e65f568f321110b6f38a9f3a293e82b248423"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Curve.olean",
+          "sha256": "6026ce1677dcce30acd2b32ff4159fdf475cfe4bf6b88bb26f2596e016eb2d83"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Curve.c",
+          "sha256": "df7ec261e44aadc1a3d74d9bac711e9858af7941c828def36fd57fc2f15d6f98"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Curve.c.hash",
+          "sha256": "0b3f9209c7393756df2697cde53e5e98767167b04979c745de85b7bf697ee00f"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter06/Definitions.lean",
+      "sha256": "13adade605f2cff6904a9b5d24f06057595d0c760abc140dfd7831608c5ccf81",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Definitions.olean.hash",
+          "sha256": "9315cb20a52c24b393d3c8389f217f775d0885524f8778c32eab6a2f8e7e1362"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Definitions.ilean",
+          "sha256": "f539e3fe91cc3d3124d7d5528dcd4240ec4c4dfbd7b73bdd3a8f86f1185ebf47"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Definitions.olean",
+          "sha256": "e732ae169c70955c5f02e0b7a78ab3b9c2ca2436950f495dc6c0da69558f935b"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Definitions.ilean.hash",
+          "sha256": "c1009cb1158cbdae986baed382a4188af2f8bef03ba86e5eff2a23c96adb668d"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Definitions.trace",
+          "sha256": "f814e859b8ff247b7d8494709c57814d927ec52a1e99ba8611076880cb3143b5"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Definitions.c",
+          "sha256": "3b2b6e50c7794a80faced85777ba3dce9dbf8aa1d520a8656833a153aacfa260"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Definitions.c.hash",
+          "sha256": "7d6d23e466a2a22b91d11c196c26264f887ba6ba5070f6ebd278441c8c25ef8d"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter06/Endpoint.lean",
+      "sha256": "b4518141434d43a5d28f97944ba85b9af1c98cff1b19c910bddc2d4a70fe3e4b",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Endpoint.ilean",
+          "sha256": "e284f2315f3284922efc4623022ed5a4b18cbc46f5e782e862959288227a83c4"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Endpoint.olean.hash",
+          "sha256": "10f0a8396ce3b468c5ec0fb60ee543ad72e4e270098a0f6b5498e0d1a919fd7d"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Endpoint.trace",
+          "sha256": "123169bc0a20ef7936f7fe647f5fb0b907db8e7f2eac48a8ebb20341943add1b"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Endpoint.ilean.hash",
+          "sha256": "7265ee03f9e60481b377200b237a702c750969e49cff051932a9fa0d22811080"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Endpoint.olean",
+          "sha256": "d27ecc1bac49aa6569b4e1a159fe345860f8657fa6f6ffd81aaafa74ca1954b2"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Endpoint.c.hash",
+          "sha256": "efd84acdc26258f1802d48a0c22ee487bdbe035fb3e2273a1f91b95ac9ad7e08"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Endpoint.c",
+          "sha256": "cfd9c963ed6b9dafa96d6d8630c3f5d630f011de519c39324c7da74c01793736"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter06/Exceptional.lean",
+      "sha256": "f611a715e8c85e43989fa9a196ceb7d93b55b40b9b3674dfd3bb98398fdfabfa",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Exceptional.ilean",
+          "sha256": "2debc73885ceaa082f5704264f3493bccf5688b8e077d1f5d0a4d65f563084c0"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Exceptional.trace",
+          "sha256": "d9d3fef7f329ea7d096c7b726be7362daa1320676ec4d46050ecc7d854086da2"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Exceptional.olean",
+          "sha256": "a8101b7cfc4c6024354228627af0a4db4bd3cdf2a7585045ad8b3fdc0faea9eb"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Exceptional.ilean.hash",
+          "sha256": "38283cb746be8da9d2fa7e620df9d8310ace1730b08c82ff89005dcbe294f517"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Exceptional.olean.hash",
+          "sha256": "d3f83884a5d2f1065918185819e7c8a0564d6ab0201b56e3751c9d53e2cf5ea4"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Exceptional.c.hash",
+          "sha256": "84c35c58d5c9b02b2ed802683b3773d5c0a97df0c4ca6e58937be8161419fddf"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Exceptional.c",
+          "sha256": "63d0a27598524ecd3322d42e25838762504936c4c9b6bc18c1b734c7349088a9"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter06/Integrability.lean",
+      "sha256": "001823e4c51a56b9c0d0afbe13801a757200178eac396081dec3b7abb91d5cec",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Integrability.trace",
+          "sha256": "28eb30c9cddd969eb7d3f79599d4a13441aa95749750438cf7798ea0c45a8d1f"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Integrability.olean.hash",
+          "sha256": "3f18f36c441440950e6faa10da6d723355b9526424f7ef096f164aa983a06b04"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Integrability.ilean.hash",
+          "sha256": "138a917c06be3ef9a11a9afe9842ae5c63031d90e366be3a099f4457346bc6d6"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Integrability.olean",
+          "sha256": "c6d61a92b2329cd1281ed15f834f0b661fd7e76142b8ee376f62162519e2c7a0"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Integrability.ilean",
+          "sha256": "49fee581d878be339833592fda42a39e9470f66d6b88a1dd704569f0c992f893"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Integrability.c",
+          "sha256": "300b25c561938090a6d8a66b9b2900bdc21a3d089dba9fbbd437eebb58e01ef8"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Integrability.c.hash",
+          "sha256": "1ac8d433a73a99dbb9703682ae38ea9f3047fc0b696c3ffe5ee865c2e37a359c"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter06/Jump.lean",
+      "sha256": "ab56704088a99d95c29755f2ada3c7a491ea55af5f24be7cf19b51283e96c47a",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Jump.olean",
+          "sha256": "7ef4f79694edfba7c32b41a7450246eeeac2e5a5e0901ea4a9cde7622d6cd549"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Jump.olean.hash",
+          "sha256": "7642cf47da142f62036fe87214164d2633a7584c077b271f782eef7e4140f501"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Jump.ilean.hash",
+          "sha256": "5cd1c8d3ec39147f4e97e2b114a562b73fb29f4c11eb4ef377d3e64d6212483e"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Jump.trace",
+          "sha256": "3d67dd66e487b0efaf5d133f8898de2349584db3a5dee744a4105024a692d8e9"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Jump.ilean",
+          "sha256": "05b229b17238a1cd0e38cb1c8cd54ffb6833281cb7c01c2c8d2bbb1e84e520ba"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Jump.c",
+          "sha256": "2b7ef2055d0fcdc030d9ea09af1b1eb2dda7e32d3aee635a92aeac3251566254"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Jump.c.hash",
+          "sha256": "df24c0a6893689fa818b774f36663cf48b08b099b8fa345e0fbac7cc53d91094"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter06/Moment.lean",
+      "sha256": "21ccfad2cbbc3cbd0726a62a190f6092fd2b376690233dd340435b38bb89deb5",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Moment.trace",
+          "sha256": "1f52feec33e46b069b3918fedb6f2523d2645ed45597137226c430b22cf4ffa3"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Moment.ilean.hash",
+          "sha256": "3f3152555755ab7348ce8fc7db0b9fcca8e9df5c6bfa2b84931d98d1be488ef2"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Moment.olean.hash",
+          "sha256": "cda6fe85d502b84117ab90b728394111acd2960b0a418ea3a947661bd32534b6"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Moment.ilean",
+          "sha256": "18da326087461b6d39daeeb88ac308e1162c21621404bc49462ac17dc1bd01cf"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Moment.olean",
+          "sha256": "be748e92cf090139bdc9a79c3263474d3718d5529ccdd46bba0b3a3cc9a97dbb"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Moment.c.hash",
+          "sha256": "118cff5012cd89d60edccce0fb7fbe3cf1303aacdf9ef9ca0342bd9006bad5f0"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Moment.c",
+          "sha256": "66111f89f7b952d7d46d5de49f7e1f93f6af0f4efa737c5cbff126ebe3bbc202"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter06/Monotone.lean",
+      "sha256": "93a69abdd3e242baa92eace347b551042157da49b4a83078e06abd469d832598",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Monotone.olean.hash",
+          "sha256": "9742c07b26b7f93ca8783cc0ba0e0da950d061c62da0a78169ce5d805382cca8"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Monotone.ilean",
+          "sha256": "4fec5d4f5c8f417a9a5827f7bb2bcb2fbdf4ae043399cfc270e26ac4c619c590"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Monotone.ilean.hash",
+          "sha256": "858d52309042f2500984894faf529e548a1b3340f2d988b8b1d66734a592b912"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Monotone.olean",
+          "sha256": "f83950e5a29267860c99b965b4f37363f8e6585bcbc87c707eb58ad25a38e1f8"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Monotone.trace",
+          "sha256": "0b60f11d46bc8dacbefbc96f39f3b207e299545593fdf7b46287ccc71d427bdf"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Monotone.c",
+          "sha256": "11c502982d63cbdb340db7453f419bce6fb858e25a16c9ae9d00717221729441"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Monotone.c.hash",
+          "sha256": "535f594744e8a2e4d3c5012bb96f287bafc24a8941daa7d748ced37b17d0e02e"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter06/Properties.lean",
+      "sha256": "a50ff1516880bd4110cb95e7b81baf44a64980ca2400aa1e377f2b093e8634c1",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Properties.olean",
+          "sha256": "046f2c6f0bdd0eab2b7cfce5783daa292c0455beaaaa3672102b6566ebeaa5ca"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Properties.trace",
+          "sha256": "2aa4fcb33c6892b93cf4abf90d70a4e5dfb42f52597985619cfe82baf84f4ed3"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Properties.olean.hash",
+          "sha256": "2c8d6b686e4df762d3a417e10bacf9eceec61b9d47285dbb760be00c9b4e44b9"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Properties.ilean",
+          "sha256": "1baeb3ee352f91adc0232b2dd9b5c9e005ff859a3dfd863aba854ea8ba578123"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Properties.ilean.hash",
+          "sha256": "6e135839eda9437bd824e003fbea082733a4e5ad1c5d9424e969db6d57df455b"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Properties.c",
+          "sha256": "ec5cac4ffff9c2f00c486d2b48ae36b539780740667509463487e60cf5cdc3fc"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Properties.c.hash",
+          "sha256": "04c634931fac1ad5479a9182dfeaee030937701ff342297f35f2d44be464da65"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter06/Refinement.lean",
+      "sha256": "d1590f0b5df2fec5986358b6d84c255a4535a90df0ac70b8bc5f4bbec9c6fcb0",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Refinement.trace",
+          "sha256": "ebabd7f4b0bb771b5dad53ad4e933e08282009278612adcf6642d57cb3072295"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Refinement.olean",
+          "sha256": "32b327fff79a3f1541016e56a539ac02b90052cefbdff2ccd1ff79bb53183177"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Refinement.ilean.hash",
+          "sha256": "d6c5c21d684fd3e8c9f466d86c0e4453c314b9f7f60f6297fe5b0786c4e3ab15"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Refinement.olean.hash",
+          "sha256": "54c63a427b8f6575da1f9a155b11c892c0d3f08d1afed5c239a3c7d0d0c64615"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Refinement.ilean",
+          "sha256": "9dc0fdab621b13021117efa144234cb0c39b07706d0b128cab2fdf31ba8a9a54"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Refinement.c.hash",
+          "sha256": "fb4be91c720ce84fe7a87bc725130ad4eece926249cd50031b976cd1e616f539"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Refinement.c",
+          "sha256": "53b27ccba0ffb108680a7ad3425c06c8b4128ece8ca8ed8f8b79c367acf4aaec"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter06/Split.lean",
+      "sha256": "d235d56777fc5e5a25db12e834769fd2192273d55a9d5921ceb80b857499a888",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Split.ilean",
+          "sha256": "71eeb33a3fac700309ad79e4f645cbc67ea34a88ec1b0aabb31f968aa1962984"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Split.trace",
+          "sha256": "3ff51272616bfb5dcc30c8965e4daa6384b90168f24a6030566d4da605df479d"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Split.olean.hash",
+          "sha256": "d000c474cdd41268fa0cb82bb80b1d316dc0369b0d60e2b6d380898320b2c62e"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Split.olean",
+          "sha256": "827e9a4ee4804bcf9c9732d7cd1db18d4c2366632e897e70b6575d1a825916a1"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Split.ilean.hash",
+          "sha256": "6b1a9d2972a9d1166c618ef1e64f197b4dec8df956a3123a4499123d36114b98"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Split.c.hash",
+          "sha256": "d936c43d976b0c507e9fd5cd1a9799dea1b7d6a70c6c8d84af19d815e3eac067"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Split.c",
+          "sha256": "778f8b5f795fc3ed2761f34bc7c23a8052052d49ac7fa60cda46172d4b987459"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter06/Vector.lean",
+      "sha256": "1830138b9712dc5c6bd97293c0396df8160da84c25be76f55f0069dc3962ff98",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Vector.olean.hash",
+          "sha256": "46899bcb592edffe589508ad737e620f9bb7078849800edbfa35a603e0986e53"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Vector.olean",
+          "sha256": "ee49d88b40ceac837cfcd989942b18527ee8914b867023bc1ec4261bd2ee684d"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Vector.trace",
+          "sha256": "395c2f211e717a2b8be4613063e1cf8d6f5d4cda3b1d6086b98ab644478bf35c"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Vector.ilean.hash",
+          "sha256": "73ae588d8ec88a617a7a8d1b061f4bcddc16927f9502a433df642cb8a15cc542"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06/Vector.ilean",
+          "sha256": "9e9ec29eaad6aea29f0b779ffd7c2fbbabc1f9b9531378b9da8e576b86f7bf9b"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Vector.c.hash",
+          "sha256": "82f875542024b6c954e9a8998b52d0b98deb6cde97dec9646c67284391d26f7b"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06/Vector.c",
+          "sha256": "0eb24f86c7abcd22f3a1073222e92fce948c22eb206ce76441a5d285120fa828"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter06.lean",
+      "sha256": "845f356f126f288456cf210526ecb29523776bff6f6cfe89a4ebba369747a373",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06.ilean",
+          "sha256": "caba1ef9655e546ae9b059477ac51a9f9fd4b91eb54c4318434618d954d3e123"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06.trace",
+          "sha256": "d125441368483b2a6f46c6067647944fcf18c42be35c1340f1659c534de7d4d3"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06.olean",
+          "sha256": "a1adb4d46184f041e53e94b4cdf338f598a8f2768f86676b6634caee40fb6157"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06.olean.hash",
+          "sha256": "11d5b5822183d52f710e35c1d1a8001d1afa673c12c6614952f855a9b7be92c3"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06.ilean.hash",
+          "sha256": "6cb3d0fc95e8e2dfddfaae12730ae5e5f4d2b62d7bafe302ce003c56955bf0eb"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06.c",
+          "sha256": "81a0ae3109c782832a206315010447bb81db30c2c98da97fb07785c07abec095"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06.c.hash",
+          "sha256": "2b50f0c6e2f59a4f6a01316ecf635e92dc35e64e09d252b70041d53d1773887e"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter06Audit.lean",
+      "sha256": "a1f606949d6368a1b1ba25dcafd00600ffa35921c1e357bfba8f256c53fe2d77",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06Audit.ilean",
+          "sha256": "d9ae39a25812945990a75704fce93b65d78a342c59d68f7d9e2c7b16f364c7b1"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06Audit.olean",
+          "sha256": "89abb01a0192ef54ed1c7480a36d45fc4c4ff69ad41137deca78dbc82287b6b3"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06Audit.olean.hash",
+          "sha256": "f5af928c42a8bffa7f399db0107ed0edb0ef39450c39302de53c962c8afce02f"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06Audit.ilean.hash",
+          "sha256": "e0fba8261da9780bb71d02001c750bd0ee87311b5f056aa09e3f4a63d253a565"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06Audit.trace",
+          "sha256": "e3230fc002a38e94a43c2d48cbe1999b08055176915d990b36e499345ca27fde"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06Audit.c.hash",
+          "sha256": "ddba2fa8eddc51744937b1d2475db6f3c678440c70fef5d93ec95a8331714c41"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06Audit.c",
+          "sha256": "90789273503f2b5944e93b76f665426dd2f18692ae45d8e786ca3b045d743bfd"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter06Probes.lean",
+      "sha256": "4f68e96188e2ac11fb3729cb345ff8a1c21640eba7f5cf1a8a7007f3bd58d9c9",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06Probes.ilean.hash",
+          "sha256": "f28c740769d1b6a98aa4ed2a66dc48a4a01921f7e3b4382472db544cc82bf1cb"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06Probes.olean",
+          "sha256": "0a336c1c969f171a8f43a9e6d3e3b146796ac040473da2631e2b71712ae62019"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06Probes.trace",
+          "sha256": "7cdacfd92d5e224d6936fb46d799b72136f6cda8b6f2d724a5db484f1a8454fd"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06Probes.olean.hash",
+          "sha256": "90898cca7a61cffa02543cc0892c5cb5de2771af15aa5e92eb6b73dea38d76e2"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter06Probes.ilean",
+          "sha256": "c407e1bd2628393298ff2a7c98b2b96c794df37bbca3d8949411f0b29b955dd0"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06Probes.c",
+          "sha256": "eff7d64026f39ea88424063486007e1ee05add700a178b83f8111425909f6813"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter06Probes.c.hash",
+          "sha256": "4536eae21fcfafc021aa30008b6087a0eaea5a6c3575b9cd95bd17fa31ecac10"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter07/Algebra.lean",
+      "sha256": "44ebf1128a6a4f6409b4784c648ccecaf804a1ab354c406c02dcde638fde65c2",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Algebra.olean.hash",
+          "sha256": "7ae27a246d468960996ab1b3bd041a115beb9b90211923fbacf8047d7e0da9cc"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Algebra.trace",
+          "sha256": "7419459d90746cd90ce475e6fd47b1eac62911792a8ca532ce91557962fde8cb"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Algebra.ilean",
+          "sha256": "0566036cdd98543ac2454338d232a814262761097ffc8896a047bd99a69ee4ed"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Algebra.olean",
+          "sha256": "81081a91f2f10bb3ec24625bdf2f96331268c269dbfcd55089415a7007df3543"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Algebra.ilean.hash",
+          "sha256": "11901eabaf3046efd46f421e43d934fbe5302eb778e61e71935c602a7dc7fd46"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/Algebra.c.hash",
+          "sha256": "15db88db94ec503d7bd7b3c7dc5534bdb59355e834e73847bc2d450cfab0c3ed"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/Algebra.c",
+          "sha256": "db996bc5a7329173fdf30dfa33ed205502dd72a2d7df31cf57ba9be6e72dd5e8"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter07/Basic.lean",
+      "sha256": "b6b8b58999ad0025fd3ab28bc0ba3a4df5a07cc395158b99a14c05055bfa2b1a",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Basic.trace",
+          "sha256": "ec74403ce1f1d5ed1b33ffbf55a96389690e3db13fa64ee37bf0ee75e93af33a"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Basic.olean",
+          "sha256": "2f27a31ec643c73780da657496ae47e25607b6f020b2101366ae6dfee301cd69"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Basic.ilean",
+          "sha256": "f334262822bb7621bc3c72853701873c1fefcc14fa8b24e40d1b794359c7fb6b"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Basic.olean.hash",
+          "sha256": "477920d34430dd9a3b7c6e6ff8f22b086e72c2817f80f96e0c127d035d506054"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Basic.ilean.hash",
+          "sha256": "0e719a70fef8de6e3156cd820433f5a6e97b42cf1eef4489ac1052a7b01d7b27"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/Basic.c.hash",
+          "sha256": "cb005b08ef0e42e42a716a6e3e1e38da38a58a3dd795994ffc65abf5a1f61839"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/Basic.c",
+          "sha256": "8b6f944425fa606cdbfd1cd7bf70f43bac0aece5e4117c321fda7313a80d86a7"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter07/Calculus.lean",
+      "sha256": "0bc805601a65a1261e944ae9d180b3cb0344c0d9484fc766f1d3df6c3411580d",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Calculus.ilean",
+          "sha256": "237a183c73d6261d68e7c86e413fc29474a58e9daa3a6afdbe4b06a9db5e56cb"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Calculus.olean.hash",
+          "sha256": "e6af05fa4e0f4112ab048b386df32834e5687a2cca0921ac519adeb919bf78ba"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Calculus.ilean.hash",
+          "sha256": "a143f5cee6f385664951730ba1a749bae4ea6accbb30bc069afaebbc79926c8d"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Calculus.trace",
+          "sha256": "5bb3e8bfa8b7855480131a9273f4f63584ca69b134d7ca5f3719ef946dc7c015"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Calculus.olean",
+          "sha256": "b823b585706cc5298d9919de289d5ce402412b92222118be4253023450c7f8a1"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/Calculus.c",
+          "sha256": "213c83e7792bac9de5a8fc099f80bcb3dcd1357c23fb051d27924e13c56dab4f"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/Calculus.c.hash",
+          "sha256": "2d3e1d70e151f71af5cccdb98e3ba5271dfe9d3aa6efaa0d0f501a913f0483e2"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter07/Continuity.lean",
+      "sha256": "8dae8b99a9de2d8b996c47e62ad3ae5396efb503b36a686374f0349a4efa1977",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Continuity.ilean.hash",
+          "sha256": "768e015a26ec92d26498ce0fd6e65a33e3641bef2c94221b8e716206816ca8a2"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Continuity.olean",
+          "sha256": "7472c530841e7ac183ecc60a16b78b5bfeea0aaa6e6aed4e49caf79732c167cd"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Continuity.trace",
+          "sha256": "77231d0c46d5884771010407a4d87f6019104f3fcca6546fb19bd7cdd7f226a0"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Continuity.ilean",
+          "sha256": "4e1a8530c54c33632b3c42c148f8fea1d5a4c07d6a15d23ce7e091b8bd2e9bc2"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Continuity.olean.hash",
+          "sha256": "427228ca750c554bc78e54388e4f1d4ff7db8fe4571e6d4741ed438f6bb2a498"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/Continuity.c",
+          "sha256": "54e668b451b3e7e8bfc78c8a9b5067a1b329a50c01a2e9175c07671ab5e08008"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/Continuity.c.hash",
+          "sha256": "221fbe35e1cff81c761eaa129ee327f27d8760d6d73859922994b49929402f9d"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter07/Equicontinuity.lean",
+      "sha256": "baffc08a75f000487493d784939d9b9af42f7c3b4441a52d73a6664aa9ec6ff0",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Equicontinuity.olean",
+          "sha256": "4f574815652814489d30a720a12883c230cd146eb64c85a0cd8deb761ed6a230"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Equicontinuity.olean.hash",
+          "sha256": "691a37fa5dc8ba17e7d6ea032fef9a1e2be1cc71fad7887b2a985a28326567a6"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Equicontinuity.ilean",
+          "sha256": "c0d3177e665ca11034348d97f853210be8ca3b241ae63d2428a492934d973f04"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Equicontinuity.ilean.hash",
+          "sha256": "7d48be24abeda75fffef2143d2ee1e540cf3f0302abf5aa043703a749011223a"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Equicontinuity.trace",
+          "sha256": "44bfcbb675e7840ee6a09eb2c917fe97dd798fed65d33d0c7c75c49a1cc60f4b"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/Equicontinuity.c.hash",
+          "sha256": "107868e4442e1ca3f88de21fc6ff063d9fe85927c7138048ad20d378153bdd87"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/Equicontinuity.c",
+          "sha256": "16f83b8165469a43c11c9424b7b893e133a05114157647925c91c9cd45f22ba8"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter07/Examples.lean",
+      "sha256": "a25907d75b1bae77638eaaea291888989f6d9f319f0d2cea71ee74c9a25f9bd5",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Examples.olean",
+          "sha256": "c0a38594be4913591494491d42d23f631cbc95323e40f377f6fd727ab08ba3e7"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Examples.trace",
+          "sha256": "1c1699ca2aef35c6911df0cebfe9180658a8f9b244830b381808833dedb546e6"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Examples.olean.hash",
+          "sha256": "f7de2fce7e1d374eb025ccd77465e9157b3062acba90265aba3a4ec1b59ae0ea"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Examples.ilean",
+          "sha256": "91f293a2888ac835f975fa3b364c629214d1fa7def2640ae9d1c20bfb4c3bb10"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Examples.ilean.hash",
+          "sha256": "6564f07114cf269f5ccbb213556561e78465ec31a5aa3ee46ed726bf25775097"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/Examples.c",
+          "sha256": "eddd347bbdfb649767a4722b5c8846ee5cdd6d4fe4aafd9961246d62f0e12bef"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/Examples.c.hash",
+          "sha256": "110601509b336422fc842d4630be9c6f1ae35d20a6b6fe8b954c98cd3409698b"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter07/Foundations.lean",
+      "sha256": "941938d68a48db2a4e0ab70ba0b39d51828fc91602a4583ab449f8ad1c4d5742",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Foundations.trace",
+          "sha256": "549c9442569bfa681d515af812300b197030d3cd0e912dfbfccf5d21ff931001"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Foundations.olean.hash",
+          "sha256": "ee2e21d8b5d8e962ce0cfe8fd8a75040792db4a25e00c7d970a55b913bf0a6c5"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Foundations.ilean",
+          "sha256": "c7f1a425ae75b1d1a371c9a14914ca8c551dac756150f93dc799094c082f99e5"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Foundations.olean",
+          "sha256": "dd8fdb5deaf207b08fdba90576049affc3c14fd2721d1ee08383addddb455b30"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Foundations.ilean.hash",
+          "sha256": "3cbfa9dda5356c3083c29c61a3ed3c1a875aac04f589ba09e672a944d558490f"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/Foundations.c.hash",
+          "sha256": "207925709471b37b06bd19243ad62a5e00fbc0a95e62a4e77585671666cc08ed"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/Foundations.c",
+          "sha256": "611cb6ec4dd1bd3bf187295fc24eef8a6033d3e6d4affd8ff24240051d783600"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter07/MTest.lean",
+      "sha256": "c364dc78a12a188264c39c24f8dfd5da1edc699491442d18cf78b2565aef3e05",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/MTest.olean.hash",
+          "sha256": "1cd46ed2a5e91267406206db162212784f758753f77950dd787a19c76218f7f9"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/MTest.olean",
+          "sha256": "732be14ff925bb2a70aa72de100fc9af48ae4c5acc464d2a64b66173e7f4d613"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/MTest.ilean.hash",
+          "sha256": "090462f014ddf9ddadfbfb532a135134e911e7ed9b064a6ded9b201fc506ad61"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/MTest.ilean",
+          "sha256": "1f028b9b1aaf60a0f0ceea8bcd7f253682276ebe792699661d11c10a07ce1bc0"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/MTest.trace",
+          "sha256": "e33aaa180f0feace320dd57eb9edae40efdd5d9d727c24ff26ec08723d669ce5"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/MTest.c",
+          "sha256": "12f24736b18a0b46e4ab80b07f2fb9f365d5235d258146d4d4baa651c5859c51"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/MTest.c.hash",
+          "sha256": "6c60bf895dd1312f49696b79ca6120ffef62e2e4ea6749796093d4366d3eee01"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter07/NoSubsequence.lean",
+      "sha256": "a0f5e92e41fe61bbda351ab4a0497ef621ec7f3ceb7f136f742dfaca2c69f7b6",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/NoSubsequence.ilean",
+          "sha256": "5a96e01131d445fc65317a836d7339319970dbaca4fd2d8b29f500548d3c66ff"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/NoSubsequence.olean",
+          "sha256": "ac9d689cd565aa996f48f977333262f50ef8cae96eee4cc265e544b093320b9c"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/NoSubsequence.ilean.hash",
+          "sha256": "bebc7e9f2fa53e7fedf1781d31bd6e6c8737569adcc60e3deda04cbc6c8a61b4"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/NoSubsequence.olean.hash",
+          "sha256": "8e31fa39ac28ee5905917565febb1d29a29bfb16b9be0284e2829909f135b578"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/NoSubsequence.trace",
+          "sha256": "544cdf4667e55f2f91d8f2b401ffd729cbcd20bdf5df32a7993d6129a8b732f4"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/NoSubsequence.c",
+          "sha256": "c97052269f4e33a6ea62b423c352b97cd564feffc5c10b3adf9ea1460956f632"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/NoSubsequence.c.hash",
+          "sha256": "8553184dde01b2048354899491a1f932a3ef7b9645cbc6c84298231eab83d01e"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter07/Nowhere.lean",
+      "sha256": "6d04835c41bda7f4315fc7ac3e65c32b1ccc1e778b8ea145a424193d7d406612",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Nowhere.ilean",
+          "sha256": "eb4a33e99d7c507c13a9872587fe07c38f1d2df8351fb6f2c66ad80f9b9e047e"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Nowhere.trace",
+          "sha256": "c68965d672242f5c724fa0a86268d2314b681f1f71772b6302ef301879de2e8b"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Nowhere.olean.hash",
+          "sha256": "a95bed79511dabeccfc43ff9854714bb91790db9b59fe8589d027a88f7fe5a80"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Nowhere.olean",
+          "sha256": "d96ffca786665fd9550af810581ff808bde2062f99a480215bc0e5a2ec7487fd"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/Nowhere.ilean.hash",
+          "sha256": "4572d3863361ab41c823fc2c7249823a7e02d477b26d8877eac427b1cbc9cce5"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/Nowhere.c",
+          "sha256": "bb2e5ce144ba6f93e4ce852f9d94f3df43d859cc3423a670284daec9d4d8bef2"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/Nowhere.c.hash",
+          "sha256": "2919a714b875f2bbe2badbf16bb1e3317513ecbf8afe9f6441e87c0010e7fe7f"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter07/RationalIndicator.lean",
+      "sha256": "edcdd11545100cbd19fb90d3382d5baf8a5a7b34907ca7afdf44560ad53fbe3d",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/RationalIndicator.ilean.hash",
+          "sha256": "92998f6709e75e9ec786d2dd0d5b86debfdf99afc4d303c31f66a4c7617dac2c"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/RationalIndicator.ilean",
+          "sha256": "9e6bd9cf7317920fcfba5b31c539c6d5c3a145dbea44a7439b6e6e67f742e4d1"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/RationalIndicator.trace",
+          "sha256": "0d7e4f88f6926a18a4a417c6e52f1c43d3093e30a11b00e73986edcb5680e4fb"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/RationalIndicator.olean.hash",
+          "sha256": "63ccdb09bd5c8c66eff9dec5badcb0ddc7019ad820baadcb7c9d801ef6e6c0b0"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07/RationalIndicator.olean",
+          "sha256": "a16d1f227fa9b9efa273c01e505337019e8bf8ccece50cd78289c48382cd3bfc"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/RationalIndicator.c.hash",
+          "sha256": "91cb2654c6d9f8be4f10547ee6d50e06bf306db7d0480be1ad5f1c34869aa51b"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07/RationalIndicator.c",
+          "sha256": "188550f90ce10eba1db67429e35dd45351227addd86df5473a6f5b86efe1cdf4"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter07.lean",
+      "sha256": "c84a119e20c57e2629f69ab024b36f607e105b2b9ec5f7b7ab2be1273647df9b",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07.olean",
+          "sha256": "0a0373d0b9b81b11db1b8b0882f47f6d5e514e843c51f8965cf7aefa62f88e99"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07.trace",
+          "sha256": "ae1410732fefd9664f6548d2227f3984cdcd9de4c695e34a229592ed372703a7"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07.olean.hash",
+          "sha256": "4347760435f05eff2ca24a1ba357ebedd36d470f01cb0690f9c34419a32b52e3"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07.ilean.hash",
+          "sha256": "e19979ad335324cecfb69eae18cdad216896fe7d836107c0aaf4b0d10c1a1847"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07.ilean",
+          "sha256": "0f8af50ef8830b2adc3a20a66fdbc486e86cc1853fb3f139988e006b9ebe74f2"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07.c.hash",
+          "sha256": "34eee778a19a4409f0153d7972189dd8ffe23a70185f82fbe6be045c8409348e"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07.c",
+          "sha256": "85950bce31cf504cf2e1ee03d92b2fdf5069a6f87cf342bf3769773404088c5e"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter07Audit.lean",
+      "sha256": "338546f35755b21968ca88666203755db29c35f45905674e274f2c1700223326",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07Audit.ilean",
+          "sha256": "774581760fec9fcf4935750b9918ee9eaaf86108df5f79cf0c541d099498590c"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07Audit.olean.hash",
+          "sha256": "f7da42049fae2362156c51030542cefca6e8b3e9e17d613603884c9e95935dcd"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07Audit.trace",
+          "sha256": "6ea26217276fae30e6689419e7ecff6fd8e926250de82fa22c636d82c22e7d8a"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07Audit.ilean.hash",
+          "sha256": "4069b97f0683ade8c8d91f4bab187496fb5b2d90333996f6e4de5e8abf2d0709"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07Audit.olean",
+          "sha256": "f09b76fc34e6d3847fccc7503b3d7ab1cafcbfd61246f180e56556807db0b89b"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07Audit.c",
+          "sha256": "19e506fc491f675911f822fb3a1cb2de5a7d501edafe2e25e18a8b0983e3f64f"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07Audit.c.hash",
+          "sha256": "2d24eaf0cb525e0a57b61bb211391942b3effa185e0b44f0dfaff6e64a76cebc"
+        }
+      ]
+    },
+    {
+      "source": "Rudin/PMA/Chapter07Probes.lean",
+      "sha256": "3f8ab677255b71a28bb0f31823efd0af5e767eff7f508529cf2d9286203375e0",
+      "artifacts": [
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07Probes.ilean.hash",
+          "sha256": "334443f6641b0d35d6b758c652d6db2cef7310001eb8c255f5361cd5482c469b"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07Probes.trace",
+          "sha256": "c08dc961acb470a45a0a1254bd78aaf8c0001d16421eb9955cabb4d9ec6481d3"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07Probes.ilean",
+          "sha256": "ba9d8c1044346f833f35b370588ad03f4e92b0639aed84bdb278fb90173b8c35"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07Probes.olean.hash",
+          "sha256": "71c713315f2796b1e19f0509b4dcf4a9d4effcc4b349d05c0f7a0110ad56fea2"
+        },
+        {
+          "path": ".lake/build/lib/lean/Rudin/PMA/Chapter07Probes.olean",
+          "sha256": "8124632aef6dd7824c45258b5348e879f6162d9174553fc2994126bf71a4c7ef"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07Probes.c.hash",
+          "sha256": "0d8d41e31f1c979b3d41d105017a8a85aeee774437582e5a4a7befd45c4c703d"
+        },
+        {
+          "path": ".lake/build/ir/Rudin/PMA/Chapter07Probes.c",
+          "sha256": "56b02871f6f9ad4c14cf5ca22db2b2f47bc45ae288aaefa1e19cff14b2cd472f"
+        }
+      ]
+    }
+  ]
+}

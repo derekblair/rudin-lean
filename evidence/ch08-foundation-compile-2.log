@@ -1,0 +1,79 @@
+Sequential module: Rudin.PMA.Chapter01
+Build completed successfully (8924 jobs).
+Sequential module: Rudin.PMA.Chapter02
+Build completed successfully (8925 jobs).
+Sequential module: Rudin.PMA.Chapter03
+Build completed successfully (8926 jobs).
+Sequential module: Rudin.PMA.Chapter08.PowerSeries
+✖ [8927/8927] Building Rudin.PMA.Chapter08.PowerSeries (113s)
+trace: .> LEAN_PATH=/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/Cli/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/batteries/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/Qq/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/aesop/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/importGraph/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/plausible/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/mathlib/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/lib/lean /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean /home/derekblair/projects/book-formalization/rudin-lean/rudin/Rudin/PMA/Chapter08/PowerSeries.lean -o /home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/lib/lean/Rudin/PMA/Chapter08/PowerSeries.olean -i /home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/lib/lean/Rudin/PMA/Chapter08/PowerSeries.ilean -c /home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/ir/Rudin/PMA/Chapter08/PowerSeries.c --setup /home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/ir/Rudin/PMA/Chapter08/PowerSeries.setup.json --json
+warning: Rudin/PMA/Chapter08/PowerSeries.lean:27:8: This simp argument is unused:
+  FormalMultilinearSeries.apply_eq_pow_smul_coeff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Rudin/PMA/Chapter08/PowerSeries.lean:49:37: Type mismatch: After simplification, term
+  hx
+ has type
+  @LT.lt ℝ≥0∞ ENNReal.instPartialOrder.toLT ‖x‖ₑ R
+but is expected to have type
+  @LT.lt ℝ≥0∞ ENNReal.instPartialOrder.toLT (↑‖x‖₊) R
+error: Rudin/PMA/Chapter08/PowerSeries.lean:51:7: Type mismatch: After simplification, term
+  LT.lt.trans_le hx' hr
+ has type
+  @LT.lt ℝ≥0∞ ENNReal.instPartialOrder.toLT (↑‖x‖₊) (realSeries c).radius
+but is expected to have type
+  @LT.lt ℝ≥0∞ ENNReal.instPartialOrder.toLT ‖x‖ₑ (realSeries c).radius
+error: Rudin/PMA/Chapter08/PowerSeries.lean:52:57: Type mismatch: After simplification, term
+  h x hx'
+ has type
+  Chapter03.SeriesHasSum (fun n => ↑x ^ n * c n) (f x)
+but is expected to have type
+  Tendsto (fun n => ∑ x_1 ∈ Finset.range n, ↑x ^ x_1 * c x_1) atTop (𝓝 (f x))
+warning: Rudin/PMA/Chapter08/PowerSeries.lean:70:12: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+error: Rudin/PMA/Chapter08/PowerSeries.lean:75:71: unsolved goals
+case e'_10
+c : ℕ → ℂ
+f : ℝ → ℂ
+R : ℝ≥0∞
+h : HasFPowerSeriesOnBall f (realSeries c) 0 R
+⊢ realSeries (diffCoeffs c) = ((ContinuousLinearMap.apply ℝ ℂ) 1).compFormalMultilinearSeries (realSeries c).derivSeries
+warning: Rudin/PMA/Chapter08/PowerSeries.lean:78:8: This simp argument is unused:
+  diffCoeffs
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Rudin/PMA/Chapter08/PowerSeries.lean:129:6: Type mismatch: After simplification, term
+  LE.le.trans_lt (ENNReal.coe_le_coe.mpr hn) hr
+ has type
+  @LT.lt ℝ≥0∞ ENNReal.instPartialOrder.toLT (↑‖x‖₊) R
+but is expected to have type
+  @LT.lt ℝ≥0∞ ENNReal.instPartialOrder.toLT ‖x‖ₑ R
+error: Rudin/PMA/Chapter08/PowerSeries.lean:135:49: Type mismatch: After simplification, term
+  hx
+ has type
+  @LT.lt ℝ≥0∞ ENNReal.instPartialOrder.toLT (↑‖x‖₊) R
+but is expected to have type
+  @LT.lt ℝ≥0∞ ENNReal.instPartialOrder.toLT ‖x‖ₑ R
+error: Rudin/PMA/Chapter08/PowerSeries.lean:139:6: Type mismatch: After simplification, term
+  HasSum.tendsto_sum_nat (hk.hasSum hmem)
+ has type
+  Tendsto (fun n => ∑ x_1 ∈ Finset.range n, ↑x ^ x_1 * (↑((x_1 + 1).ascFactorial k) * c (x_1 + k))) atTop
+    (𝓝 (iteratedDeriv k f x))
+but is expected to have type
+  Chapter03.SeriesHasSum (fun n => ↑x ^ n * (↑((n + 1).ascFactorial k) * c (n + k))) (iteratedDeriv k f x)
+Some required targets logged failures:
+- Rudin.PMA.Chapter08.PowerSeries
+error: build failed
+Traceback (most recent call last):
+  File "/home/derekblair/projects/book-formalization/rudin-lean/scripts/build_sequential.py", line 34, in <module>
+    subprocess.run(['lake', 'build', module], cwd=ROOT, env=env, check=True)
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['lake', 'build', 'Rudin.PMA.Chapter08.PowerSeries']' returned non-zero exit status 1.

@@ -1,0 +1,12 @@
+✔ [8930/8931] Built Rudin.PMA.Chapter08.Taylor (2.6s)
+✖ [8931/8931] Building Rudin.PMA.Chapter08Probes (2.6s)
+trace: .> LEAN_PATH=/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/Cli/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/batteries/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/Qq/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/aesop/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/importGraph/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/plausible/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/packages/mathlib/.lake/build/lib/lean:/home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/lib/lean /home/derekblair/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean /home/derekblair/projects/book-formalization/rudin-lean/rudin/Rudin/PMA/Chapter08Probes.lean -o /home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/lib/lean/Rudin/PMA/Chapter08Probes.olean -i /home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/lib/lean/Rudin/PMA/Chapter08Probes.ilean -c /home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/ir/Rudin/PMA/Chapter08Probes.c --setup /home/derekblair/projects/book-formalization/rudin-lean/rudin/.lake/build/ir/Rudin/PMA/Chapter08Probes.setup.json --json
+error: Rudin/PMA/Chapter08Probes.lean:74:4: Type mismatch: After simplification, term
+  h
+ has type
+  @Tendsto ℕ ℂ (fun x => ∑ x ∈ Finset.range x, ↑(Chapter03.AlternatingHarmonic x)) atTop (𝓝 ↑A)
+but is expected to have type
+  @Tendsto ℕ ℂ (Chapter03.PartialSums fun n => ↑(Chapter03.AlternatingHarmonic n)) atTop (𝓝 ↑A)
+Some required targets logged failures:
+- Rudin.PMA.Chapter08Probes
+error: build failed
