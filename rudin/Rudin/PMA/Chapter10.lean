@@ -19,6 +19,10 @@ import Rudin.PMA.Chapter10.Poincare
 import Rudin.PMA.Chapter10.DiffeomorphicExactness
 import Rudin.PMA.Chapter10.CellTriangulation
 import Rudin.PMA.Chapter10.VectorFields
+import Rudin.PMA.Chapter10.VectorPotentials
+import Rudin.PMA.Chapter10.VolumeElements
+import Rudin.PMA.Chapter10.PlanarGreen
+import Rudin.PMA.Chapter10.AreaElements
 
 import Rudin.PMA.Chapter10.PuncturedPlane
 import Rudin.PMA.Chapter10.PuncturedSphere
@@ -200,6 +204,22 @@ Principal proof: `pma10_41`. Definitions and proofs: `Chapter10/CellTriangulatio
 
 /-! ### PMA-10.42
 Principal proof: `pma10_42`. Definitions and proofs: `Chapter10/VectorFields.lean`.
+-/
+
+/-! PMA-10.43 is in the needs-insight queue: the exact C2 vector-potential
+clause remains unproved. Its separately named partial results are imported,
+but there is no principal `pma10_43` and it is not counted complete. -/
+
+/-! ### PMA-10.44
+Principal proof: `pma10_44`. Definitions and proofs: `Chapter10/VolumeElements.lean`.
+-/
+
+/-! ### PMA-10.45
+Principal proof: `pma10_45`. Definitions and proofs: `Chapter10/PlanarGreen.lean`.
+-/
+
+/-! ### PMA-10.46
+Principal proof: `pma10_46`. Definitions and proofs: `Chapter10/AreaElements.lean`.
 -/
 
 end Rudin.PMA.Chapter10

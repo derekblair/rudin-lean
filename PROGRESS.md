@@ -16,7 +16,7 @@ All completed nodes have zero proof placeholders.
 | 07 | Sequences and Series of Functions | 33 / 33 |
 | 08 | Some Special Functions | 6 / 22 |
 | 09 | Functions of Several Variables | 43 / 43 |
-| 10 | Integration of Differential Forms | 42 / 51 |
+| 10 | Integration of Differential Forms | 45 / 51 |
 | 11 | The Lebesgue Theory | 0 |
 
 Chapter 1 is complete. Each target has its own local `PMA-1.x done` commit,
@@ -157,3 +157,10 @@ and sphere chain integrals, and coordinate primitives on arbitrary convex open d
 Nodes 10.39–10.42 add the Poincaré lemma in every positive degree, transport
 under C² domain equivalence, actual finite affine cell triangulation with native
 integrals and induced chain boundaries, and the vector/form correspondence.
+
+PMA-10.43 is in the needs-insight queue for the exact C2 vector-potential
+conclusion from C1 divergence-free input. Its forward identities, full C2 scalar
+converse and a separately named C1 vector converse are proved, but the numbered
+node is not completed. Nodes 10.44–10.46 add ordinary image volume/density
+integrals, Green's theorem with both area formulas, and surface normals, tangent
+planes and native surface area at every rank.

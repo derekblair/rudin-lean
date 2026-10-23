@@ -239,3 +239,28 @@ component. The cumulative assertion count is 50. Canonical records contain
 42 actual principals/contracts, 1832 recursively audited declarations (158
 in the probe subset), only the three permitted axioms, and default build
 9123 jobs. All 82 earlier source files and three project pins are unchanged.
+
+## Explicit43 gap, volume, Green, and area: 10.44–10.46
+
+The exact43 C2 vector-potential clause is queued for mathematical insight. Its
+contract remains unchanged and no full principal theorem exists. Proved partial
+results retain both forward identities, the full C2 scalar converse, the form
+bridges and a distinctly named C1 vector converse. The audit explicitly checks
+that the queued principal is absent. The source gate permits gaps only when
+they are recorded in QUEUE.md and still compares exact reviewed principal and
+audit comparator sets. Independent review accepted this metadata change.
+
+VolumeElements covers arbitrary C1 cell/simplex surfaces, density continuous
+only on the actual image, native existence and ordinary image integration.
+PlanarGreen proves the actual positive-boundary theorem and both area formulas.
+AreaElements defines normals by the derivative minors, proves tangent/rank
+properties and native area existence at every rank, and handles affine and
+collapsed rectangles. All 99 reviewed production modules match exact hashes.
+
+Four new independent assertions check the C2 scalar output and its Hessian,
+an image-only continuous density, the negative area sign for y dx, and a
+nonconstant rank-one zero-area surface. The cumulative count is 54. All
+section12 gates pass: 45 completed principals/contracts (1–42 and44–46),
+1969 recursively audited declarations (170 in the probe subset), only the
+three permitted axioms, and default build9131 jobs. All82 prior source files
+and three pins remain unchanged. One numbered node is queued, not completed.

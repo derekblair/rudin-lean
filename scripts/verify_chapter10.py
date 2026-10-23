@@ -58,10 +58,31 @@ def main():
         if relative in integrated:
             report['source_files'][relative] = digest(path.read_bytes())
     principals = re.findall(r'/-!\s+###\s+PMA-10\.(\d+)\b', paths[0].read_text())
-    assert [int(i) for i in principals] == list(range(1, len(principals) + 1)), 'Book-order prefix violated'
+    completed = [int(i) for i in principals]
+    assert completed == sorted(set(completed)), 'Book order or uniqueness violated'
+    assert all(1 <= i <= 51 for i in completed), 'Unknown Chapter 10 node'
+    queue = (ROOT / 'QUEUE.md').read_text()
+    queued = {int(i) for i in re.findall(r'^## PMA-10\.(\d+)\b', queue, re.M)}
+    assert not queued.intersection(completed), 'Queued node marked complete'
+    assert all(1 <= i <= 51 for i in queued), 'Unknown queued node'
+    gaps = set(range(1, max(completed, default=0) + 1)) - set(completed)
+    assert gaps <= queued, f'Unrecorded gap in book order: {gaps - queued}'
+    reviewed_nodes = {int(n.rsplit('.', 1)[1]) for row in reviewed['files']
+                      for n in row.get('principal_nodes', [])}
+    assert reviewed_nodes == set(completed), 'Reviewed principal set differs from index'
+    comparators = {int(i) for i in re.findall(
+        r'^example : pma10_(\d+)_contract := pma10_\1$', audit, re.M)}
+    assert comparators == set(completed), 'Audit comparator set differs from index'
     for i in principals:
         assert f'pma10_{i}_contract' in report['accepted_contracts'], f'No accepted contract for {i}'
-    report['completed_prefix'] = [int(i) for i in principals]
+    prefix = []
+    for i in range(1, 52):
+        if i not in completed:
+            break
+        prefix.append(i)
+    report['completed_prefix'] = prefix
+    report['completed_nodes'] = completed
+    report['queued_nodes'] = sorted(queued)
     report['status'] = 'PASS: source and reviewed-byte integrity; Lean audit/build are separate gates'
     print(json.dumps(report, indent=2))
 

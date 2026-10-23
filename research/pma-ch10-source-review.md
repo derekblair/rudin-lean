@@ -563,3 +563,48 @@ TorusGeometry and TorusCalculus were read completely and accepted mathematically
 
 - `TorusGeometry`: `6b6a095b230e579b8cabfac3d135097be1aca74a57a65bcc56b531329fc71906`.
 - `TorusCalculus`: `cca5e26c9912223f3cd98a9349658bf566b5c33e267b5e832429608978cc10f0`.
+
+### Exact contracts43,48–50 and native vector-integral proofs
+
+The four-clause43 contract is accepted exactly, including C2 scalar and vector outputs, no nonempty premise, and an actual C2 equivalence from a convex open domain. All separate partial proof bodies were read and accepted mathematically: two forward identities, the full scalar C2 converse, and the separately identified C1 vector converse. There is no full pma10_43 principal; the final C2 vector clause remains unproved. VectorFormDerivatives and PotentialRegularity helper proofs were also read in full.
+
+Contracts48 and49 and their complete proofs are independently accepted. Both use image-only field continuity, actual native integrals, parameter-indexed unit directions, and explicit zero-vector fallback; no continuity of the unweighted normalized direction is assumed.48 includes the actual Chapter06 curve-length/rectifiability bridge on arbitrary parameter cells.49 covers every rank and noninjective parametrization. Parent reports both modules compiled green.
+
+SurfaceChains and ClassicalStokes were read in full and accepted mathematically pending compilation. Contract50 uses original C2 cell or simplex surfaces and C1 fields, realizes the actual chain and induced boundary, and retains weighted normal/tangent native integrability on all boundary terms. The proof first establishes native integral preservation by that chain, then applies source Stokes and the exact vector-form bridges.
+
+| Node | Contract SHA256 | Reviewed module SHA256 |
+| --- | --- | --- |
+| 43 | `bed3cd8e7aa8f010256b929710349aa418166219de1e42079ea7d0e05ef6ccc1` | `d7c1a926415911e523a70a29c0957bc63dc271b981f86c04dcbcb11ee37f4c84` |
+| 48 | `5a4d595c7889794a701c6ee1e41b3d6024aec2bc4a7e33b5455fca7152a4c287` | `80ba039da397ad26dbf326663ffeb37473f92e68131974ad2e4830bcecdadc4c` |
+| 49 | `90467561b969679bbf9f7c7c114432fa500ee7805a3ef56b1943d754cd393668` | `8af692d0277eab23b489897a777081cbfe6a95938be9d4c6f9c0535ae8594d85` |
+| 50 | `c3dd13777f0c4fb026e9eb7864d8d5a32b0f28a0baf1dd76e2aa8b98f5c25005` | `37224988d6504ce63085b85d1f45f7dda2af97c70bb59204434edaf01a5481e9` |
+
+Helper snapshots:
+
+- `VectorFormDerivatives`: `740e2ef03831bdf9931938760d9c7175db6697809f9028ab371fa3fe0fc8bdf9`.
+- `PotentialRegularity`: `7670f6c309da576976eb65205078fed0dd0fec9c70ff3f1c5cb37c1cde3d52d7`.
+- `SurfaceChains`: `1fe29671c278d42056b28e01e2d153eccfaa8c57306f2b01090772cd417143cc`.
+
+### Compiled reconciliation through46 with explicit43 gap
+
+The complete final VolumeElements and PlanarGreen proofs were reread after their expression-normalization fixes; native existence, image-only continuity, Jacobian sign and Green density are unchanged. AreaElements, VectorFormDerivatives, PotentialRegularity and VectorPotentials match the earlier accepted exact snapshots. Parent reports all six compiled green. The canonical record now has99 production modules and45 completed principals (1–42 and44–46); the exact43 contract is accepted as a statement but remains unproved, and its module has no principal-node completion marker. No C1 helper is substituted for its C2 conclusion. All93 prior module hashes and all42 prior numbered contracts were checked unchanged.
+
+The root queue and the separate needs-insight note accurately preserve the original C2 endpoint and distinguish mathematical uncertainty from compiler failure. Source-integrity checker changes were independently read: completion must be sorted and unique; an interior gap requires an explicit queue heading; queued nodes cannot also be complete; reviewed principal and audit comparator sets must equal the completion set. These are integrity checks, while the parent Lean audit remains responsible for kernel elaboration.
+
+| Module | Accepted compiled SHA256 | Completion status |
+| --- | --- | --- |
+| PotentialRegularity | `7670f6c309da576976eb65205078fed0dd0fec9c70ff3f1c5cb37c1cde3d52d7` | support |
+| VectorFormDerivatives | `740e2ef03831bdf9931938760d9c7175db6697809f9028ab371fa3fe0fc8bdf9` | support |
+| VectorPotentials | `d7c1a926415911e523a70a29c0957bc63dc271b981f86c04dcbcb11ee37f4c84` | 43 partial only |
+| VolumeElements | `ccdf1680f3429f8d6e668637bee7cc73743ddc2a019cc05c651632ee1538f929` | PMA-10.44 |
+| PlanarGreen | `eae3b01d38dba5a5a5a65dfd14cec04cfe203175eded811e12e0ba4fb8370918` | PMA-10.45 |
+| AreaElements | `1aa91fdaf847b9df76629ea5fb8c5def76271e6af67ac5cc93f3ec98c2d7eb1d` | PMA-10.46 |
+
+### Divergence51 and image-volume support review
+
+The complete DivergenceTheorem proof is independently accepted at the parent-reported green bytes: ordinary divergence integrability on the compact region, the native chain-density bridge, actual boundary flux, all weighted face integrals, and continuous-field decomposition independence are retained. It uses the source-admissible positive region and its induced orientation. CellImageVolume and TorusVolume were also read in full: frontier removal is justified by parameter and differentiable-image nullity, and interior injectivity/nonnegative Jacobian suffice; the native integrand is proved continuous and integrable before the measure bridge. These later modules are not yet added to the canonical integration manifest.
+
+- `CellImageVolume` reviewed SHA256: `138f6b4a8c6b4fef83a011fd24342234127b888d974f8dc96d3aec7dd4487ba9`.
+- `TorusVolume` reviewed SHA256: `7d1637005c623335b726437eef7e745e3baa35e8bae071d9056776c89ab17283`.
+- `DivergenceTheorem` reviewed SHA256: `e5b4644a2239a6ddead2d3220e5ae763ce58f9ab62d390c26245c389e5efa15d`.
+- Exact accepted51 contract SHA256: `899b7958ee21bc207d02007bc85ded8cc76a3185c868ae4c4233f7e89f3cdce0`.

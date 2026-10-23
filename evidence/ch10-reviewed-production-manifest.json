@@ -1,9 +1,9 @@
 {
-  "scope": "Independently reviewed frozen Chapter10 sections through convex exactness, cell triangulation and vector-field correspondences, nodes 1-42; integration index, audits and probes are separate gates.",
+  "scope": "Independently reviewed frozen Chapter10 through node 46: completed nodes 1-42 and 44-46, with exact incomplete 43 contract and compiled partial results. Index, audits and probes are separate gates.",
   "date": "2026-10-23",
-  "production_module_count": 93,
-  "numbered_principal_count": 42,
-  "kernel_status": "All 93 production modules compiled successfully in the parent serialized build process. Reviewer ran no builds.",
+  "production_module_count": 99,
+  "numbered_principal_count": 45,
+  "kernel_status": "All 99 production modules compiled successfully in the parent serialized build process; 45 complete numbered principals. Node43 full principal is absent. Reviewer ran no builds.",
   "reviewer_authorship_exception": "None: ch8_fidelity authored no Chapter10 production module.",
   "files": [
     {
@@ -826,6 +826,113 @@
       "independent_reviewer": "ch8_fidelity",
       "review_evidence": "research/pma-ch10-source-review.md",
       "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PotentialRegularity.lean",
+      "sha256": "7670f6c309da576976eb65205078fed0dd0fec9c70ff3f1c5cb37c1cde3d52d7",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/VectorFormDerivatives.lean",
+      "sha256": "740e2ef03831bdf9931938760d9c7175db6697809f9028ab371fa3fe0fc8bdf9",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/VectorPotentials.lean",
+      "sha256": "d7c1a926415911e523a70a29c0957bc63dc271b981f86c04dcbcb11ee37f4c84",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled partial results and unproved full contract; PMA-10.43 remains needs insight",
+      "incomplete_nodes": [
+        "PMA-10.43"
+      ]
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/VolumeElements.lean",
+      "sha256": "ccdf1680f3429f8d6e668637bee7cc73743ddc2a019cc05c651632ee1538f929",
+      "principal_nodes": [
+        "PMA-10.44"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PlanarGreen.lean",
+      "sha256": "eae3b01d38dba5a5a5a65dfd14cec04cfe203175eded811e12e0ba4fb8370918",
+      "principal_nodes": [
+        "PMA-10.45"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/AreaElements.lean",
+      "sha256": "1aa91fdaf847b9df76629ea5fb8c5def76271e6af67ac5cc93f3ec98c2d7eb1d",
+      "principal_nodes": [
+        "PMA-10.46"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
     }
+  ],
+  "completed_nodes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    44,
+    45,
+    46
+  ],
+  "incomplete_nodes": [
+    "PMA-10.43"
   ]
 }

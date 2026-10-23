@@ -1,7 +1,7 @@
 {
   "reviewer": "ch8_fidelity",
   "date": "2026-10-23",
-  "status": "Independent semantic acceptance of exact Chapter10 contracts 1-42, including both substantive component contracts of 10.31; production compilation and probes are separate gates.",
+  "status": "Independent semantic acceptance of exact Chapter10 contracts 1-46, including both 10.31 component contracts. Node43 full contract is explicitly unproved; completed principals are 1-42 and 44-46. Compilation and probes are separate gates.",
   "extraction": "Declaration text from def through final term; trailing whitespace normalized to one newline; excludes subsequent declaration/comment.",
   "files": [
     {
@@ -363,6 +363,47 @@
         "pma10_42_contract": {
           "sha256": "711c104ce04518fc82308d7318ef21fc9592161029c391e73954afb9f6b70165",
           "text": "def pma10_42_contract : Prop :=\n  (∀ (E : Set (Euclidean 3)), IsOpen E →\n    (∀ F : VectorField, ContinuousOn F E →\n      IsFormOn E 1 (vectorOneForm F) ∧ IsFormOn E 2 (vectorTwoForm F)) ∧\n    (∀ ω : FormField 3, IsFormOn E 1 ω →\n      ContinuousOn (oneFormVector ω) E ∧ EqOn (vectorOneForm (oneFormVector ω)) ω E) ∧\n    (∀ ω : FormField 3, IsFormOn E 2 ω →\n      ContinuousOn (twoFormVector ω) E ∧ EqOn (vectorTwoForm (twoFormVector ω)) ω E) ∧\n    (∀ F G : VectorField, EqOn (vectorOneForm F) (vectorOneForm G) E ↔ EqOn F G E) ∧\n    (∀ F G : VectorField, EqOn (vectorTwoForm F) (vectorTwoForm G) E ↔ EqOn F G E) ∧\n    (∀ f : Euclidean 3 → ℝ, ContDiffOn ℝ 1 f E → ContinuousOn (gradient f) E) ∧\n    (∀ F : VectorField, ContDiffOn ℝ 1 F E →\n      ContinuousOn (curl F) E ∧ ContinuousOn (divergence F) E)) ∧\n  (∀ (f : Euclidean 3 → ℝ) (x : Euclidean 3) (i : Fin 3),\n    gradient f x i = coordinatePartial f x i) ∧\n  (∀ (F : VectorField) (x : Euclidean 3),\n    curl F x = coordEquivEuclidean 3\n      ![coordinatePartial (fun y => F y 2) x 1 - coordinatePartial (fun y => F y 1) x 2,\n        coordinatePartial (fun y => F y 0) x 2 - coordinatePartial (fun y => F y 2) x 0,\n        coordinatePartial (fun y => F y 1) x 0 - coordinatePartial (fun y => F y 0) x 1] ∧\n    divergence F x = coordinatePartial (fun y => F y 0) x 0 +\n      coordinatePartial (fun y => F y 1) x 1 + coordinatePartial (fun y => F y 2) x 2)\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/VectorPotentials.lean",
+      "file_sha256": "d7c1a926415911e523a70a29c0957bc63dc271b981f86c04dcbcb11ee37f4c84",
+      "contracts": {
+        "pma10_43_contract": {
+          "sha256": "bed3cd8e7aa8f010256b929710349aa418166219de1e42079ea7d0e05ef6ccc1",
+          "text": "def pma10_43_contract : Prop :=\n  (∀ (E : Set (Euclidean 3)) (u : Euclidean 3 → ℝ),\n    IsOpen E → ContDiffOn ℝ 2 u E → EqOn (curl (gradient u)) 0 E) ∧\n  (∀ (E : Set (Euclidean 3)) (G : VectorField),\n    IsOpen E → ContDiffOn ℝ 2 G E → EqOn (divergence (curl G)) 0 E) ∧\n  (∀ (U E : Set (Euclidean 3)) (e : C2DomainEquivalence U E) (F : VectorField),\n    IsOpen U → IsOpen E → Convex ℝ U → ContDiffOn ℝ 1 F E → EqOn (curl F) 0 E →\n      ∃ u : Euclidean 3 → ℝ, ContDiffOn ℝ 2 u E ∧ EqOn (gradient u) F E) ∧\n  (∀ (U E : Set (Euclidean 3)) (e : C2DomainEquivalence U E) (F : VectorField),\n    IsOpen U → IsOpen E → Convex ℝ U → ContDiffOn ℝ 1 F E → EqOn (divergence F) 0 E →\n      ∃ G : VectorField, ContDiffOn ℝ 2 G E ∧ EqOn (curl G) F E)\n"
+        }
+      },
+      "proof_status": "incomplete exact source contract; three clauses proved separately; final C2 vector converse unproved"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/VolumeElements.lean",
+      "file_sha256": "ccdf1680f3429f8d6e668637bee7cc73743ddc2a019cc05c651632ee1538f929",
+      "contracts": {
+        "pma10_44_contract": {
+          "sha256": "70d2f4f6b718e513d5d0e34042217d61b9f27abe221b0ce5377b104d821a89ca",
+          "text": "def pma10_44_contract : Prop :=\n  (∀ (n : ℕ) (E : Set (Euclidean n)) (Φ : Surface n n E)\n      (f : Euclidean n → ℝ), ContinuousOn f Φ.image →\n    Φ.domain.Integrable (surfaceIntegrand Φ (densityForm f)) ∧\n      ∀ u ∈ Φ.domain.carrier, surfaceIntegrand Φ (densityForm f) u =\n        f (Φ.map u) * coordinateJacobian Φ.coordinateMap u) ∧\n  (∀ (n : ℕ) (E : Set (Euclidean n)) (Φ : Surface n n E),\n    InjOn Φ.map Φ.domain.carrier →\n    (∀ u ∈ Φ.domain.carrier, 0 < coordinateJacobian Φ.coordinateMap u) →\n    (∀ (f : Euclidean n → ℝ), ContinuousOn f Φ.image →\n      surfaceIntegral Φ (densityForm f) = ∫ x in Φ.image, f x) ∧\n    surfaceIntegral Φ (densityForm (fun _ => 1)) = (volume Φ.image).toReal)\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PlanarGreen.lean",
+      "file_sha256": "eae3b01d38dba5a5a5a65dfd14cec04cfe203175eded811e12e0ba4fb8370918",
+      "contracts": {
+        "pma10_45_contract": {
+          "sha256": "c878c69e965c3a5bc96830a4e2fc9e6898f3d9582fa7b114f50fbc91a05a8b86",
+          "text": "def pma10_45_contract : Prop :=\n  ∀ (E : Set (Euclidean 2)) (R : PositiveRegion 2 E), IsOpen E →\n    (∀ (α β : Euclidean 2 → ℝ), ContDiffOn ℝ 1 α E → ContDiffOn ℝ 1 β E →\n      chainIntegral (planarOneForm α β) R.boundary =\n        regionIntegral R (fun x => coordinatePartial β x 0 - coordinatePartial α x 1) ∧\n      (∀ i : Fin R.size, (ParameterDomain.simplex : ParameterDomain 2).Integrable\n        (surfaceIntegrand (R.piece i).simplex.toSurface\n          (densityForm (fun x => coordinatePartial β x 0 - coordinatePartial α x 1)))) ∧\n      (∀ (i : Fin R.size) (j : Fin 3), (ParameterDomain.simplex : ParameterDomain 1).Integrable\n        (surfaceIntegrand ((R.piece i).simplex.face j).toSurface (planarOneForm α β)))) ∧\n    (1 / 2 : ℝ) * chainIntegral (planarOneForm (fun x => -x 1) (fun x => x 0)) R.boundary =\n      (volume R.carrier).toReal ∧\n    chainIntegral (planarOneForm (fun _ => 0) (fun x => x 0)) R.boundary =\n      (volume R.carrier).toReal\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/AreaElements.lean",
+      "file_sha256": "1aa91fdaf847b9df76629ea5fb8c5def76271e6af67ac5cc93f3ec98c2d7eb1d",
+      "contracts": {
+        "pma10_46_contract": {
+          "sha256": "2975a19e91bf84c2b03ad59728c085a9fc34912a1953efd545fbe80dc90b7c1d",
+          "text": "def pma10_46_contract : Prop :=\n  (∀ (E : Set (Euclidean 3)) (Φ : Surface 2 3 E),\n    (∀ u : Coord 2, surfaceNormal Φ u = coordEquivEuclidean 3\n      ![surfaceCoordinateJacobian Φ u 1 2, surfaceCoordinateJacobian Φ u 2 0,\n        surfaceCoordinateJacobian Φ u 0 1]) ∧\n    (∀ f : Euclidean 3 → ℝ, ContinuousOn f (Φ.map '' Φ.domain.carrier) →\n      Φ.domain.Integrable (areaIntegrand Φ f) ∧\n      areaIntegral Φ f = Φ.domain.integral (fun u => f (Φ.map u) * ‖surfaceNormal Φ u‖)) ∧\n    Φ.domain.Integrable (fun u => ‖surfaceNormal Φ u‖) ∧\n    surfaceArea Φ = Φ.domain.integral (fun u => ‖surfaceNormal Φ u‖) ∧\n    (∀ u ∈ Φ.domain.carrier,\n      let A := surfaceTangent Φ u\n      let a := A (Pi.single 0 1)\n      let b := A (Pi.single 1 1)\n      let N := surfaceNormal Φ u\n      inner ℝ N a = 0 ∧ inner ℝ N b = 0 ∧\n      (∀ v : Coord 2, inner ℝ N (A v) = 0) ∧\n      Matrix.det (fun i j : Fin 3 => (![a, b, N] j) i) = ‖N‖ ^ 2 ∧\n      Module.finrank ℝ A.toLinearMap.range ≤ 2 ∧\n      (Module.finrank ℝ A.toLinearMap.range = 2 ↔ N ≠ 0) ∧\n      (Module.finrank ℝ A.toLinearMap.range < 2 ↔ N = 0) ∧\n      (surfaceTangentPlane Φ u : Set (Euclidean 3)) = range (fun v => Φ.map u + A v) ∧\n      Module.finrank ℝ (surfaceTangentPlane Φ u).direction = Module.finrank ℝ A.toLinearMap.range ∧\n      (Module.finrank ℝ A.toLinearMap.range = 2 →\n        0 < Matrix.det (fun i j : Fin 3 => (![a, b, N] j) i)))) ∧\n  (∀ (C : Cell 2) (p : Euclidean 3) (A : Coord 2 →L[ℝ] Euclidean 3),\n    let N := cross3 (A (Pi.single 0 1)) (A (Pi.single 1 1))\n    (∀ u, surfaceNormal (affineRectangleSurface C p A) u = N) ∧\n    surfaceArea (affineRectangleSurface C p A) = ‖N‖ * (volume C.carrier).toReal ∧\n    surfaceArea (affineRectangleSurface C p A) =\n      ‖N‖ * ((C.upper 0 - C.lower 0) * (C.upper 1 - C.lower 1)) ∧\n    surfaceArea (affineRectangleSurface (Cell.unit 2) p A) = ‖N‖)\n"
         }
       }
     }
