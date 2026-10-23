@@ -16,7 +16,7 @@ All completed nodes have zero proof placeholders.
 | 07 | Sequences and Series of Functions | 33 / 33 |
 | 08 | Some Special Functions | 6 / 22 |
 | 09 | Functions of Several Variables | 43 / 43 |
-| 10 | Integration of Differential Forms | 20 / 51 |
+| 10 | Integration of Differential Forms | 25 / 51 |
 | 11 | The Lebesgue Theory | 0 |
 
 Chapter 1 is complete. Each target has its own local `PMA-1.x done` commit,
@@ -139,3 +139,6 @@ surface integrals, and the wedge product with its orientation signs.
 
 Nodes 10.18–10.20 add exterior differentiation, the native endpoint theorem,
 a nonexact one-form witness, the C1 graded product rule, and the C2 identity d²=0.
+
+Nodes 10.21–10.25 add pullback regularity, wedge and derivative naturality,
+contravariant composition, and both native surface-integral pullback identities.

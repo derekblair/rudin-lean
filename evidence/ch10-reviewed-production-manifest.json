@@ -1,9 +1,9 @@
 {
-  "scope": "Independently reviewed frozen Chapter10 sections through exterior differentiation, nodes 1-20; integration index, audits and probes are separate gates.",
+  "scope": "Independently reviewed frozen Chapter10 sections through pullbacks, nodes 1-25; integration index, audits and probes are separate gates.",
   "date": "2026-10-23",
-  "production_module_count": 26,
-  "numbered_principal_count": 20,
-  "kernel_status": "All 26 production modules compiled successfully in the parent serialized build process. Reviewer ran no builds.",
+  "production_module_count": 34,
+  "numbered_principal_count": 25,
+  "kernel_status": "All 34 production modules compiled successfully in the parent serialized build process. Reviewer ran no builds.",
   "reviewer_authorship_exception": "None: ch8_fidelity authored no Chapter10 production module.",
   "files": [
     {
@@ -244,6 +244,78 @@
       "sha256": "b8b8f63c33f72ae7e14ef1a378708d98860c183323b89c6ab986fcea01fe77f9",
       "principal_nodes": [
         "PMA-10.20"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackAlgebra.lean",
+      "sha256": "beec993d5a18137da7e8d4016e74bbe91d68332d0b50d5c4697ee86c78ac4b4f",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SurfaceMaps.lean",
+      "sha256": "57cef14a2c52733a6aea2d410f1aed3101031d524ffa49f75fd65d093d1c3dde",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Pullbacks.lean",
+      "sha256": "43e60a43270bbc18999139d16d195fc08f1a909800517b4e48e7f1bc3bfa5aeb",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackEvaluation.lean",
+      "sha256": "92e334104c5f09da34cad0354702572b907adc4b04119ecd324b2f8885dd3c01",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackRegularity.lean",
+      "sha256": "79bf2beba1a14313ed24968b323e3396b366a6a57b234cbe527d637e1e24a523",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackDefinitions.lean",
+      "sha256": "8e72423af8572af10ea0752550c4503b85e181699371d9d6f0b85eb31dfb8015",
+      "principal_nodes": [
+        "PMA-10.21"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackDifferentiation.lean",
+      "sha256": "2077ad901b15816a82276e35611061d3bf8f8339c63b9ccfe4986692070d42e0",
+      "principal_nodes": [
+        "PMA-10.22"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SurfacePullbacks.lean",
+      "sha256": "d617f06fdd932989c67b5fa7f0cc618547e480f9e309ebf928ead3a2850aba5d",
+      "principal_nodes": [
+        "PMA-10.23",
+        "PMA-10.24",
+        "PMA-10.25"
       ],
       "independent_reviewer": "ch8_fidelity",
       "review_evidence": "research/pma-ch10-source-review.md",

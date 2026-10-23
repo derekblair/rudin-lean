@@ -1,7 +1,7 @@
 {
   "reviewer": "ch8_fidelity",
   "date": "2026-10-23",
-  "status": "Independent semantic acceptance of exact Chapter10 contracts 1-20; production compilation and probes are separate gates.",
+  "status": "Independent semantic acceptance of exact Chapter10 contracts 1-25; production compilation and probes are separate gates.",
   "extraction": "Declaration text from def through final term; trailing whitespace normalized to one newline; excludes subsequent declaration/comment.",
   "files": [
     {
@@ -153,6 +153,32 @@
         "pma10_20_contract": {
           "sha256": "4ec387cad5c63605e18685a95fc2f3dbc2a98090329797a0a91938680d72705d",
           "text": "def pma10_20_contract : Prop :=\n  (∀ (n k m : ℕ) (E : Set (Euclidean n)) (ω η : FormField n),\n    IsOpen E → IsCFormOn 1 E k ω → IsCFormOn 1 E m η →\n      EqOn (exteriorDerivative (wedge ω η))\n        (wedge (exteriorDerivative ω) η + ((-1 : ℝ) ^ k) • wedge ω (exteriorDerivative η)) E) ∧\n  (∀ (n k : ℕ) (E : Set (Euclidean n)) (ω : FormField n),\n    IsOpen E → IsCFormOn 2 E k ω → IsCFormOn 1 E (k + 1) (exteriorDerivative ω) ∧\n      EqOn (exteriorDerivative (exteriorDerivative ω)) 0 E)\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Pullbacks.lean",
+      "file_sha256": "43e60a43270bbc18999139d16d195fc08f1a909800517b4e48e7f1bc3bfa5aeb",
+      "contracts": {
+        "pma10_21_contract": {
+          "sha256": "88dd9ed877e8c06fec48765c26afe689b46072b8554d3360b245ecc458551585",
+          "text": "def pma10_21_contract : Prop :=\n  (∀ (n m k : ℕ) (E : Set (Euclidean n)) (V : Set (Euclidean m))\n    (T : Euclidean n → Euclidean m) (ω : FormField m),\n    IsOpen E → IsOpen V → ContDiffOn ℝ 1 T E → MapsTo T E V → IsFormOn V k ω →\n      IsFormOn E k (pullbackForm T ω)) ∧\n  (∀ (n m k : ℕ) (E : Set (Euclidean n)) (T : Euclidean n → Euclidean m)\n    (a : (Fin k → Fin m) → Euclidean m → ℝ), IsOpen E → ContDiffOn ℝ 1 T E →\n    ∀ x ∈ E, pullbackForm T (formFromCoefficients a) x =\n      ∑ I, a I (T x) • (List.ofFn fun j => scalarDifferential (fun y => T y (I j)) x).prod) ∧\n  (∀ (n m : ℕ) (T : Euclidean n → Euclidean m) (f : Euclidean m → ℝ),\n    pullbackForm T (scalarForm f) = scalarForm (f ∘ T))\n"
+        },
+        "pma10_22_contract": {
+          "sha256": "e74d14887f8f9687dab2eff9de039adf29368d871e04ef92a53b1ef1b9b3d84b",
+          "text": "def pma10_22_contract : Prop :=\n  (∀ (n m : ℕ) (T : Euclidean n → Euclidean m) (ω η : FormField m),\n    pullbackForm T (ω + η) = pullbackForm T ω + pullbackForm T η ∧\n    pullbackForm T (wedge ω η) = wedge (pullbackForm T ω) (pullbackForm T η)) ∧\n  (∀ (n m k : ℕ) (E : Set (Euclidean n)) (V : Set (Euclidean m))\n    (T : Euclidean n → Euclidean m) (ω : FormField m),\n    IsOpen E → IsOpen V → ContDiffOn ℝ 2 T E → MapsTo T E V → IsCFormOn 1 V k ω →\n      IsCFormOn 1 E k (pullbackForm T ω) ∧\n      EqOn (exteriorDerivative (pullbackForm T ω)) (pullbackForm T (exteriorDerivative ω)) E)\n"
+        },
+        "pma10_23_contract": {
+          "sha256": "1e618011a23e88fd47e968e1e59f8428bb2955f1df2c555f9d19519257f0855a",
+          "text": "def pma10_23_contract : Prop :=\n  ∀ (n m p k : ℕ) (E : Set (Euclidean n)) (V : Set (Euclidean m))\n    (W : Set (Euclidean p)) (T : Euclidean n → Euclidean m)\n    (S : Euclidean m → Euclidean p) (ω : FormField p),\n    IsOpen E → IsOpen V → IsOpen W → ContDiffOn ℝ 1 T E → ContDiffOn ℝ 1 S V →\n    MapsTo T E V → MapsTo S V W → IsFormOn W k ω →\n      EqOn (pullbackForm (S ∘ T) ω) (pullbackForm T (pullbackForm S ω)) E\n"
+        },
+        "pma10_24_contract": {
+          "sha256": "4d9a697387cdcc37fd2591f6873bcff832439223d188afd33cbffbab91466df4",
+          "text": "def pma10_24_contract : Prop :=\n  ∀ (n k : ℕ) (E : Set (Euclidean n)) (Φ : Surface k n E) (ω : FormField n),\n    IsOpen E → IsFormOn E k ω →\n      Φ.domain.Integrable (surfaceIntegrand Φ ω) ∧\n      Φ.domain.Integrable (surfaceIntegrand (identityParameterSurface Φ.domain)\n        (pullbackForm Φ.euclideanMap ω)) ∧\n      surfaceIntegral Φ ω = surfaceIntegral (identityParameterSurface Φ.domain)\n        (pullbackForm Φ.euclideanMap ω)\n"
+        },
+        "pma10_25_contract": {
+          "sha256": "d8977f02e88599ef463e6e6911ff64d24edc2b7a3bf4dfa656af04e82b0f4599",
+          "text": "def pma10_25_contract : Prop :=\n  ∀ (n m k : ℕ) (E : Set (Euclidean n)) (V : Set (Euclidean m))\n    (T : Euclidean n → Euclidean m) (Φ : Surface k n E) (ω : FormField m)\n    (hE : IsOpen E) (hV : IsOpen V) (hT : ContDiffOn ℝ 1 T E) (hTV : MapsTo T E V),\n    IsFormOn V k ω →\n      (Φ.mapBy T hE hT hTV).domain = Φ.domain ∧\n      (Φ.mapBy T hE hT hTV).map = T ∘ Φ.map ∧\n      Φ.domain.Integrable (surfaceIntegrand (Φ.mapBy T hE hT hTV) ω) ∧\n      Φ.domain.Integrable (surfaceIntegrand Φ (pullbackForm T ω)) ∧\n      surfaceIntegral (Φ.mapBy T hE hT hTV) ω = surfaceIntegral Φ (pullbackForm T ω)\n"
         }
       }
     }

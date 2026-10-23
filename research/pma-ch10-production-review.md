@@ -132,3 +132,25 @@ recursively audited declarations, including the 55-declaration probe subset.
 Only the three permitted axioms occur. The default build succeeds with 9045
 jobs. Raw gates use `evidence/ch10-section6-*`; source and exact-byte checks
 continue to preserve all earlier chapter files and project pins.
+
+## Pullbacks and native surface identities: 10.21–10.25
+
+Eight additional reviewed modules implement pullback through the actual
+derivative-induced exterior-algebra map. Coefficient regularity, the source's
+ordered coordinate formula, contravariant composition, and the derivative
+identity retain C1 forms and C2 maps. Surface composition restricts its open
+parameter neighborhood to the target preimage; no injectivity, rank, or
+nonzero-dimension assumption is introduced. Both native surface-integral
+identities include actual integrability on their original parameter domains.
+
+Five independent clients test constant-map behavior by degree, the C1 closed-form
+case on restricted domains, a zero-dimensional identity surface, a compact curve
+whose ambient extension leaves its target set, and noncommuting map composition.
+There are twenty-nine cumulative authored assertions. Canonical records contain
+34 production modules and twenty-five accepted contracts.
+
+The audit checks twenty-five actual principal theorem declarations and contract
+comparisons, and 807 recursively audited declarations including the 79-declaration
+probe subset. Only the three permitted axioms occur. The default build succeeds
+with 9054 jobs. Raw gates use `evidence/ch10-section7-*`. Exact source, prior
+chapter, and pin-preservation checks remain in force.

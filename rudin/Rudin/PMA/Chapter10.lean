@@ -7,6 +7,9 @@ import Rudin.PMA.Chapter10.FormSeparation
 import Rudin.PMA.Chapter10.WedgeProducts
 import Rudin.PMA.Chapter10.ExactOneForms
 import Rudin.PMA.Chapter10.ExteriorDerivativeRules
+import Rudin.PMA.Chapter10.PullbackDefinitions
+import Rudin.PMA.Chapter10.PullbackDifferentiation
+import Rudin.PMA.Chapter10.SurfacePullbacks
 
 /-!
 # PMA Chapter 10: Integration of Differential Forms
@@ -96,6 +99,26 @@ Principal proof: `pma10_19`. Definitions and proofs: `Chapter10/ExactOneForms.le
 
 /-! ### PMA-10.20
 Principal proof: `pma10_20`. Definitions and proofs: `Chapter10/ExteriorDerivativeRules.lean`.
+-/
+
+/-! ### PMA-10.21
+Principal proof: `pma10_21`. Definitions: `Chapter10/Pullbacks.lean`; proofs: `Chapter10/PullbackDefinitions.lean`.
+-/
+
+/-! ### PMA-10.22
+Principal proof: `pma10_22`. Definitions: `Chapter10/Pullbacks.lean`; proofs: `Chapter10/PullbackDifferentiation.lean`.
+-/
+
+/-! ### PMA-10.23
+Principal proof: `pma10_23`. Definitions: `Chapter10/Pullbacks.lean`; proofs: `Chapter10/SurfacePullbacks.lean`.
+-/
+
+/-! ### PMA-10.24
+Principal proof: `pma10_24`. Definitions: `Chapter10/Pullbacks.lean`; proofs: `Chapter10/SurfacePullbacks.lean`.
+-/
+
+/-! ### PMA-10.25
+Principal proof: `pma10_25`. Definitions: `Chapter10/Pullbacks.lean`; proofs: `Chapter10/SurfacePullbacks.lean`.
 -/
 
 end Rudin.PMA.Chapter10
