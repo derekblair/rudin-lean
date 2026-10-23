@@ -16,7 +16,7 @@ All completed nodes have zero proof placeholders.
 | 07 | Sequences and Series of Functions | 33 / 33 |
 | 08 | Some Special Functions | 6 / 22 |
 | 09 | Functions of Several Variables | 43 / 43 |
-| 10 | Integration of Differential Forms | 30 / 51 |
+| 10 | Integration of Differential Forms | 35 / 51 |
 | 11 | The Lebesgue Theory | 0 |
 
 Chapter 1 is complete. Each target has its own local `PMA-1.x done` commit,
@@ -146,3 +146,7 @@ contravariant composition, and both native surface-integral pullback identities.
 Nodes 10.26–10.30 add affine simplices, arbitrary vertex-permutation signs,
 integer simplex chains, alternating boundaries, and composition with C2 maps.
 Degenerate simplices and dimension zero retain their native integrals.
+
+Nodes 10.31–10.35 add positive boundaries independent of parametrization for
+continuous forms, C1 square subdivision, the sphere boundary, general simplex
+chain Stokes, exact and closed forms, and their boundary and potential consequences.

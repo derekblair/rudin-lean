@@ -10,6 +10,10 @@ import Rudin.PMA.Chapter10.SphereExampleProbes
 import Rudin.PMA.Chapter10.ExteriorDerivativeProbes
 import Rudin.PMA.Chapter10.PullbackProbes
 import Rudin.PMA.Chapter10.SimplexChainProbes
+import Rudin.PMA.Chapter10.BoundaryExamplesProbes
+import Rudin.PMA.Chapter10.PositiveBoundaryProbes
+import Rudin.PMA.Chapter10.StokesProbes
+import Rudin.PMA.Chapter10.ClosedFormProbes
 import Rudin.PMA.Chapter01Audit
 
 set_option autoImplicit false
@@ -45,16 +49,21 @@ example : pma10_27_contract := pma10_27
 example : pma10_28_contract := pma10_28
 example : pma10_29_contract := pma10_29
 example : pma10_30_contract := pma10_30
+example : pma10_31_contract := pma10_31
+example : pma10_32_contract := pma10_32
+example : pma10_33_contract := pma10_33
+example : pma10_34_contract := pma10_34
+example : pma10_35_contract := pma10_35
 end Rudin.PMA.Chapter10.ContractComparators
 
 run_cmd do
   let env ← Lean.getEnv
-  for i in List.range 30 do
+  for i in List.range 35 do
     let n := Lean.Name.str `Rudin.PMA.Chapter10 ("pma10_" ++ toString (i + 1))
     match env.find? n with
     | some (.thmInfo _) => pure ()
     | _ => throwError "Missing completed Chapter 10 proof: {n}"
-  Lean.logInfo "PMA Chapter 10 coverage: 30 principal theorems and 30 contract type comparisons."
+  Lean.logInfo "PMA Chapter 10 coverage: 35 principal theorems and 35 contract type comparisons."
 
 run_cmd Rudin.PMA.Audit.checkNamespaceAxioms `Rudin.PMA.Chapter10
 run_cmd Rudin.PMA.Audit.checkNamespaceAxioms `Rudin.PMA.Chapter10.FidelityProbes

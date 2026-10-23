@@ -1,9 +1,9 @@
 {
-  "scope": "Independently reviewed frozen Chapter10 sections through differentiable simplices and chain maps, nodes 1-30; integration index, audits and probes are separate gates.",
+  "scope": "Independently reviewed frozen Chapter10 sections through closed and exact forms, nodes 1-35; integration index, audits and probes are separate gates.",
   "date": "2026-10-23",
-  "production_module_count": 42,
-  "numbered_principal_count": 30,
-  "kernel_status": "All 42 production modules compiled successfully in the parent serialized build process. Reviewer ran no builds.",
+  "production_module_count": 65,
+  "numbered_principal_count": 35,
+  "kernel_status": "All 65 production modules compiled successfully in the parent serialized build process. Reviewer ran no builds.",
   "reviewer_authorship_exception": "None: ch8_fidelity authored no Chapter10 production module.",
   "files": [
     {
@@ -390,6 +390,200 @@
       "sha256": "9a64b331e63ddd9c6bc8f155db7463c10e4b020e41b832cb025ae3cdf4ac1e5c",
       "principal_nodes": [
         "PMA-10.30"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SurfacePrecomposition.lean",
+      "sha256": "afd430b4e4cbaf097bd1f986dc23a383062821f5c7bfb37dc08d7feec6b5d757",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/RectangleEdges.lean",
+      "sha256": "f32d70bc3e216bf664ea880f751e78a65caffd1d25b51eb1cbfcda74911b9760",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SquareIntegral.lean",
+      "sha256": "408da65cedce0aa84816bc3c284bc11f0c4f1997e0583e3b2f4779dd0b7a055b",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SquareBoundaries.lean",
+      "sha256": "ebdc95ef1641094e6845f39b0735cf90710ec72594b602bfa72bb92a94402127",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SphereBoundary.lean",
+      "sha256": "95c0ca34950d05c3472a0f9e3afbba3b2a99e9f4f0b5d02d5482556daf882f2d",
+      "principal_nodes": [
+        "PMA-10.32"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PositiveRegions.lean",
+      "sha256": "5ca0eded22b30f439d2a7dfd3e9a5d558d2e257f7d8ba5ec693238e9da380a78",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PositiveRegionUnions.lean",
+      "sha256": "a5c781134bb579d7f1c3bb9e498347e9dd7ec158d49eec8060ae1d7904a6dbe6",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormApproximation.lean",
+      "sha256": "bb8023aae6037714b6d0c0c38b8ef5c6c4a4cf208cc970b56370fd37c7ac0bcc",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormIntegralContinuity.lean",
+      "sha256": "b5a8fe8941740d7b95ada0994da2d248b5a02fb46a328eaeaf232561afa576f4",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PositiveBoundaries.lean",
+      "sha256": "5dab5ffbba2b3a558ee963b684537d352d93b9b5250d0a2d63a48b8aabd2bf50",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/BoundaryDefinitions.lean",
+      "sha256": "3717675e379711303b8564e58c2d272c60fb01b1008f5fb80f4d9373e863e773",
+      "principal_nodes": [
+        "PMA-10.31"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexFTC.lean",
+      "sha256": "13aed6c37f0548629c64a1d4357525614490d20d678410bae8f81d827986cbee",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/StandardSimplexSurface.lean",
+      "sha256": "c48bc3156d2958639f180a60cd6bfbe7eece26aab9021b4795a7c538a95959cd",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/StokesCoefficients.lean",
+      "sha256": "70d4aa42c11ca0967c7373f84fac79314b222d9f3e3f85c9cdb7ce8e2960ded0",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexFormFaces.lean",
+      "sha256": "516ae39d36f3e4c4a78ac8b9fe180196a535b87fd1d30b5084170abfd2b6b521",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexStokes.lean",
+      "sha256": "b7ba7490e458ab7a1819c323797c902b632d643bcae21c5c8e8d3d4f923653bc",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/StokesTransport.lean",
+      "sha256": "dcbe3ac1e4d4f514f9695d7b723123da145c4e04b4850398ca0e540de48ded2f",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ChainStokes.lean",
+      "sha256": "c49fdbd15364c52ad411383213891dbce80846064e6514068ed3beb4cd881690",
+      "principal_nodes": [
+        "PMA-10.33"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexSeparation.lean",
+      "sha256": "a622d0a24d8a577ebe26f367e18aee151dc558f376f298c929e5ce54cc5fba00",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexBoundarySquared.lean",
+      "sha256": "f462313028b8df296b682147725af84ae1cd6fff845ce7c15b6ad46dbabef84b",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ClosedExact.lean",
+      "sha256": "f9f36417c5158ea2636bda0ecd77ce9620b8592e3925f28a9e98c724128fd24e",
+      "principal_nodes": [
+        "PMA-10.34"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/OneFormCoordinates.lean",
+      "sha256": "1a45e47c9488501156a68a68e4f77b0e74cb9f2548357d047a213421a961d3a0",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ClosedFormConsequences.lean",
+      "sha256": "b5638a9cb819df81d6a2b9e57e64def1650ccf4fe5481e869bbb83521333a493",
+      "principal_nodes": [
+        "PMA-10.35"
       ],
       "independent_reviewer": "ch8_fidelity",
       "review_evidence": "research/pma-ch10-source-review.md",

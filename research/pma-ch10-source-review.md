@@ -341,3 +341,127 @@ The SurfacePrecomposition and RectangleEdges definitions and complete initial he
 - `SphereBoundary.lean`: `bbdb9c43bc4f49a55eee0b7a04a0e0994ff042b36dbc8eb6661c6d9e66015b3a`.
 - `SurfacePrecomposition.lean`: `cc601cf75fb8db1ed3b072078b563fe979c74b1afbc733b9b994dce99a4d046b`.
 - `RectangleEdges.lean`: `62e7e06908c459df446c619a4fb131eabd95f26a5f0a2b67d9efa658971356ca`.
+
+The exact simplexSeparation_contract is independently accepted: actual native integrals over all C2 simplices separate every continuous homogeneous form on an open set, including degree zero and degrees above the ambient dimension. The exact pma10_34_contract is independently accepted: positive-degree exactness has a C1 primitive, closedness includes C1 regularity and vanishing derivative, and exact-to-closed separately assumes C1 regularity of the resulting exact form. The degree-zero False branch of IsExactOn is a documented convention outside the source positive-degree exactness clause; it is not asserted as a source theorem. Accepted contract hashes:
+
+- `pma10_34_contract`: `9846b5b42bf2079a67edd95263a9a0d12328bcf25cfb889aa4aea871d15bee30`.
+- `simplexSeparation_contract`: `aa09b31ade2e58b16d8b104e2507029529042a5d9710c0c2f4cd0c922f7f6d04`.
+
+The complete SphereBoundary 32 proof draft is mathematically accepted pending compilation, snapshot `7146262147daeb96c064bf06a1bd43a3b18d18ed97a52beb49a5af2e856cfbd6`. Its image proof restricts the already proved spherical-ball map to radius one; the four edge identities are actual map equalities; opposite meridians use the native interval-reversal theorem; pole edges use degree-one evaluation on a zero tangent vector. The proof never requires the tested continuous one-form to be exact or C1.
+
+### Final standard Stokes proof and the next boundary drafts
+
+The final parent-compiled SimplexFormFaces and SimplexStokes files have been independently reconciled against the complete earlier proof review. Final edits only expose pointwise subtraction, the zero form and omitted coefficient, type finite-sum integrands, and normalize the cofactor matrices and continuous-linear-equivalence derivative. Their signs, C1 hypotheses, native integrability and zero-dimensional endpoint case are unchanged. Accepted final hashes:
+
+- `SimplexFormFaces.lean`: `516ae39d36f3e4c4a78ac8b9fe180196a535b87fd1d30b5084170abfd2b6b521`.
+- `SimplexStokes.lean`: `b7ba7490e458ab7a1819c323797c902b632d643bcae21c5c8e8d3d4f923653bc`.
+
+The complete ChainStokes principal assembly is mathematically accepted at snapshot `c49fdbd15364c52ad411383213891dbce80846064e6514068ed3beb4cd881690`; its own final build status is left to the parent. It supplies the proved standard theorem to the already-reviewed general transport and chain-linearity helpers, so the final 10.33 statement has no conditional Stokes premise.
+
+The exact squareBoundary_contract is independently accepted at SHA256 `3d13a37456b5df827c19b429034419a1ff33fe0f5e5b6ff3fdaeed995cb2b7c2`. The source's explicit two-triangle decomposition is for the unit square. The contract preserves arbitrary C1 surfaces, both positive affine Jacobians, actual native integrability and integral decomposition, all six actual face integrals, diagonal cancellation, and equality with the four counterclockwise edge functional for every continuous one-form. A separate all-rectangles two-triangle theorem is not a literal additional claim in 10.31; the generic actual side-interval construction supplies the rectangle scope used by 10.32.
+
+The complete SquareIntegral and SquareBoundaries drafts are mathematically accepted pending compilation. The scalar proof splits actual nested interval integrals and derives the complementary triangle by two orientation reversals. Extending a continuous integrand from the closed square is only a proof device; the public premise remains continuity on the actual domain. The geometric proof computes both determinants, identifies every actual face map, and applies native curve reversal to the shared diagonal and the two reversed outer sides. Draft hashes:
+
+- `SquareIntegral.lean`: `76ccb4e41cba94866bfab3d6616ced095490607b168cbec63351b204709a8f44`.
+- `SquareBoundaries.lean`: `69d7f55157152cdc1f9102fc2b39b40bcd640c71b51125bd3772504856e6d8f5`.
+
+The complete SimplexSeparation draft is mathematically accepted pending compilation at SHA256 `00b22f7ca027a6b387dc506b74fcee60a6ad0bfa812ac85960138536fc7cb241`. It proves positive simplex measure by a contained positive-side cell, including dimension zero. A nonzero continuous coefficient keeps its sign on a small affine coordinate simplex; its actual derivative contributes the nonzero factor r^k. Genuine native integrability precedes the measure bridge. Separation then follows from the finite standard expansion, including degrees above ambient dimension where the standard-index family is empty.
+
+The complete SimplexBoundarySquared draft is mathematically accepted pending compilation at SHA256 `f462313028b8df296b682147725af84ae1cd6fff845ce7c15b6ad46dbabef84b`. It proves equality of the two actual face-composition maps and cancels the integer coefficients by a fixed-point-free deletion-pair involution. The result is literal equality in the free chain module, not merely equality of integration functionals.
+
+The complete ClosedExact draft is mathematically accepted pending compilation at SHA256 `f9f36417c5158ea2636bda0ecd77ce9620b8592e3925f28a9e98c724128fd24e`. Exactness still has only a C1 primitive. Stokes applies first to the C1 resulting form and then to the C1 primitive on the boundary chain; literal boundary-squared cancellation forces every small-simplex derivative integral to vanish; the independently proved separation result forces the derivative form to vanish. No C2 primitive or prior d-squared theorem is inserted. Contract 34 is unchanged. These later modules remain outside the canonical through-30 manifests.
+
+### Complete positive-boundary scope
+
+The full exact 10.31 contract is independently accepted. Its wrapper hash is `134c35e2319645cedc26d77c0d47c11d516c4d298dd3adbdb00a4a44093c8c62`; the substantive positiveBoundary_contract hash is `f12a223302ab0613c7c40c2a90288418ffa800024044b1e2a8be5c65d5906f99`; the separately reviewed squareBoundary_contract remains `3d13a37456b5df827c19b429034419a1ff33fe0f5e5b6ff3fdaeed995cb2b7c2`.
+
+PositiveSimplex requires C2 regularity on an open neighborhood, injectivity only on the closed parameter simplex, and positive Jacobian only in its interior. Boundary derivatives may be singular. The carrier is shown to be the closure of an open set, and the boundary retains the actual alternating parametrized faces. PositiveRegion is a finite family with pairwise disjoint carrier interiors; shared boundary points are retained in every closed piece. The principal gives equality of boundary integration functionals for all continuous forms, not only C1 forms, and includes independence of finite decomposition. The square supplement preserves the weaker C1 surface regularity of the source.
+
+All six root production bodies were independently read. The image-integral proof uses native existence before measure change of variables, with nonnegative boundary Jacobian derived from dense interior continuity. The frontier-image null theorem permits finite-union additivity without stronger boundary regularity. Smooth coefficient approximation is uniform on the compact chain carrier, followed by an explicit native-integral error bound with all integer multiplicities included. Applying Stokes to the smooth approximation and then that error bound proves the desired all-continuous-form boundary equality. No source hypothesis is strengthened. Draft snapshots, with only FormApproximation reported compiled at review time:
+
+| Module | SHA256 |
+| --- | --- |
+| PositiveRegions | `5ca0eded22b30f439d2a7dfd3e9a5d558d2e257f7d8ba5ec693238e9da380a78` |
+| PositiveRegionUnions | `b469d3f4ae0f61357ed0ffdec981527638305fe16304897dbb3f0ebe77ff9b8c` |
+| FormApproximation | `bb8023aae6037714b6d0c0c38b8ef5c6c4a4cf208cc970b56370fd37c7ac0bcc` |
+| FormIntegralContinuity | `af13b314fbaf89d8a46a68e2c6083b2aafa3f81dbc5b2f0951dd455bfacf08ea` |
+| PositiveBoundaries | `5dab5ffbba2b3a558ee963b684537d352d93b9b5250d0a2d63a48b8aabd2bf50` |
+| BoundaryDefinitions | `3717675e379711303b8564e58c2d272c60fb01b1008f5fb80f4d9373e863e773` |
+
+The parent confirmed ChainStokes compiled successfully at the already-reviewed hash `c49fdbd15364c52ad411383213891dbce80846064e6514068ed3beb4cd881690`. Canonical manifests remain through 10.30 pending integration authorization.
+
+The exact 10.35 contract is independently accepted before numbered proofs, at SHA256 `e5d325ba964d6702bc0c8623dad095902c3ef3054e5b33ad86ed5832e507aa00`. It retains the C1 cross-partial criterion for closed one-forms, existence of a global C1 scalar potential for exact one-forms, exact-form integral dependence on functional equality of boundaries, cycle vanishing, closed-form vanishing on boundaries, and literal plus functional second-boundary cancellation. For the potential criterion and exact-form integral clauses, continuity of the resulting form is sufficient; the primitive supplies C1 regularity. This is broader than, and does not narrow, the source statements.
+
+Printed p.277 was visually rechecked for 10.36 and 10.37. The planar example explicitly quantifies every radius r>0 with its literal trigonometric curve on [0,2pi]. The spherical example uses exactly the unit-sphere parametrization and rectangle from 10.32. Both nonbounding conclusions must exclude chains with functionally equal boundaries, not merely literal equality of free-chain expressions. Their native integral values are respectively 2pi and 4pi, both nonzero.
+
+### Closed-form consequences and later accepted contracts
+
+The parent reports SimplexSeparation and ClosedExact compiled successfully. Final SimplexSeparation SHA256 `a622d0a24d8a577ebe26f367e18aee151dc558f376f298c929e5ce54cc5fba00` is independently accepted: final proof edits type the neighborhood event and scalar multiplication maps, name the determinant matrix, and expose the contained-cell endpoints. The actual sign-neighborhood argument, positive measure, and native-integral separation are unchanged. ClosedExact remains byte-for-byte at accepted SHA256 `f9f36417c5158ea2636bda0ecd77ce9620b8592e3925f28a9e98c724128fd24e`; its unchanged contract 34 hash is `9846b5b42bf2079a67edd95263a9a0d12328bcf25cfb889aa4aea871d15bee30`. The boundary-squared support file remains `f462313028b8df296b682147725af84ae1cd6fff845ce7c15b6ad46dbabef84b`.
+
+Complete OneFormCoordinates and ClosedFormConsequences proofs are mathematically accepted pending compilation. Singleton coefficients reconstruct every genuine one-form; evaluation on arbitrary coordinate tangent pairs gives the cross-partial difference; pairwise wedge cancellation proves the converse, including repeated coordinates. The potential criterion uses the actual scalar zero-form correspondence and local derivative congruence. Exact integral dependence and closed boundary vanishing use native Stokes and functional ChainEq, preserving C1 primitives. Draft snapshots:
+
+- `OneFormCoordinates.lean`: `c633c7dcbec29c78ce781fc74679fde7e3d4d4d1e39bb145a044f807e11eab28`.
+- `ClosedFormConsequences.lean`: `4d17712b17bac8bf26ca8ec93f13927023447109c0b565deba6cd573272827a4`.
+
+The exact 36-39 contracts are independently accepted before numbered proofs. PuncturedExamples retains every positive circle radius, the actual trigonometric parametrization and interval, native 2pi, normalized C2-simplex transport for every continuous form, and functional cycle/nonbounding claims. The radial example retains the literal 10.32 spherical map and rectangle, the sine integrand, native 4pi, and an actual C2 chain representing that surface functional. Its norm-cubed denominator is explicitly identified with the source's real-power denominator. Both nonexactness claims have the full punctured-domain meaning.
+
+ConvexPrimitives retains an arbitrary convex open domain, C1 input and output, and all vanishing later coordinate derivatives; p:Fin n is the zero-based translation of 1<=p<=n. There is no rectangular-domain or common fiber-basepoint hypothesis. Poincare retains every positive degree and a global C1 primitive through IsExactOn. The source's variable endpoint/section construction was visually rechecked on printed p.278; section existence is proof work, not a permitted new hypothesis.
+
+| Exact accepted contract | SHA256 |
+| --- | --- |
+| pma10_36_contract | `ec77dde836b21e286618440539c956fc0f7331f04c4a92d820ce4b8b6cd5894c` |
+| pma10_37_contract | `14646cac00df6bfa48e54e49e7cb743e644350d326f78704d5d533589da02e39` |
+| pma10_38_contract | `f5959d2e0fd06b471b059ca49f46235f36a18b36cb7b0b55b85052eaa2236d1f` |
+| pma10_39_contract | `89554cea96a73b11a8b5fa85861b360f454daaf382b8bee885ce98925a987f42` |
+
+Draft statement-only module snapshots: PuncturedExamples `42a6f1c30ed72926033f57c70452f1a41e69430e1eceda0d7cdb8d9a7e37c292`; ConvexPrimitives `e918506235b7780f8fdaa2891191f49c676ed13d32eca7c3d80119be8e410c16`; Poincare `89acf0fcd889fca88b189d5db1d22bd4fbf43a14e0298b814367f3a6bcdb427a`. None is a proof-completion claim. Canonical manifests remain through 10.30.
+
+### Final production reconciliation for 10.31-10.35
+
+The parent reports every production module needed for 31-35 compiled successfully. All 42 prior canonical production hashes were rechecked unchanged. The final 23 new module bodies were reconciled with the complete independent draft reviews. Final repairs expose actual side-interval endpoints, give native slice continuity an explicit type, instantiate the parametric-primitive integrand, name the two-by-two matrix, normalize affine-face index expressions, and specify the real-valued integral difference and measure argument. The redundant local derivative-congruence helper was removed in favor of its already available equivalent. None changes a definition's mathematical content, a source premise, or an actual-native-integral conclusion. The exact five numbered contract hashes and both substantive 31 component-contract hashes match their prior acceptance.
+
+All modules below are accepted at the final parent-compiled bytes, including every definition, helper statement and proof body. Canonical extension is held until the remaining independent probes pass.
+
+| Module | Final SHA256 |
+| --- | --- |
+| SurfacePrecomposition | `afd430b4e4cbaf097bd1f986dc23a383062821f5c7bfb37dc08d7feec6b5d757` |
+| RectangleEdges | `f32d70bc3e216bf664ea880f751e78a65caffd1d25b51eb1cbfcda74911b9760` |
+| SquareIntegral | `408da65cedce0aa84816bc3c284bc11f0c4f1997e0583e3b2f4779dd0b7a055b` |
+| SquareBoundaries | `ebdc95ef1641094e6845f39b0735cf90710ec72594b602bfa72bb92a94402127` |
+| SphereBoundary | `95c0ca34950d05c3472a0f9e3afbba3b2a99e9f4f0b5d02d5482556daf882f2d` |
+| PositiveRegions | `5ca0eded22b30f439d2a7dfd3e9a5d558d2e257f7d8ba5ec693238e9da380a78` |
+| PositiveRegionUnions | `a5c781134bb579d7f1c3bb9e498347e9dd7ec158d49eec8060ae1d7904a6dbe6` |
+| FormApproximation | `bb8023aae6037714b6d0c0c38b8ef5c6c4a4cf208cc970b56370fd37c7ac0bcc` |
+| FormIntegralContinuity | `b5a8fe8941740d7b95ada0994da2d248b5a02fb46a328eaeaf232561afa576f4` |
+| PositiveBoundaries | `5dab5ffbba2b3a558ee963b684537d352d93b9b5250d0a2d63a48b8aabd2bf50` |
+| BoundaryDefinitions | `3717675e379711303b8564e58c2d272c60fb01b1008f5fb80f4d9373e863e773` |
+| SimplexFTC | `13aed6c37f0548629c64a1d4357525614490d20d678410bae8f81d827986cbee` |
+| StandardSimplexSurface | `c48bc3156d2958639f180a60cd6bfbe7eece26aab9021b4795a7c538a95959cd` |
+| StokesCoefficients | `70d4aa42c11ca0967c7373f84fac79314b222d9f3e3f85c9cdb7ce8e2960ded0` |
+| SimplexFormFaces | `516ae39d36f3e4c4a78ac8b9fe180196a535b87fd1d30b5084170abfd2b6b521` |
+| SimplexStokes | `b7ba7490e458ab7a1819c323797c902b632d643bcae21c5c8e8d3d4f923653bc` |
+| StokesTransport | `dcbe3ac1e4d4f514f9695d7b723123da145c4e04b4850398ca0e540de48ded2f` |
+| ChainStokes | `c49fdbd15364c52ad411383213891dbce80846064e6514068ed3beb4cd881690` |
+| SimplexSeparation | `a622d0a24d8a577ebe26f367e18aee151dc558f376f298c929e5ce54cc5fba00` |
+| SimplexBoundarySquared | `f462313028b8df296b682147725af84ae1cd6fff845ce7c15b6ad46dbabef84b` |
+| ClosedExact | `f9f36417c5158ea2636bda0ecd77ce9620b8592e3925f28a9e98c724128fd24e` |
+| OneFormCoordinates | `1a45e47c9488501156a68a68e4f77b0e74cb9f2548357d047a213421a961d3a0` |
+| ClosedFormConsequences | `b5638a9cb819df81d6a2b9e57e64def1650ccf4fe5481e869bbb83521333a493` |
+
+The parent subsequently authorized canonical production extension before the last client rebuild. Both canonical manifests now include exactly nodes 1-35 and 65 production modules; all 42 prior hashes remained unchanged. The contract snapshot also includes the substantive positiveBoundary_contract and squareBoundary_contract, so the wrapper at 31 is not an opaque acceptance. PositiveBoundaryProbes passed; ClosedFormProbes remains a separate final client gate at this update.
+
+### Subsequent exactness and punctured-domain proof review
+
+The complete parent-compiled ExactnessTransport and ParametricC1 support modules are independently accepted. The former explicitly retains fixed-degree exactness transport, not merely the stronger all-degrees premise; C2 inverse maps are only inverse on their respective open domains. Pullback regularity and commutation derive a C1 primitive on the target. The latter obtains local compact-parameter domination, differentiates the actual interval integral, and proves C1 parameter dependence. These are support results, not a premature completion claim for 38-40.
+
+- `ExactnessTransport.lean`: `1bbb23ac0c1534b20af24eb64a497a9120568f8ea2fc93a2d89755dd088964f7` (parent compiled, independently accepted).
+- `ParametricC1.lean`: `b13d71c14c8385b14ea4ae91971999a51b2b90f659e43b030125a824a0ae6179` (parent compiled, independently accepted).
+
+Complete CellNormalization, AngularForm and PuncturedPlane proof drafts are mathematically accepted pending compilation. Actual affine interval normalization preserves native integration even for degenerate intervals; the circle is represented by its explicit normalized C2 simplex. Its two endpoint faces coincide literally, giving a genuine cycle; the nonzero native angular integral then excludes every functionally equal boundary via 35. Angular coefficient quotient derivatives prove closedness on the full punctured plane. A duplicate wedge helper was removed in favor of the already accepted FormsCore theorem, without changing the argument. RadialForm is likewise accepted as a support draft: the all-point norm-cube/real-power identity, punctured-domain C1 coefficient regularity, explicit coordinate norm derivatives and divergence cancellation establish closedness of the literal source radial form. Full37 sphere/chain assembly remains separate. Draft snapshots:
+
+- `CellNormalization.lean`: `fea342cbe7c4172c4090a8fa8b27a2d4b84d65c4fdbd7b0cbff3b6c025473b42`.
+- `AngularForm.lean`: `03c3bc987dce47535a5fc20894e0a77bab9475a8edfb67d81ccebb79c7046646`.
+- `PuncturedPlane.lean`: `c6aca25c6c91de2f78fbdb9d3848bc1e45508626bd135717334b2a78520abd3a`.
+- `RadialForm.lean`: `6dc3334e7dfbcbd8c40959be8c7d78ae88732113be08543bfe8610f042459251`.
+
+The complete parent-compiled ContractionAlgebra support module is independently accepted at SHA256 `88ca65184eb91fb9341f02a4804810ffb81760a321dd807a69ba4563130669d1`. The zero-quadratic Clifford contraction has the correct minus sign when passing a coordinate covector; induction proves homogeneous degree lowering. The coordinate degree operator is then proved equal to scalar multiplication by the exterior degree, including degree zero and components above the ambient dimension. This is algebraic support for the prospective Poincare proof, not a replacement for it.

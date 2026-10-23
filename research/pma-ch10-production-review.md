@@ -174,3 +174,26 @@ comparisons, and 1018 recursively audited declarations including the
 build succeeds with 9063 jobs. Raw gates use `evidence/ch10-section8-*`; the
 reviewed-byte and source checks preserve all 82 earlier chapter source files
 and all three pinned project files.
+
+## Boundaries, Stokes, and closed forms: 10.31–10.35
+
+Twenty-three additional reviewed modules prove positive boundary independence,
+finite-union additivity, the literal square and sphere examples, general
+Stokes on C2 simplex chains, boundary squared zero, and exact/closed form
+consequences. Positivity is required only in the interior; continuous test
+forms are handled by proved smooth approximation and native integral bounds.
+The exact-to-closed implication requires only a C1 primitive and a C1
+derivative form, using Stokes and simplex separation.
+
+Nine new independent assertions exercise singular boundary Jacobians, a
+continuous nonsmooth sphere test form, actual square subdivision, folded
+noninjective simplices and signed multiplicities, scalar degree zero, C1
+primitives, functional boundary additivity, and nonclosed x dy. The cumulative
+count is forty-one. Canonical records contain 65 production modules and 35
+numbered contracts, with both substantive components of 10.31 captured.
+
+The audit checks 35 actual principal declarations and contract comparisons,
+and 1407 recursively audited declarations including the 138-declaration probe
+subset. Only propext, Classical.choice, and Quot.sound occur. Default build:
+9090 jobs. All sequential gates in `evidence/ch10-section9-*` pass, preserving
+82 earlier chapter source files and three pinned project files.
