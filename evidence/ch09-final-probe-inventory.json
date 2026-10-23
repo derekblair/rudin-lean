@@ -1,0 +1,146 @@
+{
+  "public_theorem_count": 47,
+  "independently_authored_boundary_assertions": 42,
+  "supplementary_author_authored_assertions": 2,
+  "public_setup_lemmas": 3,
+  "private_support_lemmas": 6,
+  "definitions": 4,
+  "authorship_note": "RankObliqueProbes was written by the Rank author and independently reviewed by ch8_fidelity. Its range/rank/range-equality lemmas are setup, and its nonorthogonality and full rank-one normal-form assertions are supplementary. The other nine modules contain 42 boundary assertions authored independently of the tested production proofs.",
+  "files": [
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/AlgebraProbes.lean",
+      "public_theorems": [
+        "repeated_integer_tuple_sign",
+        "transposed_sign",
+        "empty_all_tuple_determinant",
+        "nonzero_singular_determinant",
+        "oblique_is_projection",
+        "oblique_moves_second_axis",
+        "constant_map_has_rank_normal_form"
+      ],
+      "private_theorems": [],
+      "definitions": [
+        "obliqueProjection"
+      ]
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/DeterminantProbes.lean",
+      "public_theorems": [
+        "all_tuple_two_by_two_value"
+      ],
+      "private_theorems": [],
+      "definitions": []
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/DifferentiationProbes.lean",
+      "public_theorems": [
+        "constant_total_derivative",
+        "identity_cannot_have_zero_derivative",
+        "zero_input_dimension_c1",
+        "zero_output_dimension_c1",
+        "empty_domain_c1",
+        "partials_everywhere_without_continuity",
+        "continuous_partials_example_not_total",
+        "zero_bound_forces_equality"
+      ],
+      "private_theorems": [],
+      "definitions": []
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/FixedPointProbes.lean",
+      "public_theorems": [
+        "singleton_negative_constant_normalizes",
+        "real_identity_not_contraction",
+        "affine_iterates_converge_to_six",
+        "constant_iterates_converge"
+      ],
+      "private_theorems": [
+        "affine_contraction"
+      ],
+      "definitions": []
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/HigherDerivativeProbes.lean",
+      "public_theorems": [
+        "global_first_partials_need_not_be_C2",
+        "rectangle_negative_horizontal_increment"
+      ],
+      "private_theorems": [
+        "coordinateProduct_first",
+        "coordinateProduct_first_value",
+        "coordinateProduct_mixed"
+      ],
+      "definitions": [
+        "coordinateProduct"
+      ]
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/ImplicitProbes.lean",
+      "public_theorems": [
+        "implicit_unique_first_block",
+        "linear_implicit_derivative",
+        "implicit_zero_parameter_dimension",
+        "worked_example_third_parameter"
+      ],
+      "private_theorems": [],
+      "definitions": []
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/InverseProbes.lean",
+      "public_theorems": [
+        "weak_inverse_at_image",
+        "open_map_need_not_be_injective",
+        "linear_inverse_derivative"
+      ],
+      "private_theorems": [],
+      "definitions": []
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/LinearProbes.lean",
+      "public_theorems": [
+        "empty_span",
+        "empty_not_subspace",
+        "dimension_zero",
+        "real_dimension_one",
+        "zero_plane_not_unit",
+        "zero_dimension_unit",
+        "noncommuting_plane_operators",
+        "negative_scalar_norm",
+        "zero_target_norm"
+      ],
+      "private_theorems": [],
+      "definitions": []
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/ParameterIntegralProbes.lean",
+      "public_theorems": [
+        "parameter_square_with_jump",
+        "parameter_singleton_arbitrary_coefficient",
+        "gaussian_native_independent_windows",
+        "gaussian_absolute_native_compacts"
+      ],
+      "private_theorems": [
+        "jumpIntegrator_monotone"
+      ],
+      "definitions": [
+        "jumpIntegrator"
+      ]
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/RankObliqueProbes.lean",
+      "public_theorems": [
+        "axisMap_range",
+        "axisMap_rank",
+        "oblique_range_eq_axisMap",
+        "obliqueProjection_ne_axisMap",
+        "rank_one_oblique_normal_form"
+      ],
+      "private_theorems": [
+        "first_axis_ne_zero"
+      ],
+      "definitions": [
+        "axisMap"
+      ]
+    }
+  ]
+}

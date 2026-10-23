@@ -8,6 +8,8 @@ import Rudin.PMA.Chapter09.Implicit
 import Rudin.PMA.Chapter09.ImplicitExample
 import Rudin.PMA.Chapter09.Rank
 import Rudin.PMA.Chapter09.Determinants
+import Rudin.PMA.Chapter09.HigherDerivatives
+import Rudin.PMA.Chapter09.ParameterIntegrals
 
 /-!
 # Chapter 9: Functions of Several Variables
@@ -54,3 +56,8 @@ and independent source/contract reviews are recorded in `research` and `evidence
 /-! ### PMA-9.36: `Rudin.PMA.Chapter09.pma9_36`. -/
 /-! ### PMA-9.37: `Rudin.PMA.Chapter09.pma9_37`. -/
 /-! ### PMA-9.38: `Rudin.PMA.Chapter09.pma9_38`. -/
+/-! ### PMA-9.39: `Rudin.PMA.Chapter09.pma9_39`. -/
+/-! ### PMA-9.40: `Rudin.PMA.Chapter09.pma9_40`. -/
+/-! ### PMA-9.41: `Rudin.PMA.Chapter09.pma9_41`. -/
+/-! ### PMA-9.42: `Rudin.PMA.Chapter09.pma9_42`. -/
+/-! ### PMA-9.43: `Rudin.PMA.Chapter09.pma9_43`. -/

@@ -1,0 +1,169 @@
+{
+  "scope": "Final independently reviewed Chapter09 production proof/helper modules; integration index, audits and probes are separate gates.",
+  "date": "2026-10-23",
+  "production_module_count": 13,
+  "numbered_principal_count": 43,
+  "kernel_status": "All 13 modules compiled successfully in the parent's serialized build process.",
+  "reviewer_authorship_exception": "ch8_fidelity authored C1Partials and MathlibPartialBridge; root independently reviewed their exact final hashes. Other 11 modules independently reviewed by ch8_fidelity.",
+  "files": [
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Linear.lean",
+      "sha256": "a61832744979629254d50b5a7c9d8c6acaab123b516cd14919f320199cfa34e3",
+      "principal_nodes": [
+        "PMA-9.1",
+        "PMA-9.2",
+        "PMA-9.3",
+        "PMA-9.4",
+        "PMA-9.5",
+        "PMA-9.6",
+        "PMA-9.7",
+        "PMA-9.8",
+        "PMA-9.9"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "evidence/ch09-contract-independent-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Differentiation.lean",
+      "sha256": "65178884e3b85ed85dfa237971e66cfdc2dc9396497e1e95602c968b8d982252",
+      "principal_nodes": [
+        "PMA-9.10",
+        "PMA-9.11",
+        "PMA-9.12",
+        "PMA-9.13",
+        "PMA-9.14",
+        "PMA-9.15",
+        "PMA-9.17",
+        "PMA-9.18",
+        "PMA-9.19",
+        "PMA-9.20"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "evidence/ch09-contract-independent-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/PartialExamples.lean",
+      "sha256": "9bc917373c2d04c126d38ec7c35f16cb9277aa2fc4f274434beb48c729286203",
+      "principal_nodes": [
+        "PMA-9.16"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "evidence/ch09-contract-independent-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/MathlibPartialBridge.lean",
+      "sha256": "4acf81e1aa30be2f512b0f430cbd6a1ea52d5c5c17382f1911ba88abe203fb78",
+      "principal_nodes": [],
+      "independent_reviewer": "root",
+      "review_evidence": "research/pma-ch09-root-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/C1Partials.lean",
+      "sha256": "e152f7838b60823276969374f474053d0c16e6c9b2650bf3fe06ed093c8870b3",
+      "principal_nodes": [
+        "PMA-9.21"
+      ],
+      "independent_reviewer": "root",
+      "review_evidence": "research/pma-ch09-root-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/FixedPoint.lean",
+      "sha256": "601d48010cf34dddd5af23d1e292335e79bf1527c48fc5268a5428a7fe52a0e1",
+      "principal_nodes": [
+        "PMA-9.22",
+        "PMA-9.23"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "evidence/ch09-contract-independent-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Inverse.lean",
+      "sha256": "c8457e500795a3d7fc7dcd59d4ff0a18d65ff4b82d2d726a163f180919c08796",
+      "principal_nodes": [
+        "PMA-9.24",
+        "PMA-9.25"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "evidence/ch09-contract-independent-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Implicit.lean",
+      "sha256": "e2100612918cb6b390866c6341ded45e776900ef79c69bf99d91f696c67a6694",
+      "principal_nodes": [
+        "PMA-9.26",
+        "PMA-9.27",
+        "PMA-9.28"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "evidence/ch09-contract-independent-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/ImplicitExample.lean",
+      "sha256": "15a99aa2ed7eaaaa88d6d297cb5d86df702b793b60d6e2f93e7eb5b7d088486e",
+      "principal_nodes": [
+        "PMA-9.29"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "evidence/ch09-contract-independent-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Rank.lean",
+      "sha256": "c84fdc8064de75b0f6346c88e2b66dd194e04068bd8a95f0c92c22adc690a5f3",
+      "principal_nodes": [
+        "PMA-9.30",
+        "PMA-9.31",
+        "PMA-9.32"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "evidence/ch09-contract-independent-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Determinants.lean",
+      "sha256": "035b72c924fd832484c114656a0484ba8197afa9b11e9208034aaee7a12a1cd3",
+      "principal_nodes": [
+        "PMA-9.33",
+        "PMA-9.34",
+        "PMA-9.35",
+        "PMA-9.36",
+        "PMA-9.37",
+        "PMA-9.38"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "evidence/ch09-contract-independent-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/HigherDerivatives.lean",
+      "sha256": "6b867733f57fd7e77402c52799902dae9512b925f683c09650046ed8a4630934",
+      "principal_nodes": [
+        "PMA-9.39",
+        "PMA-9.40",
+        "PMA-9.41"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "evidence/ch09-contract-independent-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/ParameterIntegrals.lean",
+      "sha256": "af81da0e7d5b23b5b3b3c1e13941496457743b4c86f74d6a950640866990e1c4",
+      "principal_nodes": [
+        "PMA-9.42",
+        "PMA-9.43"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "evidence/ch09-contract-independent-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    }
+  ]
+}

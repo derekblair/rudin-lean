@@ -15,7 +15,7 @@ All completed nodes have zero proof placeholders.
 | 06 | The Riemann-Stieltjes Integral | 27 / 27 |
 | 07 | Sequences and Series of Functions | 33 / 33 |
 | 08 | Some Special Functions | 6 / 22 |
-| 09 | Functions of Several Variables | 38 / 43 |
+| 09 | Functions of Several Variables | 43 / 43 |
 | 10 | Integration of Differential Forms | 0 |
 | 11 | The Lebesgue Theory | 0 |
 
@@ -82,7 +82,7 @@ Chapter 7 local integration: 33/33 accepted numbered nodes.
 Completed nodes: 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13, 7.14, 7.15, 7.16, 7.17, 7.18, 7.19, 7.20, 7.21, 7.22, 7.23, 7.24, 7.25, 7.26, 7.27, 7.28, 7.29, 7.30, 7.31, 7.32, 7.33.
 Frozen modules are committed in their actual dependency order; node groups may be nonnumeric. Every local commit requires the default build, exact principal coverage, accepted-contract comparisons, source checks and recursive permitted-axiom audits. Pending integration is not a resistant proof node.
 
-Chapter 7 production verification is complete: 33 nodes and all accepted attached consequences, 33 accepted-contract comparisons, 51 boundary assertions with 7 probe support theorems, and 392 recursively audited declarations including the 67-declaration probe namespace subset. Only the three standard axioms occur. All 15 canonical files match the independently reviewed candidate and both complete hostile-review coverage sets. Explicit pinned-library forward dependencies do not count as later-chapter completion. See `research/pma-ch07-production-review.md`. Chapter 8 work is separately isolated on its authorized local branch; Chapters 9–11 remain pending.
+Chapter 7 production verification is complete: 33 nodes and all accepted attached consequences, 33 accepted-contract comparisons, 51 boundary assertions with 7 probe support theorems, and 392 recursively audited declarations including the 67-declaration probe namespace subset. Only the three standard axioms occur. All 15 canonical files match the independently reviewed candidate and both complete hostile-review coverage sets. Explicit pinned-library forward dependencies do not count as later-chapter completion. See `research/pma-ch07-production-review.md`. Chapter 8 work is separately isolated on its authorized local branch; Chapter 9 completion is recorded below and Chapters 10–11 remain pending.
 
 Chapter 8 local lane: the power-series section covers numbered nodes 8.1–8.5,
 with the requested addition, Cauchy multiplication, and native termwise integration
@@ -103,9 +103,15 @@ require passing default builds. Nodes 8.7–8.22 are unattempted and pending;
 there are no needs-insight entries. See `research/pma-ch08-production-review.md`
 and `evidence/ch08-final-manifest.json`.
 
-Chapter 9 local lane: 38/43 numbered nodes, through PMA-9.38, on the user-authorized
-branch `ch8-codex-20261022`. Independent exact source/contract and proof review,
-boundary clients, actual principal lookup, recursive standard-axiom audits and
-source/default-build gates precede each local section commit. All 57 Chapter 1–8
-source files remain unchanged. The Chapter 8 pending scope is unaffected.
-See Chapter 9 review and evidence files for exact scope and verification.
+Chapter 9 local lane: complete at 43/43 numbered nodes, PMA-9.1–9.43, in book
+order on `ch8-codex-20261022`. All 13 production modules match independently
+reviewed hashes; all 43 accepted contracts match their production definitions.
+The final gate checks 43 actual principal theorems and contract comparisons,
+42 independently authored boundary assertions plus 2 supplementary assertions
+and 3 public setup lemmas, and 470 recursively audited declarations including
+the 70-declaration probe namespace. Only the three permitted axioms occur.
+Source checks and the default build pass before every local section commit.
+All 57 Chapter 1–8 source files and the toolchain pins remain unchanged;
+Chapter 8 stays at 6/22 and Chapters 10–11 remain pending. No nodes are queued.
+See `research/pma-ch09-production-review.md` and
+`evidence/ch09-final-manifest.json` for exact scope and verification.
