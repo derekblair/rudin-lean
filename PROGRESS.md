@@ -16,7 +16,7 @@ All completed nodes have zero proof placeholders.
 | 07 | Sequences and Series of Functions | 33 / 33 |
 | 08 | Some Special Functions | 6 / 22 |
 | 09 | Functions of Several Variables | 43 / 43 |
-| 10 | Integration of Differential Forms | 17 / 51 |
+| 10 | Integration of Differential Forms | 20 / 51 |
 | 11 | The Lebesgue Theory | 0 |
 
 Chapter 1 is complete. Each target has its own local `PMA-1.x done` commit,
@@ -136,3 +136,6 @@ supported extension by zero outside the open domain and a continuous inverse.
 Nodes 10.10–10.17 add parametrized surfaces, forms and native integrals, the
 curve/ellipse/spherical examples, standard coefficients, separation by actual
 surface integrals, and the wedge product with its orientation signs.
+
+Nodes 10.18–10.20 add exterior differentiation, the native endpoint theorem,
+a nonexact one-form witness, the C1 graded product rule, and the C2 identity d²=0.

@@ -112,3 +112,23 @@ the 42-declaration probe subset, with only the three permitted axioms. The
 default build succeeds with 9040 jobs. Canonical records cover 22 production
 modules and seventeen contracts. Raw gates use `evidence/ch10-section5-*`; all
 earlier chapter sources and pinned project files remain unchanged.
+
+## Exterior differentiation and exact one-forms: 10.18–10.20
+
+`CoordinateDifferentiation`, `ExteriorDerivative`, `ExactOneForms`, and
+`ExteriorDerivativeRules` preserve their independently accepted compiled bytes.
+Differentiation is defined on actual coordinate coefficients, gives the source's
+left-wedge formula, and satisfies the C1 graded product rule and C2 d²=0. The
+curve theorem retains both native integral existence and the endpoint value;
+the ellipse supplies the nonexact x dy witness.
+
+Three independent clients evaluate df on a tangent with mixed signs, compute
+33 along a nonlinear curve on [-1,2], and check the odd-degree product rule
+under C1 assumptions alone. Canonical records contain 26 production modules
+and twenty contracts. The cumulative assertion count is twenty-four.
+
+The cumulative gate checks twenty principal theorems/contracts and 708
+recursively audited declarations, including the 55-declaration probe subset.
+Only the three permitted axioms occur. The default build succeeds with 9045
+jobs. Raw gates use `evidence/ch10-section6-*`; source and exact-byte checks
+continue to preserve all earlier chapter files and project pins.

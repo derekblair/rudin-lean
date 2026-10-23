@@ -1,7 +1,7 @@
 {
   "reviewer": "ch8_fidelity",
   "date": "2026-10-23",
-  "status": "Independent semantic acceptance of exact Chapter10 contracts 1-17; production compilation and probes are separate gates.",
+  "status": "Independent semantic acceptance of exact Chapter10 contracts 1-20; production compilation and probes are separate gates.",
   "extraction": "Declaration text from def through final term; trailing whitespace normalized to one newline; excludes subsequent declaration/comment.",
   "files": [
     {
@@ -135,6 +135,24 @@
         "pma10_17_contract": {
           "sha256": "cd226f2d5a18f450050737f5b11dd3f5ff677ceeb75f3d9a23c9583724aee7ae",
           "text": "def pma10_17_contract : Prop :=\n  (∀ (n p q : ℕ) (E : Set (Euclidean n)) (ω η : FormField n),\n    IsFormOn E p ω → IsFormOn E q η → IsFormOn E (p + q) (wedge ω η) ∧\n    ∀ x ∈ E, wedge ω η x =\n      ∑ S : StandardIndex n p, ∑ T : StandardIndex n q,\n        (formCoefficient ω S.val x * formCoefficient η T.val x) • (standardWedge S * standardWedge T)) ∧\n  (∀ (n : ℕ) (ω η θ : FormField n), wedge (ω + η) θ = wedge ω θ + wedge η θ ∧\n    wedge ω (η + θ) = wedge ω η + wedge ω θ ∧\n    wedge (wedge ω η) θ = wedge ω (wedge η θ)) ∧\n  (∀ (n : ℕ) (f : Euclidean n → ℝ) (ω : FormField n),\n    wedge (scalarForm f) ω = (fun x => f x • ω x) ∧\n    wedge ω (scalarForm f) = (fun x => f x • ω x)) ∧\n  (∀ (n p q : ℕ) (E : Set (Euclidean n)) (ω η : FormField n),\n    IsFormOn E p ω → IsFormOn E q η →\n    EqOn (wedge ω η) ((-1 : ℝ)^(p*q) • wedge η ω) E)\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ExteriorDerivative.lean",
+      "file_sha256": "32563a37cb03475c0565a7f7c87998d10c7f6aba1c146d3b2c32bd4a8ced68ab",
+      "contracts": {
+        "pma10_18_contract": {
+          "sha256": "03489f7559f5fe039c12a33fb7e907ec319ece63c8e917abd72d44b296072df5",
+          "text": "def pma10_18_contract : Prop :=\n  (∀ (n k : ℕ) (E : Set (Euclidean n)) (ω : FormField n),\n    IsOpen E → IsCFormOn 1 E k ω → IsFormOn E (k + 1) (exteriorDerivative ω) ∧\n      ∀ x ∈ E, exteriorDerivative ω x =\n        ∑ S : StandardIndex n k, scalarDifferential (formCoefficient ω S.val) x * standardWedge S) ∧\n  (∀ (n : ℕ) (f : Euclidean n → ℝ), exteriorDerivative (scalarForm f) = scalarDifferential f) ∧\n  (∀ (n : ℕ) (E : Set (Euclidean n)) (f : Euclidean n → ℝ),\n    IsOpen E → ContDiffOn ℝ 1 f E → ∀ x ∈ E, ∀ v : Fin 1 → Euclidean n,\n      evaluateForm 1 v (scalarDifferential f x) = fderiv ℝ f x (v 0))\n"
+        },
+        "pma10_19_contract": {
+          "sha256": "0fc995dbcea5c0e199e09da19ac24fc824424e1893b3383d5f6decee4d959a7d",
+          "text": "def pma10_19_contract : Prop :=\n  (∀ (n : ℕ) (E : Set (Euclidean n)) (f : Euclidean n → ℝ),\n    IsOpen E → ContDiffOn ℝ 1 f E → ∀ Φ : Surface 1 n E,\n      Φ.domain.Integrable (surfaceIntegrand Φ (scalarDifferential f)) ∧\n      surfaceIntegral Φ (scalarDifferential f) =\n        f (Φ.map (fun _ => Φ.domain.interval.2)) - f (Φ.map (fun _ => Φ.domain.interval.1))) ∧\n  (∀ (n : ℕ) (E : Set (Euclidean n)) (f : Euclidean n → ℝ),\n    IsOpen E → ContDiffOn ℝ 1 f E → ∀ Φ Ψ : Surface 1 n E,\n      Φ.map (fun _ => Φ.domain.interval.1) = Ψ.map (fun _ => Ψ.domain.interval.1) →\n      Φ.map (fun _ => Φ.domain.interval.2) = Ψ.map (fun _ => Ψ.domain.interval.2) →\n      surfaceIntegral Φ (scalarDifferential f) = surfaceIntegral Ψ (scalarDifferential f)) ∧\n  (∀ (n : ℕ) (E : Set (Euclidean n)) (f : Euclidean n → ℝ),\n    IsOpen E → ContDiffOn ℝ 1 f E → ∀ Φ : Surface 1 n E,\n      Φ.map (fun _ => Φ.domain.interval.1) = Φ.map (fun _ => Φ.domain.interval.2) →\n      surfaceIntegral Φ (scalarDifferential f) = 0) ∧\n  (¬ ∃ f : Euclidean 2 → ℝ, ContDiff ℝ 1 f ∧\n    EqOn (scalarDifferential f) (coordinateOneForm 0 1) univ)\n"
+        },
+        "pma10_20_contract": {
+          "sha256": "4ec387cad5c63605e18685a95fc2f3dbc2a98090329797a0a91938680d72705d",
+          "text": "def pma10_20_contract : Prop :=\n  (∀ (n k m : ℕ) (E : Set (Euclidean n)) (ω η : FormField n),\n    IsOpen E → IsCFormOn 1 E k ω → IsCFormOn 1 E m η →\n      EqOn (exteriorDerivative (wedge ω η))\n        (wedge (exteriorDerivative ω) η + ((-1 : ℝ) ^ k) • wedge ω (exteriorDerivative η)) E) ∧\n  (∀ (n k : ℕ) (E : Set (Euclidean n)) (ω : FormField n),\n    IsOpen E → IsCFormOn 2 E k ω → IsCFormOn 1 E (k + 1) (exteriorDerivative ω) ∧\n      EqOn (exteriorDerivative (exteriorDerivative ω)) 0 E)\n"
         }
       }
     }

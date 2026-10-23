@@ -5,6 +5,8 @@ import Rudin.PMA.Chapter10.ChangeOfVariables
 import Rudin.PMA.Chapter10.SphereExamples
 import Rudin.PMA.Chapter10.FormSeparation
 import Rudin.PMA.Chapter10.WedgeProducts
+import Rudin.PMA.Chapter10.ExactOneForms
+import Rudin.PMA.Chapter10.ExteriorDerivativeRules
 
 /-!
 # PMA Chapter 10: Integration of Differential Forms
@@ -82,6 +84,18 @@ Principal proof: `pma10_16`. Definitions and proofs: `Chapter10/WedgeProducts.le
 
 /-! ### PMA-10.17
 Principal proof: `pma10_17`. Definitions and proofs: `Chapter10/WedgeProducts.lean`.
+-/
+
+/-! ### PMA-10.18
+Principal proof: `pma10_18`. Definitions and proofs: `Chapter10/ExteriorDerivative.lean`.
+-/
+
+/-! ### PMA-10.19
+Principal proof: `pma10_19`. Definitions and proofs: `Chapter10/ExactOneForms.lean`.
+-/
+
+/-! ### PMA-10.20
+Principal proof: `pma10_20`. Definitions and proofs: `Chapter10/ExteriorDerivativeRules.lean`.
 -/
 
 end Rudin.PMA.Chapter10

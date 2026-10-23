@@ -1,9 +1,9 @@
 {
-  "scope": "Independently reviewed frozen Chapter10 sections through wedge products, nodes 1-17; integration index, audits and probes are separate gates.",
+  "scope": "Independently reviewed frozen Chapter10 sections through exterior differentiation, nodes 1-20; integration index, audits and probes are separate gates.",
   "date": "2026-10-23",
-  "production_module_count": 22,
-  "numbered_principal_count": 17,
-  "kernel_status": "All 22 production modules compiled successfully in the parent serialized build process. Reviewer ran no builds.",
+  "production_module_count": 26,
+  "numbered_principal_count": 20,
+  "kernel_status": "All 26 production modules compiled successfully in the parent serialized build process. Reviewer ran no builds.",
   "reviewer_authorship_exception": "None: ch8_fidelity authored no Chapter10 production module.",
   "files": [
     {
@@ -206,6 +206,44 @@
       "principal_nodes": [
         "PMA-10.16",
         "PMA-10.17"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CoordinateDifferentiation.lean",
+      "sha256": "28e818daf01b4ac68bbeb070f679fadddaa131db5835f607da809781722c4be4",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ExteriorDerivative.lean",
+      "sha256": "32563a37cb03475c0565a7f7c87998d10c7f6aba1c146d3b2c32bd4a8ced68ab",
+      "principal_nodes": [
+        "PMA-10.18"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ExactOneForms.lean",
+      "sha256": "e2d3e476b4f2e896af46956680cc0241855a3b6211a7fee0be13a6e5588f7274",
+      "principal_nodes": [
+        "PMA-10.19"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ExteriorDerivativeRules.lean",
+      "sha256": "b8b8f63c33f72ae7e14ef1a378708d98860c183323b89c6ab986fcea01fe77f9",
+      "principal_nodes": [
+        "PMA-10.20"
       ],
       "independent_reviewer": "ch8_fidelity",
       "review_evidence": "research/pma-ch10-source-review.md",

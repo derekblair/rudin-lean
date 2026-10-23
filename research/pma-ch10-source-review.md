@@ -222,3 +222,75 @@ The earlier FormProbes do not by themselves cover the spherical part of 10.12. A
 The complete final WedgeProducts implementation is independently accepted at SHA256 `2927b89be671cbf2bbaafb42755d5e8b27bb39ae07189a10d81f87b069a55c2d`. The only changes since the reviewed draft are explicit finite-index/coercion conversions, pinned API names, and finite-sum order rewrites. Both source contract hashes remain unchanged. Root reports WedgeProducts and all three independent FormAlgebraProbes clients compiled successfully; the probe SHA256 is `ba45873e165b84289977892b0a60ab5f152a3a34aed8b0ae1295cac50ed1768e`.
 
 Following root's 10.9 section commit and request, the canonical accepted-contract snapshot and reviewed-production manifest were extended through 10.17 only. All fourteen added complete production files match their independent acceptance hashes, every earlier file still matches, and all eight added numbered contract texts match the original accepted hashes. The manifest contains 22 production modules and 17 principals. No CoordinateDifferentiation, exterior-derivative, or pullback module is included at this section boundary. SphereExampleProbes is an additional pending compiler gate and is not represented as already compiled.
+
+
+## Compiled derivative reconciliation and simplex-chain architecture
+
+Both independent SphereExampleProbes clients compiled successfully in `evidence/ch10-sphere-example-probes-compile.log`; exact probe SHA256 `daa56dc02527d93716e68e2894361d45280e9dfe38f550aa9f14ac8e8799ce5d`. The previously accepted examples therefore now have explicit boundary-degeneracy coverage.
+
+The complete final ExteriorDerivative file was re-read and is accepted at SHA256 `32563a37cb03475c0565a7f7c87998d10c7f6aba1c146d3b2c32bd4a8ced68ab`. Its compiled CoordinateDifferentiation dependency remains accepted at SHA256 `28e818daf01b4ac68bbeb070f679fadddaa131db5835f607da809781722c4be4`. Root reports successful compilation of 10.18. Corrections add an explicitly typed coefficient EqOn, pinned Finsupp sum APIs, a correctly typed grade index, and coefficient refolding; all three stored contracts in the file remain semantically unchanged, and the 10.18 contract hash was reverified. Canonical manifests are still held through 10.17 pending the next requested section boundary.
+
+`SimplexChains.lean` architecture is independently accepted at snapshot SHA256 `db6007136017c15e4477458eac0b5fecaa287381f94553571100a132c4ae6f89` before numbered 10.26-10.30 contracts. A C2Simplex retains its actual ambient map, proof-only existence of an open C2 neighborhood of the closed standard simplex, and an actual maps-into-target assertion. Pre/postcomposition use actual maps and correct neighborhood preimages, with no immersion or injectivity premise. Free finite integer combinations represent source multiplicities and orientation signs; ChainEq separately quantifies all continuous homogeneous form integration functionals. It does not identify raw Finsupp equality with source equality. Numbered contracts still owe affine recovery, signed zero-simplices, omitted-vertex boundary with the special first face, triangle orientation, native integral and pushforward identities, boundary commutation, and affine/general boundary agreement. No quotient by ChainEq or boundary invariance is accepted merely from this datatype.
+
+
+## Affine-simplex and affine-chain contracts
+
+The exact 10.26 contract is fully accepted after adding the source's arbitrary-real-vector-space affine characterization. This clause has no topology or finite-dimensionality assumption and characterizes the existence of an actual AffineMap by its constant-plus-linear formula. The Euclidean clauses retain determination by zero and basis vectors, arbitrary/repeated vertices, actual derivative and Chapter 9 Jacobian, nondegenerate full-dimensional orientation, standard positive orientation, and both signed zero-simplices. The signed point formula scales the integral, not the map. The generic characterization helper was also read.
+
+The exact 10.28 contract and definitions in AffineChains are accepted before proofs: actual ordered vertices and target containment; free finite integer multiplicities; weighted sums, addition, scaling and cancellation of native integrals; functional chain equality over continuous homogeneous forms; and exact compatibility with the C2 chain representation. Existing 10.11 gives native existence of each genuine form summand.
+
+| Accepted contract | SHA256 |
+| --- | --- |
+| `pma10_26_contract` | `d6607989ca1194a23fc0bc6d7c70d97bb1908b96cb96b4f2f64947966f9bd71e` |
+| `pma10_28_contract` | `f0c02a549d42a0bcf48602941dc76ff870208a7751e5db43271d7c0810845b13` |
+
+## Further compiled proof reconciliation
+
+The final ExactOneForms, PullbackRegularity, PullbackDefinitions, SurfacePullbacks, SimplexChains, and SimplexChangeOfVariables implementations were re-read. Root reports all compiled successfully. The corrections retain the native-to-interval bridge, exact endpoint primitive, C1 coefficient regularity, derivative-induced scalar differential formula, actual carrier-wise surface identities, and the free-chain semantics. The simplex coordinate-change helper proves native existence separately from the measure Jacobian identity and retains arbitrary dimensions. Exact accepted complete-file hashes follow; canonical records remain through 10.17 until the requested calculus section gate.
+
+| Accepted compiled file | SHA256 |
+| --- | --- |
+| `ExactOneForms.lean` | `e2d3e476b4f2e896af46956680cc0241855a3b6211a7fee0be13a6e5588f7274` |
+| `PullbackRegularity.lean` | `79bf2beba1a14313ed24968b323e3396b366a6a57b234cbe527d637e1e24a523` |
+| `PullbackDefinitions.lean` | `8e72423af8572af10ea0752550c4503b85e181699371d9d6f0b85eb31dfb8015` |
+| `SurfacePullbacks.lean` | `d617f06fdd932989c67b5fa7f0cc618547e480f9e309ebf928ead3a2850aba5d` |
+| `SimplexChains.lean` | `db6007136017c15e4477458eac0b5fecaa287381f94553571100a132c4ae6f89` |
+| `SimplexChangeOfVariables.lean` | `2f38999ec892d4469902cf9d910e17d075cbf1f85ccc44e880ba124c60de9de5` |
+
+Five independently authored PullbackProbes clients await root compilation: constant-map positive-degree annihilation versus scalar preservation, C1 closed-form pullback, zero-dimensional identity-parameter evaluation, restricted composition despite an ambient extension leaving the target, and observable noncommuting affine-map pullback order.
+
+
+## Boundary/orientation contracts and compiled product rule
+
+The complete final ExteriorDerivativeRules proof was independently re-read and accepted at SHA256 `b8b8f63c33f72ae7e14ef1a378708d98860c183323b89c6ab986fcea01fe77f9` after root reported successful compilation of 10.20. Final repairs explicitly instantiate the finite coefficient derivative sum and reorder the two finite indices; no statement, regularity assumption, graded sign, or mixed-derivative cancellation changed. Two independent exterior-derivative probe elaboration errors were repaired using explicit function coercion equality and numerical normalization, with propositions unchanged; their recompile is pending.
+
+The exact 10.27 contract is independently accepted: every vertex permutation, including permutations moving the zero vertex; arbitrary or degenerate vertex families; dimension zero; a genuine continuous homogeneous form on the open target; reordered target inclusion and both native integrability assertions; and the signed actual surface integral identity. The exact 10.29 contract is also accepted: alternating omitted-vertex faces, affine/C2 face agreement, the special first-face base vertex, zero-insertion standard faces, the triangle's signs, and exact affine/general boundary compatibility. AffineFaces definitions and initial helper proofs were read, including the explicit Fin.cons(1-sum) top-face formula and the double-face deletion identity. Their final compilation/hash reconciliation remains pending.
+
+| Accepted contract | SHA256 |
+| --- | --- |
+| `pma10_27_contract` | `d75e22048b9fa251ea2155e8527c44628e62f9d2e7e94736c1e14d8469180484` |
+| `pma10_29_contract` | `52e0071fb8e2d185cab9b636dc7c87f28a81f69c25e9b056022c8a853c3b29df` |
+
+### Pullback differentiation and simplex proof review
+
+The final compiled PullbackDifferentiation proof is independently accepted at SHA256 `2077ad901b15816a82276e35611061d3bf8f8339c63b9ccfe4986692070d42e0`. The finite coefficient expansion uses only C1 form coefficients, C2 map coordinates, the scalar chain rule, and the already proved graded product rule and mixed-partial cancellation. Both domains remain arbitrary open sets and the map is constrained only on its source domain. The final edits are the pinned finite-sum projection name and removal of a redundant closing tactic; the accepted 10.22 contract is unchanged.
+
+The exact 10.30 contract in ChainMaps is accepted at contract SHA256 `e61f30fa51788a5aa6dbeced1d6308b4e2c15737610c6d016bccddc80740ebe4`: actual C2 map composition, native integrability of both integrands and pullback equality, integer-chain linearity, boundary commutation, and exact affine/general compatibility. No injectivity or immersion premise is present. Its draft module snapshot is `43db6d6c4bc1ef2413a16d2debbb43d397d09d966973e184500602df12e33f7e`; numbered proof compilation remains pending.
+
+The complete SimplexOrientation draft (`0deb22a93245eedd898f76fd9eec173b6fe7b0f43cd5ece2a278cec0fffac7b7`) is mathematically accepted pending compilation: the augmented vertex determinant establishes the sign for every permutation, including moves of the zero vertex, in zero dimension and for degenerate vertices; the actual affine self-map preserves the standard simplex; native change of variables and the derivative chain rule produce the signed integral identity. Native existence is concluded for both vertex orders.
+
+The complete SimplexFTC draft (`7a952d73da4b8f95db40fdc1f49a9428c66baf11aeb95a4579285346b4c23c93`) is mathematically accepted pending compilation. Both actual native existence assertions come from 10.4 before the equality proof. Disintegration is at an arbitrary chosen coordinate with all remaining coordinates ordered; stopped slices are identified pointwise for every base point, including collapsed fibers. The scalar FTC supplies the upper-minus-lower face expression. This helper introduces no vertex-orientation premise and does not substitute almost-everywhere existence for native integrability.
+
+The complete AffineChains, AffineFaces, and SimplexBoundaries drafts were independently read after their numbered proofs were filled. The finite integer sums use actual native integrals; transfer to C2 chains preserves the actual parametrizing maps. Face maps have the stated barycentric description; deleting vertex zero changes the base vertex; the two-face deletion identity is an affine-map identity, not an assumed chain quotient. The 10.29 proof uses the alternating signs and gives exact affine/general compatibility. Draft snapshots (compilation pending at this review):
+
+- `AffineChains.lean`: `c1a6ba37485db4343cccaacc0db8d6648b83464cf832a99e57b55d2bc1cd231d`.
+- `AffineFaces.lean`: `1d01503fc62950100d6b7cf62a65b3cdf4a540645beb1814389b124f69d539fa`.
+- `SimplexBoundaries.lean`: `4f5fb0e964d19ba85ec259f9dafae58a624e37ab7b0c65e8f1b3f186e22a5c6c`.
+
+### Canonical reconciliation through 10.20
+
+All 22 previously accepted production hashes were rechecked unchanged. The four final compiled exterior-differentiation modules match their independently accepted hashes, and exact contract hashes 18-20 are unchanged. Canonical records now contain 26 production modules and 20 numbered principals. The three independent ExteriorDerivativeProbes assertions compiled successfully in the parent process at SHA256 `ccff9065bd747e4340fd147cfbef1eb2287fcd5f853a59171b9ecdc64722492e`: mixed tangent evaluation, a nonlinear curve on [-1,2] with native endpoint value 33, and the C1 odd-degree product cancellation. The reviewer ran no builds. Chapters 10.21 onward remain outside these canonical manifests until their separate integration gate.
+
+The final compiled AffineSimplices module is independently accepted at SHA256 `952393bfb0741aa222a1acfb7b23c3c0316cba9e74a5b80303885031d3b1467c`. All definitions, helper proofs and the principal assembly were read at these bytes. The exact revised contract 26 retains SHA256 `d6607989ca1194a23fc0bc6d7c70d97bb1908b96cb96b4f2f64947966f9bd71e`: the generic affine characterization has no finite-dimensional or topological restriction; all arbitrary and degenerate vertex constructions are actual maps; the derivative/Jacobian bridge and signed zero-simplices retain their source meanings. Final elaboration fixes did not weaken any clause.
+
+The now-complete ChainMaps proof draft (`9a64b331e63ddd9c6bc8f155db7463c10e4b020e41b832cb025ae3cdf4ac1e5c`) is mathematically accepted pending compilation. The principal reuses the actual native surface-pullback theorem; boundary commutation is proved as equality of free-chain maps; affine compatibility uses the exact vertex map. The added chainIntegral_map helper derives the finite-chain native pullback equality by the linear-combination universal property.
