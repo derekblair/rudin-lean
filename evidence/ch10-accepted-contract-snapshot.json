@@ -1,7 +1,7 @@
 {
   "reviewer": "ch8_fidelity",
   "date": "2026-10-23",
-  "status": "Independent semantic acceptance of exact Chapter10 contracts 1-8; production compilation and probes are separate gates.",
+  "status": "Independent semantic acceptance of exact Chapter10 contracts 1-9; production compilation and probes are separate gates.",
   "extraction": "Declaration text from def through final term; trailing whitespace normalized to one newline; excludes subsequent declaration/comment.",
   "files": [
     {
@@ -51,6 +51,16 @@
         "pma10_8_contract": {
           "sha256": "b44bdfd047fd1951676108ba2015ca8df80df812d39f47221de76d1b23ca9497",
           "text": "def pma10_8_contract : Prop :=\n  ∀ (n : ℕ) (ι : Type) (K : Set (Euclidean n)) (V : ι → Set (Euclidean n)),\n    IsCompact K → (∀ i, IsOpen (V i)) → K ⊆ ⋃ i, V i →\n    ∃ (s : Finset ι) (ψ : s → C(Euclidean n, ℝ)),\n      (∀ i x, ψ i x ∈ Icc (0 : ℝ) 1) ∧\n      (∀ i, tsupport (ψ i) ⊆ V i) ∧\n      (∀ x ∈ K, ∑ i, ψ i x = 1) ∧\n      (∀ f : C(Euclidean n, ℝ), tsupport f ⊆ K →\n        (∀ x, f x = ∑ i, ψ i x * f x) ∧\n        ∀ i, Continuous (fun x => ψ i x * f x) ∧\n          tsupport (fun x => ψ i x * f x) ⊆ V i)\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ChangeOfVariables.lean",
+      "file_sha256": "13f65cf7c6656ce2b0165252090ec8a6d0293493a71c72f86cc28a02bd504659",
+      "contracts": {
+        "pma10_9_contract": {
+          "sha256": "9bea02f2a1e23a6a170996c536d27c3a4fc753e737e09b5adcf76f031dd7828f",
+          "text": "def pma10_9_contract : Prop :=\n  (∀ (n : ℕ) (T : Coord n → Coord n) (x : Coord n),\n    coordinateJacobian T x = Matrix.det (LinearMap.toMatrix' (fderiv ℝ T x).toLinearMap)) ∧\n  (∀ (n : ℕ) (T : Coord n → Coord n) (x : Coord n), DifferentiableAt ℝ T x →\n    jacobian (euclideanTransform T) (coordEquivEuclidean n x) = coordinateJacobian T x) ∧\n  (∀ (n : ℕ) (E : Set (Coord n)) (T : Coord n → Coord n) (f : Coord n → ℝ),\n    IsOpen E → C1On T E → InjOn T E →\n    (∀ x ∈ E, coordinateJacobian T x ≠ 0) →\n    Continuous f → HasCompactSupport f → tsupport f ⊆ T '' E →\n    ∃ e : OpenPartialHomeomorph (Coord n) (Coord n),\n      (e : Coord n → Coord n) = T ∧ e.source = E ∧ e.target = T '' E ∧\n      IsOpen (T '' E) ∧ ContinuousOn e.symm (T '' E) ∧\n      Continuous (zeroExtendedPullback E T f) ∧\n      HasCompactSupport (zeroExtendedPullback E T f) ∧\n      tsupport (zeroExtendedPullback E T f) ⊆ E ∧\n      IteratedRIntegrable (supportCell f) f ∧\n      IteratedRIntegrable (supportCell (zeroExtendedPullback E T f))\n        (zeroExtendedPullback E T f) ∧\n      wholeRIntegral f = wholeRIntegral (zeroExtendedPullback E T f))\n"
         }
       }
     }

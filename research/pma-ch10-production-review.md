@@ -71,3 +71,19 @@ comparisons, and 219 recursively audited declarations including the 19-declarati
 probe subset. Only the three permitted axioms occur. The default build succeeds
 with 9021 jobs. Raw logs and integrity receipts use `evidence/ch10-section3-*`.
 All 82 earlier chapter sources and the three pinned project files are preserved.
+
+## Native change of variables: 10.9
+
+`ChangeOfVariables.lean` retains the independently reviewed exact source contract
+and proof. The transformed integrand is zero outside the original open domain,
+continuous globally, and compactly supported inside that domain. The proof
+constructs the inverse's continuity and uses the absolute coordinate Jacobian.
+Two independent reflection clients test negative orientation and a proper open
+domain, including the zero exterior value.
+
+The cumulative gate checks nine principal theorems/contracts and 244 recursively
+audited declarations, including the 26-declaration probe subset; the thirteen
+independently authored boundary assertions compile. Only the three permitted
+axioms occur. The default build succeeds with 9023 jobs. Eight production modules
+and nine contracts are recorded in the canonical manifests. Raw evidence uses
+`evidence/ch10-section4-*`; earlier chapter sources and pins remain unchanged.

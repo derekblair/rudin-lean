@@ -167,3 +167,22 @@ All four initial exterior-derivative proof files were independently read and sem
 | `ExteriorDerivative.lean` | `7fb907283f7a78bf085537d237be64e4ad9b38aa15d1dc91398f9b99b1ead26c` |
 | `ExactOneForms.lean` | `53cd839329a33e16b25824f504befb1ec7dfc03f9844fb6e5c5b78fd1a8c70ba` |
 | `ExteriorDerivativeRules.lean` | `6305a768fb0bd7654545b737a030178d812c1dcaea870178514c355729a9e5b5` |
+
+
+## Compiled change-of-variables reconciliation and section gate
+
+The complete final `ChangeOfVariables.lean` file was independently re-read and accepted at SHA256 `13f65cf7c6656ce2b0165252090ec8a6d0293493a71c72f86cc28a02bd504659`. The contract hash remains unchanged. Final proof corrections explicitly bridge the Euclidean/coordinatized derivative and its typeclass presentations, and preserve the previously reviewed local inverse, support, indicator continuity, and native/measure integral argument. `evidence/ch10-change-of-variables-probes-compile.log` records successful compilation of the production module and both independent reflection clients. Their frozen probe file SHA256 is `5b58f2cde3763635cdf1ee9507603e4a0af531dcaa954f780ec11f5b7eebc4d8`. At root's request the canonical accepted-contract snapshot and reviewed-production manifest now extend through 10.9 only, with eight production modules and nine numbered principals; every earlier production hash was rechecked against disk.
+
+## Exact pullback contract acceptance
+
+The full `SurfaceMaps.lean` constructors and exact 10.21-10.25 contracts in `Pullbacks.lean` are independently accepted. The surface map construction restricts its regularity neighborhood to its intersection with the target preimage; its native domain and actual composite map are preserved. The identity parameter surface retains the original native domain, using the explicit coordinate/Euclidean equivalence. The all-ordered coefficient formula is a faithful generalization of the standard representation alongside 10.14; scalar pullback is explicit. Pullback regularity and all native integrability conclusions are included. Composition has the correct contravariant order, and differentiation uses precisely C1 form/C2 map regularity. No injectivity, nonzero Jacobian, nonempty set, or positive dimension is imposed. Initial accepted SurfaceMaps SHA256: `57cef14a2c52733a6aea2d410f1aed3101031d524ffa49f75fd65d093d1c3dde`; Pullbacks SHA256: `43e60a43270bbc18999139d16d195fc08f1a909800517b4e48e7f1bc3bfa5aeb`.
+
+| Accepted contract | SHA256 |
+| --- | --- |
+| `pma10_21_contract` | `88dd9ed877e8c06fec48765c26afe689b46072b8554d3360b245ecc458551585` |
+| `pma10_22_contract` | `e74d14887f8f9687dab2eff9de039adf29368d871e04ef92a53b1ef1b9b3d84b` |
+| `pma10_23_contract` | `1e618011a23e88fd47e968e1e59f8428bb2955f1df2c555f9d19519257f0855a` |
+| `pma10_24_contract` | `4d9a697387cdcc37fd2591f6873bcff832439223d188afd33cbffbab91466df4` |
+| `pma10_25_contract` | `d8977f02e88599ef463e6e6911ff64d24edc2b7a3bf4dfa656af04e82b0f4599` |
+
+The independently authored `FormAlgebraProbes.lean` and `ExteriorDerivativeProbes.lean` provide six additional clients: nonsorted two-form product sign, nonzero coefficient detected by an actual natively integrable surface, cancellation in the displayed raw form, scalar differential evaluation on a mixed-sign tangent, nonlinear curve endpoint integration on [-1,2], and C1-only one-form self-product differentiation. They await root compilation.
