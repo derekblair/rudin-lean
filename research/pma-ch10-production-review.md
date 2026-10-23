@@ -57,3 +57,17 @@ permitted axioms occur. The default build succeeds with 9019 jobs. Raw logs and
 integrity receipts use `evidence/ch10-section2-*`; reviewed manifests now contain
 six production modules and seven accepted contracts. Earlier source and pin
 preservation checks remain in force.
+
+## Finite partitions of unity: 10.8
+
+`Partition.lean` supplies a finite continuous partition subordinate to an arbitrary
+open cover, with closed supports and the global compact-support decomposition.
+Two independent clients cover the empty compact set and a two-set cover of a
+nonempty compact interval. The canonical manifest now records seven reviewed
+production modules and eight accepted contracts.
+
+The cumulative audit checks eight actual principal theorems and contract
+comparisons, and 219 recursively audited declarations including the 19-declaration
+probe subset. Only the three permitted axioms occur. The default build succeeds
+with 9021 jobs. Raw logs and integrity receipts use `evidence/ch10-section3-*`.
+All 82 earlier chapter sources and the three pinned project files are preserved.

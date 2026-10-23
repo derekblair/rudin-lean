@@ -143,3 +143,27 @@ Following root's report of the local 10.1-10.4 commit and successful section aud
 
 
 The complete initial `WedgeProducts.lean` proof draft is semantically accepted at SHA256 `43456b72bca883e091592558b52a3b48d521bf46e81926d4e9ba3257f74f5628`. Its sign argument splits the literal tuple-sign product into within-block factors and cross-block factors, then counts exactly the negative cross differences. It identifies the sorted disjoint union by its actual range. Product coefficient continuity and the standard double expansion are proved from finite sums, and homogeneous expansions justify the graded exchange law. Compiler corrections and final hash reconciliation remain pending.
+
+
+## Section gate through 10.8
+
+After root reported local commit `20bf93b33aa9666a69d26c4053498c3b9fb32729` for 10.5-10.7 and successful source/audit/default gates, the canonical review records were extended through 10.8 only. The Partition file and contract hashes match the earlier independent accepted snapshots exactly; all previously recorded production hashes were also rechecked. The canonical manifest now contains seven modules and eight numbered principals.
+
+
+## Pullback architecture and source requirements
+
+Printed pp.262-266 were re-rendered in memory to confirm the 10.21-10.25 requirements. `PullbackAlgebra.lean` was independently read at SHA256 `f757098596f2d9d52cfba047a7d867c35d138a6ba5c4fde4f757f9f4b2346294`. Its actual derivative induces a covector pullback and then the exterior-algebra map; the pairing, contravariant composition, scalar, sum, wedge, and coordinate-product identities preserve the source meaning. This is architectural acceptance, not acceptance of yet-unwritten numbered contracts.
+
+The numbered statements must keep C1 map regularity restricted to the open source set and a maps-into-target premise, with no injectivity or rank premise. The 10.21 coefficient formula must connect the algebra map to the standard composed-coefficient/product-of-coordinate-differentials expression and prove continuous homogeneous regularity. The 10.22 commutation with d requires C1 forms and a C2 map. The 10.23 composite uses three open domains and contravariant order. The 10.24 identity parametrization has the exact same cell or simplex domain as the original surface, with explicit Coord/Euclidean conversion and native integral existence. The 10.25 composed surface must be constructed using an open-neighborhood restriction/preimage; no premise may require the arbitrarily chosen ambient extension to map globally into the target. Its integral equality and both native integrability assertions must cover noninjective and degenerate maps, including dimension zero.
+
+
+## Exterior derivative proof-draft review
+
+All four initial exterior-derivative proof files were independently read and semantically accepted. Coordinate differentiation is connected to actual Frechet derivatives, with open-set locality and C2 mixed symmetry proved at each point. The derivative of a form is expanded in the fixed finite basis; wrong-degree coefficients vanish locally, preserving homogeneity. Coefficient regularity is reduced by exactly one order. The curve theorem first proves native integrability and the one-dimensional native/interval-integral equality, then applies the endpoint theorem to the actual scalar composite. A genuine closed ellipse with nonzero integral disproves global exactness of x dy. The product rule differentiates the finite coefficient expansion and inserts its sign only when moving a coordinate differential past the first homogeneous form. The second derivative is an explicit mixed-partial sum, whose antisymmetry cancels in characteristic zero. All three accepted contract hashes remain unchanged. These are draft-semantic snapshots, not claims that these four files have compiled.
+
+| Initial reviewed proof file | SHA256 |
+| --- | --- |
+| `CoordinateDifferentiation.lean` | `28e818daf01b4ac68bbeb070f679fadddaa131db5835f607da809781722c4be4` |
+| `ExteriorDerivative.lean` | `7fb907283f7a78bf085537d237be64e4ad9b38aa15d1dc91398f9b99b1ead26c` |
+| `ExactOneForms.lean` | `53cd839329a33e16b25824f504befb1ec7dfc03f9844fb6e5c5b78fd1a8c70ba` |
+| `ExteriorDerivativeRules.lean` | `6305a768fb0bd7654545b737a030178d812c1dcaea870178514c355729a9e5b5` |

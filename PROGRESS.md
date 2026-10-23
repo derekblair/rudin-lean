@@ -16,7 +16,7 @@ All completed nodes have zero proof placeholders.
 | 07 | Sequences and Series of Functions | 33 / 33 |
 | 08 | Some Special Functions | 6 / 22 |
 | 09 | Functions of Several Variables | 43 / 43 |
-| 10 | Integration of Differential Forms | 7 / 51 |
+| 10 | Integration of Differential Forms | 8 / 51 |
 | 11 | The Lebesgue Theory | 0 |
 
 Chapter 1 is complete. Each target has its own local `PMA-1.x done` commit,
@@ -126,3 +126,6 @@ book order and are not counted until their production gates pass. The full
 
 The next Chapter 10 section adds primitive-map derivatives, flips and coordinate
 projections, and the full local factorization theorem at 10.5–10.7.
+
+Node 10.8 adds a finite continuous partition subordinate to an arbitrary open
+cover, with closed supports and the global compact-support decomposition.

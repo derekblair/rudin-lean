@@ -1,7 +1,7 @@
 {
   "reviewer": "ch8_fidelity",
   "date": "2026-10-23",
-  "status": "Independent semantic acceptance of exact Chapter10 contracts 1-7; production compilation and probes are separate gates.",
+  "status": "Independent semantic acceptance of exact Chapter10 contracts 1-8; production compilation and probes are separate gates.",
   "extraction": "Declaration text from def through final term; trailing whitespace normalized to one newline; excludes subsequent declaration/comment.",
   "files": [
     {
@@ -41,6 +41,16 @@
         "pma10_7_contract": {
           "sha256": "7cea87365f33e76f6789c15c30108c3ec2606f3f8506fca3ae2489993aeb0954",
           "text": "def pma10_7_contract : Prop :=\n  ∀ (n : ℕ), 0 < n → ∀ (E : Set (Euclidean n)) (F : Euclidean n → Euclidean n),\n    IsOpen E → (0 : Euclidean n) ∈ E → C1On F E → F 0 = 0 →\n    (fderiv ℝ F 0).IsInvertible →\n    ∃ (G : List (Euclidean n → Euclidean n)) (B : List (Operator n n))\n      (U : Set (Euclidean n)),\n      G.length = n ∧ B.length = n - 1 ∧\n      (∀ g ∈ G, PrimitiveNearZero g) ∧\n      (∀ b ∈ B, IsFlip b ∨ b = ContinuousLinearMap.id ℝ (Euclidean n)) ∧\n      IsOpen U ∧ (0 : Euclidean n) ∈ U ∧ U ⊆ E ∧\n      EqOn F (composeMaps ((B.map (fun (b : Operator n n) =>\n        (b : Euclidean n → Euclidean n))) ++ G)) U\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Partition.lean",
+      "file_sha256": "5d4a4e66629b73912921920fc23af3118763843dfbdf8f15d3dba06ae266a1b5",
+      "contracts": {
+        "pma10_8_contract": {
+          "sha256": "b44bdfd047fd1951676108ba2015ca8df80df812d39f47221de76d1b23ca9497",
+          "text": "def pma10_8_contract : Prop :=\n  ∀ (n : ℕ) (ι : Type) (K : Set (Euclidean n)) (V : ι → Set (Euclidean n)),\n    IsCompact K → (∀ i, IsOpen (V i)) → K ⊆ ⋃ i, V i →\n    ∃ (s : Finset ι) (ψ : s → C(Euclidean n, ℝ)),\n      (∀ i x, ψ i x ∈ Icc (0 : ℝ) 1) ∧\n      (∀ i, tsupport (ψ i) ⊆ V i) ∧\n      (∀ x ∈ K, ∑ i, ψ i x = 1) ∧\n      (∀ f : C(Euclidean n, ℝ), tsupport f ⊆ K →\n        (∀ x, f x = ∑ i, ψ i x * f x) ∧\n        ∀ i, Continuous (fun x => ψ i x * f x) ∧\n          tsupport (fun x => ψ i x * f x) ⊆ V i)\n"
         }
       }
     }

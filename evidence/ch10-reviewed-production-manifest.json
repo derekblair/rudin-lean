@@ -1,9 +1,9 @@
 {
-  "scope": "Independently reviewed frozen Chapter10 integration and primitive-decomposition sections, nodes 1-7; integration index, audits and probes are separate gates.",
+  "scope": "Independently reviewed frozen Chapter10 integration, primitive-decomposition, and partition sections, nodes 1-8; integration index, audits and probes are separate gates.",
   "date": "2026-10-23",
-  "production_module_count": 6,
-  "numbered_principal_count": 7,
-  "kernel_status": "All six modules compiled successfully in the parent serialized build process. Reviewer ran no builds.",
+  "production_module_count": 7,
+  "numbered_principal_count": 8,
+  "kernel_status": "All seven modules compiled successfully in the parent serialized build process. Reviewer ran no builds.",
   "reviewer_authorship_exception": "None: ch8_fidelity authored no Chapter10 production module.",
   "files": [
     {
@@ -59,6 +59,16 @@
         "PMA-10.5",
         "PMA-10.6",
         "PMA-10.7"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Partition.lean",
+      "sha256": "5d4a4e66629b73912921920fc23af3118763843dfbdf8f15d3dba06ae266a1b5",
+      "principal_nodes": [
+        "PMA-10.8"
       ],
       "independent_reviewer": "ch8_fidelity",
       "review_evidence": "research/pma-ch10-source-review.md",

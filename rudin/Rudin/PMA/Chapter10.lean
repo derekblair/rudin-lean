@@ -1,5 +1,6 @@
 import Rudin.PMA.Chapter10.Simplex
 import Rudin.PMA.Chapter10.Primitive
+import Rudin.PMA.Chapter10.Partition
 
 /-!
 # PMA Chapter 10: Integration of Differential Forms
@@ -37,6 +38,10 @@ Principal proof: `pma10_6`. Definitions and proofs: `Chapter10/Primitive.lean`.
 
 /-! ### PMA-10.7
 Principal proof: `pma10_7`. Definitions and proofs: `Chapter10/Primitive.lean`.
+-/
+
+/-! ### PMA-10.8
+Principal proof: `pma10_8`. Definitions and proofs: `Chapter10/Partition.lean`.
 -/
 
 end Rudin.PMA.Chapter10
