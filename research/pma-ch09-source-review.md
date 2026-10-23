@@ -2,7 +2,7 @@
 
 Reviewer: `ch8_fidelity`, 2026-10-23. Source: the existing authorized read-only third-edition PDF `/home/derekblair/projects/math/references/sources/pma3.pdf`. Printed pp.204-238 correspond to PDF pp.213-247. Printed p.239 (PDF p.248) was inspected to establish the exercise boundary. Every chapter page was rendered in memory with `pdftoppm` and visually inspected under the PDF skill. No PDF copy, rendered page file, extracted proof text, or extended source exposition was saved. The companion `pma-ch09-inventory.md` contains brief mathematical paraphrases only.
 
-`PROGRAM.md` and the repository progress/queue conventions were read. The parent coordinates the new user-authorized Chapter 9 lane on the existing branch, local commits only; this independent reviewer performs no build, Lean/lake invocation, git mutation, or production-proof edit. This source review is not evidence of kernel verification.
+`PROGRAM.md` and the repository progress/queue conventions were read. The parent coordinates the new user-authorized Chapter 9 lane on the existing branch, local commits only. During the initial full-source inventory and contract review this reviewer made no production-proof edits. The parent subsequently assigned this reviewer proof authorship of node 9.21 and its Mathlib import bridge; the parent independently reviews those files. Reviews of the remaining nodes remain independent of their authorship. This reviewer performs no build, Lean/lake invocation, or git mutation. This source review is not evidence of kernel verification.
 
 ## Census and page mapping
 

@@ -1,10 +1,13 @@
 import Rudin.PMA.Chapter09.Linear
+import Rudin.PMA.Chapter09.Differentiation
+import Rudin.PMA.Chapter09.PartialExamples
+import Rudin.PMA.Chapter09.C1Partials
 
 /-!
 # Chapter 9: Functions of Several Variables
 
-The opening linear-algebra section is verified below. Later nodes remain under
-development; their inventory is in `research/pma-ch09-inventory.md`.
+Verified numbered nodes are indexed below in book order. The full inventory
+and independent source/contract reviews are recorded in `research` and `evidence`.
 -/
 
 /-! ### PMA-9.1: `Rudin.PMA.Chapter09.pma9_1`. -/
@@ -16,3 +19,15 @@ development; their inventory is in `research/pma-ch09-inventory.md`.
 /-! ### PMA-9.7: `Rudin.PMA.Chapter09.pma9_7`. -/
 /-! ### PMA-9.8: `Rudin.PMA.Chapter09.pma9_8`. -/
 /-! ### PMA-9.9: `Rudin.PMA.Chapter09.pma9_9`. -/
+/-! ### PMA-9.10: `Rudin.PMA.Chapter09.pma9_10`. -/
+/-! ### PMA-9.11: `Rudin.PMA.Chapter09.pma9_11`. -/
+/-! ### PMA-9.12: `Rudin.PMA.Chapter09.pma9_12`. -/
+/-! ### PMA-9.13: `Rudin.PMA.Chapter09.pma9_13`. -/
+/-! ### PMA-9.14: `Rudin.PMA.Chapter09.pma9_14`. -/
+/-! ### PMA-9.15: `Rudin.PMA.Chapter09.pma9_15`. -/
+/-! ### PMA-9.16: `Rudin.PMA.Chapter09.pma9_16`. -/
+/-! ### PMA-9.17: `Rudin.PMA.Chapter09.pma9_17`. -/
+/-! ### PMA-9.18: `Rudin.PMA.Chapter09.pma9_18`. -/
+/-! ### PMA-9.19: `Rudin.PMA.Chapter09.pma9_19`. -/
+/-! ### PMA-9.20: `Rudin.PMA.Chapter09.pma9_20`. -/
+/-! ### PMA-9.21: `Rudin.PMA.Chapter09.pma9_21`. -/
