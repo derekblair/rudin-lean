@@ -4,6 +4,9 @@ import Rudin.PMA.Chapter09.DifferentiationProbes
 import Rudin.PMA.Chapter09.FixedPointProbes
 import Rudin.PMA.Chapter09.InverseProbes
 import Rudin.PMA.Chapter09.ImplicitProbes
+import Rudin.PMA.Chapter09.AlgebraProbes
+import Rudin.PMA.Chapter09.RankObliqueProbes
+import Rudin.PMA.Chapter09.DeterminantProbes
 import Rudin.PMA.Chapter01Audit
 
 set_option autoImplicit false
@@ -38,16 +41,25 @@ example : pma9_26_contract := pma9_26
 example : pma9_27_contract := pma9_27
 example : pma9_28_contract := pma9_28
 example : pma9_29_contract := pma9_29
+example : pma9_30_contract := pma9_30
+example : pma9_31_contract := pma9_31
+example : pma9_32_contract := pma9_32
+example : pma9_33_contract := pma9_33
+example : pma9_34_contract := pma9_34
+example : pma9_35_contract := pma9_35
+example : pma9_36_contract := pma9_36
+example : pma9_37_contract := pma9_37
+example : pma9_38_contract := pma9_38
 end Rudin.PMA.Chapter09.ContractComparators
 
 run_cmd do
   let env ← Lean.getEnv
-  for i in List.range 29 do
+  for i in List.range 38 do
     let n := Lean.Name.str `Rudin.PMA.Chapter09 ("pma9_" ++ toString (i + 1))
     match env.find? n with
     | some (.thmInfo _) => pure ()
     | _ => throwError "Missing completed Chapter 9 proof: {n}"
-  Lean.logInfo "PMA Chapter 9 coverage: 29 principal theorems and 29 contract type comparisons."
+  Lean.logInfo "PMA Chapter 9 coverage: 38 principal theorems and 38 contract type comparisons."
 
 run_cmd Rudin.PMA.Audit.checkNamespaceAxioms `Rudin.PMA.Chapter09
 run_cmd Rudin.PMA.Audit.checkNamespaceAxioms `Rudin.PMA.Chapter09.FidelityProbes
