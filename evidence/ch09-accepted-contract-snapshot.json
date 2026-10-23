@@ -1,0 +1,228 @@
+{
+  "reviewer": "ch8_fidelity",
+  "status": "semantic contract review; compilation separate; node9.21 authorship transferred to reviewer after initial acceptance and requires root independent review",
+  "files": [
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Differentiation.lean",
+      "file_sha256": "b13f3c1b9570a833f28215fcabd6386886f329f9b80a622d3f2125c933a5f7ad",
+      "contracts": {
+        "pma9_10_contract": {
+          "sha256": "12f06002da0c5d2f871ac890b62d0e6f75302103b300c29039de735291c5dcdc",
+          "text": "def pma9_10_contract : Prop :=\n  (\u2200 m (f : \u211d \u2192 Euclidean m) x y,\n    HasDerivAt f y x \u2194 HasTotalDerivative f ((1 : \u211d \u2192L[\u211d] \u211d).smulRight y) x) \u2227\n  (\u2200 (f : \u211d \u2192 \u211d) x y,\n    HasDerivAt f y x \u2194 HasTotalDerivative f ((1 : \u211d \u2192L[\u211d] \u211d).smulRight y) x) \u2227\n  (\u2200 m (A : \u211d \u2192L[\u211d] Euclidean m) h, A h = h \u2022 A 1)\n"
+        },
+        "pma9_11_contract": {
+          "sha256": "c80a12f8203ff09c81b14dcaf7ea28061658c1732e672a85d8709343069d563c",
+          "text": "def pma9_11_contract : Prop :=\n  (\u2200 n m (f : Euclidean n \u2192 Euclidean m) A x,\n    HasTotalDerivative f A x \u2194 HasFDerivAt f A x) \u2227\n  (\u2200 n m (f : Euclidean n \u2192 Euclidean m) (E : Set (Euclidean n)),\n    IsOpen E \u2192 (TotalDifferentiableOn f E \u2194 DifferentiableOn \u211d f E))\n"
+        },
+        "pma9_12_contract": {
+          "sha256": "4da54f3c774e35df5e9cae6e66f8368017a16312c8382eeb55ce6aa2edbff014",
+          "text": "def pma9_12_contract : Prop :=\n  \u2200 n m (f : Euclidean n \u2192 Euclidean m) A B x,\n    HasTotalDerivative f A x \u2192 HasTotalDerivative f B x \u2192 A = B\n"
+        },
+        "pma9_13_contract": {
+          "sha256": "69278613a83df721493a2487b9d0d9887f56090729d9194079f609c999b35859",
+          "text": "def pma9_13_contract : Prop :=\n  (\u2200 n m (f : Euclidean n \u2192 Euclidean m) A x,\n    HasTotalDerivative f A x \u2194\n      (fun h => f (x + h) - f x - A h) =o[\ud835\udcdd 0] (fun h => h)) \u2227\n  (\u2200 n m (f : Euclidean n \u2192 Euclidean m) A x,\n    HasTotalDerivative f A x \u2192 ContinuousAt f x) \u2227\n  (\u2200 n m (f : Euclidean n \u2192 Euclidean m) A x,\n    HasTotalDerivative f A x \u2192 fderiv \u211d f x = A)\n"
+        },
+        "pma9_14_contract": {
+          "sha256": "d34647ae6fbeb610e7c15bb78f9fff2421e066bc9510aa7fb1722876dcad85f6",
+          "text": "def pma9_14_contract : Prop :=\n  \u2200 n m (A : Euclidean n \u2192L[\u211d] Euclidean m) x,\n    HasTotalDerivative A A x \u2227 fderiv \u211d A x = A\n"
+        },
+        "pma9_15_contract": {
+          "sha256": "d670410c70ab2ac0d2e3949c4d922766cbaa86d0b30250b6a9ada48da9ddcc7a",
+          "text": "def pma9_15_contract : Prop :=\n  \u2200 n m k (E : Set (Euclidean n)) (U : Set (Euclidean m))\n    (f : Euclidean n \u2192 Euclidean m) (g : Euclidean m \u2192 Euclidean k) x A B,\n    IsOpen E \u2192 IsOpen U \u2192 x \u2208 E \u2192 f x \u2208 U \u2192\n    HasTotalDerivative f A x \u2192 HasTotalDerivative g B (f x) \u2192\n    HasTotalDerivative (g \u2218 f) (B.comp A) x\n"
+        },
+        "pma9_16_contract": {
+          "sha256": "18af24c6f0cd6bf2bc4113c4622257da4b3458d5f34102c376a082a64b8a2583",
+          "text": "def pma9_16_contract : Prop :=\n  (\u2200 n (f : Euclidean n \u2192 \u211d) x j d,\n    HasCoordinatePartial f x j d \u2194\n      Tendsto (fun t : \u211d => (f (x + t \u2022 coordinateVector n j) - f x) / t)\n        (\ud835\udcdd[\u2260] 0) (\ud835\udcdd d)) \u2227\n  (\u2203 f : Euclidean 2 \u2192 \u211d,\n    (\u2200 x j, \u2203 d, HasCoordinatePartial f x j d) \u2227\n    (\u2200 j, HasCoordinatePartial f 0 j 0) \u2227 \u00ac ContinuousAt f 0) \u2227\n  (\u2203 f : Euclidean 2 \u2192 \u211d,\n    Continuous f \u2227 (\u2200 x j, \u2203 d, HasCoordinatePartial f x j d) \u2227\n    (\u2200 j, HasCoordinatePartial f 0 j 0) \u2227 \u00ac DifferentiableAt \u211d f 0)\n"
+        },
+        "pma9_17_contract": {
+          "sha256": "c8222396a8735a7ff9e1e4f8eef70cf0ea0e40bdd7cbbc0a595630466a9e290c",
+          "text": "def pma9_17_contract : Prop :=\n  \u2200 n m (f : Euclidean n \u2192 Euclidean m) A x,\n    HasTotalDerivative f A x \u2192\n    (\u2200 i j, HasCoordinatePartial (fun y => f y i) x j (A (coordinateVector n j) i)) \u2227\n    (\u2200 i j, componentPartial f x i j = A (coordinateVector n j) i) \u2227\n    (\u2200 h, A h = \u2211 i, (\u2211 j, componentPartial f x i j * h j) \u2022 coordinateVector m i)\n"
+        },
+        "pma9_18_contract": {
+          "sha256": "ea86ebf93028871514b35870185e0c3e64a32ab73e97508969fc91e296ace7c4",
+          "text": "def pma9_18_contract : Prop :=\n  (\u2200 n (f : Euclidean n \u2192 \u211d) (\u03b3 : \u211d \u2192 Euclidean n) (E : Set (Euclidean n))\n    a b t v, IsOpen E \u2192 MapsTo \u03b3 (Ioo a b) E \u2192 t \u2208 Ioo a b \u2192\n    (\u2200 x \u2208 E, DifferentiableAt \u211d f x) \u2192 HasDerivAt \u03b3 v t \u2192\n    HasDerivAt (f \u2218 \u03b3) (\u2211 j, coordinatePartial f (\u03b3 t) j * v j) t \u2227\n    HasDerivAt (f \u2218 \u03b3) (inner \u211d (sourceGradient f (\u03b3 t)) v) t) \u2227\n  (\u2200 n (f : Euclidean n \u2192 \u211d) x, DifferentiableAt \u211d f x \u2192\n    (\u2200 u, HasDerivAt (fun t : \u211d => f (x + t \u2022 u))\n      (inner \u211d (sourceGradient f x) u) 0) \u2227\n    (\u2200 u, \u2016u\u2016 = 1 \u2192 inner \u211d (sourceGradient f x) u \u2264 \u2016sourceGradient f x\u2016) \u2227\n    (sourceGradient f x \u2260 0 \u2192\n      \u2016(\u2016sourceGradient f x\u2016\u207b\u00b9 : \u211d) \u2022 sourceGradient f x\u2016 = 1 \u2227\n      inner \u211d (sourceGradient f x)\n        ((\u2016sourceGradient f x\u2016\u207b\u00b9 : \u211d) \u2022 sourceGradient f x) = \u2016sourceGradient f x\u2016))\n"
+        },
+        "pma9_19_contract": {
+          "sha256": "23ea189e64c18f6c4543da6dbc362077f8d691d8e739c590115479bbf03c2edf",
+          "text": "def pma9_19_contract : Prop :=\n  (\u2200 n m (f : Euclidean n \u2192 Euclidean m) (E : Set (Euclidean n)) M,\n    IsOpen E \u2192 Convex \u211d E \u2192 (\u2200 x \u2208 E, DifferentiableAt \u211d f x) \u2192\n    (\u2200 x \u2208 E, \u2016fderiv \u211d f x\u2016 \u2264 M) \u2192\n    \u2200 a \u2208 E, \u2200 b \u2208 E, \u2016f b - f a\u2016 \u2264 M * \u2016b - a\u2016) \u2227\n  (\u2200 n m (f : Euclidean n \u2192 Euclidean m) (E : Set (Euclidean n)),\n    IsOpen E \u2192 Convex \u211d E \u2192 (\u2200 x \u2208 E, DifferentiableAt \u211d f x) \u2192\n    (\u2200 x \u2208 E, fderiv \u211d f x = 0) \u2192 \u2200 a \u2208 E, \u2200 b \u2208 E, f a = f b)\n"
+        },
+        "pma9_20_contract": {
+          "sha256": "05e36fa656f767b9ea9dd99b6ebc6f60029946d726f8cc36117ea8647c76a861",
+          "text": "def pma9_20_contract : Prop :=\n  (\u2200 n m (f : Euclidean n \u2192 Euclidean m) (E : Set (Euclidean n)),\n    IsOpen E \u2192 (C1On f E \u2194 ContDiffOn \u211d 1 f E)) \u2227\n  (\u2200 n m (f : Euclidean n \u2192 Euclidean m) (E : Set (Euclidean n)),\n    C1On f E \u2194 (\u2200 x \u2208 E, DifferentiableAt \u211d f x) \u2227\n      \u2200 x \u2208 E, \u2200 \u03b5 > 0, \u2203 \u03b4 > 0, \u2200 y \u2208 E,\n        \u2016y - x\u2016 < \u03b4 \u2192 \u2016fderiv \u211d f y - fderiv \u211d f x\u2016 < \u03b5)\n"
+        },
+        "pma9_21_contract": {
+          "sha256": "adac4db4bfaee1a101f146faeaecf3a19f37209ab368bb13d547e6eb5e9f5abb",
+          "text": "def pma9_21_contract : Prop :=\n  \u2200 n m (f : Euclidean n \u2192 Euclidean m) (E : Set (Euclidean n)),\n    IsOpen E \u2192 (C1On f E \u2194 ContinuousPartialsOn f E)\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/FixedPoint.lean",
+      "file_sha256": "601d48010cf34dddd5af23d1e292335e79bf1527c48fc5268a5428a7fe52a0e1",
+      "contracts": {
+        "pma9_22_contract": {
+          "sha256": "9bbed5e7a3121ef0463e675d4ef84cafa7ec40d60a37e522b7dfb8b3cab66f9d",
+          "text": "def pma9_22_contract : Prop :=\n  \u2200 (X : Type*) [MetricSpace X] (f : X \u2192 X),\n    (IsContraction f \u2194 \u2203 c : \u211d\u22650, ContractingWith c f) \u2227\n    (IsContraction f \u2192 Continuous f)\n\n/-- The nonempty hypothesis is explicit: an empty complete metric space has no\nfixed point. This is the necessary nonempty reading of the source statement. -/\n"
+        },
+        "pma9_23_contract": {
+          "sha256": "0fe3c2dbfa8ffc4aa03682bfb47c2c8c413aeaf3466319b2b562eb8c0bbca5a3",
+          "text": "def pma9_23_contract : Prop :=\n  \u2200 (X : Type*) [MetricSpace X] [CompleteSpace X] [Nonempty X] (f : X \u2192 X),\n    IsContraction f \u2192 \u2203 p : X, f p = p \u2227 (\u2200 q : X, f q = q \u2192 q = p) \u2227\n      \u2200 x : X, Tendsto (fun n : \u2115 => f^[n] x) atTop (\ud835\udcdd p)\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Inverse.lean",
+      "file_sha256": "c8457e500795a3d7fc7dcd59d4ff0a18d65ff4b82d2d726a163f180919c08796",
+      "contracts": {
+        "pma9_24_contract": {
+          "sha256": "cb43952c16a1f0d5e183775e1c6a630846db35960a5bc920a8a7bf0427598b5f",
+          "text": "def pma9_24_contract : Prop :=\n  (\u2200 n (E : Set (Euclidean n)) (f : Euclidean n \u2192 Euclidean n) a,\n    IsOpen E \u2192 a \u2208 E \u2192 C1On f E \u2192 (fderiv \u211d f a).IsInvertible \u2192\n    \u2203 e : OpenPartialHomeomorph (Euclidean n) (Euclidean n),\n      InverseNeighborhood f E a e \u2227 C1On e.symm e.target \u2227\n      \u2200 y \u2208 e.target,\n        HasFDerivAt e.symm (fderiv \u211d f (e.symm y)).inverse y) \u2227\n  (\u2200 n (E : Set (Euclidean n)) (f : Euclidean n \u2192 Euclidean n) a,\n    IsOpen E \u2192 a \u2208 E \u2192 (\u2200 x \u2208 E, DifferentiableAt \u211d f x) \u2192\n    ContinuousAt (fderiv \u211d f) a \u2192 (fderiv \u211d f a).IsInvertible \u2192\n    \u2203 e : OpenPartialHomeomorph (Euclidean n) (Euclidean n),\n      InverseNeighborhood f E a e \u2227\n      \u2200 y \u2208 e.target,\n        HasFDerivAt e.symm (fderiv \u211d f (e.symm y)).inverse y)\n"
+        },
+        "pma9_25_contract": {
+          "sha256": "f845813ee075a40e6d4516ea1c1c9248fe4b6784d5ebd5b5f361cda9aca3e4ae",
+          "text": "def pma9_25_contract : Prop :=\n  (\u2200 n (E : Set (Euclidean n)) (f : Euclidean n \u2192 Euclidean n),\n    IsOpen E \u2192 C1On f E \u2192 (\u2200 x \u2208 E, (fderiv \u211d f x).IsInvertible) \u2192\n    (\u2200 W : Set (Euclidean n), IsOpen W \u2192 W \u2286 E \u2192 IsOpen (f '' W)) \u2227\n    \u2200 a \u2208 E, \u2203 U : Set (Euclidean n),\n      IsOpen U \u2227 a \u2208 U \u2227 U \u2286 E \u2227 InjOn f U) \u2227\n  (\u2203 f : Euclidean 2 \u2192 Euclidean 2,\n    C1On f univ \u2227 (\u2200 x, (fderiv \u211d f x).IsInvertible) \u2227 \u00ac Function.Injective f)\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Rank.lean",
+      "file_sha256": "48868cde95bbabc8f43375d4d1564aa582d9db8d8e99bb814c1af99e83214ea8",
+      "contracts": {
+        "pma9_30_contract": {
+          "sha256": "6e17b74f0853e4d993dde40f908cb6e84d3153b79a2ace5c0593ba834a9872ee",
+          "text": "def pma9_30_contract : Prop :=\n  (\u2200 (n m : \u2115) (A : Operator n m),\n    IsLinearSubspace (A.toLinearMap.ker : Set (Euclidean n)) \u2227\n    IsLinearSubspace (A.toLinearMap.range : Set (Euclidean m)) \u2227\n    HasDimension A.toLinearMap.range (operatorRank A) \u2227\n    (operatorRank A = 0 \u2194 A = 0) \u2227\n    (operatorRank A = 0 \u2194 A.toLinearMap.ker = \u22a4)) \u2227\n  (\u2200 (n : \u2115) (A : Operator n n), IsUnit A \u2194 operatorRank A = n)\n"
+        },
+        "pma9_31_contract": {
+          "sha256": "731d3e8b36afad5b969a801ed33ec93edcb8c8e20dd3ac67302f32c1c807a864",
+          "text": "def pma9_31_contract : Prop :=\n  \u2200 (X : Type*) [AddCommGroup X] [Module \u211d X] [FiniteDimensional \u211d X],\n    (\u2200 P : X \u2192\u2097[\u211d] X,\n      (IsProjection P \u2194 \u2200 y \u2208 P.range, P y = y) \u2227\n      (IsProjection P \u2192 \u2200 x : X,\n        \u2203! yz : P.range \u00d7 P.ker, (yz.1 : X) + (yz.2 : X) = x)) \u2227\n    (\u2200 S : Submodule \u211d X, \u2203 P : X \u2192\u2097[\u211d] X, IsProjection P \u2227 P.range = S) \u2227\n    (\u2200 S : Submodule \u211d X, S \u2260 \u22a5 \u2192 S \u2260 \u22a4 \u2192\n      Set.Infinite {P : X \u2192\u2097[\u211d] X | IsProjection P \u2227 P.range = S})\n\n/-- The book's rank-theorem coordinates, retaining the chosen (possibly oblique)\nprojection. The coordinate change goes from `H.source = V` to `H.target = U`. -/\nstructure RankNormalForm {n m : \u2115} (F : Euclidean n \u2192 Euclidean m)\n    (E : Set (Euclidean n)) (a : Euclidean n) (P : Operator m m) where\n  H : OpenPartialHomeomorph (Euclidean n) (Euclidean n)\n  mem_target : a \u2208 H.target\n  target_subset : H.target \u2286 E\n  c1_forward : C1On H H.source\n  c1_inverse : C1On H.symm H.target\n  phi : (fderiv \u211d F a).toLinearMap.range \u2192 P.toLinearMap.ker\n  open_image : IsOpen (rangeMap (fderiv \u211d F a) '' H.source)\n  c1_phi : C1On phi (rangeMap (fderiv \u211d F a) '' H.source)\n  normal_form : \u2200 x \u2208 H.source,\n    F (H x) = fderiv \u211d F a x + phi (rangeMap (fderiv \u211d F a) x)\n"
+        },
+        "pma9_32_contract": {
+          "sha256": "a5e5bc1b982e3c5ca2b30797995f64d4722266fe4eb7f06281c013afc5869dc4",
+          "text": "def pma9_32_contract : Prop :=\n  \u2200 (n m r : \u2115) (E : Set (Euclidean n)) (F : Euclidean n \u2192 Euclidean m)\n      (a : Euclidean n) (P : Operator m m),\n    IsOpen E \u2192 a \u2208 E \u2192 C1On F E \u2192\n    (\u2200 x \u2208 E, operatorRank (fderiv \u211d F x) = r) \u2192\n    IsProjection P.toLinearMap \u2192 P.toLinearMap.range = (fderiv \u211d F a).toLinearMap.range \u2192\n    \u2203 N : RankNormalForm F E a P,\n      r \u2264 min m n \u2227\n      Module.finrank \u211d (fderiv \u211d F a).toLinearMap.ker = n - r \u2227\n      F '' N.H.target =\n        {y | \u2203 z \u2208 rangeMap (fderiv \u211d F a) '' N.H.source,\n          y = (z : Euclidean m) + N.phi z} \u2227\n      BijOn P (F '' N.H.target) ((fderiv \u211d F a) '' N.H.source) \u2227\n      (\u2200 x \u2208 N.H.source, \u2200 y \u2208 N.H.source,\n        F (N.H x) = F (N.H y) \u2194 fderiv \u211d F a x = fderiv \u211d F a y) \u2227\n      (\u2200 x \u2208 N.H.source,\n        {y \u2208 N.H.source | F (N.H y) = F (N.H x)} =\n          {y \u2208 N.H.source | y - x \u2208 (fderiv \u211d F a).toLinearMap.ker}) \u2227\n      (\u2200 x \u2208 N.H.source,\n        {z \u2208 N.H.target | F z = F (N.H x)} =\n          N.H '' {y \u2208 N.H.source | y - x \u2208 (fderiv \u211d F a).toLinearMap.ker})\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Determinants.lean",
+      "file_sha256": "335af88784bdf10e0fa68feb32f2367159e22c3debbc05f6df45c58f1e4f1202",
+      "contracts": {
+        "pma9_33_contract": {
+          "sha256": "61ae6d2cd586b91941ca91fb0a8dcf7230e5781c23716981dee19fca48797d1a",
+          "text": "def pma9_33_contract : Prop :=\n  (\u2200 (n : \u2115) (t : Fin n \u2192 \u2124), tupleSign t = -1 \u2228 tupleSign t = 0 \u2228 tupleSign t = 1) \u2227\n  (\u2200 (n : \u2115) (t : Fin n \u2192 \u2124) (i j : Fin n), i \u2260 j \u2192\n    tupleSign (t \u2218 Equiv.swap i j) = -tupleSign t) \u2227\n  (\u2200 (n : \u2115) (t : Fin n \u2192 \u2124) (i j : Fin n), i \u2260 j \u2192 t i = t j \u2192 tupleSign t = 0) \u2227\n  (\u2200 (n : \u2115) (\u03c3 : Equiv.Perm (Fin n)),\n    tupleSign (fun i => ((\u03c3 i).val : \u2124)) = (\u03c3.sign : \u2124)) \u2227\n  (\u2200 (n : \u2115) (A : Matrix (Fin n) (Fin n) \u211d),\n    A.det = \u2211 t : Fin n \u2192 Fin n,\n      (tupleSign (fun i => ((t i).val : \u2124)) : \u211d) * \u220f i, A i (t i)) \u2227\n  (\u2200 (n : \u2115) (v : Fin n \u2192 Euclidean n),\n    columnDet v = Matrix.det (fun i j => v j i))\n"
+        },
+        "pma9_34_contract": {
+          "sha256": "7581366a184b9ee3286636fc1b61da387c88cbe984e49fe1c3fcb128e94cb6ea",
+          "text": "def pma9_34_contract : Prop :=\n  (\u2200 n : \u2115, Matrix.det (1 : Matrix (Fin n) (Fin n) \u211d) = 1) \u2227\n  (\u2200 (n : \u2115) (A : Matrix (Fin n) (Fin n) \u211d) (j : Fin n)\n      (u v : Fin n \u2192 \u211d) (a b : \u211d),\n    (A.updateCol j (a \u2022 u + b \u2022 v)).det =\n      a * (A.updateCol j u).det + b * (A.updateCol j v).det) \u2227\n  (\u2200 (n : \u2115) (A : Matrix (Fin n) (Fin n) \u211d) (i j : Fin n), i \u2260 j \u2192\n    (A.submatrix id (Equiv.swap i j)).det = -A.det) \u2227\n  (\u2200 (n : \u2115) (A : Matrix (Fin n) (Fin n) \u211d) (i j : Fin n), i \u2260 j \u2192\n    (\u2200 k, A k i = A k j) \u2192 A.det = 0)\n"
+        },
+        "pma9_35_contract": {
+          "sha256": "2d20212400f20e47f5394c13cc694356e281eefd3682c05157903df977649e8c",
+          "text": "def pma9_35_contract : Prop :=\n  \u2200 (n : \u2115) (A B : Matrix (Fin n) (Fin n) \u211d), (B * A).det = B.det * A.det\n"
+        },
+        "pma9_36_contract": {
+          "sha256": "8b4781344d8d21829f0c1a200af1f8d7d28e2d050c2d4db3052c7957a0717879",
+          "text": "def pma9_36_contract : Prop :=\n  \u2200 (n : \u2115) (A : Operator n n), IsUnit A \u2194 (operatorMatrix A).det \u2260 0\n"
+        },
+        "pma9_37_contract": {
+          "sha256": "68d6db568b7e66d2e6497b3d658588f8a50288fe8a59c60891d24d066499a5f5",
+          "text": "def pma9_37_contract : Prop :=\n  \u2200 (X : Type*) [AddCommGroup X] [Module \u211d X] (n : \u2115)\n      (b c : Basis (Fin n) \u211d X) (A : X \u2192\u2097[\u211d] X),\n    LinearMap.toMatrix c b LinearMap.id * LinearMap.toMatrix c c A =\n      LinearMap.toMatrix b b A * LinearMap.toMatrix c b LinearMap.id \u2227\n    (LinearMap.toMatrix b b A).det = (LinearMap.toMatrix c c A).det \u2227\n    (LinearMap.toMatrix b b A).det = LinearMap.det A\n"
+        },
+        "pma9_38_contract": {
+          "sha256": "84fc0551fb2c6b319ffeed1d621265ecdcf38fb072900d9be3ea738685a6991d",
+          "text": "def pma9_38_contract : Prop :=\n  (\u2200 (n : \u2115) (f : Euclidean n \u2192 Euclidean n) (x : Euclidean n),\n    DifferentiableAt \u211d f x \u2192\n      jacobian f x = LinearMap.det (fderiv \u211d f x).toLinearMap \u2227\n      ((fderiv \u211d f x).IsInvertible \u2194 jacobian f x \u2260 0)) \u2227\n  (\u2200 (n m : \u2115) (f : Euclidean n \u00d7 Euclidean m \u2192 Euclidean n)\n      (z : Euclidean n \u00d7 Euclidean m), DifferentiableAt \u211d f z \u2192\n    (((fderiv \u211d f z).comp\n      (ContinuousLinearMap.inl \u211d (Euclidean n) (Euclidean m))).IsInvertible \u2194\n        partialJacobian f z \u2260 0))\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/HigherDerivatives.lean",
+      "file_sha256": "8a187a739565ded3ecd4388f929cfe4698927b2f6614870203be72c396c7c4aa",
+      "contracts": {
+        "pma9_39_contract": {
+          "sha256": "7dcd1e201ca003a28861039c017c0aed17fe7f3b411a1b791e881947c60e7e69",
+          "text": "def pma9_39_contract : Prop :=\n  (\u2200 n (f : Euclidean n \u2192 \u211d) x i j,\n    secondCoordinatePartial f x i j =\n      coordinatePartial (fun y => coordinatePartial f y j) x i) \u2227\n  (\u2200 n m (f : Euclidean n \u2192 Euclidean m) E,\n    ComponentC2On f E \u2194 \u2200 i, ScalarC2On (fun x => f x i) E) \u2227\n  (\u2203 (f : Euclidean 2 \u2192 \u211d) a b,\n    (\u2200 x j, \u2203 d, HasCoordinatePartial f x j d) \u2227\n    HasCoordinatePartial (fun y => coordinatePartial f y 0) 0 1 a \u2227\n    HasCoordinatePartial (fun y => coordinatePartial f y 1) 0 0 b \u2227 a \u2260 b)\n"
+        },
+        "pma9_40_contract": {
+          "sha256": "3c38ef5fd1aa96a76cecb01bb24fe4ccdc065afb9b4283946448aa25b183bf74",
+          "text": "def pma9_40_contract : Prop :=\n  \u2200 (f : Euclidean 2 \u2192 \u211d) (E : Set (Euclidean 2)) a b h k,\n    IsOpen E \u2192 h \u2260 0 \u2192 k \u2260 0 \u2192 coordinateRectangle a b h k \u2286 E \u2192\n    (\u2200 p \u2208 E, \u2203 d, HasCoordinatePartial f p 0 d) \u2192\n    (\u2200 p \u2208 E, \u2203 d, HasCoordinatePartial (fun q => coordinatePartial f q 0) p 1 d) \u2192\n    \u2203 x \u2208 uIoo a (a + h), \u2203 y \u2208 uIoo b (b + k),\n      f (planePoint (a + h) (b + k)) - f (planePoint (a + h) b) -\n        f (planePoint a (b + k)) + f (planePoint a b) =\n          h * k * secondCoordinatePartial f (planePoint x y) 1 0\n"
+        },
+        "pma9_41_contract": {
+          "sha256": "effb8c452eed0737885107464a0b626b86835b6881febf72a3ed63c36d412871",
+          "text": "def pma9_41_contract : Prop :=\n  (\u2200 (f : Euclidean 2 \u2192 \u211d) (E : Set (Euclidean 2)) (p : Euclidean 2),\n    IsOpen E \u2192 p \u2208 E \u2192\n    (\u2200 q \u2208 E, \u2203 d, HasCoordinatePartial f q 0 d) \u2192\n    (\u2200 q \u2208 E, \u2203 d, HasCoordinatePartial (fun z => coordinatePartial f z 0) q 1 d) \u2192\n    (\u2200 q \u2208 E, \u2203 d, HasCoordinatePartial f q 1 d) \u2192\n    ContinuousAt (fun q => secondCoordinatePartial f q 1 0) p \u2192\n    HasCoordinatePartial (fun q => coordinatePartial f q 1) p 0\n      (secondCoordinatePartial f p 1 0)) \u2227\n  (\u2200 n (f : Euclidean n \u2192 \u211d) (E : Set (Euclidean n)), IsOpen E \u2192 ScalarC2On f E \u2192\n    \u2200 p \u2208 E, \u2200 i j, secondCoordinatePartial f p i j = secondCoordinatePartial f p j i)\n\n@[simp] theorem planePoint_zero (a b : \u211d) : planePoint a b 0 = a := by\n  simp [planePoint, coordinateVector, EuclideanSpace.basisFun_apply]\n\n@[simp] theorem planePoint_one (a b : \u211d) : planePoint a b 1 = b := by\n  simp [planePoint, coordinateVector, EuclideanSpace.basisFun_apply]\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/ParameterIntegrals.lean",
+      "file_sha256": "19c0e4ab1c59393ffed07191014384cc9b52f4d3c844650d5c2e70df28821142",
+      "contracts": {
+        "pma9_42_contract": {
+          "sha256": "7c5769565b13a486d70bbf816e3cac1d856f297f2f9c265870124567b7181f20",
+          "text": "def pma9_42_contract : Prop :=\n  (\u2200 (\u03c6 D : \u211d \u2192 \u211d \u2192 \u211d) (\u03b1 : \u211d \u2192 \u211d) a b c d s,\n    a \u2264 b \u2192 s \u2208 Ioo c d \u2192 MonotoneOn \u03b1 (Icc a b) \u2192\n    (\u2200 t \u2208 Icc c d, Chapter06.RSIntegrable (fun x => \u03c6 x t) \u03b1 a b) \u2192\n    (\u2200\u1da0 t in \ud835\udcdd s, \u2200 x \u2208 Icc a b, HasDerivAt (\u03c6 x) (D x t) t) \u2192\n    TendstoUniformlyOn (fun t x => D x t) (fun x => D x s) (\ud835\udcdd s) (Icc a b) \u2192\n    Chapter06.RSIntegrable (fun x => D x s) \u03b1 a b \u2227\n    HasDerivAt (fun t => Chapter06.RSIntegral (fun x => \u03c6 x t) \u03b1 a b)\n      (Chapter06.RSIntegral (fun x => D x s) \u03b1 a b) s) \u2227\n  (\u2200 (\u03c6 D : \u211d \u2192 \u211d \u2192 \u211d) (\u03b1 : \u211d \u2192 \u211d) a b c d s,\n    a \u2264 b \u2192 s \u2208 Ioo c d \u2192 MonotoneOn \u03b1 (Icc a b) \u2192\n    (\u2200 t \u2208 Icc c d, Chapter06.RSIntegrable (fun x => \u03c6 x t) \u03b1 a b) \u2192\n    (\u2200 x \u2208 Icc a b, \u2200 t \u2208 Ioo c d, HasDerivAt (\u03c6 x) (D x t) t) \u2192\n    ContinuousOn (fun p : \u211d \u00d7 \u211d => D p.1 p.2) (Icc a b \u00d7\u02e2 Icc c d) \u2192\n    Chapter06.RSIntegrable (fun x => D x s) \u03b1 a b \u2227\n    HasDerivAt (fun t => Chapter06.RSIntegral (fun x => \u03c6 x t) \u03b1 a b)\n      (Chapter06.RSIntegral (fun x => D x s) \u03b1 a b) s)\n"
+        },
+        "pma9_43_contract": {
+          "sha256": "17347d282de6a1b83e435f36494b19d10912fc5c10cbbca43a2668305c557aa7",
+          "text": "def pma9_43_contract : Prop :=\n  (\u2200 t, ImproperAbsolutelyIntegrable (gaussianCosIntegrand t) \u2227\n    ImproperAbsolutelyIntegrable (gaussianSinIntegrand t)) \u2227\n  (\u2200 t, HasImproperWholeLineIntegral (gaussianCosIntegrand t) (gaussianCosTransform t) \u2227\n    HasImproperWholeLineIntegral (gaussianSinIntegrand t) (gaussianSinTransform t)) \u2227\n  (\u2200 t, HasDerivAt gaussianCosTransform (gaussianSinTransform t) t) \u2227\n  (\u2200 t, 2 * gaussianSinTransform t + t * gaussianCosTransform t = 0) \u2227\n  (\u2200 t, gaussianCosTransform t = Real.sqrt Real.pi * Real.exp (-(t ^ 2) / 4))\n\n/-- Chapter 7's native uniform-limit theorem with an arbitrary nontrivial\nindex filter; eventual integrability suffices. -/\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Linear.lean",
+      "file_sha256": "a61832744979629254d50b5a7c9d8c6acaab123b516cd14919f320199cfa34e3",
+      "contracts": {
+        "pma9_1_contract": {
+          "sha256": "998269beea2a7982c25fcbf6aa07444a9d0f8efd2f9cc768565e5b4f1863bc3b",
+          "text": "def pma9_1_contract : Prop :=\n  (\u2200 (X : Type*) [AddCommGroup X] [Module \u211d X],\n    (\u2200 S : Set X, IsLinearSubspace S \u2194 \u2203 V : Submodule \u211d X, (V : Set X) = S) \u2227\n    (\u2200 (r : \u2115) (v : Fin r \u2192 X) (x : X),\n      x \u2208 Submodule.span \u211d (range v) \u2194 \u2203 c : Fin r \u2192 \u211d, \u2211 i, c i \u2022 v i = x) \u2227\n    (\u2200 S : Set X, IsLinearSubspace (Submodule.span \u211d S : Set X)) \u2227\n    (\u2200 (S : Set X) (x : X), x \u2208 Submodule.span \u211d S \u2194\n      \u2203 (t : Finset X) (c : X \u2192 \u211d), (t : Set X) \u2286 S \u2227 \u2211 v \u2208 t, c v \u2022 v = x) \u2227\n    (\u2200 (r : \u2115) (v : Fin r \u2192 X), LinearIndependent \u211d v \u2194\n      \u2200 c : Fin r \u2192 \u211d, (\u2211 i, c i \u2022 v i) = 0 \u2192 \u2200 i, c i = 0) \u2227\n    (\u2200 (r : \u2115) (v : Fin r \u2192 X), LinearIndependent \u211d v \u2192 \u2200 i, v i \u2260 0) \u2227\n    (\u2200 (n : \u2115) (v : Fin n \u2192 X),\n      (\u2203 b : Basis (Fin n) \u211d X, (b : Fin n \u2192 X) = v) \u2194\n        LinearIndependent \u211d v \u2227 Submodule.span \u211d (range v) = \u22a4) \u2227\n    (\u2200 (n : \u2115) (b : Basis (Fin n) \u211d X) (x : X),\n      \u2203! c : Fin n \u2192 \u211d, \u2211 i, c i \u2022 b i = x) \u2227\n    (HasDimension X 0 \u2194 Subsingleton X)) \u2227\n  (\u2200 (X : Type*) [AddCommGroup X] [Module \u211d X] [FiniteDimensional \u211d X] (n : \u2115),\n    HasDimension X n \u2194 Module.finrank \u211d X = n) \u2227\n  (\u2200 (n : \u2115) (i j : Fin n), standardBasis n i j = if j = i then 1 else 0)\n"
+        },
+        "pma9_2_contract": {
+          "sha256": "d64ab332baae14d83d9f221dcc8a4a5d4301aae63f88497b1ca2bea3a8815dca",
+          "text": "def pma9_2_contract : Prop :=\n  (\u2200 (X : Type*) [AddCommGroup X] [Module \u211d X] (r : \u2115), 0 < r \u2192\n    \u2200 v : Fin r \u2192 X, Submodule.span \u211d (range v) = \u22a4 \u2192\n      Module.Finite \u211d X \u2227 \u2203 n : \u2115, n \u2264 r \u2227 HasDimension X n) \u2227\n  (\u2200 n : \u2115, HasDimension (Euclidean n) n)\n"
+        },
+        "pma9_3_contract": {
+          "sha256": "0554ad38c6b4b12ca5c3ebb583879fd358cb9b95a7b39e8c74c828733c66800f",
+          "text": "def pma9_3_contract : Prop :=\n  \u2200 (X : Type*) [AddCommGroup X] [Module \u211d X] [FiniteDimensional \u211d X] (n : \u2115),\n    HasDimension X n \u2192\n    (\u2200 v : Fin n \u2192 X, Submodule.span \u211d (range v) = \u22a4 \u2194 LinearIndependent \u211d v) \u2227\n    Nonempty (Basis (Fin n) \u211d X) \u2227\n    (\u2200 (r : \u2115) (_b : Basis (Fin r) \u211d X), r = n) \u2227\n    (\u2200 (r : \u2115) (v : Fin r \u2192 X), r \u2264 n \u2192 LinearIndependent \u211d v \u2192\n      \u2203 b : Basis (Fin n) \u211d X, \u2203 e : Fin r \u21aa Fin n, \u2200 i, b (e i) = v i)\n"
+        },
+        "pma9_4_contract": {
+          "sha256": "8909227140af2bf589f56d66f25c545f4f4a12458cad7989f35c2b9e41444c51",
+          "text": "def pma9_4_contract : Prop :=\n  \u2200 (X Y : Type*) [AddCommGroup X] [Module \u211d X] [AddCommGroup Y] [Module \u211d Y],\n    (\u2200 f : X \u2192 Y,\n      (\u2200 x y : X, \u2200 a b : \u211d, f (a \u2022 x + b \u2022 y) = a \u2022 f x + b \u2022 f y) \u2194\n        \u2203 A : X \u2192\u2097[\u211d] Y, (A : X \u2192 Y) = f) \u2227\n    (\u2200 A : X \u2192\u2097[\u211d] Y, A 0 = 0) \u2227\n    (\u2200 (r : \u2115) (v : Fin r \u2192 X) (c : Fin r \u2192 \u211d) (A : X \u2192\u2097[\u211d] Y),\n      A (\u2211 i, c i \u2022 v i) = \u2211 i, c i \u2022 A (v i)) \u2227\n    (\u2200 (n : \u2115) (b : Basis (Fin n) \u211d X) (A B : X \u2192\u2097[\u211d] Y),\n      (\u2200 i, A (b i) = B (b i)) \u2192 A = B) \u2227\n    (\u2200 (n : \u2115) (b : Basis (Fin n) \u211d X) (v : Fin n \u2192 Y),\n      \u2203! A : X \u2192\u2097[\u211d] Y, \u2200 i, A (b i) = v i) \u2227\n    (\u2200 A : X \u2192\u2097[\u211d] X, Function.Bijective A \u2194\n      \u2203 B : X \u2192\u2097[\u211d] X, B.comp A = LinearMap.id \u2227 A.comp B = LinearMap.id)\n"
+        },
+        "pma9_5_contract": {
+          "sha256": "2c67be101caae8b8e51348eb3421b647dbf017f157ee1bedf1ebe6643d007b4f",
+          "text": "def pma9_5_contract : Prop :=\n  \u2200 (X : Type*) [AddCommGroup X] [Module \u211d X] [FiniteDimensional \u211d X]\n    (A : X \u2192\u2097[\u211d] X), Function.Injective A \u2194 Function.Surjective A\n"
+        },
+        "pma9_6_contract": {
+          "sha256": "b94349a0377fd230bda08ad85550eb6b8d8c81feee6fcd0f36c52273f0264c87",
+          "text": "def pma9_6_contract : Prop :=\n  (\u2200 (n m : \u2115) (A B : Operator n m) (a b : \u211d) (x : Euclidean n),\n    (a \u2022 A + b \u2022 B) x = a \u2022 A x + b \u2022 B x) \u2227\n  (\u2200 (n m k : \u2115) (A : Operator n m) (B : Operator m k) (x : Euclidean n),\n    B.comp A x = B (A x)) \u2227\n  (\u2203 A B : Operator 2 2, A.comp B \u2260 B.comp A) \u2227\n  (\u2200 (n m : \u2115) (A : Operator n m),\n    \u2016A\u2016 = sSup ((fun x => \u2016A x\u2016) '' Metric.closedBall 0 1) \u2227\n    (\u2200 x, \u2016A x\u2016 \u2264 \u2016A\u2016 * \u2016x\u2016) \u2227\n    (\u2200 M : \u211d, 0 \u2264 M \u2192 (\u2016A\u2016 \u2264 M \u2194 \u2200 x, \u2016A x\u2016 \u2264 M * \u2016x\u2016)))\n"
+        },
+        "pma9_7_contract": {
+          "sha256": "82785c1acafd37d868b8e841c4d2be3eb9ca227a2289de2ae80bda61b1a3eb92",
+          "text": "def pma9_7_contract : Prop :=\n  (\u2200 (n m : \u2115) (A : Euclidean n \u2192\u2097[\u211d] Euclidean m),\n    UniformContinuous (fun x => A x) \u2227 \u2203 L : Operator n m,\n      (fun x => L x) = (fun x => A x)) \u2227\n  (\u2200 (n m : \u2115) (A B : Operator n m) (c : \u211d),\n    0 \u2264 \u2016A\u2016 \u2227 (\u2016A\u2016 = 0 \u2194 A = 0) \u2227\n    \u2016A + B\u2016 \u2264 \u2016A\u2016 + \u2016B\u2016 \u2227 \u2016c \u2022 A\u2016 = |c| * \u2016A\u2016 \u2227 dist A B = \u2016A - B\u2016) \u2227\n  (\u2200 (n m k : \u2115) (A : Operator n m) (B : Operator m k),\n    \u2016B.comp A\u2016 \u2264 \u2016B\u2016 * \u2016A\u2016)\n"
+        },
+        "pma9_8_contract": {
+          "sha256": "10992eca663058302ea0b335e45f329d27adb59f0124d024b9e815e276271b98",
+          "text": "def pma9_8_contract : Prop :=\n  \u2200 n : \u2115,\n    (\u2200 A : Operator n n, IsUnit A \u2194 Function.Bijective A) \u2227\n    (\u2200 A B : Operator n n, IsUnit A \u2192 \u2016B - A\u2016 * \u2016Ring.inverse A\u2016 < 1 \u2192 IsUnit B) \u2227\n    IsOpen {A : Operator n n | IsUnit A} \u2227\n    ContinuousOn (Ring.inverse : Operator n n \u2192 Operator n n) {A | IsUnit A} \u2227\n    BijOn (Ring.inverse : Operator n n \u2192 Operator n n) {A | IsUnit A} {A | IsUnit A} \u2227\n    (\u2200 A : Operator n n, IsUnit A \u2192 Ring.inverse (Ring.inverse A) = A)\n"
+        },
+        "pma9_9_contract": {
+          "sha256": "a5d9bcb85947eb79212bb3721f83c3f35245d136f3648966ca557f11374b01e1",
+          "text": "def pma9_9_contract : Prop :=\n  (\u2200 (X Y Z : Type*) [AddCommGroup X] [Module \u211d X]\n      [AddCommGroup Y] [Module \u211d Y] [AddCommGroup Z] [Module \u211d Z]\n      (n m k : \u2115) (bX : Basis (Fin n) \u211d X) (bY : Basis (Fin m) \u211d Y)\n      (bZ : Basis (Fin k) \u211d Z),\n    (\u2200 (A : X \u2192\u2097[\u211d] Y) (i : Fin m) (j : Fin n),\n      LinearMap.toMatrix bX bY A i j = bY.repr (A (bX j)) i) \u2227\n    (\u2200 (A : X \u2192\u2097[\u211d] Y) (x : X) (i : Fin m),\n      bY.repr (A x) i = \u2211 j, LinearMap.toMatrix bX bY A i j * bX.repr x j) \u2227\n    (\u2200 A : X \u2192\u2097[\u211d] Y, A.range = Submodule.span \u211d (range (fun j => A (bX j)))) \u2227\n    Function.Bijective (LinearMap.toMatrix bX bY) \u2227\n    (\u2200 (A : X \u2192\u2097[\u211d] Y) (B : Y \u2192\u2097[\u211d] Z),\n      LinearMap.toMatrix bX bZ (B.comp A) =\n        LinearMap.toMatrix bY bZ B * LinearMap.toMatrix bX bY A)) \u2227\n  (\u2200 (n m : \u2115) (A : Operator n m),\n    \u2016A\u2016 \u2264 Real.sqrt (\u2211 i, \u2211 j, (operatorMatrix A i j) ^ 2)) \u2227\n  (\u2200 (T : Type*) [MetricSpace T] (n m : \u2115) (A : T \u2192 Operator n m),\n    (\u2200 i j, Continuous (fun t => operatorMatrix (A t) i j)) \u2192 Continuous A)\n\nprivate theorem subspace_iff_submodule {X : Type*} [AddCommGroup X] [Module \u211d X]\n    (S : Set X) : IsLinearSubspace S \u2194 \u2203 V : Submodule \u211d X, (V : Set X) = S := by\n  constructor\n  \u00b7 rintro \u27e8\u27e8z, hz\u27e9, h\u27e9\n    have hzero : (0 : X) \u2208 S := by simpa using h z hz z hz 0 0\n    exact \u27e8{ carrier := S\n             zero_mem' := hzero\n             add_mem' := fun hx hy => by simpa using h _ hx _ hy 1 1\n             smul_mem' := fun a x hx => by simpa using h x hx 0 hzero a 0 }, rfl\u27e9\n  \u00b7 rintro \u27e8V, rfl\u27e9\n    exact \u27e8\u27e80, V.zero_mem\u27e9, fun x hx y hy a b =>\n      V.add_mem (V.smul_mem a hx) (V.smul_mem b hy)\u27e9\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Implicit.lean",
+      "file_sha256": "9b4a34c6e8692f5984eba5c4bb82558eb200e46f2d5c8ec32969f1356b72e570",
+      "contracts": {
+        "pma9_26_contract": {
+          "sha256": "7f35d07f631c0b9e44efdde5b1202b0c47301cd459b1c614c2f2adcc15f990a0",
+          "text": "def pma9_26_contract : Prop :=\n  \u2200 n m k (A : Euclidean n \u00d7 Euclidean m \u2192L[\u211d] Euclidean k),\n    (\u2200 h, blockX A h = A (h, 0)) \u2227 (\u2200 k, blockY A k = A (0, k)) \u2227\n    \u2200 h k, A (h, k) = blockX A h + blockY A k\n"
+        },
+        "pma9_27_contract": {
+          "sha256": "c79ba542cd4b86cd33d2c81c40182bd3befd6102672df7af6720b72e498d9a22",
+          "text": "def pma9_27_contract : Prop :=\n  \u2200 n m (A : Euclidean n \u00d7 Euclidean m \u2192L[\u211d] Euclidean n),\n    (blockX A).IsInvertible \u2192 \u2200 k,\n      (\u2203! h, A (h, k) = 0) \u2227\n      \u2200 h, A (h,k) = 0 \u2194 h = -(blockX A).inverse (blockY A k)\n"
+        },
+        "pma9_28_contract": {
+          "sha256": "bdbaf46817935dc4717c5f6b6fa586d6d2e805ffed8e6505033a45a57c28cccd",
+          "text": "def pma9_28_contract : Prop :=\n  \u2200 n m (E : Set (Euclidean n \u00d7 Euclidean m))\n    (f : Euclidean n \u00d7 Euclidean m \u2192 Euclidean n) a b,\n    IsOpen E \u2192 (a,b) \u2208 E \u2192 C1On f E \u2192 f (a,b) = 0 \u2192\n    (blockX (fderiv \u211d f (a,b))).IsInvertible \u2192\n    \u2203 g U W, ImplicitNeighborhood f E a b g U W \u2227\n      HasFDerivAt g (-(blockX (fderiv \u211d f (a,b))).inverse.comp\n        (blockY (fderiv \u211d f (a,b)))) b \u2227\n      \u2200 i j, (\u2211 k : Fin n,\n        blockX (fderiv \u211d f (a,b)) (coordinateVector n k) i *\n          componentPartial g b k j) +\n        blockY (fderiv \u211d f (a,b)) (coordinateVector m j) i = 0\n"
+        }
+      }
+    }
+  ]
+}

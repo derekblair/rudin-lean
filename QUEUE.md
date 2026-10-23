@@ -4,4 +4,4 @@ Statements that resisted proof automation and are waiting for a
 mathematician's idea. Each entry records: chapter, statement reference,
 what was tried, and what seems to be missing.
 
-_No blocked nodes. Chapters 1–7 are complete. The isolated Chapter 8 lane covers 8.1–8.6; 8.7–8.22 remain pending rather than attempted-and-blocked. Chapters 9–11 are pending. All completed nodes have passing builds and axiom audits._
+_No blocked nodes. Chapters 1–7 are complete. The isolated Chapter 8 lane covers 8.1–8.6; 8.7–8.22 remain pending rather than attempted-and-blocked. Chapter 9 work is active under the user’s new instruction; Chapters 10–11 are pending. All completed nodes have passing builds and axiom audits._

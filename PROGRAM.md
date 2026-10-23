@@ -96,3 +96,14 @@ independent boundary clients, source checks and recursive permitted-axiom audits
 precede completion. Run the default build before each section commit. Keep all
 project build invocations sequential on the shared host. Unattempted later nodes
 are pending, not needs-insight entries. Preserve Chapters 1–7 source unchanged.
+
+## Current Chapter 9 local lane
+
+The user on 2026-10-23 explicitly authorized Chapter 9 on `ch8-codex-20261022`,
+despite the remaining Chapter 8 nodes. This is an authorized exception to the
+general chapter dependency order, not a claim that Chapter 8 is complete.
+Follow book order within Chapter 9; retain zero placeholders, independent source
+and exact-contract review, independent boundary clients, actual principal lookup,
+recursive permitted-axiom audits, source checks and a default build before every
+local section commit. No push, PR, merge, installation or toolchain change.
+Keep all project builds sequential and preserve Chapters 1–8 source unchanged.

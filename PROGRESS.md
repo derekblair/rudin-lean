@@ -15,7 +15,7 @@ All completed nodes have zero proof placeholders.
 | 06 | The Riemann-Stieltjes Integral | 27 / 27 |
 | 07 | Sequences and Series of Functions | 33 / 33 |
 | 08 | Some Special Functions | 6 / 22 |
-| 09 | Functions of Several Variables | 0 |
+| 09 | Functions of Several Variables | 9 / 43 |
 | 10 | Integration of Differential Forms | 0 |
 | 11 | The Lebesgue Theory | 0 |
 
@@ -102,3 +102,9 @@ probe subset, against only the three permitted axioms. Both section commits
 require passing default builds. Nodes 8.7–8.22 are unattempted and pending;
 there are no needs-insight entries. See `research/pma-ch08-production-review.md`
 and `evidence/ch08-final-manifest.json`.
+
+Chapter 9 local lane: the user explicitly authorized continuing on the Chapter 8
+branch on 2026-10-23. The full source census has 43 numbered nodes. Opening nodes
+9.1–9.9 passed independent review, nine boundary clients, 61-declaration recursive
+axiom audit, source checks and the default build; later candidates are not yet counted.
+All earlier chapter sources remain unchanged. See Chapter 9 review and evidence files.

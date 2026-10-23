@@ -15,6 +15,7 @@ import Rudin.PMA.Chapter07Audit
 import Rudin.PMA.Chapter08
 import Rudin.PMA.Chapter08Audit
 import Rudin.PMA.Chapter09
+import Rudin.PMA.Chapter09Audit
 import Rudin.PMA.Chapter10
 import Rudin.PMA.Chapter11
 

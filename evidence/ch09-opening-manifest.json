@@ -1,0 +1,24 @@
+{
+  "base": "ddee6018dc400f45841f25e2897668932a9100d1",
+  "completed_nodes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "accepted_contracts_compared": 9,
+  "preserved_chapter_1_to_8_files": 57,
+  "audit_namespace_declarations": 61,
+  "audit_probe_subset": 9,
+  "source_hashes": {
+    "rudin/Rudin/PMA/Chapter09/Linear.lean": "a61832744979629254d50b5a7c9d8c6acaab123b516cd14919f320199cfa34e3",
+    "rudin/Rudin/PMA/Chapter09/LinearProbes.lean": "b6f8fe700c22685cb9b054d25408c5ca153df4abb1da76804396f57cbd9e4b37",
+    "rudin/Rudin/PMA/Chapter09.lean": "5272bf6827d5adb08b4413e6dcb106278f48d1e8657e04e32d5a2892d2ee2d1b",
+    "rudin/Rudin/PMA/Chapter09Audit.lean": "b941d004e5de465e1a487f1096bc134e5903e0b59cf6fb3e1d655aefc28dece6"
+  }
+}
