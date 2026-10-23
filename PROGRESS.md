@@ -14,7 +14,7 @@ All completed nodes have zero proof placeholders.
 | 05 | Differentiation | 19 / 19 |
 | 06 | The Riemann-Stieltjes Integral | 27 / 27 |
 | 07 | Sequences and Series of Functions | 33 / 33 |
-| 08 | Some Special Functions | 5 / 22 |
+| 08 | Some Special Functions | 6 / 22 |
 | 09 | Functions of Several Variables | 0 |
 | 10 | Integration of Differential Forms | 0 |
 | 11 | The Lebesgue Theory | 0 |
@@ -93,3 +93,12 @@ source review are recorded in `research/pma-ch08-checks.md`. The first section h
 audit of 74 declarations (13 in the probe subset), with 5 actual principal
 theorems and contract comparisons. The default build is a pre-commit gate.
 Later nodes remain pending; none has been classified as a resistant proof node.
+
+Chapter 8 lane final scope: 6/22 numbered nodes (8.1–8.6), including the
+exponential/logarithmic development and positive-base real powers. All 6 principal
+theorems and contract comparisons pass; 16 independent clients compile; the
+fresh recursive audit checks 103 declarations, including the 18-declaration
+probe subset, against only the three permitted axioms. Both section commits
+require passing default builds. Nodes 8.7–8.22 are unattempted and pending;
+there are no needs-insight entries. See `research/pma-ch08-production-review.md`
+and `evidence/ch08-final-manifest.json`.

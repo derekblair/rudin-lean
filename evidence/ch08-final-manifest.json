@@ -1,0 +1,47 @@
+{
+  "section": "PMA-8.1\u20138.6 final local lane",
+  "source_sha256": {
+    "rudin/Rudin.lean": "966e82e25167fb7fa0327ae27238c5438eea3a901804fc2450bb9f922214a5ce",
+    "rudin/Rudin/PMA/Chapter08.lean": "91fab07f19c78091a6c20c26a55059173b894b9c7030e27c17b3fcb331776b27",
+    "rudin/Rudin/PMA/Chapter08Audit.lean": "92273825f91c2a43f6d3af276cedc6cd6941c948380263108316dfe76f9ff315",
+    "rudin/Rudin/PMA/Chapter08Probes.lean": "093390f7774efef783fc3e1d5d5e66d79ff5b0c42225a59f99db8d27a57d543c",
+    "rudin/Rudin/PMA/Chapter08/Abel.lean": "2a7a23da0c64df9c38dff6975bd0f5e34f1a428a5d4fa86480c35b7498260239",
+    "rudin/Rudin/PMA/Chapter08/DoubleSeries.lean": "7cb78d7c111d3be2a9bc0f5e67a02c0020e988ba39e24f67db050787aae57e7e",
+    "rudin/Rudin/PMA/Chapter08/Exponential.lean": "cd7d31f6d45786bc4433d3c0bb878c1e4e0c2da6f43bf48fc1491c6167768bcd",
+    "rudin/Rudin/PMA/Chapter08/ExponentialProbes.lean": "50cfdadd939ba80e57fd93e47bad71d05cc49eb97664485e428ee8cc2b6cc9da",
+    "rudin/Rudin/PMA/Chapter08/Operations.lean": "2b4ce0759198e1a2c854a8398d7b285c5edd64de0d36fd19aa3ba824245ae07a",
+    "rudin/Rudin/PMA/Chapter08/PowerSeries.lean": "af7669152ab11b348b454ccfacb37928c67be845b7428377bd29dfd6e6552518",
+    "rudin/Rudin/PMA/Chapter08/Taylor.lean": "9c666fab54b9e7a3a7b7ac073e5b9ca9a8a7d2d31e2ccb7a7be303af472c0347"
+  },
+  "principal_theorems": 6,
+  "independent_probe_theorems": 16,
+  "audited_namespace_declarations": 103,
+  "probe_namespace_subset": 18,
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "audit_log": "evidence/ch08-final-audit.log",
+  "default_build_log": "evidence/ch08-final-default-build.log",
+  "source_checks_log": "evidence/ch08-source-checks-final.log",
+  "unattempted_nodes": [
+    "PMA-8.7",
+    "PMA-8.8",
+    "PMA-8.9",
+    "PMA-8.10",
+    "PMA-8.11",
+    "PMA-8.12",
+    "PMA-8.13",
+    "PMA-8.14",
+    "PMA-8.15",
+    "PMA-8.16",
+    "PMA-8.17",
+    "PMA-8.18",
+    "PMA-8.19",
+    "PMA-8.20",
+    "PMA-8.21",
+    "PMA-8.22"
+  ],
+  "needs_insight_nodes": []
+}

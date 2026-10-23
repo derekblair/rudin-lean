@@ -14,7 +14,7 @@ Addition and multiplication are supplemental lemmas with the native Chapter 3 Ca
 
 Toolchain: Lean 4.34.1; Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`. The absent cache was fetched using the authorized `lake exe cache get`. No package installation or pin change.
 
-A default baseline rebuild was interrupted under shared-memory pressure; a subsequent sequential baseline run was also stopped to address duplicate generated-library paging. Identical generated Mathlib/dependency cache files were temporarily shared with the other local lane after SHA-256 equality checks (manifest in the task directory). Only this checkout's cache paths were changed.
+A default baseline rebuild was interrupted under shared-memory pressure; a subsequent sequential baseline run was also stopped to address duplicate generated-library paging. Identical generated Mathlib/dependency cache files were temporarily shared with the other local lane after SHA-256 equality checks (manifest in the task directory). Only this checkout's cache paths were changed. After the final build, all 115,871 temporary links were restored to independent regular files and SHA-256 checked against the original bytes; zero temporary links remain. See `evidence/ch08-cache-restoration.json`.
 
 A previous local audit build was then located. Its 47 Chapter 1–7 source modules match this checkout byte for byte, and both toolchain/dependency pins match. Their generated artifacts were copied into this checkout; `evidence/ch08-prior-build-cache.json` records source and artifact hashes. The Chapter 8 modules and audit are freshly compiled. Replayed output from unchanged earlier audits is distinguished from the fresh Chapter 8 audit.
 
@@ -29,3 +29,19 @@ The first section audit verifies 5 actual principal theorems and 5 accepted-cont
 Evidence: `evidence/ch08-foundation-probes-final.log`, `ch08-foundation-audit.log`, `ch08-foundation-default-build.log`, `ch08-source-checks-foundation.log`, and exact source hashes in `ch08-foundation-manifest.json`. The default build passed before the first section commit. Earlier `*-compile*.log` and baseline logs retain the failed/interrupted diagnostic attempts; only the named final logs constitute completion evidence. Independent hostile reviews are `ch08-foundation-hostile-review.md` and `ch08-calculus-hostile-review.md`.
 
 The first section integrates 8.1–8.5 and the operations supplements. The separately authored exponential/logarithm candidate is reviewed and module-tested, but counts as completed only when imported and audited in the next section. The chapter remains partial.
+
+## Final local lane gate
+
+The second section integrates 8.6, its full accepted exponential/logarithmic and
+real-power development, and the five independent exponential clients. The final
+fresh Chapter 8 audit finds 6 actual principal proofs and 6 contract comparisons,
+and recursively audits 103 namespace declarations including the 18-declaration
+probe subset. All 16 independently authored clients compile. Only the three
+permitted axioms occur. The final default build and source checks passed; their logs are
+`evidence/ch08-final-default-build.log` and `ch08-source-checks-final.log`; exact
+source hashes are in `ch08-final-manifest.json`.
+
+Final scope is 6/22; 8.7–8.22 are unattempted pending work, with no needs-insight
+entries. This lane does not claim a full Chapter 8 completion. Final independent
+source/inclusion reconciliation is `evidence/ch08-final-independent-review.md`;
+the exponential hostile review is `ch08-exponential-hostile-review.md`.
