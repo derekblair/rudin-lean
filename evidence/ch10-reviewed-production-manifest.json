@@ -1,9 +1,9 @@
 {
-  "scope": "Independently reviewed frozen Chapter10 sections through pullbacks, nodes 1-25; integration index, audits and probes are separate gates.",
+  "scope": "Independently reviewed frozen Chapter10 sections through differentiable simplices and chain maps, nodes 1-30; integration index, audits and probes are separate gates.",
   "date": "2026-10-23",
-  "production_module_count": 34,
-  "numbered_principal_count": 25,
-  "kernel_status": "All 34 production modules compiled successfully in the parent serialized build process. Reviewer ran no builds.",
+  "production_module_count": 42,
+  "numbered_principal_count": 30,
+  "kernel_status": "All 42 production modules compiled successfully in the parent serialized build process. Reviewer ran no builds.",
   "reviewer_authorship_exception": "None: ch8_fidelity authored no Chapter10 production module.",
   "files": [
     {
@@ -316,6 +316,80 @@
         "PMA-10.23",
         "PMA-10.24",
         "PMA-10.25"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexChains.lean",
+      "sha256": "db6007136017c15e4477458eac0b5fecaa287381f94553571100a132c4ae6f89",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/AffineSimplices.lean",
+      "sha256": "952393bfb0741aa222a1acfb7b23c3c0316cba9e74a5b80303885031d3b1467c",
+      "principal_nodes": [
+        "PMA-10.26"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/AffineFaces.lean",
+      "sha256": "e8190800f232c21709e4928c4e972073fd4dbf07aa27f9985b76ce90e840d441",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexChangeOfVariables.lean",
+      "sha256": "2f38999ec892d4469902cf9d910e17d075cbf1f85ccc44e880ba124c60de9de5",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexOrientation.lean",
+      "sha256": "e542c67929860c59867228284ad9248cc7a0ce7178716b8ed69ce0a2055e587b",
+      "principal_nodes": [
+        "PMA-10.27"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/AffineChains.lean",
+      "sha256": "c1a6ba37485db4343cccaacc0db8d6648b83464cf832a99e57b55d2bc1cd231d",
+      "principal_nodes": [
+        "PMA-10.28"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexBoundaries.lean",
+      "sha256": "8c9f54193e33656cd9ab80b424164366331b073e144f702b3d51f2befcb1b3ff",
+      "principal_nodes": [
+        "PMA-10.29"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ChainMaps.lean",
+      "sha256": "9a64b331e63ddd9c6bc8f155db7463c10e4b020e41b832cb025ae3cdf4ac1e5c",
+      "principal_nodes": [
+        "PMA-10.30"
       ],
       "independent_reviewer": "ch8_fidelity",
       "review_evidence": "research/pma-ch10-source-review.md",

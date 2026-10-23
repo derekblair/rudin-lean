@@ -154,3 +154,23 @@ comparisons, and 807 recursively audited declarations including the 79-declarati
 probe subset. Only the three permitted axioms occur. The default build succeeds
 with 9054 jobs. Raw gates use `evidence/ch10-section7-*`. Exact source, prior
 chapter, and pin-preservation checks remain in force.
+
+## Affine simplices and chains: 10.26–10.30
+
+The eight additional reviewed modules preserve actual affine maps and native
+integrals, arbitrary vertex permutations including movement of the base vertex,
+degenerate simplices, dimension-zero signed evaluation, integer chain
+multiplicities, alternating faces, and exact boundary compatibility under C2
+composition. No injectivity or immersion is required for general simplices.
+
+Three new independent clients exercise an origin-moving transposition, a
+degenerate simplex, and the signed scalar endpoint value on a segment boundary.
+The cumulative count is thirty-two independently authored assertions. Canonical
+records contain 42 production modules and thirty accepted contracts.
+
+The production audit checks thirty actual principal declarations and contract
+comparisons, and 1018 recursively audited declarations including the
+82-declaration probe subset. Only the three permitted axioms occur. The default
+build succeeds with 9063 jobs. Raw gates use `evidence/ch10-section8-*`; the
+reviewed-byte and source checks preserve all 82 earlier chapter source files
+and all three pinned project files.

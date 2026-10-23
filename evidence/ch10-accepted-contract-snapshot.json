@@ -1,7 +1,7 @@
 {
   "reviewer": "ch8_fidelity",
   "date": "2026-10-23",
-  "status": "Independent semantic acceptance of exact Chapter10 contracts 1-25; production compilation and probes are separate gates.",
+  "status": "Independent semantic acceptance of exact Chapter10 contracts 1-30; production compilation and probes are separate gates.",
   "extraction": "Declaration text from def through final term; trailing whitespace normalized to one newline; excludes subsequent declaration/comment.",
   "files": [
     {
@@ -179,6 +179,56 @@
         "pma10_25_contract": {
           "sha256": "d8977f02e88599ef463e6e6911ff64d24edc2b7a3bf4dfa656af04e82b0f4599",
           "text": "def pma10_25_contract : Prop :=\n  ∀ (n m k : ℕ) (E : Set (Euclidean n)) (V : Set (Euclidean m))\n    (T : Euclidean n → Euclidean m) (Φ : Surface k n E) (ω : FormField m)\n    (hE : IsOpen E) (hV : IsOpen V) (hT : ContDiffOn ℝ 1 T E) (hTV : MapsTo T E V),\n    IsFormOn V k ω →\n      (Φ.mapBy T hE hT hTV).domain = Φ.domain ∧\n      (Φ.mapBy T hE hT hTV).map = T ∘ Φ.map ∧\n      Φ.domain.Integrable (surfaceIntegrand (Φ.mapBy T hE hT hTV) ω) ∧\n      Φ.domain.Integrable (surfaceIntegrand Φ (pullbackForm T ω)) ∧\n      surfaceIntegral (Φ.mapBy T hE hT hTV) ω = surfaceIntegral Φ (pullbackForm T ω)\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/AffineSimplices.lean",
+      "file_sha256": "952393bfb0741aa222a1acfb7b23c3c0316cba9e74a5b80303885031d3b1467c",
+      "contracts": {
+        "pma10_26_contract": {
+          "sha256": "d6607989ca1194a23fc0bc6d7c70d97bb1908b96cb96b4f2f64947966f9bd71e",
+          "text": "def pma10_26_contract : Prop :=\n  (∀ (X Y : Type*) [AddCommGroup X] [Module ℝ X] [AddCommGroup Y] [Module ℝ Y]\n      (f : X → Y),\n    (∃ F : X →ᵃ[ℝ] Y, (F : X → Y) = f) ↔\n      ∃ A : X →ₗ[ℝ] Y, ∀ x, f x = f 0 + A x) ∧\n  (∀ (k n : ℕ) (F : Coord k →ᵃ[ℝ] Euclidean n) (u : Coord k),\n    F u = F 0 + F.linear u ∧\n    F u = affineSimplexMap (Fin.cons (F 0) (fun i => F (Pi.single i 1))) u) ∧\n  (∀ (k n : ℕ) (F G : Coord k →ᵃ[ℝ] Euclidean n), F 0 = G 0 →\n    (∀ i : Fin k, F (Pi.single i 1) = G (Pi.single i 1)) → F = G) ∧\n  (∀ (k n : ℕ) (p : Fin (k + 1) → Euclidean n),\n    affineSimplexMap p 0 = p 0 ∧\n    (∀ i : Fin k, affineSimplexMap p (Pi.single i 1) = p i.succ) ∧\n    (∀ u : Coord k, affineSimplexMap p u = p 0 + ∑ i, u i • (p i.succ - p 0)) ∧\n    ContDiff ℝ ⊤ (affineSimplexMap p) ∧\n    (∀ u : Coord k, HasFDerivAt (affineSimplexMap p) (affineSimplexLinear p) u)) ∧\n  (∀ (n : ℕ) (p : Fin (n + 1) → Euclidean n) (x : Euclidean n),\n    jacobian (affineSimplexMap p ∘ (coordEquivEuclidean n).symm) x =\n      columnDet (fun i : Fin n => p i.succ - p 0)) ∧\n  (∀ (n : ℕ) (p : Fin (n + 1) → Euclidean n),\n    LinearIndependent ℝ (fun i : Fin n => p i.succ - p 0) →\n      columnDet (fun i : Fin n => p i.succ - p 0) ≠ 0 ∧\n      (AffinePositiveOrientation p ∨ AffineNegativeOrientation p) ∧\n      ∀ x : Euclidean n,\n        (fderiv ℝ (affineSimplexMap p ∘ (coordEquivEuclidean n).symm) x).IsInvertible) ∧\n  (∀ n : ℕ,\n    affineSimplexMap (fun i => coordEquivEuclidean n (standardVertex n i)) = coordEquivEuclidean n ∧\n    AffinePositiveOrientation (fun i => coordEquivEuclidean n (standardVertex n i))) ∧\n  (∀ (n : ℕ) (E : Set (Euclidean n)) (p : Fin 1 → Euclidean n)\n    (hp : MapsTo (affineSimplexMap p) (standardSimplex 0) E) (ε : ℤˣ) (f : Euclidean n → ℝ),\n    signedAffineIntegral ε p hp (scalarForm f) = (ε : ℤ) * f (p 0))\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexOrientation.lean",
+      "file_sha256": "e542c67929860c59867228284ad9248cc7a0ce7178716b8ed69ce0a2055e587b",
+      "contracts": {
+        "pma10_27_contract": {
+          "sha256": "d75e22048b9fa251ea2155e8527c44628e62f9d2e7e94736c1e14d8469180484",
+          "text": "def pma10_27_contract : Prop :=\n  ∀ (k n : ℕ) (E : Set (Euclidean n)) (p : Fin (k + 1) → Euclidean n)\n    (hp : MapsTo (affineSimplexMap p) (standardSimplex k) E)\n    (σ : Equiv.Perm (Fin (k + 1))) (ω : FormField n),\n    IsOpen E → IsFormOn E k ω →\n    ∃ hq : MapsTo (affineSimplexMap (p ∘ σ)) (standardSimplex k) E,\n      ParameterDomain.Integrable .simplex (surfaceIntegrand (affineSimplexSurface p hp) ω) ∧\n      ParameterDomain.Integrable .simplex (surfaceIntegrand (affineSimplexSurface (p ∘ σ) hq) ω) ∧\n      surfaceIntegral (affineSimplexSurface (p ∘ σ) hq) ω =\n        (σ.sign : ℤ) * surfaceIntegral (affineSimplexSurface p hp) ω\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/AffineChains.lean",
+      "file_sha256": "c1a6ba37485db4343cccaacc0db8d6648b83464cf832a99e57b55d2bc1cd231d",
+      "contracts": {
+        "pma10_28_contract": {
+          "sha256": "f0c02a549d42a0bcf48602941dc76ff870208a7751e5db43271d7c0810845b13",
+          "text": "def pma10_28_contract : Prop :=\n  (∀ (k n N : ℕ) (E : Set (Euclidean n)) (σ : Fin N → AffineSimplexIn k n E)\n    (z : Fin N → ℤ) (ω : FormField n),\n    affineChainIntegral ω (∑ i, Finsupp.single (σ i) (z i)) =\n      ∑ i, (z i : ℝ) * surfaceIntegral (affineSimplexSurface (σ i).vertices (σ i).mapsTo) ω) ∧\n  (∀ (k n : ℕ) (E : Set (Euclidean n)) (Γ Δ : AffineChain k n E) (z : ℤ) (ω : FormField n),\n    affineChainIntegral ω (Γ + Δ) = affineChainIntegral ω Γ + affineChainIntegral ω Δ ∧\n    affineChainIntegral ω (z • Γ) = (z : ℝ) * affineChainIntegral ω Γ ∧\n    affineChainIntegral ω (Γ - Γ) = 0) ∧\n  (∀ (k n : ℕ) (E : Set (Euclidean n)) (Γ Δ : AffineChain k n E),\n    AffineChainEq Γ Δ ↔ ∀ ω : FormField n, IsFormOn E k ω →\n      affineChainIntegral ω Γ = affineChainIntegral ω Δ) ∧\n  (∀ (k n : ℕ) (E : Set (Euclidean n)) (Γ : AffineChain k n E) (ω : FormField n),\n    chainIntegral ω (affineChainToSimplex Γ) = affineChainIntegral ω Γ)\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexBoundaries.lean",
+      "file_sha256": "8c9f54193e33656cd9ab80b424164366331b073e144f702b3d51f2befcb1b3ff",
+      "contracts": {
+        "pma10_29_contract": {
+          "sha256": "52e0071fb8e2d185cab9b636dc7c87f28a81f69c25e9b056022c8a853c3b29df",
+          "text": "def pma10_29_contract : Prop :=\n  (∀ (k n : ℕ) (E : Set (Euclidean n)) (σ : AffineSimplexIn (k + 1) n E),\n    affineChainBoundary (Finsupp.single σ 1) =\n      ∑ i : Fin (k + 2), ((-1 : ℤ)^i.val) • Finsupp.single (σ.face i) 1) ∧\n  (∀ (k n : ℕ) (E : Set (Euclidean n)) (σ : AffineSimplexIn (k + 1) n E)\n    (i : Fin (k + 2)),\n    (σ.face i).vertices = σ.vertices ∘ i.succAbove ∧\n    (σ.face i).toC2 = σ.toC2.face i) ∧\n  (∀ (k n : ℕ) (E : Set (Euclidean n)) (σ : AffineSimplexIn (k + 1) n E)\n    (u : Coord k),\n    affineSimplexMap (σ.face 0).vertices u =\n      σ.vertices 1 + ∑ j : Fin k, u j • (σ.vertices j.succ.succ - σ.vertices 1)) ∧\n  (∀ (k : ℕ) (i : Fin (k + 1)) (u : Coord k),\n    standardFaceMap i.succ u = Fin.insertNth i 0 u) ∧\n  (∀ (n : ℕ) (E : Set (Euclidean n)) (σ : AffineSimplexIn 2 n E),\n    affineSimplexBoundary σ = Finsupp.single (σ.face 0) 1 -\n      Finsupp.single (σ.face 1) 1 + Finsupp.single (σ.face 2) 1) ∧\n  (∀ (k n : ℕ) (E : Set (Euclidean n)) (Γ : AffineChain (k + 1) n E),\n    affineChainToSimplex (affineChainBoundary Γ) = chainBoundary (affineChainToSimplex Γ))\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ChainMaps.lean",
+      "file_sha256": "9a64b331e63ddd9c6bc8f155db7463c10e4b020e41b832cb025ae3cdf4ac1e5c",
+      "contracts": {
+        "pma10_30_contract": {
+          "sha256": "e61f30fa51788a5aa6dbeced1d6308b4e2c15737610c6d016bccddc80740ebe4",
+          "text": "def pma10_30_contract : Prop :=\n  (∀ (k n m : ℕ) (E : Set (Euclidean n)) (V : Set (Euclidean m))\n    (σ : C2Simplex k n E) (T : Euclidean n → Euclidean m)\n    (hE : IsOpen E) (hV : IsOpen V) (hT : ContDiffOn ℝ 2 T E) (hTV : MapsTo T E V),\n    (σ.mapBy T hE hT hTV).map = T ∘ σ.map ∧\n    (σ.mapBy T hE hT hTV).toSurface.IsC2 ∧\n    ∀ (ω : FormField m), IsFormOn V k ω →\n      (ParameterDomain.simplex : ParameterDomain k).Integrable\n        (surfaceIntegrand (σ.mapBy T hE hT hTV).toSurface ω) ∧\n      (ParameterDomain.simplex : ParameterDomain k).Integrable\n        (surfaceIntegrand σ.toSurface (pullbackForm T ω)) ∧\n      surfaceIntegral (σ.mapBy T hE hT hTV).toSurface ω =\n        surfaceIntegral σ.toSurface (pullbackForm T ω)) ∧\n  (∀ (k n m : ℕ) (E : Set (Euclidean n)) (V : Set (Euclidean m))\n    (Γ Δ : SimplexChain k n E) (z : ℤ) (T : Euclidean n → Euclidean m)\n    (hE : IsOpen E) (hT : ContDiffOn ℝ 2 T E) (hTV : MapsTo T E V),\n    chainMap T hE hT hTV (Γ + Δ) = chainMap T hE hT hTV Γ + chainMap T hE hT hTV Δ ∧\n    chainMap T hE hT hTV (z • Γ) = z • chainMap T hE hT hTV Γ) ∧\n  (∀ (k n m : ℕ) (E : Set (Euclidean n)) (V : Set (Euclidean m))\n    (Γ : SimplexChain (k + 1) n E) (T : Euclidean n → Euclidean m)\n    (hE : IsOpen E) (hT : ContDiffOn ℝ 2 T E) (hTV : MapsTo T E V),\n    chainBoundary (chainMap T hE hT hTV Γ) = chainMap T hE hT hTV (chainBoundary Γ)) ∧\n  (∀ (k n m : ℕ) (E : Set (Euclidean n)) (V : Set (Euclidean m))\n    (σ : AffineSimplexIn (k + 1) n E) (F : Euclidean n →ᵃ[ℝ] Euclidean m)\n    (hE : IsOpen E) (hFV : MapsTo F E V),\n    (σ.mapAffine F hFV).toC2 = σ.toC2.mapBy F hE\n      (affineMap_euclidean_contDiff F 2).contDiffOn hFV ∧\n    simplexBoundary (σ.toC2.mapBy F hE (affineMap_euclidean_contDiff F 2).contDiffOn hFV) =\n      affineChainToSimplex (affineSimplexBoundary (σ.mapAffine F hFV)))\n"
         }
       }
     }

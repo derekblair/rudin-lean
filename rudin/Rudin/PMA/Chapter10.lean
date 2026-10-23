@@ -10,6 +10,8 @@ import Rudin.PMA.Chapter10.ExteriorDerivativeRules
 import Rudin.PMA.Chapter10.PullbackDefinitions
 import Rudin.PMA.Chapter10.PullbackDifferentiation
 import Rudin.PMA.Chapter10.SurfacePullbacks
+import Rudin.PMA.Chapter10.SimplexOrientation
+import Rudin.PMA.Chapter10.ChainMaps
 
 /-!
 # PMA Chapter 10: Integration of Differential Forms
@@ -119,6 +121,26 @@ Principal proof: `pma10_24`. Definitions: `Chapter10/Pullbacks.lean`; proofs: `C
 
 /-! ### PMA-10.25
 Principal proof: `pma10_25`. Definitions: `Chapter10/Pullbacks.lean`; proofs: `Chapter10/SurfacePullbacks.lean`.
+-/
+
+/-! ### PMA-10.26
+Principal proof: `pma10_26`. Definitions and proofs: `Chapter10/AffineSimplices.lean`.
+-/
+
+/-! ### PMA-10.27
+Principal proof: `pma10_27`. Definitions and proofs: `Chapter10/SimplexOrientation.lean`.
+-/
+
+/-! ### PMA-10.28
+Principal proof: `pma10_28`. Definitions and proofs: `Chapter10/AffineChains.lean`.
+-/
+
+/-! ### PMA-10.29
+Principal proof: `pma10_29`. Definitions and proofs: `Chapter10/SimplexBoundaries.lean`.
+-/
+
+/-! ### PMA-10.30
+Principal proof: `pma10_30`. Definitions and proofs: `Chapter10/ChainMaps.lean`.
 -/
 
 end Rudin.PMA.Chapter10
