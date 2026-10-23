@@ -87,3 +87,28 @@ independently authored boundary assertions compile. Only the three permitted
 axioms occur. The default build succeeds with 9023 jobs. Eight production modules
 and nine contracts are recorded in the canonical manifests. Raw evidence uses
 `evidence/ch10-section4-*`; earlier chapter sources and pins remain unchanged.
+
+## Surfaces, forms, separation, and wedge multiplication: 10.10–10.17
+
+The next fourteen reviewed modules develop actual cell/simplex parametrizations,
+continuous and differentiable coefficients, and the native integral of derivative
+minors. The worked examples retain endpoint values, the signed ellipse integrals,
+and the spherical-coordinate Jacobian, volume, surjectivity, and interior
+injectivity. Standard expansions and the Chapter9 tuple sign agree. Separation
+uses nonzero native integrals on actual detecting surfaces; it does not define
+functional equality to be coefficient equality. Wedge multiplication retains the
+shared-index zero, cross-inversion parity, and graded commutativity.
+
+Eight further independent boundary assertions exercise zero-dimensional
+integration, an admissible noninjective surface, a repeated-coordinate zero,
+standard coefficient cancellation, an actual detecting surface, a nonsorted
+wedge sign, identified sphere boundary points versus interior injectivity, and
+positive native volume with a degenerate boundary Jacobian. The cumulative total
+is twenty-one authored assertions.
+
+The production audit checks seventeen actual principal theorems and seventeen
+accepted-contract comparisons. It recursively audits 643 declarations including
+the 42-declaration probe subset, with only the three permitted axioms. The
+default build succeeds with 9040 jobs. Canonical records cover 22 production
+modules and seventeen contracts. Raw gates use `evidence/ch10-section5-*`; all
+earlier chapter sources and pinned project files remain unchanged.

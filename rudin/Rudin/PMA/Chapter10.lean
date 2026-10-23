@@ -2,6 +2,9 @@ import Rudin.PMA.Chapter10.Simplex
 import Rudin.PMA.Chapter10.Primitive
 import Rudin.PMA.Chapter10.Partition
 import Rudin.PMA.Chapter10.ChangeOfVariables
+import Rudin.PMA.Chapter10.SphereExamples
+import Rudin.PMA.Chapter10.FormSeparation
+import Rudin.PMA.Chapter10.WedgeProducts
 
 /-!
 # PMA Chapter 10: Integration of Differential Forms
@@ -47,6 +50,38 @@ Principal proof: `pma10_8`. Definitions and proofs: `Chapter10/Partition.lean`.
 
 /-! ### PMA-10.9
 Principal proof: `pma10_9`. Definitions and proofs: `Chapter10/ChangeOfVariables.lean`.
+-/
+
+/-! ### PMA-10.10
+Principal proof: `pma10_10`. Definitions and proofs: `Chapter10/SurfaceDomains.lean`.
+-/
+
+/-! ### PMA-10.11
+Principal proof: `pma10_11`. Definitions and proofs: `Chapter10/FormDefinitions.lean`.
+-/
+
+/-! ### PMA-10.12
+Principal proof: `pma10_12`. Definitions and proofs: `Chapter10/SphereExamples.lean`.
+-/
+
+/-! ### PMA-10.13
+Principal proof: `pma10_13`. Definitions and proofs: `Chapter10/FormOperations.lean`.
+-/
+
+/-! ### PMA-10.14
+Principal proof: `pma10_14`. Definitions and proofs: `Chapter10/StandardForms.lean`.
+-/
+
+/-! ### PMA-10.15
+Principal proof: `pma10_15`. Definitions and proofs: `Chapter10/FormSeparation.lean`.
+-/
+
+/-! ### PMA-10.16
+Principal proof: `pma10_16`. Definitions and proofs: `Chapter10/WedgeProducts.lean`.
+-/
+
+/-! ### PMA-10.17
+Principal proof: `pma10_17`. Definitions and proofs: `Chapter10/WedgeProducts.lean`.
 -/
 
 end Rudin.PMA.Chapter10

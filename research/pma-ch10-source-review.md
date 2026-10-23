@@ -186,3 +186,39 @@ The full `SurfaceMaps.lean` constructors and exact 10.21-10.25 contracts in `Pul
 | `pma10_25_contract` | `d8977f02e88599ef463e6e6911ff64d24edc2b7a3bf4dfa656af04e82b0f4599` |
 
 The independently authored `FormAlgebraProbes.lean` and `ExteriorDerivativeProbes.lean` provide six additional clients: nonsorted two-form product sign, nonzero coefficient detected by an actual natively integrable surface, cancellation in the displayed raw form, scalar differential evaluation on a mixed-sign tangent, nonlinear curve endpoint integration on [-1,2], and C1-only one-form self-product differentiation. They await root compilation.
+
+
+## Final example, standard-form, separation, and pullback-helper review
+
+The final compiled example files were re-read completely. Compiler corrections preserve the actual scalar coordinate derivative, native endpoint identity, two signed ellipse integrals, spherical derivative/determinant, three successive native density integrations, complete closed-ball image, and interior-only injectivity. StandardForms derives the literal tuple sign under sorting, both exact displayed reorderings, and raw-form simplification. NativeSeparation and FormSeparation retain positive-measure finite boxes (including dimension zero), explicit native existence, the actual coordinate-plane surface, coefficient extraction by the dual exterior basis, and functional separation. Their final corrections concern syntax, elaboration/typeclass transparency, and pointwise negation only; accepted numbered contracts are unchanged.
+
+The compiled pullback helper proofs were independently read. Evaluation under the induced exterior map is proved in every degree from the determinant pairing, and it yields actual surface-integrand equality on the parameter carrier via the chain rule. The identity-parametrization equality explicitly cancels the coordinate/Euclidean equivalence. These are kernel-compiled helper implementations, not claims that 10.21-10.25 principals have all compiled. Root reported the following files green; exact complete-file acceptance follows.
+
+| Accepted compiled file | SHA256 |
+| --- | --- |
+| `FormExamples.lean` | `3e3c5478483102de6c37a760989be5924bf2765c1606b3546d30b8544b0d802f` |
+| `SphereExamples.lean` | `87aaef719f53e5071ed3e853b4802cd98d1fbe5f1be8a6bbfbd172cfbb0d187f` |
+| `StandardForms.lean` | `a7ec125be843cc5617234a59768589b4daf81fa6166e3482d7d4f21c81dbbed4` |
+| `NativeSeparation.lean` | `d28c2362cdd3201023171dc8fbfaccab4d4ed8125c69ba6ff9532ed77d7783b4` |
+| `FormSeparation.lean` | `9dd2504bc1139aca174d960888601015abd7454da928d870a07a619ee89a9d1a` |
+| `PullbackAlgebra.lean` | `beec993d5a18137da7e8d4016e74bbe91d68332d0b50d5c4697ee86c78ac4b4f` |
+| `SurfaceMaps.lean` | `57cef14a2c52733a6aea2d410f1aed3101031d524ffa49f75fd65d093d1c3dde` |
+| `PullbackEvaluation.lean` | `92e334104c5f09da34cad0354702572b907adc4b04119ecd324b2f8885dd3c01` |
+
+The full SurfacePullbacks, PullbackRegularity, and PullbackDifferentiation drafts are semantically accepted. Surface integration equality follows from carrier-wise integrand equality, with native existence separately derived from continuity. The regularity theorem proves C-r pullback from a C-(r+1) map and C-r coefficients using the finite standard expansion. The scalar chain rule and closedness of ordered products of coordinate differentials yield the exact C1-form/C2-map differentiation identity; no C2 coefficient premise is introduced. Draft snapshots are below; compiler corrections/final hashes remain pending. The canonical section manifests remain through 10.9 only.
+
+| Accepted proof draft | SHA256 |
+| --- | --- |
+| `SurfacePullbacks.lean` | `d617f06fdd932989c67b5fa7f0cc618547e480f9e309ebf928ead3a2850aba5d` |
+| `PullbackRegularity.lean` | `c792ab242191f21941227b968281e27b38372412b49768a514c266a5329128fd` |
+| `PullbackDifferentiation.lean` | `793325ccdf07f2c4f837cb6f5b1fb2d4e4a251be717903c058a402671cc08178` |
+
+
+The earlier FormProbes do not by themselves cover the spherical part of 10.12. At root's request the reviewer therefore added `SphereExampleProbes.lean`, with two independent public assertions: actual boundary noninjectivity alongside interior injectivity, and a genuine natively integrable volume-example surface with positive integral despite a zero boundary Jacobian. These probes await root compilation; they do not alter the production theorem or impose immersion.
+
+
+## Final wedge reconciliation and canonical section through 10.17
+
+The complete final WedgeProducts implementation is independently accepted at SHA256 `2927b89be671cbf2bbaafb42755d5e8b27bb39ae07189a10d81f87b069a55c2d`. The only changes since the reviewed draft are explicit finite-index/coercion conversions, pinned API names, and finite-sum order rewrites. Both source contract hashes remain unchanged. Root reports WedgeProducts and all three independent FormAlgebraProbes clients compiled successfully; the probe SHA256 is `ba45873e165b84289977892b0a60ab5f152a3a34aed8b0ae1295cac50ed1768e`.
+
+Following root's 10.9 section commit and request, the canonical accepted-contract snapshot and reviewed-production manifest were extended through 10.17 only. All fourteen added complete production files match their independent acceptance hashes, every earlier file still matches, and all eight added numbered contract texts match the original accepted hashes. The manifest contains 22 production modules and 17 principals. No CoordinateDifferentiation, exterior-derivative, or pullback module is included at this section boundary. SphereExampleProbes is an additional pending compiler gate and is not represented as already compiled.

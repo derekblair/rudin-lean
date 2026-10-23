@@ -1,7 +1,7 @@
 {
   "reviewer": "ch8_fidelity",
   "date": "2026-10-23",
-  "status": "Independent semantic acceptance of exact Chapter10 contracts 1-9; production compilation and probes are separate gates.",
+  "status": "Independent semantic acceptance of exact Chapter10 contracts 1-17; production compilation and probes are separate gates.",
   "extraction": "Declaration text from def through final term; trailing whitespace normalized to one newline; excludes subsequent declaration/comment.",
   "files": [
     {
@@ -61,6 +61,80 @@
         "pma10_9_contract": {
           "sha256": "9bea02f2a1e23a6a170996c536d27c3a4fc753e737e09b5adcf76f031dd7828f",
           "text": "def pma10_9_contract : Prop :=\n  (∀ (n : ℕ) (T : Coord n → Coord n) (x : Coord n),\n    coordinateJacobian T x = Matrix.det (LinearMap.toMatrix' (fderiv ℝ T x).toLinearMap)) ∧\n  (∀ (n : ℕ) (T : Coord n → Coord n) (x : Coord n), DifferentiableAt ℝ T x →\n    jacobian (euclideanTransform T) (coordEquivEuclidean n x) = coordinateJacobian T x) ∧\n  (∀ (n : ℕ) (E : Set (Coord n)) (T : Coord n → Coord n) (f : Coord n → ℝ),\n    IsOpen E → C1On T E → InjOn T E →\n    (∀ x ∈ E, coordinateJacobian T x ≠ 0) →\n    Continuous f → HasCompactSupport f → tsupport f ⊆ T '' E →\n    ∃ e : OpenPartialHomeomorph (Coord n) (Coord n),\n      (e : Coord n → Coord n) = T ∧ e.source = E ∧ e.target = T '' E ∧\n      IsOpen (T '' E) ∧ ContinuousOn e.symm (T '' E) ∧\n      Continuous (zeroExtendedPullback E T f) ∧\n      HasCompactSupport (zeroExtendedPullback E T f) ∧\n      tsupport (zeroExtendedPullback E T f) ⊆ E ∧\n      IteratedRIntegrable (supportCell f) f ∧\n      IteratedRIntegrable (supportCell (zeroExtendedPullback E T f))\n        (zeroExtendedPullback E T f) ∧\n      wholeRIntegral f = wholeRIntegral (zeroExtendedPullback E T f))\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SurfaceDomains.lean",
+      "file_sha256": "7b7c83140d5a890564a7699d60454ea79ba91cccfe85cf87b0148114f7bdd77d",
+      "contracts": {
+        "pma10_10_contract": {
+          "sha256": "941e2ee4570cdf10e00ff694736d153e86d1082ccaea833e2e379b37123f7155",
+          "text": "def pma10_10_contract : Prop :=\n  (∀ (k : ℕ) (D : ParameterDomain k), IsCompact D.carrier) ∧\n  (∀ (k n : ℕ) (E : Set (Euclidean n)), IsOpen E → ∀ Φ : Surface k n E,\n    ∃ U : Set (Coord k), IsOpen U ∧ Φ.domain.carrier ⊆ U ∧\n      ContDiffOn ℝ 1 Φ.map U ∧ MapsTo Φ.map Φ.domain.carrier E) ∧\n  (∀ (k n : ℕ) (E : Set (Euclidean n)), IsOpen E →\n    ∀ (D : ParameterDomain k) (f : Coord k → Euclidean n) (U : Set (Coord k)),\n    IsOpen U → D.carrier ⊆ U → ContDiffOn ℝ 1 f U → MapsTo f D.carrier E →\n    ∃ Φ : Surface k n E, Φ.domain = D ∧ Φ.map = f) ∧\n  (∀ (n : ℕ) (E : Set (Euclidean n)), IsOpen E → ∀ γ : RegularCurve n E,\n    γ.toSurface.domain = .cell (intervalCell γ.lower γ.upper γ.ordered) ∧\n      γ.toSurface.map = (fun x => γ.map (x 0)) ∧ γ.toSurface.toCurve.map = γ.map) ∧\n  (∀ (n : ℕ) (E : Set (Euclidean n)), IsOpen E → ∀ Φ : Surface 1 n E,\n    Φ.toCurve.lower = Φ.domain.interval.1 ∧ Φ.toCurve.upper = Φ.domain.interval.2 ∧\n      Φ.toCurve.map = (fun t => Φ.map (fun _ => t)) ∧\n      Φ.toCurve.toSurface.map = Φ.map)\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormDefinitions.lean",
+      "file_sha256": "42a8630d7c0a0d3e90dce85f26832d7f7c2a5e4fb68653988505febe6e91314b",
+      "contracts": {
+        "pma10_11_contract": {
+          "sha256": "2005e8f51e71594407dff80e158795a46d9c8d1345ee1c361d031a21b8d7c710",
+          "text": "def pma10_11_contract : Prop :=\n  (∀ (k n : ℕ) (E : Set (Euclidean n)) (Φ : Surface k n E) (ω : FormField n),\n    IsFormOn E k ω → ContinuousOn (surfaceIntegrand Φ ω) Φ.domain.carrier ∧\n      Φ.domain.Integrable (surfaceIntegrand Φ ω)) ∧\n  (∀ (k n : ℕ) (E : Set (Euclidean n))\n    (a : (Fin k → Fin n) → Euclidean n → ℝ),\n    (∀ I, ContinuousOn (a I) E) → IsFormOn E k (formFromCoefficients a) ∧\n      ∀ Φ : Surface k n E, surfaceIntegral Φ (formFromCoefficients a) =\n        Φ.domain.integral (fun u => ∑ I, a I (Φ.map u) *\n          Matrix.det (fun i j => (fderiv ℝ Φ.map u (Pi.single j 1)) (I i)))) ∧\n  (∀ (r k n : ℕ) (E : Set (Euclidean n))\n    (a : (Fin k → Fin n) → Euclidean n → ℝ),\n    (∀ I, ContDiffOn ℝ r (a I) E) → IsCFormOn r E k (formFromCoefficients a)) ∧\n  (∀ (n : ℕ) (E : Set (Euclidean n)) (f : Euclidean n → ℝ),\n    ContinuousOn f E → IsFormOn E 0 (scalarForm f)) ∧\n  (∀ (n : ℕ) (E : Set (Euclidean n)) (ω : FormField n), IsFormOn E 0 ω →\n    ∃ f : Euclidean n → ℝ, ContinuousOn f E ∧ EqOn (scalarForm f) ω E ∧\n      ∀ g : Euclidean n → ℝ, EqOn (scalarForm g) ω E → EqOn g f E) ∧\n  (∀ (n : ℕ) (E : Set (Euclidean n)) (Φ : Surface 0 n E) (f : Euclidean n → ℝ),\n    surfaceIntegral Φ (scalarForm f) = f (Φ.map 0))\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormExamples.lean",
+      "file_sha256": "3e3c5478483102de6c37a760989be5924bf2765c1606b3546d30b8544b0d802f",
+      "contracts": {
+        "pma10_12_contract": {
+          "sha256": "de31cca4ffdc0cd330e0c012ffb11fe8fea37afd34fac5227c314104212b1986",
+          "text": "def pma10_12_contract : Prop :=\n  (∀ Φ : Surface 1 3 univ, Φ.domain = .cell (Cell.unit 1) →\n    IteratedRIntegrable (Cell.unit 1) (surfaceIntegrand Φ xyDifferential) ∧\n    surfaceIntegral Φ xyDifferential =\n      Φ.map 1 0 * Φ.map 1 1 - Φ.map 0 0 * Φ.map 0 1 ∧\n    (Φ.map 0 = Φ.map 1 → surfaceIntegral Φ xyDifferential = 0)) ∧\n  (∀ a b : ℝ, 0 < a → 0 < b → ∃ Φ : Surface 1 2 univ,\n    Φ.domain = .cell ellipseCell ∧ Φ.map = ellipseMap a b ∧\n    Φ.map 0 = Φ.map (fun _ => 2 * Real.pi) ∧\n    IteratedRIntegrable ellipseCell (surfaceIntegrand Φ (coordinateOneForm 0 1)) ∧\n    IteratedRIntegrable ellipseCell (surfaceIntegrand Φ (coordinateOneForm 1 0)) ∧\n    surfaceIntegral Φ (coordinateOneForm 0 1) = Real.pi * a * b ∧\n    surfaceIntegral Φ (coordinateOneForm 1 0) = -(Real.pi * a * b)) ∧\n  (∃ Φ : Surface 3 3 univ,\n    Φ.domain = .cell sphericalCell ∧ Φ.map = sphericalMap ∧\n    (∀ u, sphericalJacobian u = (u 0)^2 * Real.sin (u 1)) ∧\n    IteratedRIntegrable sphericalCell (surfaceIntegrand Φ volumeForm) ∧\n    surfaceIntegral Φ volumeForm = 4 * Real.pi / 3 ∧\n    sphericalMap '' sphericalCell.carrier = Metric.closedBall 0 1 ∧\n    InjOn sphericalMap (interior sphericalCell.carrier))\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormOperations.lean",
+      "file_sha256": "55939cdfe36cf842c638467e4bc082384a0c1a7cffc3ce06a05340f981fd9bae",
+      "contracts": {
+        "pma10_13_contract": {
+          "sha256": "e2b0cdbce34fe5cb12b5dc28b703d8b5b4c3f61763b8affa33476399eb18fd38",
+          "text": "def pma10_13_contract : Prop :=\n  (∀ (n k : ℕ) (E : Set (Euclidean n)) (ω η : FormField n),\n    FormEqOn E k ω η ↔ ∀ Φ : Surface k n E, surfaceIntegral Φ ω = surfaceIntegral Φ η) ∧\n  (∀ (n k : ℕ) (E : Set (Euclidean n)) (ω : FormField n),\n    FormEqOn E k ω 0 ↔ ∀ Φ : Surface k n E, surfaceIntegral Φ ω = 0) ∧\n  (∀ (n k : ℕ) (E : Set (Euclidean n)) (ω η : FormField n) (c : ℝ),\n    IsFormOn E k ω → IsFormOn E k η → ∀ Φ : Surface k n E,\n    surfaceIntegral Φ (c • ω + η) = c * surfaceIntegral Φ ω + surfaceIntegral Φ η) ∧\n  (∀ (n k : ℕ) (E : Set (Euclidean n)) (f : Euclidean n → ℝ) (I : Fin k → Fin n)\n    (i j : Fin k), i ≠ j →\n    FormEqOn E k (coefficientWedge f (I ∘ Equiv.swap i j)) (-coefficientWedge f I)) ∧\n  (∀ (n k : ℕ) (E : Set (Euclidean n)) (f : Euclidean n → ℝ) (I : Fin k → Fin n)\n    (i j : Fin k), i ≠ j → I i = I j → FormEqOn E k (coefficientWedge f I) 0) ∧\n  (∀ (n k : ℕ) (E : Set (Euclidean n)) (ω : FormField n),\n    n < k → IsFormOn E k ω → EqOn ω 0 E ∧ FormEqOn E k ω 0)\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/StandardForms.lean",
+      "file_sha256": "a7ec125be843cc5617234a59768589b4daf81fa6166e3482d7d4f21c81dbbed4",
+      "contracts": {
+        "pma10_14_contract": {
+          "sha256": "26d646b002f9160b771996fd9353321b20aa299d5db631b06007e3eba1b26680",
+          "text": "def pma10_14_contract : Prop :=\n  (∀ n k : ℕ, Nat.card (StandardIndex n k) = n.choose k) ∧\n  (∀ (n k : ℕ) (I : Fin k → Fin n), StrictMono I → ∀ σ : Equiv.Perm (Fin k),\n    tupleSign (fun j => ((I (σ j)).val : ℤ)) = (σ.sign : ℤ)) ∧\n  (∀ (n k : ℕ) (I : Fin k → Fin n), Injective I → ∃ S : StandardIndex n k,\n    range (Set.powersetCard.ofFinEmbEquiv.symm S) = range I ∧\n    coordinateWedge I = (tupleSign (fun j => ((I j).val : ℤ)) : ℝ) • standardWedge S) ∧\n  (∀ (n k : ℕ) (I : Fin k → Fin n) (i j : Fin k), i ≠ j → I i = I j →\n    coordinateWedge I = 0) ∧\n  (∀ (n k : ℕ) (E : Set (Euclidean n)) (ω : FormField n), IsFormOn E k ω →\n    (∀ S : StandardIndex n k, ContinuousOn (formCoefficient ω S.val) E) ∧\n    ∀ x ∈ E, ω x = ∑ S : StandardIndex n k, formCoefficient ω S.val x • standardWedge S) ∧\n  (∀ (n k r : ℕ) (E : Set (Euclidean n)) (ω : FormField n), IsCFormOn r E k ω →\n    (∀ S : StandardIndex n k, ContDiffOn ℝ r (formCoefficient ω S.val) E) ∧\n    ∀ x ∈ E, ω x = ∑ S : StandardIndex n k, formCoefficient ω S.val x • standardWedge S) ∧\n  coordinateWedge (![0, 4, 2, 1] : Fin 4 → Fin 5) =\n    -coordinateWedge (![0, 1, 2, 4] : Fin 4 → Fin 5) ∧\n  coordinateWedge (![3, 1, 2] : Fin 3 → Fin 4) =\n    coordinateWedge (![1, 2, 3] : Fin 3 → Fin 4) ∧\n  rawTwoForm = standardTwoForm\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormSeparation.lean",
+      "file_sha256": "9dd2504bc1139aca174d960888601015abd7454da928d870a07a619ee89a9d1a",
+      "contracts": {
+        "pma10_15_contract": {
+          "sha256": "b1c8396bfb50a1fcbcd6c503ca8fddaa323e65fc375d3cf15b3c3a86ff3dbc11",
+          "text": "def pma10_15_contract : Prop :=\n  ∀ (k n : ℕ) (E : Set (Euclidean n)) (ω : FormField n),\n    IsOpen E → IsFormOn E k ω →\n      (FormEqOn E k ω 0 ↔ ∀ S : StandardIndex n k, ∀ x ∈ E, formCoefficient ω S.val x = 0) ∧\n      (FormEqOn E k ω 0 ↔ EqOn ω 0 E)\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/WedgeProducts.lean",
+      "file_sha256": "2927b89be671cbf2bbaafb42755d5e8b27bb39ae07189a10d81f87b069a55c2d",
+      "contracts": {
+        "pma10_16_contract": {
+          "sha256": "8696106f0066e6871b316fc6fcf3aaab63ee922b53d3f6cd18f0e29b1fb84dd9",
+          "text": "def pma10_16_contract : Prop :=\n  (∀ (n p q : ℕ) (I : Fin p → Fin n) (J : Fin q → Fin n),\n    coordinateWedge I * coordinateWedge J = coordinateWedge (Fin.append I J)) ∧\n  (∀ (n p q : ℕ) (S : StandardIndex n p) (T : StandardIndex n q),\n    ¬Disjoint S.val T.val → standardWedge S * standardWedge T = 0) ∧\n  (∀ (n p q : ℕ) (S : StandardIndex n p) (T : StandardIndex n q)\n      (h : Disjoint S.val T.val),\n    standardWedge S * standardWedge T =\n      (-1 : ℝ) ^ crossInversionCount (Set.powersetCard.ofFinEmbEquiv.symm S)\n        (Set.powersetCard.ofFinEmbEquiv.symm T) • standardWedge (Set.powersetCard.disjUnion h)) ∧\n  (∀ (n p q r : ℕ) (S : StandardIndex n p) (T : StandardIndex n q) (U : StandardIndex n r),\n    (standardWedge S * standardWedge T) * standardWedge U =\n      standardWedge S * (standardWedge T * standardWedge U))\n"
+        },
+        "pma10_17_contract": {
+          "sha256": "cd226f2d5a18f450050737f5b11dd3f5ff677ceeb75f3d9a23c9583724aee7ae",
+          "text": "def pma10_17_contract : Prop :=\n  (∀ (n p q : ℕ) (E : Set (Euclidean n)) (ω η : FormField n),\n    IsFormOn E p ω → IsFormOn E q η → IsFormOn E (p + q) (wedge ω η) ∧\n    ∀ x ∈ E, wedge ω η x =\n      ∑ S : StandardIndex n p, ∑ T : StandardIndex n q,\n        (formCoefficient ω S.val x * formCoefficient η T.val x) • (standardWedge S * standardWedge T)) ∧\n  (∀ (n : ℕ) (ω η θ : FormField n), wedge (ω + η) θ = wedge ω θ + wedge η θ ∧\n    wedge ω (η + θ) = wedge ω η + wedge ω θ ∧\n    wedge (wedge ω η) θ = wedge ω (wedge η θ)) ∧\n  (∀ (n : ℕ) (f : Euclidean n → ℝ) (ω : FormField n),\n    wedge (scalarForm f) ω = (fun x => f x • ω x) ∧\n    wedge ω (scalarForm f) = (fun x => f x • ω x)) ∧\n  (∀ (n p q : ℕ) (E : Set (Euclidean n)) (ω η : FormField n),\n    IsFormOn E p ω → IsFormOn E q η →\n    EqOn (wedge ω η) ((-1 : ℝ)^(p*q) • wedge η ω) E)\n"
         }
       }
     }

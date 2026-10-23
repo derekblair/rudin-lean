@@ -1,0 +1,527 @@
+ℹ [8934/8989] Replayed Rudin.PMA.Chapter06.Integrability
+info: Rudin/PMA/Chapter06/Integrability.lean:550:0: 'Rudin.PMA.Chapter06.pma6_8' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:551:0: 'Rudin.PMA.Chapter06.pma6_11' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:552:0: 'Rudin.PMA.Chapter06.pma6_13' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:553:0: 'Rudin.PMA.Chapter06.rsIntegrable_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:554:0: 'Rudin.PMA.Chapter06.rsIntegrable_const_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:555:0: 'Rudin.PMA.Chapter06.rsIntegrable_integrator_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:556:0: 'Rudin.PMA.Chapter06.rsIntegrable_integrator_const_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8937/8989] Replayed Rudin.PMA.Chapter06.Endpoint
+info: Rudin/PMA/Chapter06/Endpoint.lean:123:0: 'Rudin.PMA.Chapter06.endpoint_local_gap_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Endpoint.lean:124:0: 'Rudin.PMA.Chapter06.rsIntegrable_of_continuousOn_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8939/8989] Replayed Rudin.PMA.Chapter05
+info: Rudin/PMA/Chapter05.lean:1103:0: PMA 5.13 draft audit: 171 declarations; only propext, Classical.choice, Quot.sound.
+ℹ [8940/8989] Replayed Rudin.PMA.Chapter06.Jump
+info: Rudin/PMA/Chapter06/Jump.lean:448:0: 'Rudin.PMA.Chapter06.pma6_14' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:449:0: 'Rudin.PMA.Chapter06.pma6_15' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:450:0: 'Rudin.PMA.Chapter06.pma6_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:451:0: 'Rudin.PMA.Chapter06.atomicQuadraticMoment' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:452:0: 'Rudin.PMA.Chapter06.finiteAtomicQuadraticMoment' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:453:0: 'Rudin.PMA.Chapter06.atomicStepSum_integral_of_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:454:0: 'Rudin.PMA.Chapter06.translatedStep_not_RSIntegrable_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:455:0: 'Rudin.PMA.Chapter06.unitStep_source_caution' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8943/8989] Replayed Rudin.PMA.Chapter06.Calculus
+info: Rudin/PMA/Chapter06/Calculus.lean:664:0: 'Rudin.PMA.Chapter06.calculus_probe_constant_integrator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:665:0: 'Rudin.PMA.Chapter06.calculus_probe_singleton_substitution' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:666:0: 'Rudin.PMA.Chapter06.calculus_probe_relative_primitive_endpoints' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:667:0: 'Rudin.PMA.Chapter06.pma6_22' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:668:0: 'Rudin.PMA.Chapter06.pma6_20' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:670:0: 'Rudin.PMA.Chapter06.pma6_17' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:671:0: 'Rudin.PMA.Chapter06.pma6_19' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:672:0: 'Rudin.PMA.Chapter06.pma6_21' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8944/8989] Replayed Rudin.PMA.Chapter06.Moment
+info: Rudin/PMA/Chapter06/Moment.lean:37:0: 'Rudin.PMA.Chapter06.quadraticMoment_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Moment.lean:38:0: 'Rudin.PMA.Chapter06.pma6_18' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8945/8989] Replayed Rudin.PMA.Chapter06.Vector
+info: Rudin/PMA/Chapter06/Vector.lean:415:0: 'Rudin.PMA.Chapter06.pma6_23' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:416:0: 'Rudin.PMA.Chapter06.pma6_24' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:417:0: 'Rudin.PMA.Chapter06.pma6_25' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:418:0: 'Rudin.PMA.Chapter06.pma6_23_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:419:0: 'Rudin.PMA.Chapter06.pma6_25_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:420:0: 'Rudin.PMA.Chapter06.complexRSIntegral_ftc' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:421:0: 'Rudin.PMA.Chapter06.complexRSIntegrable_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:422:0: 'Rudin.PMA.Chapter06.complexRSIntegrable_const_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:423:0: 'Rudin.PMA.Chapter06.vector_integrability_zero_dimension_guard_probe' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:424:0: 'Rudin.PMA.Chapter06.complex_imaginary_constant_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8946/8989] Replayed Rudin.PMA.Chapter06.Curve
+info: Rudin/PMA/Chapter06/Curve.lean:363:0: 'Rudin.PMA.Chapter06.pma6_26' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Curve.lean:364:0: 'Rudin.PMA.Chapter06.pma6_27' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Curve.lean:365:0: 'Rudin.PMA.Chapter06.continuouslyDifferentiable_rectifiable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Curve.lean:366:0: 'Rudin.PMA.Chapter06.curveIncrement_norm_estimate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Curve.lean:367:0: 'Rudin.PMA.Chapter06.curveLength_singleton_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Curve.lean:368:0: 'Rudin.PMA.Chapter06.curveLength_line_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Curve.lean:369:0: 'Rudin.PMA.Chapter06.constant_curve_closed_not_arc_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8948/8989] Replayed Rudin.PMA.Chapter07.Calculus
+info: Rudin/PMA/Chapter07/Calculus.lean:191:0: 'Rudin.PMA.Chapter07.pma7_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Calculus.lean:306:0: 'Rudin.PMA.Chapter07.pma7_17' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Calculus.lean:400:0: 'Rudin.PMA.Chapter07.uniform_integral_imaginary_step_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Calculus.lean:401:0: 'Rudin.PMA.Chapter07.uniform_integral_zero_mass_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Calculus.lean:402:0: 'Rudin.PMA.Chapter07.uniform_derivative_endpoint_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Calculus.lean:403:0: 'Rudin.PMA.Chapter07.uniform_integral_conditional_series_probe' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+⚠ [8952/8989] Replayed Rudin.PMA.Chapter09.Linear
+warning: Rudin/PMA/Chapter09/Linear.lean:196:4: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Rudin/PMA/Chapter09/Linear.lean:242:4: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Rudin/PMA/Chapter09/Linear.lean:247:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Rudin/PMA/Chapter09/Linear.lean:256:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Rudin/PMA/Chapter09/Linear.lean:257:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Rudin/PMA/Chapter09/Linear.lean:370:6: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Rudin/PMA/Chapter09/Linear.lean:372:4: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [8954/8989] Replayed Rudin.PMA.Chapter09.PartialExamples
+warning: Rudin/PMA/Chapter09/PartialExamples.lean:31:2: Try `simp at this` instead of `simpa using this`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8957/8989] Replayed Rudin.PMA.Chapter10.Integration
+warning: Rudin/PMA/Chapter10/Integration.lean:57:4: Variable name `n` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _n
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [8958/8989] Replayed Rudin.PMA.Chapter10.IntegrationProofs
+warning: Rudin/PMA/Chapter10/IntegrationProofs.lean:86:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [8960/8989] Replayed Rudin.PMA.Chapter10.SimplexSlices
+warning: Rudin/PMA/Chapter10/SimplexSlices.lean:113:18: `continuous_finset_sum` has been deprecated: Use `continuous_finsetSum` instead
+⚠ [8961/8989] Replayed Rudin.PMA.Chapter10.Simplex
+warning: Rudin/PMA/Chapter10/Simplex.lean:45:76: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Rudin/PMA/Chapter10/Simplex.lean:49:79: `if_neg` has been deprecated: Use `ite_eq_right` instead
+⚠ [8962/8989] Replayed Rudin.PMA.Chapter09.Inverse
+warning: Rudin/PMA/Chapter09/Inverse.lean:111:37: Variable name `hE` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hE
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [8963/8989] Replayed Rudin.PMA.Chapter09.Determinants
+warning: Rudin/PMA/Chapter09/Determinants.lean:126:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Rudin/PMA/Chapter09/Determinants.lean:128:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Rudin/PMA/Chapter09/Determinants.lean:146:4: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+warning: Rudin/PMA/Chapter09/Determinants.lean:148:41: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8964/8989] Replayed Rudin.PMA.Chapter10.Primitive
+warning: Rudin/PMA/Chapter10/Primitive.lean:110:28: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Rudin/PMA/Chapter10/Primitive.lean:110:28: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Rudin/PMA/Chapter10/Primitive.lean:143:13: This simp argument is unused:
+  coordinatePartial_eq_fderiv hg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/Primitive.lean:142:46: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Rudin/PMA/Chapter10/Primitive.lean:142:46: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Rudin/PMA/Chapter10/Primitive.lean:237:31: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+warning: Rudin/PMA/Chapter10/Primitive.lean:273:62: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Rudin/PMA/Chapter10/Primitive.lean:360:4: Try `simp at hh` instead of `simpa using hh`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8970/8989] Replayed Rudin.PMA.Chapter10.SurfaceDomains
+warning: Rudin/PMA/Chapter10/SurfaceDomains.lean:26:18: `continuous_finset_sum` has been deprecated: Use `continuous_finsetSum` instead
+⚠ [8971/8989] Replayed Rudin.PMA.Chapter10.FormRegularity
+warning: Rudin/PMA/Chapter10/FormRegularity.lean:23:8: `continuousOn_finset_sum` has been deprecated: Use `continuousOn_finsetSum` instead
+warning: Rudin/PMA/Chapter10/FormRegularity.lean:81:8: `continuousOn_finset_sum` has been deprecated: Use `continuousOn_finsetSum` instead
+⚠ [8972/8989] Replayed Rudin.PMA.Chapter10.FormExamples
+warning: Rudin/PMA/Chapter10/FormExamples.lean:226:4: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [surfaceIntegrand_coordinateOneForm, ellipseSurface, h₀, h₁, ellipseMap,
+    coordEquivEuclidean_apply_coordinate, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8973/8989] Replayed Rudin.PMA.Chapter10.SphereExamples
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:31:82: This simp argument is unused:
+  add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.sum_univ_succ, Fin.succ_zero_eq_one, Fin.succ_one_eq_two, sphericalMap,
+    coordEquivEuclidean_apply_coordinate, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two,
+    Matrix.head_cons, Matrix.tail_cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:169:12: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:169:44: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:170:8: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:169:12: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:169:44: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:170:8: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:172:12: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:172:44: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:173:8: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:172:12: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:172:44: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:173:8: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:175:12: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:175:44: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:175:12: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:175:44: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:169:12: This simp argument is unused:
+  ContinuousLinearMap.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ContinuousLinearMap.add_apply, ContinuousLinearMap.sub_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:169:44: This simp argument is unused:
+  ContinuousLinearMap.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ContinuousLinearMap.smul_apply, ContinuousLinearMap.sub_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:170:8: This simp argument is unused:
+  ContinuousLinearMap.sub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ContinuousLinearMap.smul_apply, ContinuousLinearMap.add_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:172:12: This simp argument is unused:
+  ContinuousLinearMap.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ContinuousLinearMap.add_apply, ContinuousLinearMap.sub_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:172:44: This simp argument is unused:
+  ContinuousLinearMap.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ContinuousLinearMap.smul_apply, ContinuousLinearMap.sub_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:173:8: This simp argument is unused:
+  ContinuousLinearMap.sub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ContinuousLinearMap.smul_apply, ContinuousLinearMap.add_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:175:12: This simp argument is unused:
+  ContinuousLinearMap.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ContinuousLinearMap.sub_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:175:44: This simp argument is unused:
+  ContinuousLinearMap.sub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ContinuousLinearMap.smul_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:170:52: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:173:52: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:175:88: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:184:42: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:185:4: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:185:35: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:183:69: This simp argument is unused:
+  ContinuousLinearMap.pi_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [M, sphericalDerivative, ContinuousLinearMap.comp_apply, coordEquivEuclidean_apply_coordinate,
+    ContinuousLinearMap.add_apply, ContinuousLinearMap.sub_apply, ContinuousLinearMap.smul_apply,
+    ContinuousLinearMap.proj_apply, Pi.single_apply, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two,
+    Matrix.head_cons, Matrix.tail_cons, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:184:4: This simp argument is unused:
+  coordEquivEuclidean_apply_coordinate
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [M, sphericalDerivative, ContinuousLinearMap.comp_apply, ContinuousLinearMap.pi_apply,
+    ContinuousLinearMap.add_apply, ContinuousLinearMap.sub_apply, ContinuousLinearMap.smul_apply,
+    ContinuousLinearMap.proj_apply, Pi.single_apply, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two,
+    Matrix.head_cons, Matrix.tail_cons, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:184:42: This simp argument is unused:
+  ContinuousLinearMap.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [M, sphericalDerivative, ContinuousLinearMap.comp_apply, ContinuousLinearMap.pi_apply,
+    coordEquivEuclidean_apply_coordinate, ContinuousLinearMap.sub_apply, ContinuousLinearMap.smul_apply,
+    ContinuousLinearMap.proj_apply, Pi.single_apply, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two,
+    Matrix.head_cons, Matrix.tail_cons, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:185:4: This simp argument is unused:
+  ContinuousLinearMap.sub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [M, sphericalDerivative, ContinuousLinearMap.comp_apply, ContinuousLinearMap.pi_apply,
+    coordEquivEuclidean_apply_coordinate, ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply,
+    ContinuousLinearMap.proj_apply, Pi.single_apply, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two,
+    Matrix.head_cons, Matrix.tail_cons, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:185:35: This simp argument is unused:
+  ContinuousLinearMap.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [M, sphericalDerivative, ContinuousLinearMap.comp_apply, ContinuousLinearMap.pi_apply,
+    coordEquivEuclidean_apply_coordinate, ContinuousLinearMap.add_apply, ContinuousLinearMap.sub_apply,
+    ContinuousLinearMap.proj_apply, Pi.single_apply, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two,
+    Matrix.head_cons, Matrix.tail_cons, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:185:67: This simp argument is unused:
+  ContinuousLinearMap.proj_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [M, sphericalDerivative, ContinuousLinearMap.comp_apply, ContinuousLinearMap.pi_apply,
+    coordEquivEuclidean_apply_coordinate, ContinuousLinearMap.add_apply, ContinuousLinearMap.sub_apply,
+    ContinuousLinearMap.smul_apply, Pi.single_apply, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two,
+    Matrix.head_cons, Matrix.tail_cons, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:186:4: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [M, sphericalDerivative, ContinuousLinearMap.comp_apply, ContinuousLinearMap.pi_apply,
+    coordEquivEuclidean_apply_coordinate, ContinuousLinearMap.add_apply, ContinuousLinearMap.sub_apply,
+    ContinuousLinearMap.smul_apply, ContinuousLinearMap.proj_apply, Matrix.cons_val_zero, Matrix.cons_val_one,
+    Matrix.cons_val_two, Matrix.head_cons, Matrix.tail_cons, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:186:21: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [M, sphericalDerivative, ContinuousLinearMap.comp_apply, ContinuousLinearMap.pi_apply,
+    coordEquivEuclidean_apply_coordinate, ContinuousLinearMap.add_apply, ContinuousLinearMap.sub_apply,
+    ContinuousLinearMap.smul_apply, ContinuousLinearMap.proj_apply, Pi.single_apply, Matrix.cons_val_one,
+    Matrix.cons_val_two, Matrix.head_cons, Matrix.tail_cons, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:186:43: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [M, sphericalDerivative, ContinuousLinearMap.comp_apply, ContinuousLinearMap.pi_apply,
+    coordEquivEuclidean_apply_coordinate, ContinuousLinearMap.add_apply, ContinuousLinearMap.sub_apply,
+    ContinuousLinearMap.smul_apply, ContinuousLinearMap.proj_apply, Pi.single_apply, Matrix.cons_val_zero,
+    Matrix.cons_val_two, Matrix.head_cons, Matrix.tail_cons, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:186:64: This simp argument is unused:
+  Matrix.cons_val_two
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [M, sphericalDerivative, ContinuousLinearMap.comp_apply, ContinuousLinearMap.pi_apply,
+    coordEquivEuclidean_apply_coordinate, ContinuousLinearMap.add_apply, ContinuousLinearMap.sub_apply,
+    ContinuousLinearMap.smul_apply, ContinuousLinearMap.proj_apply, Pi.single_apply, Matrix.cons_val_zero,
+    Matrix.cons_val_one, Matrix.head_cons, Matrix.tail_cons, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:187:4: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [M, sphericalDerivative, ContinuousLinearMap.comp_apply, ContinuousLinearMap.pi_apply,
+    coordEquivEuclidean_apply_coordinate, ContinuousLinearMap.add_apply, ContinuousLinearMap.sub_apply,
+    ContinuousLinearMap.smul_apply, ContinuousLinearMap.proj_apply, Pi.single_apply, Matrix.cons_val_zero,
+    Matrix.cons_val_one, Matrix.cons_val_two, Matrix.tail_cons, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:187:22: This simp argument is unused:
+  Matrix.tail_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [M, sphericalDerivative, ContinuousLinearMap.comp_apply, ContinuousLinearMap.pi_apply,
+    coordEquivEuclidean_apply_coordinate, ContinuousLinearMap.add_apply, ContinuousLinearMap.sub_apply,
+    ContinuousLinearMap.smul_apply, ContinuousLinearMap.proj_apply, Pi.single_apply, Matrix.cons_val_zero,
+    Matrix.cons_val_one, Matrix.cons_val_two, Matrix.head_cons, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/SphereExamples.lean:187:40: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [M, sphericalDerivative, ContinuousLinearMap.comp_apply, ContinuousLinearMap.pi_apply,
+    coordEquivEuclidean_apply_coordinate, ContinuousLinearMap.add_apply, ContinuousLinearMap.sub_apply,
+    ContinuousLinearMap.smul_apply, ContinuousLinearMap.proj_apply, Pi.single_apply, Matrix.cons_val_zero,
+    Matrix.cons_val_one, Matrix.cons_val_two, Matrix.head_cons, Matrix.tail_cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8976/8989] Replayed Rudin.PMA.Chapter10.FormOperations
+warning: Rudin/PMA/Chapter10/FormOperations.lean:88:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [8977/8989] Replayed Rudin.PMA.Chapter10.StandardForms
+warning: Rudin/PMA/Chapter10/StandardForms.lean:74:59: This simp argument is unused:
+  Finsupp.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [standardWedge, map_sum, map_smul, Basis.repr_self, hne]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8980/8989] Replayed Rudin.PMA.Chapter10.WedgeProducts
+warning: Rudin/PMA/Chapter10/WedgeProducts.lean:68:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Rudin/PMA/Chapter10/WedgeProducts.lean:72:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Rudin/PMA/Chapter10/WedgeProducts.lean:76:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Rudin/PMA/Chapter10/WedgeProducts.lean:85:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Rudin/PMA/Chapter10/WedgeProducts.lean:90:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Rudin/PMA/Chapter10/WedgeProducts.lean:94:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Rudin/PMA/Chapter10/WedgeProducts.lean:102:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Rudin/PMA/Chapter10/WedgeProducts.lean:105:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Rudin/PMA/Chapter10/WedgeProducts.lean:218:8: `continuousOn_finset_sum` has been deprecated: Use `continuousOn_finsetSum` instead
+warning: Rudin/PMA/Chapter10/WedgeProducts.lean:220:8: `continuousOn_finset_sum` has been deprecated: Use `continuousOn_finsetSum` instead
+⚠ [8985/8989] Replayed Rudin.PMA.Chapter10.ChangeOfVariablesProbes
+warning: Rudin/PMA/Chapter10/ChangeOfVariablesProbes.lean:53:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+✔ [8988/8993] Built Rudin.PMA.Chapter10 (2.4s)
+⚠ [8989/8993] Replayed Rudin.PMA.Chapter10.FormAlgebraProbes
+warning: Rudin/PMA/Chapter10/FormAlgebraProbes.lean:25:29: This simp argument is unused:
+  Set.mem_range
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [I, Fin.exists_fin_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/FormAlgebraProbes.lean:25:44: This simp argument is unused:
+  Fin.exists_fin_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [I, Set.mem_range]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter10/FormAlgebraProbes.lean:46:2: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+ℹ [8992/8993] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8993/8993] Built Rudin.PMA.Chapter10Audit (4.3s)
+info: Rudin/PMA/Chapter10Audit.lean:34:0: PMA Chapter 10 coverage: 17 principal theorems and 17 contract type comparisons.
+info: Rudin/PMA/Chapter10Audit.lean:43:0: Axiom audit for Rudin.PMA.Chapter10: checked 643 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter10Audit.lean:44:0: Axiom audit for Rudin.PMA.Chapter10.FidelityProbes: checked 42 declarations; only propext, Classical.choice, and Quot.sound.
+Build completed successfully (8993 jobs).
