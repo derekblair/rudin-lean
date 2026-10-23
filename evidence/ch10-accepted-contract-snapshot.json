@@ -1,0 +1,30 @@
+{
+  "reviewer": "ch8_fidelity",
+  "date": "2026-10-23",
+  "status": "Independent semantic acceptance of exact Chapter10 contracts1-4; production compilation and probes are separate gates.",
+  "extraction": "Declaration text from def through final term; trailing whitespace normalized to one newline; excludes subsequent declaration/comment.",
+  "files": [
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Integration.lean",
+      "file_sha256": "db0054a17a9a065740596654ecb5b35b960b42dc6a4d5e3cfb8d2984230acdef",
+      "contracts": {
+        "pma10_1_contract": {
+          "sha256": "0e7b3bf417ec493591f40c4d2fab5203b1cbdaca8414ef4c50de12a7cd7255a8",
+          "text": "def pma10_1_contract : Prop :=\n  (∀ n (C : Cell n) (f : Coord n → ℝ), ContinuousOn f C.carrier →\n    IteratedRIntegrable C f) ∧\n  (∀ n (C : Cell (n + 1)) (f : Coord (n + 1) → ℝ), ContinuousOn f C.carrier →\n    ContinuousOn (nativeSliceIntegral C f) C.init.carrier) ∧\n  (∀ n (C : Cell (n + 1)) (f : Coord (n + 1) → ℝ),\n    iteratedRIntegral C f = iteratedRIntegral C.init (nativeSliceIntegral C f)) ∧\n  (∀ n (C : Cell n) (f : Coord n → ℝ), ContinuousOn f C.carrier →\n    IntegrableOn f C.carrier ∧ iteratedRIntegral C f = ∫ x in C.carrier, f x)\n"
+        },
+        "pma10_2_contract": {
+          "sha256": "0f68501ae1d3f7a7b2419951ee7920d091c43cc44ad1df09876cf00afc77e4e4",
+          "text": "def pma10_2_contract : Prop :=\n  ∀ n (C : Cell n) (f : Coord n → ℝ), ContinuousOn f C.carrier →\n    ∀ σ : Equiv.Perm (Fin n),\n      IteratedRIntegrable (C.permute σ) (fun x => f (unpermute σ x)) ∧\n      iteratedRIntegral (C.permute σ) (fun x => f (unpermute σ x)) = iteratedRIntegral C f\n"
+        },
+        "pma10_3_contract": {
+          "sha256": "68272ba642ece110eb2105562e42e66eede4ae63cb2cbbf33b68d9dbb33312b1",
+          "text": "def pma10_3_contract : Prop :=\n  (∀ n (f : Coord n → ℝ), tsupport f = closure {x | f x ≠ 0}) ∧\n  (∀ n (f : Coord n → ℂ), tsupport f = closure {x | f x ≠ 0}) ∧\n  (∀ n (f : Coord n → ℝ), Continuous f → HasCompactSupport f →\n    (∃ C : Cell n, tsupport f ⊆ C.carrier) ∧ Integrable f ∧\n    wholeRIntegral f = ∫ x, f x) ∧\n  (∀ n (f : Coord n → ℝ) (C : Cell n), Continuous f → HasCompactSupport f →\n    tsupport f ⊆ C.carrier → IteratedRIntegrable C f ∧\n      wholeRIntegral f = iteratedRIntegral C f) ∧\n  (∀ n (f : Coord n → ℂ), Continuous f → HasCompactSupport f →\n    (∃ C : Cell n, tsupport f ⊆ C.carrier) ∧ Integrable f ∧\n    complexWholeRIntegral f = ∫ x, f x) ∧\n  (∀ n (f : Coord n → ℂ) (C : Cell n), Continuous f → HasCompactSupport f →\n    tsupport f ⊆ C.carrier → ComplexIteratedRIntegrable C f ∧\n      complexWholeRIntegral f = complexIteratedRIntegral C f)\n"
+        },
+        "pma10_4_contract": {
+          "sha256": "0a1fa2e5371125ed1eadf3bf6198ca72170f10826d84d297f1ffc65aa590204a",
+          "text": "def pma10_4_contract : Prop :=\n  (∀ n (f : Coord n → ℝ), ContinuousOn f (standardSimplex n) →\n    IteratedRIntegrable (Cell.unit n) (simplexExtension f) ∧\n    IntegrableOn f (standardSimplex n) ∧\n    simplexRIntegral f = ∫ x in standardSimplex n, f x) ∧\n  (∀ n (f : Coord (n + 1) → ℝ), ContinuousOn f (standardSimplex (n + 1)) →\n    ContinuousOn (nativeSliceIntegral (Cell.unit (n + 1)) (simplexExtension f))\n      (Cell.unit n).carrier) ∧\n  (∀ n (f : Coord n → ℝ), ContinuousOn f (standardSimplex n) →\n    ∀ σ : Equiv.Perm (Fin n),\n      IteratedRIntegrable (Cell.unit n) (fun x => simplexExtension f (unpermute σ x)) ∧\n      iteratedRIntegral (Cell.unit n) (fun x => simplexExtension f (unpermute σ x)) =\n        simplexRIntegral f)\n"
+        }
+      }
+    }
+  ]
+}

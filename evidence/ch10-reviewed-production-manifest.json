@@ -1,0 +1,56 @@
+{
+  "scope": "Independently reviewed frozen Chapter10 opening integration section; integration index, audits and probes are separate gates.",
+  "date": "2026-10-23",
+  "production_module_count": 5,
+  "numbered_principal_count": 4,
+  "kernel_status": "All five modules compiled successfully in the parent serialized build process. Reviewer ran no builds.",
+  "reviewer_authorship_exception": "None: ch8_fidelity authored no Chapter10 production module.",
+  "files": [
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Integration.lean",
+      "sha256": "db0054a17a9a065740596654ecb5b35b960b42dc6a4d5e3cfb8d2984230acdef",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/IntegrationProofs.lean",
+      "sha256": "7ceed05ff97db102454e4d52ef1ad58a60d52ec3225c0e6e71d0f63df7b428b9",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/IntegrationMeasure.lean",
+      "sha256": "0123ef35e549e6bd0fc1dbfd9823d5650b5b9008114e285660de4d95568b4a7c",
+      "principal_nodes": [
+        "PMA-10.1",
+        "PMA-10.2",
+        "PMA-10.3"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexSlices.lean",
+      "sha256": "e303ac72a9e0e49bb5ee2dd16216924b14166937e5f319303a0ef485c201e603",
+      "principal_nodes": [],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Simplex.lean",
+      "sha256": "a8d47dcf24e72f261138297ae8cb89479f5b189d091163dd0f843c881701a928",
+      "principal_nodes": [
+        "PMA-10.4"
+      ],
+      "independent_reviewer": "ch8_fidelity",
+      "review_evidence": "research/pma-ch10-source-review.md",
+      "status": "accepted exact compiled module including all definitions, helper statements, and proof bodies"
+    }
+  ]
+}

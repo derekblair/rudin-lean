@@ -1,0 +1,318 @@
+ℹ [8926/9017] Replayed Rudin.PMA.Chapter01Audit
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8929/9017] Replayed Rudin.PMA.Chapter02Audit
+info: Rudin/PMA/Chapter02Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter02: checked 289 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter02Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter02.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8932/9017] Replayed Rudin.PMA.Chapter03Audit
+info: Rudin/PMA/Chapter03Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter03: checked 604 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter03Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter03.FidelityProbes: checked 21 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8935/9017] Replayed Rudin.PMA.Chapter04Audit
+info: Rudin/PMA/Chapter04Audit.lean:5:0: Axiom audit for Rudin.PMA.Chapter04: checked 275 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter04Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter04.FidelityProbes: checked 24 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8936/9017] Replayed Rudin.PMA.Chapter05
+info: Rudin/PMA/Chapter05.lean:1103:0: PMA 5.13 draft audit: 171 declarations; only propext, Classical.choice, Quot.sound.
+ℹ [8938/9017] Replayed Rudin.PMA.Chapter05Audit
+info: Rudin/PMA/Chapter05Audit.lean:6:0: Axiom audit for Rudin.PMA.Chapter05: checked 267 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter05Audit.lean:7:0: Axiom audit for Rudin.PMA.Chapter05.FidelityProbes: checked 9 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8943/9017] Replayed Rudin.PMA.Chapter06.Integrability
+info: Rudin/PMA/Chapter06/Integrability.lean:550:0: 'Rudin.PMA.Chapter06.pma6_8' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:551:0: 'Rudin.PMA.Chapter06.pma6_11' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:552:0: 'Rudin.PMA.Chapter06.pma6_13' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:553:0: 'Rudin.PMA.Chapter06.rsIntegrable_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:554:0: 'Rudin.PMA.Chapter06.rsIntegrable_const_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:555:0: 'Rudin.PMA.Chapter06.rsIntegrable_integrator_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:556:0: 'Rudin.PMA.Chapter06.rsIntegrable_integrator_const_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8946/9017] Replayed Rudin.PMA.Chapter06.Endpoint
+info: Rudin/PMA/Chapter06/Endpoint.lean:123:0: 'Rudin.PMA.Chapter06.endpoint_local_gap_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Endpoint.lean:124:0: 'Rudin.PMA.Chapter06.rsIntegrable_of_continuousOn_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8947/9017] Replayed Rudin.PMA.Chapter06.Jump
+info: Rudin/PMA/Chapter06/Jump.lean:448:0: 'Rudin.PMA.Chapter06.pma6_14' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:449:0: 'Rudin.PMA.Chapter06.pma6_15' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:450:0: 'Rudin.PMA.Chapter06.pma6_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:451:0: 'Rudin.PMA.Chapter06.atomicQuadraticMoment' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:452:0: 'Rudin.PMA.Chapter06.finiteAtomicQuadraticMoment' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:453:0: 'Rudin.PMA.Chapter06.atomicStepSum_integral_of_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:454:0: 'Rudin.PMA.Chapter06.translatedStep_not_RSIntegrable_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:455:0: 'Rudin.PMA.Chapter06.unitStep_source_caution' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8950/9017] Replayed Rudin.PMA.Chapter06.Calculus
+info: Rudin/PMA/Chapter06/Calculus.lean:664:0: 'Rudin.PMA.Chapter06.calculus_probe_constant_integrator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:665:0: 'Rudin.PMA.Chapter06.calculus_probe_singleton_substitution' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:666:0: 'Rudin.PMA.Chapter06.calculus_probe_relative_primitive_endpoints' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:667:0: 'Rudin.PMA.Chapter06.pma6_22' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:668:0: 'Rudin.PMA.Chapter06.pma6_20' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:670:0: 'Rudin.PMA.Chapter06.pma6_17' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:671:0: 'Rudin.PMA.Chapter06.pma6_19' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:672:0: 'Rudin.PMA.Chapter06.pma6_21' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8951/9017] Replayed Rudin.PMA.Chapter06.Moment
+info: Rudin/PMA/Chapter06/Moment.lean:37:0: 'Rudin.PMA.Chapter06.quadraticMoment_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Moment.lean:38:0: 'Rudin.PMA.Chapter06.pma6_18' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8952/9017] Replayed Rudin.PMA.Chapter06.Vector
+info: Rudin/PMA/Chapter06/Vector.lean:415:0: 'Rudin.PMA.Chapter06.pma6_23' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:416:0: 'Rudin.PMA.Chapter06.pma6_24' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:417:0: 'Rudin.PMA.Chapter06.pma6_25' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:418:0: 'Rudin.PMA.Chapter06.pma6_23_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:419:0: 'Rudin.PMA.Chapter06.pma6_25_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:420:0: 'Rudin.PMA.Chapter06.complexRSIntegral_ftc' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:421:0: 'Rudin.PMA.Chapter06.complexRSIntegrable_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:422:0: 'Rudin.PMA.Chapter06.complexRSIntegrable_const_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:423:0: 'Rudin.PMA.Chapter06.vector_integrability_zero_dimension_guard_probe' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:424:0: 'Rudin.PMA.Chapter06.complex_imaginary_constant_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8953/9017] Replayed Rudin.PMA.Chapter06.Curve
+info: Rudin/PMA/Chapter06/Curve.lean:363:0: 'Rudin.PMA.Chapter06.pma6_26' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Curve.lean:364:0: 'Rudin.PMA.Chapter06.pma6_27' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Curve.lean:365:0: 'Rudin.PMA.Chapter06.continuouslyDifferentiable_rectifiable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Curve.lean:366:0: 'Rudin.PMA.Chapter06.curveIncrement_norm_estimate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Curve.lean:367:0: 'Rudin.PMA.Chapter06.curveLength_singleton_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Curve.lean:368:0: 'Rudin.PMA.Chapter06.curveLength_line_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Curve.lean:369:0: 'Rudin.PMA.Chapter06.constant_curve_closed_not_arc_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8956/9017] Replayed Rudin.PMA.Chapter06Audit
+info: Rudin/PMA/Chapter06Audit.lean:7:0: PMA Chapter 6 coverage: 27 principal theorems and both explicit complex bridges.
+info: Rudin/PMA/Chapter06Audit.lean:21:0: Axiom audit for Rudin.PMA.Chapter06: checked 457 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter06Audit.lean:22:0: Axiom audit for Rudin.PMA.Chapter06.FidelityProbes: checked 25 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8960/9017] Replayed Rudin.PMA.Chapter07.MTest
+info: Rudin/PMA/Chapter07/MTest.lean:64:0: 'Rudin.PMA.Chapter07.pma7_10' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8961/9017] Replayed Rudin.PMA.Chapter07.Calculus
+info: Rudin/PMA/Chapter07/Calculus.lean:191:0: 'Rudin.PMA.Chapter07.pma7_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Calculus.lean:306:0: 'Rudin.PMA.Chapter07.pma7_17' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Calculus.lean:400:0: 'Rudin.PMA.Chapter07.uniform_integral_imaginary_step_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Calculus.lean:401:0: 'Rudin.PMA.Chapter07.uniform_integral_zero_mass_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Calculus.lean:402:0: 'Rudin.PMA.Chapter07.uniform_derivative_endpoint_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Calculus.lean:403:0: 'Rudin.PMA.Chapter07.uniform_integral_conditional_series_probe' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8963/9017] Replayed Rudin.PMA.Chapter07.NoSubsequence
+info: Rudin/PMA/Chapter07/NoSubsequence.lean:187:0: 'Rudin.PMA.Chapter07.pma7_20' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/NoSubsequence.lean:188:0: 'Rudin.PMA.Chapter07.sineSequence_subsequence_has_bad_point' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8964/9017] Replayed Rudin.PMA.Chapter07.Algebra
+info: Rudin/PMA/Chapter07/Algebra.lean:747:0: 'Rudin.PMA.Chapter07.pma7_26' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Algebra.lean:748:0: 'Rudin.PMA.Chapter07.pma7_27' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Algebra.lean:749:0: 'Rudin.PMA.Chapter07.pma7_28' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Algebra.lean:750:0: 'Rudin.PMA.Chapter07.pma7_29' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Algebra.lean:751:0: 'Rudin.PMA.Chapter07.pma7_30' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Algebra.lean:752:0: 'Rudin.PMA.Chapter07.pma7_31' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Algebra.lean:753:0: 'Rudin.PMA.Chapter07.pma7_32' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Algebra.lean:754:0: 'Rudin.PMA.Chapter07.pma7_33' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8972/9017] Replayed Rudin.PMA.Chapter09.FixedPointProbes
+warning: Rudin/PMA/Chapter09/FixedPointProbes.lean:49:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ℹ [8976/9017] Replayed Rudin.PMA.Chapter07.Equicontinuity
+info: Rudin/PMA/Chapter07/Equicontinuity.lean:410:0: 'Rudin.PMA.Chapter07.pma7_19' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Equicontinuity.lean:411:0: 'Rudin.PMA.Chapter07.pma7_21' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Equicontinuity.lean:412:0: 'Rudin.PMA.Chapter07.pma7_22' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Equicontinuity.lean:413:0: 'Rudin.PMA.Chapter07.pma7_23' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Equicontinuity.lean:414:0: 'Rudin.PMA.Chapter07.pma7_24' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Equicontinuity.lean:415:0: 'Rudin.PMA.Chapter07.pma7_25' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8979/9017] Replayed Rudin.PMA.Chapter07Audit
+info: Rudin/PMA/Chapter07Audit.lean:46:0: PMA Chapter 7 coverage: 33 principal theorems and 33 accepted-contract type comparisons.
+info: Rudin/PMA/Chapter07Audit.lean:55:0: Axiom audit for Rudin.PMA.Chapter07: checked 392 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter07Audit.lean:56:0: Axiom audit for Rudin.PMA.Chapter07.FidelityProbes: checked 67 declarations; only propext, Classical.choice, and Quot.sound.
+ℹ [8984/9017] Replayed Rudin.PMA.Chapter08Audit
+info: Rudin/PMA/Chapter08Audit.lean:18:0: PMA Chapter 8 coverage: 6 principal theorems and 6 contract type comparisons.
+info: Rudin/PMA/Chapter08Audit.lean:27:0: Axiom audit for Rudin.PMA.Chapter08: checked 103 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter08Audit.lean:28:0: Axiom audit for Rudin.PMA.Chapter08.FidelityProbes: checked 18 declarations; only propext, Classical.choice, and Quot.sound.
+⚠ [8985/9017] Replayed Rudin.PMA.Chapter09.Linear
+warning: Rudin/PMA/Chapter09/Linear.lean:196:4: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Rudin/PMA/Chapter09/Linear.lean:242:4: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Rudin/PMA/Chapter09/Linear.lean:247:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Rudin/PMA/Chapter09/Linear.lean:256:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Rudin/PMA/Chapter09/Linear.lean:257:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Rudin/PMA/Chapter09/Linear.lean:370:6: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Rudin/PMA/Chapter09/Linear.lean:372:4: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [8987/9017] Replayed Rudin.PMA.Chapter09.PartialExamples
+warning: Rudin/PMA/Chapter09/PartialExamples.lean:31:2: Try `simp at this` instead of `simpa using this`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8988/9017] Replayed Rudin.PMA.Chapter09.C1Partials
+warning: Rudin/PMA/Chapter09/C1Partials.lean:125:10: `ext` did not consume the patterns `t`
+
+Note: This linter can be disabled with `set_option linter.unusedRCasesPattern false`
+⚠ [8989/9017] Replayed Rudin.PMA.Chapter09.Inverse
+warning: Rudin/PMA/Chapter09/Inverse.lean:111:37: Variable name `hE` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hE
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [8991/9017] Replayed Rudin.PMA.Chapter09.ImplicitExample
+warning: Rudin/PMA/Chapter09/ImplicitExample.lean:64:23: This simp argument is unused:
+  implicitExample
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [p, exX, exY, implicitExampleA, implicitExampleB, ContinuousLinearMap.smulRight_apply] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter09/ImplicitExample.lean:65:6: This simp argument is unused:
+  ContinuousLinearMap.smulRight_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [p, exX, exY, implicitExample, implicitExampleA, implicitExampleB] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter09/ImplicitExample.lean:69:23: This simp argument is unused:
+  implicitExample
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [p, exX, exY, implicitExampleA, implicitExampleB, ContinuousLinearMap.smulRight_apply] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter09/ImplicitExample.lean:70:6: This simp argument is unused:
+  ContinuousLinearMap.smulRight_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [p, exX, exY, implicitExample, implicitExampleA, implicitExampleB] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8992/9017] Replayed Rudin.PMA.Chapter09.Rank
+warning: Rudin/PMA/Chapter09/Rank.lean:79:2: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Rudin/PMA/Chapter09/Rank.lean:150:4: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+warning: Rudin/PMA/Chapter09/Rank.lean:343:13: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Rudin/PMA/Chapter09/Rank.lean:401:39: This simp argument is unused:
+  g
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Function.comp_def, hz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter09/Rank.lean:401:42: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [g, hz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter09/Rank.lean:401:24: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [8993/9017] Replayed Rudin.PMA.Chapter09.Determinants
+warning: Rudin/PMA/Chapter09/Determinants.lean:126:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Rudin/PMA/Chapter09/Determinants.lean:128:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Rudin/PMA/Chapter09/Determinants.lean:146:4: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+warning: Rudin/PMA/Chapter09/Determinants.lean:148:41: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [8997/9017] Replayed Rudin.PMA.Chapter09.LinearProbes
+warning: Rudin/PMA/Chapter09/LinearProbes.lean:13:2: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Rudin/PMA/Chapter09/LinearProbes.lean:33:2: Try `simp at he` instead of `simpa using he`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [9001/9017] Replayed Rudin.PMA.Chapter09.AlgebraProbes
+warning: Rudin/PMA/Chapter09/AlgebraProbes.lean:36:24: This simp argument is unused:
+  IsProjection
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [obliqueProjection, coordinateVector, EuclideanSpace.basisFun_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter09/AlgebraProbes.lean:52:50: This simp argument is unused:
+  IsProjection
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [9005/9017] Replayed Rudin.PMA.Chapter09.ParameterIntegralProbes
+warning: Rudin/PMA/Chapter09/ParameterIntegralProbes.lean:17:25: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+ℹ [9006/9017] Replayed Rudin.PMA.Chapter09Audit
+info: Rudin/PMA/Chapter09Audit.lean:62:0: PMA Chapter 9 coverage: 43 principal theorems and 43 contract type comparisons.
+info: Rudin/PMA/Chapter09Audit.lean:71:0: Axiom audit for Rudin.PMA.Chapter09: checked 470 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter09Audit.lean:72:0: Axiom audit for Rudin.PMA.Chapter09.FidelityProbes: checked 70 declarations; only propext, Classical.choice, and Quot.sound.
+⚠ [9007/9017] Replayed Rudin.PMA.Chapter10.Integration
+warning: Rudin/PMA/Chapter10/Integration.lean:57:4: Variable name `n` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _n
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9008/9017] Replayed Rudin.PMA.Chapter10.IntegrationProofs
+warning: Rudin/PMA/Chapter10/IntegrationProofs.lean:86:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [9010/9017] Replayed Rudin.PMA.Chapter10.SimplexSlices
+warning: Rudin/PMA/Chapter10/SimplexSlices.lean:113:18: `continuous_finset_sum` has been deprecated: Use `continuous_finsetSum` instead
+⚠ [9011/9017] Replayed Rudin.PMA.Chapter10.Simplex
+warning: Rudin/PMA/Chapter10/Simplex.lean:45:76: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Rudin/PMA/Chapter10/Simplex.lean:49:79: `if_neg` has been deprecated: Use `ite_eq_right` instead
+ℹ [9015/9017] Replayed Rudin.PMA.Chapter10Audit
+info: Rudin/PMA/Chapter10Audit.lean:15:0: PMA Chapter 10 coverage: 4 principal theorems and 4 contract type comparisons.
+info: Rudin/PMA/Chapter10Audit.lean:24:0: Axiom audit for Rudin.PMA.Chapter10: checked 147 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter10Audit.lean:25:0: Axiom audit for Rudin.PMA.Chapter10.FidelityProbes: checked 14 declarations; only propext, Classical.choice, and Quot.sound.
+✔ [9016/9017] Built Rudin (2.6s)
+Build completed successfully (9017 jobs).

@@ -1,9 +1,29 @@
+import Rudin.PMA.Chapter10.Simplex
+
 /-!
-# Rudin, *Principles of Mathematical Analysis* (3rd ed.)
+# PMA Chapter 10: Integration of Differential Forms
 
-## Chapter 10: Integration of Differential Forms
-
-Every definition, theorem, and corollary from this chapter is
-formalized below in dependency order. Zero `sorry`s: anything
-not yet proved is tracked in `QUEUE.md`, never as a `sorry` here.
+Book-order integration is in progress. The full source inventory has 51 nodes;
+only the numbered markers below are counted as completed. Independent source
+review and kernel evidence are recorded in research/pma-ch10-* and evidence/ch10-*.
 -/
+
+namespace Rudin.PMA.Chapter10
+
+/-! ### PMA-10.1
+Principal proof: `pma10_1`. Definitions: `Chapter10/Integration.lean`; proofs: `Chapter10/IntegrationMeasure.lean`.
+-/
+
+/-! ### PMA-10.2
+Principal proof: `pma10_2`. Definitions: `Chapter10/Integration.lean`; proofs: `Chapter10/IntegrationMeasure.lean`.
+-/
+
+/-! ### PMA-10.3
+Principal proof: `pma10_3`. Definitions: `Chapter10/Integration.lean`; proofs: `Chapter10/IntegrationMeasure.lean`.
+-/
+
+/-! ### PMA-10.4
+Principal proof: `pma10_4`. Definitions: `Chapter10/Integration.lean`; proofs: `Chapter10/Simplex.lean`.
+-/
+
+end Rudin.PMA.Chapter10

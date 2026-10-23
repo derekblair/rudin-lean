@@ -2,7 +2,7 @@
 
 **Goal:** Complete Lean 4 + Mathlib formalization of Walter Rudin's *Principles of Mathematical Analysis* (3rd ed.) — every definition, every theorem, zero sorrys — at https://github.com/derekblair/rudin-lean. Then *Real and Complex Analysis*, then *Functional Analysis*, novelty increasing at each step.
 
-**Status:** Chapter 1 complete: 37 / 37 requested nodes (2026-10-09), zero proof placeholders, standard axioms only. Chapter 2 complete: 47 / 47 nodes, zero proof placeholders, standard axioms only. Chapter 3 complete: 55 / 55 nodes, zero proof placeholders, standard axioms only. Chapter 4 complete: 34 / 34 nodes, zero proof placeholders, standard axioms only. Chapter 5 complete: 19 / 19 nodes, zero proof placeholders, standard axioms only, with independent hostile review and production verification. Chapter 6 complete: 27 / 27 nodes and all accepted attached consequences, independent fidelity/hostile review and exact production verification complete. Chapter 7 complete: 33 / 33 nodes and all accepted attached consequences, independent fidelity/two hostile review sets, and exact production verification complete. The isolated Chapter 8 lane covers power series 8.1–8.5 and exponential/logarithmic functions with real powers at 8.6; nodes 8.7–8.22 remain pending. Chapter 9 is complete: 43 / 43 nodes with independent source/proof review, zero proof placeholders, standard axioms only and passing production gates. Chapters 10–11 remain pending. The user-authorized Chapter 9 exception to dependency order is recorded below.
+**Status:** Chapter 1 complete: 37 / 37 requested nodes (2026-10-09), zero proof placeholders, standard axioms only. Chapter 2 complete: 47 / 47 nodes, zero proof placeholders, standard axioms only. Chapter 3 complete: 55 / 55 nodes, zero proof placeholders, standard axioms only. Chapter 4 complete: 34 / 34 nodes, zero proof placeholders, standard axioms only. Chapter 5 complete: 19 / 19 nodes, zero proof placeholders, standard axioms only, with independent hostile review and production verification. Chapter 6 complete: 27 / 27 nodes and all accepted attached consequences, independent fidelity/hostile review and exact production verification complete. Chapter 7 complete: 33 / 33 nodes and all accepted attached consequences, independent fidelity/two hostile review sets, and exact production verification complete. The isolated Chapter 8 lane covers power series 8.1–8.5 and exponential/logarithmic functions with real powers at 8.6; nodes 8.7–8.22 remain pending. Chapter 9 is complete: 43 / 43 nodes with independent source/proof review, zero proof placeholders, standard axioms only and passing production gates. Chapter 10 is active, with its opening integration section tracked below; Chapter 11 remains pending. The user-authorized Chapter 9 exception to dependency order is recorded below.
 
 ## The book (3rd ed.)
 
@@ -107,3 +107,16 @@ and exact-contract review, independent boundary clients, actual principal lookup
 recursive permitted-axiom audits, source checks and a default build before every
 local section commit. No push, PR, merge, installation or toolchain change.
 Keep all project builds sequential and preserve Chapters 1–8 source unchanged.
+
+## Current Chapter 10 local lane
+
+The user's new Chapter 10 instruction authorizes this checkout on the same
+`ch8-codex-20261022` branch, local commits only. Follow the third edition's
+numbered nodes in book order, including accepted attached consequences. Require
+independent source/contract/proof review, exact reviewed hashes, independent
+boundary clients, actual theorem lookup, recursive permitted-axiom audits,
+source checks and a default build before every section commit. No push, PR,
+merge, install, pin change or other-branch edit. All Lean/Lake invocations are
+sequential; preserve Chapters 1–9 sources. Chapter 8 remains 6/22; the explicit
+new chapter instruction authorizes this continuation without claiming its
+pending nodes complete.

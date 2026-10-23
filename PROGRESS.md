@@ -16,7 +16,7 @@ All completed nodes have zero proof placeholders.
 | 07 | Sequences and Series of Functions | 33 / 33 |
 | 08 | Some Special Functions | 6 / 22 |
 | 09 | Functions of Several Variables | 43 / 43 |
-| 10 | Integration of Differential Forms | 0 |
+| 10 | Integration of Differential Forms | 4 / 51 |
 | 11 | The Lebesgue Theory | 0 |
 
 Chapter 1 is complete. Each target has its own local `PMA-1.x done` commit,
@@ -115,3 +115,11 @@ All 57 Chapter 1–8 source files and the toolchain pins remain unchanged;
 Chapter 8 stays at 6/22 and Chapters 10–11 remain pending. No nodes are queued.
 See `research/pma-ch09-production-review.md` and
 `evidence/ch09-final-manifest.json` for exact scope and verification.
+
+Chapter 10 is active on the same local branch. The opening integration section
+covers 10.1–10.4: native iterated Riemann integrals on cells, all integration
+orders, real and complex compact-support integrals, and the discontinuous
+zero extension from the standard simplex. Later nodes are being developed in
+book order and are not counted until their production gates pass. The full
+51-node inventory and independent source review are recorded in
+`research/pma-ch10-inventory.md` and `research/pma-ch10-source-review.md`.
