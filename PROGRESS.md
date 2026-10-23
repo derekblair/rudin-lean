@@ -16,7 +16,7 @@ All completed nodes have zero proof placeholders.
 | 07 | Sequences and Series of Functions | 33 / 33 |
 | 08 | Some Special Functions | 6 / 22 |
 | 09 | Functions of Several Variables | 43 / 43 |
-| 10 | Integration of Differential Forms | 4 / 51 |
+| 10 | Integration of Differential Forms | 7 / 51 |
 | 11 | The Lebesgue Theory | 0 |
 
 Chapter 1 is complete. Each target has its own local `PMA-1.x done` commit,
@@ -123,3 +123,6 @@ zero extension from the standard simplex. Later nodes are being developed in
 book order and are not counted until their production gates pass. The full
 51-node inventory and independent source review are recorded in
 `research/pma-ch10-inventory.md` and `research/pma-ch10-source-review.md`.
+
+The next Chapter 10 section adds primitive-map derivatives, flips and coordinate
+projections, and the full local factorization theorem at 10.5–10.7.

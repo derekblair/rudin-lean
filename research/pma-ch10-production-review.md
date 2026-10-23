@@ -40,3 +40,20 @@ Raw gates: `evidence/ch10-section1-{source-check,audit,default-build}.log` and
 `evidence/ch10-section1-integrity.json`. Builds are serialized on the shared host.
 No push, installation, merge, PR, pin change or other-branch edit is authorized.
 Further section evidence will be appended as those sections pass their gates.
+
+## Primitive maps and local factorization: 10.5–10.7
+
+`Primitive.lean` preserves the independently accepted full source contract and
+proof bytes. Besides differentiation and the exact prefix projection spans,
+the factorization constructs a nonzero derivative pivot, an actual local inverse,
+and a smaller neighborhood contained in the original domain. The lists have
+exactly n primitive factors and n−1 flip-or-identity factors in the written order.
+Three independent clients exercise dimension one with no flips and the plane
+flip with a zero diagonal pivot, including its actual two-primitive factorization.
+
+The cumulative gate checks seven principal theorems/contracts and 215 recursively
+audited declarations, including the 17-declaration probe subset. Only the three
+permitted axioms occur. The default build succeeds with 9019 jobs. Raw logs and
+integrity receipts use `evidence/ch10-section2-*`; reviewed manifests now contain
+six production modules and seven accepted contracts. Earlier source and pin
+preservation checks remain in force.

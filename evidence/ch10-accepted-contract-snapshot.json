@@ -1,7 +1,7 @@
 {
   "reviewer": "ch8_fidelity",
   "date": "2026-10-23",
-  "status": "Independent semantic acceptance of exact Chapter10 contracts1-4; production compilation and probes are separate gates.",
+  "status": "Independent semantic acceptance of exact Chapter10 contracts 1-7; production compilation and probes are separate gates.",
   "extraction": "Declaration text from def through final term; trailing whitespace normalized to one newline; excludes subsequent declaration/comment.",
   "files": [
     {
@@ -23,6 +23,24 @@
         "pma10_4_contract": {
           "sha256": "0a1fa2e5371125ed1eadf3bf6198ca72170f10826d84d297f1ffc65aa590204a",
           "text": "def pma10_4_contract : Prop :=\n  (∀ n (f : Coord n → ℝ), ContinuousOn f (standardSimplex n) →\n    IteratedRIntegrable (Cell.unit n) (simplexExtension f) ∧\n    IntegrableOn f (standardSimplex n) ∧\n    simplexRIntegral f = ∫ x in standardSimplex n, f x) ∧\n  (∀ n (f : Coord (n + 1) → ℝ), ContinuousOn f (standardSimplex (n + 1)) →\n    ContinuousOn (nativeSliceIntegral (Cell.unit (n + 1)) (simplexExtension f))\n      (Cell.unit n).carrier) ∧\n  (∀ n (f : Coord n → ℝ), ContinuousOn f (standardSimplex n) →\n    ∀ σ : Equiv.Perm (Fin n),\n      IteratedRIntegrable (Cell.unit n) (fun x => simplexExtension f (unpermute σ x)) ∧\n      iteratedRIntegral (Cell.unit n) (fun x => simplexExtension f (unpermute σ x)) =\n        simplexRIntegral f)\n"
+        }
+      }
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Primitive.lean",
+      "file_sha256": "200eb8e36d54cdf771415de92c1046cf4c92d64c123d0fed62a4ee7e64639f5b",
+      "contracts": {
+        "pma10_5_contract": {
+          "sha256": "d62af8a417c7eff5dda46e640559f6eb647ff82bc52b9d74b4d96874f7c0c249",
+          "text": "def pma10_5_contract : Prop :=\n  (∀ (n : ℕ) (m : Fin n) (g : Euclidean n → ℝ) (x : Euclidean n) (i : Fin n),\n    primitiveMap m g x i = if i = m then g x else x i) ∧\n  (∀ (n : ℕ) (G : Euclidean n → Euclidean n) (E : Set (Euclidean n)),\n    IsPrimitiveOn G E ↔ ∃ m : Fin n, ∃ g : Euclidean n → ℝ, ∀ x ∈ E,\n      G x = (∑ i ∈ Finset.univ.erase m, x i • coordinateVector n i) +\n        g x • coordinateVector n m) ∧\n  (∀ (n : ℕ) (m : Fin n) (g : Euclidean n → ℝ) (a : Euclidean n),\n    DifferentiableAt ℝ g a →\n    HasFDerivAt (primitiveMap m g)\n      (ContinuousLinearMap.id ℝ (Euclidean n) +\n        (fderiv ℝ g a - EuclideanSpace.proj m).smulRight (coordinateVector n m)) a ∧\n    (∀ i j : Fin n, operatorMatrix (fderiv ℝ (primitiveMap m g) a) i j =\n      if i = m then coordinatePartial g a j else if i = j then 1 else 0) ∧\n    jacobian (primitiveMap m g) a = coordinatePartial g a m ∧\n    ((fderiv ℝ (primitiveMap m g) a).IsInvertible ↔ coordinatePartial g a m ≠ 0))\n"
+        },
+        "pma10_6_contract": {
+          "sha256": "23e206886222abb0aa5f16147f19a783ae4604dd3a51d5165977bacb9104dbf7",
+          "text": "def pma10_6_contract : Prop :=\n  (∀ (n : ℕ) (i j k : Fin n) (x : Euclidean n),\n    flipOperator i j x k = x (Equiv.swap i j k)) ∧\n  (∀ (n : ℕ) (B : Operator n n), IsFlip B ↔\n    ∃ i j : Fin n, i ≠ j ∧ ∀ k : Fin n,\n      B (coordinateVector n k) = coordinateVector n (Equiv.swap i j k)) ∧\n  (∀ (n : ℕ) (i j : Fin n),\n    (flipOperator i j).comp (flipOperator i j) = ContinuousLinearMap.id ℝ (Euclidean n)) ∧\n  (∀ (n m : ℕ) (x : Euclidean n) (i : Fin n),\n    prefixProjection n m x i = if i.val < m then x i else 0) ∧\n  (∀ n : ℕ, prefixProjection n 0 = 0 ∧\n    prefixProjection n n = ContinuousLinearMap.id ℝ (Euclidean n)) ∧\n  (∀ (n m : ℕ), m ≤ n →\n    (prefixProjection n m).toLinearMap.range =\n      Submodule.span ℝ (coordinateVector n '' {i : Fin n | i.val < m}) ∧\n    (prefixProjection n m).toLinearMap.ker =\n      Submodule.span ℝ (coordinateVector n '' {i : Fin n | m ≤ i.val}))\n"
+        },
+        "pma10_7_contract": {
+          "sha256": "7cea87365f33e76f6789c15c30108c3ec2606f3f8506fca3ae2489993aeb0954",
+          "text": "def pma10_7_contract : Prop :=\n  ∀ (n : ℕ), 0 < n → ∀ (E : Set (Euclidean n)) (F : Euclidean n → Euclidean n),\n    IsOpen E → (0 : Euclidean n) ∈ E → C1On F E → F 0 = 0 →\n    (fderiv ℝ F 0).IsInvertible →\n    ∃ (G : List (Euclidean n → Euclidean n)) (B : List (Operator n n))\n      (U : Set (Euclidean n)),\n      G.length = n ∧ B.length = n - 1 ∧\n      (∀ g ∈ G, PrimitiveNearZero g) ∧\n      (∀ b ∈ B, IsFlip b ∨ b = ContinuousLinearMap.id ℝ (Euclidean n)) ∧\n      IsOpen U ∧ (0 : Euclidean n) ∈ U ∧ U ⊆ E ∧\n      EqOn F (composeMaps ((B.map (fun (b : Operator n n) =>\n        (b : Euclidean n → Euclidean n))) ++ G)) U\n"
         }
       }
     }

@@ -135,3 +135,11 @@ The final complete proofs of 10.11 and 10.13 and all their local representation/
 | `rudin/Rudin/PMA/Chapter10/FormOperations.lean` | `55939cdfe36cf842c638467e4bc082384a0c1a7cffc3ce06a05340f981fd9bae` |
 
 All three independently authored `FormProbes.lean` clients now compile successfully. Frozen SHA256: `b11a1b9feeb7bd41456b7810616f20b9674e55ee41b6c70393c380a514c4c478`. The reflection probes remain blocked only by their production-module dependency at this checkpoint; they are not yet counted as compiled.
+
+
+## Section gate through 10.7
+
+Following root's report of the local 10.1-10.4 commit and successful section audit/default build, the canonical accepted-contract snapshot and reviewed-production manifest were extended through 10.7 only. All existing five module hashes were rechecked against disk, as were the exact accepted Primitive file and three contract hashes. The manifest now contains six production modules and seven numbered principals. The two independently authored simplex boundary clients compiled successfully in the opening section audit. The 10.8 canonical extension is intentionally deferred until root reports the 10.7 section commit.
+
+
+The complete initial `WedgeProducts.lean` proof draft is semantically accepted at SHA256 `43456b72bca883e091592558b52a3b48d521bf46e81926d4e9ba3257f74f5628`. Its sign argument splits the literal tuple-sign product into within-block factors and cross-block factors, then counts exactly the negative cross differences. It identifies the sorted disjoint union by its actual range. Product coefficient continuity and the standard double expansion are proved from finite sums, and homogeneous expansions justify the graded exchange law. Compiler corrections and final hash reconciliation remain pending.
