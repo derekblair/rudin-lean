@@ -72,7 +72,8 @@ integrability hypotheses and retain interval-relative endpoint derivatives.
 
 The first-half names for 11.21–11.22 landed in commit
 `dda199864725d8b6debcf32e0d2a36800c7c3cc1` during final verification. This lane
-rebased onto that commit. The integral semantics and direct native connections
+incorporated that commit and subsequently rebased onto
+`d8c233c488ffe37172a6660af36d6b66ad7c68c2`. The integral semantics and direct native connections
 are now both proved:
 
 - `simple_integral_eq_finite_sum` identifies the library simple integral with

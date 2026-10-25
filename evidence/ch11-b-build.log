@@ -1,0 +1,26 @@
+ℹ [8936/8951] Replayed Rudin.PMA.Chapter06.Integrability
+info: Rudin/PMA/Chapter06/Integrability.lean:550:0: 'Rudin.PMA.Chapter06.pma6_8' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:551:0: 'Rudin.PMA.Chapter06.pma6_11' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:552:0: 'Rudin.PMA.Chapter06.pma6_13' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:553:0: 'Rudin.PMA.Chapter06.rsIntegrable_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:554:0: 'Rudin.PMA.Chapter06.rsIntegrable_const_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:555:0: 'Rudin.PMA.Chapter06.rsIntegrable_integrator_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:556:0: 'Rudin.PMA.Chapter06.rsIntegrable_integrator_const_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8937/8951] Built Rudin.PMA.Chapter11.Geometry (2.4s)
+✔ [8938/8951] Built Rudin.PMA.Chapter11.Construction (2.6s)
+✔ [8939/8951] Built Rudin.PMA.Chapter11 (1.7s)
+✔ [8940/8951] Built Rudin.PMA.Chapter11.Darboux (2.3s)
+✔ [8941/8951] Built Rudin.PMA.Chapter11.L2 (2.4s)
+✔ [8942/8951] Built Rudin.PMA.Chapter11.Integrals (2.7s)
+✔ [8943/8951] Built Rudin.PMA.Chapter11.NativeIntegration (2.5s)
+✔ [8944/8951] Built Rudin.PMA.Chapter11.LebesgueCriterion (2.9s)
+✔ [8945/8951] Built Rudin.PMA.Chapter11.Hilbert (3.2s)
+✔ [8946/8951] Built Rudin.PMA.Chapter11.Fourier (3.3s)
+✔ [8947/8951] Built Rudin.PMA.Chapter11.DarbouxContinuity (2.2s)
+✔ [8948/8951] Built Rudin.PMA.Chapter11.RiemannLebesgue (2.2s)
+✔ [8949/8951] Built Rudin.PMA.Chapter11.RiemannComparison (2.3s)
+✔ [8950/8951] Built Rudin.PMA.Chapter11SecondHalf (2.0s)
+ℹ [8951/8951] Built Rudin.PMA.Chapter11SecondHalfAudit (2.8s)
+info: Rudin/PMA/Chapter11SecondHalfAudit.lean:11:0: Chapter 11 second-half coverage: 22 numbered-node groups, 83 required declarations.
+info: Rudin/PMA/Chapter11SecondHalfAudit.lean:55:0: Chapter 11 second-half axiom audit: 192 declarations; axioms used: [propext, Classical.choice, Quot.sound].
+Build completed successfully (8951 jobs).

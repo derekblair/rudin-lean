@@ -80,6 +80,14 @@ by `pma11_13_iff_measurable`, with a real-valued bridge
 must be recorded in the lane report; importing a foundation is not itself a
 proof that its pending nodes are complete.
 
+Final integration: the lane subsequently incorporated the first-half integral
+definitions from `dda199864725d8b6debcf32e0d2a36800c7c3cc1` and rebased onto
+`d8c233c488ffe37172a6660af36d6b66ad7c68c2`, which also supplies the geometry and
+measure-construction modules. `NativeIntegration.lean` connects the second
+half directly to the first-half integral names. The final report and build log
+record verification of the combined import graph; no first-half node is
+redefined or claimed as work of this lane.
+
 ## Second-half fidelity obligations
 
 - **11.24:** (a) The integral of a nonnegative measurable function defines a
