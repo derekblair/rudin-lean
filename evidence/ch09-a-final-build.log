@@ -1,0 +1,9 @@
+✔ [8929/8933] Built Rudin.PMA.Chapter09.Differentiation (27s)
+✔ [8930/8933] Built Rudin.PMA.Chapter09.PartialCriterion (7.3s)
+✔ [8931/8933] Built Rudin.PMA.Chapter09.DiscontinuousPartials (8.4s)
+✔ [8932/8933] Built Rudin.PMA.Chapter09.FirstHalf (5.8s)
+ℹ [8933/8933] Built Rudin.PMA.Chapter09.FirstHalfAudit (7.7s)
+info: Rudin/PMA/Chapter09/FirstHalfAudit.lean:8:0: Chapter 9 first-half axiom audit: 188 declarations; only propext, Classical.choice, Quot.sound.
+info: Rudin/PMA/Chapter09/FirstHalfAudit.lean:24:0: Chapter 9 first-half coverage: 22 numbered nodes have kernel-checked principal theorems.
+info: Rudin/PMA/Chapter09/FirstHalfAudit.lean:55:0: Both attached 9.16 counterexample assertions are kernel-checked.
+Build completed successfully (8933 jobs).
