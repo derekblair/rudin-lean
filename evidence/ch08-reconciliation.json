@@ -1,0 +1,59 @@
+{
+  "prior_branch": "origin/ch8-codex-20261022",
+  "prior_head": "bb50a2079f8e189d8e282e2521bbadb64f4f98eb",
+  "landed_base": "87344489d0a8ce7fe00a37ef846a72fc70d33735",
+  "prior_chapter_commits": [
+    "b7adfb383619080760be780e7adf8a883b618770",
+    "ddee601"
+  ],
+  "files": [
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/PowerSeries.lean",
+      "sha256": "af7669152ab11b348b454ccfacb37928c67be845b7428377bd29dfd6e6552518",
+      "byte_identical_to_prior_candidate": true
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/Abel.lean",
+      "sha256": "2a7a23da0c64df9c38dff6975bd0f5e34f1a428a5d4fa86480c35b7498260239",
+      "byte_identical_to_prior_candidate": true
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/DoubleSeries.lean",
+      "sha256": "7cb78d7c111d3be2a9bc0f5e67a02c0020e988ba39e24f67db050787aae57e7e",
+      "byte_identical_to_prior_candidate": true
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/Taylor.lean",
+      "sha256": "9c666fab54b9e7a3a7b7ac073e5b9ca9a8a7d2d31e2ccb7a7be303af472c0347",
+      "byte_identical_to_prior_candidate": true
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/Operations.lean",
+      "sha256": "2b4ce0759198e1a2c854a8398d7b285c5edd64de0d36fd19aa3ba824245ae07a",
+      "byte_identical_to_prior_candidate": true
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/Exponential.lean",
+      "sha256": "cd7d31f6d45786bc4433d3c0bb878c1e4e0c2da6f43bf48fc1491c6167768bcd",
+      "byte_identical_to_prior_candidate": true
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/ExponentialProbes.lean",
+      "sha256": "50cfdadd939ba80e57fd93e47bad71d05cc49eb97664485e428ee8cc2b6cc9da",
+      "byte_identical_to_prior_candidate": true
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08Probes.lean",
+      "sha256": "093390f7774efef783fc3e1d5d5e66d79ff5b0c42225a59f99db8d27a57d543c",
+      "byte_identical_to_prior_candidate": true
+    }
+  ],
+  "preserved_landed_files": [
+    "rudin/Rudin/PMA/Chapter08/PowerSeriesFoundations.lean",
+    "rudin/Rudin/PMA/Chapter08/PowerSeriesDifferentiation.lean"
+  ],
+  "chapter_1_to_7_and_pins_identical": true,
+  "prior_reviews": "evidence/ch08-prior-*; historical acceptance only, not fresh compilation evidence",
+  "new_build_log": "evidence/ch08-reconciled-build.log",
+  "new_build_result": "Build completed successfully (8953 jobs)."
+}

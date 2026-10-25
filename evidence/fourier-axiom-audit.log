@@ -1,0 +1,10 @@
+'Rudin.PMA.Chapter08.pma8_13' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter08.pma8_14' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter08.pma8_15' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter08.periodic_riemann_integrable_every_interval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Rudin.PMA.Chapter08.periodic_riemann_integral_one_period' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter08.fourier_tendsto_zero_on_open_interval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter08.fourierCoeff_finsupp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter08.trigonometric_coefficients_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
