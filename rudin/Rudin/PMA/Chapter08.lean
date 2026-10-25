@@ -8,6 +8,10 @@ import Rudin.PMA.Chapter08.Operations
 import Rudin.PMA.Chapter08.Exponential
 import Rudin.PMA.Chapter08.Trigonometric
 import Rudin.PMA.Chapter08.AlgebraicCompleteness
+import Rudin.PMA.Chapter08.Orthogonality
+import Rudin.PMA.Chapter08.GammaConsequences
+import Rudin.PMA.Chapter08.GammaStirling
+import Rudin.PMA.Chapter08Audit
 
 /-!
 # PMA Chapter 8: Some Special Functions
