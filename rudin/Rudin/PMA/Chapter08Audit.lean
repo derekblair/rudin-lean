@@ -8,6 +8,9 @@ import Rudin.PMA.Chapter08.Trigonometric
 import Rudin.PMA.Chapter08.AlgebraicCompleteness
 import Rudin.PMA.Chapter08.Orthogonality
 import Rudin.PMA.Chapter08.IntegralAlgebra
+import Rudin.PMA.Chapter08.FourierDefinitions
+import Rudin.PMA.Chapter08.FourierConvergence
+import Rudin.PMA.Chapter08.FourierParseval
 import Rudin.PMA.Chapter08.GammaConsequences
 import Rudin.PMA.Chapter08.GammaStirling
 import Rudin.PMA.Chapter08Probes
@@ -26,9 +29,14 @@ example : pma8_5_contract := pma8_5
 example : pma8_6_contract := pma8_6
 example : pma8_7_contract := pma8_7
 example : pma8_8_contract := pma8_8
+example : pma8_9_contract := pma8_9
+example : pma8_10_contract := pma8_10
 example : pma8_11_contract := pma8_11
 example : pma8_12_contract := pma8_12
+example : pma8_13_contract := pma8_13
+example : pma8_14_contract := pma8_14
 example : pma8_15_contract := pma8_15
+example : pma8_16_contract := pma8_16
 example : pma8_17_contract := pma8_17
 example : pma8_18_contract := pma8_18
 example : pma8_19_contract := pma8_19
@@ -39,12 +47,12 @@ end Rudin.PMA.Chapter08.ContractComparators
 
 run_cmd do
   let env ← Lean.getEnv
-  for i in [1, 2, 3, 4, 5, 6, 7, 8, 11, 12, 15, 17, 18, 19, 20, 21, 22] do
-    let n := Lean.Name.str `Rudin.PMA.Chapter08 ("pma8_" ++ toString i)
+  for i in List.range 22 do
+    let n := Lean.Name.str `Rudin.PMA.Chapter08 ("pma8_" ++ toString (i + 1))
     match env.find? n with
     | some (.thmInfo _) => pure ()
     | _ => throwError "Missing completed Chapter 8 proof: {n}"
-  Lean.logInfo "PMA Chapter 8 coverage: 17 principal theorems and 17 contract type comparisons."
+  Lean.logInfo "PMA Chapter 8 coverage: 22 principal theorems and 22 contract type comparisons."
 
 run_cmd Rudin.PMA.Audit.checkNamespaceAxioms `Rudin.PMA.Chapter08
 run_cmd Rudin.PMA.Audit.checkNamespaceAxioms `Rudin.PMA.Chapter08.FidelityProbes

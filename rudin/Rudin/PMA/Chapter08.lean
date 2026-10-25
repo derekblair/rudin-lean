@@ -9,6 +9,9 @@ import Rudin.PMA.Chapter08.Exponential
 import Rudin.PMA.Chapter08.Trigonometric
 import Rudin.PMA.Chapter08.AlgebraicCompleteness
 import Rudin.PMA.Chapter08.Orthogonality
+import Rudin.PMA.Chapter08.FourierDefinitions
+import Rudin.PMA.Chapter08.FourierConvergence
+import Rudin.PMA.Chapter08.FourierParseval
 import Rudin.PMA.Chapter08.GammaConsequences
 import Rudin.PMA.Chapter08.GammaStirling
 import Rudin.PMA.Chapter08Audit
@@ -20,6 +23,8 @@ The landed foundation and first-derivative modules are preserved. Reconciled
 prior work completes PMA 8.1–8.6, including all derivative orders and factorial
 coefficients; PowerSeriesCompatibility connects it to the landed interface.
 PMA 8.7–8.8 establish trigonometric properties and algebraic completeness.
-Later nodes are being developed in this lane; the current coverage audit names
-only the completed contracts. The complete source inventory has 22 nodes.
+PMA 8.9–8.16 develop Fourier series using the native Chapter 6 Riemann integral;
+PMA 8.17–8.22 develop the Gamma function through the all-real Stirling limit.
+Every numbered node has a named contract and proof. Importing this chapter
+runs the complete 22-node coverage check and recursive allowed-axiom audit.
 -/

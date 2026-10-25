@@ -1,0 +1,75 @@
+Rudin/PMA/Chapter08/Orthogonality.lean:141:77: warning: This simp argument is unused:
+  sub_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ComplexRSIntegral, Complex.add_re, Complex.ofReal_re, Complex.mul_re, Complex.ofReal_im,
+    Complex.I_re, Complex.I_im, mul_zero, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rudin/PMA/Chapter08/Orthogonality.lean:141:87: warning: This simp argument is unused:
+  add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ComplexRSIntegral, Complex.add_re, Complex.ofReal_re, Complex.mul_re, Complex.ofReal_im,
+    Complex.I_re, Complex.I_im, mul_zero, sub_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rudin/PMA/Chapter08/Orthogonality.lean:241:2: error: Type mismatch: After simplification, term
+  hh
+ has type
+  RSIntegral (fun x => ‖∑ x_1 ∈ s, φ x_1 x * d x_1‖ ^ 2) id a b = ∑ x ∈ s, L * ‖d x‖ ^ 2
+but is expected to have type
+  RIntegral (fun x => ‖∑ x_1 ∈ s, φ x_1 x * d x_1‖ ^ 2) a b = L * ∑ n ∈ s, ‖d n‖ ^ 2
+Rudin/PMA/Chapter08/Orthogonality.lean:298:63: error: unsolved goals
+f : ℝ → ℂ
+φ : ℕ → ℝ → ℂ
+a b : ℝ
+hf : ComplexRSIntegrable f id a b
+hφ : RiemannOrthonormal φ a b
+hi : ∀ (n : ℕ), ComplexRSIntegrable (fun x => f x * star (φ n x)) id a b
+N : ℕ
+c : ℕ → ℂ := orthogonalFourierCoeff f φ a b
+hc :
+  RIntegrable (fun x => ‖f x - orthogonalPartialSum φ c N x‖ ^ 2) a b ∧
+    RIntegral (fun x => ‖f x - orthogonalPartialSum φ c N x‖ ^ 2) a b =
+      RIntegral (fun x => ‖f x‖ ^ 2) a b - ∑ n ∈ Finset.range N, ‖orthogonalFourierCoeff f φ a b n‖ ^ 2 +
+        ∑ n ∈ Finset.range N, ‖c n - orthogonalFourierCoeff f φ a b n‖ ^ 2
+hec :
+  RIntegral (fun x => ‖f x - orthogonalPartialSum φ c N x‖ ^ 2) a b =
+    RIntegral (fun x => ‖f x‖ ^ 2) a b - ∑ n ∈ Finset.range N, ‖c n‖ ^ 2
+d : ℕ → ℂ
+hd :
+  RIntegrable (fun x => ‖f x - orthogonalPartialSum φ d N x‖ ^ 2) a b ∧
+    RIntegral (fun x => ‖f x - orthogonalPartialSum φ d N x‖ ^ 2) a b =
+      RIntegral (fun x => ‖f x‖ ^ 2) a b - ∑ n ∈ Finset.range N, ‖orthogonalFourierCoeff f φ a b n‖ ^ 2 +
+        ∑ n ∈ Finset.range N, ‖d n - orthogonalFourierCoeff f φ a b n‖ ^ 2
+hnon : 0 ≤ ∑ n ∈ Finset.range N, ‖d n - c n‖ ^ 2
+he : ∀ n < N, d n = orthogonalFourierCoeff f φ a b n
+n : ℕ
+hn : n ∈ Finset.range N
+⊢ ‖orthogonalFourierCoeff f φ a b n - c n‖ ^ 2 = 0
+Rudin/PMA/Chapter08/Orthogonality.lean:301:52: warning: This simp argument is unused:
+  sub_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [he n (Finset.mem_range.mp hn), norm_zero, zero_pow (by decide : 2 ≠ 0)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rudin/PMA/Chapter08/Orthogonality.lean:301:62: warning: This simp argument is unused:
+  norm_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [he n (Finset.mem_range.mp hn), sub_self, zero_pow (by decide : 2 ≠ 0)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rudin/PMA/Chapter08/Orthogonality.lean:301:73: warning: This simp argument is unused:
+  zero_pow (by decide : 2 ≠ 0)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [he n (Finset.mem_range.mp hn), sub_self, norm_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rudin/PMA/Chapter08/Orthogonality.lean:317:25: error: unexpected token 'theorem'; expected term
+Rudin/PMA/Chapter08/Orthogonality.lean:320:8: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+⊢ pma8_12_contract
