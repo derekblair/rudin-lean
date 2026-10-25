@@ -538,13 +538,15 @@ theorem pma3_17_lower (s : ℕ → ℝ) :
 
 /-! ### PMA-3.18: rational, oscillatory, and convergent examples. -/
 
-private theorem rational_tail_dense (q : ℕ → ℚ) (hq : Function.Surjective q) (N : ℕ) :
-    Dense ((fun n => ((q n : ℝ) : EReal)) '' Set.Ici N) := by
-  let f : ℕ → EReal := fun n => ((q n : ℝ) : EReal)
+private theorem contains_rationals_tail_dense (s : ℕ → ℝ)
+    (hs : ∀ q : ℚ, ∃ n, s n = (q : ℝ)) (N : ℕ) :
+    Dense ((fun n => (s n : EReal)) '' Set.Ici N) := by
+  let f : ℕ → EReal := fun n => (s n : EReal)
   have hd : Dense (range f) := by
-    change Dense (range ((fun r : ℚ => ((r : ℝ) : EReal)) ∘ q))
-    rw [Set.range_comp, hq.range_eq, Set.image_univ]
-    exact EReal.denseRange_ratCast
+    apply EReal.denseRange_ratCast.mono
+    rintro _ ⟨q, rfl⟩
+    obtain ⟨n, hn⟩ := hs q
+    exact ⟨n, by simp [f, hn]⟩
   have hfin : (f '' Set.Iio N).Finite := (Set.finite_Iio N).image f
   have hd' := hd.sdiff_finite hfin
   apply hd'.mono
@@ -555,27 +557,30 @@ private theorem rational_tail_dense (q : ℕ → ℚ) (hq : Function.Surjective 
     exact hx.2 ⟨n, by simp only [Set.mem_Iio]; omega, rfl⟩
   exact ⟨n, Set.mem_Ici.mpr hn, rfl⟩
 
-private theorem rational_cluster_every_ereal (q : ℕ → ℚ) (hq : Function.Surjective q)
-    (x : EReal) : MapClusterPt x atTop (fun n => ((q n : ℝ) : EReal)) := by
+private theorem contains_rationals_cluster_every_ereal (s : ℕ → ℝ)
+    (hs : ∀ q : ℚ, ∃ n, s n = (q : ℝ))
+    (x : EReal) : MapClusterPt x atTop (fun n => (s n : EReal)) := by
   rw [mapClusterPt_atTop_iff_forall_mem_closure]
   intro N
-  rw [(rational_tail_dense q hq N).closure_eq]
+  rw [(contains_rationals_tail_dense s hs N).closure_eq]
   trivial
 
-theorem pma3_18_rational (q : ℕ → ℚ) (hq : Function.Surjective q) :
-    (∀ x : ℝ, IsSubsequentialLimit (fun n => (q n : ℝ)) x) ∧
-    UpperLimit (fun n => (q n : ℝ)) = ⊤ ∧ LowerLimit (fun n => (q n : ℝ)) = ⊥ := by
+/-- PMA-3.18(a): a real sequence containing every rational has every real as a
+subsequential limit and has upper/lower limits +∞ and -∞. Terms may also be irrational,
+and repetitions are allowed, as in the printed statement. -/
+theorem pma3_18_rational (s : ℕ → ℝ) (hs : ∀ q : ℚ, ∃ n, s n = (q : ℝ)) :
+    (∀ x : ℝ, IsSubsequentialLimit s x) ∧ UpperLimit s = ⊤ ∧ LowerLimit s = ⊥ := by
   refine ⟨?_, ?_, ?_⟩
   · intro x
     obtain ⟨φ, hφ, ht⟩ := (pma3_5_reference _ (x : EReal)).mpr
-      (rational_cluster_every_ereal q hq x)
+      (contains_rationals_cluster_every_ereal s hs x)
     refine ⟨φ, hφ, ?_⟩
     apply EReal.tendsto_coe.mp
     simpa [Function.comp_def] using ht
   · apply eq_top_iff.mpr
-    exact le_sSup ((pma3_5_reference _ ⊤).mpr (rational_cluster_every_ereal q hq ⊤))
+    exact le_sSup ((pma3_5_reference _ ⊤).mpr (contains_rationals_cluster_every_ereal s hs ⊤))
   · apply eq_bot_iff.mpr
-    exact sInf_le ((pma3_5_reference _ ⊥).mpr (rational_cluster_every_ereal q hq ⊥))
+    exact sInf_le ((pma3_5_reference _ ⊥).mpr (contains_rationals_cluster_every_ereal s hs ⊥))
 
 def AlternatingLimitSequence (n : ℕ) : ℝ :=
   (-1 : ℝ)^(n+1) / (1 + 1/(n+1 : ℝ))
@@ -1871,9 +1876,12 @@ theorem node_3_37 : Statement_3_37 := by
 
 /-! ### PMA-3.36: Precise dominance of the convergence criteria.
 
-The source's inconclusiveness remark is interpreted as referring to convergence
-criteria. The constant sequence records the failure of the stronger full-test
-interpretation: root limsup 1 coexists with eventual ratios 1 and divergence.
+Deviation from the printed claim (p.68): root-test inconclusiveness does not imply
+ratio-test inconclusiveness. The claim is false as stated: for the constant-one
+series, the root limsup is 1, so the root test gives no information (3.33(c)),
+but every ratio is 1, so the ratio test proves divergence (3.34(b)). The node
+instead proves convergence-criterion dominance, retains both tests' failure-to-zero
+conclusions, and formally verifies this counterexample.
 -/
 def Statement_3_36 : Prop :=
   (∀ a : ℕ → ℂ, (∀ᶠ n in atTop, a n ≠ 0) →
