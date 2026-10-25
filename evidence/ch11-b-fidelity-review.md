@@ -9,6 +9,10 @@ replace the final build result or axiom audit. `L2.lean`, `Hilbert.lean`, and
 `Fourier.lean` were read independently against the source. The reviewer also
 implemented the extended-real and simple-integral compatibility additions in
 `Integrals.lean`, so review of those additions is not independent authorship.
+The separate L2/Hilbert worker subsequently reviewed the complete integral
+module independently against 11.24–11.32 and accepted the statement scope,
+including both finite signed parts, infinite signed invariance, set-local
+hypotheses, and the incomplete-measure qualification.
 The modules implementing 11.33 were subsequently reviewed by the separate
 L2/Hilbert worker, including the native partition and integral bridges.
 The final 11.33 review is recorded below.
@@ -66,9 +70,10 @@ integrability hypotheses and retain interval-relative endpoint derivatives.
 
 ## Integral semantics and the first-half dependency
 
-The first-half names for 11.21–11.22 had not landed when this review was
-written. That does not require treating the mathematical integral semantics
-as an unsupported assumption:
+The first-half names for 11.21–11.22 landed in commit
+`dda199864725d8b6debcf32e0d2a36800c7c3cc1` during final verification. This lane
+rebased onto that commit. The integral semantics and direct native connections
+are now both proved:
 
 - `simple_integral_eq_finite_sum` identifies the library simple integral with
   the finite coefficient-times-level-set-measure sum inside the integration
@@ -92,10 +97,12 @@ as an unsupported assumption:
   part integrals are not simultaneously infinite.
 
 These are compatibility theorems, not replacement definitions or duplicate
-first-half numbered nodes. Connecting the eventual first-half aliases to
-these theorems remains a name-level integration step. If the first half chooses
-a different concrete encoding, its equivalence still needs checking when it
-lands; the literal source formulas already have proofs here.
+first-half numbered nodes. `NativeIntegration.lean` proves direct connections
+to `simpleIntegral`, `nonnegativeIntegral`, `IntegralDefined`,
+`LebesgueIntegrable`, and `lebesgueIntegral`. Its native-facing versions of
+11.24–11.32 include signed countable additivity, absolute integrability,
+domination, addition, and dominated convergence with an extended-real native
+integrable majorant. No first-half integral dependency remains unresolved.
 
 ## Encodings, generalizations, and the one semantic qualification
 

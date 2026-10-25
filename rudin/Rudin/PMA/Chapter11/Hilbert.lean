@@ -136,7 +136,11 @@ theorem l2Norm_sub_coe (f g : L2Space μ) :
   apply Lp.ext
   exact ((Lp.memLp f).sub (Lp.memLp g)).coeFn_toLp.trans (Lp.coeFn_sub f g).symm
 
-/-- 11.42 explicitly produces a measurable function representative of the limit. -/
+/-- 11.42 explicitly produces a measurable function representative of the limit.
+Measurability qualification: on an incomplete measure space, arbitrary changes
+on a null subset need not remain measurable. Choosing a measurable representative
+preserves the source's existence assertion without assuming completeness of the
+measure or its informal claim about arbitrary exceptional-set values. -/
 theorem pma11_42_representative {f : ℕ → L2Space μ} (hf : L2Cauchy f) :
     ∃ g : X → ℂ, SquareIntegrable μ g ∧
       Tendsto (fun n => l2Norm μ (fun x => f n x - g x)) atTop (𝓝 0) := by

@@ -18,10 +18,10 @@ Sequences start at zero, a harmless reindexing.
 The unnumbered compatibility theorems below prove that the nonnegative
 integral is exactly the supremum of the book's finite, nonnegative simple
 function sums. The signed integral is related to its positive-minus-negative
-formula by the extended-real representative theorems. Thus these integral
-semantics are verified independently of the pending first-half aliases for
-11.21–22. A name-level connection to those aliases remains to be added when
-they land; no first-half definition or numbered node is duplicated here.
+formula by the extended-real representative theorems. The first-half integral
+definitions from `Chapter11.Integration` are connected explicitly in
+`Chapter11.NativeIntegration`; no first-half definition or numbered node is
+duplicated here.
 -/
 
 open Set Filter MeasureTheory
@@ -118,7 +118,7 @@ theorem pma11_26 {f : X → K} (hf : Integrable f μ) :
   ⟨hf.norm, norm_integral_le_integral_norm f⟩
 
 omit [NormedSpace ℝ K] in
-/-- 11.27, with the slightly stronger almost-everywhere hypotheses. -/
+/-- 11.27, generalized to almost-everywhere measurability and domination. -/
 theorem pma11_27 {f : X → K} {g : X → ℝ}
     (hf : AEStronglyMeasurable f μ) (hg : Integrable g μ)
     (hbound : ∀ᵐ x ∂μ, ‖f x‖ ≤ g x) : Integrable f μ :=
