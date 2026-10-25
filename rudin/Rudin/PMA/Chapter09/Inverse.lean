@@ -18,9 +18,16 @@ restricting the printed conclusions.
 /-- PMA 9.23. A contraction on a nonempty complete metric space has exactly
 one fixed point. Deviation: nonemptiness, implicit in the book's choice of an
 initial point, is explicit; without it the printed assertion is false. -/
-theorem pma9_23 {X : Type*} [MetricSpace X] [CompleteSpace X] [Nonempty X]
+theorem pma9_23_withConstant {X : Type*} [MetricSpace X] [CompleteSpace X] [Nonempty X]
     (f : X → X) {K : ℝ≥0} (hf : ContractingWith K f) : ∃! x, f x = x := by
   exact ⟨hf.fixedPoint f, hf.fixedPoint_isFixedPt, fun _ h => hf.fixedPoint_unique h⟩
+
+/-- PMA 9.23 in the first half's exact contraction predicate. Nonemptiness
+repairs the omitted assumption in the printed existence statement. -/
+theorem pma9_23 {X : Type*} [MetricSpace X] [CompleteSpace X] [Nonempty X]
+    (f : X → X) (hf : IsContraction f) : ∃! x, f x = x := by
+  obtain ⟨K, hK⟩ := (pma9_22 f).mp hf
+  exact pma9_23_withConstant f hK
 
 /-- The iterates used in PMA 9.23 converge to that fixed point. -/
 theorem pma9_23_iterates {X : Type*} [MetricSpace X] [CompleteSpace X] [Nonempty X]
