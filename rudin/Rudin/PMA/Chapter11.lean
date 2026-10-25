@@ -1,9 +1,10 @@
+import Rudin.PMA.Chapter11.Measurable
+
 /-!
-# Rudin, *Principles of Mathematical Analysis* (3rd ed.)
+# PMA Chapter 11, first-half lane
 
-## Chapter 11: The Lebesgue Theory
-
-Every definition, theorem, and corollary from this chapter is
-formalized below in dependency order. Zero `sorry`s: anything
-not yet proved is tracked in `QUEUE.md`, never as a `sorry` here.
+Source inventory and ownership boundary: `evidence/ch11-a-inventory.md`.
+This lane owns 11.1–11.23; the remaining nodes belong to lane/rudin-ch11-b.
+Imports are added as verified modules become available. This file does not
+claim completion of nodes absent from the current imports.
 -/
