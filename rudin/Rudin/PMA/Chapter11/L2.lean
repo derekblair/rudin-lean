@@ -30,16 +30,33 @@ def SquareIntegrable (μ : Measure X) (f : X → ℂ) : Prop :=
 def l2Norm (μ : Measure X) (f : X → ℂ) : ℝ :=
   Real.sqrt (∫ x, ‖f x‖ ^ 2 ∂μ)
 
- theorem SquareIntegrable.memLp {f : X → ℂ} (hf : SquareIntegrable μ f) :
+theorem SquareIntegrable.memLp {f : X → ℂ} (hf : SquareIntegrable μ f) :
     MemLp f 2 μ :=
   (memLp_two_iff_integrable_sq_norm hf.1.aestronglyMeasurable).mpr hf.2
 
- theorem squareIntegrable_iff {f : X → ℂ} :
+theorem squareIntegrable_iff {f : X → ℂ} :
     SquareIntegrable μ f ↔ Measurable f ∧ MemLp f 2 μ := by
   constructor
   · exact fun h => ⟨h.1, h.memLp⟩
   · rintro ⟨hm, h⟩
     exact ⟨hm, (memLp_two_iff_integrable_sq_norm hm.aestronglyMeasurable).mp h⟩
+
+/-- 11.34's finiteness condition, explicitly in extended nonnegative integrals. -/
+theorem pma11_34 {f : X → ℂ} :
+    SquareIntegrable μ f ↔ Measurable f ∧
+      (∫⁻ x, ENNReal.ofReal (‖f x‖ ^ 2) ∂μ) < ∞ := by
+  constructor
+  · rintro ⟨hm, hi⟩
+    exact ⟨hm, (hasFiniteIntegral_iff_ofReal (ae_of_all _ fun x => sq_nonneg _)).mp hi.2⟩
+  · rintro ⟨hm, hi⟩
+    exact ⟨hm, (hm.norm.pow_const 2).aestronglyMeasurable,
+      (hasFiniteIntegral_iff_ofReal (ae_of_all _ fun x => sq_nonneg _)).mpr hi⟩
+
+/-- The complex integral used here agrees with the real/imaginary definition
+in the unnumbered section immediately preceding 11.34. -/
+theorem complex_integral_eq_real_imag {f : X → ℂ} (hf : Integrable f μ) :
+    (∫ x, f x ∂μ) = (∫ x, (f x).re ∂μ) + (∫ x, (f x).im ∂μ) * Complex.I :=
+  (integral_re_add_im hf).symm
 
 /-- The pointwise-function norm and the quotient norm coincide. -/
 theorem norm_toL2 {f : X → ℂ} (hf : MemLp f 2 μ) :
@@ -48,6 +65,12 @@ theorem norm_toL2 {f : X → ℂ} (hf : MemLp f 2 μ) :
   simp only [ENNReal.toReal_ofNat, Real.rpow_two]
   rw [ENNReal.toReal_ofReal (Real.rpow_nonneg (integral_nonneg fun x => sq_nonneg _) _)]
   simp [l2Norm, Real.sqrt_eq_rpow, one_div]
+
+/-- Changing a function on a null set leaves the square-integral norm unchanged. -/
+theorem l2Norm_congr_ae {f g : X → ℂ} (h : f =ᵐ[μ] g) : l2Norm μ f = l2Norm μ g := by
+  unfold l2Norm
+  congr 1
+  exact integral_congr_ae (h.fun_comp (fun z : ℂ => ‖z‖ ^ 2))
 
 /-- 11.35: Schwarz's inequality, including integrability of the product. -/
 theorem pma11_35 {f g : X → ℂ} (hf : SquareIntegrable μ f)
@@ -83,18 +106,26 @@ theorem pma11_37_dist {f g : X → ℂ} (hf : SquareIntegrable μ f)
     dist (hf.memLp.toLp f) (hg.memLp.toLp g) = l2Norm μ (f - g) := by
   rw [dist_eq_norm, ← MemLp.toLp_sub, norm_toL2]
 
+/-- 11.37: vanishing distance is exactly equality almost everywhere. -/
+theorem pma11_37_zero_iff {f g : X → ℂ} (hf : SquareIntegrable μ f)
+    (hg : SquareIntegrable μ g) :
+    l2Norm μ (f - g) = 0 ↔ f =ᵐ[μ] g := by
+  rw [← pma11_37_dist hf hg, dist_eq_zero, pma11_37_eq hf hg]
+
 /-- 11.37: the quotient has a genuine metric. -/
 theorem pma11_37_metric : Nonempty (MetricSpace (L2Space μ)) := ⟨inferInstance⟩
 
 /-- 11.38: every square-integrable interval function has a continuous approximation.
-The approximant is even continuous on the entire real line. -/
+Generality: the input may be only almost-everywhere measurable for restricted
+Lebesgue measure (so the completed Lebesgue convention and arbitrary behavior
+outside the interval are included). The approximant is continuous on all of ℝ. -/
 theorem pma11_38 {a b : ℝ} {f : ℝ → ℂ}
-    (hf : SquareIntegrable (volume.restrict (Icc a b)) f) {ε : ℝ} (hε : 0 < ε) :
+    (hf : MemLp f 2 (volume.restrict (Icc a b))) {ε : ℝ} (hε : 0 < ε) :
     ∃ g : ℝ → ℂ, Continuous g ∧
       SquareIntegrable (volume.restrict (Icc a b)) g ∧
       l2Norm (volume.restrict (Icc a b)) (f - g) < ε := by
   have hf' : MemLp f (ENNReal.ofReal (2 : ℝ)) (volume.restrict (Icc a b)) := by
-    simpa using hf.memLp
+    simpa using hf
   obtain ⟨g, hg, hgm⟩ := hf'.exists_boundedContinuous_integral_rpow_sub_le
     (by norm_num : (0 : ℝ) < 2) (show 0 < (ε / 2) ^ 2 by positivity)
   refine ⟨g, g.continuous, squareIntegrable_iff.mpr ⟨g.continuous.measurable, by simpa using hgm⟩, ?_⟩
