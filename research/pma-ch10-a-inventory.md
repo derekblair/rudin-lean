@@ -78,7 +78,22 @@ must be included.
 ## Prior work inspected
 
 At baseline `87344489d0a8ce7fe00a37ef846a72fc70d33735`, Chapter 10 is an
-empty documentation stub. The remote branch listing and all repository PRs
-were inspected: there was no Chapter 10 implementation to reconcile. Existing
-Chapter 8 work is retained. The toolchain is Lean 4.34.1; Mathlib is pinned to
+empty documentation stub. The initial branch-name/PR inspection missed work
+inside the cross-chapter branch `ch8-codex-20261022`; its initial conclusion
+that there was no earlier Chapter 10 implementation was incorrect.
+
+Following the user's correction, a full fetch identified commit
+`bb50a2079f8e189d8e282e2521bbadb64f4f98eb`, which supplies prior proofs for
+all 26 first-half nodes. The lane reuses those sources, with exact-byte hashes
+in `evidence/ch10-a-reconciliation-manifest.json`, rather than replacing them
+with the independent drafts started before that discovery. The prior inventory
+also has 51 nodes. The second lane's fetched inventory explicitly adopts this
+lane's ceiling-first split.
+
+The prior proof dependency graph includes Chapter 8–9 files absent from this
+lane. These other-lane files are left untouched; an isolated snapshot inside
+this lane permits verification with the exact earlier prerequisites. The
+standalone lane build and snapshot build are reported separately.
+
+The toolchain is Lean 4.34.1; Mathlib remains pinned to
 `d13f23b723b8a846827a245b89c10fc7d3f11612`.
