@@ -15,7 +15,7 @@ namespace Rudin.PMA.Audit
 /-- The source module of an imported or current-module declaration. -/
 def declarationModule (env : Environment) (name : Name) : Name :=
   match env.getModuleIdxFor? name with
-  | some idx => env.header.moduleNames[idx]!
+  | some idx => env.header.modules[idx]!.module
   | none => env.mainModule
 
 /-- Check every declaration owned by a module or any of its submodules.
