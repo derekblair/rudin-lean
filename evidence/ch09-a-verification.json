@@ -1,0 +1,122 @@
+{
+  "checked_at_utc": "2026-10-25T04:22:18.288623+00:00",
+  "status": "complete",
+  "branch": "lane/rudin-ch09-a",
+  "proof_commit": "6d679896079647f4dcafde60fafa630ab5d365d8",
+  "nodes_completed": [
+    "9.1",
+    "9.2",
+    "9.3",
+    "9.4",
+    "9.5",
+    "9.6",
+    "9.7",
+    "9.8",
+    "9.9",
+    "9.10",
+    "9.11",
+    "9.12",
+    "9.13",
+    "9.14",
+    "9.15",
+    "9.16",
+    "9.17",
+    "9.18",
+    "9.19",
+    "9.20",
+    "9.21",
+    "9.22"
+  ],
+  "nodes_remaining": [],
+  "toolchain": "leanprover/lean4:v4.34.1",
+  "mathlib_revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "builds": [
+    {
+      "command": "lake build Rudin.PMA.Chapter09.FirstHalf Rudin.PMA.Chapter09.FirstHalfAudit",
+      "exit_code": 0,
+      "result": "Build completed successfully (8933 jobs).",
+      "log": "evidence/ch09-a-final-build.log"
+    },
+    {
+      "command": "lake build",
+      "exit_code": 0,
+      "result": "Build completed successfully (8978 jobs).",
+      "log": "evidence/ch09-a-default-build.log"
+    }
+  ],
+  "axiom_audit": {
+    "declarations_checked": 188,
+    "allowed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "forbidden": [],
+    "recursive": true,
+    "includes_private_and_generated": true
+  },
+  "source_scan": {
+    "forbidden_terms": [
+      "sorry",
+      "admit",
+      "native_decide",
+      "unsafe",
+      "axiom declarations"
+    ],
+    "matches": []
+  },
+  "principal_coverage": 22,
+  "attached_9_16_counterexamples": 2,
+  "scope_check": "Only first-half Chapter09 modules and lane-specific evidence changed; shared aggregates and README/PROGRESS untouched.",
+  "source_hashes": {
+    "rudin/Rudin/PMA/Chapter09/ContinuousDifferentiability.lean": {
+      "sha256": "44738be616e6a244062c75eb10c58fba6a0b975d065eab9b79e98e015cadd82e",
+      "git_blob": "85adb835a058653a65c38b952071f73565c9f0a9"
+    },
+    "rudin/Rudin/PMA/Chapter09/Differentiation.lean": {
+      "sha256": "6324fe69fab6270e05e6759a12526f4fb9ea686b75e02b8f5df9240e69d848d6",
+      "git_blob": "7667b2eefa3046064ea553b3c9dd4818d0e0d72f"
+    },
+    "rudin/Rudin/PMA/Chapter09/DiscontinuousPartials.lean": {
+      "sha256": "c8eda5b73243e9b6bac1ce054cbe9eb91ca57536c90c8f3baf9098bcf8f55e5d",
+      "git_blob": "a8edcdf240566910af65e39b6cf29c00fe0d2e0a"
+    },
+    "rudin/Rudin/PMA/Chapter09/FirstHalf.lean": {
+      "sha256": "d7259756df72687d1f3ff51dbf8bf58b66e06d58307dd05a6e86d47d98f3af89",
+      "git_blob": "ae75759e681cc522b7d5fc28043666f0f323b67d"
+    },
+    "rudin/Rudin/PMA/Chapter09/FirstHalfAudit.lean": {
+      "sha256": "ed58ba3aeec7f5e57aa60c8378a153aa38b7ddd0f150298c1fea17292479949c",
+      "git_blob": "3738c2cc672e5d62d012f868b6fcfb411f64d156"
+    },
+    "rudin/Rudin/PMA/Chapter09/LinearFoundations.lean": {
+      "sha256": "828b997d47c5d02b2c63ff0af3f3188f49834ca7d103cd2b0c7c8d0ec87996d9",
+      "git_blob": "767c576d78776bc7398652e93f0b7d23cd4f66fb"
+    },
+    "rudin/Rudin/PMA/Chapter09/Operators.lean": {
+      "sha256": "56ff373f62dbafae5e552dd32449d270847c8781b6120f07c2aed733c8d22b27",
+      "git_blob": "c96e675c6d801be6f95b1b20edbf46eaca447d34"
+    },
+    "rudin/Rudin/PMA/Chapter09/PartialContinuity.lean": {
+      "sha256": "0529101b7191546732dd59dccc7a24aba088e6ea40e328d148415c9a1b3d5776",
+      "git_blob": "a5131890450f3f00a7cc877255cc369539dbe6ba"
+    },
+    "rudin/Rudin/PMA/Chapter09/PartialCounterexamples.lean": {
+      "sha256": "7698029ad3b28de169fb510e7c6a5ac2c49645297c3484d65acf7dbae76faa4d",
+      "git_blob": "049c139d69145bd1c405945b17d3c7e5084736b2"
+    },
+    "rudin/Rudin/PMA/Chapter09/PartialCriterion.lean": {
+      "sha256": "7d5ae0ddf0ced5f970abec411fa2ecee12a20dc51c8a53fa95b4d83109d098b4",
+      "git_blob": "54b9236c3c0dc1b5988f0ea914ff4a11199f8bab"
+    }
+  },
+  "review_files": [
+    "evidence/ch09-a-continuous-review.md",
+    "evidence/ch09-a-counterexamples-review.md",
+    "evidence/ch09-a-differentiation-review.md",
+    "evidence/ch09-a-linear-foundations-review.md",
+    "evidence/ch09-a-operators-review.md"
+  ],
+  "import": "Rudin.PMA.Chapter09.FirstHalf",
+  "pr_status": "No open PR; pushed branch awaiting PR."
+}
