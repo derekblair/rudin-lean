@@ -1,0 +1,58 @@
+{
+  "rudin/Rudin/PMA/Chapter09/Inverse.lean": {
+    "sha256": "26a19ca7630862816959425b0efb26a775e9409c98bcfa57b34794ae4115ab7f",
+    "bytes": 4130
+  },
+  "rudin/Rudin/PMA/Chapter09/InverseAudit.lean": {
+    "sha256": "7fdea9117304f7d9165001541316b57bd6ea31956daaa34d1e3ad63847be7070",
+    "bytes": 1430
+  },
+  "rudin/Rudin/PMA/Chapter09/Implicit.lean": {
+    "sha256": "71e0916b38a4ccff31bf8a624f8de7709dfd10a4d5744559889700cb5b0e64cf",
+    "bytes": 9953
+  },
+  "rudin/Rudin/PMA/Chapter09/Determinants.lean": {
+    "sha256": "122996fe4b4d7b5cb7bea71026b2b64df39cd85b353166b55904deb282614830",
+    "bytes": 16501
+  },
+  "rudin/Rudin/PMA/Chapter09/DeterminantsAudit.lean": {
+    "sha256": "4ba7d5aa1edd10777f4446ca8ad92b6a11908895499b29ca2a36494ec3fd6ea8",
+    "bytes": 797
+  },
+  "rudin/Rudin/PMA/Chapter09/RankSupport.lean": {
+    "sha256": "5879e77aeaedaefce189687caaca3ea219510c01df3d4cb60e7798963d0fd9dd",
+    "bytes": 1595
+  },
+  "rudin/Rudin/PMA/Chapter09/RankFactorization.lean": {
+    "sha256": "05930db1ffb9db05ec389b41fb99af89ae35792c7560c11c3e5f7779bb6c3716",
+    "bytes": 4175
+  },
+  "rudin/Rudin/PMA/Chapter09/Rank.lean": {
+    "sha256": "58e68c2590a1408a20383688bd6f4b0cccfc350d6f69e7d172b38214d36cf605",
+    "bytes": 6881
+  },
+  "rudin/Rudin/PMA/Chapter09/RankGeometry.lean": {
+    "sha256": "82aed5435d99bcf0ccf5ae94361e72bc0d3163bcb1174018dcdec55871d4a0df",
+    "bytes": 6752
+  },
+  "rudin/Rudin/PMA/Chapter09/HigherDerivatives.lean": {
+    "sha256": "dd0873bc49f66a487f71ed274657385b01f334d4fa6c33c012e9b4facc02bf1b",
+    "bytes": 13356
+  },
+  "rudin/Rudin/PMA/Chapter09/Integrals.lean": {
+    "sha256": "d8fdf7492f06244eeb62008a222d1d91ab45b4e344e2e07a9c3fc17eab3e5728",
+    "bytes": 15366
+  },
+  "rudin/Rudin/PMA/Chapter09/IntegralsAudit.lean": {
+    "sha256": "88c161ead6c4de152c0d453e5827ab8825902fe76d5b54ac4612015b0c8b1438",
+    "bytes": 712
+  },
+  "rudin/Rudin/PMA/Chapter09/SecondHalf.lean": {
+    "sha256": "3e97a811f2fa359b115c2c5373173375325d322847129d77a0d8d2b291273016",
+    "bytes": 653
+  },
+  "rudin/Rudin/PMA/Chapter09/SecondHalfAudit.lean": {
+    "sha256": "5ffcb8c7d861236166a3074d68a11ba3043e9b0199428bfac79631b378e4bd63",
+    "bytes": 3707
+  }
+}

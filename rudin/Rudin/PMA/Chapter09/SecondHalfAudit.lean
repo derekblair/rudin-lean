@@ -9,6 +9,8 @@ run_cmd Rudin.PMA.Chapter09Audit.check
 #print axioms Rudin.PMA.Chapter09.pma9_33_det_eq
 #print axioms Rudin.PMA.Chapter09.pma9_40
 #print axioms Rudin.PMA.Chapter09.pma9_41
+#print axioms Rudin.PMA.Chapter09.pma9_42
+#print axioms Rudin.PMA.Chapter09.pma9_43
 
 /-! Numbered-node coverage is checked against actual kernel declarations.
 Definitions are checked as definitions; mathematical claims as theorem constants. -/
@@ -35,14 +37,22 @@ run_cmd do
     `Rudin.PMA.Chapter09.pma9_38_nonzero_iff, `Rudin.PMA.Chapter09.pma9_38_partials,
     `Rudin.PMA.Chapter09.pma9_38_implicit, `Rudin.PMA.Chapter09.pma9_40,
     `Rudin.PMA.Chapter09.pma9_41, `Rudin.PMA.Chapter09.pma9_41_corollary,
-    `Rudin.PMA.Chapter09.pma9_41_of_pma9_39]
+    `Rudin.PMA.Chapter09.pma9_41_of_pma9_39, `Rudin.PMA.Chapter09.pma9_42,
+    `Rudin.PMA.Chapter09.gaussianCosine_integrable,
+    `Rudin.PMA.Chapter09.gaussianSineDerivative_integrable,
+    `Rudin.PMA.Chapter09.pma9_43, `Rudin.PMA.Chapter09.pma9_43_value,
+    `Rudin.PMA.Chapter09.pma9_43_cosine_quotient_bound,
+    `Rudin.PMA.Chapter09.pma9_43_derivative, `Rudin.PMA.Chapter09.pma9_43_initial_value,
+    `Rudin.PMA.Chapter09.pma9_43_integration_by_parts,
+    `Rudin.PMA.Chapter09.pma9_43_improper_limits, `Rudin.PMA.Chapter09.pma9_43_improper]
   let definitions : Array Name := #[
     `Rudin.PMA.Chapter09.pma9_26_x, `Rudin.PMA.Chapter09.pma9_26_y,
     `Rudin.PMA.Chapter09.pma9_30_nullSpace, `Rudin.PMA.Chapter09.pma9_30_range,
     `Rudin.PMA.Chapter09.pma9_30_rank, `Rudin.PMA.Chapter09.pma9_31_isProjection,
     `Rudin.PMA.Chapter09.pma9_33_sign, `Rudin.PMA.Chapter09.pma9_33_det,
     `Rudin.PMA.Chapter09.pma9_38_jacobian, `Rudin.PMA.Chapter09.pma9_39,
-    `Rudin.PMA.Chapter09.pma9_39_mapping]
+    `Rudin.PMA.Chapter09.pma9_39_mapping,
+    `Rudin.PMA.Chapter09.gaussianCosine, `Rudin.PMA.Chapter09.gaussianSineDerivative]
   for name in proofs do
     match env.find? name with
     | some (.thmInfo _) => pure ()
@@ -51,4 +61,4 @@ run_cmd do
     match env.find? name with
     | some (.defnInfo _) => pure ()
     | _ => throwError "Missing kernel definition: {name}"
-  logInfo m!"Second-half coverage check: {proofs.size} theorem anchors and {definitions.size} definition anchors."
+  logInfo m!"Second-half coverage check for all 21 nodes (9.23–9.43): {proofs.size} theorem anchors and {definitions.size} definition anchors."
