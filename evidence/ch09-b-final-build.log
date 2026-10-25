@@ -1,0 +1,163 @@
+Command: lake build Rudin.PMA.Chapter09.SecondHalfAudit Rudin.PMA.Chapter09.IntegralsAudit Rudin.PMA.Chapter09.DeterminantsAudit
+ℹ [8931/8968] Replayed Rudin.PMA.Chapter06.Integrability
+info: Rudin/PMA/Chapter06/Integrability.lean:550:0: 'Rudin.PMA.Chapter06.pma6_8' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:551:0: 'Rudin.PMA.Chapter06.pma6_11' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:552:0: 'Rudin.PMA.Chapter06.pma6_13' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:553:0: 'Rudin.PMA.Chapter06.rsIntegrable_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:554:0: 'Rudin.PMA.Chapter06.rsIntegrable_const_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:555:0: 'Rudin.PMA.Chapter06.rsIntegrable_integrator_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Integrability.lean:556:0: 'Rudin.PMA.Chapter06.rsIntegrable_integrator_const_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8934/8968] Replayed Rudin.PMA.Chapter06.Endpoint
+info: Rudin/PMA/Chapter06/Endpoint.lean:123:0: 'Rudin.PMA.Chapter06.endpoint_local_gap_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Endpoint.lean:124:0: 'Rudin.PMA.Chapter06.rsIntegrable_of_continuousOn_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8939/8968] Replayed Rudin.PMA.Chapter05
+info: Rudin/PMA/Chapter05.lean:1103:0: PMA 5.13 draft audit: 171 declarations; only propext, Classical.choice, Quot.sound.
+ℹ [8940/8968] Replayed Rudin.PMA.Chapter06.Jump
+info: Rudin/PMA/Chapter06/Jump.lean:448:0: 'Rudin.PMA.Chapter06.pma6_14' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:449:0: 'Rudin.PMA.Chapter06.pma6_15' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:450:0: 'Rudin.PMA.Chapter06.pma6_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:451:0: 'Rudin.PMA.Chapter06.atomicQuadraticMoment' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:452:0: 'Rudin.PMA.Chapter06.finiteAtomicQuadraticMoment' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:453:0: 'Rudin.PMA.Chapter06.atomicStepSum_integral_of_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:454:0: 'Rudin.PMA.Chapter06.translatedStep_not_RSIntegrable_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Jump.lean:455:0: 'Rudin.PMA.Chapter06.unitStep_source_caution' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8943/8968] Replayed Rudin.PMA.Chapter06.Calculus
+info: Rudin/PMA/Chapter06/Calculus.lean:664:0: 'Rudin.PMA.Chapter06.calculus_probe_constant_integrator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:665:0: 'Rudin.PMA.Chapter06.calculus_probe_singleton_substitution' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:666:0: 'Rudin.PMA.Chapter06.calculus_probe_relative_primitive_endpoints' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:667:0: 'Rudin.PMA.Chapter06.pma6_22' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:668:0: 'Rudin.PMA.Chapter06.pma6_20' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:670:0: 'Rudin.PMA.Chapter06.pma6_17' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:671:0: 'Rudin.PMA.Chapter06.pma6_19' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Calculus.lean:672:0: 'Rudin.PMA.Chapter06.pma6_21' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8944/8968] Replayed Rudin.PMA.Chapter06.Moment
+info: Rudin/PMA/Chapter06/Moment.lean:37:0: 'Rudin.PMA.Chapter06.quadraticMoment_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Moment.lean:38:0: 'Rudin.PMA.Chapter06.pma6_18' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8945/8968] Replayed Rudin.PMA.Chapter06.Vector
+info: Rudin/PMA/Chapter06/Vector.lean:415:0: 'Rudin.PMA.Chapter06.pma6_23' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:416:0: 'Rudin.PMA.Chapter06.pma6_24' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:417:0: 'Rudin.PMA.Chapter06.pma6_25' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:418:0: 'Rudin.PMA.Chapter06.pma6_23_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:419:0: 'Rudin.PMA.Chapter06.pma6_25_complex' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:420:0: 'Rudin.PMA.Chapter06.complexRSIntegral_ftc' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:421:0: 'Rudin.PMA.Chapter06.complexRSIntegrable_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:422:0: 'Rudin.PMA.Chapter06.complexRSIntegrable_const_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:423:0: 'Rudin.PMA.Chapter06.vector_integrability_zero_dimension_guard_probe' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Rudin/PMA/Chapter06/Vector.lean:424:0: 'Rudin.PMA.Chapter06.complex_imaginary_constant_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8946/8968] Replayed Rudin.PMA.Chapter06.Curve
+info: Rudin/PMA/Chapter06/Curve.lean:363:0: 'Rudin.PMA.Chapter06.pma6_26' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Curve.lean:364:0: 'Rudin.PMA.Chapter06.pma6_27' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Curve.lean:365:0: 'Rudin.PMA.Chapter06.continuouslyDifferentiable_rectifiable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Curve.lean:366:0: 'Rudin.PMA.Chapter06.curveIncrement_norm_estimate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Curve.lean:367:0: 'Rudin.PMA.Chapter06.curveLength_singleton_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Curve.lean:368:0: 'Rudin.PMA.Chapter06.curveLength_line_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter06/Curve.lean:369:0: 'Rudin.PMA.Chapter06.constant_curve_closed_not_arc_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8948/8968] Replayed Rudin.PMA.Chapter07.Calculus
+info: Rudin/PMA/Chapter07/Calculus.lean:191:0: 'Rudin.PMA.Chapter07.pma7_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Calculus.lean:306:0: 'Rudin.PMA.Chapter07.pma7_17' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Calculus.lean:400:0: 'Rudin.PMA.Chapter07.uniform_integral_imaginary_step_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Calculus.lean:401:0: 'Rudin.PMA.Chapter07.uniform_integral_zero_mass_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Calculus.lean:402:0: 'Rudin.PMA.Chapter07.uniform_derivative_endpoint_probe' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter07/Calculus.lean:403:0: 'Rudin.PMA.Chapter07.uniform_integral_conditional_series_probe' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+✔ [8949/8968] Built Rudin.PMA.Chapter09.PartialCounterexamples (5.7s)
+✔ [8950/8968] Built Rudin.PMA.Chapter09.PartialContinuity (6.0s)
+✔ [8951/8968] Built Rudin.PMA.Chapter09.Differentiation (16s)
+✔ [8952/8968] Built Rudin.PMA.Chapter09.PartialCriterion (5.3s)
+✔ [8953/8968] Built Rudin.PMA.Chapter09.DiscontinuousPartials (6.3s)
+✔ [8954/8968] Built Rudin.PMA.Chapter09.FirstHalf (4.0s)
+⚠ [8955/8968] Built Rudin.PMA.Chapter09.Inverse (5.8s)
+warning: Rudin/PMA/Chapter09/Inverse.lean:69:0: automatically included section variable(s) unused in theorem `Rudin.PMA.Chapter09.pma9_24_inverse_derivative`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [8956/8968] Built Rudin.PMA.Chapter09.RankSupport (6.4s)
+✔ [8957/8968] Built Rudin.PMA.Chapter09.RankFactorization (6.6s)
+⚠ [8958/8968] Built Rudin.PMA.Chapter09.HigherDerivatives (6.8s)
+warning: Rudin/PMA/Chapter09/HigherDerivatives.lean:237:50: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [pairCoordinates, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Rudin/PMA/Chapter09/HigherDerivatives.lean:237:72: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [pairCoordinates, Matrix.cons_val_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [8959/8968] Built Rudin.PMA.Chapter09.Determinants (7.5s)
+✔ [8960/8968] Built Rudin.PMA.Chapter09.Implicit (9.2s)
+ℹ [8961/8968] Built Rudin.PMA.Chapter09.InverseAudit (6.9s)
+info: Rudin/PMA/Chapter09/InverseAudit.lean:25:0: Chapter 9 axiom audit: 194 declarations; only propext, Classical.choice, Quot.sound.
+info: Rudin/PMA/Chapter09/InverseAudit.lean:27:0: 'Rudin.PMA.Chapter09.pma9_23' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/InverseAudit.lean:28:0: 'Rudin.PMA.Chapter09.pma9_23_iterates' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/InverseAudit.lean:29:0: 'Rudin.PMA.Chapter09.pma9_24' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/InverseAudit.lean:30:0: 'Rudin.PMA.Chapter09.pma9_24_inverse_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/InverseAudit.lean:31:0: 'Rudin.PMA.Chapter09.pma9_25' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8962/8968] Built Rudin.PMA.Chapter09.Integrals (6.4s)
+warning: Rudin/PMA/Chapter09/Integrals.lean:218:108: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Rudin/PMA/Chapter09/Integrals.lean:241:84: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [8963/8968] Built Rudin.PMA.Chapter09.Rank (7.9s)
+warning: Rudin/PMA/Chapter09/Rank.lean:24:0: automatically included section variable(s) unused in theorem `Rudin.PMA.Chapter09.pma9_32`:
+  [FiniteDimensional ℝ F]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional ℝ F] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ℹ [8964/8968] Built Rudin.PMA.Chapter09.DeterminantsAudit (5.4s)
+info: Rudin/PMA/Chapter09/DeterminantsAudit.lean:6:0: Chapter 9 axiom audit: 238 declarations; only propext, Classical.choice, Quot.sound.
+info: Rudin/PMA/Chapter09/DeterminantsAudit.lean:8:0: 'Rudin.PMA.Chapter09.pma9_30_rank_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/DeterminantsAudit.lean:9:0: 'Rudin.PMA.Chapter09.pma9_31_a' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/DeterminantsAudit.lean:10:0: 'Rudin.PMA.Chapter09.pma9_31_b' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/DeterminantsAudit.lean:11:0: 'Rudin.PMA.Chapter09.pma9_31_infinitely_many' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/DeterminantsAudit.lean:12:0: 'Rudin.PMA.Chapter09.pma9_33_det_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/DeterminantsAudit.lean:13:0: 'Rudin.PMA.Chapter09.pma9_34_b_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/DeterminantsAudit.lean:14:0: 'Rudin.PMA.Chapter09.pma9_35' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/DeterminantsAudit.lean:15:0: 'Rudin.PMA.Chapter09.pma9_36' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/DeterminantsAudit.lean:16:0: 'Rudin.PMA.Chapter09.pma9_37' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/DeterminantsAudit.lean:17:0: 'Rudin.PMA.Chapter09.pma9_38_partials' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/DeterminantsAudit.lean:18:0: 'Rudin.PMA.Chapter09.pma9_38_implicit' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8965/8968] Built Rudin.PMA.Chapter09.IntegralsAudit (5.8s)
+info: Rudin/PMA/Chapter09/IntegralsAudit.lean:4:0: Chapter 9 axiom audit: 237 declarations; only propext, Classical.choice, Quot.sound.
+info: Rudin/PMA/Chapter09/IntegralsAudit.lean:6:0: 'Rudin.PMA.Chapter09.pma9_39' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/IntegralsAudit.lean:7:0: 'Rudin.PMA.Chapter09.pma9_40' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/IntegralsAudit.lean:8:0: 'Rudin.PMA.Chapter09.pma9_41' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/IntegralsAudit.lean:9:0: 'Rudin.PMA.Chapter09.pma9_41_corollary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/IntegralsAudit.lean:10:0: 'Rudin.PMA.Chapter09.pma9_41_of_pma9_39' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/IntegralsAudit.lean:11:0: 'Rudin.PMA.Chapter09.pma9_42' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/IntegralsAudit.lean:12:0: 'Rudin.PMA.Chapter09.pma9_43' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/IntegralsAudit.lean:13:0: 'Rudin.PMA.Chapter09.pma9_43_derivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/IntegralsAudit.lean:14:0: 'Rudin.PMA.Chapter09.pma9_43_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/IntegralsAudit.lean:15:0: 'Rudin.PMA.Chapter09.pma9_43_cosine_quotient_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/IntegralsAudit.lean:16:0: 'Rudin.PMA.Chapter09.pma9_43_integration_by_parts' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/IntegralsAudit.lean:17:0: 'Rudin.PMA.Chapter09.pma9_43_improper' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8966/8968] Built Rudin.PMA.Chapter09.RankGeometry (5.2s)
+✔ [8967/8968] Built Rudin.PMA.Chapter09.SecondHalf (3.9s)
+ℹ [8968/8968] Built Rudin.PMA.Chapter09.SecondHalfAudit (5.4s)
+info: Rudin/PMA/Chapter09/SecondHalfAudit.lean:4:0: Chapter 9 axiom audit: 341 declarations; only propext, Classical.choice, Quot.sound.
+info: Rudin/PMA/Chapter09/SecondHalfAudit.lean:6:0: 'Rudin.PMA.Chapter09.pma9_28' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/SecondHalfAudit.lean:7:0: 'Rudin.PMA.Chapter09.pma9_29' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/SecondHalfAudit.lean:8:0: 'Rudin.PMA.Chapter09.pma9_32' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/SecondHalfAudit.lean:9:0: 'Rudin.PMA.Chapter09.pma9_33_det_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/SecondHalfAudit.lean:10:0: 'Rudin.PMA.Chapter09.pma9_40' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/SecondHalfAudit.lean:11:0: 'Rudin.PMA.Chapter09.pma9_41' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/SecondHalfAudit.lean:12:0: 'Rudin.PMA.Chapter09.pma9_42' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/SecondHalfAudit.lean:13:0: 'Rudin.PMA.Chapter09.pma9_43' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter09/SecondHalfAudit.lean:18:0: Second-half coverage check for all 21 nodes (9.23–9.43): 50 theorem anchors and 13 definition anchors.
+Build completed successfully (8968 jobs).
+
+EXIT_CODE=0

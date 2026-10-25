@@ -1,0 +1,3 @@
+PASS: 14 lane-owned Lean modules scanned; no sorry, admit, native_decide, or axiom declarations.
+Pinned Lean: leanprover/lean4:v4.34.1
+Pinned Mathlib: d13f23b723b8a846827a245b89c10fc7d3f11612

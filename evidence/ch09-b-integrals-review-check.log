@@ -1,0 +1,10 @@
+Reviewed prefix SHA256: 5fd0c3a3b5848848a1329f321d3c19cae0c9c2437ae539af7e3700036d88e9e2
+'Rudin.PMA.Chapter09.IntegralProbes.arbitrary_integrable_multiplier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Rudin.PMA.Chapter09.IntegralProbes.parameter_cusp_away_from_basepoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Rudin.PMA.Chapter09.pma9_42' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Exit status: 0
