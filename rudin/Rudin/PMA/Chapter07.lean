@@ -131,6 +131,9 @@ Principal proof: `pma7_27`. Definitions and supporting proofs: `Chapter07/Algebr
 
 /-! ### PMA-7.28
 Principal proof: `pma7_28`. Definitions and supporting proofs: `Chapter07/Algebra.lean`.
+Deviation: `IsFunctionAlgebra` adds nonemptiness to the printed three closure conditions.
+The definition documents why the empty-domain cases of 7.32 and 7.33 require this
+convention; a kernel-checked counterexample is included there.
 -/
 
 /-! ### PMA-7.29

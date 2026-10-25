@@ -52,5 +52,7 @@ run_cmd do
     | _ => throwError "Missing completed Chapter 7 proof: {n}"
   Lean.logInfo "PMA Chapter 7 coverage: 33 principal theorems and 33 accepted-contract type comparisons."
 
-run_cmd Rudin.PMA.Audit.checkNamespaceAxioms `Rudin.PMA.Chapter07
-run_cmd Rudin.PMA.Audit.checkNamespaceAxioms `Rudin.PMA.Chapter07.FidelityProbes
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter07
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter07Probes
+
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter07Audit (allowEmpty := true)

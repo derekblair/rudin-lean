@@ -127,6 +127,7 @@ Principal proof: `pma6_17`. Definitions and supporting proofs: `Chapter06/Calcul
 /-! ### PMA-6.18
 
 Principal proof: `pma6_18`. Definitions and supporting proofs: `Chapter06/Moment.lean`.
+The atomic example uses cumulative mass in `[0, x]` and allows atoms at both `0` and `1`.
 -/
 
 /-! ### PMA-6.19

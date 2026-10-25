@@ -44,7 +44,16 @@ def pma6_16_contract : Prop :=
     RSIntegrable f (AtomicStepSum s c) a b ∧
     RSIntegral f (AtomicStepSum s c) a b = ∑' i, c i * f (s i)
 
-/-! ### PMA-6.18: Quadratic moment; atomic cases retain interior support. -/
+/-! ### PMA-6.18: Quadratic moment for mass in the closed interval `[0, x]`.
+
+The cumulative mass uses `s i ≤ x`, separately from the strict step in 6.14–6.16.
+Atoms at both endpoints are allowed: an atom at `1` contributes its full mass to
+the moment, and an atom at `0` is included in `m 0` but has zero moment. -/
+
+/-- Cumulative atomic mass, including the atom at the observation point.
+For support in `[0, 1]`, this is the mass in `[0, x]` for `0 ≤ x ≤ 1`. -/
+def AtomicMass {ι : Type*} (s c : ι → ℝ) (x : ℝ) : ℝ :=
+  ∑' i, if s i ≤ x then c i else 0
 
 def QuadraticPosition (x : ℝ) : ℝ := x ^ 2
 
@@ -56,15 +65,15 @@ def pma6_18_contract : Prop :=
     RIntegrable ρ 0 1 →
     RIntegrable (fun x => x ^ 2 * ρ x) 0 1 ∧
     RSIntegral QuadraticPosition m 0 1 = RIntegral (fun x => x ^ 2 * ρ x) 0 1) ∧
-  (∀ s c : ℕ → ℝ, (∀ i, s i ∈ Ioo (0 : ℝ) 1) → Function.Injective s →
+  (∀ s c : ℕ → ℝ, (∀ i, s i ∈ Icc (0 : ℝ) 1) → Function.Injective s →
     (∀ i, 0 ≤ c i) → Summable c →
     Summable (fun i => c i * s i ^ 2) ∧
-    RSIntegrable QuadraticPosition (AtomicStepSum s c) 0 1 ∧
-    RSIntegral QuadraticPosition (AtomicStepSum s c) 0 1 = ∑' i, c i * s i ^ 2) ∧
+    RSIntegrable QuadraticPosition (AtomicMass s c) 0 1 ∧
+    RSIntegral QuadraticPosition (AtomicMass s c) 0 1 = ∑' i, c i * s i ^ 2) ∧
   (∀ (n : ℕ) (s c : Fin n → ℝ),
-    (∀ i, s i ∈ Ioo (0 : ℝ) 1) → Function.Injective s → (∀ i, 0 ≤ c i) →
-    RSIntegrable QuadraticPosition (AtomicStepSum s c) 0 1 ∧
-    RSIntegral QuadraticPosition (AtomicStepSum s c) 0 1 = ∑ i, c i * s i ^ 2)
+    (∀ i, s i ∈ Icc (0 : ℝ) 1) → Function.Injective s → (∀ i, 0 ≤ c i) →
+    RSIntegrable QuadraticPosition (AtomicMass s c) 0 1 ∧
+    RSIntegral QuadraticPosition (AtomicMass s c) 0 1 = ∑ i, c i * s i ^ 2)
 
 theorem pma6_14 : pma6_14_contract := by
   refine ⟨?_, ?_, ?_⟩
@@ -122,7 +131,7 @@ theorem atomicStepSum_endpoints {ι : Type*} {a b : ℝ} {s c : ι → ℝ}
     simp [UnitStep, not_le.mpr (hs i).2]
 
 theorem atomic_weighted_samples_summable {ι : Type*} {a b : ℝ} {s c : ι → ℝ}
-    {f : ℝ → ℝ} (hs : ∀ i, s i ∈ Ioo a b)
+    {f : ℝ → ℝ} (hs : ∀ i, s i ∈ Icc a b)
     (hc : Summable c) (hnonneg : ∀ i, 0 ≤ c i) (hf : ContinuousOn f (Icc a b)) :
     Summable (fun i => c i * f (s i)) := by
   obtain ⟨M, hM⟩ := isCompact_Icc.bddAbove_image hf.abs
@@ -131,7 +140,7 @@ theorem atomic_weighted_samples_summable {ι : Type*} {a b : ℝ} {s c : ι → 
   rw [norm_mul, Real.norm_eq_abs, abs_of_nonneg (hnonneg i), Real.norm_eq_abs]
   calc
     c i * |f (s i)| ≤ c i * M := mul_le_mul_of_nonneg_left
-      (hM ⟨s i, Ioo_subset_Icc_self (hs i), rfl⟩) (hnonneg i)
+      (hM ⟨s i, hs i, rfl⟩) (hnonneg i)
     _ = M * c i := mul_comm _ _
 
 theorem translatedStep_cell_of_weight_ne_zero {a b s : ℝ} (P : Partition a b)
@@ -286,7 +295,7 @@ theorem atomicStepSum_partition_bounds {ι : Type*} {a b : ℝ} {s c : ι → �
     (hbdd : BoundedOn f a b) (P : Partition a b) :
     lowerSum f (AtomicStepSum s c) P ≤ ∑' j, c j * f (s j) ∧
       (∑' j, c j * f (s j)) ≤ upperSum f (AtomicStepSum s c) P := by
-  have hsample := atomic_weighted_samples_summable hs hc hnonneg hf
+  have hsample := atomic_weighted_samples_summable (fun i => Ioo_subset_Icc_self (hs i)) hc hnonneg hf
   constructor
   · rw [lowerSum, atomicStepSum_cells_eq_tsum hc hnonneg P (cellLower f P)]
     apply Summable.tsum_le_tsum
@@ -329,8 +338,169 @@ theorem pma6_16 : pma6_16_contract := by
   exact ⟨atomicStepSum_summable hc hnonneg,
     atomicStepSum_monotone hc hnonneg,
     (atomicStepSum_endpoints hs).1, (atomicStepSum_endpoints hs).2,
-    atomic_weighted_samples_summable hs hc hnonneg hf, hi,
+    atomic_weighted_samples_summable (fun i => Ioo_subset_Icc_self (hs i)) hc hnonneg hf, hi,
     atomicStepSum_integral_of_integrable hs hc hnonneg hf hi⟩
+
+/-- The closed cumulative contribution of one unit atom. -/
+def ClosedAtomicStep (s x : ℝ) : ℝ := if s ≤ x then 1 else 0
+
+theorem closedAtomicStep_monotone (s : ℝ) : Monotone (ClosedAtomicStep s) := by
+  intro x y hxy
+  by_cases hx : s ≤ x
+  · simp [ClosedAtomicStep, hx, hx.trans hxy]
+  · by_cases hy : s ≤ y <;> simp [ClosedAtomicStep, hx, hy]
+
+/-- With nonnegative locations, the cumulative mass is exactly the sum over `[0, x]`. -/
+theorem atomicMass_eq_closed_interval {ι : Type*} {s c : ι → ℝ}
+    (hs : ∀ i, 0 ≤ s i) (x : ℝ) :
+    AtomicMass s c x = ∑' i, if s i ∈ Icc 0 x then c i else 0 := by
+  apply tsum_congr
+  intro i
+  simp only [mem_Icc, hs i, true_and]
+
+theorem atomicMass_summable {ι : Type*} {s c : ι → ℝ}
+    (hc : Summable c) (hnonneg : ∀ i, 0 ≤ c i) (x : ℝ) :
+    Summable (fun i => c i * ClosedAtomicStep (s i) x) := by
+  simpa only [ClosedAtomicStep, mul_ite, mul_one, mul_zero] using
+    Chapter04.jumpSumRight_summable (p := s) hc hnonneg x
+
+theorem atomicMass_monotone {ι : Type*} {s c : ι → ℝ}
+    (hc : Summable c) (hnonneg : ∀ i, 0 ≤ c i) : Monotone (AtomicMass s c) :=
+  Chapter04.jumpSumRight_monotone hc hnonneg
+
+/-- The initial mass includes the left endpoint, and the final mass includes the right endpoint. -/
+theorem atomicMass_endpoints {ι : Type*} {s c : ι → ℝ}
+    (hs : ∀ i, s i ∈ Icc (0 : ℝ) 1) :
+    AtomicMass s c 0 = (∑' i, if s i = 0 then c i else 0) ∧
+    AtomicMass s c 1 = ∑' i, c i := by
+  constructor
+  · apply tsum_congr
+    intro i
+    have h : s i ≤ 0 ↔ s i = 0 := ⟨fun hi => le_antisymm hi (hs i).1, fun hi => hi.le⟩
+    simp only [h]
+  · apply tsum_congr
+    intro i
+    simp [(hs i).2]
+
+theorem closedAtomicStep_cell_of_weight_ne_zero {a b s : ℝ} (P : Partition a b)
+    (i : Fin P.n) (hw : P.weight (ClosedAtomicStep s) i ≠ 0) : s ∈ P.cell i := by
+  by_cases hl : s ≤ P.point i.castSucc
+  · have hr : s ≤ P.point i.succ := hl.trans (P.cell_order i)
+    exact (hw (by simp [Partition.weight, ClosedAtomicStep, hl, hr])).elim
+  · refine ⟨(lt_of_not_ge hl).le, ?_⟩
+    by_contra hr
+    exact hw (by simp [Partition.weight, ClosedAtomicStep, hl, hr])
+
+/-- An atom at the left endpoint is already in the initial cumulative mass;
+its contribution to these bounds vanishes when `f a = 0`. -/
+theorem closedAtomicStep_sum_bounds {a b s : ℝ} {f : ℝ → ℝ}
+    (hs : s ∈ Icc a b) (ha : f a = 0) (hf : BoundedOn f a b) (P : Partition a b) :
+    lowerSum f (ClosedAtomicStep s) P ≤ f s ∧ f s ≤ upperSum f (ClosedAtomicStep s) P := by
+  have hsum : (∑ i : Fin P.n, f s * P.weight (ClosedAtomicStep s) i) = f s := by
+    rw [← Finset.mul_sum, P.sum_weights]
+    by_cases hsa : s = a
+    · simp [hsa, ha]
+    · have has : ¬ s ≤ a := fun h => hsa (le_antisymm h hs.1)
+      simp [ClosedAtomicStep, hs.2, has]
+  have hn := P.weight_nonneg (ClosedAtomicStep s)
+    ((closedAtomicStep_monotone s).monotoneOn (Icc a b))
+  constructor
+  · calc
+      lowerSum f (ClosedAtomicStep s) P ≤ ∑ i : Fin P.n, f s * P.weight (ClosedAtomicStep s) i := by
+        apply Finset.sum_le_sum
+        intro i _
+        by_cases hw : P.weight (ClosedAtomicStep s) i = 0
+        · simp [hw]
+        · exact mul_le_mul_of_nonneg_right
+            (cellLower_le_value hf P i (closedAtomicStep_cell_of_weight_ne_zero P i hw)) (hn i)
+      _ = f s := hsum
+  · rw [← hsum]
+    apply Finset.sum_le_sum
+    intro i _
+    by_cases hw : P.weight (ClosedAtomicStep s) i = 0
+    · simp [hw]
+    · exact mul_le_mul_of_nonneg_right
+        (value_le_cellUpper hf P i (closedAtomicStep_cell_of_weight_ne_zero P i hw)) (hn i)
+
+theorem atomicMass_weight_summable {ι : Type*} {a b : ℝ} {s c : ι → ℝ}
+    (hc : Summable c) (hnonneg : ∀ i, 0 ≤ c i) (P : Partition a b) (i : Fin P.n) :
+    Summable (fun j => c j * P.weight (ClosedAtomicStep (s j)) i) := by
+  simpa only [Partition.weight, mul_sub] using
+    (atomicMass_summable (s := s) hc hnonneg (P.point i.succ)).sub
+      (atomicMass_summable (s := s) hc hnonneg (P.point i.castSucc))
+
+theorem atomicMass_weight_eq_tsum {ι : Type*} {a b : ℝ} {s c : ι → ℝ}
+    (hc : Summable c) (hnonneg : ∀ i, 0 ≤ c i) (P : Partition a b) (i : Fin P.n) :
+    P.weight (AtomicMass s c) i = ∑' j, c j * P.weight (ClosedAtomicStep (s j)) i := by
+  have heq : AtomicMass s c = fun x => ∑' j, c j * ClosedAtomicStep (s j) x := by
+    funext x
+    simp only [AtomicMass, ClosedAtomicStep, mul_ite, mul_one, mul_zero]
+  rw [Partition.weight, heq,
+    ← (atomicMass_summable (s := s) hc hnonneg (P.point i.succ)).tsum_sub
+      (atomicMass_summable (s := s) hc hnonneg (P.point i.castSucc))]
+  apply tsum_congr
+  intro j
+  simp [Partition.weight, mul_sub]
+
+theorem atomicMass_cells_summable {ι : Type*} {a b : ℝ} {s c : ι → ℝ}
+    (hc : Summable c) (hnonneg : ∀ i, 0 ≤ c i) (P : Partition a b) (v : Fin P.n → ℝ) :
+    Summable (fun j => c j * ∑ i : Fin P.n, v i * P.weight (ClosedAtomicStep (s j)) i) := by
+  have h := summable_sum (s := (Finset.univ : Finset (Fin P.n)))
+    (fun i _ => (atomicMass_weight_summable (s := s) hc hnonneg P i).mul_left (v i))
+  simpa only [Finset.mul_sum, mul_left_comm] using h
+
+theorem atomicMass_cells_eq_tsum {ι : Type*} {a b : ℝ} {s c : ι → ℝ}
+    (hc : Summable c) (hnonneg : ∀ i, 0 ≤ c i) (P : Partition a b) (v : Fin P.n → ℝ) :
+    (∑ i : Fin P.n, v i * P.weight (AtomicMass s c) i) =
+      ∑' j, c j * ∑ i : Fin P.n, v i * P.weight (ClosedAtomicStep (s j)) i := by
+  simp_rw [Finset.mul_sum, mul_left_comm (c _) (v _)]
+  rw [Summable.tsum_finsetSum (fun i _ =>
+    (atomicMass_weight_summable hc hnonneg P i).mul_left (v i))]
+  apply Finset.sum_congr rfl
+  intro i _
+  rw [tsum_mul_left, atomicMass_weight_eq_tsum hc hnonneg P i]
+
+theorem atomicMass_partition_bounds {ι : Type*} {a b : ℝ} {s c : ι → ℝ}
+    {f : ℝ → ℝ} (hs : ∀ i, s i ∈ Icc a b) (hc : Summable c)
+    (hnonneg : ∀ i, 0 ≤ c i) (hf : ContinuousOn f (Icc a b)) (ha : f a = 0)
+    (hbdd : BoundedOn f a b) (P : Partition a b) :
+    lowerSum f (AtomicMass s c) P ≤ ∑' j, c j * f (s j) ∧
+      (∑' j, c j * f (s j)) ≤ upperSum f (AtomicMass s c) P := by
+  have hsample := atomic_weighted_samples_summable hs hc hnonneg hf
+  constructor
+  · rw [lowerSum, atomicMass_cells_eq_tsum hc hnonneg P (cellLower f P)]
+    apply Summable.tsum_le_tsum
+      (fun j => mul_le_mul_of_nonneg_left
+        (closedAtomicStep_sum_bounds (hs j) ha hbdd P).1 (hnonneg j))
+      (atomicMass_cells_summable hc hnonneg P (cellLower f P)) hsample
+  · rw [upperSum, atomicMass_cells_eq_tsum hc hnonneg P (cellUpper f P)]
+    apply Summable.tsum_le_tsum
+      (fun j => mul_le_mul_of_nonneg_left
+        (closedAtomicStep_sum_bounds (hs j) ha hbdd P).2 (hnonneg j))
+      hsample (atomicMass_cells_summable hc hnonneg P (cellUpper f P))
+
+theorem atomicMass_integral_of_integrable {ι : Type*} {a b : ℝ} {s c : ι → ℝ}
+    {f : ℝ → ℝ} (hs : ∀ i, s i ∈ Icc a b) (hc : Summable c)
+    (hnonneg : ∀ i, 0 ≤ c i) (hf : ContinuousOn f (Icc a b)) (ha : f a = 0)
+    (hi : RSIntegrable f (AtomicMass s c) a b) :
+    RSIntegral f (AtomicMass s c) a b = ∑' j, c j * f (s j) := by
+  have hlow : lowerIntegral f (AtomicMass s c) a b ≤ ∑' j, c j * f (s j) := by
+    apply csSup_le
+    · exact ⟨_, ⟨Partition.single hi.1, rfl⟩⟩
+    · rintro _ ⟨P, rfl⟩
+      exact (atomicMass_partition_bounds hs hc hnonneg hf ha hi.2.1 P).1
+  have hupp : (∑' j, c j * f (s j)) ≤ upperIntegral f (AtomicMass s c) a b := by
+    apply le_csInf
+    · exact ⟨_, ⟨Partition.single hi.1, rfl⟩⟩
+    · rintro _ ⟨P, rfl⟩
+      exact (atomicMass_partition_bounds hs hc hnonneg hf ha hi.2.1 P).2
+  change lowerIntegral f (AtomicMass s c) a b = ∑' j, c j * f (s j)
+  exact le_antisymm hlow (hi.2.2.2.symm ▸ hupp)
+
+theorem atomicMass_integrable {ι : Type*} {a b : ℝ} {s c : ι → ℝ} {f : ℝ → ℝ}
+    (hab : a ≤ b) (hc : Summable c) (hnonneg : ∀ i, 0 ≤ c i)
+    (hf : ContinuousOn f (Icc a b)) : RSIntegrable f (AtomicMass s c) a b :=
+  rsIntegrable_of_continuousOn hab hf ((atomicMass_monotone hc hnonneg).monotoneOn (Icc a b))
 
 theorem quadraticPosition_continuous : Continuous QuadraticPosition := continuous_id.pow 2
 
@@ -339,24 +509,25 @@ theorem quadraticMoment_integrable {m : ℝ → ℝ} (hm : MonotoneOn m (Icc (0 
   rsIntegrable_of_continuousOn (by norm_num) quadraticPosition_continuous.continuousOn hm
 
 theorem atomicQuadraticMoment {ι : Type*} {s c : ι → ℝ}
-    (hs : ∀ i, s i ∈ Ioo (0 : ℝ) 1) (hc : Summable c) (hnonneg : ∀ i, 0 ≤ c i) :
+    (hs : ∀ i, s i ∈ Icc (0 : ℝ) 1) (hc : Summable c) (hnonneg : ∀ i, 0 ≤ c i) :
     Summable (fun i => c i * s i ^ 2) ∧
-    RSIntegrable QuadraticPosition (AtomicStepSum s c) 0 1 ∧
-    RSIntegral QuadraticPosition (AtomicStepSum s c) 0 1 = ∑' i, c i * s i ^ 2 := by
+    RSIntegrable QuadraticPosition (AtomicMass s c) 0 1 ∧
+    RSIntegral QuadraticPosition (AtomicMass s c) 0 1 = ∑' i, c i * s i ^ 2 := by
   have hf : ContinuousOn QuadraticPosition (Icc (0 : ℝ) 1) :=
     quadraticPosition_continuous.continuousOn
-  have hi : RSIntegrable QuadraticPosition (AtomicStepSum s c) 0 1 :=
-    atomicStepSum_integrable (s := s) (by norm_num : (0 : ℝ) ≤ 1) hc hnonneg hf
+  have hi : RSIntegrable QuadraticPosition (AtomicMass s c) 0 1 :=
+    atomicMass_integrable (s := s) (by norm_num : (0 : ℝ) ≤ 1) hc hnonneg hf
   refine ⟨?_, hi, ?_⟩
   · simpa only [QuadraticPosition] using
       atomic_weighted_samples_summable (f := QuadraticPosition) hs hc hnonneg hf
   · simpa only [QuadraticPosition] using
-      atomicStepSum_integral_of_integrable (f := QuadraticPosition) hs hc hnonneg hf hi
+      atomicMass_integral_of_integrable (f := QuadraticPosition) hs hc hnonneg hf
+        (by norm_num [QuadraticPosition]) hi
 
 theorem finiteAtomicQuadraticMoment {n : ℕ} {s c : Fin n → ℝ}
-    (hs : ∀ i, s i ∈ Ioo (0 : ℝ) 1) (hnonneg : ∀ i, 0 ≤ c i) :
-    RSIntegrable QuadraticPosition (AtomicStepSum s c) 0 1 ∧
-    RSIntegral QuadraticPosition (AtomicStepSum s c) 0 1 = ∑ i, c i * s i ^ 2 := by
+    (hs : ∀ i, s i ∈ Icc (0 : ℝ) 1) (hnonneg : ∀ i, 0 ≤ c i) :
+    RSIntegrable QuadraticPosition (AtomicMass s c) 0 1 ∧
+    RSIntegral QuadraticPosition (AtomicMass s c) 0 1 = ∑ i, c i * s i ^ 2 := by
   simpa only [tsum_fintype] using (atomicQuadraticMoment hs (hasSum_fintype c).summable hnonneg).2
 
 theorem translatedStep_mem_unit_interval (s x : ℝ) :

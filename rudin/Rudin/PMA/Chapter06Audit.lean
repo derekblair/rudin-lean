@@ -18,5 +18,8 @@ run_cmd do
     | _ => throwError "Missing complex specialization: {n}"
   Lean.logInfo "PMA Chapter 6 coverage: 27 principal theorems and both explicit complex bridges."
 
-run_cmd Rudin.PMA.Audit.checkNamespaceAxioms `Rudin.PMA.Chapter06
-run_cmd Rudin.PMA.Audit.checkNamespaceAxioms `Rudin.PMA.Chapter06.FidelityProbes
+-- Regression coverage: Lean generates this equation outside the chapter namespace.
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter06 #[`NNReal.mk.eq_1]
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter06Probes
+
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter06Audit (allowEmpty := true)

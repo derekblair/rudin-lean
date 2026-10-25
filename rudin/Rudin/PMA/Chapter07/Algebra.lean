@@ -7,7 +7,20 @@ namespace Rudin.PMA.Chapter07
 
 universe u
 
-/-- Source function algebras are nonempty and need not contain a unit. -/
+/-- Function algebras need not contain a unit.
+
+**Deviation from PMA-7.28 (p. 161):** `A.Nonempty` is added to the three printed
+closure conditions, which by themselves allow the empty family. The extra
+condition is retained because removing it makes the later PMA-7.32 and PMA-7.33
+contracts false on the empty compact domain: the empty family is closed under
+the three operations, consists of continuous functions, separates points,
+vanishes nowhere, and is self-adjoint, all vacuously; its sequential uniform
+closure is nevertheless empty and misses the unique continuous function.
+`emptyFunctionFamily_source_counterexample` below verifies this obstruction.
+PMA-7.29 itself does allow the empty family under the printed definition, so its
+use of this predicate also inherits the stronger convention, rather than
+requiring nonemptiness for that closure theorem alone. The same convention is
+used in PMA-7.31 and all subsequent algebra results. -/
 def IsFunctionAlgebra {X 𝕜 : Type*} [Field 𝕜] (A : Set (X → 𝕜)) : Prop :=
   A.Nonempty ∧
   (∀ f ∈ A, ∀ g ∈ A, (fun x => f x + g x) ∈ A) ∧
@@ -45,6 +58,38 @@ def FunctionVanishesNowhere {X Y : Type*} [Zero Y] (A : Set (X → Y)) : Prop :=
 def IsSelfAdjointFunctionFamily {X : Type*} (A : Set (X → ℂ)) : Prop :=
   ∀ f ∈ A, (fun x => star (f x)) ∈ A
 
+/-- The printed closure conditions do not suffice for Stone-Weierstrass on the
+empty compact metric domain. This applies to both real and complex scalars. -/
+theorem emptyFunctionFamily_source_counterexample {𝕜 : Type*} [NormedField 𝕜] :
+    let A : Set (Empty → 𝕜) := ∅
+    (∀ f ∈ A, ∀ g ∈ A, (fun x => f x + g x) ∈ A) ∧
+    (∀ f ∈ A, ∀ g ∈ A, (fun x => f x * g x) ∈ A) ∧
+    (∀ c : 𝕜, ∀ f ∈ A, (fun x => c * f x) ∈ A) ∧
+    (∀ f ∈ A, Continuous f) ∧
+    SeparatesFunctionPoints A ∧ FunctionVanishesNowhere A ∧
+    AlgebraUniformClosure A ≠ {f : Empty → 𝕜 | Continuous f} := by
+  dsimp
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · simp
+  · simp
+  · simp
+  · simp
+  · intro x
+    exact Empty.elim x
+  · intro x
+    exact Empty.elim x
+  · intro h
+    have hf : (fun _ : Empty => (0 : 𝕜)) ∈ AlgebraUniformClosure (∅ : Set (Empty → 𝕜)) := by
+      rw [h]
+      exact continuous_const
+    rcases hf with ⟨F, hF, _⟩
+    exact hF 0
+
+/-- Self-adjointness does not remove the empty-family obstruction in PMA-7.33. -/
+theorem emptyFunctionFamily_selfAdjoint :
+    IsSelfAdjointFunctionFamily (∅ : Set (Empty → ℂ)) := by
+  simp [IsSelfAdjointFunctionFamily]
+
 /-- PMA-7.26: polynomial sequences, with full complex and real coverage. -/
 def pma7_26_contract : Prop :=
   (∀ (a b : ℝ), a ≤ b → ∀ f : ℝ → ℂ, ContinuousOn f (Icc a b) →
@@ -61,7 +106,8 @@ def pma7_27_contract : Prop :=
     TendstoUniformlyOn (fun n x => (P n).eval x) (fun x : ℝ => |x|)
       atTop (Icc (-a) a)
 
-/-- PMA-7.28: nonunital algebra and sequential closure definitions and polynomial examples. -/
+/-- PMA-7.28: nonunital algebra and sequential closure definitions and polynomial examples.
+The added nonemptiness convention is documented at `IsFunctionAlgebra`. -/
 def pma7_28_contract : Prop :=
   (∀ (X : Type u) (A : Set (X → ℂ)), IsFunctionAlgebra A ↔
     A.Nonempty ∧

@@ -1729,6 +1729,15 @@ def ExtendedApproachFilter (E : Set ℝ) (x : EReal) : Filter ℝ :=
   Filter.comap (fun t : ℝ => (t : EReal)) (𝓝 x) ⊓
     𝓟 (E ∩ {t : ℝ | (t : EReal) ≠ x})
 
+/-- Deviation from printed PMA 4.33 (p. 98): we additionally require
+`ExtendedAccumulation E x`, so every neighborhood of `x` contains a point of
+`E` distinct from `x` (equivalently, the punctured approach filter is nontrivial).
+The printed definition only requires its chosen neighborhood `V` to satisfy
+`V ∩ E ≠ ∅`; the test on `f t` already excludes `t = x` there. Thus at an
+isolated domain point, for example `E = {x}` with finite `x`, the printed test
+admits every target vacuously. The added punctured accumulation condition
+repairs this defect, restores the claimed agreement with 4.1, and is necessary
+for the uniqueness assertion in 4.34(a). -/
 def ExtendedLimitOn (E : Set ℝ) (f : ℝ → ℝ) (x A : EReal) : Prop :=
   ExtendedAccumulation E x ∧
     ∀ W : Set ℝ, ExtendedNeighborhood A W →
@@ -1795,7 +1804,11 @@ theorem node_4_33 : Statement_4_33 := by
   · intro h
     exact ⟨h.1, (functionLimitOn_iff_tendsto E f x A h.1).mp h⟩
 
-/-! ### PMA-4.34: Admissible extended arithmetic and uniqueness. -/
+/-! ### PMA-4.34: Admissible extended arithmetic and uniqueness.
+
+Deviation inherited from 4.33: the hypotheses below use the strengthened
+`ExtendedLimitOn`; uniqueness depends on its punctured accumulation condition.
+See the definition's deviation note for the isolated-point defect in print. -/
 
 def ExtendedAddDefined (A B : EReal) : Prop :=
   ¬ (A = ⊤ ∧ B = ⊥) ∧ ¬ (A = ⊥ ∧ B = ⊤)

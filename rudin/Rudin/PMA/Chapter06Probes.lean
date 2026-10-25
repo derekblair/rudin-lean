@@ -166,4 +166,24 @@ theorem right_value_jump_is_integrable :
   rw [hsums.1, hsums.2] at hbounds
   exact le_antisymm hbounds.2 hbounds.1
 
+/-- Closed cumulative mass includes both endpoint atoms; only the right one contributes
+ to the quadratic moment. This directly exercises the endpoint scope of 6.18. -/
+theorem endpoint_atomic_moment (c₀ c₁ : ℝ) (h₀ : 0 ≤ c₀) (h₁ : 0 ≤ c₁) :
+    AtomicMass ![0, 1] ![c₀, c₁] 0 = c₀ ∧
+    AtomicMass ![0, 1] ![c₀, c₁] 1 = c₀ + c₁ ∧
+    RSIntegrable QuadraticPosition (AtomicMass ![0, 1] ![c₀, c₁]) 0 1 ∧
+    RSIntegral QuadraticPosition (AtomicMass ![0, 1] ![c₀, c₁]) 0 1 = c₁ := by
+  refine ⟨?_, ?_, ?_⟩
+  · norm_num [AtomicMass, tsum_fintype, Fin.sum_univ_succ]
+  · norm_num [AtomicMass, tsum_fintype, Fin.sum_univ_succ]
+  · have hs : ∀ i : Fin 2, (![0, 1] : Fin 2 → ℝ) i ∈ Icc (0 : ℝ) 1 := by
+      intro i
+      fin_cases i <;> norm_num
+    have hc : ∀ i : Fin 2, 0 ≤ (![c₀, c₁] : Fin 2 → ℝ) i := by
+      intro i
+      fin_cases i
+      · exact h₀
+      · exact h₁
+    simpa [Fin.sum_univ_succ] using finiteAtomicQuadraticMoment hs hc
+
 end Rudin.PMA.Chapter06.FidelityProbes
