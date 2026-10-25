@@ -1,4 +1,4 @@
-import Rudin.PMA.Chapter11
+import Rudin.PMA.Chapter11.RiemannLebesgue
 import Mathlib.MeasureTheory.Integral.IntervalIntegral.LebesgueDifferentiationThm
 import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
 
@@ -6,11 +6,10 @@ import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
 # PMA 11.33: the attached fundamental theorems
 
 The two assertions following the proof of 11.33 are established here for the
-Lebesgue integral. The numbered comparison theorem itself remains open: the
-Chapter 6 native closed-cell Darboux integrability predicate has not yet been
-connected to a.e. continuity or the measure integral. In particular this file
-does not replace that predicate by `IntervalIntegrable`, which would change
-11.33(b) to a false assertion.
+Lebesgue integral. The imported `RiemannLebesgue` module proves both numbered
+parts, using exactly the Chapter 6 native closed-cell Darboux predicate and
+integral. The fundamental theorems below retain merely Lebesgue integrability
+of the integrand or derivative, as in the source.
 -/
 
 open Set Filter MeasureTheory

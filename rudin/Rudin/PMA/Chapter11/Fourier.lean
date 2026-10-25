@@ -45,6 +45,19 @@ theorem trigCoefficient_eq_integral (f : ℝ → ℂ) (k : ℤ) :
   push_cast
   field_simp
 
+/-- The observation following 11.39: the trigonometric coefficient integrals
+already exist for every L¹ interval function, without square integrability. -/
+theorem pma11_39_l1_fourier_integrand {f : ℝ → ℂ}
+    (hf : IntegrableOn f (Icc (-Real.pi) Real.pi) volume) (k : ℤ) :
+    IntegrableOn (fun x : ℝ => Complex.exp (-(Complex.I * k * x)) * f x)
+      (Icc (-Real.pi) Real.pi) volume := by
+  have hfi : IntervalIntegrable f volume (-Real.pi) Real.pi :=
+    (intervalIntegrable_iff_integrableOn_Icc_of_le fourier_interval_pos.le).mpr hf
+  have he : Continuous (fun x : ℝ => Complex.exp (-(Complex.I * k * x))) := by
+    fun_prop
+  exact (intervalIntegrable_iff_integrableOn_Icc_of_le fourier_interval_pos.le).mp
+    (hfi.continuousOn_mul he.continuousOn)
+
 /-- 11.40, Parseval: convergence and the value of the nonnegative coefficient
 series. `MemLp` allows a.e. measurable representatives, slightly more generally
 than the measurable representatives in the book. -/

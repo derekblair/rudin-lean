@@ -10,7 +10,9 @@ import Rudin.PMA.Chapter11.RiemannComparison
 The full source inventory and exact lane boundary are recorded in
 `evidence/ch11-b-inventory.md`. All modules import the first-half lane's
 `Rudin.PMA.Chapter11`; this separate entry point avoids editing its files.
-Individual module comments identify the precise proved scope and any remaining
-dependency or fidelity gaps. Building this module alone is not a completeness
-claim for absent source assertions.
+The modules cover all 22 numbered nodes, their attached corollaries, and the
+two fundamental-theorem assertions following 11.33. Nonnegative and signed
+integral compatibility is proved by literal simple-function and part-integral
+formulas; first-half aliases for 11.21–22 are still owned by that lane.
+The axiom and declaration-coverage checks are in `Chapter11SecondHalfAudit`.
 -/

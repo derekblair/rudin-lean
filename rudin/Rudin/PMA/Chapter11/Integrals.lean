@@ -10,21 +10,73 @@ Nonnegative functions take values in `ℝ≥0∞`, retaining infinite values and
 infinite integrals. Signed and complex results below use the finite-valued
 representatives permitted by 11.25, and the Bochner Lebesgue integral.
 The source's measurable subset `E` is represented by replacing `μ` with
-`μ.restrict E`; thus none of these results assumes the set has finite measure
-unless explicitly stated. Sequences start at zero, a harmless reindexing.
+`μ.restrict E`; the almost-everywhere and set-local forms impose no conditions
+outside `E`. Everywhere formulations can alternatively be applied on the
+subtype `E`. No set is assumed to have finite measure unless explicitly stated.
+Sequences start at zero, a harmless reindexing.
 
-Dependency boundary: the imported first-half lane currently supplies 11.13–18
-but not 11.21–22. The equations below are kernel-checked Mathlib integral
-statements; their bridge to the first-half simple-function definition must be
-checked when that definition lands. No first-half node is redefined here.
+The unnumbered compatibility theorems below prove that the nonnegative
+integral is exactly the supremum of the book's finite, nonnegative simple
+function sums. The signed integral is related to its positive-minus-negative
+formula by the extended-real representative theorems. Thus these integral
+semantics are verified independently of the pending first-half aliases for
+11.21–22. A name-level connection to those aliases remains to be added when
+they land; no first-half definition or numbered node is duplicated here.
 -/
 
 open Set Filter MeasureTheory
-open scoped Topology ENNReal
+open scoped Topology ENNReal NNReal
 
 namespace Rudin.PMA.Chapter11.SecondHalf
 
 variable {X : Type*} [MeasurableSpace X] {μ : Measure X}
+
+/-- Compatibility with the simple-function formula used by the book: the
+integral of a finite nonnegative measurable function is the finite sum of its
+values times the measures of the corresponding level sets inside `E`.
+`SimpleFunc` contains both the finite-range and level-set measurability data. -/
+theorem simple_integral_eq_finite_sum (s : MeasureTheory.SimpleFunc X ℝ≥0) (E : Set X) :
+    (s.map ((↑) : ℝ≥0 → ℝ≥0∞)).lintegral (μ.restrict E) =
+      ∑ c ∈ s.range, (c : ℝ≥0∞) * μ (E ∩ s ⁻¹' {c}) := by
+  rw [MeasureTheory.SimpleFunc.map_lintegral]
+  apply Finset.sum_congr rfl
+  intro c _hc
+  rw [Measure.restrict_apply (s.measurableSet_preimage {c}), inter_comm]
+
+/-- Compatibility with the nonnegative integral's printed supremum formula.
+The approximating simple functions are finite valued (`ℝ≥0`), even when `f`
+or its integral is infinite; admitting infinite-valued simple functions is
+therefore not an unproved change to the source's definition. This equation is
+a compatibility result, not a replacement definition for first-half 11.21. -/
+theorem nonnegative_integral_eq_sup_simple_sums (f : X → ℝ≥0∞) (E : Set X) :
+    (∫⁻ x in E, f x ∂μ) =
+      ⨆ (s : MeasureTheory.SimpleFunc X ℝ≥0) (_ : ∀ x, (s x : ℝ≥0∞) ≤ f x),
+        ∑ c ∈ s.range, (c : ℝ≥0∞) * μ (E ∩ s ⁻¹' {c}) := by
+  rw [lintegral_eq_nnreal]
+  simp_rw [simple_integral_eq_finite_sum]
+
+/-- The simple supremum may equally require domination only on the measurable
+integration set. Values of either function outside that set do not affect it. -/
+theorem nonnegative_integral_eq_sup_simple_sums_on (f : X → ℝ≥0∞)
+    {E : Set X} (hE : MeasurableSet E) :
+    (∫⁻ x in E, f x ∂μ) =
+      ⨆ (s : MeasureTheory.SimpleFunc X ℝ≥0)
+        (_ : ∀ x ∈ E, (s x : ℝ≥0∞) ≤ f x),
+        ∑ c ∈ s.range, (c : ℝ≥0∞) * μ (E ∩ s ⁻¹' {c}) := by
+  apply le_antisymm
+  · rw [nonnegative_integral_eq_sup_simple_sums]
+    apply iSup_le
+    intro s
+    apply iSup_le
+    intro hs
+    exact le_iSup₂_of_le s (fun x _hx => hs x) le_rfl
+  · apply iSup_le
+    intro s
+    apply iSup_le
+    intro hs
+    rw [← simple_integral_eq_finite_sum s E,
+      ← MeasureTheory.SimpleFunc.lintegral_eq_lintegral]
+    exact setLIntegral_mono' hE hs
 
 /-- 11.24(a): countable additivity, including infinite-valued integrals.
 The library result even permits nonmeasurable integrands. -/
@@ -443,6 +495,11 @@ theorem pma11_28 {F : ℕ → X → ℝ≥0∞} (hF : ∀ n, Measurable (F n))
   rw [lintegral_iSup hF hmono]
   exact tendsto_atTop_iSup (fun i j hij => lintegral_mono (hmono hij))
 
+/-- The monotone-limit integrand in 11.28 is measurable, including infinite values. -/
+theorem pma11_28_measurable_sup {F : ℕ → X → ℝ≥0∞}
+    (hF : ∀ n, Measurable (F n)) : Measurable (fun x => ⨆ n, F n x) :=
+  .iSup hF
+
 /-- 11.28 in the book's pointwise-limit formulation. -/
 theorem pma11_28_limit {F : ℕ → X → ℝ≥0∞} {f : X → ℝ≥0∞}
     (hF : ∀ n, Measurable (F n)) (hmono : Monotone F)
@@ -452,15 +509,62 @@ theorem pma11_28_limit {F : ℕ → X → ℝ≥0∞} {f : X → ℝ≥0∞}
     tendsto_nhds_unique (tendsto_atTop_iSup (fun i j hij => hmono hij x)) (hlim x)
   simpa only [heq] using pma11_28 (μ := μ) hF hmono
 
+/-- 11.28 with almost-everywhere monotonicity and convergence. This form makes
+restriction to the book's integration set explicit: no behavior outside that
+set is constrained. -/
+theorem pma11_28_ae {F : ℕ → X → ℝ≥0∞} {f : X → ℝ≥0∞}
+    (hF : ∀ n, AEMeasurable (F n) μ)
+    (hmono : ∀ᵐ x ∂μ, Monotone (fun n => F n x))
+    (hlim : ∀ᵐ x ∂μ, Tendsto (fun n => F n x) atTop (𝓝 (f x))) :
+    Tendsto (fun n => ∫⁻ x, F n x ∂μ) atTop (𝓝 (∫⁻ x, f x ∂μ)) :=
+  lintegral_tendsto_of_tendsto_of_monotone hF hmono hlim
+
+/-- 11.28 with monotonicity and convergence assumed only on the measurable
+integration set, as printed in the source. -/
+theorem pma11_28_on {E : Set X} (hE : MeasurableSet E)
+    {F : ℕ → X → ℝ≥0∞} {f : X → ℝ≥0∞}
+    (hF : ∀ n, AEMeasurable (F n) (μ.restrict E))
+    (hmono : ∀ x ∈ E, Monotone (fun n => F n x))
+    (hlim : ∀ x ∈ E, Tendsto (fun n => F n x) atTop (𝓝 (f x))) :
+    Tendsto (fun n => ∫⁻ x in E, F n x ∂μ) atTop (𝓝 (∫⁻ x in E, f x ∂μ)) := by
+  apply pma11_28_ae hF
+  · filter_upwards [ae_restrict_mem hE] with x hx
+    exact hmono x hx
+  · filter_upwards [ae_restrict_mem hE] with x hx
+    exact hlim x hx
+
 /-- 11.30: nonnegative series can be integrated termwise, without finiteness. -/
 theorem pma11_30 {F : ℕ → X → ℝ≥0∞} (hF : ∀ n, Measurable (F n)) :
     (∫⁻ x, ∑' n, F n x ∂μ) = ∑' n, ∫⁻ x, F n x ∂μ :=
   lintegral_tsum (fun n => (hF n).aemeasurable)
+
+/-- 11.30 with measure-local measurability, suitable for `μ.restrict E` without
+imposing measurability or values outside the source integration set. -/
+theorem pma11_30_ae {F : ℕ → X → ℝ≥0∞} (hF : ∀ n, AEMeasurable (F n) μ) :
+    (∫⁻ x, ∑' n, F n x ∂μ) = ∑' n, ∫⁻ x, F n x ∂μ :=
+  lintegral_tsum hF
+
+/-- The series integrand in 11.30 is measurable. -/
+theorem pma11_30_measurable_sum {F : ℕ → X → ℝ≥0∞}
+    (hF : ∀ n, Measurable (F n)) : Measurable (fun x => ∑' n, F n x) :=
+  Measurable.tsum hF
 
 /-- 11.31: Fatou's inequality in the extended half-line. -/
 theorem pma11_31 {F : ℕ → X → ℝ≥0∞} (hF : ∀ n, Measurable (F n)) :
     (∫⁻ x, liminf (fun n => F n x) atTop ∂μ) ≤
       liminf (fun n => ∫⁻ x, F n x ∂μ) atTop :=
   lintegral_liminf_le hF
+
+/-- 11.31 with measure-local measurability, including restricted measures. -/
+theorem pma11_31_ae {F : ℕ → X → ℝ≥0∞} (hF : ∀ n, AEMeasurable (F n) μ) :
+    (∫⁻ x, liminf (fun n => F n x) atTop ∂μ) ≤
+      liminf (fun n => ∫⁻ x, F n x ∂μ) atTop :=
+  lintegral_liminf_le' hF
+
+/-- The lower-limit integrand in 11.31 is measurable. -/
+theorem pma11_31_measurable_liminf {F : ℕ → X → ℝ≥0∞}
+    (hF : ∀ n, Measurable (F n)) :
+    Measurable (fun x => liminf (fun n => F n x) atTop) :=
+  .liminf hF
 
 end Rudin.PMA.Chapter11.SecondHalf
