@@ -1,6 +1,9 @@
 import Rudin.PMA.Chapter11.Foundations
 import Rudin.PMA.Chapter11.Geometry
+import Rudin.PMA.Chapter11.GeometryRing
 import Rudin.PMA.Chapter11.Construction
+import Rudin.PMA.Chapter11.Regularity
+import Rudin.PMA.Chapter11.Euclidean
 import Rudin.PMA.Chapter11.SetFunctionSeries
 import Rudin.PMA.Chapter11.NullSets
 import Rudin.PMA.Chapter11.Measurable
