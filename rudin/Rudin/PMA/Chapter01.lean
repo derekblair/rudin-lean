@@ -63,6 +63,11 @@ theorem pma1_1_no_smallest (p : ℚ) (hp : p ∈ rationalAboveSqrtTwo) :
   have hd2 : 0 < (p + 2) ^ 2 := sq_pos_of_pos hd
   nlinarith
 
+/-! ### PMA-1.2: the midpoint lies strictly between two distinct rationals. -/
+
+theorem pma1_2_rational_midpoint (r s : ℚ) (hrs : r < s) :
+    r < (r + s) / 2 ∧ (r + s) / 2 < s := by
+  constructor <;> linarith
 
 /-! ### PMA-1.3: elementary set terminology. -/
 
@@ -506,9 +511,8 @@ theorem pma_rational_density (x y : ℝ) (hxy : x < y) :
 
 /-! ### PMA-1.21: Positive real nth roots -/
 
-/-- The root is uniquely determined among positive reals. The source's printed
-uniqueness sentence omits positivity; for even exponents unrestricted uniqueness
-is false, so the intended positive-root conclusion is explicit here. -/
+/-- The root is uniquely determined among positive reals, as stated in
+Rudin's Theorem 1.21 (p. 10). -/
 theorem pma_positive_nth_root (x : ℝ) (n : ℕ) (hx : 0 < x) (hn : 0 < n) :
     ∃! y : ℝ, 0 < y ∧ y ^ n = x := by
   refine ⟨x ^ ((n : ℝ)⁻¹), ?_, ?_⟩
