@@ -2,6 +2,8 @@ import Rudin.PMA.Chapter11.Foundations
 import Rudin.PMA.Chapter11.SetFunctionSeries
 import Rudin.PMA.Chapter11.NullSets
 import Rudin.PMA.Chapter11.Measurable
+import Rudin.PMA.Chapter11.Simple
+import Rudin.PMA.Chapter11.Integration
 
 /-!
 # PMA Chapter 11, first-half lane
