@@ -1,0 +1,4 @@
+ℹ [8942/8942] Replayed Rudin.PMA.Chapter11Audit
+info: Rudin/PMA/Chapter11Audit.lean:16:0: Chapter 11 axiom audit PASS: 593 declarations (500 theorems); only propext, Classical.choice, Quot.sound.
+info: Rudin/PMA/Chapter11Audit.lean:37:0: Chapter 11 first-half declaration coverage PASS: 23 numbered nodes (11.1–11.23).
+Build completed successfully (8942 jobs).

@@ -5,7 +5,10 @@ import Mathlib
 
 Nonnegative quantities use `ℝ≥0∞`; signed integrands and integrals use `EReal`,
 including both infinite values. The signed integral is a total Lean expression;
-`IntegralDefined` records precisely the domain on which Rudin defines it.
+The source takes the integration set `E` to be measurable throughout.
+`IntegralDefined` records the integrand conditions on that standing domain.
+Native restriction also gives these Lean expressions values for arbitrary `E`;
+this extension is not an assertion that the book defines such integrals.
 -/
 
 open Set Filter MeasureTheory
@@ -20,7 +23,9 @@ noncomputable def simpleIntegral (μ : Measure X) (E : Set X)
     (s : SimpleFunc X ℝ≥0) : ℝ≥0∞ :=
   (s.map ((↑) : ℝ≥0 → ℝ≥0∞)).lintegral (μ.restrict E)
 
-/-- 11.21 (53): the nonnegative integral, allowing the value infinity. -/
+/-- 11.21 (53): the nonnegative integral, allowing the value infinity.
+The native lower-integral expression also evaluates nonmeasurable functions;
+agreement with Rudin's definition is asserted on measurable integrands. -/
 noncomputable def nonnegativeIntegral (μ : Measure X) (E : Set X)
     (f : X → ℝ≥0∞) : ℝ≥0∞ := ∫⁻ x in E, f x ∂μ
 
@@ -53,7 +58,9 @@ noncomputable def positiveIntegral (μ : Measure X) (E : Set X) (f : X → EReal
 noncomputable def negativeIntegral (μ : Measure X) (E : Set X) (f : X → EReal) : ℝ≥0∞ :=
   positiveIntegral μ E (fun x => -f x)
 
-/-- 11.22: at least one part is finite; the integral may itself be infinite. -/
+/-- 11.22: at least one part is finite; the integral may itself be infinite.
+As throughout the source integration section, `E` is assumed measurable when
+interpreting this predicate as Rudin's domain condition. -/
 def IntegralDefined (μ : Measure X) (E : Set X) (f : X → EReal) : Prop :=
   Measurable f ∧ (positiveIntegral μ E f ≠ ∞ ∨ negativeIntegral μ E f ≠ ∞)
 
@@ -141,7 +148,8 @@ theorem lebesgueIntegral_null (μ : Measure X) (E : Set X) (hE : μ E = 0)
   simp [lebesgueIntegral, negativeIntegral, positiveIntegral, nonnegativeIntegral,
     Measure.restrict_eq_zero.mpr hE]
 
-/-- 11.23(f): restriction to a measurable subset preserves integrability. -/
+/-- 11.23(f): restriction to a measurable subset preserves integrability.
+Generality: the native-restriction proof also covers arbitrary subsets `A`. -/
 theorem LebesgueIntegrable.mono_set {μ : Measure X} {A E : Set X} {f : X → EReal}
     (hf : LebesgueIntegrable μ E f) (hAE : A ⊆ E) : LebesgueIntegrable μ A f :=
   ⟨hf.1, ne_top_of_le_ne_top hf.2.1 (lintegral_mono_set hAE),

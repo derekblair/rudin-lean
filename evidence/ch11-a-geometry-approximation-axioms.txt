@@ -1,0 +1,8 @@
+'Rudin.PMA.Chapter11.IsInterval.closed_inter_open' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter11.IsInterval.exists_closed_elementary_sdiff_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Rudin.PMA.Chapter11.IsElementary.exists_closed_elementary_sdiff_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Rudin.PMA.Chapter11.elementary_measure_regular' depends on axioms: [propext, Classical.choice, Quot.sound]

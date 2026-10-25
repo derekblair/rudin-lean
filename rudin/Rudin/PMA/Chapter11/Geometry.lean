@@ -168,6 +168,17 @@ lemma iUnion_elementaryCube (p : ℕ) : (⋃ n, elementaryCube p n) = univ := by
   · exact neg_le.mp ((neg_le_abs (x i)).trans ((norm_le_pi_norm x i).trans hn.le))
   · exact (le_abs_self (x i)).trans ((norm_le_pi_norm x i).trans hn.le)
 
+/-- 11.4 explicitly includes the empty interval. Positive dimension is
+needed here: the empty product in dimension zero is a singleton. -/
+theorem pma11_4_empty_interval {p : ℕ} (hp : 0 < p) :
+    IsInterval (∅ : Set (Fin p → ℝ)) := by
+  refine ⟨fun _ => 0, fun _ => 0, fun _ => false, fun _ => false, le_rfl, ?_⟩
+  symm
+  apply Set.eq_empty_iff_forall_notMem.mpr
+  intro x hx
+  have hh := hx ⟨0, hp⟩ (mem_univ _)
+  exact lt_asymm hh.1 hh.2
+
 /-- 11.4, (12): in positive dimension Euclidean space is not elementary. -/
 theorem pma11_4_univ_not_elementary {p : ℕ} (hp : 0 < p) :
     ¬ IsElementary (univ : Set (Fin p → ℝ)) := by
