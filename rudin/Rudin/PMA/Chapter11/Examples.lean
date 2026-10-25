@@ -26,6 +26,48 @@ def elementaryMeasureContent {p : ℕ} (ν : Measure (Fin p → ℝ)) :
     simpa only [Set.sUnion_eq_biUnion, Finset.mem_coe, id_eq] using
       measure_biUnion_finset hd (fun s hs => (hI hs).measurableSet)
 
+/-- The content that is zero on the empty set and infinite on every nonempty set. -/
+def infiniteElementaryContent (p : ℕ) :
+    AddContent ℝ≥0∞ {A : Set (Fin p → ℝ) | IsElementary A} :=
+  elementaryMeasureContent (⊤ : Measure (Fin p → ℝ))
+
+@[simp] theorem infiniteElementaryContent_empty (p : ℕ) :
+    infiniteElementaryContent p ∅ = 0 := addContent_empty
+
+@[simp] theorem infiniteElementaryContent_nonempty {p : ℕ}
+    {A : Set (Fin p → ℝ)} (hA : A.Nonempty) : infiniteElementaryContent p A = ∞ := by
+  change (⊤ : OuterMeasure (Fin p → ℝ)) A = ∞
+  exact OuterMeasure.top_apply hA
+
+/-- A positive probe for Definition 11.5 on the actual Euclidean elementary ring:
+regularity permits infinite values. A singleton supplies the closed inner approximant
+for every nonempty set; boundedness supplies an open elementary outer approximant. -/
+theorem infiniteElementaryContent_regular (p : ℕ) :
+    ContentRegular (infiniteElementaryContent p) := by
+  intro A hA ε _hε
+  rcases A.eq_empty_or_nonempty with rfl | ⟨x, hx⟩
+  · refine ⟨∅, isElementary_empty p, ∅, isElementary_empty p,
+      isClosed_empty, isOpen_empty, Subset.rfl, Subset.rfl, ?_, ?_⟩ <;> simp
+  · obtain ⟨r, hr, hAr⟩ := hA.isBounded.subset_ball_lt 0 x
+    refine ⟨{x}, ?_, Metric.ball x r, isElementary_ball x hr,
+      isClosed_singleton, Metric.isOpen_ball, singleton_subset_iff.mpr hx, hAr, ?_, ?_⟩
+    · change IsElementary {x}
+      simpa only [Metric.closedBall_zero] using
+        isElementary_closedBall x (r := 0) le_rfl
+    · rw [infiniteElementaryContent_nonempty ⟨x, hx⟩]
+      exact le_top
+    · simp
+
+/-- The counterexample has infinite mass at the origin, so regularity does not
+imply the separate finiteness hypothesis in Definition 11.7. -/
+theorem infiniteElementaryContent_not_finite (p : ℕ) :
+    ¬ ∀ A, IsElementary A → infiniteElementaryContent p A ≠ ∞ := by
+  intro h
+  have hsingleton : IsElementary ({0} : Set (Fin p → ℝ)) := by
+    simpa only [Metric.closedBall_zero] using
+      isElementary_closedBall (0 : Fin p → ℝ) (r := 0) le_rfl
+  exact h {0} hsingleton (infiniteElementaryContent_nonempty (singleton_nonempty _))
+
 /-- 11.6(a) supplies a regular content to the construction of 11.7. -/
 def volumeRegularContent (p : ℕ) : RegularContent (Fin p → ℝ) {A | IsElementary A} where
   content := elementaryMeasureContent volume
@@ -34,8 +76,9 @@ def volumeRegularContent (p : ℕ) : RegularContent (Fin p → ℝ) {A | IsEleme
   compact := fun _ hA hc => hA.isCompact_of_isClosed hc
   regular := by
     intro A hA ε hε
-    obtain ⟨F, G, hF, hG, hc, ho, hFA, hAG, hGv, hFv⟩ := pma11_6a hA hε
-    exact ⟨F, hF, G, hG, hc, ho, hFA, hAG, hGv, hFv⟩
+    obtain ⟨F, G, hF, hG, hc, ho, hFA, hAG, hGv, hFv⟩ :=
+      pma11_6a hA (ENNReal.coe_pos.mpr hε)
+    exact ⟨F, hF, G, hG, hc, ho, hFA, hAG, tsub_le_iff_right.mpr hGv.le, hFv.le⟩
 
 /-- Generality: every locally finite Borel measure gives a regular elementary
 content. This is used only to verify the examples; the extension theorem itself
@@ -49,8 +92,8 @@ def measureRegularContent {p : ℕ} (ν : Measure (Fin p → ℝ)) [IsLocallyFin
   regular := by
     intro A hA ε hε
     obtain ⟨F, G, hF, hG, hc, ho, hFA, hAG, hGv, hFv⟩ :=
-      elementary_measure_regular ν hA hε
-    exact ⟨F, hF, G, hG, hc, ho, hFA, hAG, hGv, hFv⟩
+      elementary_measure_regular ν hA (ENNReal.coe_pos.mpr hε)
+    exact ⟨F, hF, G, hG, hc, ho, hFA, hAG, tsub_le_iff_right.mpr hGv.le, hFv.le⟩
 
 /-- 11.6(b): the Stieltjes example as a regular content on elementary subsets
 of the real line, represented by the equivalent space `Fin 1 → ℝ`. -/

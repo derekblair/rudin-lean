@@ -257,5 +257,3 @@ theorem IsElementary.disjoint_intervals {p : ℕ} {A : Set (Fin p → ℝ)}
   · simpa only [Finset.sup_id_set_eq_sUnion] using P.sup_parts.symm
 
 end Rudin.PMA.Chapter11
-
-

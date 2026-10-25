@@ -11,19 +11,23 @@ namespace Rudin.PMA.Chapter11
 For Rudin's elementary subsets of Euclidean space this is precisely the geometric
 input to the compact-subcover argument. No countably additive measure is assumed. -/
 
-/-- 11.5: regularity of a finite nonnegative additive set function on `C`.
-The inequalities are written without subtraction in the nonnegative extended reals. -/
+/-- 11.5, (16): regularity of a nonnegative additive set function on `C`,
+including contents with infinite values. Epsilon is a positive finite `NNReal`.
+The first inequality uses truncated subtraction in `ENNReal`; since `μ A ≥ 0`,
+this is equivalent to the printed inequality even when `μ G < ε`.
+Finiteness is a separate hypothesis of 11.7, not part of regularity. -/
 def ContentRegular {X : Type*} [TopologicalSpace X] {C : Set (Set X)}
     (μ : AddContent ℝ≥0∞ C) : Prop :=
-  ∀ A ∈ C, ∀ ε : ℝ≥0∞, 0 < ε →
+  ∀ A ∈ C, ∀ ε : ℝ≥0, 0 < ε →
     ∃ F ∈ C, ∃ G ∈ C, IsClosed F ∧ IsOpen G ∧ F ⊆ A ∧ A ⊆ G ∧
-      μ G < μ A + ε ∧ μ A < μ F + ε
+      μ G - (ε : ℝ≥0∞) ≤ μ A ∧ μ A ≤ μ F + (ε : ℝ≥0∞)
 
 /-- The hypotheses in 11.7, together with the geometric ring and compactness
 properties of the elementary sets used in the proof. -/
 structure RegularContent (X : Type*) [TopologicalSpace X] (C : Set (Set X)) where
   content : AddContent ℝ≥0∞ C
   ring : IsSetRing C
+  /-- The separate finiteness assumption in 11.7. It does not follow from 11.5. -/
   finite : ∀ A ∈ C, content A ≠ ∞
   regular : ContentRegular content
   compact : ∀ A ∈ C, IsClosed A → IsCompact A
@@ -56,12 +60,12 @@ theorem outer_le_content {A : Set X} (hA : A ∈ C) : μ.outer A ≤ μ.content 
   apply ENNReal.le_of_forall_pos_le_add
   intro ε hε _
   obtain ⟨F, hF, G, hG, _, hGo, _, hAG, hμG, _⟩ :=
-    μ.regular A hA ε (ENNReal.coe_pos.mpr hε)
+    μ.regular A hA ε hε
   apply (measure_mono hAG).trans
   have hbound : μ.outer G ≤ μ.content G :=
     (le_inducedOuterMeasure (m := fun A (_ : A ∈ C ∧ IsOpen A) => μ.content A)
       (P0 := ⟨μ.ring.empty_mem, isOpen_empty⟩) (m0 := by simp)).mp le_rfl G ⟨hG, hGo⟩
-  exact hbound.trans hμG.le
+  exact hbound.trans (tsub_le_iff_right.mp hμG)
 
 /-- A compact elementary set is controlled by every countable open elementary cover. -/
 theorem content_le_cover {A : Set X} (hA : A ∈ C) (hAc : IsCompact A)
@@ -82,8 +86,8 @@ theorem outer_eq_content {A : Set X} (hA : A ∈ C) : μ.outer A = μ.content A 
   apply ENNReal.le_of_forall_pos_le_add
   intro ε hε _
   obtain ⟨F, hF, U, hU, hFc, _, hFA, _, _, hμF⟩ :=
-    μ.regular A hA ε (ENNReal.coe_pos.mpr hε)
-  exact hμF.le.trans <| add_le_add
+    μ.regular A hA ε hε
+  exact hμF.trans <| add_le_add
     (μ.content_le_cover hF (μ.compact F hF hFc) G hG (hFA.trans hAG)) le_rfl
 
 /-- 11.8(b): countable subadditivity for arbitrary sets. -/

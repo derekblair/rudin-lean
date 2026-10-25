@@ -13,9 +13,9 @@ All declaration names below are in `Rudin.PMA.Chapter11`.
 | 11.2 | Extended-real admissibility, finite/countable additivity, `pma11_2_*` identities, `pma11_2_absolute_of_finite_total` — Foundations, SetFunctionSeries |
 | 11.3 | `pma11_3` — Foundations |
 | 11.4 | Mixed-endpoint intervals, elementary finite unions, product-volume formulas, decomposition independence, finite additivity, ring closure, disjoint decomposition, failure of sigma closure — Geometry, GeometryRing |
-| 11.5 | `ContentRegular` — Construction |
+| 11.5 | `ContentRegular` — Construction; `infiniteElementaryContent_regular`, `infiniteElementaryContent_not_finite` — Examples (infinite-valued regression instance) |
 | 11.6 | `pma11_6a`, all Stieltjes endpoint and degenerate formulas, `pma11_6b_regular`, `volumeRegularContent`, `stieltjesRegularContent` — Geometry, GeometryApproximation, StieltjesExample, Examples |
-| 11.7 | `RegularContent.outer`, `outer_eq_iInf`, `outer_mono` — Construction |
+| 11.7 | `RegularContent` (with separate `finite` hypothesis), `RegularContent.outer`, `outer_eq_iInf`, `outer_mono` — Construction |
 | 11.8 | `RegularContent.outer_eq_content`, `outer_iUnion_le` — Construction |
 | 11.9 | `RegularContent.setDistance`, `SetConverges`, `FinitelyMeasurable`, `RudinMeasurable` — Construction |
 | 11.10 | `RegularContent.rudinMeasurable_sigmaRing`, `rudinMeasurable_iUnion_measure`, `finitelyMeasurable_iff`; native outer-value identifications — Construction, Examples |
@@ -68,6 +68,51 @@ All declaration names below are in `Rudin.PMA.Chapter11`.
    dyadic algorithm. Native volume/Stieltjes measures verify the examples, and
    their outer values are proved equal to the countable-open-elementary-cover
    construction on every set.
+8. **11.5 and 11.7:** `ContentRegular` is the general printed Definition 11.5,
+   with no finiteness assumption on the content. It states
+   `μ G - ε ≤ μ A` and `μ A ≤ μ F + ε`, for every positive finite
+   `ε : NNReal`, coerced to `ENNReal`. Truncated subtraction is equivalent to
+   the printed first inequality because the right side is nonnegative; finite
+   epsilon also ensures that infinity minus epsilon is infinity.
+   `RegularContent.finite` separately supplies exactly the finite-content
+   assumption introduced in 11.7 and carried by its dependents. The regression
+   content `infiniteElementaryContent` is zero on the empty set and infinity
+   on every nonempty set, on the actual Euclidean elementary ring in every
+   dimension. It satisfies 11.5 and fails the 11.7 finiteness condition at `{0}`.
+
+## Regularity repair and downstream hypothesis audit
+
+The former strict version of `ContentRegular` accidentally forced finiteness.
+It has been replaced, not retained as the general 11.5 statement. The complete
+list of direct consumer and constructor adaptations is:
+
+| Node / declaration | Adaptation | Added or strengthened hypothesis |
+|---|---|---|
+| 11.8(a), `RegularContent.outer_le_content` | Convert `μ G - ε ≤ μ A` to `μ G ≤ μ A + ε`; pass finite epsilon directly | None |
+| 11.8(a), `RegularContent.outer_eq_content` | Compose the non-strict inner bound directly; pass finite epsilon directly | None |
+| 11.6(a), `volumeRegularContent` | Coerce epsilon and deduce the printed non-strict bounds from the stronger finite-volume approximation | None |
+| 11.6(b) helper, `measureRegularContent` | The same conversion under the existing locally finite measure hypothesis | None |
+
+`stieltjesRegularContent` inherits the repaired predicate through
+`measureRegularContent`. The strict example estimates `pma11_6a`,
+`elementary_measure_regular`, and `pma11_6b_regular` remain valid under their
+existing finite-volume/local-finiteness assumptions; they do not define general
+regularity.
+
+No downstream proof used the accidental implication from regularity to
+finiteness, and **no downstream theorem required a new or strengthened
+hypothesis**. The direct uses of the existing `RegularContent.finite` field are
+`FinitelyMeasurable.finite` and `rudinMeasurable_iff` (11.10). These supply the
+finite-value arguments for `finitelyMeasurable_iff`, `finitelyMeasurable_ring`,
+`RudinMeasurable.diff`, and `exists_open_sdiff_lt`, and hence the sigma-ring,
+closed/open approximation, and Borel-envelope results in 11.10–11.11. The
+elementary exhaustion in `rudinMeasurable_iff` and the general 11.11 bridges
+remains explicit. `exists_elementary_approx` and
+`finitelyMeasurable_of_caratheodory` retain their existing explicit
+`hfin : μ.outer A ≠ ∞` hypotheses. In `outer_eq_measure`, the proof handles
+infinite target values separately before using finite open approximation.
+The measure-space, function, and integration results in 11.12–11.23 do not
+consume `ContentRegular` and require no changes.
 
 ## Ancillary material not formalized
 
@@ -98,3 +143,14 @@ its values with `outer`. `volumeRegularContent_outer` and
 declaration, including private/generated declarations, and rejects all transitive
 axioms except `propext`, `Classical.choice`, and `Quot.sound`. The exact final
 build output is in `ch11-a-build.log`.
+
+The PR #9 repair passes that build (8,942 jobs, exit 0) and a full `lake build`
+(8,992 jobs, exit 0; `ch11-a-fix-pr9-full-build.log`). The chapter audit reports
+598 declarations, including 504 theorems, and all 23 numbered nodes.
+The separate audit client `ch11-a-fix-pr9-axioms.lean`, run with
+`lake env lean ../evidence/ch11-a-fix-pr9-axioms.lean` from `rudin/`, independently
+visits the same 598 declarations and recursively checks their imported
+dependencies. Its per-declaration results and passing totals are recorded in
+`ch11-a-fix-pr9-axioms.log`. Both audits encounter only the three permitted
+axioms. The 16 chapter Lean files contain zero `sorry`, `admit`, or
+`native_decide` tokens; `git diff --check` and the requested EOF checks pass.

@@ -219,4 +219,3 @@ theorem exists_simple_monotone_uniform [MeasurableSpace X] {f : X → ℝ} {b : 
     linarith
 
 end Rudin.PMA.Chapter11
-

@@ -292,6 +292,3 @@ theorem lebesgueIntegrable_null (μ : Measure X) (E : Set X) (hE : μ E = 0)
     simp [negativeIntegral, positiveIntegral, nonnegativeIntegral, Measure.restrict_eq_zero.mpr hE]
 
 end Rudin.PMA.Chapter11
-
-
-
