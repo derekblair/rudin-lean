@@ -158,15 +158,16 @@ theorem pma11_40_convergence {f : ℝ → ℂ}
     zero_pow, mul_zero, Real.sqrt_zero] at ht
   simpa only [l2Norm, hi] using ht
 
-/-- 11.40, with the book's measurable square-integrable hypothesis and both
-conclusions in a single declaration. -/
+/-- 11.40, with both conclusions in a single declaration. As in the separate
+statements, a.e. measurable square-integrable representatives are allowed;
+this includes every measurable interval function in the source. -/
 theorem pma11_40 {f : ℝ → ℂ}
-    (hf : SquareIntegrable (volume.restrict (Icc (-Real.pi) Real.pi)) f) :
+    (hf : MemLp f 2 (volume.restrict (Icc (-Real.pi) Real.pi))) :
     Tendsto (fun n => l2Norm (volume.restrict (Icc (-Real.pi) Real.pi))
       (fun x => f x - trigPartialSum f n x)) atTop (𝓝 0) ∧
     HasSum (fun k : ℤ => ‖trigCoefficient f k‖ ^ 2)
       ((2 * Real.pi)⁻¹ * ∫ x in (-Real.pi)..Real.pi, ‖f x‖ ^ 2) :=
-  ⟨pma11_40_convergence hf.memLp, pma11_40_parseval hf.memLp⟩
+  ⟨pma11_40_convergence hf, pma11_40_parseval hf⟩
 
 /-- The uniqueness corollary: vanishing coefficients imply zero norm and
 vanishing almost everywhere on the original interval. -/
