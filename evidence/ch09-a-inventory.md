@@ -18,8 +18,8 @@ The first half (rounding up) is **9.1–9.22**, owned by `lane/rudin-ch09-a`. Th
 | 9.10 | Preliminaries | one-dimensional derivatives as linear maps | a |
 | 9.11 | Definition | Fréchet differentiability | a |
 | 9.12 | Theorem | uniqueness of derivative | a |
-| 9.13 | Remarks | continuity, linear and constant derivatives | a |
-| 9.14 | Example | comparison of higher derivatives with iterated linear operators | a |
+| 9.13 | Remarks | linear remainder, derivative as a map, differentiability implies continuity | a |
+| 9.14 | Example | the derivative of a linear map is the map itself | a |
 | 9.15 | Theorem | chain rule | a |
 | 9.16 | Partial derivatives | coordinate partial derivative definition | a |
 | 9.17 | Theorem | Jacobian entries and derivative action | a |
