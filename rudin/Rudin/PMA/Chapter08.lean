@@ -1,11 +1,18 @@
 import Rudin.PMA.Chapter08.PowerSeriesFoundations
 import Rudin.PMA.Chapter08.PowerSeriesDifferentiation
+import Rudin.PMA.Chapter08.PowerSeriesCompatibility
+import Rudin.PMA.Chapter08.Abel
+import Rudin.PMA.Chapter08.DoubleSeries
+import Rudin.PMA.Chapter08.Taylor
+import Rudin.PMA.Chapter08.Operations
+import Rudin.PMA.Chapter08.Exponential
 
 /-!
 # PMA Chapter 8: Some Special Functions
 
-Partial local work: eight foundational lemmas and nine first-derivative lemmas
-for the opening Power Series section are kernel checked. No complete numbered
-Chapter 8 node is claimed. PMA 8.1 still needs its all-orders corollary and full
-fidelity review; PMA 8.2–8.5 remain outside these first two supporting groups.
+The landed foundation and first-derivative modules are preserved. Reconciled
+prior work completes PMA 8.1–8.6, including all derivative orders and factorial
+coefficients; PowerSeriesCompatibility connects it to the landed interface.
+Later nodes are being developed in this lane; the current coverage audit names
+only the completed contracts. The complete source inventory has 22 nodes.
 -/

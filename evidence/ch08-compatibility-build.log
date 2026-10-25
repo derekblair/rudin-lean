@@ -1,0 +1,21 @@
+ℹ [8928/8931] Replayed Rudin.PMA.Chapter08.PowerSeriesFoundations
+info: Rudin/PMA/Chapter08/PowerSeriesFoundations.lean:99:0: 'Rudin.PMA.Chapter08.realPowerSeries_le_radius' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter08/PowerSeriesFoundations.lean:100:0: 'Rudin.PMA.Chapter08.realPowerSeries_uniform_of_converges' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter08/PowerSeriesFoundations.lean:102:0: 'Rudin.PMA.Chapter08.realPowerSeries_majorant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter08/PowerSeriesFoundations.lean:103:0: 'Rudin.PMA.Chapter08.realPowerSeries_majorant_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter08/PowerSeriesFoundations.lean:104:0: 'Rudin.PMA.Chapter08.realPowerSeries_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter08/PowerSeriesFoundations.lean:105:0: 'Rudin.PMA.Chapter08.realPowerSeries_hasSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter08/PowerSeriesFoundations.lean:106:0: 'Rudin.PMA.Chapter08.realPowerSeries_continuousOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter08/PowerSeriesFoundations.lean:107:0: 'Rudin.PMA.Chapter08.realPowerSeries_at_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8929/8931] Replayed Rudin.PMA.Chapter08.PowerSeriesDifferentiation
+info: Rudin/PMA/Chapter08/PowerSeriesDifferentiation.lean:159:0: 'Rudin.PMA.Chapter08.derivativeSeries_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter08/PowerSeriesDifferentiation.lean:160:0: 'Rudin.PMA.Chapter08.derivativeSeries_hasSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter08/PowerSeriesDifferentiation.lean:161:0: 'Rudin.PMA.Chapter08.realPowerSeries_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter08/PowerSeriesDifferentiation.lean:163:0: 'Rudin.PMA.Chapter08.realPowerSeries_term_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter08/PowerSeriesDifferentiation.lean:164:0: 'Rudin.PMA.Chapter08.derivativeTerm_majorant_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter08/PowerSeriesDifferentiation.lean:165:0: 'Rudin.PMA.Chapter08.realPowerSeries_hasDerivAt_unshifted' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter08/PowerSeriesDifferentiation.lean:167:0: 'Rudin.PMA.Chapter08.realPowerSeries_inner_radius' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter08/PowerSeriesDifferentiation.lean:168:0: 'Rudin.PMA.Chapter08.derivativeCoeff_majorant_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/PMA/Chapter08/PowerSeriesDifferentiation.lean:169:0: 'Rudin.PMA.Chapter08.derivativeSeries_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8931/8931] Built Rudin.PMA.Chapter08.PowerSeriesCompatibility (8.3s)
+Build completed successfully (8931 jobs).
