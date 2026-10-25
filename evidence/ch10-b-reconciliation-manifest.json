@@ -1156,5 +1156,7 @@
       "sha256": "2927b89be671cbf2bbaafb42755d5e8b27bb39ae07189a10d81f87b069a55c2d",
       "bytes": 12813
     }
-  ]
+  ],
+  "first_half_dependency_commit": "c7262b1fe9978c573e4e15ea506d972411e4d963",
+  "first_half_aggregate_sha256": "9821807820d6bad65907796fa0109379d94577189a5864f2958b4ae96150e40e"
 }
