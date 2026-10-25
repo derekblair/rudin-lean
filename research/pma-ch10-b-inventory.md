@@ -23,6 +23,23 @@ This is a split by node count, not by page count or mathematical difficulty. The
 chosen convention assigns 10.26 to the first half. This supersedes the initial
 floor-first working assumption; the second lane must not duplicate 10.26.
 
+## Reconciliation with prior repository work
+
+After the initial inventory, the user identified `origin/ch8-codex-20261022`.
+The fetched head is `bb50a2079f8e189d8e282e2521bbadb64f4f98eb`. That branch
+already contains principal proofs for **10.27–10.42 and 10.44–10.51**. It also
+contains the exact four-clause contract for **10.43**, proofs of both forward
+identities and the C² scalar converse, and a separately named C¹ vector
+converse. The printed C² vector converse remains unresolved there.
+
+The existing 24 principals are being reused, not re-proved. Their 79 production
+modules and 15 probe modules are recorded by hash in
+`evidence/ch10-b-reconciliation-manifest.json`. The first-half dependency
+closure is excluded from this lane's restoration. The earlier tentative
+vertex-swap helper was superseded by the existing `SimplexOrientation.lean`
+proof and is not part of the delivered implementation. Fresh verification and
+any dependency integration limitations are recorded in the final report.
+
 ## Full numbered-node list
 
 | Node | Printed page(s) | Kind | Brief mathematical content |
