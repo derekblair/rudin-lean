@@ -11,4 +11,6 @@ example : pma8_20_contract := pma8_20
 example : pma8_21_contract := pma8_21
 example : pma8_22_contract := pma8_22
 
-run_cmd Rudin.PMA.Audit.checkNamespaceAxioms `Rudin.PMA.Chapter08
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08.Gamma
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08.GammaConsequences
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08.GammaStirling

@@ -1,20 +1,7 @@
-import Rudin.PMA.Chapter08.PowerSeriesCompatibility
-import Rudin.PMA.Chapter08.Abel
-import Rudin.PMA.Chapter08.DoubleSeries
-import Rudin.PMA.Chapter08.Taylor
-import Rudin.PMA.Chapter08.Operations
-import Rudin.PMA.Chapter08.Exponential
-import Rudin.PMA.Chapter08.Trigonometric
-import Rudin.PMA.Chapter08.AlgebraicCompleteness
-import Rudin.PMA.Chapter08.Orthogonality
-import Rudin.PMA.Chapter08.IntegralAlgebra
-import Rudin.PMA.Chapter08.FourierDefinitions
-import Rudin.PMA.Chapter08.FourierConvergence
-import Rudin.PMA.Chapter08.FourierParseval
-import Rudin.PMA.Chapter08.GammaConsequences
-import Rudin.PMA.Chapter08.GammaStirling
+import Rudin.PMA.Chapter08
 import Rudin.PMA.Chapter08Probes
 import Rudin.PMA.Chapter08.ExponentialProbes
+import Rudin.PMA.Chapter08.GammaAudit
 import Rudin.PMA.Chapter01Audit
 
 set_option autoImplicit false
@@ -54,5 +41,7 @@ run_cmd do
     | _ => throwError "Missing completed Chapter 8 proof: {n}"
   Lean.logInfo "PMA Chapter 8 coverage: 22 principal theorems and 22 contract type comparisons."
 
-run_cmd Rudin.PMA.Audit.checkNamespaceAxioms `Rudin.PMA.Chapter08
-run_cmd Rudin.PMA.Audit.checkNamespaceAxioms `Rudin.PMA.Chapter08.FidelityProbes
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08Probes
+
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08Audit (allowEmpty := true)
