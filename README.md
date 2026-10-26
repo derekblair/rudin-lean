@@ -1,8 +1,10 @@
 # rudin-lean
 
-Complete Lean 4 + Mathlib formalization of Walter Rudin's *Principles of
-Mathematical Analysis* (3rd edition) — every definition, every theorem,
-zero `sorry`s.
+Lean 4 + Mathlib formalization of Walter Rudin's *Principles of
+Mathematical Analysis* (3rd edition). Chapters 1–11 are complete at the
+numbered-node level except for 10.43's final C² vector-potential clause,
+tracked in [ticket #14](https://github.com/derekblair/rudin-lean/issues/14).
+Completed nodes have zero proof placeholders.
 
 ## Goal
 
@@ -60,7 +62,14 @@ Chapter 8: all 22 nodes complete. Chapter 9: all 43 nodes complete.
 All eight review findings are closed.
 Chapter 10: 50 of 51 nodes complete; 10.43 retains its proved clauses and explicitly
 weaker C¹ vector-potential theorem, with the final C² vector-potential clause
-still unproved and tracked in `QUEUE.md`. Chapter 11 remains pending.
+still unproved: on an open domain C²-equivalent to a convex open set, a C¹
+divergence-free vector field admits a C² vector potential. This exact clause
+remains open under [ticket #14](https://github.com/derekblair/rudin-lean/issues/14)
+and in `QUEUE.md`; the weaker C¹ result does not close it.
+Chapter 11: all 45 numbered nodes complete (11.1–11.23 and 11.24–11.45),
+with the source qualifications recorded in its coverage evidence and PR #7.
+This status reflects merged PRs #16, #17, #7, #18 and #20; it does not count
+unmerged research as a proof of 10.43.
 The default `lake build` compiles boundary probes and audits completed chapter
 declarations for the three permitted axioms. See `PROGRESS.md` and the
 chapter-specific verification logs under `research/`.
@@ -69,4 +78,4 @@ Run `python3 scripts/check_chapter01.py` for Chapter 1,
 `python3 scripts/check_chapter.py N` for Chapters 2–7, and
 `python3 scripts/verify_ch10_integration.py` for Chapter 10 integration
 source/provenance/coverage checks. Run `lake build` from `rudin/` for Lean
-verification, including the Chapter 8–10 coverage and transitive axiom audits.
+verification, including the Chapter 8–11 coverage and transitive axiom audits.
