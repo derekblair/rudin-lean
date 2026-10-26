@@ -30,7 +30,7 @@ folded into 1.1 under PROGRAM.md's rule for remarks. The requested target count 
 | PMA-1.18 | PASS: Negation reverses sign, signed multiplication preserves/reverses strict inequalities, nonzero squares and 1 are positive, inverses reverse positive order. | Ordered-field reference lemmas, including sq_pos_of_ne_zero and inv_lt_inv₀. |
 | PMA-1.19 | PASS: ℝ satisfies field/order/LUB contracts and contains an injectively and order-preservingly embedded rational subfield. | Mathlib ℝ, isLUB_csSup, Rat.castHom/cast_injective/cast_lt; existing construction reused for the existence theorem. |
 | PMA-1.20 | PASS: A positive real multiple by some positive integer exceeds any prescribed real; a rational lies strictly between any two distinct ordered reals. | exists_nat_gt and exists_rat_btwn; positive ℕ denotes positive integers. |
-| PMA-1.21 | PASS: Every positive real has a unique positive nth root for n>0; the unnumbered multiplicativity corollary is included. | Real.rpow_inv_natCast_pow, pow_left_inj₀, Real.mul_rpow; source printed positivity omission corrected explicitly. |
+| PMA-1.21 | PASS: Every positive real has a unique positive nth root for n>0; the unnumbered multiplicativity corollary is included. | Real.rpow_inv_natCast_pow, pow_left_inj₀, Real.mul_rpow; source printed positivity omission corrected explicitly. **Supersession ([#19](https://github.com/derekblair/rudin-lean/issues/19)):** The printed-omission claim was wrong: Theorem 1.21 on printed p. 10 already says “one and only one positive real y”; the correction is recorded in `PROGRESS.md` (PR #18). |
 | PMA-1.22 | PASS: positive reals have the prescribed greedy decimal digits and are the supremum of finite truncations; every arbitrary digit expansion determines a unique real supremum. | Int.floor bounds/division/modulo, finite geometric bound, isLUB_csSup; equality of digit partials and floor truncations proved. |
 | PMA-1.23 | PASS: Extended reals are finite reals and two infinities; order, finite/sign-guarded arithmetic, suprema/infima and failure of field inverses match all conventions. | EReal cases/order/arithmetic; complete-lattice bounds; real unbounded images have infinite endpoints. |
 | PMA-1.24 | PASS: Complex numbers are exactly ordered real pairs with coordinate equality, addition and the prescribed multiplication. | Complex structure extensionality and definitionally identical pair operations. |
@@ -53,7 +53,7 @@ Final definition review added explicit nonempty-set, non-strict-order notation,
 finite extended-real and zero-vector comparators; these expose existing inherited
 contracts without changing the preceding mathematical statements. Independent
 review approved these additions. The source omission of positive-root uniqueness
-is also refuted by the ±1 probe.
+is also refuted by the ±1 probe. **Supersession ([#19](https://github.com/derekblair/rudin-lean/issues/19)):** The preceding source-omission claim was wrong: Theorem 1.21 on printed p. 10 states “one and only one positive real y”. The ±1 probe refutes only uniqueness with positivity removed, not the printed theorem; the correction is recorded in `PROGRESS.md` (PR #18).
 
 The audit module is imported by the root library, so the default build checks all
 chapter and probe declarations, including private and generated names. The audit
