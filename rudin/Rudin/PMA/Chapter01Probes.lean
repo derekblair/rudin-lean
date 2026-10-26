@@ -60,7 +60,8 @@ theorem dropping_nonzero_breaks_cancellation :
 theorem inverse_order_direction :
     (0 : ℚ) < 1 ∧ (1 : ℚ) < 2 ∧ ¬ ((1 : ℚ)⁻¹ < (2 : ℚ)⁻¹) := by norm_num
 
-/-- The source's unrestricted uniqueness sentence is false for even exponents. -/
+/-- Dropping the positivity condition stated in Rudin's Theorem 1.21 (p. 10)
+makes root uniqueness false for even exponents. -/
 theorem unrestricted_root_uniqueness_false : ¬ (∃! y : ℝ, y ^ 2 = 1) := by
   rintro ⟨y, _, huniq⟩
   have h1 : (1 : ℝ) = y := huniq 1 (by norm_num)
