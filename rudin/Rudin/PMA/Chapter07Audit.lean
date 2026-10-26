@@ -52,7 +52,20 @@ run_cmd do
     | _ => throwError "Missing completed Chapter 7 proof: {n}"
   Lean.logInfo "PMA Chapter 7 coverage: 33 principal theorems and 33 accepted-contract type comparisons."
 
-run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter07
-run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter07Probes
+-- Require an anchor from each declaration-bearing chapter module.
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter07 #[
+    `Rudin.PMA.Chapter07.IsFunctionAlgebra,
+    `Rudin.PMA.Chapter07.PointwiseConvergesOn,
+    `Rudin.PMA.Chapter07.pma7_16_contract,
+    `Rudin.PMA.Chapter07.pma7_11_contract,
+    `Rudin.PMA.Chapter07.PointwiseBoundedOn,
+    `Rudin.PMA.Chapter07.doubleRatio,
+    `Rudin.PMA.Chapter07.pma7_1_contract,
+    `Rudin.PMA.Chapter07.pma7_10_contract,
+    `Rudin.PMA.Chapter07.sineSequence,
+    `Rudin.PMA.Chapter07.pma7_18_contract,
+    `Rudin.PMA.Chapter07.factorialCosinePower]
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter07Probes #[
+    `Rudin.PMA.Chapter07.FidelityProbes.Nowhere.all_real_points]
 
 run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter07Audit (allowEmpty := true)

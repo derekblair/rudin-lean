@@ -41,7 +41,42 @@ run_cmd do
     | _ => throwError "Missing completed Chapter 8 proof: {n}"
   Lean.logInfo "PMA Chapter 8 coverage: 22 principal theorems and 22 contract type comparisons."
 
-run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08
-run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08Probes
+-- Pin every declaration-bearing chapter module, all five exponential boundary
+-- clients, and the generated equations the old namespace filter omitted.
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08 #[
+    `Equiv.boolProdNatEquivNat.eq_1,
+    `Real.GammaSeq.eq_1,
+    `Rudin.PMA.Chapter08.abelPowerSeries,
+    `Rudin.PMA.Chapter08.coefficientPolynomial,
+    `Rudin.PMA.Chapter08.pma8_3_contract,
+    `Rudin.PMA.Chapter08.orientedRIntegral,
+    `Rudin.PMA.Chapter08.FidelityProbes.exponential_imaginary_argument,
+    `Rudin.PMA.Chapter08.fourierMonomial,
+    `Rudin.PMA.Chapter08.fourierMonomial_sub,
+    `Rudin.PMA.Chapter08.sineCosinePolynomial,
+    `Rudin.PMA.Chapter08.normalizedFourier,
+    `Rudin.PMA.Chapter08.fourier_native_gram,
+    `Rudin.PMA.Chapter08.hasSum_circle_fourier_mul_star,
+    `Rudin.PMA.Chapter08.continuous_native_integral_eq,
+    `Rudin.PMA.Chapter08.trigonometricBetaIntegrand,
+    `Rudin.PMA.Chapter08.stirlingMainLog,
+    `Rudin.PMA.Chapter08.native_complex_integrable_mul,
+    `Rudin.PMA.Chapter08.represents_add,
+    `Rudin.PMA.Chapter08.complex_mul_star,
+    `Rudin.PMA.Chapter08.Represents,
+    `Rudin.PMA.Chapter08.realPowerSeriesTerm_eq_smul,
+    `Rudin.PMA.Chapter08.powerSeriesDerivativeCoeff,
+    `Rudin.PMA.Chapter08.realPowerSeriesTerm,
+    `Rudin.PMA.Chapter08.partitionStep,
+    `Rudin.PMA.Chapter08.riemannReflectedPartition,
+    `Rudin.PMA.Chapter08.pma8_4_contract,
+    `Rudin.PMA.Chapter08.trigCircle,
+    `Rudin.PMA.Chapter08.FidelityProbes.logarithm_reverse_interval,
+    `Rudin.PMA.Chapter08.FidelityProbes.exceptional_power_integral,
+    `Rudin.PMA.Chapter08.FidelityProbes.negative_rational_power_root,
+    `Rudin.PMA.Chapter08.FidelityProbes.exponential_decay_order_zero]
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08Probes #[
+    `Rudin.PMA.Chapter03.SeriesHasSum.eq_1,
+    `Rudin.PMA.Chapter08.FidelityProbes.imaginaryConstantCoeffs]
 
 run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08Audit (allowEmpty := true)

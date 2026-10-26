@@ -11,6 +11,10 @@ example : pma8_20_contract := pma8_20
 example : pma8_21_contract := pma8_21
 example : pma8_22_contract := pma8_22
 
-run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08.Gamma
-run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08.GammaConsequences
-run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08.GammaStirling
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08.Gamma #[
+    `Real.GammaSeq.eq_1,
+    `Rudin.PMA.Chapter08.continuous_native_integral_eq]
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08.GammaConsequences #[
+    `Rudin.PMA.Chapter08.trigonometricBetaIntegrand]
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08.GammaStirling #[
+    `Rudin.PMA.Chapter08.stirlingMainLog]

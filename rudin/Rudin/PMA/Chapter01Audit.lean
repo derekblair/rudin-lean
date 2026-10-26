@@ -9,9 +9,14 @@ the axiom check part of `lake build`.
 -/
 
 -- Regression coverage: Lean generates this equation outside the chapter namespace.
-run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter01 #[`PiLp.equivOfUnique.eq_1]
-run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter01Probes
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter01 #[
+    `PiLp.equivOfUnique.eq_1,
+    `Rudin.PMA.Chapter01.rationalBelowSqrtTwo]
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter01Probes #[
+    `Rudin.PMA.Chapter01Probes.rational_gap_nonvacuous]
 
-run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.AxiomAudit
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.AxiomAudit #[
+    `Rudin.PMA.Audit.checkModuleAxioms,
+    `Rudin.PMA.Audit.declarationModule]
 
 run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter01Audit (allowEmpty := true)

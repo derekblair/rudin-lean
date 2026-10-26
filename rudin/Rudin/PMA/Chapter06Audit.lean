@@ -19,7 +19,26 @@ run_cmd do
   Lean.logInfo "PMA Chapter 6 coverage: 27 principal theorems and both explicit complex bridges."
 
 -- Regression coverage: Lean generates this equation outside the chapter namespace.
-run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter06 #[`NNReal.mk.eq_1]
-run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter06Probes
+-- Each declaration-bearing chapter module also has a required anchor.
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter06 #[
+    `NNReal.mk.eq_1,
+    `Rudin.PMA.Chapter06.pma6_3,
+    `Rudin.PMA.Chapter06.Partition,
+    `Rudin.PMA.Chapter06.pma6_17_contract,
+    `Rudin.PMA.Chapter06.lowerSum_le_upperSum_other,
+    `Rudin.PMA.Chapter06.CurveOn,
+    `Rudin.PMA.Chapter06.pma6_1_contract,
+    `Rudin.PMA.Chapter06.endpoint_local_gap_lt,
+    `Rudin.PMA.Chapter06.finite_exceptional_open_of_base,
+    `Rudin.PMA.Chapter06.pma6_8_contract,
+    `Rudin.PMA.Chapter06.UnitStep,
+    `Rudin.PMA.Chapter06.quadraticMoment_density,
+    `Rudin.PMA.Chapter06.monotoneOn_boundedOn,
+    `Rudin.PMA.Chapter06.pma6_12,
+    `Rudin.PMA.Chapter06.Partition.Refines,
+    `Rudin.PMA.Chapter06.splitLeftPartition,
+    `Rudin.PMA.Chapter06.VectorRSIntegrable]
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter06Probes #[
+    `Rudin.PMA.Chapter06.FidelityProbes.zero_mass_arbitrary_bounded]
 
 run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter06Audit (allowEmpty := true)
