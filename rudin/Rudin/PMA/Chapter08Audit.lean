@@ -1,20 +1,7 @@
-import Rudin.PMA.Chapter08.PowerSeriesCompatibility
-import Rudin.PMA.Chapter08.Abel
-import Rudin.PMA.Chapter08.DoubleSeries
-import Rudin.PMA.Chapter08.Taylor
-import Rudin.PMA.Chapter08.Operations
-import Rudin.PMA.Chapter08.Exponential
-import Rudin.PMA.Chapter08.Trigonometric
-import Rudin.PMA.Chapter08.AlgebraicCompleteness
-import Rudin.PMA.Chapter08.Orthogonality
-import Rudin.PMA.Chapter08.IntegralAlgebra
-import Rudin.PMA.Chapter08.FourierDefinitions
-import Rudin.PMA.Chapter08.FourierConvergence
-import Rudin.PMA.Chapter08.FourierParseval
-import Rudin.PMA.Chapter08.GammaConsequences
-import Rudin.PMA.Chapter08.GammaStirling
+import Rudin.PMA.Chapter08
 import Rudin.PMA.Chapter08Probes
 import Rudin.PMA.Chapter08.ExponentialProbes
+import Rudin.PMA.Chapter08.GammaAudit
 import Rudin.PMA.Chapter01Audit
 
 set_option autoImplicit false
@@ -54,14 +41,42 @@ run_cmd do
     | _ => throwError "Missing completed Chapter 8 proof: {n}"
   Lean.logInfo "PMA Chapter 8 coverage: 22 principal theorems and 22 contract type comparisons."
 
--- Chapter08 imports this audit, so inspect its imported child modules without
--- importing the aggregate back and creating a cycle. Module ownership also
--- covers generated declarations outside the chapter/probe namespaces.
-run_cmd do
-  let env ← Lean.getEnv
-  for moduleName in env.header.moduleNames do
-    if (`Rudin.PMA.Chapter08).isPrefixOf moduleName then
-      Rudin.PMA.Audit.checkModuleAxioms moduleName (allowEmpty := true)
+-- Pin every declaration-bearing chapter module, all five exponential boundary
+-- clients, and the generated equations the old namespace filter omitted.
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08 #[
+    `Equiv.boolProdNatEquivNat.eq_1,
+    `Real.GammaSeq.eq_1,
+    `Rudin.PMA.Chapter08.abelPowerSeries,
+    `Rudin.PMA.Chapter08.coefficientPolynomial,
+    `Rudin.PMA.Chapter08.pma8_3_contract,
+    `Rudin.PMA.Chapter08.orientedRIntegral,
+    `Rudin.PMA.Chapter08.FidelityProbes.exponential_imaginary_argument,
+    `Rudin.PMA.Chapter08.fourierMonomial,
+    `Rudin.PMA.Chapter08.fourierMonomial_sub,
+    `Rudin.PMA.Chapter08.sineCosinePolynomial,
+    `Rudin.PMA.Chapter08.normalizedFourier,
+    `Rudin.PMA.Chapter08.fourier_native_gram,
+    `Rudin.PMA.Chapter08.hasSum_circle_fourier_mul_star,
+    `Rudin.PMA.Chapter08.continuous_native_integral_eq,
+    `Rudin.PMA.Chapter08.trigonometricBetaIntegrand,
+    `Rudin.PMA.Chapter08.stirlingMainLog,
+    `Rudin.PMA.Chapter08.native_complex_integrable_mul,
+    `Rudin.PMA.Chapter08.represents_add,
+    `Rudin.PMA.Chapter08.complex_mul_star,
+    `Rudin.PMA.Chapter08.Represents,
+    `Rudin.PMA.Chapter08.realPowerSeriesTerm_eq_smul,
+    `Rudin.PMA.Chapter08.powerSeriesDerivativeCoeff,
+    `Rudin.PMA.Chapter08.realPowerSeriesTerm,
+    `Rudin.PMA.Chapter08.partitionStep,
+    `Rudin.PMA.Chapter08.riemannReflectedPartition,
+    `Rudin.PMA.Chapter08.pma8_4_contract,
+    `Rudin.PMA.Chapter08.trigCircle,
+    `Rudin.PMA.Chapter08.FidelityProbes.logarithm_reverse_interval,
+    `Rudin.PMA.Chapter08.FidelityProbes.exceptional_power_integral,
+    `Rudin.PMA.Chapter08.FidelityProbes.negative_rational_power_root,
+    `Rudin.PMA.Chapter08.FidelityProbes.exponential_decay_order_zero]
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08Probes #[
+    `Rudin.PMA.Chapter03.SeriesHasSum.eq_1,
+    `Rudin.PMA.Chapter08.FidelityProbes.imaginaryConstantCoeffs]
 
-run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08Probes
 run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08Audit (allowEmpty := true)

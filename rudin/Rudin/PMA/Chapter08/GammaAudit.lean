@@ -11,11 +11,19 @@ example : pma8_20_contract := pma8_20
 example : pma8_21_contract := pma8_21
 example : pma8_22_contract := pma8_22
 
--- Audit imported Chapter08 modules by ownership, including generated names.
+-- Retain main's imported-module sweep alongside the required coverage checks.
 run_cmd do
   let env ← Lean.getEnv
   for moduleName in env.header.moduleNames do
     if (`Rudin.PMA.Chapter08).isPrefixOf moduleName then
       Rudin.PMA.Audit.checkModuleAxioms moduleName (allowEmpty := true)
+
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08.Gamma #[
+    `Real.GammaSeq.eq_1,
+    `Rudin.PMA.Chapter08.continuous_native_integral_eq]
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08.GammaConsequences #[
+    `Rudin.PMA.Chapter08.trigonometricBetaIntegrand]
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08.GammaStirling #[
+    `Rudin.PMA.Chapter08.stirlingMainLog]
 
 run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08.GammaAudit (allowEmpty := true)

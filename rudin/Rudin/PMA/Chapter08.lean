@@ -14,7 +14,6 @@ import Rudin.PMA.Chapter08.FourierConvergence
 import Rudin.PMA.Chapter08.FourierParseval
 import Rudin.PMA.Chapter08.GammaConsequences
 import Rudin.PMA.Chapter08.GammaStirling
-import Rudin.PMA.Chapter08Audit
 
 /-!
 # PMA Chapter 8: Some Special Functions
@@ -25,6 +24,7 @@ coefficients; PowerSeriesCompatibility connects it to the landed interface.
 PMA 8.7–8.8 establish trigonometric properties and algebraic completeness.
 PMA 8.9–8.16 develop Fourier series using the native Chapter 6 Riemann integral;
 PMA 8.17–8.22 develop the Gamma function through the all-real Stirling limit.
-Every numbered node has a named contract and proof. Importing this chapter
-runs the complete 22-node coverage check and recursive allowed-axiom audit.
+Every numbered node has a named contract and proof. The default build imports
+Chapter08Audit for the complete 22-node coverage check and recursive
+allowed-axiom audit.
 -/

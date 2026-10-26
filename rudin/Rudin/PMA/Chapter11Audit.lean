@@ -1,4 +1,5 @@
 import Rudin.PMA.Chapter11
+import Rudin.PMA.AxiomAudit
 import Lean.Util.CollectAxioms
 import Lean.Elab.Command
 
@@ -89,3 +90,20 @@ run_cmd do
       unless env.contains name do
         throwError "Missing declaration for numbered node 11.{node}: {name}"
   logInfo m!"Chapter 11 first-half declaration coverage PASS: {coverage.size} numbered nodes (11.1–11.23)."
+
+-- Supplement the original checks with ownership coverage of every contributing module.
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter11 #[
+    `Rudin.PMA.Chapter11.ContentRegular,
+    `Rudin.PMA.Chapter11.pma11_11c_borel_sigmaRing,
+    `Rudin.PMA.Chapter11.elementaryMeasureContent,
+    `Rudin.PMA.Chapter11.SetRing,
+    `Rudin.PMA.Chapter11.axisInterval,
+    `Rudin.PMA.Chapter11.IsInterval.closed_inter_open,
+    `Rudin.PMA.Chapter11.isSetRing_isElementary,
+    `Rudin.PMA.Chapter11.simpleIntegral,
+    `Rudin.PMA.Chapter11.MeasurableFunction,
+    `Rudin.PMA.Chapter11.pma11_11_null_sigmaRing,
+    `Rudin.PMA.Chapter11.RegularContent.exists_open_sdiff_lt,
+    `Rudin.PMA.Chapter11.pma11_2_absolute_series,
+    `Rudin.PMA.Chapter11.IsSimple,
+    `Rudin.PMA.Chapter11.stieltjesEuclideanMeasure]

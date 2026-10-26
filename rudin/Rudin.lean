@@ -13,6 +13,7 @@ import Rudin.PMA.Chapter06Audit
 import Rudin.PMA.Chapter07
 import Rudin.PMA.Chapter07Audit
 import Rudin.PMA.Chapter08
+import Rudin.PMA.Chapter08Audit
 import Rudin.PMA.Chapter08.GammaAudit
 import Rudin.PMA.Chapter09
 import Rudin.PMA.Chapter09.FirstHalfAudit
@@ -22,5 +23,6 @@ import Rudin.PMA.Chapter09.IntegralsAudit
 import Rudin.PMA.Chapter10
 import Rudin.PMA.Chapter10.IntegrationAudit
 import Rudin.PMA.Chapter11
+import Rudin.PMA.Chapter11Audit
 
 /-! # Rudin: root module, imports all eleven PMA chapters. -/
