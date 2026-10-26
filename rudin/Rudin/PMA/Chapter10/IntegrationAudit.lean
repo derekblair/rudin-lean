@@ -1,5 +1,9 @@
 import Rudin.PMA.Chapter10Audit
 import Rudin.PMA.Chapter10.SecondHalfAudit
+import Rudin.PMA.Chapter10.PlanarVectorPotentialResearch
+import Rudin.PMA.Chapter10.VectorPotentialGaugeResearch
+import Rudin.Research.PMA1043Gauge
+import Rudin.Research.PMA1043Planar
 import Rudin.PMA.AxiomAudit
 import Rudin.PMA.Chapter09
 import Rudin.PMA.Chapter09.SecondHalf
@@ -254,6 +258,8 @@ run_cmd do
     `Rudin.PMA.Chapter10.FidelityProbes.cyclic_middle_form_positive_vector,
     `Rudin.PMA.Chapter10.VectorField,
     `Rudin.PMA.Chapter10.vectorOneForm_gradient,
+    `Rudin.PMA.Chapter10.PlanarResearch.exists_c2_potential_iff_planar_divergence,
+    `Rudin.PMA.Chapter10.GaugeResearch.exists_c2_potential_iff_exists_c2_gauge,
     `Rudin.PMA.Chapter10.FidelityProbes.stationary_curve_weighted_integral,
     `Rudin.PMA.Chapter10.pma10_43_contract,
     `Rudin.PMA.Chapter10.FidelityProbes.image_indicator_native_volume,
@@ -261,6 +267,14 @@ run_cmd do
     `Rudin.PMA.Chapter10.crossInversionCount]
   Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter10 required
   Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter10Audit (allowEmpty := true)
+
+-- Research modules outside the chapter's source-module prefix need separate audits.
+-- Their declarations use the Chapter10 namespace, but ownership follows the file.
+run_cmd do
+  Rudin.PMA.Audit.checkModuleAxioms `Rudin.Research.PMA1043Gauge
+    #[`Rudin.PMA.Chapter10.pma10_43_contract_iff_gauge_regularization]
+  Rudin.PMA.Audit.checkModuleAxioms `Rudin.Research.PMA1043Planar
+    #[`Rudin.PMA.Chapter10.c2_verticalPotential_iff_planarDivergence]
 
 -- Supplement the merged chapter's legacy namespace audits without changing its source.
 run_cmd do
