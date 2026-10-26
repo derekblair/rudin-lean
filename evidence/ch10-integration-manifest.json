@@ -75,6 +75,7 @@
     "rudin/Rudin/PMA/Chapter10/PartitionComplements.lean",
     "rudin/Rudin/PMA/Chapter10/PartitionProbes.lean",
     "rudin/Rudin/PMA/Chapter10/PlanarGreen.lean",
+    "rudin/Rudin/PMA/Chapter10/PlanarVectorPotentialResearch.lean",
     "rudin/Rudin/PMA/Chapter10/Poincare.lean",
     "rudin/Rudin/PMA/Chapter10/PositiveBoundaries.lean",
     "rudin/Rudin/PMA/Chapter10/PositiveBoundaryProbes.lean",
@@ -148,6 +149,7 @@
     "rudin/Rudin/PMA/Chapter10/VectorFields.lean",
     "rudin/Rudin/PMA/Chapter10/VectorFormDerivatives.lean",
     "rudin/Rudin/PMA/Chapter10/VectorIntegrationProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/VectorPotentialGaugeResearch.lean",
     "rudin/Rudin/PMA/Chapter10/VectorPotentials.lean",
     "rudin/Rudin/PMA/Chapter10/VolumeAreaProbes.lean",
     "rudin/Rudin/PMA/Chapter10/VolumeElements.lean",
@@ -850,7 +852,7 @@
     },
     {
       "path": "rudin/Rudin/PMA/Chapter10/SecondHalfAudit.lean",
-      "sha256": "47a36615517daa6695b127c0c92789154e88f0c8a1576c09e7b5d4e629eac719",
+      "sha256": "1b86d77a64c0ded48fceb67e9dd1e1c87a2424223960490205c45ac70a7d6885",
       "source_sha256": "3ff2cbc1926be07fb517d3e39df13457fea4f3ccfeb6e8f480ef5cd174d7f607",
       "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
       "decision": "adapted; see integration report"
@@ -1179,41 +1181,69 @@
     },
     {
       "path": "rudin/Rudin/PMA/Chapter10Audit.lean",
-      "sha256": "69c7955e3f08f4aa678803aa169cb8c7ed56e53995ceb1e4885edb9e38120b51",
+      "sha256": "be8d5aea47a1bce27c6cc41c5b5f495d8f45de4574460d58789806f774628548",
       "source_sha256": "b7fb40d58b5679e4ff1d1586624ae1b450fff11c76def94b11d0db884f7224aa",
       "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
       "decision": "adapted; see integration report"
     },
     {
       "path": "rudin/Rudin.lean",
-      "sha256": "ea7a1263de32f0d4ffabfbb68228e14c72d86229660f2f91153bdcc924a42f49",
+      "sha256": "2a9fc4873f2e634e305b7f07cf1e1b3108e2d955dfca60a21e1e9091a1c1be25",
       "decision": "integration wiring/audit/compatibility"
     },
     {
       "path": "rudin/Rudin/PMA/Chapter08Audit.lean",
-      "sha256": "d73db5286b114bcafa9f09cec4ce77b9cc1c68d03fc30c1acfd4f42b72fb0fdc",
+      "sha256": "403fb7abc4eca81b0bcad37452802bea7716305903c6b98d50ab99e0e44defc6",
       "decision": "integration wiring/audit/compatibility"
     },
     {
       "path": "rudin/Rudin/PMA/Chapter08/GammaAudit.lean",
-      "sha256": "d0435a2ed4a0100f6fda31c0efd2065c18d789963c9e5bc8e1b03e95643ef6a1",
+      "sha256": "4faeb6b0baa5d137f1cd8506e5ac92f5cff7ea0a0d3dc650eca67e155405d00b",
       "decision": "integration wiring/audit/compatibility"
     },
     {
       "path": "rudin/Rudin/PMA/Chapter10/IntegrationAudit.lean",
-      "sha256": "ffcd8e899d6b23c0a27002990c7679be364fa355d6c04cd009e01005e8753019",
+      "sha256": "71204b2ae770ad3bf3cc9b2994406d41e715a485116b711a366aa947ab29df1d",
       "decision": "integration wiring/audit/compatibility"
     },
     {
       "path": "rudin/Rudin/PMA/Chapter10/Prerequisites.lean",
       "sha256": "8c32466a92cc4291a0a2c2f675a69e2d5496bb35bb872c25d31be353f6df513d",
       "decision": "integration wiring/audit/compatibility"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PlanarVectorPotentialResearch.lean",
+      "sha256": "875af0399e573f2f7335db90d8cbf9a0da31afa4ab6c2ae091e6135765206b92",
+      "source_sha256": "875af0399e573f2f7335db90d8cbf9a0da31afa4ab6c2ae091e6135765206b92",
+      "source_commit": "ff1bb6c03118fe9bd954d1d6ff4a1893b189fc72",
+      "decision": "PR #24 permanent research module; registered and audited; preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/VectorPotentialGaugeResearch.lean",
+      "sha256": "80c724d38e416e0f116d2b0a152d9ca8cde137f26f8c0b05bfdc8bd30f150b3f",
+      "source_sha256": "80c724d38e416e0f116d2b0a152d9ca8cde137f26f8c0b05bfdc8bd30f150b3f",
+      "source_commit": "ff1bb6c03118fe9bd954d1d6ff4a1893b189fc72",
+      "decision": "PR #24 permanent research module; registered and audited; preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/Research/PMA1043Gauge.lean",
+      "sha256": "26c333e354005b10c76eef9cd73c14b102f0c01fb2215f543068401abf9808ee",
+      "source_sha256": "26c333e354005b10c76eef9cd73c14b102f0c01fb2215f543068401abf9808ee",
+      "source_commit": "c1c787a5bde7d8034ebdfe2ff010326ee7e3d7a9",
+      "decision": "PR #21 permanent research module; registered and audited; preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/Research/PMA1043Planar.lean",
+      "sha256": "3baaef4ddb44caeb6ee3cc78ebe2cb22bfd338830d90af0c0b5d5e681edc746f",
+      "source_sha256": "3baaef4ddb44caeb6ee3cc78ebe2cb22bfd338830d90af0c0b5d5e681edc746f",
+      "source_commit": "c1c787a5bde7d8034ebdfe2ff010326ee7e3d7a9",
+      "decision": "PR #21 permanent research module; registered and audited; preserved byte-for-byte"
     }
   ],
   "preserved_main_files": [
     {
       "path": "rudin/Rudin/PMA/AxiomAudit.lean",
-      "sha256": "b6af56d93a971ec2fb9f5fe5c2f8199f4f886a7678b33b20fddd4b7207094027"
+      "sha256": "c1bf9befad86669dff657a683062ebce85b19f35519bceaf9eccec9297fb9806"
     },
     {
       "path": "rudin/Rudin/PMA/Chapter01.lean",
@@ -1221,11 +1251,11 @@
     },
     {
       "path": "rudin/Rudin/PMA/Chapter01Audit.lean",
-      "sha256": "4416b1a8d7fc027a989538d3273bacc76e7b74872b9693b621acbfb98706c48c"
+      "sha256": "e246465e31a583a82a8c045b83253ea9928ae4627da76e868728304c215d412d"
     },
     {
       "path": "rudin/Rudin/PMA/Chapter01Probes.lean",
-      "sha256": "799fbd4fbb34aaa973c91913066fe9775c9c4634416a2426197ad86ec9104898"
+      "sha256": "16024e128c6020762121633c44030bfe083c1bf0a1a00de1b14168b51867595a"
     },
     {
       "path": "rudin/Rudin/PMA/Chapter02.lean",
@@ -1233,7 +1263,7 @@
     },
     {
       "path": "rudin/Rudin/PMA/Chapter02Audit.lean",
-      "sha256": "82cac58f99326694b483832e1b665c325f5f38598048edec34e7838f12df18b5"
+      "sha256": "3f89af9fb405b5b47e3f1c9d834cd93d89598f03201ab7a7a0a7b15fc61ef073"
     },
     {
       "path": "rudin/Rudin/PMA/Chapter02Probes.lean",
@@ -1245,7 +1275,7 @@
     },
     {
       "path": "rudin/Rudin/PMA/Chapter03Audit.lean",
-      "sha256": "139fdec1a9978d97b95e4505211e0911742feb5403d0fb6a6d3d32ca47baf5f4"
+      "sha256": "c13032cfe34c23870bf0c43ca95c35b6c7b0d18823196948fe975ec8cf01a0ef"
     },
     {
       "path": "rudin/Rudin/PMA/Chapter03Probes.lean",
@@ -1257,7 +1287,7 @@
     },
     {
       "path": "rudin/Rudin/PMA/Chapter04Audit.lean",
-      "sha256": "4bf30a0ab301e1fb2a2d59d9628ae4588fb252256bf018699e8e3902dd343c91"
+      "sha256": "16f8790a16012e88ce19767f83496b259991e11191f0b259f5261f7b7fa5870b"
     },
     {
       "path": "rudin/Rudin/PMA/Chapter04Probes.lean",
@@ -1269,7 +1299,7 @@
     },
     {
       "path": "rudin/Rudin/PMA/Chapter05Audit.lean",
-      "sha256": "95fecc022c871fcfb0069094d5fdec1b5ff17176577f912508e7eca0173f37fb"
+      "sha256": "1e6ef408c25f014c12b663e73f714dc66b298fe2a4b0d978f91a27d9bfaa3ef9"
     },
     {
       "path": "rudin/Rudin/PMA/Chapter05Probes.lean",
@@ -1341,7 +1371,7 @@
     },
     {
       "path": "rudin/Rudin/PMA/Chapter06Audit.lean",
-      "sha256": "efe48bd60ac5fbf3a266e03eb39ec97f6a5d0a6912636aa41d087524e9f57f50"
+      "sha256": "9ca811ccdeaeec6f46e17f4eaa5eabf15299480287756984baf2d2578a5ad920"
     },
     {
       "path": "rudin/Rudin/PMA/Chapter06Probes.lean",
@@ -1397,7 +1427,7 @@
     },
     {
       "path": "rudin/Rudin/PMA/Chapter07Audit.lean",
-      "sha256": "404af920867ec415a0fb7cf488aa0c3871f4818542ee1d2272c17ff25671fa14"
+      "sha256": "8a071c648b93dc99d9a12c234ad80c9a417f7054daa5bb2b9b4a916373fed929"
     },
     {
       "path": "rudin/Rudin/PMA/Chapter07Probes.lean",
@@ -1405,7 +1435,7 @@
     },
     {
       "path": "rudin/Rudin/PMA/Chapter08.lean",
-      "sha256": "487ba0c239fcfe4fe3f04b7ae9d8cbc3204b4ffdd7439aa4e76b77b2a99632e2"
+      "sha256": "f5edddf4c276ec7aa23393c6c29eb0e1261664c9725644b568137de8d8586336"
     },
     {
       "path": "rudin/Rudin/PMA/Chapter08/Abel.lean",
@@ -1513,7 +1543,7 @@
     },
     {
       "path": "rudin/Rudin/PMA/Chapter09.lean",
-      "sha256": "d076e21ceaf56a0ae166a1b10f470ebebb2bf08eca627bf3d731fbdc95c45bcc"
+      "sha256": "ef70f389fe237a402e534745b6950f2b6e5a33853040b9a2e448aad8fa650b3e"
     },
     {
       "path": "rudin/Rudin/PMA/Chapter09/ContinuousDifferentiability.lean",
@@ -1573,7 +1603,7 @@
     },
     {
       "path": "rudin/Rudin/PMA/Chapter09/Operators.lean",
-      "sha256": "56ff373f62dbafae5e552dd32449d270847c8781b6120f07c2aed733c8d22b27"
+      "sha256": "9a75c8203178d7647bf8a5e2ce9bd4bd003cd8b4bee726ac34827de15c44f32b"
     },
     {
       "path": "rudin/Rudin/PMA/Chapter09/PartialContinuity.lean",
@@ -1613,7 +1643,7 @@
     },
     {
       "path": "rudin/Rudin/PMA/Chapter11.lean",
-      "sha256": "3c3a49770fce6e3230ea1849bb273833ebcd20e034c8a294d936b44821fd1b83"
+      "sha256": "e706f53f70941f9a4b5a75181147c104c4297cd5045002f84d98cdf27b9666ab"
     },
     {
       "path": "rudin/lake-manifest.json",
