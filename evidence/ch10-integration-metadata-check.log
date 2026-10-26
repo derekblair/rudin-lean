@@ -1,0 +1,27 @@
+python3 scripts/check_chapter01.py
+Chapter 1 complete source audit passed: 38/38 nodes, metadata consistent, no prohibited proof commands.
+exit=0
+
+python3 scripts/check_chapter.py 2
+Chapter 02: 47/47 completed, 0 queued; source and metadata checks pass.
+exit=0
+
+python3 scripts/check_chapter.py 3
+Chapter 03: 55/55 completed, 0 queued; source and metadata checks pass.
+exit=0
+
+python3 scripts/check_chapter.py 4
+Chapter 04: 34/34 completed, 0 queued; source and metadata checks pass.
+exit=0
+
+python3 scripts/check_chapter.py 5
+Chapter 05: 19/19 completed, 0 queued; source and metadata checks pass.
+exit=0
+
+python3 scripts/check_chapter.py 6
+Chapter 06: 27/27 completed, 0 queued; source and metadata checks pass.
+exit=0
+
+python3 scripts/check_chapter.py 7
+Chapter 07: 33/33 completed, 0 queued; source and metadata checks pass.
+exit=0

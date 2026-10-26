@@ -1,0 +1,212 @@
+✖ [1/548] Running Rudin.PMA.Chapter09.ParameterIntegrals
+error: no such file or directory (error code: 2)
+  file: /root/rudin-lanes/rudin-ch10-a/rudin/Rudin/PMA/Chapter09/ParameterIntegrals.lean
+✖ [2668/2996] Running Rudin.PMA.Chapter10.Integration
+error: Rudin/PMA/Chapter10/Integration.lean: bad import 'Rudin.PMA.Chapter09.ParameterIntegrals'
+✖ [2669/2996] Running Rudin.PMA.Chapter10.IntegrationProofs
+error: Rudin/PMA/Chapter10/IntegrationProofs.lean: bad import 'Rudin.PMA.Chapter10.Integration'
+✖ [2670/2996] Running Rudin.PMA.Chapter10.IntegrationMeasure
+error: Rudin/PMA/Chapter10/IntegrationMeasure.lean: bad import 'Rudin.PMA.Chapter10.IntegrationProofs'
+✖ [2671/2996] Running Rudin.PMA.Chapter10.SimplexSlices
+error: Rudin/PMA/Chapter10/SimplexSlices.lean: bad import 'Rudin.PMA.Chapter10.IntegrationMeasure'
+✖ [2672/2996] Running Rudin.PMA.Chapter10.Simplex
+error: Rudin/PMA/Chapter10/Simplex.lean: bad import 'Rudin.PMA.Chapter10.SimplexSlices'
+✖ [2673/2996] Running Rudin.PMA.Chapter09.Inverse
+error: no such file or directory (error code: 2)
+  file: /root/rudin-lanes/rudin-ch10-a/rudin/Rudin/PMA/Chapter09/Inverse.lean
+✖ [2674/2996] Running Rudin.PMA.Chapter09.Determinants
+error: no such file or directory (error code: 2)
+  file: /root/rudin-lanes/rudin-ch10-a/rudin/Rudin/PMA/Chapter09/Determinants.lean
+✖ [2675/2996] Running Rudin.PMA.Chapter10.Primitive
+error: Rudin/PMA/Chapter10/Primitive.lean: bad import 'Rudin.PMA.Chapter09.Inverse'
+error: Rudin/PMA/Chapter10/Primitive.lean: bad import 'Rudin.PMA.Chapter09.Determinants'
+✖ [2676/2996] Running Rudin.PMA.Chapter09.Linear
+error: no such file or directory (error code: 2)
+  file: /root/rudin-lanes/rudin-ch10-a/rudin/Rudin/PMA/Chapter09/Linear.lean
+✖ [2681/2996] Running Rudin.PMA.Chapter10.Partition
+error: Rudin/PMA/Chapter10/Partition.lean: bad import 'Rudin.PMA.Chapter09.Linear'
+✖ [2682/2996] Running Rudin.PMA.Chapter10.ChangeOfVariables
+error: Rudin/PMA/Chapter10/ChangeOfVariables.lean: bad import 'Rudin.PMA.Chapter10.IntegrationMeasure'
+error: Rudin/PMA/Chapter10/ChangeOfVariables.lean: bad import 'Rudin.PMA.Chapter10.Primitive'
+error: Rudin/PMA/Chapter10/ChangeOfVariables.lean: bad import 'Rudin.PMA.Chapter10.Partition'
+✖ [2720/2996] Running Rudin.PMA.Chapter10.FormsCore
+error: Rudin/PMA/Chapter10/FormsCore.lean: bad import 'Rudin.PMA.Chapter10.Integration'
+✖ [2721/2996] Running Rudin.PMA.Chapter10.Surfaces
+error: Rudin/PMA/Chapter10/Surfaces.lean: bad import 'Rudin.PMA.Chapter10.FormsCore'
+✖ [2722/2996] Running Rudin.PMA.Chapter10.FormsAlgebra
+error: Rudin/PMA/Chapter10/FormsAlgebra.lean: bad import 'Rudin.PMA.Chapter10.Surfaces'
+✖ [2723/2996] Running Rudin.PMA.Chapter10.SurfaceDomains
+error: Rudin/PMA/Chapter10/SurfaceDomains.lean: bad import 'Rudin.PMA.Chapter10.Surfaces'
+error: Rudin/PMA/Chapter10/SurfaceDomains.lean: bad import 'Rudin.PMA.Chapter10.IntegrationProofs'
+✖ [2724/2996] Running Rudin.PMA.Chapter10.FormRegularity
+error: Rudin/PMA/Chapter10/FormRegularity.lean: bad import 'Rudin.PMA.Chapter10.FormsAlgebra'
+error: Rudin/PMA/Chapter10/FormRegularity.lean: bad import 'Rudin.PMA.Chapter10.SurfaceDomains'
+✖ [2725/2996] Running Rudin.PMA.Chapter10.FormExamples
+error: Rudin/PMA/Chapter10/FormExamples.lean: bad import 'Rudin.PMA.Chapter10.FormsAlgebra'
+error: Rudin/PMA/Chapter10/FormExamples.lean: bad import 'Rudin.PMA.Chapter10.FormRegularity'
+error: Rudin/PMA/Chapter10/FormExamples.lean: bad import 'Rudin.PMA.Chapter10.IntegrationMeasure'
+✖ [2809/2996] Running Rudin.PMA.Chapter10.SphereExamples
+error: Rudin/PMA/Chapter10/SphereExamples.lean: bad import 'Rudin.PMA.Chapter10.FormExamples'
+✖ [2810/2996] Running Rudin.PMA.Chapter10.ScalarForms
+error: Rudin/PMA/Chapter10/ScalarForms.lean: bad import 'Rudin.PMA.Chapter10.FormsAlgebra'
+✖ [2811/2996] Running Rudin.PMA.Chapter10.FormDefinitions
+error: Rudin/PMA/Chapter10/FormDefinitions.lean: bad import 'Rudin.PMA.Chapter10.FormRegularity'
+error: Rudin/PMA/Chapter10/FormDefinitions.lean: bad import 'Rudin.PMA.Chapter10.ScalarForms'
+error: Rudin/PMA/Chapter10/FormDefinitions.lean: bad import 'Rudin.PMA.Chapter10.Simplex'
+✖ [2812/2996] Running Rudin.PMA.Chapter10.FormOperations
+error: Rudin/PMA/Chapter10/FormOperations.lean: bad import 'Rudin.PMA.Chapter10.FormDefinitions'
+✖ [2813/2996] Running Rudin.PMA.Chapter10.StandardForms
+error: Rudin/PMA/Chapter10/StandardForms.lean: bad import 'Rudin.PMA.Chapter10.FormOperations'
+error: Rudin/PMA/Chapter10/StandardForms.lean: bad import 'Rudin.PMA.Chapter09.Determinants'
+✖ [2814/2996] Running Rudin.PMA.Chapter10.NativeSeparation
+error: Rudin/PMA/Chapter10/NativeSeparation.lean: bad import 'Rudin.PMA.Chapter10.IntegrationMeasure'
+✖ [2815/2996] Running Rudin.PMA.Chapter10.FormSeparation
+error: Rudin/PMA/Chapter10/FormSeparation.lean: bad import 'Rudin.PMA.Chapter10.StandardForms'
+error: Rudin/PMA/Chapter10/FormSeparation.lean: bad import 'Rudin.PMA.Chapter10.NativeSeparation'
+✖ [2816/2996] Running Rudin.PMA.Chapter10.WedgeProducts
+error: Rudin/PMA/Chapter10/WedgeProducts.lean: bad import 'Rudin.PMA.Chapter10.StandardForms'
+✖ [2817/2996] Running Rudin.PMA.Chapter09.Differentiation
+error: no such file or directory (error code: 2)
+  file: /root/rudin-lanes/rudin-ch10-a/rudin/Rudin/PMA/Chapter09/Differentiation.lean
+✖ [2818/2996] Running Rudin.PMA.Chapter10.CoordinateDifferentiation
+error: Rudin/PMA/Chapter10/CoordinateDifferentiation.lean: bad import 'Rudin.PMA.Chapter09.Differentiation'
+✖ [2819/2996] Running Rudin.PMA.Chapter10.ExteriorDerivative
+error: Rudin/PMA/Chapter10/ExteriorDerivative.lean: bad import 'Rudin.PMA.Chapter10.FormSeparation'
+error: Rudin/PMA/Chapter10/ExteriorDerivative.lean: bad import 'Rudin.PMA.Chapter10.FormExamples'
+error: Rudin/PMA/Chapter10/ExteriorDerivative.lean: bad import 'Rudin.PMA.Chapter10.CoordinateDifferentiation'
+error: Rudin/PMA/Chapter10/ExteriorDerivative.lean: bad import 'Rudin.PMA.Chapter10.WedgeProducts'
+✖ [2820/2996] Running Rudin.PMA.Chapter10.ExactOneForms
+error: Rudin/PMA/Chapter10/ExactOneForms.lean: bad import 'Rudin.PMA.Chapter10.ExteriorDerivative'
+✖ [2821/2996] Running Rudin.PMA.Chapter10.ExteriorDerivativeRules
+error: Rudin/PMA/Chapter10/ExteriorDerivativeRules.lean: bad import 'Rudin.PMA.Chapter10.ExteriorDerivative'
+✖ [2822/2996] Running Rudin.PMA.Chapter10.PullbackAlgebra
+error: Rudin/PMA/Chapter10/PullbackAlgebra.lean: bad import 'Rudin.PMA.Chapter10.FormOperations'
+✖ [2823/2996] Running Rudin.PMA.Chapter10.SurfaceMaps
+error: Rudin/PMA/Chapter10/SurfaceMaps.lean: bad import 'Rudin.PMA.Chapter10.PullbackAlgebra'
+✖ [2824/2996] Running Rudin.PMA.Chapter10.Pullbacks
+error: Rudin/PMA/Chapter10/Pullbacks.lean: bad import 'Rudin.PMA.Chapter10.SurfaceMaps'
+error: Rudin/PMA/Chapter10/Pullbacks.lean: bad import 'Rudin.PMA.Chapter10.ExteriorDerivative'
+✖ [2825/2996] Running Rudin.PMA.Chapter10.PullbackRegularity
+error: Rudin/PMA/Chapter10/PullbackRegularity.lean: bad import 'Rudin.PMA.Chapter10.Pullbacks'
+✖ [2826/2996] Running Rudin.PMA.Chapter10.PullbackDefinitions
+error: Rudin/PMA/Chapter10/PullbackDefinitions.lean: bad import 'Rudin.PMA.Chapter10.PullbackRegularity'
+✖ [2827/2996] Running Rudin.PMA.Chapter10.PullbackDifferentiation
+error: Rudin/PMA/Chapter10/PullbackDifferentiation.lean: bad import 'Rudin.PMA.Chapter10.PullbackRegularity'
+error: Rudin/PMA/Chapter10/PullbackDifferentiation.lean: bad import 'Rudin.PMA.Chapter10.ExteriorDerivativeRules'
+✖ [2828/2996] Running Rudin.PMA.Chapter10.PullbackEvaluation
+error: Rudin/PMA/Chapter10/PullbackEvaluation.lean: bad import 'Rudin.PMA.Chapter10.SurfaceMaps'
+✖ [2829/2996] Running Rudin.PMA.Chapter10.SurfacePullbacks
+error: Rudin/PMA/Chapter10/SurfacePullbacks.lean: bad import 'Rudin.PMA.Chapter10.Pullbacks'
+error: Rudin/PMA/Chapter10/SurfacePullbacks.lean: bad import 'Rudin.PMA.Chapter10.PullbackEvaluation'
+✖ [2830/2996] Running Rudin.PMA.Chapter10.AffineSimplices
+error: Rudin/PMA/Chapter10/AffineSimplices.lean: bad import 'Rudin.PMA.Chapter10.FormOperations'
+error: Rudin/PMA/Chapter10/AffineSimplices.lean: bad import 'Rudin.PMA.Chapter09.Determinants'
+✖ [2831/2996] Running Rudin.PMA.Chapter10
+error: Rudin/PMA/Chapter10.lean: bad import 'Rudin.PMA.Chapter10.Simplex'
+error: Rudin/PMA/Chapter10.lean: bad import 'Rudin.PMA.Chapter10.Primitive'
+error: Rudin/PMA/Chapter10.lean: bad import 'Rudin.PMA.Chapter10.Partition'
+error: Rudin/PMA/Chapter10.lean: bad import 'Rudin.PMA.Chapter10.ChangeOfVariables'
+error: Rudin/PMA/Chapter10.lean: bad import 'Rudin.PMA.Chapter10.SphereExamples'
+error: Rudin/PMA/Chapter10.lean: bad import 'Rudin.PMA.Chapter10.FormSeparation'
+error: Rudin/PMA/Chapter10.lean: bad import 'Rudin.PMA.Chapter10.WedgeProducts'
+error: Rudin/PMA/Chapter10.lean: bad import 'Rudin.PMA.Chapter10.ExactOneForms'
+error: Rudin/PMA/Chapter10.lean: bad import 'Rudin.PMA.Chapter10.ExteriorDerivativeRules'
+error: Rudin/PMA/Chapter10.lean: bad import 'Rudin.PMA.Chapter10.PullbackDefinitions'
+error: Rudin/PMA/Chapter10.lean: bad import 'Rudin.PMA.Chapter10.PullbackDifferentiation'
+error: Rudin/PMA/Chapter10.lean: bad import 'Rudin.PMA.Chapter10.SurfacePullbacks'
+error: Rudin/PMA/Chapter10.lean: bad import 'Rudin.PMA.Chapter10.AffineSimplices'
+✖ [2832/2996] Running Rudin.PMA.Chapter10.IntegrationProbes
+error: Rudin/PMA/Chapter10/IntegrationProbes.lean: bad import 'Rudin.PMA.Chapter10.IntegrationMeasure'
+✖ [2833/2996] Running Rudin.PMA.Chapter10.SimplexProbes
+error: Rudin/PMA/Chapter10/SimplexProbes.lean: bad import 'Rudin.PMA.Chapter10.Simplex'
+✖ [2834/2996] Running Rudin.PMA.Chapter10.PrimitiveProbes
+error: Rudin/PMA/Chapter10/PrimitiveProbes.lean: bad import 'Rudin.PMA.Chapter10.Primitive'
+✖ [2835/2996] Running Rudin.PMA.Chapter10.PartitionProbes
+error: Rudin/PMA/Chapter10/PartitionProbes.lean: bad import 'Rudin.PMA.Chapter10.Partition'
+✖ [2836/2996] Running Rudin.PMA.Chapter10.ChangeOfVariablesProbes
+error: Rudin/PMA/Chapter10/ChangeOfVariablesProbes.lean: bad import 'Rudin.PMA.Chapter10.ChangeOfVariables'
+✖ [2837/2996] Running Rudin.PMA.Chapter10.FormProbes
+error: Rudin/PMA/Chapter10/FormProbes.lean: bad import 'Rudin.PMA.Chapter10.FormDefinitions'
+✖ [2838/2996] Running Rudin.PMA.Chapter10.FormAlgebraProbes
+error: Rudin/PMA/Chapter10/FormAlgebraProbes.lean: bad import 'Rudin.PMA.Chapter10.WedgeProducts'
+error: Rudin/PMA/Chapter10/FormAlgebraProbes.lean: bad import 'Rudin.PMA.Chapter10.FormSeparation'
+✖ [2839/2996] Running Rudin.PMA.Chapter10.SphereExampleProbes
+error: Rudin/PMA/Chapter10/SphereExampleProbes.lean: bad import 'Rudin.PMA.Chapter10.SphereExamples'
+✖ [2840/2996] Running Rudin.PMA.Chapter10.ExteriorDerivativeProbes
+error: Rudin/PMA/Chapter10/ExteriorDerivativeProbes.lean: bad import 'Rudin.PMA.Chapter10.ExactOneForms'
+error: Rudin/PMA/Chapter10/ExteriorDerivativeProbes.lean: bad import 'Rudin.PMA.Chapter10.ExteriorDerivativeRules'
+✖ [2841/2996] Running Rudin.PMA.Chapter10.PullbackProbes
+error: Rudin/PMA/Chapter10/PullbackProbes.lean: bad import 'Rudin.PMA.Chapter10.PullbackDefinitions'
+error: Rudin/PMA/Chapter10/PullbackProbes.lean: bad import 'Rudin.PMA.Chapter10.PullbackDifferentiation'
+error: Rudin/PMA/Chapter10/PullbackProbes.lean: bad import 'Rudin.PMA.Chapter10.SurfacePullbacks'
+✖ [8974/8978] Running Rudin.PMA.Chapter10Audit
+error: Rudin/PMA/Chapter10Audit.lean: bad import 'Rudin.PMA.Chapter10'
+error: Rudin/PMA/Chapter10Audit.lean: bad import 'Rudin.PMA.Chapter10.IntegrationProbes'
+error: Rudin/PMA/Chapter10Audit.lean: bad import 'Rudin.PMA.Chapter10.SimplexProbes'
+error: Rudin/PMA/Chapter10Audit.lean: bad import 'Rudin.PMA.Chapter10.PrimitiveProbes'
+error: Rudin/PMA/Chapter10Audit.lean: bad import 'Rudin.PMA.Chapter10.PartitionProbes'
+error: Rudin/PMA/Chapter10Audit.lean: bad import 'Rudin.PMA.Chapter10.ChangeOfVariablesProbes'
+error: Rudin/PMA/Chapter10Audit.lean: bad import 'Rudin.PMA.Chapter10.FormProbes'
+error: Rudin/PMA/Chapter10Audit.lean: bad import 'Rudin.PMA.Chapter10.FormAlgebraProbes'
+error: Rudin/PMA/Chapter10Audit.lean: bad import 'Rudin.PMA.Chapter10.SphereExampleProbes'
+error: Rudin/PMA/Chapter10Audit.lean: bad import 'Rudin.PMA.Chapter10.ExteriorDerivativeProbes'
+error: Rudin/PMA/Chapter10Audit.lean: bad import 'Rudin.PMA.Chapter10.PullbackProbes'
+✔ [8976/8978] Built Rudin.PMA.Chapter01 (6.6s)
+✔ [8977/8978] Built Rudin.PMA.Chapter01Probes (4.5s)
+ℹ [8978/8978] Built Rudin.PMA.Chapter01Audit (6.3s)
+info: Rudin/PMA/Chapter01Audit.lean:34:0: Axiom audit for Rudin.PMA.Chapter01: checked 210 declarations; only propext, Classical.choice, and Quot.sound.
+info: Rudin/PMA/Chapter01Audit.lean:35:0: Axiom audit for Rudin.PMA.Chapter01Probes: checked 23 declarations; only propext, Classical.choice, and Quot.sound.
+Some required targets logged failures:
+- Rudin.PMA.Chapter09.ParameterIntegrals
+- Rudin.PMA.Chapter10.Integration
+- Rudin.PMA.Chapter10.IntegrationProofs
+- Rudin.PMA.Chapter10.IntegrationMeasure
+- Rudin.PMA.Chapter10.SimplexSlices
+- Rudin.PMA.Chapter10.Simplex
+- Rudin.PMA.Chapter09.Inverse
+- Rudin.PMA.Chapter09.Determinants
+- Rudin.PMA.Chapter10.Primitive
+- Rudin.PMA.Chapter09.Linear
+- Rudin.PMA.Chapter10.Partition
+- Rudin.PMA.Chapter10.ChangeOfVariables
+- Rudin.PMA.Chapter10.FormsCore
+- Rudin.PMA.Chapter10.Surfaces
+- Rudin.PMA.Chapter10.FormsAlgebra
+- Rudin.PMA.Chapter10.SurfaceDomains
+- Rudin.PMA.Chapter10.FormRegularity
+- Rudin.PMA.Chapter10.FormExamples
+- Rudin.PMA.Chapter10.SphereExamples
+- Rudin.PMA.Chapter10.ScalarForms
+- Rudin.PMA.Chapter10.FormDefinitions
+- Rudin.PMA.Chapter10.FormOperations
+- Rudin.PMA.Chapter10.StandardForms
+- Rudin.PMA.Chapter10.NativeSeparation
+- Rudin.PMA.Chapter10.FormSeparation
+- Rudin.PMA.Chapter10.WedgeProducts
+- Rudin.PMA.Chapter09.Differentiation
+- Rudin.PMA.Chapter10.CoordinateDifferentiation
+- Rudin.PMA.Chapter10.ExteriorDerivative
+- Rudin.PMA.Chapter10.ExactOneForms
+- Rudin.PMA.Chapter10.ExteriorDerivativeRules
+- Rudin.PMA.Chapter10.PullbackAlgebra
+- Rudin.PMA.Chapter10.SurfaceMaps
+- Rudin.PMA.Chapter10.Pullbacks
+- Rudin.PMA.Chapter10.PullbackRegularity
+- Rudin.PMA.Chapter10.PullbackDefinitions
+- Rudin.PMA.Chapter10.PullbackDifferentiation
+- Rudin.PMA.Chapter10.PullbackEvaluation
+- Rudin.PMA.Chapter10.SurfacePullbacks
+- Rudin.PMA.Chapter10.AffineSimplices
+- Rudin.PMA.Chapter10
+- Rudin.PMA.Chapter10.IntegrationProbes
+- Rudin.PMA.Chapter10.SimplexProbes
+- Rudin.PMA.Chapter10.PrimitiveProbes
+- Rudin.PMA.Chapter10.PartitionProbes
+- Rudin.PMA.Chapter10.ChangeOfVariablesProbes
+- Rudin.PMA.Chapter10.FormProbes
+- Rudin.PMA.Chapter10.FormAlgebraProbes
+- Rudin.PMA.Chapter10.SphereExampleProbes
+- Rudin.PMA.Chapter10.ExteriorDerivativeProbes
+- Rudin.PMA.Chapter10.PullbackProbes
+- Rudin.PMA.Chapter10Audit
+error: build failed

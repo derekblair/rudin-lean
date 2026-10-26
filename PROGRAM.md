@@ -2,7 +2,7 @@
 
 **Goal:** Complete Lean 4 + Mathlib formalization of Walter Rudin's *Principles of Mathematical Analysis* (3rd ed.) — every definition, every theorem, zero sorrys — at https://github.com/derekblair/rudin-lean. Then *Real and Complex Analysis*, then *Functional Analysis*, novelty increasing at each step.
 
-**Status:** Chapter 1 complete: 37 / 37 requested nodes (2026-10-09), zero proof placeholders, standard axioms only. Chapter 2 complete: 47 / 47 nodes, zero proof placeholders, standard axioms only. Chapter 3 complete: 55 / 55 nodes, zero proof placeholders, standard axioms only. Chapter 4 complete: 34 / 34 nodes, zero proof placeholders, standard axioms only. Chapter 5 complete: 19 / 19 nodes, zero proof placeholders, standard axioms only, with independent hostile review and production verification. Chapter 6 complete: 27 / 27 nodes and all accepted attached consequences, independent fidelity/hostile review and exact production verification complete. Chapter 7 complete: 33 / 33 nodes and all accepted attached consequences, independent fidelity/two hostile review sets, and exact production verification complete. Chapters 8–11 are pending in production. Dependency order: 1 → 11.
+**Status:** Chapter 1 complete: 38 / 38 numbered nodes, including standalone Remark 1.2, zero proof placeholders, standard axioms only. Chapter 2 complete: 47 / 47 nodes, zero proof placeholders, standard axioms only. Chapter 3 complete: 55 / 55 nodes, zero proof placeholders, standard axioms only. Chapter 4 complete: 34 / 34 nodes, zero proof placeholders, standard axioms only. Chapter 5 complete: 19 / 19 nodes, zero proof placeholders, standard axioms only, with independent hostile review and production verification. Chapter 6 complete: 27 / 27 nodes and all accepted attached consequences, independent fidelity/hostile review and exact production verification complete. Chapter 7 complete: 33 / 33 nodes and all accepted attached consequences, independent fidelity/two hostile review sets, and exact production verification complete. Chapter 8 complete: 22 / 22 nodes. Chapter 9 complete: 43 / 43 nodes. All eight review findings are closed. Chapter 10: 50 / 51 nodes complete; the final C² vector-potential clause of 10.43 remains unproved, while its proved clauses and separately labeled C¹ potential theorem are retained. Chapter 11 remains pending. Dependency order: 1 → 11.
 
 ## The book (3rd ed.)
 
@@ -61,7 +61,7 @@ rudin-lean/
 - Lean is the checker. A node isn't done until `lake build` passes with zero sorrys.
 - Copyright: theorem statements only, brief. Never reproduce Rudin's proof text or extended exposition — in chat, files, or commits.
 - Before starting each chapter, re-verify no one else has formalized it (landscape moves fast; Meta's ATLAS book list is not public).
-- Exercises deferred to v1-complete. Corollaries/remarks folded into the nearest node.
+- Exercises deferred to v1-complete. Unnumbered corollaries/remarks are attached to the nearest node; numbered remarks (including 1.2) remain standalone nodes.
 
 ## Current Chapter 5 production gate
 

@@ -1,0 +1,319 @@
+[
+  {
+    "path": "rudin/Rudin/PMA/Chapter01.lean",
+    "state": "different",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter01Audit.lean",
+      "rudin/Rudin/PMA/Chapter01Probes.lean",
+      "rudin/Rudin/PMA/Chapter02.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter01Audit.lean",
+    "state": "different",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter10Audit.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter01Probes.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter01Audit.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter02.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter03.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter03.lean",
+    "state": "different",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter04.lean",
+      "rudin/Rudin/PMA/Chapter08/Abel.lean",
+      "rudin/Rudin/PMA/Chapter08/DoubleSeries.lean",
+      "rudin/Rudin/PMA/Chapter08/PowerSeries.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter04.lean",
+    "state": "different",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter05.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter05.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter06/Curve.lean",
+      "rudin/Rudin/PMA/Chapter06/Jump.lean",
+      "rudin/Rudin/PMA/Chapter06/Vector.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter06.lean",
+    "state": "different",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter07/Calculus.lean",
+      "rudin/Rudin/PMA/Chapter08/Exponential.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter06/Basic.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter06.lean",
+      "rudin/Rudin/PMA/Chapter06/Criterion.lean",
+      "rudin/Rudin/PMA/Chapter06/Curve.lean",
+      "rudin/Rudin/PMA/Chapter06/Definitions.lean",
+      "rudin/Rudin/PMA/Chapter06/Jump.lean",
+      "rudin/Rudin/PMA/Chapter06/Refinement.lean",
+      "rudin/Rudin/PMA/Chapter06/Split.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter06/Calculus.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter06.lean",
+      "rudin/Rudin/PMA/Chapter06/Moment.lean",
+      "rudin/Rudin/PMA/Chapter06/Vector.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter06/Criterion.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter06.lean",
+      "rudin/Rudin/PMA/Chapter06/Integrability.lean",
+      "rudin/Rudin/PMA/Chapter06/Split.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter06/Curve.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter06.lean",
+      "rudin/Rudin/PMA/Chapter10/Circulation.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter06/Definitions.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter06.lean",
+      "rudin/Rudin/PMA/Chapter06/Curve.lean",
+      "rudin/Rudin/PMA/Chapter06/Exceptional.lean",
+      "rudin/Rudin/PMA/Chapter06/Vector.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter06/Endpoint.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter06.lean",
+      "rudin/Rudin/PMA/Chapter06/Exceptional.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter06/Exceptional.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter06.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter06/Integrability.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter06.lean",
+      "rudin/Rudin/PMA/Chapter06/Calculus.lean",
+      "rudin/Rudin/PMA/Chapter06/Curve.lean",
+      "rudin/Rudin/PMA/Chapter06/Endpoint.lean",
+      "rudin/Rudin/PMA/Chapter06/Exceptional.lean",
+      "rudin/Rudin/PMA/Chapter06/Jump.lean",
+      "rudin/Rudin/PMA/Chapter06/Monotone.lean",
+      "rudin/Rudin/PMA/Chapter06/Properties.lean",
+      "rudin/Rudin/PMA/Chapter06/Vector.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter06/Jump.lean",
+    "state": "different",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter06.lean",
+      "rudin/Rudin/PMA/Chapter06/Exceptional.lean",
+      "rudin/Rudin/PMA/Chapter06/Moment.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter06/Moment.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter06.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter06/Monotone.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter06.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter06/Properties.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter06.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter06/Refinement.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter06.lean",
+      "rudin/Rudin/PMA/Chapter06/Criterion.lean",
+      "rudin/Rudin/PMA/Chapter06/Split.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter06/Split.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter06.lean",
+      "rudin/Rudin/PMA/Chapter06/Calculus.lean",
+      "rudin/Rudin/PMA/Chapter06/Endpoint.lean",
+      "rudin/Rudin/PMA/Chapter06/Exceptional.lean",
+      "rudin/Rudin/PMA/Chapter06/Properties.lean",
+      "rudin/Rudin/PMA/Chapter06/Vector.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter06/Vector.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter06.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter07/Calculus.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter08/Operations.lean",
+      "rudin/Rudin/PMA/Chapter09/ParameterIntegrals.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter08.lean",
+    "state": "different",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter09/Linear.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter08/Abel.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter08.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter08/DoubleSeries.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter08.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter08/Exponential.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter08.lean",
+      "rudin/Rudin/PMA/Chapter09/ParameterIntegrals.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter08/Operations.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter08.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter08/PowerSeries.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter08.lean",
+      "rudin/Rudin/PMA/Chapter08/Operations.lean",
+      "rudin/Rudin/PMA/Chapter08/Taylor.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter08/Taylor.lean",
+    "state": "byte-identical",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter08.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter09/Determinants.lean",
+    "state": "different",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter10/AffineSimplices.lean",
+      "rudin/Rudin/PMA/Chapter10/Primitive.lean",
+      "rudin/Rudin/PMA/Chapter10/StandardForms.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter09/Differentiation.lean",
+    "state": "different",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter09/Determinants.lean",
+      "rudin/Rudin/PMA/Chapter09/Inverse.lean",
+      "rudin/Rudin/PMA/Chapter09/PartialExamples.lean",
+      "rudin/Rudin/PMA/Chapter10/CoordinateDifferentiation.lean",
+      "rudin/Rudin/PMA/Chapter10/PrefixCoordinates.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter09/HigherDerivatives.lean",
+    "state": "different",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter09/ParameterIntegrals.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter09/Inverse.lean",
+    "state": "different",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter10/Primitive.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter09/Linear.lean",
+    "state": "absent",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter09/Differentiation.lean",
+      "rudin/Rudin/PMA/Chapter10/Partition.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter09/ParameterIntegrals.lean",
+    "state": "absent",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter10/Integration.lean"
+    ]
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter09/PartialExamples.lean",
+    "state": "absent",
+    "parents": [
+      "rudin/Rudin/PMA/Chapter09/HigherDerivatives.lean"
+    ]
+  }
+]

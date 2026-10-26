@@ -1,0 +1,2130 @@
+{
+  "origin/lane/rudin-ch10-a": [
+    {
+      "status": "D",
+      "path": "evidence/ch08-compatibility-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-exponential-example-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-final-coverage-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-final-lake-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-final-manifest.json"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-final-target-build-audit.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-fourier-definitions-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-fourier-definitions-lane.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-fourier-independent-source-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-gamma-audit.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-gamma-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-gamma-native-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-integral-algebra-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-orthogonality-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-orthogonality-development.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-parseval-base-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-parseval-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-prior-calculus-hostile-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-prior-contract-independent-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-prior-exponential-hostile-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-prior-final-independent-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-prior-final-manifest.json"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-prior-foundation-hostile-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-reconciled-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-reconciliation.json"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-riemann-bridge-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-riemann-orthogonality-independent-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-riemann-periodic-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-section1-build-audit.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-section2-build-audit.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-section3-build-audit.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-trig-algebra-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-trigonometric-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-validation-notes.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-a-continuous-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-a-counterexamples-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-a-coverage.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-a-default-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-a-differentiation-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-a-final-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-a-inventory.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-a-linear-foundations-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-a-operators-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-a-verification.json"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-ch07-dependency-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-coverage.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-determinants-completion.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-final-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-final-probes.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-final-source-check.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-final-source-hashes.json"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-final-verification.json"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-higher-derivatives-fidelity-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-implicit-rank-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-integrals-audit.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-integrals-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-integrals-fidelity-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-integrals-probe.lean"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-integrals-review-check.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-integrals-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-integration-fidelity.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-inverse-implicit-fidelity-review.md"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-change-affine-reconciliation.md"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-final-build.log"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-form-geometry-axioms.log"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-forms-reconciliation.md"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-integration-reconciliation.md"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-lane-build.log"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-lane-final-build.log"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-primitive-reconciliation.md"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-reconciled-build.log"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-reconciliation-manifest.json"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-reconciliation.md"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-source-check.log"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-verification.json"
+    },
+    {
+      "status": "D",
+      "path": "evidence/fourier-axiom-audit.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/fourier-build-current.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/fourier-ch08-lane.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/fourier-convergence-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/gamma-ch08-lane.md"
+    },
+    {
+      "status": "D",
+      "path": "research/ch08-complete-inventory.md"
+    },
+    {
+      "status": "D",
+      "path": "research/ch08-exponential-orthonormal-review.md"
+    },
+    {
+      "status": "D",
+      "path": "research/ch08-fourier-convergence-review.md"
+    },
+    {
+      "status": "D",
+      "path": "research/ch08-fourier-definitions-review.md"
+    },
+    {
+      "status": "D",
+      "path": "research/ch08-gamma-review.md"
+    },
+    {
+      "status": "D",
+      "path": "research/ch08-parseval-review.md"
+    },
+    {
+      "status": "D",
+      "path": "research/ch08-reconciliation-review.md"
+    },
+    {
+      "status": "D",
+      "path": "research/ch08-riemann-bridge-review.md"
+    },
+    {
+      "status": "D",
+      "path": "research/ch08-riemann-periodic-review.md"
+    },
+    {
+      "status": "D",
+      "path": "research/pma-ch09-b-inventory.md"
+    },
+    {
+      "status": "A",
+      "path": "research/pma-ch10-a-inventory.md"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/AxiomAudit.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter01.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter01Audit.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter02Audit.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter03.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter03Audit.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter04.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter04Audit.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter05Audit.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter06.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter06/Jump.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter06Audit.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter06Probes.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter07.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter07/Algebra.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter07Audit.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter08.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/Abel.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/AlgebraicCompleteness.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/DoubleSeries.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/Exponential.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/ExponentialProbes.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/Fourier.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/FourierConvergence.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/FourierDefinitions.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/FourierExponentialExample.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/FourierParseval.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/FourierParsevalBase.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/Gamma.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/GammaAudit.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/GammaConsequences.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/GammaStirling.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/IntegralAlgebra.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/Operations.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/Orthogonality.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/PowerSeries.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/PowerSeriesCompatibility.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/RiemannBridge.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/RiemannPeriodic.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/Taylor.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/Trigonometric.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08Audit.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08Probes.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/ContinuousDifferentiability.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/Determinants.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/DeterminantsAudit.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/Differentiation.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/DiscontinuousPartials.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/FirstHalf.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/FirstHalfAudit.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/HigherDerivatives.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/Implicit.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/Integrals.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/IntegralsAudit.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/Inverse.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/InverseAudit.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/LinearFoundations.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/Operators.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/PartialContinuity.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/PartialCounterexamples.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/PartialCriterion.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/Rank.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/RankFactorization.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/RankGeometry.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/RankSupport.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/SecondHalf.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/SecondHalfAudit.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter10.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/AffineOrientation.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/AffineSimplices.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ChangeOfVariables.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ChangeOfVariablesProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/CoordinateDifferentiation.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ExactOneFormComplements.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ExactOneForms.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ExteriorDerivative.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ExteriorDerivativeProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ExteriorDerivativeRules.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormAlgebraProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormDefinitions.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormExampleGeometry.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormExamples.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormOperations.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormRegularity.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormSeparation.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormsAlgebra.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormsCore.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/Integration.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/IntegrationMeasure.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/IntegrationProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/IntegrationProofs.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/NativeSeparation.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/Partition.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PartitionComplements.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PartitionProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/Primitive.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PrimitiveProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackAlgebra.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackDefinitions.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackDifferentiation.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackEvaluation.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackRegularity.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/Pullbacks.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ScalarForms.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/Simplex.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexSlices.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SphereExampleProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SphereExamples.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/StandardForms.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SurfaceDomains.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SurfaceMaps.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SurfacePullbacks.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/Surfaces.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/WedgeProducts.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10Audit.lean"
+    },
+    {
+      "status": "D",
+      "path": "scripts/test_axiom_audit.py"
+    },
+    {
+      "status": "A",
+      "path": "scripts/verify_ch10_a_reconciliation.py"
+    }
+  ],
+  "origin/lane/rudin-ch10-b": [
+    {
+      "status": "D",
+      "path": "evidence/ch08-compatibility-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-exponential-example-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-final-coverage-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-final-lake-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-final-manifest.json"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-final-target-build-audit.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-fourier-definitions-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-fourier-definitions-lane.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-fourier-independent-source-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-gamma-audit.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-gamma-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-gamma-native-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-integral-algebra-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-orthogonality-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-orthogonality-development.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-parseval-base-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-parseval-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-prior-calculus-hostile-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-prior-contract-independent-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-prior-exponential-hostile-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-prior-final-independent-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-prior-final-manifest.json"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-prior-foundation-hostile-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-reconciled-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-reconciliation.json"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-riemann-bridge-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-riemann-orthogonality-independent-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-riemann-periodic-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-section1-build-audit.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-section2-build-audit.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-section3-build-audit.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-trig-algebra-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-trigonometric-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch08-validation-notes.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-a-continuous-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-a-counterexamples-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-a-coverage.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-a-default-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-a-differentiation-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-a-final-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-a-inventory.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-a-linear-foundations-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-a-operators-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-a-verification.json"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-ch07-dependency-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-coverage.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-determinants-completion.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-final-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-final-probes.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-final-source-check.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-final-source-hashes.json"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-final-verification.json"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-higher-derivatives-fidelity-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-implicit-rank-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-integrals-audit.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-integrals-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-integrals-fidelity-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-integrals-probe.lean"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-integrals-review-check.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-integrals-review.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-integration-fidelity.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/ch09-b-inverse-implicit-fidelity-review.md"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-change-affine-reconciliation.md"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-final-build.log"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-form-geometry-axioms.log"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-forms-reconciliation.md"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-integration-reconciliation.md"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-lane-build.log"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-lane-final-build.log"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-primitive-reconciliation.md"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-reconciled-build.log"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-reconciliation-manifest.json"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-reconciliation.md"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-source-check.log"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-a-verification.json"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-b-api-landscape.md"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-b-final-snapshot-build.log"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-b-final-validation.json"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-b-lane-build.log"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-b-lane-final-build.log"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-b-prior-chains-review.md"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-b-prior-middle-review.md"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-b-prior-vector-review.md"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-b-reconciliation-manifest.json"
+    },
+    {
+      "status": "A",
+      "path": "evidence/ch10-b-snapshot-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/fourier-axiom-audit.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/fourier-build-current.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/fourier-ch08-lane.md"
+    },
+    {
+      "status": "D",
+      "path": "evidence/fourier-convergence-build.log"
+    },
+    {
+      "status": "D",
+      "path": "evidence/gamma-ch08-lane.md"
+    },
+    {
+      "status": "D",
+      "path": "research/ch08-complete-inventory.md"
+    },
+    {
+      "status": "D",
+      "path": "research/ch08-exponential-orthonormal-review.md"
+    },
+    {
+      "status": "D",
+      "path": "research/ch08-fourier-convergence-review.md"
+    },
+    {
+      "status": "D",
+      "path": "research/ch08-fourier-definitions-review.md"
+    },
+    {
+      "status": "D",
+      "path": "research/ch08-gamma-review.md"
+    },
+    {
+      "status": "D",
+      "path": "research/ch08-parseval-review.md"
+    },
+    {
+      "status": "D",
+      "path": "research/ch08-reconciliation-review.md"
+    },
+    {
+      "status": "D",
+      "path": "research/ch08-riemann-bridge-review.md"
+    },
+    {
+      "status": "D",
+      "path": "research/ch08-riemann-periodic-review.md"
+    },
+    {
+      "status": "D",
+      "path": "research/pma-ch09-b-inventory.md"
+    },
+    {
+      "status": "A",
+      "path": "research/pma-ch10-a-inventory.md"
+    },
+    {
+      "status": "A",
+      "path": "research/pma-ch10-b-43-blocker.md"
+    },
+    {
+      "status": "A",
+      "path": "research/pma-ch10-b-inventory.md"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/AxiomAudit.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter01.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter01Audit.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter02Audit.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter03.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter03Audit.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter04.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter04Audit.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter05Audit.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter06.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter06/Jump.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter06Audit.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter06Probes.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter07.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter07/Algebra.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter07Audit.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter08.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/Abel.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/AlgebraicCompleteness.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/DoubleSeries.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/Exponential.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/ExponentialProbes.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/Fourier.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/FourierConvergence.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/FourierDefinitions.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/FourierExponentialExample.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/FourierParseval.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/FourierParsevalBase.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/Gamma.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/GammaAudit.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/GammaConsequences.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/GammaStirling.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/IntegralAlgebra.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/Operations.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/Orthogonality.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/PowerSeries.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/PowerSeriesCompatibility.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/RiemannBridge.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/RiemannPeriodic.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/Taylor.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08/Trigonometric.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08Audit.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter08Probes.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/ContinuousDifferentiability.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/Determinants.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/DeterminantsAudit.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/Differentiation.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/DiscontinuousPartials.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/FirstHalf.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/FirstHalfAudit.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/HigherDerivatives.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/Implicit.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/Integrals.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/IntegralsAudit.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/Inverse.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/InverseAudit.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/LinearFoundations.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/Operators.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/PartialContinuity.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/PartialCounterexamples.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/PartialCriterion.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/Rank.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/RankFactorization.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/RankGeometry.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/RankSupport.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/SecondHalf.lean"
+    },
+    {
+      "status": "D",
+      "path": "rudin/Rudin/PMA/Chapter09/SecondHalfAudit.lean"
+    },
+    {
+      "status": "M",
+      "path": "rudin/Rudin/PMA/Chapter10.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/AffineChains.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/AffineFaces.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/AffineOrientation.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/AffineSimplices.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/AngularForm.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/AreaElements.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/BoundaryDefinitions.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/BoundaryExamplesProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/CellFTC.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/CellFaces.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/CellImageVolume.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/CellIntegralNormalization.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/CellNormalization.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/CellTriangulation.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/CellTriangulationProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ChainMaps.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ChainStokes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ChangeOfVariables.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ChangeOfVariablesProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/Circulation.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ClassicalCalculusProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ClassicalStokes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ClosedExact.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ClosedFormConsequences.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ClosedFormProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/CoefficientIntegrals.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ContractionAlgebra.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ContractionCalculus.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ConvexExactnessProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ConvexLinearSections.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ConvexPrimitiveIntegral.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ConvexPrimitiveProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ConvexPrimitives.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ConvexSections.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/CoordinateDifferentiation.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/CubicalStokes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/CumulativeCoordinates.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/DiffeomorphicExactness.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/DivergenceTheorem.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ExactOneFormComplements.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ExactOneForms.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ExactnessTransport.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ExteriorDerivative.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ExteriorDerivativeProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ExteriorDerivativeRules.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/Flux.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormAlgebraProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormApproximation.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormDefinitions.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormExampleGeometry.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormExamples.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormIntegralContinuity.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormOperations.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormRegularity.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormSeparation.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormsAlgebra.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/FormsCore.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/Integration.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/IntegrationMeasure.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/IntegrationProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/IntegrationProofs.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/NativeSeparation.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/OneFormCoordinates.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ParametricC1.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/Partition.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PartitionComplements.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PartitionProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PlanarGreen.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/Poincare.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PositiveBoundaries.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PositiveBoundaryProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PositiveRegionUnions.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PositiveRegions.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PotentialRegularity.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PrefixCoordinates.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/Primitive.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PrimitiveProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackAlgebra.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackDefinitions.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackDifferentiation.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackEvaluation.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackRegularity.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/Pullbacks.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PuncturedExamples.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PuncturedPlane.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PuncturedProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/PuncturedSphere.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/RadialForm.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/RadialHomotopy.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/RadialPrimitive.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/RectangleChains.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/RectangleEdges.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/RectangleNormalization.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ScalarForms.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/ScalarPotentialProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SecondHalf.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SecondHalfAudit.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/Simplex.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexBoundaries.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexBoundarySquared.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexChainProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexChains.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexChangeOfVariables.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexFTC.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexFormFaces.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexOrientation.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexSeparation.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexSlices.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexStokes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SphereBoundary.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SphereExampleProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SphereExamples.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SquareBoundaries.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SquareIntegral.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/StaircaseGeometry.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/StaircaseIntegrals.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/StandardForms.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/StandardSimplexSurface.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/StokesCoefficients.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/StokesProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/StokesTransport.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SurfaceChains.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SurfaceDomains.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SurfaceMaps.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SurfacePrecomposition.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/SurfacePullbacks.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/Surfaces.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/Torus.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/TorusBoundary.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/TorusCalculus.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/TorusGeometry.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/TorusProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/TorusProof.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/TorusVolume.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/VectorFieldProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/VectorFields.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/VectorFormDerivatives.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/VectorIntegrationProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/VectorPotentials.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/VolumeAreaProbes.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/VolumeElements.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10/WedgeProducts.lean"
+    },
+    {
+      "status": "A",
+      "path": "rudin/Rudin/PMA/Chapter10Audit.lean"
+    },
+    {
+      "status": "D",
+      "path": "scripts/test_axiom_audit.py"
+    },
+    {
+      "status": "A",
+      "path": "scripts/verify_ch10_a_reconciliation.py"
+    },
+    {
+      "status": "A",
+      "path": "scripts/verify_ch10_b_reconciliation.py"
+    }
+  ]
+}

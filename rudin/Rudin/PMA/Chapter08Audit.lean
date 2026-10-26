@@ -54,5 +54,14 @@ run_cmd do
     | _ => throwError "Missing completed Chapter 8 proof: {n}"
   Lean.logInfo "PMA Chapter 8 coverage: 22 principal theorems and 22 contract type comparisons."
 
-run_cmd Rudin.PMA.Audit.checkNamespaceAxioms `Rudin.PMA.Chapter08
-run_cmd Rudin.PMA.Audit.checkNamespaceAxioms `Rudin.PMA.Chapter08.FidelityProbes
+-- Chapter08 imports this audit, so inspect its imported child modules without
+-- importing the aggregate back and creating a cycle. Module ownership also
+-- covers generated declarations outside the chapter/probe namespaces.
+run_cmd do
+  let env ← Lean.getEnv
+  for moduleName in env.header.moduleNames do
+    if (`Rudin.PMA.Chapter08).isPrefixOf moduleName then
+      Rudin.PMA.Audit.checkModuleAxioms moduleName (allowEmpty := true)
+
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08Probes
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter08Audit (allowEmpty := true)
