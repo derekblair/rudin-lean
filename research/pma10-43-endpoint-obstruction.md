@@ -63,7 +63,7 @@ Extend both by zero at the origin. Then v_m is C^(m−1), g_m is C^(m−2), and 
 
     Δv_m=g_m.
 
-Indeed Δ(P_m L)=P_m[L''+(2m+2)L'/r], and L=log t has L'=−1/(rt), L''=(t−1)/(r²t²). Derivatives of v_m of order j≤m−1 are O(r^(m−j)log t) plus smaller terms; derivatives of g_m of order j≤m−2 are O(r^(m−2−j)/t). Difference quotients and these bounds give the claimed extensions through zero. Along a ray where P_m≠0, the mth derivative of v_m diverges like a nonzero multiple of log t.
+Indeed Δ(P_m L)=P_m[L''+(2m+2)L'/r], and L=log t has L'=−1/(rt), L''=(t−1)/(r²t²). Derivatives of v_m of order j≤m−1 are O(r^(m−j)log t) plus smaller terms; derivatives of g_m of order j≤m−2 are O(r^(m−2−j)/t). Difference quotients and these bounds give the claimed extensions through zero. The derivative tensor satisfies D^m v_m=(D^m P_m)log t+O(1/t), with D^m P_m a nonzero constant tensor, so v_m is not C^m.
 
 **No C^m solution of Δu=g_m exists near zero, regardless of boundary conditions.** Normalize the degree-m spherical projection
 
@@ -140,7 +140,7 @@ Even C¹ angular profiles are soluble if q∈C² and q,q',q''→0: split a into 
 
     u=e_r r² ā b(t)+e_θ r² A(θ)q(t).
 
-The polar divergence is r[ā(3b−b')+A'q]=r a q, and both terms extend C² by the same bounds. These constructions do not cover arbitrary C¹ data; angular frequency increasing toward zero or simultaneous radial/angular irregularity defeats the displayed estimates, without establishing failure in every gauge.
+The polar divergence is r[ā(3b−b')+A'q]=r a q, and both terms extend C² by the same bounds. These constructions do not cover arbitrary C¹ data; angular frequency increasing toward zero or simultaneous radial/angular irregularity is not covered by the displayed fixed-profile estimates. Neither feature establishes failure in every gauge.
 
 ### A coordinate-antiderivative lift of a bad C⁰ datum is impossible
 
@@ -148,7 +148,7 @@ If g on an open domain is not the divergence of any C¹ vector field, it cannot 
 
 Consequently every individual differentiated equation div V_j=∂_j f for C¹ f already has the C¹ solution V_j=f e_j. A C² u would require V_j=∂_j u to satisfy these equations *simultaneously* with ∂_iV_j=∂_jV_i. That compatibility is not supplied by separate solvability. The known C⁰ divergence obstructions therefore cannot be lifted into the C¹-data problem by a same-domain coordinate antiderivative.
 
-McMullen's Theorem 2.1 excludes all Lipschitz solutions for some L∞ data by open mapping and Ornstein's non-inequality. [Primary repository](http://nrs.harvard.edu/urn-3:HUL.InstRepos:9871963). Dacorogna–Fusco–Tartar's abstract explicitly gives continuous-data/Lipschitz nonsolvability. [Primary article record](https://www.bdim.eu/item?id=RLIN_2003_9_14_3_239_0). Those data classes and derivative counts do not establish C¹-data/C² nonsolvability. The present lifting lemma identifies a specific impossible shortcut; it does not rule out a different higher-order duality or compatible construction.
+McMullen's Theorem 2.1 excludes all Lipschitz solutions for some L∞ data by open mapping and Ornstein's non-inequality. [Primary repository](http://nrs.harvard.edu/urn-3:HUL.InstRepos:9871963). The indexed primary abstract of Dacorogna–Fusco–Tartar reports continuous-data/Lipschitz nonsolvability. [Primary article record](https://www.bdim.eu/item?id=RLIN_2003_9_14_3_239_0). The full article was not fetched in this run, and the crossed reviewer could not independently retrieve the abstract; this contextual citation is not used in any new proof. Those data classes and derivative counts do not establish C¹-data/C² nonsolvability. The present lifting lemma identifies a specific impossible shortcut; it does not rule out a different higher-order duality or compatible construction.
 
 Introducing an extra coordinate also leaves an uncontrolled term: differentiating div U=h normally and restricting to z=0 yields div_xy(U₁,z,U₂,z)|₀=h_z|₀−U₃,zz|₀. Dropping the final continuous term would impose an extra condition absent from the contract. No construction eliminating this freedom was proved.
 
@@ -156,7 +156,7 @@ These explicit positive constructions and the lifting obstruction are the stoppi
 
 ## 6. What a further proof or disproof must supply
 
-Costabel–McIntosh prove order −1 regularized Poincaré operators and one-derivative gain on Sobolev/Besov scales, including B¹∞,∞→B²∞,∞; their Corollary 3.4, Remark 3.5 and Proposition 4.1 do not identify the integer output with classical C². [Primary preprint](https://arxiv.org/abs/0808.2614).
+Costabel–McIntosh prove in Theorem 3.2 that their regularized Poincaré operators have order −1, and establish one-derivative gain on Sobolev/Besov scales, including B¹∞,∞→B²∞,∞; their Corollary 3.4, Remark 3.5 and Proposition 4.1 do not identify the integer output with classical C². [Primary preprint](https://arxiv.org/abs/0808.2614).
 
 The differentiated-kernel estimate typically involves ∫₀^δω_DF(s)ds/s. C¹ gives a vanishing modulus, not a Dini integral. Berselli–Longo's Dini-data divergence result displays this integral in the derivative-convergence estimate before Theorem 16. It does not supply the required endpoint for arbitrary C¹ data after differentiation. [Primary preprint](https://arxiv.org/abs/1712.07917). No Dini or Hölder hypothesis is added to the contract here.
 
@@ -176,4 +176,4 @@ Commands are run from `rudin/` unless noted otherwise. The production default bu
 - `lake env lean ../research/pma10-43-axioms.lean`: exit 0; recursive axiom dependencies for all 32 new theorem/lemma declarations are only `propext`, `Classical.choice`, `Quot.sound`. This explicitly checks the standalone research modules in addition to the production default build.
 - `python3 scripts/verify_ch10_integration.py` (repository root): exit 1 because its historical manifest has 19 stale file hashes. Every mismatching file is byte-identical to base commit `05c9ea2`; the new research files cause no inventory, reachability, principal-count, or forbidden-token error. This pre-existing provenance failure is not repaired in this scope. The contract, original blocker, production sources, and audits remain byte-identical to the base.
 
-Independent crossed-pool review on dominic is required before landing. This report will record the exact reviewed commit and verdict in the review record. No merge or change of node status is part of this research deliverable.
+Independent crossed-pool review on dominic passed the obstruction-report category at commit `c1c787a`. The reviewer independently re-elaborated both research modules and all 32 axiom checks; the informal proofs were checked mathematically and remain unformalized. The full default build was not independently repeated, and the citation limitation above is explicit. The final review record identifies the exact documentation delta and reviewed bytes. No merge or change of node status is part of this research deliverable.
