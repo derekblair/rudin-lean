@@ -1,8 +1,10 @@
-# Crossed-pool review record: PMA 10.43 endpoint obstruction (ticket #14)
+# Author-arranged supplemental review record: PMA 10.43 endpoint obstruction (ticket #14)
 
-- Reviewer: Claude (Fable 5.1) on dominic, independent of the author pool (Codex chatgpt-live on bakkie).
+This is an author-arranged **SUPPLEMENTAL** review, not the programme's prescribed coordinator-appointed crossed review. It does not satisfy any landing gate.
+
+- Supplemental reviewer: Claude (Fable 5.1) on dominic, independent of the author pool (Codex chatgpt-live on bakkie); the session was arranged by the author lane.
 - Final reviewed commit: `31b5b5d424f9c13d5a699831e602ff2bfab83c67` on `research/t14-1043` (draft PR #21). It is one documentation-only commit above the initially reviewed `c1c787a5bde7d8034ebdfe2ff010326ee7e3d7a9`, which is one commit above base `05c9ea2f709ce854be0b794350a818d9ebd102f8`.
-- Verdict, obstruction-report category: **PASS**. No blocking findings at either commit.
+- Supplemental reviewer's verdict, obstruction-report category: **PASS**. No blocking findings at either commit.
 - The exact endpoint, existence of a C² vector potential for every admissible C¹ divergence-free field, is neither proved nor disproved. Node 10.43 remains incomplete; this record does not change its status and authorizes no merge.
 - Dates: initial review and documentation-delta review both 2026-10-26.
 
@@ -57,4 +59,4 @@ No blocking findings. The initial review's nonblocking items, a §3 wording nit,
 
 ## Recommendation
 
-Land as an obstruction report. Do not mark node 10.43 complete.
+Supplemental reviewer's opinion: land as an obstruction report. Do not mark node 10.43 complete. This is not programme approval.

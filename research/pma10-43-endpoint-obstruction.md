@@ -11,6 +11,17 @@ This is an **obstruction report**, not a proof or disproof of the printed clause
 - **External results:** only the precisely scoped published regularity results cited below. They are not imported into Lean.
 - **Unresolved:** existence of some C² potential for every field in the unchanged contract. No claim that this question is open in the literature is made.
 
+## Sibling research acknowledgement (2026-10-26)
+
+[PR #24](https://github.com/derekblair/rudin-lean/pull/24), merged into main at `c1f0fa6f4905a97f77423a8eca4dce61f6cc5e68`, independently landed sibling results in [`rudin/Rudin/PMA/Chapter10/VectorPotentialGaugeResearch.lean`](../rudin/Rudin/PMA/Chapter10/VectorPotentialGaugeResearch.lean) and [`rudin/Rudin/PMA/Chapter10/PlanarVectorPotentialResearch.lean`](../rudin/Rudin/PMA/Chapter10/PlanarVectorPotentialResearch.lean). Those modules cover much of the gauge and planar mathematics presented in §§2 and 5 below. The coordinator-appointed review's overlap table classifies this PR's 32 theorem/lemma declarations (nine gauge and 23 planar) as follows:
+
+- **19 duplicate mathematical statements** in the PR #24 modules.
+- **1 equivalent repackaging:** `same_curl_iff_gradient_gauge` combines the same classification and its reverse implication.
+- **7 newly named elementary map helpers** for the projection/inclusion representation, with no new mathematical reduction.
+- **5 genuinely new theorem statements:** `pma10_43_contract_iff_gauge_regularization`, `c2_of_c3_regularizing_gauge`, `contDiff_planarCoordinateField`, `planarDivergence_coordinateField`, and `no_c1_planarDivergence_implies_no_c1_coordinatePrimitive`.
+
+The substantive new results are the contract–gauge-regularization equivalence, the C³-gauge corollary, and the coordinate-antiderivative lifting obstruction; the two coordinate-field lemmas support that obstruction. No statement contradicts the sibling modules. This PR stands as an explicitly independent research snapshot. Consolidation of the overlapping interfaces is a maintenance question for later; no consolidation is claimed here.
+
 ## 0. Fidelity
 
 The source is PMA, third edition, printed pp.281–282, visually inspected in the relocated local PDF `/home/derekblair/projects/math/references/sources/pma3.pdf` (PDF pp.290–291). The brief's `~/sources/pma3.pdf` path is absent. Printed 10.40 on p.280 defines C²-equivalence by a one-to-one C² map onto an open set, with a C² inverse.
@@ -168,7 +179,7 @@ A disproof must furnish a C¹ field and exclude all C² gauges, exactly as the L
 
 ## Verification and review
 
-Commands are run from `rudin/` unless noted otherwise. The production default build and explicit research-module builds passed. The research modules remain standalone: they are deliberately not added to the frozen production Chapter 10 inventory or its audits.
+The commands below record validation of the pre-merge research snapshot `c034f119`, run from `rudin/` unless noted otherwise. The production default build and explicit research-module builds passed. The research modules remain standalone: they are deliberately not added to the frozen production Chapter 10 inventory or its audits. The declaration count includes the overlap with PR #24 detailed in the sibling acknowledgement above.
 
 - `lake build`: exit 0, 9204 jobs; existing recursive chapter audits passed.
 - `lake build Rudin.Research.PMA1043Gauge`: exit 0.
@@ -176,4 +187,6 @@ Commands are run from `rudin/` unless noted otherwise. The production default bu
 - `lake env lean ../research/pma10-43-axioms.lean`: exit 0; recursive axiom dependencies for all 32 new theorem/lemma declarations are only `propext`, `Classical.choice`, `Quot.sound`. This explicitly checks the standalone research modules in addition to the production default build.
 - `python3 scripts/verify_ch10_integration.py` (repository root): exit 1 because its historical manifest has 19 stale file hashes. Every mismatching file is byte-identical to base commit `05c9ea2`; the new research files cause no inventory, reachability, principal-count, or forbidden-token error. This pre-existing provenance failure is not repaired in this scope. The contract, original blocker, production sources, and audits remain byte-identical to the base.
 
-Independent crossed-pool review on dominic passed the obstruction-report category at commit `c1c787a`. The reviewer independently re-elaborated both research modules and all 32 axiom checks; the informal proofs were checked mathematically and remain unformalized. The full default build was not independently repeated, and the citation limitation above is explicit. The final review record identifies the exact documentation delta and reviewed bytes. No merge or change of node status is part of this research deliverable.
+The merge of main `c1f0fa6` also inherits the integration failures recorded by the coordinator review: the same 19 stale hashes plus three inventory/reachability errors from the sibling modules. These are ticket #25's scope; this fix does not change the integration script or manifest.
+
+Review status (2026-10-26): the programme's prescribed coordinator-appointed crossed review was **PENDING** when this report was written. As of this fix, that review (Codex on dominic) has been carried out and returned **FAIL on documentation grounds**; this fix cycle responds to those findings, and the landing decision follows its re-review. The author-arranged supplemental Claude review on dominic passed the obstruction-report category at commit `c1c787a`; it does not satisfy any landing gate. That supplemental reviewer independently re-elaborated both research modules and all 32 axiom checks; the informal proofs were checked mathematically and remain unformalized. The full default build was not independently repeated by that supplemental reviewer, and the citation limitation above is explicit. The supplemental review record identifies the exact documentation delta and reviewed bytes. No landing merge or change of node status is part of this research deliverable.
