@@ -1,0 +1,67 @@
+{
+  "status": "Passed: live-tree build, source checks, coverage, and transitive axiom audits.",
+  "baseline_commit": "f7f4e813348d0fb8ddc3b6645f794448266b44b9",
+  "build_command": "LEAN_NUM_THREADS=2 lake build",
+  "build_working_directory": "rudin",
+  "build_exit_code": 0,
+  "build_jobs": 9177,
+  "full_integration_build_attempts": 1,
+  "lean_version": "4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "chapter10_files": 149,
+  "source_chapter10_files": 147,
+  "byte_identical_source_files": 135,
+  "adapted_source_files": 12,
+  "adapted_production_files": 9,
+  "production_modules_from_lanes": 118,
+  "probe_modules": 25,
+  "numbered_contracts": 51,
+  "principal_theorems": 50,
+  "incomplete_nodes": [
+    43
+  ],
+  "incomplete_clause": "10.43 final C2 vector-potential converse; exact contract retained",
+  "forbidden_source_tokens": 0,
+  "project_lean_files_scanned": 253,
+  "axiom_audits": {
+    "Rudin.PMA.Chapter10": {
+      "declarations": 2306,
+      "modules": 148,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "Rudin.PMA.Chapter10Audit": {
+      "declarations": 0,
+      "modules": 1,
+      "axioms": []
+    },
+    "Rudin.PMA.Chapter09": {
+      "declarations": 342,
+      "modules": 20,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  },
+  "source_check_exit_code": 0,
+  "metadata_check_exit_codes": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0,
+    "6": 0,
+    "7": 0
+  },
+  "mathlib_or_toolchain_installed_or_changed": false,
+  "build_log_sha256": "10c77288a2f7b95dc5ebbc844947836103ac9b4cce635479d20f58f58c3c7167",
+  "notes": [
+    "Historical source logs are preserved verbatim, including trailing whitespace; source and metadata diff whitespace checks pass.",
+    "Initial dependency warm-up failed at root because imports were being assembled; the sole full integration build passed."
+  ]
+}

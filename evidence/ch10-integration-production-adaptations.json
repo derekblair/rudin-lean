@@ -1,0 +1,47 @@
+[
+  {
+    "path": "rudin/Rudin/PMA/Chapter10/AffineSimplices.lean",
+    "sha256": "6b4d244bc6165cc73328bcc1b7a1a3e254cf472093fd4594f22e8a3e24f49411",
+    "only_import_or_qualified_name_changes": true
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter10/CoordinateDifferentiation.lean",
+    "sha256": "75ce32db4e677edbde50d4f37e77540237e6c0adc47d2adfcb9fa9342a648f83",
+    "only_import_or_qualified_name_changes": true
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter10/Integration.lean",
+    "sha256": "25164892416755a93747cade9b66c8f2dc4e9245c8f062f45f4d1cda5c0dcc94",
+    "only_import_or_qualified_name_changes": true
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter10/IntegrationProofs.lean",
+    "sha256": "3ca8b1770e4a46be4134e32ad3cc5640f50666789e34b1d7e39d9b7d29c41c28",
+    "only_import_or_qualified_name_changes": true
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter10/NativeSeparation.lean",
+    "sha256": "aec246db10a68358b2b8a5ffeeaf23bcc0b3743386ceedbe8db4811a9112bb4f",
+    "only_import_or_qualified_name_changes": true
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter10/Partition.lean",
+    "sha256": "e4260e2eb43a20415a9e621e8abb2cb70a296ae0900a154afe66fde190cd13c5",
+    "only_import_or_qualified_name_changes": true
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter10/PrefixCoordinates.lean",
+    "sha256": "88928e36b54ec6538e6220908e995ffd54d57b2def5ec50b46eaebbc5c0df494",
+    "only_import_or_qualified_name_changes": true
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter10/Primitive.lean",
+    "sha256": "2c272f07458fc53f57192b3c7af24d145ae5b6bdfd997787fa3b3a0777cca5e1",
+    "only_import_or_qualified_name_changes": true
+  },
+  {
+    "path": "rudin/Rudin/PMA/Chapter10/StandardForms.lean",
+    "sha256": "2028bfd45446cf387a9745ffa09000bc761fbb801da79f5a487a9b16e9e17f62",
+    "only_import_or_qualified_name_changes": true
+  }
+]

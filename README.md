@@ -40,7 +40,7 @@ the module structure, so every later lemma builds on verified earlier ones.
 
 ## Status
 
-Chapter 1: all 37 requested nodes complete with zero proof placeholders.
+Chapter 1: all 38 numbered nodes complete, including standalone Remark 1.2 with zero proof placeholders.
 Chapter 2: all 47 numbered nodes complete.
 Chapter 3: all 55 numbered nodes complete.
 Chapter 4: all 34 numbered nodes complete.
@@ -51,11 +51,18 @@ complex specializations, with exact production build, recursive axiom and
 independent fidelity/hostile gates.
 Chapter 7: all 33 numbered nodes and attached consequences complete, with exact
 production source/build/kernel/axiom gates and independent fidelity plus two
-complete hostile-review sets. Chapters 8–11 follow in order.
+complete hostile-review sets.
+Chapter 8: all 22 nodes complete. Chapter 9: all 43 nodes complete.
+All eight review findings are closed.
+Chapter 10: 50 of 51 nodes complete; 10.43 retains its proved clauses and explicitly
+weaker C¹ vector-potential theorem, with the final C² vector-potential clause
+still unproved and tracked in `QUEUE.md`. Chapter 11 remains pending.
 The default `lake build` compiles boundary probes and audits completed chapter
 declarations for the three permitted axioms. See `PROGRESS.md` and the
 chapter-specific verification logs under `research/`.
 
-Run `python3 scripts/check_chapter.py N` for a completed chapter’s
-source/coverage/metadata checks,
-and run `lake build` from `rudin/` for Lean verification.
+Run `python3 scripts/check_chapter01.py` for Chapter 1,
+`python3 scripts/check_chapter.py N` for Chapters 2–7, and
+`python3 scripts/verify_ch10_integration.py` for Chapter 10 integration
+source/provenance/coverage checks. Run `lake build` from `rudin/` for Lean
+verification, including the Chapter 8–10 coverage and transitive axiom audits.

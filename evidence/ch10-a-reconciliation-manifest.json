@@ -1,0 +1,619 @@
+{
+  "source_ref": "origin/ch8-codex-20261022",
+  "source_commit": "bb50a2079f8e189d8e282e2521bbadb64f4f98eb",
+  "roots": [
+    "Simplex",
+    "Primitive",
+    "Partition",
+    "ChangeOfVariables",
+    "SphereExamples",
+    "FormSeparation",
+    "WedgeProducts",
+    "ExactOneForms",
+    "ExteriorDerivativeRules",
+    "PullbackDefinitions",
+    "PullbackDifferentiation",
+    "SurfacePullbacks",
+    "AffineSimplices"
+  ],
+  "probe_roots": [
+    "IntegrationProbes",
+    "SimplexProbes",
+    "PrimitiveProbes",
+    "PartitionProbes",
+    "ChangeOfVariablesProbes",
+    "FormProbes",
+    "FormAlgebraProbes",
+    "SphereExampleProbes",
+    "ExteriorDerivativeProbes",
+    "PullbackProbes"
+  ],
+  "files": [
+    {
+      "path": "rudin/Rudin/PMA/Chapter01.lean",
+      "sha256": "a82aaa52abdf6c9446d12674ee2b3d81829518f3d68035f4e43fd83a7d6da108",
+      "bytes": 43894,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter01Audit.lean",
+      "sha256": "caa5821f89f5c107c43422fd79f0e3b72eb353b89eca2ae849feae3c50b3e2f2",
+      "bytes": 1525,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter01Probes.lean",
+      "sha256": "799fbd4fbb34aaa973c91913066fe9775c9c4634416a2426197ad86ec9104898",
+      "bytes": 5632,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter02.lean",
+      "sha256": "7ec4b5443560804666aad9010d2a4600d545973dbb85fe0a8dc7268391d320e7",
+      "bytes": 61719,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter03.lean",
+      "sha256": "f711278f4e18ceeb1333cdda759a80635cf935d7c3658c1e984300eeb7808020",
+      "bytes": 173628,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter04.lean",
+      "sha256": "71ac9841413d7046b72f943541667d91f77dfc77924fbc588c2dbea277754df8",
+      "bytes": 86771,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter05.lean",
+      "sha256": "55acec19c187d4ae0d6bfc37c78ee32df5711a997f3d4e0aeea876eb876904cb",
+      "bytes": 79347,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06.lean",
+      "sha256": "845f356f126f288456cf210526ecb29523776bff6f6cfe89a4ebba369747a373",
+      "bytes": 4665,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Basic.lean",
+      "sha256": "5192b99092c0fc7da7109b1e3ffd90446db62c73845b935172643456b46a3915",
+      "bytes": 9481,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Calculus.lean",
+      "sha256": "ac36c016490bd347b592af764c1c6e5f544a6cd09ad7aac0c59a4c79da6c3c18",
+      "bytes": 32357,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Criterion.lean",
+      "sha256": "e88daabe91d0ddd9145c79ff4aecbfd5c054b30fd27ea86c0a1b7743e3488715",
+      "bytes": 6530,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Curve.lean",
+      "sha256": "0fcd03a02ba4b7c7a57a647b14befac8b93fa006238ed13abc910849362d1b50",
+      "bytes": 17809,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Definitions.lean",
+      "sha256": "13adade605f2cff6904a9b5d24f06057595d0c760abc140dfd7831608c5ccf81",
+      "bytes": 4528,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Endpoint.lean",
+      "sha256": "b4518141434d43a5d28f97944ba85b9af1c98cff1b19c910bddc2d4a70fe3e4b",
+      "bytes": 6086,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Exceptional.lean",
+      "sha256": "f611a715e8c85e43989fa9a196ceb7d93b55b40b9b3674dfd3bb98398fdfabfa",
+      "bytes": 5372,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Integrability.lean",
+      "sha256": "001823e4c51a56b9c0d0afbe13801a757200178eac396081dec3b7abb91d5cec",
+      "bytes": 26325,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Jump.lean",
+      "sha256": "ab56704088a99d95c29755f2ada3c7a491ea55af5f24be7cf19b51283e96c47a",
+      "bytes": 21753,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Moment.lean",
+      "sha256": "21ccfad2cbbc3cbd0726a62a190f6092fd2b376690233dd340435b38bb89deb5",
+      "bytes": 1346,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Monotone.lean",
+      "sha256": "93a69abdd3e242baa92eace347b551042157da49b4a83078e06abd469d832598",
+      "bytes": 3179,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Properties.lean",
+      "sha256": "a50ff1516880bd4110cb95e7b81baf44a64980ca2400aa1e377f2b093e8634c1",
+      "bytes": 928,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Refinement.lean",
+      "sha256": "d1590f0b5df2fec5986358b6d84c255a4535a90df0ac70b8bc5f4bbec9c6fcb0",
+      "bytes": 12357,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Split.lean",
+      "sha256": "d235d56777fc5e5a25db12e834769fd2192273d55a9d5921ceb80b857499a888",
+      "bytes": 15934,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Vector.lean",
+      "sha256": "1830138b9712dc5c6bd97293c0396df8160da84c25be76f55f0069dc3962ff98",
+      "bytes": 20930,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/Calculus.lean",
+      "sha256": "0bc805601a65a1261e944ae9d180b3cb0344c0d9484fc766f1d3df6c3411580d",
+      "bytes": 19877,
+      "lane_status": "identical"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08.lean",
+      "sha256": "91fab07f19c78091a6c20c26a55059173b894b9c7030e27c17b3fcb331776b27",
+      "bytes": 1235,
+      "lane_status": "different"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/Abel.lean",
+      "sha256": "2a7a23da0c64df9c38dff6975bd0f5e34f1a428a5d4fa86480c35b7498260239",
+      "bytes": 7384,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/DoubleSeries.lean",
+      "sha256": "7cb78d7c111d3be2a9bc0f5e67a02c0020e988ba39e24f67db050787aae57e7e",
+      "bytes": 2646,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/Exponential.lean",
+      "sha256": "cd7d31f6d45786bc4433d3c0bb878c1e4e0c2da6f43bf48fc1491c6167768bcd",
+      "bytes": 10254,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/Operations.lean",
+      "sha256": "2b4ce0759198e1a2c854a8398d7b285c5edd64de0d36fd19aa3ba824245ae07a",
+      "bytes": 6105,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/PowerSeries.lean",
+      "sha256": "af7669152ab11b348b454ccfacb37928c67be845b7428377bd29dfd6e6552518",
+      "bytes": 6972,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/Taylor.lean",
+      "sha256": "9c666fab54b9e7a3a7b7ac073e5b9ca9a8a7d2d31e2ccb7a7be303af472c0347",
+      "bytes": 2691,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Determinants.lean",
+      "sha256": "035b72c924fd832484c114656a0484ba8197afa9b11e9208034aaee7a12a1cd3",
+      "bytes": 8752,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Differentiation.lean",
+      "sha256": "65178884e3b85ed85dfa237971e66cfdc2dc9396497e1e95602c968b8d982252",
+      "bytes": 14155,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/HigherDerivatives.lean",
+      "sha256": "6b867733f57fd7e77402c52799902dae9512b925f683c09650046ed8a4630934",
+      "bytes": 23479,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Inverse.lean",
+      "sha256": "c8457e500795a3d7fc7dcd59d4ff0a18d65ff4b82d2d726a163f180919c08796",
+      "bytes": 8063,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Linear.lean",
+      "sha256": "a61832744979629254d50b5a7c9d8c6acaab123b516cd14919f320199cfa34e3",
+      "bytes": 19797,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/ParameterIntegrals.lean",
+      "sha256": "af81da0e7d5b23b5b3b3c1e13941496457743b4c86f74d6a950640866990e1c4",
+      "bytes": 18693,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/PartialExamples.lean",
+      "sha256": "9bc917373c2d04c126d38ec7c35f16cb9277aa2fc4f274434beb48c729286203",
+      "bytes": 7924,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/AffineSimplices.lean",
+      "sha256": "952393bfb0741aa222a1acfb7b23c3c0316cba9e74a5b80303885031d3b1467c",
+      "bytes": 12820,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ChangeOfVariables.lean",
+      "sha256": "13f65cf7c6656ce2b0165252090ec8a6d0293493a71c72f86cc28a02bd504659",
+      "bytes": 9949,
+      "lane_status": "different"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ChangeOfVariablesProbes.lean",
+      "sha256": "5b58f2cde3763635cdf1ee9507603e4a0af531dcaa954f780ec11f5b7eebc4d8",
+      "bytes": 2337,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CoordinateDifferentiation.lean",
+      "sha256": "28e818daf01b4ac68bbeb070f679fadddaa131db5835f607da809781722c4be4",
+      "bytes": 6100,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ExactOneForms.lean",
+      "sha256": "e2d3e476b4f2e896af46956680cc0241855a3b6211a7fee0be13a6e5588f7274",
+      "bytes": 6195,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ExteriorDerivative.lean",
+      "sha256": "32563a37cb03475c0565a7f7c87998d10c7f6aba1c146d3b2c32bd4a8ced68ab",
+      "bytes": 10474,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ExteriorDerivativeProbes.lean",
+      "sha256": "ccff9065bd747e4340fd147cfbef1eb2287fcd5f853a59171b9ecdc64722492e",
+      "bytes": 3691,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ExteriorDerivativeRules.lean",
+      "sha256": "b8b8f63c33f72ae7e14ef1a378708d98860c183323b89c6ab986fcea01fe77f9",
+      "bytes": 6369,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormAlgebraProbes.lean",
+      "sha256": "ba45873e165b84289977892b0a60ab5f152a3a34aed8b0ae1295cac50ed1768e",
+      "bytes": 2274,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormDefinitions.lean",
+      "sha256": "42a8630d7c0a0d3e90dce85f26832d7f7c2a5e4fb68653988505febe6e91314b",
+      "bytes": 3420,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormExamples.lean",
+      "sha256": "3e3c5478483102de6c37a760989be5924bf2765c1606b3546d30b8544b0d802f",
+      "bytes": 12697,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormOperations.lean",
+      "sha256": "55939cdfe36cf842c638467e4bc082384a0c1a7cffc3ce06a05340f981fd9bae",
+      "bytes": 6527,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormProbes.lean",
+      "sha256": "b11a1b9feeb7bd41456b7810616f20b9674e55ee41b6c70393c380a514c4c478",
+      "bytes": 2991,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormRegularity.lean",
+      "sha256": "4d914c2ed63a5c4faee84e4eda50377af3095cf01ad003c666ec7a5cbc228924",
+      "bytes": 4495,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormSeparation.lean",
+      "sha256": "9dd2504bc1139aca174d960888601015abd7454da928d870a07a619ee89a9d1a",
+      "bytes": 8304,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormsAlgebra.lean",
+      "sha256": "008151a4403139501ad36c4ea9333808fa2b456ebabadc616eb3faa67de92ce1",
+      "bytes": 3976,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormsCore.lean",
+      "sha256": "9f718c1dc6ef5855805f01176a8aabffca9768f7c952e063f7f1ea31533382b1",
+      "bytes": 4626,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Integration.lean",
+      "sha256": "db0054a17a9a065740596654ecb5b35b960b42dc6a4d5e3cfb8d2984230acdef",
+      "bytes": 6913,
+      "lane_status": "different"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/IntegrationMeasure.lean",
+      "sha256": "0123ef35e549e6bd0fc1dbfd9823d5650b5b9008114e285660de4d95568b4a7c",
+      "bytes": 9836,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/IntegrationProbes.lean",
+      "sha256": "a22d31edbeb4179ff4ed555c411834fa2027f6119cff4c50a44c072695fd37d3",
+      "bytes": 3298,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/IntegrationProofs.lean",
+      "sha256": "7ceed05ff97db102454e4d52ef1ad58a60d52ec3225c0e6e71d0f63df7b428b9",
+      "bytes": 5046,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/NativeSeparation.lean",
+      "sha256": "d28c2362cdd3201023171dc8fbfaccab4d4ed8125c69ba6ff9532ed77d7783b4",
+      "bytes": 7045,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Partition.lean",
+      "sha256": "5d4a4e66629b73912921920fc23af3118763843dfbdf8f15d3dba06ae266a1b5",
+      "bytes": 2043,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PartitionProbes.lean",
+      "sha256": "6f13bcde04f0f7f76182222195f28636a6913f179802bcce37fddc3e4293e401",
+      "bytes": 1977,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Primitive.lean",
+      "sha256": "200eb8e36d54cdf771415de92c1046cf4c92d64c123d0fed62a4ee7e64639f5b",
+      "bytes": 24853,
+      "lane_status": "different"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PrimitiveProbes.lean",
+      "sha256": "5ff9f013feba37663b8f872b816ec64ee78273fcd6dad954071a4852bb42282d",
+      "bytes": 3099,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackAlgebra.lean",
+      "sha256": "beec993d5a18137da7e8d4016e74bbe91d68332d0b50d5c4697ee86c78ac4b4f",
+      "bytes": 4128,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackDefinitions.lean",
+      "sha256": "8e72423af8572af10ea0752550c4503b85e181699371d9d6f0b85eb31dfb8015",
+      "bytes": 823,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackDifferentiation.lean",
+      "sha256": "2077ad901b15816a82276e35611061d3bf8f8339c63b9ccfe4986692070d42e0",
+      "bytes": 8182,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackEvaluation.lean",
+      "sha256": "92e334104c5f09da34cad0354702572b907adc4b04119ecd324b2f8885dd3c01",
+      "bytes": 4053,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackProbes.lean",
+      "sha256": "856e21baa0bcc5c164c9d141142a24cfc57ddf47ab2295743e5d4cd13601b805",
+      "bytes": 6359,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackRegularity.lean",
+      "sha256": "79bf2beba1a14313ed24968b323e3396b366a6a57b234cbe527d637e1e24a523",
+      "bytes": 7759,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Pullbacks.lean",
+      "sha256": "43e60a43270bbc18999139d16d195fc08f1a909800517b4e48e7f1bc3bfa5aeb",
+      "bytes": 3195,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ScalarForms.lean",
+      "sha256": "30f681a8408eae0cc36c59ef07705d30fb11c6b6b272d06dd01e4ce9772bfb39",
+      "bytes": 3450,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Simplex.lean",
+      "sha256": "a8d47dcf24e72f261138297ae8cb89479f5b189d091163dd0f843c881701a928",
+      "bytes": 6331,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexProbes.lean",
+      "sha256": "a652ba6b576cf90d22452cb284b1f92450950cdae48d136b56ad7e023fb69f70",
+      "bytes": 1957,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexSlices.lean",
+      "sha256": "e303ac72a9e0e49bb5ee2dd16216924b14166937e5f319303a0ef485c201e603",
+      "bytes": 10878,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SphereExampleProbes.lean",
+      "sha256": "daa56dc02527d93716e68e2894361d45280e9dfe38f550aa9f14ac8e8799ce5d",
+      "bytes": 1731,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SphereExamples.lean",
+      "sha256": "87aaef719f53e5071ed3e853b4802cd98d1fbe5f1be8a6bbfbd172cfbb0d187f",
+      "bytes": 11871,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/StandardForms.lean",
+      "sha256": "a7ec125be843cc5617234a59768589b4daf81fa6166e3482d7d4f21c81dbbed4",
+      "bytes": 8118,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SurfaceDomains.lean",
+      "sha256": "7b7c83140d5a890564a7699d60454ea79ba91cccfe85cf87b0148114f7bdd77d",
+      "bytes": 5641,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SurfaceMaps.lean",
+      "sha256": "57cef14a2c52733a6aea2d410f1aed3101031d524ffa49f75fd65d093d1c3dde",
+      "bytes": 2352,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SurfacePullbacks.lean",
+      "sha256": "d617f06fdd932989c67b5fa7f0cc618547e480f9e309ebf928ead3a2850aba5d",
+      "bytes": 1522,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Surfaces.lean",
+      "sha256": "b4ca23167dfe07853dada56aa449e3de061fb6008387b51efa6d274bd6edc338",
+      "bytes": 2439,
+      "lane_status": "missing"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/WedgeProducts.lean",
+      "sha256": "2927b89be671cbf2bbaafb42755d5e8b27bb39ae07189a10d81f87b069a55c2d",
+      "bytes": 12813,
+      "lane_status": "missing"
+    }
+  ],
+  "baseline_commit": "87344489d0a8ce7fe00a37ef846a72fc70d33735",
+  "scope": {
+    "chapter_nodes": 51,
+    "first_half": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26
+    ],
+    "second_half": [
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51
+    ]
+  },
+  "lane_status_note": "File status was recorded before importing the reconciled first-half files; missing prerequisite entries outside Chapter10 remain absent in the live lane.",
+  "additional_lane_modules": [
+    "rudin/Rudin/PMA/Chapter10/PartitionComplements.lean",
+    "rudin/Rudin/PMA/Chapter10/FormExampleGeometry.lean",
+    "rudin/Rudin/PMA/Chapter10/ExactOneFormComplements.lean",
+    "rudin/Rudin/PMA/Chapter10/AffineOrientation.lean"
+  ],
+  "additional_lane_module_hashes": [
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PartitionComplements.lean",
+      "sha256": "c19007966795d15e25dd330e21012b834058abfe2ea40e3d78308bdccf6f013c",
+      "bytes": 1823
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormExampleGeometry.lean",
+      "sha256": "6c220e2fde6c1f38146821381a12062c4fd6d6f369d1ec9c0e9c39ff3c42e480",
+      "bytes": 8906
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ExactOneFormComplements.lean",
+      "sha256": "f403d4065032e2e0d9d2e52ef4d89563e3f9c0003ad33e6b366f0c00a8f0cd6b",
+      "bytes": 3550
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/AffineOrientation.lean",
+      "sha256": "96b01aaa47ad88c79bb04450188c35bb8af96996fd207082305398641ce279be",
+      "bytes": 5820
+    }
+  ]
+}

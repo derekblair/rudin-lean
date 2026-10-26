@@ -1,0 +1,164 @@
+[
+  {
+    "declaration": "Euclidean",
+    "origin_module": "Linear",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "standardBasis",
+    "origin_module": "Linear",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "Operator",
+    "origin_module": "Linear",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "operatorMatrix",
+    "origin_module": "Linear",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "standardBasis_repr",
+    "origin_module": "Linear",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "standardBasis_apply",
+    "origin_module": "Linear",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "operatorMatrix_apply",
+    "origin_module": "Linear",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "C1On",
+    "origin_module": "Differentiation",
+    "whole_declaration_equal": false,
+    "statement_equal": false
+  },
+  {
+    "declaration": "c1On_iff_contDiffOn",
+    "origin_module": "Differentiation",
+    "whole_declaration_equal": false,
+    "statement_equal": true
+  },
+  {
+    "declaration": "coordinateVector",
+    "origin_module": "Differentiation",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "HasCoordinatePartial",
+    "origin_module": "Differentiation",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "coordinatePartial",
+    "origin_module": "Differentiation",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "hasCoordinatePartial_of_hasFDerivAt",
+    "origin_module": "Differentiation",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "coordinatePartial_eq_fderiv",
+    "origin_module": "Differentiation",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "linear_apply_eq_sum_coordinates",
+    "origin_module": "Differentiation",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "tupleSign",
+    "origin_module": "Determinants",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "columnDet",
+    "origin_module": "Determinants",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "jacobian",
+    "origin_module": "Determinants",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "partialJacobian",
+    "origin_module": "Determinants",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "pma9_38_contract",
+    "origin_module": "Determinants",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "operator_isUnit_iff_det_ne_zero",
+    "origin_module": "Determinants",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "operator_isInvertible_iff_isUnit",
+    "origin_module": "Determinants",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "pma9_38",
+    "origin_module": "Determinants",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "InverseNeighborhood",
+    "origin_module": "Inverse",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  },
+  {
+    "declaration": "inverse_neighborhood_c1",
+    "origin_module": "Inverse",
+    "whole_declaration_equal": false,
+    "statement_equal": true
+  },
+  {
+    "declaration": "rsIntegral_tendsto_of_uniformFilterLimit",
+    "origin_module": "ParameterIntegrals",
+    "whole_declaration_equal": false,
+    "statement_equal": true
+  },
+  {
+    "declaration": "orientedRIntegral_eq_intervalIntegral",
+    "origin_module": "ParameterIntegrals",
+    "whole_declaration_equal": true,
+    "statement_equal": true
+  }
+]

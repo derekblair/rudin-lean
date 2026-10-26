@@ -1,0 +1,519 @@
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Chapter 10 integration coverage: 51 contracts, 50 principal theorems, 25 probe modules; 10.43 final C² clause incomplete.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_1 (module Rudin.PMA.Chapter10.IntegrationMeasure); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_10 (module Rudin.PMA.Chapter10.SurfaceDomains); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_10_contract (module Rudin.PMA.Chapter10.SurfaceDomains); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_11 (module Rudin.PMA.Chapter10.FormDefinitions); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_11_contract (module Rudin.PMA.Chapter10.FormDefinitions); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_12 (module Rudin.PMA.Chapter10.SphereExamples); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_12_contract (module Rudin.PMA.Chapter10.FormExamples); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_12_geometry (module Rudin.PMA.Chapter10.FormExampleGeometry); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_13 (module Rudin.PMA.Chapter10.FormOperations); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_13_contract (module Rudin.PMA.Chapter10.FormOperations); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_14 (module Rudin.PMA.Chapter10.StandardForms); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_14_contract (module Rudin.PMA.Chapter10.StandardForms); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_15 (module Rudin.PMA.Chapter10.FormSeparation); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_15_contract (module Rudin.PMA.Chapter10.FormSeparation); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_16 (module Rudin.PMA.Chapter10.WedgeProducts); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_16_contract (module Rudin.PMA.Chapter10.WedgeProducts); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_17 (module Rudin.PMA.Chapter10.WedgeProducts); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_17_contract (module Rudin.PMA.Chapter10.WedgeProducts); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_18 (module Rudin.PMA.Chapter10.ExteriorDerivative); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_18_contract (module Rudin.PMA.Chapter10.ExteriorDerivative); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_19 (module Rudin.PMA.Chapter10.ExactOneForms); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_19_contract (module Rudin.PMA.Chapter10.ExteriorDerivative); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_19_dxdy_not_formEqOn_zero (module Rudin.PMA.Chapter10.ExactOneFormComplements); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_19_xdy_derivative (module Rudin.PMA.Chapter10.ExactOneFormComplements); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_1_contract (module Rudin.PMA.Chapter10.Integration); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_2 (module Rudin.PMA.Chapter10.IntegrationMeasure); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_20 (module Rudin.PMA.Chapter10.ExteriorDerivativeRules); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_20_contract (module Rudin.PMA.Chapter10.ExteriorDerivative); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_21 (module Rudin.PMA.Chapter10.PullbackDefinitions); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_21_contract (module Rudin.PMA.Chapter10.Pullbacks); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_22 (module Rudin.PMA.Chapter10.PullbackDifferentiation); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_22_contract (module Rudin.PMA.Chapter10.Pullbacks); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_23 (module Rudin.PMA.Chapter10.SurfacePullbacks); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_23_contract (module Rudin.PMA.Chapter10.Pullbacks); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_24 (module Rudin.PMA.Chapter10.SurfacePullbacks); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_24_contract (module Rudin.PMA.Chapter10.Pullbacks); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_25 (module Rudin.PMA.Chapter10.SurfacePullbacks); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_25_contract (module Rudin.PMA.Chapter10.Pullbacks); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_26 (module Rudin.PMA.Chapter10.AffineSimplices); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_26_contract (module Rudin.PMA.Chapter10.AffineSimplices); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_26_relativeOrientation (module Rudin.PMA.Chapter10.AffineOrientation); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_26_relativeOrientation_contract (module Rudin.PMA.Chapter10.AffineOrientation); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_27 (module Rudin.PMA.Chapter10.SimplexOrientation); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_27_contract (module Rudin.PMA.Chapter10.SimplexOrientation); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_28 (module Rudin.PMA.Chapter10.AffineChains); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_28_contract (module Rudin.PMA.Chapter10.AffineChains); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_29 (module Rudin.PMA.Chapter10.SimplexBoundaries); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_29_contract (module Rudin.PMA.Chapter10.SimplexBoundaries); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_2_contract (module Rudin.PMA.Chapter10.Integration); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_3 (module Rudin.PMA.Chapter10.IntegrationMeasure); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_30 (module Rudin.PMA.Chapter10.ChainMaps); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_30_contract (module Rudin.PMA.Chapter10.ChainMaps); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_31 (module Rudin.PMA.Chapter10.BoundaryDefinitions); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_31_contract (module Rudin.PMA.Chapter10.BoundaryDefinitions); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_32 (module Rudin.PMA.Chapter10.SphereBoundary); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_32_contract (module Rudin.PMA.Chapter10.SphereBoundary); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_33 (module Rudin.PMA.Chapter10.ChainStokes); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_33_contract (module Rudin.PMA.Chapter10.StokesTransport); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_34 (module Rudin.PMA.Chapter10.ClosedExact); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_34_contract (module Rudin.PMA.Chapter10.ClosedExact); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_35 (module Rudin.PMA.Chapter10.ClosedFormConsequences); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_35_contract (module Rudin.PMA.Chapter10.ClosedFormConsequences); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_36 (module Rudin.PMA.Chapter10.PuncturedPlane); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_36_contract (module Rudin.PMA.Chapter10.PuncturedExamples); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_37 (module Rudin.PMA.Chapter10.PuncturedSphere); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_37_contract (module Rudin.PMA.Chapter10.PuncturedExamples); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_38 (module Rudin.PMA.Chapter10.ConvexPrimitives); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_38_contract (module Rudin.PMA.Chapter10.ConvexPrimitives); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_39 (module Rudin.PMA.Chapter10.Poincare); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_39_contract (module Rudin.PMA.Chapter10.Poincare); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_3_contract (module Rudin.PMA.Chapter10.Integration); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_4 (module Rudin.PMA.Chapter10.Simplex); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_40 (module Rudin.PMA.Chapter10.DiffeomorphicExactness); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_40_contract (module Rudin.PMA.Chapter10.DiffeomorphicExactness); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_41 (module Rudin.PMA.Chapter10.CellTriangulation); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_41_contract (module Rudin.PMA.Chapter10.CellTriangulation); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_42 (module Rudin.PMA.Chapter10.VectorFields); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_42_contract (module Rudin.PMA.Chapter10.VectorFields); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_43_contract (module Rudin.PMA.Chapter10.VectorPotentials); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_43_forward (module Rudin.PMA.Chapter10.VectorPotentials); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_43_scalar_converse (module Rudin.PMA.Chapter10.VectorPotentials); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_44 (module Rudin.PMA.Chapter10.VolumeElements); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_44_contract (module Rudin.PMA.Chapter10.VolumeElements); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_45 (module Rudin.PMA.Chapter10.PlanarGreen); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_45_contract (module Rudin.PMA.Chapter10.PlanarGreen); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_46 (module Rudin.PMA.Chapter10.AreaElements); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_46_contract (module Rudin.PMA.Chapter10.AreaElements); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_47 (module Rudin.PMA.Chapter10.TorusProof); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_47_contract (module Rudin.PMA.Chapter10.Torus); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_48 (module Rudin.PMA.Chapter10.Circulation); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_48_contract (module Rudin.PMA.Chapter10.Circulation); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_49 (module Rudin.PMA.Chapter10.Flux); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_49_contract (module Rudin.PMA.Chapter10.Flux); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_4_contract (module Rudin.PMA.Chapter10.Integration); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_5 (module Rudin.PMA.Chapter10.Primitive); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_50 (module Rudin.PMA.Chapter10.ClassicalStokes); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_50_contract (module Rudin.PMA.Chapter10.ClassicalStokes); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_51 (module Rudin.PMA.Chapter10.DivergenceTheorem); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_51_contract (module Rudin.PMA.Chapter10.DivergenceTheorem); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_5_contract (module Rudin.PMA.Chapter10.Primitive); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_6 (module Rudin.PMA.Chapter10.Primitive); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_6_contract (module Rudin.PMA.Chapter10.Primitive); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_7 (module Rudin.PMA.Chapter10.Primitive); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_7_contract (module Rudin.PMA.Chapter10.Primitive); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_8 (module Rudin.PMA.Chapter10.Partition); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_8_complex_corollary (module Rudin.PMA.Chapter10.PartitionComplements); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_8_contract (module Rudin.PMA.Chapter10.Partition); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_9 (module Rudin.PMA.Chapter10.ChangeOfVariables); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_9_contract (module Rudin.PMA.Chapter10.ChangeOfVariables); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit coverage: Rudin.PMA.Chapter10.vectorPotential_c1_of_equivalent_convex (module Rudin.PMA.Chapter10.VectorPotentials); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10: checked 0 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.AffineChains: checked 32 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.AffineFaces: checked 25 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.AffineOrientation: checked 15 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.AffineSimplices: checked 46 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.AngularForm: checked 19 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.AreaElements: checked 48 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.BoundaryDefinitions: checked 2 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.BoundaryExamplesProbes: checked 13 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.CellFTC: checked 10 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.CellFaces: checked 21 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.CellImageVolume: checked 1 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.CellIntegralNormalization: checked 11 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.CellNormalization: checked 20 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.CellTriangulation: checked 19 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.CellTriangulationProbes: checked 6 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ChainMaps: checked 10 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ChainStokes: checked 1 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ChangeOfVariables: checked 18 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ChangeOfVariablesProbes: checked 7 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.Circulation: checked 28 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ClassicalCalculusProbes: checked 11 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ClassicalStokes: checked 12 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ClosedExact: checked 7 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ClosedFormConsequences: checked 11 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ClosedFormProbes: checked 5 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.CoefficientIntegrals: checked 9 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ContractionAlgebra: checked 20 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ContractionCalculus: checked 12 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ConvexExactnessProbes: checked 2 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ConvexLinearSections: checked 3 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ConvexPrimitiveIntegral: checked 10 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ConvexPrimitiveProbes: checked 9 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ConvexPrimitives: checked 2 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ConvexSections: checked 1 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.CoordinateDifferentiation: checked 11 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.CubicalStokes: checked 16 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.CumulativeCoordinates: checked 18 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.DiffeomorphicExactness: checked 2 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.DivergenceTheorem: checked 10 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ExactOneFormComplements: checked 4 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ExactOneForms: checked 9 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ExactnessTransport: checked 33 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ExteriorDerivative: checked 25 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ExteriorDerivativeProbes: checked 13 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ExteriorDerivativeRules: checked 9 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.Flux: checked 10 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.FormAlgebraProbes: checked 5 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.FormApproximation: checked 9 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.FormDefinitions: checked 14 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.FormExampleGeometry: checked 32 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.FormExamples: checked 45 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.FormIntegralContinuity: checked 19 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.FormOperations: checked 17 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.FormProbes: checked 9 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.FormRegularity: checked 10 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.FormSeparation: checked 23 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.FormsAlgebra: checked 18 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.FormsCore: checked 30 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.Integration: checked 53 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.IntegrationAudit: checked 0 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.IntegrationMeasure: checked 37 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.IntegrationProbes: checked 12 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.IntegrationProofs: checked 17 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.NativeSeparation: checked 15 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.OneFormCoordinates: checked 12 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ParametricC1: checked 10 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.Partition: checked 2 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.PartitionComplements: checked 3 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.PartitionProbes: checked 2 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.PlanarGreen: checked 24 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.Poincare: checked 2 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.PositiveBoundaries: checked 9 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.PositiveBoundaryProbes: checked 23 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.PositiveRegionUnions: checked 34 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.PositiveRegions: checked 41 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.PotentialRegularity: checked 2 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.PrefixCoordinates: checked 19 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.Prerequisites: checked 36 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.Primitive: checked 66 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.PrimitiveProbes: checked 3 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.PullbackAlgebra: checked 15 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.PullbackDefinitions: checked 2 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.PullbackDifferentiation: checked 9 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.PullbackEvaluation: checked 5 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.PullbackProbes: checked 24 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.PullbackRegularity: checked 18 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.Pullbacks: checked 7 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.PuncturedExamples: checked 14 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.PuncturedPlane: checked 21 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.PuncturedProbes: checked 2 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.PuncturedSphere: checked 23 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.RadialForm: checked 24 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.RadialHomotopy: checked 8 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.RadialPrimitive: checked 5 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.RectangleChains: checked 16 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.RectangleEdges: checked 12 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.RectangleNormalization: checked 8 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ScalarForms: checked 13 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.ScalarPotentialProbes: checked 1 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SecondHalf: checked 0 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SecondHalfAudit: checked 0 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.Simplex: checked 7 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SimplexBoundaries: checked 29 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SimplexBoundarySquared: checked 4 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SimplexChainProbes: checked 3 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SimplexChains: checked 42 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SimplexChangeOfVariables: checked 1 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SimplexFTC: checked 17 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SimplexFormFaces: checked 7 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SimplexOrientation: checked 23 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SimplexProbes: checked 2 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SimplexSeparation: checked 15 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SimplexSlices: checked 18 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SimplexStokes: checked 24 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SphereBoundary: checked 30 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SphereExampleProbes: checked 2 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SphereExamples: checked 39 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SquareBoundaries: checked 34 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SquareIntegral: checked 6 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.StaircaseGeometry: checked 26 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.StaircaseIntegrals: checked 6 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.StandardForms: checked 27 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.StandardSimplexSurface: checked 3 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.StokesCoefficients: checked 7 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.StokesProbes: checked 16 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.StokesTransport: checked 10 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SurfaceChains: checked 12 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SurfaceDomains: checked 58 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SurfaceMaps: checked 16 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SurfacePrecomposition: checked 18 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.SurfacePullbacks: checked 3 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.Surfaces: checked 53 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.Torus: checked 28 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.TorusBoundary: checked 11 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.TorusCalculus: checked 25 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.TorusGeometry: checked 22 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.TorusProbes: checked 5 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.TorusProof: checked 1 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.TorusVolume: checked 3 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.VectorFieldProbes: checked 1 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.VectorFields: checked 44 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.VectorFormDerivatives: checked 15 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.VectorIntegrationProbes: checked 17 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.VectorPotentials: checked 11 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.VolumeAreaProbes: checked 11 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.VolumeElements: checked 25 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10.WedgeProducts: checked 23 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit for Rudin.PMA.Chapter10: checked 2306 declarations in 148 modules; axioms used: [propext,
+ Classical.choice,
+ Quot.sound]; no forbidden axioms.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit module Rudin.PMA.Chapter10Audit: checked 0 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:57:0: Axiom audit for Rudin.PMA.Chapter10Audit: checked 0 declarations in 1 modules; axioms used: []; no forbidden axioms.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Supplementary merged Chapter 9 production audit by source-module ownership.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit coverage: Rudin.PMA.Chapter09.pma9_1_span_iff (module Rudin.PMA.Chapter09.LinearFoundations); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit coverage: Rudin.PMA.Chapter09.pma9_22 (module Rudin.PMA.Chapter09.ContinuousDifferentiability); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit coverage: Rudin.PMA.Chapter09.pma9_43 (module Rudin.PMA.Chapter09.Integrals); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit module Rudin.PMA.Chapter09: checked 0 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit module Rudin.PMA.Chapter09.ContinuousDifferentiability: checked 14 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit module Rudin.PMA.Chapter09.Determinants: checked 44 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit module Rudin.PMA.Chapter09.Differentiation: checked 49 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit module Rudin.PMA.Chapter09.DiscontinuousPartials: checked 7 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit module Rudin.PMA.Chapter09.FirstHalf: checked 0 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit module Rudin.PMA.Chapter09.HigherDerivatives: checked 23 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit module Rudin.PMA.Chapter09.Implicit: checked 39 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit module Rudin.PMA.Chapter09.Integrals: checked 20 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit module Rudin.PMA.Chapter09.Inverse: checked 6 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit module Rudin.PMA.Chapter09.LinearFoundations: checked 52 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit module Rudin.PMA.Chapter09.Operators: checked 43 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit module Rudin.PMA.Chapter09.PartialContinuity: checked 10 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit module Rudin.PMA.Chapter09.PartialCounterexamples: checked 11 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit module Rudin.PMA.Chapter09.PartialCriterion: checked 2 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit module Rudin.PMA.Chapter09.Rank: checked 3 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit module Rudin.PMA.Chapter09.RankFactorization: checked 6 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit module Rudin.PMA.Chapter09.RankGeometry: checked 10 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit module Rudin.PMA.Chapter09.RankSupport: checked 3 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit module Rudin.PMA.Chapter09.SecondHalf: checked 0 declarations.
+info: Rudin/PMA/Chapter10/IntegrationAudit.lean:120:0: Axiom audit for Rudin.PMA.Chapter09: checked 342 declarations in 20 modules; axioms used: [propext,
+ Classical.choice,
+ Quot.sound]; no forbidden axioms.
+✔ [9176/9177] Built Rudin (1.9s)
+Build completed successfully (9177 jobs).

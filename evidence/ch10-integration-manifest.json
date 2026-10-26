@@ -1,0 +1,1631 @@
+{
+  "baseline_commit": "f7f4e813348d0fb8ddc3b6645f794448266b44b9",
+  "source_a_commit": "c7262b1fe9978c573e4e15ea506d972411e4d963",
+  "source_b_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+  "recovered_commit": "bb50a2079f8e189d8e282e2521bbadb64f4f98eb",
+  "chapter10_files": [
+    "rudin/Rudin/PMA/Chapter10.lean",
+    "rudin/Rudin/PMA/Chapter10/AffineChains.lean",
+    "rudin/Rudin/PMA/Chapter10/AffineFaces.lean",
+    "rudin/Rudin/PMA/Chapter10/AffineOrientation.lean",
+    "rudin/Rudin/PMA/Chapter10/AffineSimplices.lean",
+    "rudin/Rudin/PMA/Chapter10/AngularForm.lean",
+    "rudin/Rudin/PMA/Chapter10/AreaElements.lean",
+    "rudin/Rudin/PMA/Chapter10/BoundaryDefinitions.lean",
+    "rudin/Rudin/PMA/Chapter10/BoundaryExamplesProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/CellFTC.lean",
+    "rudin/Rudin/PMA/Chapter10/CellFaces.lean",
+    "rudin/Rudin/PMA/Chapter10/CellImageVolume.lean",
+    "rudin/Rudin/PMA/Chapter10/CellIntegralNormalization.lean",
+    "rudin/Rudin/PMA/Chapter10/CellNormalization.lean",
+    "rudin/Rudin/PMA/Chapter10/CellTriangulation.lean",
+    "rudin/Rudin/PMA/Chapter10/CellTriangulationProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/ChainMaps.lean",
+    "rudin/Rudin/PMA/Chapter10/ChainStokes.lean",
+    "rudin/Rudin/PMA/Chapter10/ChangeOfVariables.lean",
+    "rudin/Rudin/PMA/Chapter10/ChangeOfVariablesProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/Circulation.lean",
+    "rudin/Rudin/PMA/Chapter10/ClassicalCalculusProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/ClassicalStokes.lean",
+    "rudin/Rudin/PMA/Chapter10/ClosedExact.lean",
+    "rudin/Rudin/PMA/Chapter10/ClosedFormConsequences.lean",
+    "rudin/Rudin/PMA/Chapter10/ClosedFormProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/CoefficientIntegrals.lean",
+    "rudin/Rudin/PMA/Chapter10/ContractionAlgebra.lean",
+    "rudin/Rudin/PMA/Chapter10/ContractionCalculus.lean",
+    "rudin/Rudin/PMA/Chapter10/ConvexExactnessProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/ConvexLinearSections.lean",
+    "rudin/Rudin/PMA/Chapter10/ConvexPrimitiveIntegral.lean",
+    "rudin/Rudin/PMA/Chapter10/ConvexPrimitiveProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/ConvexPrimitives.lean",
+    "rudin/Rudin/PMA/Chapter10/ConvexSections.lean",
+    "rudin/Rudin/PMA/Chapter10/CoordinateDifferentiation.lean",
+    "rudin/Rudin/PMA/Chapter10/CubicalStokes.lean",
+    "rudin/Rudin/PMA/Chapter10/CumulativeCoordinates.lean",
+    "rudin/Rudin/PMA/Chapter10/DiffeomorphicExactness.lean",
+    "rudin/Rudin/PMA/Chapter10/DivergenceTheorem.lean",
+    "rudin/Rudin/PMA/Chapter10/ExactOneFormComplements.lean",
+    "rudin/Rudin/PMA/Chapter10/ExactOneForms.lean",
+    "rudin/Rudin/PMA/Chapter10/ExactnessTransport.lean",
+    "rudin/Rudin/PMA/Chapter10/ExteriorDerivative.lean",
+    "rudin/Rudin/PMA/Chapter10/ExteriorDerivativeProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/ExteriorDerivativeRules.lean",
+    "rudin/Rudin/PMA/Chapter10/Flux.lean",
+    "rudin/Rudin/PMA/Chapter10/FormAlgebraProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/FormApproximation.lean",
+    "rudin/Rudin/PMA/Chapter10/FormDefinitions.lean",
+    "rudin/Rudin/PMA/Chapter10/FormExampleGeometry.lean",
+    "rudin/Rudin/PMA/Chapter10/FormExamples.lean",
+    "rudin/Rudin/PMA/Chapter10/FormIntegralContinuity.lean",
+    "rudin/Rudin/PMA/Chapter10/FormOperations.lean",
+    "rudin/Rudin/PMA/Chapter10/FormProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/FormRegularity.lean",
+    "rudin/Rudin/PMA/Chapter10/FormSeparation.lean",
+    "rudin/Rudin/PMA/Chapter10/FormsAlgebra.lean",
+    "rudin/Rudin/PMA/Chapter10/FormsCore.lean",
+    "rudin/Rudin/PMA/Chapter10/Integration.lean",
+    "rudin/Rudin/PMA/Chapter10/IntegrationAudit.lean",
+    "rudin/Rudin/PMA/Chapter10/IntegrationMeasure.lean",
+    "rudin/Rudin/PMA/Chapter10/IntegrationProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/IntegrationProofs.lean",
+    "rudin/Rudin/PMA/Chapter10/NativeSeparation.lean",
+    "rudin/Rudin/PMA/Chapter10/OneFormCoordinates.lean",
+    "rudin/Rudin/PMA/Chapter10/ParametricC1.lean",
+    "rudin/Rudin/PMA/Chapter10/Partition.lean",
+    "rudin/Rudin/PMA/Chapter10/PartitionComplements.lean",
+    "rudin/Rudin/PMA/Chapter10/PartitionProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/PlanarGreen.lean",
+    "rudin/Rudin/PMA/Chapter10/Poincare.lean",
+    "rudin/Rudin/PMA/Chapter10/PositiveBoundaries.lean",
+    "rudin/Rudin/PMA/Chapter10/PositiveBoundaryProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/PositiveRegionUnions.lean",
+    "rudin/Rudin/PMA/Chapter10/PositiveRegions.lean",
+    "rudin/Rudin/PMA/Chapter10/PotentialRegularity.lean",
+    "rudin/Rudin/PMA/Chapter10/PrefixCoordinates.lean",
+    "rudin/Rudin/PMA/Chapter10/Prerequisites.lean",
+    "rudin/Rudin/PMA/Chapter10/Primitive.lean",
+    "rudin/Rudin/PMA/Chapter10/PrimitiveProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/PullbackAlgebra.lean",
+    "rudin/Rudin/PMA/Chapter10/PullbackDefinitions.lean",
+    "rudin/Rudin/PMA/Chapter10/PullbackDifferentiation.lean",
+    "rudin/Rudin/PMA/Chapter10/PullbackEvaluation.lean",
+    "rudin/Rudin/PMA/Chapter10/PullbackProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/PullbackRegularity.lean",
+    "rudin/Rudin/PMA/Chapter10/Pullbacks.lean",
+    "rudin/Rudin/PMA/Chapter10/PuncturedExamples.lean",
+    "rudin/Rudin/PMA/Chapter10/PuncturedPlane.lean",
+    "rudin/Rudin/PMA/Chapter10/PuncturedProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/PuncturedSphere.lean",
+    "rudin/Rudin/PMA/Chapter10/RadialForm.lean",
+    "rudin/Rudin/PMA/Chapter10/RadialHomotopy.lean",
+    "rudin/Rudin/PMA/Chapter10/RadialPrimitive.lean",
+    "rudin/Rudin/PMA/Chapter10/RectangleChains.lean",
+    "rudin/Rudin/PMA/Chapter10/RectangleEdges.lean",
+    "rudin/Rudin/PMA/Chapter10/RectangleNormalization.lean",
+    "rudin/Rudin/PMA/Chapter10/ScalarForms.lean",
+    "rudin/Rudin/PMA/Chapter10/ScalarPotentialProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/SecondHalf.lean",
+    "rudin/Rudin/PMA/Chapter10/SecondHalfAudit.lean",
+    "rudin/Rudin/PMA/Chapter10/Simplex.lean",
+    "rudin/Rudin/PMA/Chapter10/SimplexBoundaries.lean",
+    "rudin/Rudin/PMA/Chapter10/SimplexBoundarySquared.lean",
+    "rudin/Rudin/PMA/Chapter10/SimplexChainProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/SimplexChains.lean",
+    "rudin/Rudin/PMA/Chapter10/SimplexChangeOfVariables.lean",
+    "rudin/Rudin/PMA/Chapter10/SimplexFTC.lean",
+    "rudin/Rudin/PMA/Chapter10/SimplexFormFaces.lean",
+    "rudin/Rudin/PMA/Chapter10/SimplexOrientation.lean",
+    "rudin/Rudin/PMA/Chapter10/SimplexProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/SimplexSeparation.lean",
+    "rudin/Rudin/PMA/Chapter10/SimplexSlices.lean",
+    "rudin/Rudin/PMA/Chapter10/SimplexStokes.lean",
+    "rudin/Rudin/PMA/Chapter10/SphereBoundary.lean",
+    "rudin/Rudin/PMA/Chapter10/SphereExampleProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/SphereExamples.lean",
+    "rudin/Rudin/PMA/Chapter10/SquareBoundaries.lean",
+    "rudin/Rudin/PMA/Chapter10/SquareIntegral.lean",
+    "rudin/Rudin/PMA/Chapter10/StaircaseGeometry.lean",
+    "rudin/Rudin/PMA/Chapter10/StaircaseIntegrals.lean",
+    "rudin/Rudin/PMA/Chapter10/StandardForms.lean",
+    "rudin/Rudin/PMA/Chapter10/StandardSimplexSurface.lean",
+    "rudin/Rudin/PMA/Chapter10/StokesCoefficients.lean",
+    "rudin/Rudin/PMA/Chapter10/StokesProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/StokesTransport.lean",
+    "rudin/Rudin/PMA/Chapter10/SurfaceChains.lean",
+    "rudin/Rudin/PMA/Chapter10/SurfaceDomains.lean",
+    "rudin/Rudin/PMA/Chapter10/SurfaceMaps.lean",
+    "rudin/Rudin/PMA/Chapter10/SurfacePrecomposition.lean",
+    "rudin/Rudin/PMA/Chapter10/SurfacePullbacks.lean",
+    "rudin/Rudin/PMA/Chapter10/Surfaces.lean",
+    "rudin/Rudin/PMA/Chapter10/Torus.lean",
+    "rudin/Rudin/PMA/Chapter10/TorusBoundary.lean",
+    "rudin/Rudin/PMA/Chapter10/TorusCalculus.lean",
+    "rudin/Rudin/PMA/Chapter10/TorusGeometry.lean",
+    "rudin/Rudin/PMA/Chapter10/TorusProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/TorusProof.lean",
+    "rudin/Rudin/PMA/Chapter10/TorusVolume.lean",
+    "rudin/Rudin/PMA/Chapter10/VectorFieldProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/VectorFields.lean",
+    "rudin/Rudin/PMA/Chapter10/VectorFormDerivatives.lean",
+    "rudin/Rudin/PMA/Chapter10/VectorIntegrationProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/VectorPotentials.lean",
+    "rudin/Rudin/PMA/Chapter10/VolumeAreaProbes.lean",
+    "rudin/Rudin/PMA/Chapter10/VolumeElements.lean",
+    "rudin/Rudin/PMA/Chapter10/WedgeProducts.lean",
+    "rudin/Rudin/PMA/Chapter10Audit.lean"
+  ],
+  "files": [
+    {
+      "path": "rudin/Rudin/PMA/Chapter10.lean",
+      "sha256": "ca62b0508ae0027d578a08d2f0112f76c3b24b26a0c04dc73f9eaccf72527f8c",
+      "source_sha256": "9821807820d6bad65907796fa0109379d94577189a5864f2958b4ae96150e40e",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "adapted; see integration report"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/AffineChains.lean",
+      "sha256": "c1a6ba37485db4343cccaacc0db8d6648b83464cf832a99e57b55d2bc1cd231d",
+      "source_sha256": "c1a6ba37485db4343cccaacc0db8d6648b83464cf832a99e57b55d2bc1cd231d",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/AffineFaces.lean",
+      "sha256": "e8190800f232c21709e4928c4e972073fd4dbf07aa27f9985b76ce90e840d441",
+      "source_sha256": "e8190800f232c21709e4928c4e972073fd4dbf07aa27f9985b76ce90e840d441",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/AffineOrientation.lean",
+      "sha256": "96b01aaa47ad88c79bb04450188c35bb8af96996fd207082305398641ce279be",
+      "source_sha256": "96b01aaa47ad88c79bb04450188c35bb8af96996fd207082305398641ce279be",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/AffineSimplices.lean",
+      "sha256": "6b4d244bc6165cc73328bcc1b7a1a3e254cf472093fd4594f22e8a3e24f49411",
+      "source_sha256": "952393bfb0741aa222a1acfb7b23c3c0316cba9e74a5b80303885031d3b1467c",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "adapted; see integration report"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/AngularForm.lean",
+      "sha256": "dbd1904ffdc805d22f675617d0ea7557a4666452d9f43e10311473785758c6ef",
+      "source_sha256": "dbd1904ffdc805d22f675617d0ea7557a4666452d9f43e10311473785758c6ef",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/AreaElements.lean",
+      "sha256": "1aa91fdaf847b9df76629ea5fb8c5def76271e6af67ac5cc93f3ec98c2d7eb1d",
+      "source_sha256": "1aa91fdaf847b9df76629ea5fb8c5def76271e6af67ac5cc93f3ec98c2d7eb1d",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/BoundaryDefinitions.lean",
+      "sha256": "3717675e379711303b8564e58c2d272c60fb01b1008f5fb80f4d9373e863e773",
+      "source_sha256": "3717675e379711303b8564e58c2d272c60fb01b1008f5fb80f4d9373e863e773",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/BoundaryExamplesProbes.lean",
+      "sha256": "fa3f88ae672a3da131703bbfbd65306f666ff218d1df0e01a6c5d2eb885334e3",
+      "source_sha256": "fa3f88ae672a3da131703bbfbd65306f666ff218d1df0e01a6c5d2eb885334e3",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CellFTC.lean",
+      "sha256": "36ed2e975589dafa415531280856c4616f97a47582a47054e3b1dbc1ed4a87ca",
+      "source_sha256": "36ed2e975589dafa415531280856c4616f97a47582a47054e3b1dbc1ed4a87ca",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CellFaces.lean",
+      "sha256": "8f3217a1ae8fdd7552da027ebdd164d3c83c41448db87cc4284eea0ecc9cc8e1",
+      "source_sha256": "8f3217a1ae8fdd7552da027ebdd164d3c83c41448db87cc4284eea0ecc9cc8e1",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CellImageVolume.lean",
+      "sha256": "138f6b4a8c6b4fef83a011fd24342234127b888d974f8dc96d3aec7dd4487ba9",
+      "source_sha256": "138f6b4a8c6b4fef83a011fd24342234127b888d974f8dc96d3aec7dd4487ba9",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CellIntegralNormalization.lean",
+      "sha256": "1382a82cdef8ea757c40d06c4011df6888221f61abdecb7ae81af1175b0f15aa",
+      "source_sha256": "1382a82cdef8ea757c40d06c4011df6888221f61abdecb7ae81af1175b0f15aa",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CellNormalization.lean",
+      "sha256": "fea342cbe7c4172c4090a8fa8b27a2d4b84d65c4fdbd7b0cbff3b6c025473b42",
+      "source_sha256": "fea342cbe7c4172c4090a8fa8b27a2d4b84d65c4fdbd7b0cbff3b6c025473b42",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CellTriangulation.lean",
+      "sha256": "05b470cda814f680aa38ffd4d29cae1051fde51233d0cf84f93f811e67230b81",
+      "source_sha256": "05b470cda814f680aa38ffd4d29cae1051fde51233d0cf84f93f811e67230b81",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CellTriangulationProbes.lean",
+      "sha256": "fc99b74339272e7d60375b215ba2e4a5dff7e8ff6a77156052dbe95366378918",
+      "source_sha256": "fc99b74339272e7d60375b215ba2e4a5dff7e8ff6a77156052dbe95366378918",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ChainMaps.lean",
+      "sha256": "9a64b331e63ddd9c6bc8f155db7463c10e4b020e41b832cb025ae3cdf4ac1e5c",
+      "source_sha256": "9a64b331e63ddd9c6bc8f155db7463c10e4b020e41b832cb025ae3cdf4ac1e5c",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ChainStokes.lean",
+      "sha256": "c49fdbd15364c52ad411383213891dbce80846064e6514068ed3beb4cd881690",
+      "source_sha256": "c49fdbd15364c52ad411383213891dbce80846064e6514068ed3beb4cd881690",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ChangeOfVariables.lean",
+      "sha256": "13f65cf7c6656ce2b0165252090ec8a6d0293493a71c72f86cc28a02bd504659",
+      "source_sha256": "13f65cf7c6656ce2b0165252090ec8a6d0293493a71c72f86cc28a02bd504659",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ChangeOfVariablesProbes.lean",
+      "sha256": "5b58f2cde3763635cdf1ee9507603e4a0af531dcaa954f780ec11f5b7eebc4d8",
+      "source_sha256": "5b58f2cde3763635cdf1ee9507603e4a0af531dcaa954f780ec11f5b7eebc4d8",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Circulation.lean",
+      "sha256": "80ba039da397ad26dbf326663ffeb37473f92e68131974ad2e4830bcecdadc4c",
+      "source_sha256": "80ba039da397ad26dbf326663ffeb37473f92e68131974ad2e4830bcecdadc4c",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ClassicalCalculusProbes.lean",
+      "sha256": "0db77056a18a70896de2a32156d895d807fd679cd87abc1821e579fa1cc30c71",
+      "source_sha256": "0db77056a18a70896de2a32156d895d807fd679cd87abc1821e579fa1cc30c71",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ClassicalStokes.lean",
+      "sha256": "6887663b1df78e92e25d8adb83af1e06f768b979b0dcf6be3ae844548a7561bb",
+      "source_sha256": "6887663b1df78e92e25d8adb83af1e06f768b979b0dcf6be3ae844548a7561bb",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ClosedExact.lean",
+      "sha256": "f9f36417c5158ea2636bda0ecd77ce9620b8592e3925f28a9e98c724128fd24e",
+      "source_sha256": "f9f36417c5158ea2636bda0ecd77ce9620b8592e3925f28a9e98c724128fd24e",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ClosedFormConsequences.lean",
+      "sha256": "b5638a9cb819df81d6a2b9e57e64def1650ccf4fe5481e869bbb83521333a493",
+      "source_sha256": "b5638a9cb819df81d6a2b9e57e64def1650ccf4fe5481e869bbb83521333a493",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ClosedFormProbes.lean",
+      "sha256": "0532f0959ae55412e609cad4425eb34f00c8b1cdd3bf13b52c7bef4d7767ca92",
+      "source_sha256": "0532f0959ae55412e609cad4425eb34f00c8b1cdd3bf13b52c7bef4d7767ca92",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CoefficientIntegrals.lean",
+      "sha256": "8aaed53432bdab12b620924a44150fbe3eea247b6a1ea5d0beb957d04028146d",
+      "source_sha256": "8aaed53432bdab12b620924a44150fbe3eea247b6a1ea5d0beb957d04028146d",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ContractionAlgebra.lean",
+      "sha256": "88ca65184eb91fb9341f02a4804810ffb81760a321dd807a69ba4563130669d1",
+      "source_sha256": "88ca65184eb91fb9341f02a4804810ffb81760a321dd807a69ba4563130669d1",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ContractionCalculus.lean",
+      "sha256": "355db0a3dadb79b287f8196d108004eb274fef3f5fb6739e90972482ca356653",
+      "source_sha256": "355db0a3dadb79b287f8196d108004eb274fef3f5fb6739e90972482ca356653",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ConvexExactnessProbes.lean",
+      "sha256": "9216d54592354c679b1e21dac6da1863cffc988440116756ff75fb71c1e5529d",
+      "source_sha256": "9216d54592354c679b1e21dac6da1863cffc988440116756ff75fb71c1e5529d",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ConvexLinearSections.lean",
+      "sha256": "1561723368effda3cadbb264f7cc19f08dfba4d82915e3484d0556a2799fa413",
+      "source_sha256": "1561723368effda3cadbb264f7cc19f08dfba4d82915e3484d0556a2799fa413",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ConvexPrimitiveIntegral.lean",
+      "sha256": "1edba792c19faf1f6412410bc42d6af0d58c4bc7b079321f4ec21422f47c7a2e",
+      "source_sha256": "1edba792c19faf1f6412410bc42d6af0d58c4bc7b079321f4ec21422f47c7a2e",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ConvexPrimitiveProbes.lean",
+      "sha256": "5b2bbfead3b76f88a8ab1485c953cb63029b4af15ab4267f8554518a8b07fee3",
+      "source_sha256": "5b2bbfead3b76f88a8ab1485c953cb63029b4af15ab4267f8554518a8b07fee3",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ConvexPrimitives.lean",
+      "sha256": "4bf04a34e5ff6c8b9e2a4ba2d04923ba94d9e47e9fe70110b68699b691c81432",
+      "source_sha256": "4bf04a34e5ff6c8b9e2a4ba2d04923ba94d9e47e9fe70110b68699b691c81432",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ConvexSections.lean",
+      "sha256": "7327ba06c8604c6c0d4503fc4f7ce7acf112e0860f25c6912b9663010a27dba9",
+      "source_sha256": "7327ba06c8604c6c0d4503fc4f7ce7acf112e0860f25c6912b9663010a27dba9",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CoordinateDifferentiation.lean",
+      "sha256": "75ce32db4e677edbde50d4f37e77540237e6c0adc47d2adfcb9fa9342a648f83",
+      "source_sha256": "28e818daf01b4ac68bbeb070f679fadddaa131db5835f607da809781722c4be4",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "adapted; see integration report"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CubicalStokes.lean",
+      "sha256": "62164222376f27a950fb8b216771f5c296d4136dad2b48972911d7b83935a753",
+      "source_sha256": "62164222376f27a950fb8b216771f5c296d4136dad2b48972911d7b83935a753",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/CumulativeCoordinates.lean",
+      "sha256": "32c55887473b5da41a4d429a84f1b4d6c254230b01277bf27fd12fa25f6f1cbc",
+      "source_sha256": "32c55887473b5da41a4d429a84f1b4d6c254230b01277bf27fd12fa25f6f1cbc",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/DiffeomorphicExactness.lean",
+      "sha256": "c5d66c04f33476cb3d375f50d0e1debc4c83c6f2447f92294acda9e76a0710b1",
+      "source_sha256": "c5d66c04f33476cb3d375f50d0e1debc4c83c6f2447f92294acda9e76a0710b1",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/DivergenceTheorem.lean",
+      "sha256": "e5b4644a2239a6ddead2d3220e5ae763ce58f9ab62d390c26245c389e5efa15d",
+      "source_sha256": "e5b4644a2239a6ddead2d3220e5ae763ce58f9ab62d390c26245c389e5efa15d",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ExactOneFormComplements.lean",
+      "sha256": "f403d4065032e2e0d9d2e52ef4d89563e3f9c0003ad33e6b366f0c00a8f0cd6b",
+      "source_sha256": "f403d4065032e2e0d9d2e52ef4d89563e3f9c0003ad33e6b366f0c00a8f0cd6b",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ExactOneForms.lean",
+      "sha256": "e2d3e476b4f2e896af46956680cc0241855a3b6211a7fee0be13a6e5588f7274",
+      "source_sha256": "e2d3e476b4f2e896af46956680cc0241855a3b6211a7fee0be13a6e5588f7274",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ExactnessTransport.lean",
+      "sha256": "1bbb23ac0c1534b20af24eb64a497a9120568f8ea2fc93a2d89755dd088964f7",
+      "source_sha256": "1bbb23ac0c1534b20af24eb64a497a9120568f8ea2fc93a2d89755dd088964f7",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ExteriorDerivative.lean",
+      "sha256": "32563a37cb03475c0565a7f7c87998d10c7f6aba1c146d3b2c32bd4a8ced68ab",
+      "source_sha256": "32563a37cb03475c0565a7f7c87998d10c7f6aba1c146d3b2c32bd4a8ced68ab",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ExteriorDerivativeProbes.lean",
+      "sha256": "ccff9065bd747e4340fd147cfbef1eb2287fcd5f853a59171b9ecdc64722492e",
+      "source_sha256": "ccff9065bd747e4340fd147cfbef1eb2287fcd5f853a59171b9ecdc64722492e",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ExteriorDerivativeRules.lean",
+      "sha256": "b8b8f63c33f72ae7e14ef1a378708d98860c183323b89c6ab986fcea01fe77f9",
+      "source_sha256": "b8b8f63c33f72ae7e14ef1a378708d98860c183323b89c6ab986fcea01fe77f9",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Flux.lean",
+      "sha256": "8af692d0277eab23b489897a777081cbfe6a95938be9d4c6f9c0535ae8594d85",
+      "source_sha256": "8af692d0277eab23b489897a777081cbfe6a95938be9d4c6f9c0535ae8594d85",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormAlgebraProbes.lean",
+      "sha256": "ba45873e165b84289977892b0a60ab5f152a3a34aed8b0ae1295cac50ed1768e",
+      "source_sha256": "ba45873e165b84289977892b0a60ab5f152a3a34aed8b0ae1295cac50ed1768e",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormApproximation.lean",
+      "sha256": "bb8023aae6037714b6d0c0c38b8ef5c6c4a4cf208cc970b56370fd37c7ac0bcc",
+      "source_sha256": "bb8023aae6037714b6d0c0c38b8ef5c6c4a4cf208cc970b56370fd37c7ac0bcc",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormDefinitions.lean",
+      "sha256": "42a8630d7c0a0d3e90dce85f26832d7f7c2a5e4fb68653988505febe6e91314b",
+      "source_sha256": "42a8630d7c0a0d3e90dce85f26832d7f7c2a5e4fb68653988505febe6e91314b",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormExampleGeometry.lean",
+      "sha256": "6c220e2fde6c1f38146821381a12062c4fd6d6f369d1ec9c0e9c39ff3c42e480",
+      "source_sha256": "6c220e2fde6c1f38146821381a12062c4fd6d6f369d1ec9c0e9c39ff3c42e480",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormExamples.lean",
+      "sha256": "3e3c5478483102de6c37a760989be5924bf2765c1606b3546d30b8544b0d802f",
+      "source_sha256": "3e3c5478483102de6c37a760989be5924bf2765c1606b3546d30b8544b0d802f",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormIntegralContinuity.lean",
+      "sha256": "b5a8fe8941740d7b95ada0994da2d248b5a02fb46a328eaeaf232561afa576f4",
+      "source_sha256": "b5a8fe8941740d7b95ada0994da2d248b5a02fb46a328eaeaf232561afa576f4",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormOperations.lean",
+      "sha256": "55939cdfe36cf842c638467e4bc082384a0c1a7cffc3ce06a05340f981fd9bae",
+      "source_sha256": "55939cdfe36cf842c638467e4bc082384a0c1a7cffc3ce06a05340f981fd9bae",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormProbes.lean",
+      "sha256": "b11a1b9feeb7bd41456b7810616f20b9674e55ee41b6c70393c380a514c4c478",
+      "source_sha256": "b11a1b9feeb7bd41456b7810616f20b9674e55ee41b6c70393c380a514c4c478",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormRegularity.lean",
+      "sha256": "4d914c2ed63a5c4faee84e4eda50377af3095cf01ad003c666ec7a5cbc228924",
+      "source_sha256": "4d914c2ed63a5c4faee84e4eda50377af3095cf01ad003c666ec7a5cbc228924",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormSeparation.lean",
+      "sha256": "9dd2504bc1139aca174d960888601015abd7454da928d870a07a619ee89a9d1a",
+      "source_sha256": "9dd2504bc1139aca174d960888601015abd7454da928d870a07a619ee89a9d1a",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormsAlgebra.lean",
+      "sha256": "008151a4403139501ad36c4ea9333808fa2b456ebabadc616eb3faa67de92ce1",
+      "source_sha256": "008151a4403139501ad36c4ea9333808fa2b456ebabadc616eb3faa67de92ce1",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/FormsCore.lean",
+      "sha256": "9f718c1dc6ef5855805f01176a8aabffca9768f7c952e063f7f1ea31533382b1",
+      "source_sha256": "9f718c1dc6ef5855805f01176a8aabffca9768f7c952e063f7f1ea31533382b1",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Integration.lean",
+      "sha256": "25164892416755a93747cade9b66c8f2dc4e9245c8f062f45f4d1cda5c0dcc94",
+      "source_sha256": "db0054a17a9a065740596654ecb5b35b960b42dc6a4d5e3cfb8d2984230acdef",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "adapted; see integration report"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/IntegrationMeasure.lean",
+      "sha256": "0123ef35e549e6bd0fc1dbfd9823d5650b5b9008114e285660de4d95568b4a7c",
+      "source_sha256": "0123ef35e549e6bd0fc1dbfd9823d5650b5b9008114e285660de4d95568b4a7c",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/IntegrationProbes.lean",
+      "sha256": "a22d31edbeb4179ff4ed555c411834fa2027f6119cff4c50a44c072695fd37d3",
+      "source_sha256": "a22d31edbeb4179ff4ed555c411834fa2027f6119cff4c50a44c072695fd37d3",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/IntegrationProofs.lean",
+      "sha256": "3ca8b1770e4a46be4134e32ad3cc5640f50666789e34b1d7e39d9b7d29c41c28",
+      "source_sha256": "7ceed05ff97db102454e4d52ef1ad58a60d52ec3225c0e6e71d0f63df7b428b9",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "adapted; see integration report"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/NativeSeparation.lean",
+      "sha256": "aec246db10a68358b2b8a5ffeeaf23bcc0b3743386ceedbe8db4811a9112bb4f",
+      "source_sha256": "d28c2362cdd3201023171dc8fbfaccab4d4ed8125c69ba6ff9532ed77d7783b4",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "adapted; see integration report"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/OneFormCoordinates.lean",
+      "sha256": "1a45e47c9488501156a68a68e4f77b0e74cb9f2548357d047a213421a961d3a0",
+      "source_sha256": "1a45e47c9488501156a68a68e4f77b0e74cb9f2548357d047a213421a961d3a0",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ParametricC1.lean",
+      "sha256": "b13d71c14c8385b14ea4ae91971999a51b2b90f659e43b030125a824a0ae6179",
+      "source_sha256": "b13d71c14c8385b14ea4ae91971999a51b2b90f659e43b030125a824a0ae6179",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Partition.lean",
+      "sha256": "e4260e2eb43a20415a9e621e8abb2cb70a296ae0900a154afe66fde190cd13c5",
+      "source_sha256": "5d4a4e66629b73912921920fc23af3118763843dfbdf8f15d3dba06ae266a1b5",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "adapted; see integration report"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PartitionComplements.lean",
+      "sha256": "c19007966795d15e25dd330e21012b834058abfe2ea40e3d78308bdccf6f013c",
+      "source_sha256": "c19007966795d15e25dd330e21012b834058abfe2ea40e3d78308bdccf6f013c",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PartitionProbes.lean",
+      "sha256": "6f13bcde04f0f7f76182222195f28636a6913f179802bcce37fddc3e4293e401",
+      "source_sha256": "6f13bcde04f0f7f76182222195f28636a6913f179802bcce37fddc3e4293e401",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PlanarGreen.lean",
+      "sha256": "eae3b01d38dba5a5a5a65dfd14cec04cfe203175eded811e12e0ba4fb8370918",
+      "source_sha256": "eae3b01d38dba5a5a5a65dfd14cec04cfe203175eded811e12e0ba4fb8370918",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Poincare.lean",
+      "sha256": "26acef677a2bf51e404c7802b3d521fba76cbcd8f5c332def5fa878c95a9ee71",
+      "source_sha256": "26acef677a2bf51e404c7802b3d521fba76cbcd8f5c332def5fa878c95a9ee71",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PositiveBoundaries.lean",
+      "sha256": "5dab5ffbba2b3a558ee963b684537d352d93b9b5250d0a2d63a48b8aabd2bf50",
+      "source_sha256": "5dab5ffbba2b3a558ee963b684537d352d93b9b5250d0a2d63a48b8aabd2bf50",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PositiveBoundaryProbes.lean",
+      "sha256": "32eb97c6aa063782b1e8a6f0d77f74723697dc463bbfa9f4c9e2e7c219c89c09",
+      "source_sha256": "32eb97c6aa063782b1e8a6f0d77f74723697dc463bbfa9f4c9e2e7c219c89c09",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PositiveRegionUnions.lean",
+      "sha256": "a5c781134bb579d7f1c3bb9e498347e9dd7ec158d49eec8060ae1d7904a6dbe6",
+      "source_sha256": "a5c781134bb579d7f1c3bb9e498347e9dd7ec158d49eec8060ae1d7904a6dbe6",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PositiveRegions.lean",
+      "sha256": "5ca0eded22b30f439d2a7dfd3e9a5d558d2e257f7d8ba5ec693238e9da380a78",
+      "source_sha256": "5ca0eded22b30f439d2a7dfd3e9a5d558d2e257f7d8ba5ec693238e9da380a78",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PotentialRegularity.lean",
+      "sha256": "7670f6c309da576976eb65205078fed0dd0fec9c70ff3f1c5cb37c1cde3d52d7",
+      "source_sha256": "7670f6c309da576976eb65205078fed0dd0fec9c70ff3f1c5cb37c1cde3d52d7",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PrefixCoordinates.lean",
+      "sha256": "88928e36b54ec6538e6220908e995ffd54d57b2def5ec50b46eaebbc5c0df494",
+      "source_sha256": "21cee477d4b7926ed20d2667fa628ce29a0f70f3bd1ce1c2b681cca86a76740c",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "adapted; see integration report"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Primitive.lean",
+      "sha256": "2c272f07458fc53f57192b3c7af24d145ae5b6bdfd997787fa3b3a0777cca5e1",
+      "source_sha256": "200eb8e36d54cdf771415de92c1046cf4c92d64c123d0fed62a4ee7e64639f5b",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "adapted; see integration report"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PrimitiveProbes.lean",
+      "sha256": "5ff9f013feba37663b8f872b816ec64ee78273fcd6dad954071a4852bb42282d",
+      "source_sha256": "5ff9f013feba37663b8f872b816ec64ee78273fcd6dad954071a4852bb42282d",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackAlgebra.lean",
+      "sha256": "beec993d5a18137da7e8d4016e74bbe91d68332d0b50d5c4697ee86c78ac4b4f",
+      "source_sha256": "beec993d5a18137da7e8d4016e74bbe91d68332d0b50d5c4697ee86c78ac4b4f",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackDefinitions.lean",
+      "sha256": "8e72423af8572af10ea0752550c4503b85e181699371d9d6f0b85eb31dfb8015",
+      "source_sha256": "8e72423af8572af10ea0752550c4503b85e181699371d9d6f0b85eb31dfb8015",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackDifferentiation.lean",
+      "sha256": "2077ad901b15816a82276e35611061d3bf8f8339c63b9ccfe4986692070d42e0",
+      "source_sha256": "2077ad901b15816a82276e35611061d3bf8f8339c63b9ccfe4986692070d42e0",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackEvaluation.lean",
+      "sha256": "92e334104c5f09da34cad0354702572b907adc4b04119ecd324b2f8885dd3c01",
+      "source_sha256": "92e334104c5f09da34cad0354702572b907adc4b04119ecd324b2f8885dd3c01",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackProbes.lean",
+      "sha256": "856e21baa0bcc5c164c9d141142a24cfc57ddf47ab2295743e5d4cd13601b805",
+      "source_sha256": "856e21baa0bcc5c164c9d141142a24cfc57ddf47ab2295743e5d4cd13601b805",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackRegularity.lean",
+      "sha256": "79bf2beba1a14313ed24968b323e3396b366a6a57b234cbe527d637e1e24a523",
+      "source_sha256": "79bf2beba1a14313ed24968b323e3396b366a6a57b234cbe527d637e1e24a523",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Pullbacks.lean",
+      "sha256": "43e60a43270bbc18999139d16d195fc08f1a909800517b4e48e7f1bc3bfa5aeb",
+      "source_sha256": "43e60a43270bbc18999139d16d195fc08f1a909800517b4e48e7f1bc3bfa5aeb",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PuncturedExamples.lean",
+      "sha256": "fa512f76a8101325d5633993cb6cdcfa612a66321bd08759d709662a951301c1",
+      "source_sha256": "fa512f76a8101325d5633993cb6cdcfa612a66321bd08759d709662a951301c1",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PuncturedPlane.lean",
+      "sha256": "b418425dd45d4e372b64bf86d38445c624db9c01efae5720168c9ba6d87d0de3",
+      "source_sha256": "b418425dd45d4e372b64bf86d38445c624db9c01efae5720168c9ba6d87d0de3",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PuncturedProbes.lean",
+      "sha256": "952cc34d0a50e4401b9c37b664875a0d1e3ad66872b4c539cf0002279113051a",
+      "source_sha256": "952cc34d0a50e4401b9c37b664875a0d1e3ad66872b4c539cf0002279113051a",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/PuncturedSphere.lean",
+      "sha256": "acfa4deceaa9f13b4d9fffd0b937bc0a6a8e7061c4cbfe07103238a0491ce128",
+      "source_sha256": "acfa4deceaa9f13b4d9fffd0b937bc0a6a8e7061c4cbfe07103238a0491ce128",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/RadialForm.lean",
+      "sha256": "08f7c014bd42c8519d02406c02e7ddafa44b48d9af222b9e5066edb2644ff98f",
+      "source_sha256": "08f7c014bd42c8519d02406c02e7ddafa44b48d9af222b9e5066edb2644ff98f",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/RadialHomotopy.lean",
+      "sha256": "e1bf0ebfe6bd60b864508dda5baae296f638a66cab6386c38e45488693361edc",
+      "source_sha256": "e1bf0ebfe6bd60b864508dda5baae296f638a66cab6386c38e45488693361edc",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/RadialPrimitive.lean",
+      "sha256": "ebc055888fc02b4412fa3b2db019ffcbbfb66a14996f81b219c26de26585c7ec",
+      "source_sha256": "ebc055888fc02b4412fa3b2db019ffcbbfb66a14996f81b219c26de26585c7ec",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/RectangleChains.lean",
+      "sha256": "41950015ab44b7384ba6554dedad1e0cea01cfe86e9f80644f696234890735ea",
+      "source_sha256": "41950015ab44b7384ba6554dedad1e0cea01cfe86e9f80644f696234890735ea",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/RectangleEdges.lean",
+      "sha256": "f32d70bc3e216bf664ea880f751e78a65caffd1d25b51eb1cbfcda74911b9760",
+      "source_sha256": "f32d70bc3e216bf664ea880f751e78a65caffd1d25b51eb1cbfcda74911b9760",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/RectangleNormalization.lean",
+      "sha256": "3c89b2eab3c575c4455f0c32a4ea250229429830e209ca949ccbb203f0cc0a85",
+      "source_sha256": "3c89b2eab3c575c4455f0c32a4ea250229429830e209ca949ccbb203f0cc0a85",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ScalarForms.lean",
+      "sha256": "30f681a8408eae0cc36c59ef07705d30fb11c6b6b272d06dd01e4ce9772bfb39",
+      "source_sha256": "30f681a8408eae0cc36c59ef07705d30fb11c6b6b272d06dd01e4ce9772bfb39",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/ScalarPotentialProbes.lean",
+      "sha256": "9fa81a971a35524f470ebf92661888ae231bc7112df6f1a41f9490ebf3d68179",
+      "source_sha256": "9fa81a971a35524f470ebf92661888ae231bc7112df6f1a41f9490ebf3d68179",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SecondHalf.lean",
+      "sha256": "1458d6d4fc6db181417779558d4f73cc4959472af1111828c5d1c8cd6e04a8cf",
+      "source_sha256": "1458d6d4fc6db181417779558d4f73cc4959472af1111828c5d1c8cd6e04a8cf",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SecondHalfAudit.lean",
+      "sha256": "47a36615517daa6695b127c0c92789154e88f0c8a1576c09e7b5d4e629eac719",
+      "source_sha256": "3ff2cbc1926be07fb517d3e39df13457fea4f3ccfeb6e8f480ef5cd174d7f607",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "adapted; see integration report"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Simplex.lean",
+      "sha256": "a8d47dcf24e72f261138297ae8cb89479f5b189d091163dd0f843c881701a928",
+      "source_sha256": "a8d47dcf24e72f261138297ae8cb89479f5b189d091163dd0f843c881701a928",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexBoundaries.lean",
+      "sha256": "8c9f54193e33656cd9ab80b424164366331b073e144f702b3d51f2befcb1b3ff",
+      "source_sha256": "8c9f54193e33656cd9ab80b424164366331b073e144f702b3d51f2befcb1b3ff",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexBoundarySquared.lean",
+      "sha256": "f462313028b8df296b682147725af84ae1cd6fff845ce7c15b6ad46dbabef84b",
+      "source_sha256": "f462313028b8df296b682147725af84ae1cd6fff845ce7c15b6ad46dbabef84b",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexChainProbes.lean",
+      "sha256": "8c981630f64af9e6be95783a7dbff20ae6b99519684c86a31d160b690936694e",
+      "source_sha256": "8c981630f64af9e6be95783a7dbff20ae6b99519684c86a31d160b690936694e",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexChains.lean",
+      "sha256": "db6007136017c15e4477458eac0b5fecaa287381f94553571100a132c4ae6f89",
+      "source_sha256": "db6007136017c15e4477458eac0b5fecaa287381f94553571100a132c4ae6f89",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexChangeOfVariables.lean",
+      "sha256": "2f38999ec892d4469902cf9d910e17d075cbf1f85ccc44e880ba124c60de9de5",
+      "source_sha256": "2f38999ec892d4469902cf9d910e17d075cbf1f85ccc44e880ba124c60de9de5",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexFTC.lean",
+      "sha256": "13aed6c37f0548629c64a1d4357525614490d20d678410bae8f81d827986cbee",
+      "source_sha256": "13aed6c37f0548629c64a1d4357525614490d20d678410bae8f81d827986cbee",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexFormFaces.lean",
+      "sha256": "516ae39d36f3e4c4a78ac8b9fe180196a535b87fd1d30b5084170abfd2b6b521",
+      "source_sha256": "516ae39d36f3e4c4a78ac8b9fe180196a535b87fd1d30b5084170abfd2b6b521",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexOrientation.lean",
+      "sha256": "e542c67929860c59867228284ad9248cc7a0ce7178716b8ed69ce0a2055e587b",
+      "source_sha256": "e542c67929860c59867228284ad9248cc7a0ce7178716b8ed69ce0a2055e587b",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexProbes.lean",
+      "sha256": "a652ba6b576cf90d22452cb284b1f92450950cdae48d136b56ad7e023fb69f70",
+      "source_sha256": "a652ba6b576cf90d22452cb284b1f92450950cdae48d136b56ad7e023fb69f70",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexSeparation.lean",
+      "sha256": "a622d0a24d8a577ebe26f367e18aee151dc558f376f298c929e5ce54cc5fba00",
+      "source_sha256": "a622d0a24d8a577ebe26f367e18aee151dc558f376f298c929e5ce54cc5fba00",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexSlices.lean",
+      "sha256": "e303ac72a9e0e49bb5ee2dd16216924b14166937e5f319303a0ef485c201e603",
+      "source_sha256": "e303ac72a9e0e49bb5ee2dd16216924b14166937e5f319303a0ef485c201e603",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexStokes.lean",
+      "sha256": "b7ba7490e458ab7a1819c323797c902b632d643bcae21c5c8e8d3d4f923653bc",
+      "source_sha256": "b7ba7490e458ab7a1819c323797c902b632d643bcae21c5c8e8d3d4f923653bc",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SphereBoundary.lean",
+      "sha256": "95c0ca34950d05c3472a0f9e3afbba3b2a99e9f4f0b5d02d5482556daf882f2d",
+      "source_sha256": "95c0ca34950d05c3472a0f9e3afbba3b2a99e9f4f0b5d02d5482556daf882f2d",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SphereExampleProbes.lean",
+      "sha256": "daa56dc02527d93716e68e2894361d45280e9dfe38f550aa9f14ac8e8799ce5d",
+      "source_sha256": "daa56dc02527d93716e68e2894361d45280e9dfe38f550aa9f14ac8e8799ce5d",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SphereExamples.lean",
+      "sha256": "87aaef719f53e5071ed3e853b4802cd98d1fbe5f1be8a6bbfbd172cfbb0d187f",
+      "source_sha256": "87aaef719f53e5071ed3e853b4802cd98d1fbe5f1be8a6bbfbd172cfbb0d187f",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SquareBoundaries.lean",
+      "sha256": "ebdc95ef1641094e6845f39b0735cf90710ec72594b602bfa72bb92a94402127",
+      "source_sha256": "ebdc95ef1641094e6845f39b0735cf90710ec72594b602bfa72bb92a94402127",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SquareIntegral.lean",
+      "sha256": "408da65cedce0aa84816bc3c284bc11f0c4f1997e0583e3b2f4779dd0b7a055b",
+      "source_sha256": "408da65cedce0aa84816bc3c284bc11f0c4f1997e0583e3b2f4779dd0b7a055b",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/StaircaseGeometry.lean",
+      "sha256": "f27e0869c8dbee3d3d3d124a217161f89d8210729734480eab2f5d0bf6631e36",
+      "source_sha256": "f27e0869c8dbee3d3d3d124a217161f89d8210729734480eab2f5d0bf6631e36",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/StaircaseIntegrals.lean",
+      "sha256": "b1ceb949e81342fe0d857e254de1053d05ab9d632c8f4a707eee09a3815dd965",
+      "source_sha256": "b1ceb949e81342fe0d857e254de1053d05ab9d632c8f4a707eee09a3815dd965",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/StandardForms.lean",
+      "sha256": "2028bfd45446cf387a9745ffa09000bc761fbb801da79f5a487a9b16e9e17f62",
+      "source_sha256": "a7ec125be843cc5617234a59768589b4daf81fa6166e3482d7d4f21c81dbbed4",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "adapted; see integration report"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/StandardSimplexSurface.lean",
+      "sha256": "c48bc3156d2958639f180a60cd6bfbe7eece26aab9021b4795a7c538a95959cd",
+      "source_sha256": "c48bc3156d2958639f180a60cd6bfbe7eece26aab9021b4795a7c538a95959cd",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/StokesCoefficients.lean",
+      "sha256": "70d4aa42c11ca0967c7373f84fac79314b222d9f3e3f85c9cdb7ce8e2960ded0",
+      "source_sha256": "70d4aa42c11ca0967c7373f84fac79314b222d9f3e3f85c9cdb7ce8e2960ded0",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/StokesProbes.lean",
+      "sha256": "8e86ea6f2ebfc256cc66a8ab52b437a5540235b286b9964668c1dbc0b3495238",
+      "source_sha256": "8e86ea6f2ebfc256cc66a8ab52b437a5540235b286b9964668c1dbc0b3495238",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/StokesTransport.lean",
+      "sha256": "dcbe3ac1e4d4f514f9695d7b723123da145c4e04b4850398ca0e540de48ded2f",
+      "source_sha256": "dcbe3ac1e4d4f514f9695d7b723123da145c4e04b4850398ca0e540de48ded2f",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SurfaceChains.lean",
+      "sha256": "1c5d40a150a9aad8996fd197db1d19311edaf17bb3ef9a1a667e768ea6144a49",
+      "source_sha256": "1c5d40a150a9aad8996fd197db1d19311edaf17bb3ef9a1a667e768ea6144a49",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SurfaceDomains.lean",
+      "sha256": "7b7c83140d5a890564a7699d60454ea79ba91cccfe85cf87b0148114f7bdd77d",
+      "source_sha256": "7b7c83140d5a890564a7699d60454ea79ba91cccfe85cf87b0148114f7bdd77d",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SurfaceMaps.lean",
+      "sha256": "57cef14a2c52733a6aea2d410f1aed3101031d524ffa49f75fd65d093d1c3dde",
+      "source_sha256": "57cef14a2c52733a6aea2d410f1aed3101031d524ffa49f75fd65d093d1c3dde",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SurfacePrecomposition.lean",
+      "sha256": "afd430b4e4cbaf097bd1f986dc23a383062821f5c7bfb37dc08d7feec6b5d757",
+      "source_sha256": "afd430b4e4cbaf097bd1f986dc23a383062821f5c7bfb37dc08d7feec6b5d757",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SurfacePullbacks.lean",
+      "sha256": "d617f06fdd932989c67b5fa7f0cc618547e480f9e309ebf928ead3a2850aba5d",
+      "source_sha256": "d617f06fdd932989c67b5fa7f0cc618547e480f9e309ebf928ead3a2850aba5d",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Surfaces.lean",
+      "sha256": "b4ca23167dfe07853dada56aa449e3de061fb6008387b51efa6d274bd6edc338",
+      "source_sha256": "b4ca23167dfe07853dada56aa449e3de061fb6008387b51efa6d274bd6edc338",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Torus.lean",
+      "sha256": "e758c81ed1cb1c977a5eda076f7d5f66383e6dd2c5dd9c5ce3fea439da85ab86",
+      "source_sha256": "e758c81ed1cb1c977a5eda076f7d5f66383e6dd2c5dd9c5ce3fea439da85ab86",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/TorusBoundary.lean",
+      "sha256": "4efa8867e713b3625d4712aa5fae5b0256ab0749c159be1ae270c91de9d61e55",
+      "source_sha256": "4efa8867e713b3625d4712aa5fae5b0256ab0749c159be1ae270c91de9d61e55",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/TorusCalculus.lean",
+      "sha256": "89e8ff9cc88e2b7710d304e773a4d6245e096f41838773f06e812da8c5291178",
+      "source_sha256": "89e8ff9cc88e2b7710d304e773a4d6245e096f41838773f06e812da8c5291178",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/TorusGeometry.lean",
+      "sha256": "37a1cd22cb5d8f5ce275a6b2b4ff306dba171cb3949c582f88c68e2cb3c1b19c",
+      "source_sha256": "37a1cd22cb5d8f5ce275a6b2b4ff306dba171cb3949c582f88c68e2cb3c1b19c",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/TorusProbes.lean",
+      "sha256": "47f56ed8a1cdbe947dab9b595f1a803eabe5a8521f5f8b3bfa598066c687e1e8",
+      "source_sha256": "47f56ed8a1cdbe947dab9b595f1a803eabe5a8521f5f8b3bfa598066c687e1e8",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/TorusProof.lean",
+      "sha256": "0131a917bca7234f878412237feac7e577d328805ff7e74ff28ada11bd936880",
+      "source_sha256": "0131a917bca7234f878412237feac7e577d328805ff7e74ff28ada11bd936880",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/TorusVolume.lean",
+      "sha256": "7d1637005c623335b726437eef7e745e3baa35e8bae071d9056776c89ab17283",
+      "source_sha256": "7d1637005c623335b726437eef7e745e3baa35e8bae071d9056776c89ab17283",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/VectorFieldProbes.lean",
+      "sha256": "ba59cfa92130d1943b5b9d6a2132976b640c2709cc1bca0ea906c4a763f39b69",
+      "source_sha256": "ba59cfa92130d1943b5b9d6a2132976b640c2709cc1bca0ea906c4a763f39b69",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/VectorFields.lean",
+      "sha256": "39ea65f583ee3129f4974264abb946e5a313e43693f56aa758c55df91247c6f8",
+      "source_sha256": "39ea65f583ee3129f4974264abb946e5a313e43693f56aa758c55df91247c6f8",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/VectorFormDerivatives.lean",
+      "sha256": "740e2ef03831bdf9931938760d9c7175db6697809f9028ab371fa3fe0fc8bdf9",
+      "source_sha256": "740e2ef03831bdf9931938760d9c7175db6697809f9028ab371fa3fe0fc8bdf9",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/VectorIntegrationProbes.lean",
+      "sha256": "af8b16fb0c4165638b11eae45b39b13a819e8e8809906a44d53675f0446d62a9",
+      "source_sha256": "af8b16fb0c4165638b11eae45b39b13a819e8e8809906a44d53675f0446d62a9",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/VectorPotentials.lean",
+      "sha256": "d7c1a926415911e523a70a29c0957bc63dc271b981f86c04dcbcb11ee37f4c84",
+      "source_sha256": "d7c1a926415911e523a70a29c0957bc63dc271b981f86c04dcbcb11ee37f4c84",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/VolumeAreaProbes.lean",
+      "sha256": "ac0ab974bc5a2ccd0a8b13ca126d29cde3a40c9dca6941e4a59ed7a5335f528d",
+      "source_sha256": "ac0ab974bc5a2ccd0a8b13ca126d29cde3a40c9dca6941e4a59ed7a5335f528d",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/VolumeElements.lean",
+      "sha256": "ccdf1680f3429f8d6e668637bee7cc73743ddc2a019cc05c651632ee1538f929",
+      "source_sha256": "ccdf1680f3429f8d6e668637bee7cc73743ddc2a019cc05c651632ee1538f929",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/WedgeProducts.lean",
+      "sha256": "2927b89be671cbf2bbaafb42755d5e8b27bb39ae07189a10d81f87b069a55c2d",
+      "source_sha256": "2927b89be671cbf2bbaafb42755d5e8b27bb39ae07189a10d81f87b069a55c2d",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "preserved byte-for-byte"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10Audit.lean",
+      "sha256": "69c7955e3f08f4aa678803aa169cb8c7ed56e53995ceb1e4885edb9e38120b51",
+      "source_sha256": "b7fb40d58b5679e4ff1d1586624ae1b450fff11c76def94b11d0db884f7224aa",
+      "source_commit": "2e65e410a527aa25bf776d6d61b6c56db0ee137f",
+      "decision": "adapted; see integration report"
+    },
+    {
+      "path": "rudin/Rudin.lean",
+      "sha256": "ea7a1263de32f0d4ffabfbb68228e14c72d86229660f2f91153bdcc924a42f49",
+      "decision": "integration wiring/audit/compatibility"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08Audit.lean",
+      "sha256": "d73db5286b114bcafa9f09cec4ce77b9cc1c68d03fc30c1acfd4f42b72fb0fdc",
+      "decision": "integration wiring/audit/compatibility"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/GammaAudit.lean",
+      "sha256": "d0435a2ed4a0100f6fda31c0efd2065c18d789963c9e5bc8e1b03e95643ef6a1",
+      "decision": "integration wiring/audit/compatibility"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/IntegrationAudit.lean",
+      "sha256": "ffcd8e899d6b23c0a27002990c7679be364fa355d6c04cd009e01005e8753019",
+      "decision": "integration wiring/audit/compatibility"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/Prerequisites.lean",
+      "sha256": "8c32466a92cc4291a0a2c2f675a69e2d5496bb35bb872c25d31be353f6df513d",
+      "decision": "integration wiring/audit/compatibility"
+    }
+  ],
+  "preserved_main_files": [
+    {
+      "path": "rudin/Rudin/PMA/AxiomAudit.lean",
+      "sha256": "b6af56d93a971ec2fb9f5fe5c2f8199f4f886a7678b33b20fddd4b7207094027"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter01.lean",
+      "sha256": "2cfb03bf635e72e0bbb4b03b6ad139e5711a8489bcb7d81b45fc6eaeb44fd3b5"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter01Audit.lean",
+      "sha256": "4416b1a8d7fc027a989538d3273bacc76e7b74872b9693b621acbfb98706c48c"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter01Probes.lean",
+      "sha256": "799fbd4fbb34aaa973c91913066fe9775c9c4634416a2426197ad86ec9104898"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter02.lean",
+      "sha256": "7ec4b5443560804666aad9010d2a4600d545973dbb85fe0a8dc7268391d320e7"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter02Audit.lean",
+      "sha256": "82cac58f99326694b483832e1b665c325f5f38598048edec34e7838f12df18b5"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter02Probes.lean",
+      "sha256": "cc380bde145028cb1a7d2a69e77dfa40f84fbe1b42c1401160006e811d65e3fc"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter03.lean",
+      "sha256": "f47eb46ad9fdb0af40dd985683358f7344737128800aa37be4a39241a6ac338a"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter03Audit.lean",
+      "sha256": "139fdec1a9978d97b95e4505211e0911742feb5403d0fb6a6d3d32ca47baf5f4"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter03Probes.lean",
+      "sha256": "3da80d840c8db1cb2aec7049950832528e7f9985fe46869483e0af5cd34b9f0c"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter04.lean",
+      "sha256": "e24df2a611b9c37b82601f23fd823f1fac0d31e5c40a70bd3af962c278fd171e"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter04Audit.lean",
+      "sha256": "4bf30a0ab301e1fb2a2d59d9628ae4588fb252256bf018699e8e3902dd343c91"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter04Probes.lean",
+      "sha256": "3854585ce261b127d2ad1a29d263f72cd40466542fa6f23283e6adf0b17f92d9"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter05.lean",
+      "sha256": "55acec19c187d4ae0d6bfc37c78ee32df5711a997f3d4e0aeea876eb876904cb"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter05Audit.lean",
+      "sha256": "95fecc022c871fcfb0069094d5fdec1b5ff17176577f912508e7eca0173f37fb"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter05Probes.lean",
+      "sha256": "a59995311bfe25b74920cee0aef6ed6ed3674c4568374058c141c1fcb0f96093"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06.lean",
+      "sha256": "9f399e64b67d1048f24aedef7769dfc53f3764b217074a6f7ca36825a16b108b"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Basic.lean",
+      "sha256": "5192b99092c0fc7da7109b1e3ffd90446db62c73845b935172643456b46a3915"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Calculus.lean",
+      "sha256": "ac36c016490bd347b592af764c1c6e5f544a6cd09ad7aac0c59a4c79da6c3c18"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Criterion.lean",
+      "sha256": "e88daabe91d0ddd9145c79ff4aecbfd5c054b30fd27ea86c0a1b7743e3488715"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Curve.lean",
+      "sha256": "0fcd03a02ba4b7c7a57a647b14befac8b93fa006238ed13abc910849362d1b50"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Definitions.lean",
+      "sha256": "13adade605f2cff6904a9b5d24f06057595d0c760abc140dfd7831608c5ccf81"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Endpoint.lean",
+      "sha256": "b4518141434d43a5d28f97944ba85b9af1c98cff1b19c910bddc2d4a70fe3e4b"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Exceptional.lean",
+      "sha256": "f611a715e8c85e43989fa9a196ceb7d93b55b40b9b3674dfd3bb98398fdfabfa"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Integrability.lean",
+      "sha256": "001823e4c51a56b9c0d0afbe13801a757200178eac396081dec3b7abb91d5cec"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Jump.lean",
+      "sha256": "43445c4833b2bc6121d729a92b0ee4c9b072379f522fa95c12e6788325e622f7"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Moment.lean",
+      "sha256": "21ccfad2cbbc3cbd0726a62a190f6092fd2b376690233dd340435b38bb89deb5"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Monotone.lean",
+      "sha256": "93a69abdd3e242baa92eace347b551042157da49b4a83078e06abd469d832598"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Properties.lean",
+      "sha256": "a50ff1516880bd4110cb95e7b81baf44a64980ca2400aa1e377f2b093e8634c1"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Refinement.lean",
+      "sha256": "d1590f0b5df2fec5986358b6d84c255a4535a90df0ac70b8bc5f4bbec9c6fcb0"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Split.lean",
+      "sha256": "d235d56777fc5e5a25db12e834769fd2192273d55a9d5921ceb80b857499a888"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06/Vector.lean",
+      "sha256": "1830138b9712dc5c6bd97293c0396df8160da84c25be76f55f0069dc3962ff98"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06Audit.lean",
+      "sha256": "efe48bd60ac5fbf3a266e03eb39ec97f6a5d0a6912636aa41d087524e9f57f50"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter06Probes.lean",
+      "sha256": "8ed75cc0e53c91713c55d5f6ceceba683844114f99eef29dbefb369a61a8d940"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07.lean",
+      "sha256": "5e36d827e15a87753ee992183a3da8a020fa78fffa6614056771f63af413159f"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/Algebra.lean",
+      "sha256": "dc2fa0be576faf74c15badaf2123040a7646a08c43a77b3e287ebfbcd075c184"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/Basic.lean",
+      "sha256": "b6b8b58999ad0025fd3ab28bc0ba3a4df5a07cc395158b99a14c05055bfa2b1a"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/Calculus.lean",
+      "sha256": "0bc805601a65a1261e944ae9d180b3cb0344c0d9484fc766f1d3df6c3411580d"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/Continuity.lean",
+      "sha256": "8dae8b99a9de2d8b996c47e62ad3ae5396efb503b36a686374f0349a4efa1977"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/Equicontinuity.lean",
+      "sha256": "baffc08a75f000487493d784939d9b9af42f7c3b4441a52d73a6664aa9ec6ff0"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/Examples.lean",
+      "sha256": "a25907d75b1bae77638eaaea291888989f6d9f319f0d2cea71ee74c9a25f9bd5"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/Foundations.lean",
+      "sha256": "941938d68a48db2a4e0ab70ba0b39d51828fc91602a4583ab449f8ad1c4d5742"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/MTest.lean",
+      "sha256": "c364dc78a12a188264c39c24f8dfd5da1edc699491442d18cf78b2565aef3e05"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/NoSubsequence.lean",
+      "sha256": "a0f5e92e41fe61bbda351ab4a0497ef621ec7f3ceb7f136f742dfaca2c69f7b6"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/Nowhere.lean",
+      "sha256": "6d04835c41bda7f4315fc7ac3e65c32b1ccc1e778b8ea145a424193d7d406612"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07/RationalIndicator.lean",
+      "sha256": "edcdd11545100cbd19fb90d3382d5baf8a5a7b34907ca7afdf44560ad53fbe3d"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07Audit.lean",
+      "sha256": "404af920867ec415a0fb7cf488aa0c3871f4818542ee1d2272c17ff25671fa14"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter07Probes.lean",
+      "sha256": "3f8ab677255b71a28bb0f31823efd0af5e767eff7f508529cf2d9286203375e0"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08.lean",
+      "sha256": "487ba0c239fcfe4fe3f04b7ae9d8cbc3204b4ffdd7439aa4e76b77b2a99632e2"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/Abel.lean",
+      "sha256": "2a7a23da0c64df9c38dff6975bd0f5e34f1a428a5d4fa86480c35b7498260239"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/AlgebraicCompleteness.lean",
+      "sha256": "f44ae45dbdedddeaaa608562f201ee7762666c56b2339b3a7144caa6a8feb7b6"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/DoubleSeries.lean",
+      "sha256": "7cb78d7c111d3be2a9bc0f5e67a02c0020e988ba39e24f67db050787aae57e7e"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/Exponential.lean",
+      "sha256": "cd7d31f6d45786bc4433d3c0bb878c1e4e0c2da6f43bf48fc1491c6167768bcd"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/ExponentialProbes.lean",
+      "sha256": "50cfdadd939ba80e57fd93e47bad71d05cc49eb97664485e428ee8cc2b6cc9da"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/Fourier.lean",
+      "sha256": "e85ddb5d07e201b84b255361cdb2da5ee7e17b0d726e523e87044c0888db1cea"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/FourierConvergence.lean",
+      "sha256": "2f2676c0d96a46f24c1a773a044975bb4a35b9ff50ba7b4035af73ee7bd77284"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/FourierDefinitions.lean",
+      "sha256": "838556f9c93699b817ac8e30457f13bab19c889cf79f0fb91e29b56a9869561b"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/FourierExponentialExample.lean",
+      "sha256": "3232066269a76ca391e5be61ff0750553abc65a0bdd83beef4d78162d60649d0"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/FourierParseval.lean",
+      "sha256": "b2e9f97064fbaf7f14f7b889cca162efe3a47496c135c5560a599f56970cb674"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/FourierParsevalBase.lean",
+      "sha256": "e956802dd805f0a876ae9a2626bc055991febfd3bb3f2afb6639f5160f4196db"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/Gamma.lean",
+      "sha256": "a2b3bbd704e81173ce0a2f65c091e674cde4d6fb52019d2db10ec77361115f20"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/GammaConsequences.lean",
+      "sha256": "df3949be414e60d354f861ce49b0cac9fb665775d491bb63cb658ec9dc190625"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/GammaStirling.lean",
+      "sha256": "3b696013116811226faee204f70be7a04fd08dbb1d3388265a99dadeb24b377e"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/IntegralAlgebra.lean",
+      "sha256": "8a793a3b68f063740a70c7d4962c72bc4eaff65a814ea8675ce739b10c8d5f2b"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/Operations.lean",
+      "sha256": "2b4ce0759198e1a2c854a8398d7b285c5edd64de0d36fd19aa3ba824245ae07a"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/Orthogonality.lean",
+      "sha256": "16e523ac6fb2ec3750a1782b0deb44575d1fea9c97e9f931f4e55774c53be36a"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/PowerSeries.lean",
+      "sha256": "af7669152ab11b348b454ccfacb37928c67be845b7428377bd29dfd6e6552518"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/PowerSeriesCompatibility.lean",
+      "sha256": "fd39bd8e478269f28a251cf516e3e0021bb19e9a9e6a7ead47471d31f770efa8"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/PowerSeriesDifferentiation.lean",
+      "sha256": "42e63530549bf7aa4f321fdc9be28c01550405ced45e3cdecfd1c31d37da97c4"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/PowerSeriesFoundations.lean",
+      "sha256": "5d46beb01b4e2983ad5d3273779d548f746a6055e62162a3a3a0b5eb10abfa22"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/RiemannBridge.lean",
+      "sha256": "30f397d3f5ad272a0529e0ab522656a58b0236b2ed062e91c4659c670fe29243"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/RiemannPeriodic.lean",
+      "sha256": "fdce0cc68a3bb6656b906326f25e3660ad512595cfe0f56bdf91d91088dd823c"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/Taylor.lean",
+      "sha256": "9c666fab54b9e7a3a7b7ac073e5b9ca9a8a7d2d31e2ccb7a7be303af472c0347"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08/Trigonometric.lean",
+      "sha256": "18248d3c3735a7f449712a0fb5af4656f897848d719b371a928a786ed481daca"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter08Probes.lean",
+      "sha256": "093390f7774efef783fc3e1d5d5e66d79ff5b0c42225a59f99db8d27a57d543c"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09.lean",
+      "sha256": "d076e21ceaf56a0ae166a1b10f470ebebb2bf08eca627bf3d731fbdc95c45bcc"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/ContinuousDifferentiability.lean",
+      "sha256": "44738be616e6a244062c75eb10c58fba6a0b975d065eab9b79e98e015cadd82e"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Determinants.lean",
+      "sha256": "122996fe4b4d7b5cb7bea71026b2b64df39cd85b353166b55904deb282614830"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/DeterminantsAudit.lean",
+      "sha256": "4ba7d5aa1edd10777f4446ca8ad92b6a11908895499b29ca2a36494ec3fd6ea8"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Differentiation.lean",
+      "sha256": "6324fe69fab6270e05e6759a12526f4fb9ea686b75e02b8f5df9240e69d848d6"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/DiscontinuousPartials.lean",
+      "sha256": "c8eda5b73243e9b6bac1ce054cbe9eb91ca57536c90c8f3baf9098bcf8f55e5d"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/FirstHalf.lean",
+      "sha256": "d7259756df72687d1f3ff51dbf8bf58b66e06d58307dd05a6e86d47d98f3af89"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/FirstHalfAudit.lean",
+      "sha256": "ed58ba3aeec7f5e57aa60c8378a153aa38b7ddd0f150298c1fea17292479949c"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/HigherDerivatives.lean",
+      "sha256": "dd0873bc49f66a487f71ed274657385b01f334d4fa6c33c012e9b4facc02bf1b"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Implicit.lean",
+      "sha256": "71e0916b38a4ccff31bf8a624f8de7709dfd10a4d5744559889700cb5b0e64cf"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Integrals.lean",
+      "sha256": "d8fdf7492f06244eeb62008a222d1d91ab45b4e344e2e07a9c3fc17eab3e5728"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/IntegralsAudit.lean",
+      "sha256": "88c161ead6c4de152c0d453e5827ab8825902fe76d5b54ac4612015b0c8b1438"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Inverse.lean",
+      "sha256": "26a19ca7630862816959425b0efb26a775e9409c98bcfa57b34794ae4115ab7f"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/InverseAudit.lean",
+      "sha256": "7fdea9117304f7d9165001541316b57bd6ea31956daaa34d1e3ad63847be7070"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/LinearFoundations.lean",
+      "sha256": "828b997d47c5d02b2c63ff0af3f3188f49834ca7d103cd2b0c7c8d0ec87996d9"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Operators.lean",
+      "sha256": "56ff373f62dbafae5e552dd32449d270847c8781b6120f07c2aed733c8d22b27"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/PartialContinuity.lean",
+      "sha256": "0529101b7191546732dd59dccc7a24aba088e6ea40e328d148415c9a1b3d5776"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/PartialCounterexamples.lean",
+      "sha256": "7698029ad3b28de169fb510e7c6a5ac2c49645297c3484d65acf7dbae76faa4d"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/PartialCriterion.lean",
+      "sha256": "7d5ae0ddf0ced5f970abec411fa2ecee12a20dc51c8a53fa95b4d83109d098b4"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/Rank.lean",
+      "sha256": "58e68c2590a1408a20383688bd6f4b0cccfc350d6f69e7d172b38214d36cf605"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/RankFactorization.lean",
+      "sha256": "05930db1ffb9db05ec389b41fb99af89ae35792c7560c11c3e5f7779bb6c3716"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/RankGeometry.lean",
+      "sha256": "82aed5435d99bcf0ccf5ae94361e72bc0d3163bcb1174018dcdec55871d4a0df"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/RankSupport.lean",
+      "sha256": "5879e77aeaedaefce189687caaca3ea219510c01df3d4cb60e7798963d0fd9dd"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/SecondHalf.lean",
+      "sha256": "3e97a811f2fa359b115c2c5373173375325d322847129d77a0d8d2b291273016"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter09/SecondHalfAudit.lean",
+      "sha256": "5ffcb8c7d861236166a3074d68a11ba3043e9b0199428bfac79631b378e4bd63"
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter11.lean",
+      "sha256": "3c3a49770fce6e3230ea1849bb273833ebcd20e034c8a294d936b44821fd1b83"
+    },
+    {
+      "path": "rudin/lake-manifest.json",
+      "sha256": "3d3476c312fb2220e92334726052c3b23080ad1f97c3db6cfceedc9a90466d1b"
+    },
+    {
+      "path": "rudin/lakefile.toml",
+      "sha256": "76f6da8cfc4cd594397f62eb3d1947edc0cfa9db25f0fac517974c89e75bff3f"
+    },
+    {
+      "path": "rudin/lean-toolchain",
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    }
+  ]
+}

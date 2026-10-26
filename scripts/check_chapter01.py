@@ -2,7 +2,7 @@
 """Check Chapter 1's node coverage, prohibited proof commands, and progress count.
 
 Run from any directory. Use --partial while adding nodes; without that option all
-37 numbered nodes must be present. The Lean Chapter01Audit module separately
+38 numbered nodes must be present. The Lean Chapter01Audit module separately
 checks transitive axiom dependencies and should be imported by Rudin.lean.
 """
 
@@ -14,7 +14,7 @@ import re
 import sys
 
 
-EXPECTED = [1, *range(3, 39)]
+EXPECTED = list(range(1, 39))
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -100,12 +100,12 @@ def check(partial: bool) -> list[str]:
     if not count:
         errors.append("PROGRESS.md lacks the Chapter 01 completed/total count")
     elif (int(count.group(1)), int(count.group(2))) != (len(nodes), len(EXPECTED)):
-        errors.append(f"PROGRESS.md has {count.group(1)}/{count.group(2)}; chapter has {len(nodes)}/37 nodes")
+        errors.append(f"PROGRESS.md has {count.group(1)}/{count.group(2)}; chapter has {len(nodes)}/{len(EXPECTED)} nodes")
 
     inventory = (ROOT / "research/pma-ch01-inventory.md").read_text()
     inventoried = [int(n) for n in re.findall(r"^- \*\*PMA-1\.(\d+)\*\*", inventory, re.M)]
     if inventoried != EXPECTED:
-        errors.append("Chapter 1 inventory does not match the 37 expected numbered nodes")
+        errors.append(f"Chapter 1 inventory does not match the {len(EXPECTED)} expected numbered nodes")
 
     queue = (ROOT / "QUEUE.md").read_text()
     queued = {int(n) for n in re.findall(r"^(?:#+\s+|[-*]\s+\*\*)PMA-1\.(\d+)\b", queue, re.M)}
@@ -115,7 +115,7 @@ def check(partial: bool) -> list[str]:
 
     if not errors:
         state = "partial" if partial else "complete"
-        print(f"Chapter 1 {state} source audit passed: {len(nodes)}/37 nodes, metadata consistent, no prohibited proof commands.")
+        print(f"Chapter 1 {state} source audit passed: {len(nodes)}/{len(EXPECTED)} nodes, metadata consistent, no prohibited proof commands.")
     return errors
 
 
