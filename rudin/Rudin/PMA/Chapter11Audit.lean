@@ -1,4 +1,5 @@
 import Rudin.PMA.Chapter11
+import Rudin.PMA.Chapter11SecondHalfAudit
 import Rudin.PMA.AxiomAudit
 import Lean.Util.CollectAxioms
 import Lean.Elab.Command
@@ -91,7 +92,8 @@ run_cmd do
         throwError "Missing declaration for numbered node 11.{node}: {name}"
   logInfo m!"Chapter 11 first-half declaration coverage PASS: {coverage.size} numbered nodes (11.1–11.23)."
 
--- Supplement the original checks with ownership coverage of every contributing module.
+-- Supplement the original checks with ownership coverage of every contributing module
+-- in both halves, pinning one declaration from each of the 24 content modules.
 run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter11 #[
     `Rudin.PMA.Chapter11.ContentRegular,
     `Rudin.PMA.Chapter11.pma11_11c_borel_sigmaRing,
@@ -106,4 +108,14 @@ run_cmd Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter11 #[
     `Rudin.PMA.Chapter11.RegularContent.exists_open_sdiff_lt,
     `Rudin.PMA.Chapter11.pma11_2_absolute_series,
     `Rudin.PMA.Chapter11.IsSimple,
-    `Rudin.PMA.Chapter11.stieltjesEuclideanMeasure]
+    `Rudin.PMA.Chapter11.stieltjesEuclideanMeasure,
+    `Rudin.PMA.Chapter11.SecondHalf.partitionStep_integral,
+    `Rudin.PMA.Chapter11.SecondHalf.pma11_33_ae_continuous_of_riemann,
+    `Rudin.PMA.Chapter11.SecondHalf.pma11_40_parseval,
+    `Rudin.PMA.Chapter11.SecondHalf.pma11_45,
+    `Rudin.PMA.Chapter11.SecondHalf.pma11_24_nonnegative,
+    `Rudin.PMA.Chapter11.SecondHalf.pma11_34,
+    `Rudin.PMA.Chapter11.SecondHalf.pma11_33_riemann_of_ae_continuous,
+    `Rudin.PMA.Chapter11.SecondHalf.native_lebesgueIntegral_compat,
+    `Rudin.PMA.Chapter11.SecondHalf.pma11_33_indefinite_integral,
+    `Rudin.PMA.Chapter11.SecondHalf.pma11_33_comparison]
