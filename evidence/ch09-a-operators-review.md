@@ -19,8 +19,8 @@ Result: no missing substantive component of numbered nodes 9.6–9.9 was found.
   Bijective operators are explicitly identified with units.
 - 9.9 includes the basis-dependent linear-map/matrix equivalence, entries and
   column reconstruction, image coordinates, the column-span range, composition,
-  the standard-basis realization, the Schwarz estimate, the printed squared
-  norm bound, and continuity under entrywise continuous variation.
+  the standard-basis realization, the Schwarz estimate, the printed norm bound
+  and its equivalent squared form, and continuity under entrywise continuous variation.
 
 Representational differences and explicit generalizations:
 

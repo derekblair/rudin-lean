@@ -35,7 +35,11 @@ the module structure, so every later lemma builds on verified earlier ones.
 
 - Toolchain pinned: `leanprover/lean4:v4.34.1` — never float it.
 - Mathlib pinned to a fixed commit (see `rudin/lake-manifest.json`) — never float it.
-- Axioms: `propext`, `Classical.choice`, `Quot.sound` only (Lean's standard three).
+- Production sources use only `propext`, `Classical.choice`, and `Quot.sound`
+  (Lean's standard three); no new axioms are introduced in production sources.
+  `scripts/test_axiom_audit.py` deliberately includes
+  `axiom Unrelated.unapproved : False` as a negative-test fixture that the audit
+  must reject; it is not part of the production sources.
 - Oleons via `lake exe cache get`; never build Mathlib from source.
 
 ## Status

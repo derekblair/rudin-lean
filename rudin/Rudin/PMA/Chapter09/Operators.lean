@@ -229,7 +229,7 @@ theorem pma9_9_frobenius_bound {n m : ℕ} (A : Matrix (Fin m) (Fin n) ℝ) :
   rw [mul_pow, Real.sq_sqrt (by positivity)]
   exact pma9_9_schwarz A x
 
-/-- 9.9, equation (6), in its printed squared form. -/
+/-- 9.9, equation (6), in an equivalent squared form. -/
 theorem pma9_9_frobenius_bound_sq {n m : ℕ} (A : Matrix (Fin m) (Fin n) ℝ) :
     ‖pma9_9_fromMatrix n m A‖ ^ 2 ≤ ∑ i, ∑ j, A i j ^ 2 := by
   have h := (sq_le_sq₀ (norm_nonneg (pma9_9_fromMatrix n m A))

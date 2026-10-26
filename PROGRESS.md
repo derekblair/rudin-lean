@@ -111,7 +111,7 @@ correction; it does not claim to prove a false source statement.
 | Finding | Merged resolution |
 |---|---|
 | 1.2 | Standalone rational midpoint theorem and numbered node. |
-| 1.21 | Root-uniqueness comment now accurately records the positive-root restriction and printed omission. |
+| 1.21 | Root-uniqueness comment corrected: positivity is explicit in the printed theorem; the inaccurate omission claim was removed. |
 | 3.18(a) | Arbitrary real sequences containing all rationals are covered, allowing irrational terms and repetitions. |
 | 3.36 | The false full-test dominance claim is explicitly identified, with a formal counterexample and the valid convergence-criterion result retained. |
 | 4.33 | The nonvacuous accumulation hypothesis and its role in uniqueness are explicitly documented. |
