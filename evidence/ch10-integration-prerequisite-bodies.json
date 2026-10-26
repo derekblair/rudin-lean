@@ -1,0 +1,186 @@
+[
+  {
+    "name": "Rudin.PMA.Chapter10.Euclidean",
+    "body_sha256": "eb9270aeb01b11ed15619a6f320546356bed8544ce68816bcaccac89c02e82c3",
+    "source_files": [
+      "ch10-old-Linear.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.standardBasis",
+    "body_sha256": "464e112e4fdac5fed59960d2d4bdc6776b632a7d0497f41897e165373defc6c3",
+    "source_files": [
+      "ch10-old-Linear.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.Operator",
+    "body_sha256": "0b7ff42f073d1885c0b541d0c28a8a05b62dab8c701589f8afb2a3942d585fe1",
+    "source_files": [
+      "ch10-old-Linear.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.operatorMatrix",
+    "body_sha256": "d3092da9d29fb1bee48ac11cf97dd5f3e666776b50f793fdc47852d16b1f35ae",
+    "source_files": [
+      "ch10-old-Linear.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.standardBasis_repr",
+    "body_sha256": "7d30443ad97cfd548744d477fa74ec239cef3c9c4610dbabf20ba800ec346a37",
+    "source_files": [
+      "ch10-old-Linear.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.standardBasis_apply",
+    "body_sha256": "3548414dd993033cc513604dc14eca93a24f7c243b7bda7d3c91971f8d28577e",
+    "source_files": [
+      "ch10-old-Linear.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.operatorMatrix_apply",
+    "body_sha256": "4d1e485a11c04ec38642d3e27a2cc73ca23bb41079b06f15502a758ed8e97ea5",
+    "source_files": [
+      "ch10-old-Linear.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.coordinateVector",
+    "body_sha256": "3dd2a80c655ced382308f8e2e02b72b567494527264a733c0db221816c687020",
+    "source_files": [
+      "ch10-old-Differentiation.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.HasCoordinatePartial",
+    "body_sha256": "ac6fbc129d34c0aa44028c6ad2bdeabfaf524c419d6b925c3ae2c664fe89b0b7",
+    "source_files": [
+      "ch10-old-Differentiation.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.coordinatePartial",
+    "body_sha256": "eefa0302d33ffdd8cf6e6d31242a1e25a2fe02b9847cde2eb4a6fb11065c8059",
+    "source_files": [
+      "ch10-old-Differentiation.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.hasCoordinatePartial_of_hasFDerivAt",
+    "body_sha256": "71a025890139ef17268987c75f1a893b8348387a4da15e6b965c22f7b450d5e5",
+    "source_files": [
+      "ch10-old-Differentiation.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.coordinatePartial_eq_fderiv",
+    "body_sha256": "9109a17d5f6b145e78983334f5687a5dcc764e57ba453815a83087325a5c9998",
+    "source_files": [
+      "ch10-old-Differentiation.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.linear_apply_eq_sum_coordinates",
+    "body_sha256": "3e804e73e15668d236a823d25b4196f4f792fc2920019ac0a857083be7d34240",
+    "source_files": [
+      "ch10-old-Differentiation.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.tupleSign",
+    "body_sha256": "ca3d67678293c6abd804240be8132580d72de8fd066974cb96151f6325e63803",
+    "source_files": [
+      "ch10-old-Determinants.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.columnDet",
+    "body_sha256": "dfc3d445774451a957a85942e9967573ed9f27b9139509fb88785a6ef7fb8815",
+    "source_files": [
+      "ch10-old-Determinants.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.jacobian",
+    "body_sha256": "4e3a67d097c622c9e9fbcfeecfd2e7e4b4ab9d7940ee07d9a5391ba177ebdd35",
+    "source_files": [
+      "ch10-old-Determinants.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.partialJacobian",
+    "body_sha256": "d6895f2b430905c7705ef4a1ad13fdc7df14b7903e053e79da87c846fb0b8772",
+    "source_files": [
+      "ch10-old-Determinants.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.pma9_38_contract",
+    "body_sha256": "82a97acf16249fea91e7fcc1c801ae1d10ca68e495f9f724add9b11dfefd32ce",
+    "source_files": [
+      "ch10-old-Determinants.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.operator_isUnit_iff_det_ne_zero",
+    "body_sha256": "23aef32faf42545f8eb8ff5323eecbc0889d06306c7822d01969c2a00949ead4",
+    "source_files": [
+      "ch10-old-Determinants.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.operator_isInvertible_iff_isUnit",
+    "body_sha256": "569ae6da9b299807fd425449040427775030dc65e7ea59ff4171a8ec3d260fd0",
+    "source_files": [
+      "ch10-old-Determinants.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.pma9_38",
+    "body_sha256": "148f3cfe2260cab5caffa3d19be7af3b71023b11d194d5359c967e216a1fb7de",
+    "source_files": [
+      "ch10-old-Determinants.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.InverseNeighborhood",
+    "body_sha256": "7ea95bfc2d342bdfe9fbdb3ed04c4f250d98c28f3e2021669f2300208c2e11d3",
+    "source_files": [
+      "ch10-old-Inverse.lean"
+    ],
+    "byte_identical_declaration_body": true
+  },
+  {
+    "name": "Rudin.PMA.Chapter10.orientedRIntegral_eq_intervalIntegral",
+    "body_sha256": "d92d9b43f58b1788db4201bed36e29382e8d7815eeb331d506aa6232e5d417a2",
+    "source_files": [
+      "ch10-old-ParameterIntegrals.lean"
+    ],
+    "byte_identical_declaration_body": true
+  }
+]

@@ -1,0 +1,985 @@
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_137: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.nonnegativeIntegral_simple: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_121: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_128: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.simpleIntegral_eq_sum: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.elementaryCube_isElementary._simp_1_6: [propext]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_13: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.RudinMeasurable.union: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_4_well_defined: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.integralDefined_integrable_iff: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_30: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_2_sdiff: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_117: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.stieltjesEuclideanMeasure: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_112: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_22: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_111: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.Simple.0.Rudin.PMA.Chapter11.runningMax_ge: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_19: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.rudinMeasurable_iff._simp_1_1: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_26: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.isElementary_ball: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_95: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.IsElementary.exists_closed_elementary_sdiff_lt._simp_1_1: [propext]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.SetConverges.measure: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_49: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.outer_eq_content: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_18: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_113: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_empty: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.Integration.0.Rudin.PMA.Chapter11.lebesgueIntegral_neg: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.IsElementary.open_closed_envelopes: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_28: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_40: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.mk.noConfusion: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_34: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_28: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.firstDiffBox: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.Measurable.0.Rudin.PMA.Chapter11.measurable_of_real_sublevel._simp_1_3: [propext]
+Rudin.PMA.Chapter11.IsElementary.union: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.SetRing.rec: []
+Rudin.PMA.Chapter11.pma11_3: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_56: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.setDistance_inter._simp_1_1: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_12_measurable: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.pma11_11d_decomposition: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_6b_degenerate_intervals: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.elementaryMeasureContent._proof_2: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_17: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_1_iInter._simp_1_6: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.exists_simple_pointwise: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.Simple.0.Rudin.PMA.Chapter11.runningMax_le: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_134: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.content_le_cover: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace._sizeOf_inst: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_6b_interval_formulas: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_11a: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.Integration.0.Rudin.PMA.Chapter11.lebesgueIntegral_const_mul_nonneg: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_12_counting: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.Measurable.0.Rudin.PMA.Chapter11.measurable_of_real_sublevel: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.measure: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.compact_elementary_sandwich: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.intervalSet: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_11c_borel_sigmaRing: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_125: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.elementaryOuter._proof_1: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.extendedAbs_eq: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_120: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.noConfusion: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.IsInterval: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.characteristic_of_mem: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.Integration.0.Rudin.PMA.Chapter11.positiveIntegral_mono: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_2_empty: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.setDistance_self: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.SetRing.union_mem: []
+_private.Rudin.PMA.Chapter11.Integration.0.Rudin.PMA.Chapter11.positiveIntegral_const_mul_nonneg: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_38: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.setDistance_diff: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._simp_1_1: [propext]
+Rudin.PMA.Chapter11.ringMeasureSpaceOfMeasure._proof_2: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.AdmissibleSetFunction.mk: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.stieltjesMeasure.congr_simp: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.setDistance_diff._simp_1_3: [propext]
+Rudin.PMA.Chapter11.isElementary_closedBall: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.Simple.0.Rudin.PMA.Chapter11.gridApprox_error: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.nonnegativeIntegral.eq_1: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.toMeasurableSpace: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_37: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.elementary_caratheodory: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.exists_elementary_approx: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.exists_simple_monotone: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_130: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_2_inclusion_exclusion._simp_1_3: [propext]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_10: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.setDistance_union: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_2_inclusion_exclusion: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.measurableSimple: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.negativeIntegral.eq_1: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.IsAxisBox.eq_1: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_25: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.mk._flat_ctor: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.recOn: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.setDistance_diff._simp_1_2: [propext]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_76: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.IsInterval.closed_inter_open._proof_1_6: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._simp_1_21: [propext]
+Rudin.PMA.Chapter11.RegularContent.ctorIdx: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.setFunction_finite_of_subset: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.infiniteElementaryContent_nonempty: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.IsInterval.measurableSet: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.IsInterval.closed_inter_open._proof_1_7: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_15._simp_1_1: [propext]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_60: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.lebesgueIntegrable_null: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.rec: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.recOn: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.extendedAbs.eq_1: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_3: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.noConfusion: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.measurableSimple._proof_1: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.compact: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_11c_borel_minimal._simp_1_2: [propext]
+Rudin.PMA.Chapter11.LebesgueIntegrable.mono_set: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.isTopologicalBasis_openElementary: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_87: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.firstDiffBox_mem: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.rudinMeasurable_iff: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.stieltjesRegularContent_outer: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_8: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_62: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.SigmaRing.casesOn: []
+Rudin.PMA.Chapter11.RegularContent.setDistance: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.outer_eq_iInf: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.simple_eq_sum_characteristic: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.positiveIntegral: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.AdditiveSetFunction: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_12_lebesgue: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_92: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.Measurable.0.Rudin.PMA.Chapter11.measurable_of_real_sublevel._simp_1_1: [propext]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_24: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.outer_eq_measure_of_isOpen: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.casesOn: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_79: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.setDistance_comm: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.RudinMeasurable.diff: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.AdmissibleSetFunction.finite_value: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_105: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.ringMeasureSpaceOfMeasure._proof_1: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_91: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.SigmaRing.iUnion_mem: []
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_108: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.Simple.0.Rudin.PMA.Chapter11.runningMax.match_1: []
+Rudin.PMA.Chapter11.ringMeasureSpaceOfMeasure: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._simp_1_2: [propext]
+_private.Rudin.PMA.Chapter11.Simple.0.Rudin.PMA.Chapter11.runningMax._sunfold: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.elementaryCube_isElementary._simp_1_5: [propext]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_13: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.Simple.0.Rudin.PMA.Chapter11.gridApprox_uniform: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_4: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.LebesgueIntegrable.integral_finite: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.finitelyMeasurable_iff: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.countablyAdditive_additive._simp_1_1: [propext]
+Rudin.PMA.Chapter11.RegularContent.caratheodory_of_setConverges: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_96: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.casesOn: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.finitelyMeasurable_ring: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.IsInterval.closed_inter_open._proof_1_5: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_43: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_35: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.countablyAdditive_additive: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.ctorIdx: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.gridApprox: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.mk.injEq: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.toMeasure: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_4_univ_not_elementary: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.empty_mem: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.stieltjesMeasure._proof_2: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.LebesgueIntegrable.const_mul: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.IsInterval.closed_inter_open._simp_1_1: [propext]
+Rudin.PMA.Chapter11.RegularContent.rudinMeasurable_sigmaRing: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.gridApprox.eq_1: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.lebesgueIntegral_nonneg: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.IsElementary.exists_closed_elementary_sdiff_lt: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.pma11_11b._simp_1_3: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.volumeRegularContent_outer: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_74: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_80: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_32: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.infiniteElementaryContent_empty: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.IsElementary.disjoint_intervals: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.outer_eq_measure_of_isOpen._simp_1_1: [propext]
+Rudin.PMA.Chapter11.stieltjesRegularContent: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.extendedAbs: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.simpleIntegral.eq_1: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.countablyAdditive_empty: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.Simple.0.Rudin.PMA.Chapter11.runningMax_measurable: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_2_mono._simp_1_1: [propext]
+Rudin.PMA.Chapter11.axisInterval_open_subset: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_17_corollary_a: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_115: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.setDistance_inter: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_16: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.NullSets.0.Rudin.PMA.Chapter11.volume_right_third: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.toMeasurableSpace._simp_1: [propext]
+Rudin.PMA.Chapter11.pma11_11c_borel_minimal._simp_1_1: [propext]
+_private.Rudin.PMA.Chapter11.Simple.0.Rudin.PMA.Chapter11.runningMax: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.IsElementary.volume_ne_top: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.noConfusionType: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.mk: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_7: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.firstDiffBox.eq_1: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_16: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_52: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_63: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.Integration.0.Rudin.PMA.Chapter11.integrable_positive_finite: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.IntegralDefined: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.CountablyAdditiveSetFunction: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.Integration.0.Rudin.PMA.Chapter11.LebesgueIntegrable.neg: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.measureRegularContent._proof_1: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.outer._proof_1: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_141: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_29: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.lebesgueIntegral_null: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.setDistance_inter._simp_1_3: [propext]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_34: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.AdmissibleSetFunction.mk._flat_ctor: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_99: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_5: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_2_inclusion_exclusion._simp_1_1: [propext]
+Rudin.PMA.Chapter11.lebesgueIntegral_bounds: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.elementaryCube_isElementary._simp_1_4: [propext]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_35: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_6b_regular: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_59: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.IsMeasurable: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.elementaryVolume: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.elementaryMeasureContent: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.Measurable.0.Rudin.PMA.Chapter11.measurable_of_real_sublevel._simp_1_4: [propext]
+Rudin.PMA.Chapter11.stieltjesEuclideanMeasure_isLocallyFinite: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_69: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.IsElementary.exists_closed_elementary_sdiff_lt._simp_1_2: [propext]
+Rudin.PMA.Chapter11.RegularContent.caratheodory_of_setConverges._simp_1_1: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.rec: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.stieltjesMeasure_isLocallyFinite: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.AdmissibleSetFunction.no_opposite_infinities: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.exists_measurable_simple_pointwise: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.volume_axisInterval: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.IsInterval.closed_inter_open._simp_1_2: [propext]
+Rudin.PMA.Chapter11.pma11_4_not_countable_union_closed: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.FinitelyMeasurable.finite: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_75: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.characteristic_of_not_mem: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_16: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_17_inf_liminf: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_77: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_7: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.outer_iUnion_le: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.sigmaSubadditive: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_85: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.infiniteElementaryContent_regular: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_4_interval_volume: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_129: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.zeroDistanceSetoid._proof_1: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.measureRegularContent._proof_2: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.infiniteElementaryContent: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.simple_measurable_iff: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_89: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.NullSets.0.Rudin.PMA.Chapter11.volume_left_third: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.stieltjesMeasure: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_18: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_26: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.exists_simple_uniform: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_127: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.exists_measurable_simple_monotone: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_18: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.measureRegularContent: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.IsInterval.exists_closed_elementary_sdiff_lt: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_29: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_110: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.LebesgueIntegrable: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.countablyAdditive_additive._proof_1_6: [propext, Quot.sound]
+Rudin.PMA.Chapter11.pma11_11_cantor: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.mk._flat_ctor: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.SetConverges: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.SetConverges.union: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.SetRing.sdiff_mem: []
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_139: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_15: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.SetRing.mk._flat_ctor: []
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_101: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.outer_mono: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisBox_iff: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_1_iInter: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.SetConverges.diff: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.simpleIntegral: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.lebesgueIntegral.eq_1: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_33: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.axisInterval.eq_1: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.content: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.exists_elementary_approx._proof_1_1: [propext, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_106: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_67: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.Measurable.0.Rudin.PMA.Chapter11.measurable_of_real_superlevel._simp_1_1: [propext]
+Rudin.PMA.Chapter11.characteristic.eq_1: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_1_iInter._simp_1_5: [propext]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_126: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.IsInterval.closed_inter_open._simp_1_3: [propext]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_37: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_82: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_54: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.rudinMeasurable_iUnion_measure: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_21: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_70: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.intervalSet.eq_1: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.lebesgueIntegral_real._simp_1_5: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.finite: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.Simple.0.Rudin.PMA.Chapter11.runningMax_simple: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_36: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.AdmissibleSetFunction.casesOn: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_42: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_114: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.elementaryCube.eq_1: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_14: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.MeasurableFunction: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_83: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_27: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.AdmissibleSetFunction.recOn: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._simp_1_20: [propext]
+Rudin.PMA.Chapter11.pma11_11c_borel_minimal: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_39: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.isSetRing_isElementary: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_3: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_empty._proof_1_1: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.measure_le_outer: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_11: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.IsAxisInterval: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.pma11_11d_decomposition._simp_1_2: [propext]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_33: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.SetConverges.eq_1: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.ring: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.SetRing.mk: []
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_88: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_51: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_1_inter: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.Measurable.0.Rudin.PMA.Chapter11.measurable_of_real_sublevel._simp_1_2: [propext]
+Rudin.PMA.Chapter11.RegularContent.mk.noConfusion: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_30: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_94: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_13_iff_measurable: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent._sizeOf_inst: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.elementary_measure_regular._simp_1_1: [propext]
+Rudin.PMA.Chapter11.RingMeasureSpace.toMeasurableSpace._proof_1: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.regular: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_24: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.countablyAdditive_additive._simp_1_2: [propext]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_9: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.Geometry.0.Rudin.PMA.Chapter11.stieltjes_leftLim: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.Integration.0.Rudin.PMA.Chapter11.negativeIntegral_antitone: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.SetConverges.inter: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_1_iInter._simp_1_2: [propext]
+Rudin.PMA.Chapter11.RegularContent.elementaryOuter: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.setDistance_triangle: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_8: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.Foundations.0.Rudin.PMA.Chapter11.affine_limit: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_1_iInter._simp_1_4: [propext]
+Rudin.PMA.Chapter11.RegularContent.setDistance.eq_1: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.Measurable.0.Rudin.PMA.Chapter11.measurable_of_real_superlevel: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.elementary_measure_regular: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_15: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.SetRing.empty_mem: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.mk: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_41: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_12: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_97: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.volumeRegularContent: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_4_disjoint_volume._simp_1_2: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_65: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.Simple.0.Rudin.PMA.Chapter11.gridApprox_simple: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_2_inclusion_exclusion._simp_1_2: [propext]
+Rudin.PMA.Chapter11.RingMeasureSpace.toMeasure_apply: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.toMeasurableSpace._simp_3: [propext]
+Rudin.PMA.Chapter11.RingMeasureSpace.mk.sizeOf_spec: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_15: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_131: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.FinitelyMeasurable.rudinMeasurable: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.pma11_11d_decomposition._simp_1_1: [propext]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.firstDiffBox_subset: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_13_real_iff_measurable: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.setDistance_diff._simp_1_1: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_55: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_122: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.elementaryCube_isElementary: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.axisInterval_subset_Icc: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_4_interval_volume_real: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._simp_1_19: [propext]
+Rudin.PMA.Chapter11.pma11_11c_borel_minimal._simp_1_3: [propext]
+Rudin.PMA.Chapter11.IsElementary.biUnion: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_44: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.RudinMeasurable.iUnion: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.AdmissibleSetFunction.rec: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.lebesgueIntegral_real: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_11_cantor_stage_volume: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_90: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.stieltjesEuclideanMeasure.eq_1: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_27: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.measure_iUnion: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.countablyAdditive_empty._simp_1_1: [propext]
+Rudin.PMA.Chapter11.axisInterval: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.outer_le_outer_add_distance: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_2_mono: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.positiveIntegral.eq_1: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.pma11_11b._simp_1_1: [propext]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_31: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_14: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.pma11_11b._simp_1_2: [propext]
+Rudin.PMA.Chapter11.RegularContent.setDistance_inter._simp_1_2: [propext]
+Rudin.PMA.Chapter11.LebesgueIntegrable.integralDefined: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_53: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_23: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.Measurable.0.Rudin.PMA.Chapter11.measurable_of_real_superlevel._simp_1_2: [propext]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_58: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.extension: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_6: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.Integration.0.Rudin.PMA.Chapter11.negativeIntegral_const_mul_nonneg: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_123: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.characteristic: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace._sizeOf_1: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.Measurable.0.Rudin.PMA.Chapter11.measurable_of_real_superlevel._simp_1_4: [propext]
+Rudin.PMA.Chapter11.setFunction_finite_of_subset._simp_1_1: [propext]
+Rudin.PMA.Chapter11.pma11_17_corollary_b: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_18_add_mul: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_2_mono._simp_1_2: [propext]
+Rudin.PMA.Chapter11.RingMeasureSpace.toMeasurableSpace._simp_2: [propext]
+Rudin.PMA.Chapter11.RegularContent.pma11_11b: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.outer_eq_elementaryOuter: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_138: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.SigmaRing.mk._flat_ctor: []
+Rudin.PMA.Chapter11.pma11_11c: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.exists_open_sdiff_lt: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.SigmaRing: []
+Rudin.PMA.Chapter11.RegularContent.zeroDistanceSetoid: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_46: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.mk.injEq: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_66: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.IsElementary.exists_closed_elementary_sdiff_lt._simp_1_3: [propext]
+Rudin.PMA.Chapter11.SigmaRing.recOn: []
+Rudin.PMA.Chapter11.characteristic_isSimple: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.RudinMeasurable: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_4: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.mk.inj: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_9: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.lebesgueIntegrable_real_iff._simp_1_4: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.IsElementary: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.SetRing.casesOn: []
+Rudin.PMA.Chapter11.RegularContent.outer_le_outer_add_distance._simp_1_1: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_20: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_57: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.elementaryMeasureContent._simp_1: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.IsInterval.isBounded: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.lebesgueIntegral_const: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.sigmaRing: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.pma11_11d: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_100: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_86: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_14_real: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.stieltjesEuclideanMeasure_interval: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_23: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.mk.sizeOf_spec: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_72: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.IsElementary.isBounded: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.IsElementary.sdiff: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent._sizeOf_1: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.lebesgueIntegral_const._simp_1_5: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.volumeRegularContent._proof_1: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.IsSimple: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.elementaryMeasureContent._proof_1: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_45: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_132: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_11_countable_null: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_104: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_25: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.lebesgueIntegrable_of_bounded._simp_1_4: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_4_disjoint_volume: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_84: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_10: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_124: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_109: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_135: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_11: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_2_absolute_of_finite_total: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.FinitelyMeasurable: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisBoxSemiring: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.IsElementary.inter: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.mk.inj: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_68: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_93: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.SetRing.recOn: []
+_private.Rudin.PMA.Chapter11.Measurable.0.Rudin.PMA.Chapter11.measurable_of_real_superlevel._simp_1_3: [propext]
+Rudin.PMA.Chapter11.RingMeasureSpace.toMeasurableSpace._proof_2: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_2_finite_union: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.lebesgueIntegrable_of_bounded: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_48: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_6b_additive: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_31: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_12_probability: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.lebesgueIntegrable_real_iff: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.SigmaRing.toSetRing: []
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_12: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_36: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.elementaryCube: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_6a: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.FinitelyMeasurable.caratheodory: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.finitelyMeasurable_of_caratheodory: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_103: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.outer: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.IsAxisBox: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.ContentRegular: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.iUnion_elementaryCube: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.extension._proof_1: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.setFunction_finite_of_subset._simp_1_2: [propext]
+Rudin.PMA.Chapter11.IsInterval.closed_inter_open._proof_1_4: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.nonnegativeIntegral: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.IsInterval.isElementary: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_78: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_133: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_2_absolute_series: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.lebesgueIntegral: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.nonnegativeIntegral_eq_sup: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.measure_empty: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.elementary_eq_supClosure: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.IsElementary.isCompact_of_isClosed: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.SetRing: []
+Rudin.PMA.Chapter11.RegularContent.outer._proof_2: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.negativeIntegral: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_32: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.elementaryVolume.eq_1: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_102: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_4_additive: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_140: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_5: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_22: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_1_iInter._simp_1_3: [propext]
+Rudin.PMA.Chapter11.exists_simple_monotone_uniform: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_98: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.infiniteElementaryContent_not_finite: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_17_positive_negative_parts: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_47: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RingMeasureSpace.sets: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.Integration.0.Rudin.PMA.Chapter11.LebesgueIntegrable.const_mul_nonneg: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.outerRegular_extension: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_118: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_3_of_additive: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_17: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_142: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.isElementary_empty: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.IsInterval.closed_inter_open: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.Measurable.0.Rudin.PMA.Chapter11.measurable_of_real_sublevel._simp_1_5: [propext]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_71: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_143: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_81: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.IsElementary.measurableSet: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_64: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_50: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_145: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.Simple.0.Rudin.PMA.Chapter11.runningMax._f: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.stieltjesMeasure._proof_1: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.RudinMeasurable.caratheodory: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.extension_apply: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_144: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.SigmaRing.rec: []
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_119: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.SigmaRing.mk: []
+Rudin.PMA.Chapter11.pma11_1_iInter._simp_1_1: [propext]
+Rudin.PMA.Chapter11.pma11_6b_real_interval_formulas: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.noConfusionType: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.finitelyMeasurable_of_mem: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.lebesgueIntegral_mono: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.outer_le_content: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.measurableSet_axisInterval: [propext, Classical.choice, Quot.sound]
+Rudin.PMA.Chapter11.pma11_4_empty_interval: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_73: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.AdmissibleSetFunction: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_17: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.SetRing.toIsSetRing: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_136: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_61: [propext,
+ Classical.choice,
+ Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_116: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_14: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axisSemiring._proof_1_6: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.pma11_11_null_sigmaRing: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._simp_1_1: [propext]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_107: [propext,
+ Classical.choice,
+ Quot.sound]
+Rudin.PMA.Chapter11.RegularContent.outer_eq_measure: [propext, Classical.choice, Quot.sound]
+_private.Rudin.PMA.Chapter11.GeometryRing.0.Rudin.PMA.Chapter11.axis_inter._proof_1_2: [propext,
+ Classical.choice,
+ Quot.sound]
+Independent transitive audit PASS: 598 chapter declarations, 504 theorems, 231 private/generated-name declarations. Axioms encountered: [propext,
+ Classical.choice,
+ Quot.sound].

@@ -1,11 +1,12 @@
 # PMA Chapter 1 Inventory — "The Real and Complex Number Systems" (3rd ed.)
 
 Source: originally `~/workspace/formalization/sources/pma3.pdf` (3rd edition, verified from archive.org). Statements rechecked on 2026-10-09 against the [Lehman College third-edition scan](https://www.lehman.edu/faculty/rbettiol/lehman_teaching/2020mat320/baby_Rudin.pdf).
-Scope: every numbered Definition, Theorem, Proposition, Lemma, Corollary, worked Example, plus numbered Remarks/Notation/Discussion items, in Rudin's own numbering. (The third edition also has a Remark 1.2. It is folded into PMA-1.1 under PROGRAM.md’s rule for remarks; the 37 requested targets below retain their identifiers.) The Appendix (Steps 1–9, unnumbered Dedekind-cut construction proving Theorem 1.19) and the 18 end-of-chapter Exercises are not numbered nodes and are noted separately below.
+Scope: every numbered Definition, Theorem, Proposition, Lemma, Corollary, worked Example, plus numbered Remarks/Notation/Discussion items, in Rudin's own numbering. There are 38 numbered targets, including the standalone Remark 1.2 restored by the merged review-finding repair. The Appendix (Steps 1–9, unnumbered Dedekind-cut construction proving Theorem 1.19) and the 18 end-of-chapter Exercises are not numbered nodes and are noted separately below.
 
 ## Numbered nodes
 
 - **PMA-1.1** (example) — p² = 2 has no rational solution; the sets A = {p ∈ ℚ⁺ : p² < 2} and B = {p ∈ ℚ⁺ : p² > 2} contain no largest/smallest element.
+- **PMA-1.2** (remark) — For rational r < s, the rational midpoint (r + s)/2 lies strictly between r and s.
 - **PMA-1.3** (definition) — Set-theoretic terminology: membership, empty set, subset, proper subset, set equality.
 - **PMA-1.4** (definition) — ℚ denotes the set of all rational numbers throughout Chapter 1.
 - **PMA-1.5** (definition) — Order on a set: a relation < satisfying trichotomy and transitivity.
@@ -56,7 +57,7 @@ Scope: every numbered Definition, Theorem, Proposition, Lemma, Corollary, worked
 | Theorem | 12 | 1.11, 1.19, 1.20, 1.21, 1.25, 1.26, 1.28, 1.29, 1.31, 1.33, 1.35, 1.37 |
 | Proposition | 4 | 1.14, 1.15, 1.16, 1.18 |
 | Example | 2 | 1.1, 1.9 |
-| Remarks | 2 | 1.13, 1.38 |
+| Remarks | 3 | 1.2, 1.13, 1.38 |
 | Notation | 1 | 1.34 |
 | Discussion | 1 | 1.22 |
-| **Total** | **37** | (Remark 1.2 is folded into PMA-1.1) |
+| **Total** | **38** | 1.1–1.38, including standalone Remark 1.2 |

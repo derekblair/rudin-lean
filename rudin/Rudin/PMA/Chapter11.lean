@@ -1,9 +1,26 @@
+import Rudin.PMA.Chapter11.Foundations
+import Rudin.PMA.Chapter11.Geometry
+import Rudin.PMA.Chapter11.GeometryRing
+import Rudin.PMA.Chapter11.GeometryApproximation
+import Rudin.PMA.Chapter11.StieltjesExample
+import Rudin.PMA.Chapter11.Examples
+import Rudin.PMA.Chapter11.Construction
+import Rudin.PMA.Chapter11.Regularity
+import Rudin.PMA.Chapter11.Euclidean
+import Rudin.PMA.Chapter11.SetFunctionSeries
+import Rudin.PMA.Chapter11.NullSets
+import Rudin.PMA.Chapter11.Measurable
+import Rudin.PMA.Chapter11.Simple
+import Rudin.PMA.Chapter11.Integration
+
 /-!
-# Rudin, *Principles of Mathematical Analysis* (3rd ed.)
+# PMA Chapter 11, first-half lane
 
-## Chapter 11: The Lebesgue Theory
-
-Every definition, theorem, and corollary from this chapter is
-formalized below in dependency order. Zero `sorry`s: anything
-not yet proved is tracked in `QUEUE.md`, never as a `sorry` here.
+Source inventory and ownership boundary: `evidence/ch11-a-inventory.md`.
+This lane owns 11.1–11.23; the remaining nodes belong to lane/rudin-ch11-b.
+All 23 numbered nodes in the first half have formal declarations, including
+their displayed subclauses and attached corollaries. Declaration mapping and
+source qualifications are recorded in `evidence/ch11-a-coverage.md`.
+The unnumbered, externally referenced composition illustration following 11.18
+is explicitly outside this numbered-node completion claim; see Measurable.lean.
 -/

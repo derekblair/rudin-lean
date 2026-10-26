@@ -1,0 +1,39 @@
+{
+  "source_commit": "bb50a2079f8e189d8e282e2521bbadb64f4f98eb",
+  "upstream_first_half_commit": "c7262b1fe9978c573e4e15ea506d972411e4d963",
+  "standalone_build_exit_code": 1,
+  "snapshot_build_exit_code": 0,
+  "snapshot_jobs": 9095,
+  "principal_theorems_checked": 24,
+  "chapter10_declarations_axiom_audited": 2187,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "unresolved_nodes": [
+    "10.43"
+  ],
+  "missing_prerequisite_files": [
+    "rudin/Rudin/PMA/Chapter08/Abel.lean",
+    "rudin/Rudin/PMA/Chapter08/DoubleSeries.lean",
+    "rudin/Rudin/PMA/Chapter08/Exponential.lean",
+    "rudin/Rudin/PMA/Chapter08/Operations.lean",
+    "rudin/Rudin/PMA/Chapter08/PowerSeries.lean",
+    "rudin/Rudin/PMA/Chapter08/Taylor.lean",
+    "rudin/Rudin/PMA/Chapter09/Determinants.lean",
+    "rudin/Rudin/PMA/Chapter09/Differentiation.lean",
+    "rudin/Rudin/PMA/Chapter09/HigherDerivatives.lean",
+    "rudin/Rudin/PMA/Chapter09/Inverse.lean",
+    "rudin/Rudin/PMA/Chapter09/Linear.lean",
+    "rudin/Rudin/PMA/Chapter09/ParameterIntegrals.lean",
+    "rudin/Rudin/PMA/Chapter09/PartialExamples.lean"
+  ],
+  "different_prerequisite_files": [
+    "rudin/Rudin/PMA/Chapter08.lean"
+  ],
+  "owned_module_hashes": {
+    "rudin/Rudin/PMA/Chapter10/SecondHalf.lean": "1458d6d4fc6db181417779558d4f73cc4959472af1111828c5d1c8cd6e04a8cf",
+    "rudin/Rudin/PMA/Chapter10/SecondHalfAudit.lean": "3ff2cbc1926be07fb517d3e39df13457fea4f3ccfeb6e8f480ef5cd174d7f607"
+  }
+}

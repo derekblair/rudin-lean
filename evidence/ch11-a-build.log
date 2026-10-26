@@ -1,0 +1,9 @@
+✔ [8936/8942] Built Rudin.PMA.Chapter11.Simple (4.5s)
+✔ [8937/8942] Built Rudin.PMA.Chapter11.Integration (4.6s)
+✔ [8938/8942] Built Rudin.PMA.Chapter11.GeometryRing (17s)
+✔ [8940/8942] Built Rudin.PMA.Chapter11.Examples (7.5s)
+✔ [8941/8942] Built Rudin.PMA.Chapter11 (5.2s)
+ℹ [8942/8942] Built Rudin.PMA.Chapter11Audit (7.2s)
+info: Rudin/PMA/Chapter11Audit.lean:16:0: Chapter 11 axiom audit PASS: 598 declarations (504 theorems); only propext, Classical.choice, Quot.sound.
+info: Rudin/PMA/Chapter11Audit.lean:37:0: Chapter 11 first-half declaration coverage PASS: 23 numbered nodes (11.1–11.23).
+Build completed successfully (8942 jobs).

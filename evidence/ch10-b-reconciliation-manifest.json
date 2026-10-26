@@ -1,0 +1,1162 @@
+{
+  "source_commit": "bb50a2079f8e189d8e282e2521bbadb64f4f98eb",
+  "first_half_dependency_ref": "origin/lane/rudin-ch10-a",
+  "second_half_nodes": [
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "source_completed_nodes": [
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "source_incomplete_nodes": [
+    43
+  ],
+  "production_roots": [
+    "SimplexOrientation",
+    "ChainMaps",
+    "BoundaryDefinitions",
+    "SphereBoundary",
+    "ClosedFormConsequences",
+    "PuncturedPlane",
+    "PuncturedSphere",
+    "ConvexPrimitives",
+    "Poincare",
+    "DiffeomorphicExactness",
+    "CellTriangulation",
+    "VectorFields",
+    "VectorPotentials",
+    "VolumeElements",
+    "PlanarGreen",
+    "AreaElements",
+    "TorusProof",
+    "Circulation",
+    "Flux",
+    "ClassicalStokes",
+    "DivergenceTheorem"
+  ],
+  "probe_roots": [
+    "SimplexChainProbes",
+    "BoundaryExamplesProbes",
+    "PositiveBoundaryProbes",
+    "StokesProbes",
+    "ClosedFormProbes",
+    "PuncturedProbes",
+    "ConvexPrimitiveProbes",
+    "ConvexExactnessProbes",
+    "CellTriangulationProbes",
+    "VectorFieldProbes",
+    "ScalarPotentialProbes",
+    "VolumeAreaProbes",
+    "TorusProbes",
+    "VectorIntegrationProbes",
+    "ClassicalCalculusProbes"
+  ],
+  "restored_files": [
+    {
+      "module": "Rudin.PMA.Chapter10.AffineChains",
+      "path": "rudin/Rudin/PMA/Chapter10/AffineChains.lean",
+      "sha256": "c1a6ba37485db4343cccaacc0db8d6648b83464cf832a99e57b55d2bc1cd231d",
+      "bytes": 3750
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.AffineFaces",
+      "path": "rudin/Rudin/PMA/Chapter10/AffineFaces.lean",
+      "sha256": "e8190800f232c21709e4928c4e972073fd4dbf07aa27f9985b76ce90e840d441",
+      "bytes": 6109
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.AngularForm",
+      "path": "rudin/Rudin/PMA/Chapter10/AngularForm.lean",
+      "sha256": "dbd1904ffdc805d22f675617d0ea7557a4666452d9f43e10311473785758c6ef",
+      "bytes": 5723
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.AreaElements",
+      "path": "rudin/Rudin/PMA/Chapter10/AreaElements.lean",
+      "sha256": "1aa91fdaf847b9df76629ea5fb8c5def76271e6af67ac5cc93f3ec98c2d7eb1d",
+      "bytes": 14740
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.BoundaryDefinitions",
+      "path": "rudin/Rudin/PMA/Chapter10/BoundaryDefinitions.lean",
+      "sha256": "3717675e379711303b8564e58c2d272c60fb01b1008f5fb80f4d9373e863e773",
+      "bytes": 344
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.BoundaryExamplesProbes",
+      "path": "rudin/Rudin/PMA/Chapter10/BoundaryExamplesProbes.lean",
+      "sha256": "fa3f88ae672a3da131703bbfbd65306f666ff218d1df0e01a6c5d2eb885334e3",
+      "bytes": 3079
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.CellFTC",
+      "path": "rudin/Rudin/PMA/Chapter10/CellFTC.lean",
+      "sha256": "36ed2e975589dafa415531280856c4616f97a47582a47054e3b1dbc1ed4a87ca",
+      "bytes": 6245
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.CellFaces",
+      "path": "rudin/Rudin/PMA/Chapter10/CellFaces.lean",
+      "sha256": "8f3217a1ae8fdd7552da027ebdd164d3c83c41448db87cc4284eea0ecc9cc8e1",
+      "bytes": 4571
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.CellImageVolume",
+      "path": "rudin/Rudin/PMA/Chapter10/CellImageVolume.lean",
+      "sha256": "138f6b4a8c6b4fef83a011fd24342234127b888d974f8dc96d3aec7dd4487ba9",
+      "bytes": 3938
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.CellIntegralNormalization",
+      "path": "rudin/Rudin/PMA/Chapter10/CellIntegralNormalization.lean",
+      "sha256": "1382a82cdef8ea757c40d06c4011df6888221f61abdecb7ae81af1175b0f15aa",
+      "bytes": 5163
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.CellNormalization",
+      "path": "rudin/Rudin/PMA/Chapter10/CellNormalization.lean",
+      "sha256": "fea342cbe7c4172c4090a8fa8b27a2d4b84d65c4fdbd7b0cbff3b6c025473b42",
+      "bytes": 5703
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.CellTriangulation",
+      "path": "rudin/Rudin/PMA/Chapter10/CellTriangulation.lean",
+      "sha256": "05b470cda814f680aa38ffd4d29cae1051fde51233d0cf84f93f811e67230b81",
+      "bytes": 7683
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.CellTriangulationProbes",
+      "path": "rudin/Rudin/PMA/Chapter10/CellTriangulationProbes.lean",
+      "sha256": "fc99b74339272e7d60375b215ba2e4a5dff7e8ff6a77156052dbe95366378918",
+      "bytes": 1551
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ChainMaps",
+      "path": "rudin/Rudin/PMA/Chapter10/ChainMaps.lean",
+      "sha256": "9a64b331e63ddd9c6bc8f155db7463c10e4b020e41b832cb025ae3cdf4ac1e5c",
+      "bytes": 5106
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ChainStokes",
+      "path": "rudin/Rudin/PMA/Chapter10/ChainStokes.lean",
+      "sha256": "c49fdbd15364c52ad411383213891dbce80846064e6514068ed3beb4cd881690",
+      "bytes": 467
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.Circulation",
+      "path": "rudin/Rudin/PMA/Chapter10/Circulation.lean",
+      "sha256": "80ba039da397ad26dbf326663ffeb37473f92e68131974ad2e4830bcecdadc4c",
+      "bytes": 8415
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ClassicalCalculusProbes",
+      "path": "rudin/Rudin/PMA/Chapter10/ClassicalCalculusProbes.lean",
+      "sha256": "0db77056a18a70896de2a32156d895d807fd679cd87abc1821e579fa1cc30c71",
+      "bytes": 2579
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ClassicalStokes",
+      "path": "rudin/Rudin/PMA/Chapter10/ClassicalStokes.lean",
+      "sha256": "6887663b1df78e92e25d8adb83af1e06f768b979b0dcf6be3ae844548a7561bb",
+      "bytes": 4678
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ClosedExact",
+      "path": "rudin/Rudin/PMA/Chapter10/ClosedExact.lean",
+      "sha256": "f9f36417c5158ea2636bda0ecd77ce9620b8592e3925f28a9e98c724128fd24e",
+      "bytes": 3625
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ClosedFormConsequences",
+      "path": "rudin/Rudin/PMA/Chapter10/ClosedFormConsequences.lean",
+      "sha256": "b5638a9cb819df81d6a2b9e57e64def1650ccf4fe5481e869bbb83521333a493",
+      "bytes": 7368
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ClosedFormProbes",
+      "path": "rudin/Rudin/PMA/Chapter10/ClosedFormProbes.lean",
+      "sha256": "0532f0959ae55412e609cad4425eb34f00c8b1cdd3bf13b52c7bef4d7767ca92",
+      "bytes": 3642
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.CoefficientIntegrals",
+      "path": "rudin/Rudin/PMA/Chapter10/CoefficientIntegrals.lean",
+      "sha256": "8aaed53432bdab12b620924a44150fbe3eea247b6a1ea5d0beb957d04028146d",
+      "bytes": 6372
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ContractionAlgebra",
+      "path": "rudin/Rudin/PMA/Chapter10/ContractionAlgebra.lean",
+      "sha256": "88ca65184eb91fb9341f02a4804810ffb81760a321dd807a69ba4563130669d1",
+      "bytes": 4593
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ContractionCalculus",
+      "path": "rudin/Rudin/PMA/Chapter10/ContractionCalculus.lean",
+      "sha256": "355db0a3dadb79b287f8196d108004eb274fef3f5fb6739e90972482ca356653",
+      "bytes": 5822
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ConvexExactnessProbes",
+      "path": "rudin/Rudin/PMA/Chapter10/ConvexExactnessProbes.lean",
+      "sha256": "9216d54592354c679b1e21dac6da1863cffc988440116756ff75fb71c1e5529d",
+      "bytes": 1387
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ConvexLinearSections",
+      "path": "rudin/Rudin/PMA/Chapter10/ConvexLinearSections.lean",
+      "sha256": "1561723368effda3cadbb264f7cc19f08dfba4d82915e3484d0556a2799fa413",
+      "bytes": 2789
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ConvexPrimitiveIntegral",
+      "path": "rudin/Rudin/PMA/Chapter10/ConvexPrimitiveIntegral.lean",
+      "sha256": "1edba792c19faf1f6412410bc42d6af0d58c4bc7b079321f4ec21422f47c7a2e",
+      "bytes": 9327
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ConvexPrimitiveProbes",
+      "path": "rudin/Rudin/PMA/Chapter10/ConvexPrimitiveProbes.lean",
+      "sha256": "5b2bbfead3b76f88a8ab1485c953cb63029b4af15ab4267f8554518a8b07fee3",
+      "bytes": 2836
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ConvexPrimitives",
+      "path": "rudin/Rudin/PMA/Chapter10/ConvexPrimitives.lean",
+      "sha256": "4bf04a34e5ff6c8b9e2a4ba2d04923ba94d9e47e9fe70110b68699b691c81432",
+      "bytes": 1151
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ConvexSections",
+      "path": "rudin/Rudin/PMA/Chapter10/ConvexSections.lean",
+      "sha256": "7327ba06c8604c6c0d4503fc4f7ce7acf112e0860f25c6912b9663010a27dba9",
+      "bytes": 2201
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.CubicalStokes",
+      "path": "rudin/Rudin/PMA/Chapter10/CubicalStokes.lean",
+      "sha256": "62164222376f27a950fb8b216771f5c296d4136dad2b48972911d7b83935a753",
+      "bytes": 8415
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.CumulativeCoordinates",
+      "path": "rudin/Rudin/PMA/Chapter10/CumulativeCoordinates.lean",
+      "sha256": "32c55887473b5da41a4d429a84f1b4d6c254230b01277bf27fd12fa25f6f1cbc",
+      "bytes": 4593
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.DiffeomorphicExactness",
+      "path": "rudin/Rudin/PMA/Chapter10/DiffeomorphicExactness.lean",
+      "sha256": "c5d66c04f33476cb3d375f50d0e1debc4c83c6f2447f92294acda9e76a0710b1",
+      "bytes": 1021
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.DivergenceTheorem",
+      "path": "rudin/Rudin/PMA/Chapter10/DivergenceTheorem.lean",
+      "sha256": "e5b4644a2239a6ddead2d3220e5ae763ce58f9ab62d390c26245c389e5efa15d",
+      "bytes": 3965
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ExactnessTransport",
+      "path": "rudin/Rudin/PMA/Chapter10/ExactnessTransport.lean",
+      "sha256": "1bbb23ac0c1534b20af24eb64a497a9120568f8ea2fc93a2d89755dd088964f7",
+      "bytes": 4350
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.Flux",
+      "path": "rudin/Rudin/PMA/Chapter10/Flux.lean",
+      "sha256": "8af692d0277eab23b489897a777081cbfe6a95938be9d4c6f9c0535ae8594d85",
+      "bytes": 3565
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.FormApproximation",
+      "path": "rudin/Rudin/PMA/Chapter10/FormApproximation.lean",
+      "sha256": "bb8023aae6037714b6d0c0c38b8ef5c6c4a4cf208cc970b56370fd37c7ac0bcc",
+      "bytes": 3729
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.FormIntegralContinuity",
+      "path": "rudin/Rudin/PMA/Chapter10/FormIntegralContinuity.lean",
+      "sha256": "b5a8fe8941740d7b95ada0994da2d248b5a02fb46a328eaeaf232561afa576f4",
+      "bytes": 7900
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.OneFormCoordinates",
+      "path": "rudin/Rudin/PMA/Chapter10/OneFormCoordinates.lean",
+      "sha256": "1a45e47c9488501156a68a68e4f77b0e74cb9f2548357d047a213421a961d3a0",
+      "bytes": 4942
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ParametricC1",
+      "path": "rudin/Rudin/PMA/Chapter10/ParametricC1.lean",
+      "sha256": "b13d71c14c8385b14ea4ae91971999a51b2b90f659e43b030125a824a0ae6179",
+      "bytes": 6649
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.PlanarGreen",
+      "path": "rudin/Rudin/PMA/Chapter10/PlanarGreen.lean",
+      "sha256": "eae3b01d38dba5a5a5a65dfd14cec04cfe203175eded811e12e0ba4fb8370918",
+      "bytes": 8304
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.Poincare",
+      "path": "rudin/Rudin/PMA/Chapter10/Poincare.lean",
+      "sha256": "26acef677a2bf51e404c7802b3d521fba76cbcd8f5c332def5fa878c95a9ee71",
+      "bytes": 724
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.PositiveBoundaries",
+      "path": "rudin/Rudin/PMA/Chapter10/PositiveBoundaries.lean",
+      "sha256": "5dab5ffbba2b3a558ee963b684537d352d93b9b5250d0a2d63a48b8aabd2bf50",
+      "bytes": 3908
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.PositiveBoundaryProbes",
+      "path": "rudin/Rudin/PMA/Chapter10/PositiveBoundaryProbes.lean",
+      "sha256": "32eb97c6aa063782b1e8a6f0d77f74723697dc463bbfa9f4c9e2e7c219c89c09",
+      "bytes": 4747
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.PositiveRegionUnions",
+      "path": "rudin/Rudin/PMA/Chapter10/PositiveRegionUnions.lean",
+      "sha256": "a5c781134bb579d7f1c3bb9e498347e9dd7ec158d49eec8060ae1d7904a6dbe6",
+      "bytes": 6590
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.PositiveRegions",
+      "path": "rudin/Rudin/PMA/Chapter10/PositiveRegions.lean",
+      "sha256": "5ca0eded22b30f439d2a7dfd3e9a5d558d2e257f7d8ba5ec693238e9da380a78",
+      "bytes": 9176
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.PotentialRegularity",
+      "path": "rudin/Rudin/PMA/Chapter10/PotentialRegularity.lean",
+      "sha256": "7670f6c309da576976eb65205078fed0dd0fec9c70ff3f1c5cb37c1cde3d52d7",
+      "bytes": 1703
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.PrefixCoordinates",
+      "path": "rudin/Rudin/PMA/Chapter10/PrefixCoordinates.lean",
+      "sha256": "21cee477d4b7926ed20d2667fa628ce29a0f70f3bd1ce1c2b681cca86a76740c",
+      "bytes": 3984
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.PuncturedExamples",
+      "path": "rudin/Rudin/PMA/Chapter10/PuncturedExamples.lean",
+      "sha256": "fa512f76a8101325d5633993cb6cdcfa612a66321bd08759d709662a951301c1",
+      "bytes": 2778
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.PuncturedPlane",
+      "path": "rudin/Rudin/PMA/Chapter10/PuncturedPlane.lean",
+      "sha256": "b418425dd45d4e372b64bf86d38445c624db9c01efae5720168c9ba6d87d0de3",
+      "bytes": 7372
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.PuncturedProbes",
+      "path": "rudin/Rudin/PMA/Chapter10/PuncturedProbes.lean",
+      "sha256": "952cc34d0a50e4401b9c37b664875a0d1e3ad66872b4c539cf0002279113051a",
+      "bytes": 2679
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.PuncturedSphere",
+      "path": "rudin/Rudin/PMA/Chapter10/PuncturedSphere.lean",
+      "sha256": "acfa4deceaa9f13b4d9fffd0b937bc0a6a8e7061c4cbfe07103238a0491ce128",
+      "bytes": 7990
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.RadialForm",
+      "path": "rudin/Rudin/PMA/Chapter10/RadialForm.lean",
+      "sha256": "08f7c014bd42c8519d02406c02e7ddafa44b48d9af222b9e5066edb2644ff98f",
+      "bytes": 6356
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.RadialHomotopy",
+      "path": "rudin/Rudin/PMA/Chapter10/RadialHomotopy.lean",
+      "sha256": "e1bf0ebfe6bd60b864508dda5baae296f638a66cab6386c38e45488693361edc",
+      "bytes": 6274
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.RadialPrimitive",
+      "path": "rudin/Rudin/PMA/Chapter10/RadialPrimitive.lean",
+      "sha256": "ebc055888fc02b4412fa3b2db019ffcbbfb66a14996f81b219c26de26585c7ec",
+      "bytes": 5384
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.RectangleChains",
+      "path": "rudin/Rudin/PMA/Chapter10/RectangleChains.lean",
+      "sha256": "41950015ab44b7384ba6554dedad1e0cea01cfe86e9f80644f696234890735ea",
+      "bytes": 5037
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.RectangleEdges",
+      "path": "rudin/Rudin/PMA/Chapter10/RectangleEdges.lean",
+      "sha256": "f32d70bc3e216bf664ea880f751e78a65caffd1d25b51eb1cbfcda74911b9760",
+      "bytes": 3508
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.RectangleNormalization",
+      "path": "rudin/Rudin/PMA/Chapter10/RectangleNormalization.lean",
+      "sha256": "3c89b2eab3c575c4455f0c32a4ea250229429830e209ca949ccbb203f0cc0a85",
+      "bytes": 7413
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ScalarPotentialProbes",
+      "path": "rudin/Rudin/PMA/Chapter10/ScalarPotentialProbes.lean",
+      "sha256": "9fa81a971a35524f470ebf92661888ae231bc7112df6f1a41f9490ebf3d68179",
+      "bytes": 1140
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.SimplexBoundaries",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexBoundaries.lean",
+      "sha256": "8c9f54193e33656cd9ab80b424164366331b073e144f702b3d51f2befcb1b3ff",
+      "bytes": 6495
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.SimplexBoundarySquared",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexBoundarySquared.lean",
+      "sha256": "f462313028b8df296b682147725af84ae1cd6fff845ce7c15b6ad46dbabef84b",
+      "bytes": 2261
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.SimplexChainProbes",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexChainProbes.lean",
+      "sha256": "8c981630f64af9e6be95783a7dbff20ae6b99519684c86a31d160b690936694e",
+      "bytes": 2860
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.SimplexChains",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexChains.lean",
+      "sha256": "db6007136017c15e4477458eac0b5fecaa287381f94553571100a132c4ae6f89",
+      "bytes": 4932
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.SimplexChangeOfVariables",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexChangeOfVariables.lean",
+      "sha256": "2f38999ec892d4469902cf9d910e17d075cbf1f85ccc44e880ba124c60de9de5",
+      "bytes": 1644
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.SimplexFTC",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexFTC.lean",
+      "sha256": "13aed6c37f0548629c64a1d4357525614490d20d678410bae8f81d827986cbee",
+      "bytes": 11880
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.SimplexFormFaces",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexFormFaces.lean",
+      "sha256": "516ae39d36f3e4c4a78ac8b9fe180196a535b87fd1d30b5084170abfd2b6b521",
+      "bytes": 4293
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.SimplexOrientation",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexOrientation.lean",
+      "sha256": "e542c67929860c59867228284ad9248cc7a0ce7178716b8ed69ce0a2055e587b",
+      "bytes": 13196
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.SimplexSeparation",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexSeparation.lean",
+      "sha256": "a622d0a24d8a577ebe26f367e18aee151dc558f376f298c929e5ce54cc5fba00",
+      "bytes": 10750
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.SimplexStokes",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexStokes.lean",
+      "sha256": "b7ba7490e458ab7a1819c323797c902b632d643bcae21c5c8e8d3d4f923653bc",
+      "bytes": 16757
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.SphereBoundary",
+      "path": "rudin/Rudin/PMA/Chapter10/SphereBoundary.lean",
+      "sha256": "95c0ca34950d05c3472a0f9e3afbba3b2a99e9f4f0b5d02d5482556daf882f2d",
+      "bytes": 7017
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.SquareBoundaries",
+      "path": "rudin/Rudin/PMA/Chapter10/SquareBoundaries.lean",
+      "sha256": "ebdc95ef1641094e6845f39b0735cf90710ec72594b602bfa72bb92a94402127",
+      "bytes": 12781
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.SquareIntegral",
+      "path": "rudin/Rudin/PMA/Chapter10/SquareIntegral.lean",
+      "sha256": "408da65cedce0aa84816bc3c284bc11f0c4f1997e0583e3b2f4779dd0b7a055b",
+      "bytes": 6189
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.StaircaseGeometry",
+      "path": "rudin/Rudin/PMA/Chapter10/StaircaseGeometry.lean",
+      "sha256": "f27e0869c8dbee3d3d3d124a217161f89d8210729734480eab2f5d0bf6631e36",
+      "bytes": 5754
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.StaircaseIntegrals",
+      "path": "rudin/Rudin/PMA/Chapter10/StaircaseIntegrals.lean",
+      "sha256": "b1ceb949e81342fe0d857e254de1053d05ab9d632c8f4a707eee09a3815dd965",
+      "bytes": 4035
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.StandardSimplexSurface",
+      "path": "rudin/Rudin/PMA/Chapter10/StandardSimplexSurface.lean",
+      "sha256": "c48bc3156d2958639f180a60cd6bfbe7eece26aab9021b4795a7c538a95959cd",
+      "bytes": 637
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.StokesCoefficients",
+      "path": "rudin/Rudin/PMA/Chapter10/StokesCoefficients.lean",
+      "sha256": "70d4aa42c11ca0967c7373f84fac79314b222d9f3e3f85c9cdb7ce8e2960ded0",
+      "bytes": 2873
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.StokesProbes",
+      "path": "rudin/Rudin/PMA/Chapter10/StokesProbes.lean",
+      "sha256": "8e86ea6f2ebfc256cc66a8ab52b437a5540235b286b9964668c1dbc0b3495238",
+      "bytes": 3612
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.StokesTransport",
+      "path": "rudin/Rudin/PMA/Chapter10/StokesTransport.lean",
+      "sha256": "dcbe3ac1e4d4f514f9695d7b723123da145c4e04b4850398ca0e540de48ded2f",
+      "bytes": 5519
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.SurfaceChains",
+      "path": "rudin/Rudin/PMA/Chapter10/SurfaceChains.lean",
+      "sha256": "1c5d40a150a9aad8996fd197db1d19311edaf17bb3ef9a1a667e768ea6144a49",
+      "bytes": 1892
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.SurfacePrecomposition",
+      "path": "rudin/Rudin/PMA/Chapter10/SurfacePrecomposition.lean",
+      "sha256": "afd430b4e4cbaf097bd1f986dc23a383062821f5c7bfb37dc08d7feec6b5d757",
+      "bytes": 5915
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.Torus",
+      "path": "rudin/Rudin/PMA/Chapter10/Torus.lean",
+      "sha256": "e758c81ed1cb1c977a5eda076f7d5f66383e6dd2c5dd9c5ce3fea439da85ab86",
+      "bytes": 5033
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.TorusBoundary",
+      "path": "rudin/Rudin/PMA/Chapter10/TorusBoundary.lean",
+      "sha256": "4efa8867e713b3625d4712aa5fae5b0256ab0749c159be1ae270c91de9d61e55",
+      "bytes": 9483
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.TorusCalculus",
+      "path": "rudin/Rudin/PMA/Chapter10/TorusCalculus.lean",
+      "sha256": "89e8ff9cc88e2b7710d304e773a4d6245e096f41838773f06e812da8c5291178",
+      "bytes": 10110
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.TorusGeometry",
+      "path": "rudin/Rudin/PMA/Chapter10/TorusGeometry.lean",
+      "sha256": "37a1cd22cb5d8f5ce275a6b2b4ff306dba171cb3949c582f88c68e2cb3c1b19c",
+      "bytes": 7823
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.TorusProbes",
+      "path": "rudin/Rudin/PMA/Chapter10/TorusProbes.lean",
+      "sha256": "47f56ed8a1cdbe947dab9b595f1a803eabe5a8521f5f8b3bfa598066c687e1e8",
+      "bytes": 2652
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.TorusProof",
+      "path": "rudin/Rudin/PMA/Chapter10/TorusProof.lean",
+      "sha256": "0131a917bca7234f878412237feac7e577d328805ff7e74ff28ada11bd936880",
+      "bytes": 1540
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.TorusVolume",
+      "path": "rudin/Rudin/PMA/Chapter10/TorusVolume.lean",
+      "sha256": "7d1637005c623335b726437eef7e745e3baa35e8bae071d9056776c89ab17283",
+      "bytes": 1523
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.VectorFieldProbes",
+      "path": "rudin/Rudin/PMA/Chapter10/VectorFieldProbes.lean",
+      "sha256": "ba59cfa92130d1943b5b9d6a2132976b640c2709cc1bca0ea906c4a763f39b69",
+      "bytes": 896
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.VectorFields",
+      "path": "rudin/Rudin/PMA/Chapter10/VectorFields.lean",
+      "sha256": "39ea65f583ee3129f4974264abb946e5a313e43693f56aa758c55df91247c6f8",
+      "bytes": 13452
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.VectorFormDerivatives",
+      "path": "rudin/Rudin/PMA/Chapter10/VectorFormDerivatives.lean",
+      "sha256": "740e2ef03831bdf9931938760d9c7175db6697809f9028ab371fa3fe0fc8bdf9",
+      "bytes": 4258
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.VectorIntegrationProbes",
+      "path": "rudin/Rudin/PMA/Chapter10/VectorIntegrationProbes.lean",
+      "sha256": "af8b16fb0c4165638b11eae45b39b13a819e8e8809906a44d53675f0446d62a9",
+      "bytes": 3379
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.VectorPotentials",
+      "path": "rudin/Rudin/PMA/Chapter10/VectorPotentials.lean",
+      "sha256": "d7c1a926415911e523a70a29c0957bc63dc271b981f86c04dcbcb11ee37f4c84",
+      "bytes": 6536
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.VolumeAreaProbes",
+      "path": "rudin/Rudin/PMA/Chapter10/VolumeAreaProbes.lean",
+      "sha256": "ac0ab974bc5a2ccd0a8b13ca126d29cde3a40c9dca6941e4a59ed7a5335f528d",
+      "bytes": 3059
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.VolumeElements",
+      "path": "rudin/Rudin/PMA/Chapter10/VolumeElements.lean",
+      "sha256": "ccdf1680f3429f8d6e668637bee7cc73743ddc2a019cc05c651632ee1538f929",
+      "bytes": 7785
+    }
+  ],
+  "external_dependencies": [
+    "Rudin.PMA.Chapter01",
+    "Rudin.PMA.Chapter02",
+    "Rudin.PMA.Chapter03",
+    "Rudin.PMA.Chapter04",
+    "Rudin.PMA.Chapter05",
+    "Rudin.PMA.Chapter06",
+    "Rudin.PMA.Chapter06.Basic",
+    "Rudin.PMA.Chapter06.Calculus",
+    "Rudin.PMA.Chapter06.Criterion",
+    "Rudin.PMA.Chapter06.Curve",
+    "Rudin.PMA.Chapter06.Definitions",
+    "Rudin.PMA.Chapter06.Endpoint",
+    "Rudin.PMA.Chapter06.Exceptional",
+    "Rudin.PMA.Chapter06.Integrability",
+    "Rudin.PMA.Chapter06.Jump",
+    "Rudin.PMA.Chapter06.Moment",
+    "Rudin.PMA.Chapter06.Monotone",
+    "Rudin.PMA.Chapter06.Properties",
+    "Rudin.PMA.Chapter06.Refinement",
+    "Rudin.PMA.Chapter06.Split",
+    "Rudin.PMA.Chapter06.Vector",
+    "Rudin.PMA.Chapter07.Calculus",
+    "Rudin.PMA.Chapter08",
+    "Rudin.PMA.Chapter08.Abel",
+    "Rudin.PMA.Chapter08.DoubleSeries",
+    "Rudin.PMA.Chapter08.Exponential",
+    "Rudin.PMA.Chapter08.Operations",
+    "Rudin.PMA.Chapter08.PowerSeries",
+    "Rudin.PMA.Chapter08.Taylor",
+    "Rudin.PMA.Chapter09.Determinants",
+    "Rudin.PMA.Chapter09.Differentiation",
+    "Rudin.PMA.Chapter09.HigherDerivatives",
+    "Rudin.PMA.Chapter09.Inverse",
+    "Rudin.PMA.Chapter09.Linear",
+    "Rudin.PMA.Chapter09.ParameterIntegrals",
+    "Rudin.PMA.Chapter09.PartialExamples",
+    "Rudin.PMA.Chapter10.AffineSimplices",
+    "Rudin.PMA.Chapter10.ChangeOfVariables",
+    "Rudin.PMA.Chapter10.CoordinateDifferentiation",
+    "Rudin.PMA.Chapter10.ExactOneForms",
+    "Rudin.PMA.Chapter10.ExteriorDerivative",
+    "Rudin.PMA.Chapter10.ExteriorDerivativeRules",
+    "Rudin.PMA.Chapter10.FormDefinitions",
+    "Rudin.PMA.Chapter10.FormExamples",
+    "Rudin.PMA.Chapter10.FormOperations",
+    "Rudin.PMA.Chapter10.FormRegularity",
+    "Rudin.PMA.Chapter10.FormSeparation",
+    "Rudin.PMA.Chapter10.FormsAlgebra",
+    "Rudin.PMA.Chapter10.FormsCore",
+    "Rudin.PMA.Chapter10.Integration",
+    "Rudin.PMA.Chapter10.IntegrationMeasure",
+    "Rudin.PMA.Chapter10.IntegrationProofs",
+    "Rudin.PMA.Chapter10.NativeSeparation",
+    "Rudin.PMA.Chapter10.Partition",
+    "Rudin.PMA.Chapter10.Primitive",
+    "Rudin.PMA.Chapter10.PullbackAlgebra",
+    "Rudin.PMA.Chapter10.PullbackDifferentiation",
+    "Rudin.PMA.Chapter10.PullbackEvaluation",
+    "Rudin.PMA.Chapter10.PullbackRegularity",
+    "Rudin.PMA.Chapter10.Pullbacks",
+    "Rudin.PMA.Chapter10.ScalarForms",
+    "Rudin.PMA.Chapter10.Simplex",
+    "Rudin.PMA.Chapter10.SimplexSlices",
+    "Rudin.PMA.Chapter10.SphereExamples",
+    "Rudin.PMA.Chapter10.StandardForms",
+    "Rudin.PMA.Chapter10.SurfaceDomains",
+    "Rudin.PMA.Chapter10.SurfaceMaps",
+    "Rudin.PMA.Chapter10.SurfacePullbacks",
+    "Rudin.PMA.Chapter10.Surfaces",
+    "Rudin.PMA.Chapter10.WedgeProducts"
+  ],
+  "dependency_files": [
+    {
+      "module": "Rudin.PMA.Chapter01",
+      "path": "rudin/Rudin/PMA/Chapter01.lean",
+      "sha256": "a82aaa52abdf6c9446d12674ee2b3d81829518f3d68035f4e43fd83a7d6da108",
+      "bytes": 43894
+    },
+    {
+      "module": "Rudin.PMA.Chapter02",
+      "path": "rudin/Rudin/PMA/Chapter02.lean",
+      "sha256": "7ec4b5443560804666aad9010d2a4600d545973dbb85fe0a8dc7268391d320e7",
+      "bytes": 61719
+    },
+    {
+      "module": "Rudin.PMA.Chapter03",
+      "path": "rudin/Rudin/PMA/Chapter03.lean",
+      "sha256": "f711278f4e18ceeb1333cdda759a80635cf935d7c3658c1e984300eeb7808020",
+      "bytes": 173628
+    },
+    {
+      "module": "Rudin.PMA.Chapter04",
+      "path": "rudin/Rudin/PMA/Chapter04.lean",
+      "sha256": "71ac9841413d7046b72f943541667d91f77dfc77924fbc588c2dbea277754df8",
+      "bytes": 86771
+    },
+    {
+      "module": "Rudin.PMA.Chapter05",
+      "path": "rudin/Rudin/PMA/Chapter05.lean",
+      "sha256": "55acec19c187d4ae0d6bfc37c78ee32df5711a997f3d4e0aeea876eb876904cb",
+      "bytes": 79347
+    },
+    {
+      "module": "Rudin.PMA.Chapter06",
+      "path": "rudin/Rudin/PMA/Chapter06.lean",
+      "sha256": "845f356f126f288456cf210526ecb29523776bff6f6cfe89a4ebba369747a373",
+      "bytes": 4665
+    },
+    {
+      "module": "Rudin.PMA.Chapter06.Basic",
+      "path": "rudin/Rudin/PMA/Chapter06/Basic.lean",
+      "sha256": "5192b99092c0fc7da7109b1e3ffd90446db62c73845b935172643456b46a3915",
+      "bytes": 9481
+    },
+    {
+      "module": "Rudin.PMA.Chapter06.Calculus",
+      "path": "rudin/Rudin/PMA/Chapter06/Calculus.lean",
+      "sha256": "ac36c016490bd347b592af764c1c6e5f544a6cd09ad7aac0c59a4c79da6c3c18",
+      "bytes": 32357
+    },
+    {
+      "module": "Rudin.PMA.Chapter06.Criterion",
+      "path": "rudin/Rudin/PMA/Chapter06/Criterion.lean",
+      "sha256": "e88daabe91d0ddd9145c79ff4aecbfd5c054b30fd27ea86c0a1b7743e3488715",
+      "bytes": 6530
+    },
+    {
+      "module": "Rudin.PMA.Chapter06.Curve",
+      "path": "rudin/Rudin/PMA/Chapter06/Curve.lean",
+      "sha256": "0fcd03a02ba4b7c7a57a647b14befac8b93fa006238ed13abc910849362d1b50",
+      "bytes": 17809
+    },
+    {
+      "module": "Rudin.PMA.Chapter06.Definitions",
+      "path": "rudin/Rudin/PMA/Chapter06/Definitions.lean",
+      "sha256": "13adade605f2cff6904a9b5d24f06057595d0c760abc140dfd7831608c5ccf81",
+      "bytes": 4528
+    },
+    {
+      "module": "Rudin.PMA.Chapter06.Endpoint",
+      "path": "rudin/Rudin/PMA/Chapter06/Endpoint.lean",
+      "sha256": "b4518141434d43a5d28f97944ba85b9af1c98cff1b19c910bddc2d4a70fe3e4b",
+      "bytes": 6086
+    },
+    {
+      "module": "Rudin.PMA.Chapter06.Exceptional",
+      "path": "rudin/Rudin/PMA/Chapter06/Exceptional.lean",
+      "sha256": "f611a715e8c85e43989fa9a196ceb7d93b55b40b9b3674dfd3bb98398fdfabfa",
+      "bytes": 5372
+    },
+    {
+      "module": "Rudin.PMA.Chapter06.Integrability",
+      "path": "rudin/Rudin/PMA/Chapter06/Integrability.lean",
+      "sha256": "001823e4c51a56b9c0d0afbe13801a757200178eac396081dec3b7abb91d5cec",
+      "bytes": 26325
+    },
+    {
+      "module": "Rudin.PMA.Chapter06.Jump",
+      "path": "rudin/Rudin/PMA/Chapter06/Jump.lean",
+      "sha256": "ab56704088a99d95c29755f2ada3c7a491ea55af5f24be7cf19b51283e96c47a",
+      "bytes": 21753
+    },
+    {
+      "module": "Rudin.PMA.Chapter06.Moment",
+      "path": "rudin/Rudin/PMA/Chapter06/Moment.lean",
+      "sha256": "21ccfad2cbbc3cbd0726a62a190f6092fd2b376690233dd340435b38bb89deb5",
+      "bytes": 1346
+    },
+    {
+      "module": "Rudin.PMA.Chapter06.Monotone",
+      "path": "rudin/Rudin/PMA/Chapter06/Monotone.lean",
+      "sha256": "93a69abdd3e242baa92eace347b551042157da49b4a83078e06abd469d832598",
+      "bytes": 3179
+    },
+    {
+      "module": "Rudin.PMA.Chapter06.Properties",
+      "path": "rudin/Rudin/PMA/Chapter06/Properties.lean",
+      "sha256": "a50ff1516880bd4110cb95e7b81baf44a64980ca2400aa1e377f2b093e8634c1",
+      "bytes": 928
+    },
+    {
+      "module": "Rudin.PMA.Chapter06.Refinement",
+      "path": "rudin/Rudin/PMA/Chapter06/Refinement.lean",
+      "sha256": "d1590f0b5df2fec5986358b6d84c255a4535a90df0ac70b8bc5f4bbec9c6fcb0",
+      "bytes": 12357
+    },
+    {
+      "module": "Rudin.PMA.Chapter06.Split",
+      "path": "rudin/Rudin/PMA/Chapter06/Split.lean",
+      "sha256": "d235d56777fc5e5a25db12e834769fd2192273d55a9d5921ceb80b857499a888",
+      "bytes": 15934
+    },
+    {
+      "module": "Rudin.PMA.Chapter06.Vector",
+      "path": "rudin/Rudin/PMA/Chapter06/Vector.lean",
+      "sha256": "1830138b9712dc5c6bd97293c0396df8160da84c25be76f55f0069dc3962ff98",
+      "bytes": 20930
+    },
+    {
+      "module": "Rudin.PMA.Chapter07.Calculus",
+      "path": "rudin/Rudin/PMA/Chapter07/Calculus.lean",
+      "sha256": "0bc805601a65a1261e944ae9d180b3cb0344c0d9484fc766f1d3df6c3411580d",
+      "bytes": 19877
+    },
+    {
+      "module": "Rudin.PMA.Chapter08",
+      "path": "rudin/Rudin/PMA/Chapter08.lean",
+      "sha256": "91fab07f19c78091a6c20c26a55059173b894b9c7030e27c17b3fcb331776b27",
+      "bytes": 1235
+    },
+    {
+      "module": "Rudin.PMA.Chapter08.Abel",
+      "path": "rudin/Rudin/PMA/Chapter08/Abel.lean",
+      "sha256": "2a7a23da0c64df9c38dff6975bd0f5e34f1a428a5d4fa86480c35b7498260239",
+      "bytes": 7384
+    },
+    {
+      "module": "Rudin.PMA.Chapter08.DoubleSeries",
+      "path": "rudin/Rudin/PMA/Chapter08/DoubleSeries.lean",
+      "sha256": "7cb78d7c111d3be2a9bc0f5e67a02c0020e988ba39e24f67db050787aae57e7e",
+      "bytes": 2646
+    },
+    {
+      "module": "Rudin.PMA.Chapter08.Exponential",
+      "path": "rudin/Rudin/PMA/Chapter08/Exponential.lean",
+      "sha256": "cd7d31f6d45786bc4433d3c0bb878c1e4e0c2da6f43bf48fc1491c6167768bcd",
+      "bytes": 10254
+    },
+    {
+      "module": "Rudin.PMA.Chapter08.Operations",
+      "path": "rudin/Rudin/PMA/Chapter08/Operations.lean",
+      "sha256": "2b4ce0759198e1a2c854a8398d7b285c5edd64de0d36fd19aa3ba824245ae07a",
+      "bytes": 6105
+    },
+    {
+      "module": "Rudin.PMA.Chapter08.PowerSeries",
+      "path": "rudin/Rudin/PMA/Chapter08/PowerSeries.lean",
+      "sha256": "af7669152ab11b348b454ccfacb37928c67be845b7428377bd29dfd6e6552518",
+      "bytes": 6972
+    },
+    {
+      "module": "Rudin.PMA.Chapter08.Taylor",
+      "path": "rudin/Rudin/PMA/Chapter08/Taylor.lean",
+      "sha256": "9c666fab54b9e7a3a7b7ac073e5b9ca9a8a7d2d31e2ccb7a7be303af472c0347",
+      "bytes": 2691
+    },
+    {
+      "module": "Rudin.PMA.Chapter09.Determinants",
+      "path": "rudin/Rudin/PMA/Chapter09/Determinants.lean",
+      "sha256": "035b72c924fd832484c114656a0484ba8197afa9b11e9208034aaee7a12a1cd3",
+      "bytes": 8752
+    },
+    {
+      "module": "Rudin.PMA.Chapter09.Differentiation",
+      "path": "rudin/Rudin/PMA/Chapter09/Differentiation.lean",
+      "sha256": "65178884e3b85ed85dfa237971e66cfdc2dc9396497e1e95602c968b8d982252",
+      "bytes": 14155
+    },
+    {
+      "module": "Rudin.PMA.Chapter09.HigherDerivatives",
+      "path": "rudin/Rudin/PMA/Chapter09/HigherDerivatives.lean",
+      "sha256": "6b867733f57fd7e77402c52799902dae9512b925f683c09650046ed8a4630934",
+      "bytes": 23479
+    },
+    {
+      "module": "Rudin.PMA.Chapter09.Inverse",
+      "path": "rudin/Rudin/PMA/Chapter09/Inverse.lean",
+      "sha256": "c8457e500795a3d7fc7dcd59d4ff0a18d65ff4b82d2d726a163f180919c08796",
+      "bytes": 8063
+    },
+    {
+      "module": "Rudin.PMA.Chapter09.Linear",
+      "path": "rudin/Rudin/PMA/Chapter09/Linear.lean",
+      "sha256": "a61832744979629254d50b5a7c9d8c6acaab123b516cd14919f320199cfa34e3",
+      "bytes": 19797
+    },
+    {
+      "module": "Rudin.PMA.Chapter09.ParameterIntegrals",
+      "path": "rudin/Rudin/PMA/Chapter09/ParameterIntegrals.lean",
+      "sha256": "af81da0e7d5b23b5b3b3c1e13941496457743b4c86f74d6a950640866990e1c4",
+      "bytes": 18693
+    },
+    {
+      "module": "Rudin.PMA.Chapter09.PartialExamples",
+      "path": "rudin/Rudin/PMA/Chapter09/PartialExamples.lean",
+      "sha256": "9bc917373c2d04c126d38ec7c35f16cb9277aa2fc4f274434beb48c729286203",
+      "bytes": 7924
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.AffineSimplices",
+      "path": "rudin/Rudin/PMA/Chapter10/AffineSimplices.lean",
+      "sha256": "952393bfb0741aa222a1acfb7b23c3c0316cba9e74a5b80303885031d3b1467c",
+      "bytes": 12820
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ChangeOfVariables",
+      "path": "rudin/Rudin/PMA/Chapter10/ChangeOfVariables.lean",
+      "sha256": "13f65cf7c6656ce2b0165252090ec8a6d0293493a71c72f86cc28a02bd504659",
+      "bytes": 9949
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.CoordinateDifferentiation",
+      "path": "rudin/Rudin/PMA/Chapter10/CoordinateDifferentiation.lean",
+      "sha256": "28e818daf01b4ac68bbeb070f679fadddaa131db5835f607da809781722c4be4",
+      "bytes": 6100
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ExactOneForms",
+      "path": "rudin/Rudin/PMA/Chapter10/ExactOneForms.lean",
+      "sha256": "e2d3e476b4f2e896af46956680cc0241855a3b6211a7fee0be13a6e5588f7274",
+      "bytes": 6195
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ExteriorDerivative",
+      "path": "rudin/Rudin/PMA/Chapter10/ExteriorDerivative.lean",
+      "sha256": "32563a37cb03475c0565a7f7c87998d10c7f6aba1c146d3b2c32bd4a8ced68ab",
+      "bytes": 10474
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ExteriorDerivativeRules",
+      "path": "rudin/Rudin/PMA/Chapter10/ExteriorDerivativeRules.lean",
+      "sha256": "b8b8f63c33f72ae7e14ef1a378708d98860c183323b89c6ab986fcea01fe77f9",
+      "bytes": 6369
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.FormDefinitions",
+      "path": "rudin/Rudin/PMA/Chapter10/FormDefinitions.lean",
+      "sha256": "42a8630d7c0a0d3e90dce85f26832d7f7c2a5e4fb68653988505febe6e91314b",
+      "bytes": 3420
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.FormExamples",
+      "path": "rudin/Rudin/PMA/Chapter10/FormExamples.lean",
+      "sha256": "3e3c5478483102de6c37a760989be5924bf2765c1606b3546d30b8544b0d802f",
+      "bytes": 12697
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.FormOperations",
+      "path": "rudin/Rudin/PMA/Chapter10/FormOperations.lean",
+      "sha256": "55939cdfe36cf842c638467e4bc082384a0c1a7cffc3ce06a05340f981fd9bae",
+      "bytes": 6527
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.FormRegularity",
+      "path": "rudin/Rudin/PMA/Chapter10/FormRegularity.lean",
+      "sha256": "4d914c2ed63a5c4faee84e4eda50377af3095cf01ad003c666ec7a5cbc228924",
+      "bytes": 4495
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.FormSeparation",
+      "path": "rudin/Rudin/PMA/Chapter10/FormSeparation.lean",
+      "sha256": "9dd2504bc1139aca174d960888601015abd7454da928d870a07a619ee89a9d1a",
+      "bytes": 8304
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.FormsAlgebra",
+      "path": "rudin/Rudin/PMA/Chapter10/FormsAlgebra.lean",
+      "sha256": "008151a4403139501ad36c4ea9333808fa2b456ebabadc616eb3faa67de92ce1",
+      "bytes": 3976
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.FormsCore",
+      "path": "rudin/Rudin/PMA/Chapter10/FormsCore.lean",
+      "sha256": "9f718c1dc6ef5855805f01176a8aabffca9768f7c952e063f7f1ea31533382b1",
+      "bytes": 4626
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.Integration",
+      "path": "rudin/Rudin/PMA/Chapter10/Integration.lean",
+      "sha256": "db0054a17a9a065740596654ecb5b35b960b42dc6a4d5e3cfb8d2984230acdef",
+      "bytes": 6913
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.IntegrationMeasure",
+      "path": "rudin/Rudin/PMA/Chapter10/IntegrationMeasure.lean",
+      "sha256": "0123ef35e549e6bd0fc1dbfd9823d5650b5b9008114e285660de4d95568b4a7c",
+      "bytes": 9836
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.IntegrationProofs",
+      "path": "rudin/Rudin/PMA/Chapter10/IntegrationProofs.lean",
+      "sha256": "7ceed05ff97db102454e4d52ef1ad58a60d52ec3225c0e6e71d0f63df7b428b9",
+      "bytes": 5046
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.NativeSeparation",
+      "path": "rudin/Rudin/PMA/Chapter10/NativeSeparation.lean",
+      "sha256": "d28c2362cdd3201023171dc8fbfaccab4d4ed8125c69ba6ff9532ed77d7783b4",
+      "bytes": 7045
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.Partition",
+      "path": "rudin/Rudin/PMA/Chapter10/Partition.lean",
+      "sha256": "5d4a4e66629b73912921920fc23af3118763843dfbdf8f15d3dba06ae266a1b5",
+      "bytes": 2043
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.Primitive",
+      "path": "rudin/Rudin/PMA/Chapter10/Primitive.lean",
+      "sha256": "200eb8e36d54cdf771415de92c1046cf4c92d64c123d0fed62a4ee7e64639f5b",
+      "bytes": 24853
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.PullbackAlgebra",
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackAlgebra.lean",
+      "sha256": "beec993d5a18137da7e8d4016e74bbe91d68332d0b50d5c4697ee86c78ac4b4f",
+      "bytes": 4128
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.PullbackDifferentiation",
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackDifferentiation.lean",
+      "sha256": "2077ad901b15816a82276e35611061d3bf8f8339c63b9ccfe4986692070d42e0",
+      "bytes": 8182
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.PullbackEvaluation",
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackEvaluation.lean",
+      "sha256": "92e334104c5f09da34cad0354702572b907adc4b04119ecd324b2f8885dd3c01",
+      "bytes": 4053
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.PullbackRegularity",
+      "path": "rudin/Rudin/PMA/Chapter10/PullbackRegularity.lean",
+      "sha256": "79bf2beba1a14313ed24968b323e3396b366a6a57b234cbe527d637e1e24a523",
+      "bytes": 7759
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.Pullbacks",
+      "path": "rudin/Rudin/PMA/Chapter10/Pullbacks.lean",
+      "sha256": "43e60a43270bbc18999139d16d195fc08f1a909800517b4e48e7f1bc3bfa5aeb",
+      "bytes": 3195
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.ScalarForms",
+      "path": "rudin/Rudin/PMA/Chapter10/ScalarForms.lean",
+      "sha256": "30f681a8408eae0cc36c59ef07705d30fb11c6b6b272d06dd01e4ce9772bfb39",
+      "bytes": 3450
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.Simplex",
+      "path": "rudin/Rudin/PMA/Chapter10/Simplex.lean",
+      "sha256": "a8d47dcf24e72f261138297ae8cb89479f5b189d091163dd0f843c881701a928",
+      "bytes": 6331
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.SimplexSlices",
+      "path": "rudin/Rudin/PMA/Chapter10/SimplexSlices.lean",
+      "sha256": "e303ac72a9e0e49bb5ee2dd16216924b14166937e5f319303a0ef485c201e603",
+      "bytes": 10878
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.SphereExamples",
+      "path": "rudin/Rudin/PMA/Chapter10/SphereExamples.lean",
+      "sha256": "87aaef719f53e5071ed3e853b4802cd98d1fbe5f1be8a6bbfbd172cfbb0d187f",
+      "bytes": 11871
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.StandardForms",
+      "path": "rudin/Rudin/PMA/Chapter10/StandardForms.lean",
+      "sha256": "a7ec125be843cc5617234a59768589b4daf81fa6166e3482d7d4f21c81dbbed4",
+      "bytes": 8118
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.SurfaceDomains",
+      "path": "rudin/Rudin/PMA/Chapter10/SurfaceDomains.lean",
+      "sha256": "7b7c83140d5a890564a7699d60454ea79ba91cccfe85cf87b0148114f7bdd77d",
+      "bytes": 5641
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.SurfaceMaps",
+      "path": "rudin/Rudin/PMA/Chapter10/SurfaceMaps.lean",
+      "sha256": "57cef14a2c52733a6aea2d410f1aed3101031d524ffa49f75fd65d093d1c3dde",
+      "bytes": 2352
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.SurfacePullbacks",
+      "path": "rudin/Rudin/PMA/Chapter10/SurfacePullbacks.lean",
+      "sha256": "d617f06fdd932989c67b5fa7f0cc618547e480f9e309ebf928ead3a2850aba5d",
+      "bytes": 1522
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.Surfaces",
+      "path": "rudin/Rudin/PMA/Chapter10/Surfaces.lean",
+      "sha256": "b4ca23167dfe07853dada56aa449e3de061fb6008387b51efa6d274bd6edc338",
+      "bytes": 2439
+    },
+    {
+      "module": "Rudin.PMA.Chapter10.WedgeProducts",
+      "path": "rudin/Rudin/PMA/Chapter10/WedgeProducts.lean",
+      "sha256": "2927b89be671cbf2bbaafb42755d5e8b27bb39ae07189a10d81f87b069a55c2d",
+      "bytes": 12813
+    }
+  ],
+  "first_half_dependency_commit": "c7262b1fe9978c573e4e15ea506d972411e4d963",
+  "first_half_aggregate_sha256": "9821807820d6bad65907796fa0109379d94577189a5864f2958b4ae96150e40e"
+}
