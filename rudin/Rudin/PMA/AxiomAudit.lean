@@ -21,8 +21,10 @@ def declarationModule (env : Environment) (name : Name) : Name :=
 /-- Check every declaration owned by a module or any of its submodules.
 
 The module must be present, but it may be an import-only aggregate. Each selected
-module is reported separately, including modules with no declarations. An empty
-selection fails unless `allowEmpty` is explicitly enabled for audit-only modules. The
+module is reported separately, including modules with no declarations. Every
+nonempty module must own at least one of `requiredDeclarations`; the expected
+modules are derived from the environment independently of that supplied array.
+An empty selection fails unless `allowEmpty` is explicitly enabled for audit-only modules. The
 transitive dependencies of every declaration may use only the three standard
 axioms below; any other axiom makes elaboration (and hence `lake build`) fail.
 -/
@@ -56,6 +58,9 @@ def checkModuleAxioms (modulePrefix : Name)
   for moduleName in modules.qsort Name.lt do
     let count := names.foldl (init := (0 : Nat)) fun n name =>
       if declarationModule env name == moduleName then n + 1 else n
+    if count > 0 && !(requiredDeclarations.any fun name =>
+        declarationModule env name == moduleName) then
+      throwError "Axiom audit coverage regression: module {moduleName} owns {count} declarations but has no required declaration pin."
     logInfo m!"Axiom audit module {moduleName}: checked {count} declarations."
   logInfo m!"Axiom audit for {modulePrefix}: checked {names.size} declarations in {modules.size} modules; axioms used: {used.toArray.qsort Name.lt}; no forbidden axioms."
 

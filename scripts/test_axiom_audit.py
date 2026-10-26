@@ -6,6 +6,8 @@ negative fixture deliberately depends on an unapproved synthetic axiom; it must
 be rejected by the audit even though that axiom belongs to another module.
 Chapter 8's actual audit wrapper is also checked against lost probe imports and
 an ownership-selector mutation omitting a required generated declaration.
+One-pin deletions from the actual Chapter 8 and Chapter 11 wrappers must fail
+even though the affected modules and all their declarations remain imported.
 """
 
 from pathlib import Path
@@ -19,7 +21,8 @@ ROOT = Path(__file__).resolve().parents[1] / "rudin"
 
 
 def main():
-    subprocess.run(["lake", "build", "Rudin.PMA.Chapter08Audit"], cwd=ROOT, check=True)
+    subprocess.run(["lake", "build", "Rudin.PMA.Chapter08Audit",
+                    "Rudin.PMA.Chapter11Audit"], cwd=ROOT, check=True)
     lean_prefix = subprocess.check_output(
         ["lake", "env", "lean", "--print-prefix"], cwd=ROOT, text=True).strip()
     lean_path = subprocess.check_output(
@@ -81,7 +84,12 @@ run_cmd do
                 raise RuntimeError(f"Missing positive coverage {expected}:\n{output}")
         lean("CurrentAudit", """import Rudin.PMA.AxiomAudit
 private theorem Elsewhere.current : True := True.intro
-run_cmd Rudin.PMA.Audit.checkModuleAxioms `CurrentAudit
+run_cmd do
+  let env ← Lean.getEnv
+  let hidden := env.constants.fold (init := #[]) fun names name _ =>
+    if Lean.privateToUserName name == `Elsewhere.current then names.push name else names
+  if hidden.size != 1 then throwError "Expected exactly one current private theorem."
+  Rudin.PMA.Audit.checkModuleAxioms `CurrentAudit hidden
 """)
         lean("MissingAudit", """import Rudin.PMA.AxiomAudit
 run_cmd Rudin.PMA.Audit.checkModuleAxioms `NotImported
@@ -93,6 +101,11 @@ run_cmd Rudin.PMA.Audit.checkModuleAxioms `EmptyFixture
         lean("EmptyAuditAllowed", """import EmptyFixture
 run_cmd Rudin.PMA.Audit.checkModuleAxioms `EmptyFixture (allowEmpty := true)
 """)
+        lean("NonemptyAuditAllowed", """import AuditFixture
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `AuditFixture
+  #[`OutsideNamespace.step.eq_1] (allowEmpty := true)
+""", expected_error="Axiom audit coverage regression: module AuditFixture owns",
+             rejection_label="Nonempty module cannot bypass pin coverage with allowEmpty")
         lean("CoverageAudit", """import AuditFixture
 run_cmd Rudin.PMA.Audit.checkModuleAxioms `AuditFixture #[`Missing.declaration]
 """, expected_error="coverage regression")
@@ -103,7 +116,7 @@ axiom Unrelated.unapproved : False
 theorem OutsideNamespace.bad : False := Unrelated.unapproved
 """, compile_module=True)
         lean("NegativeAudit", """import NegativeFixture
-run_cmd Rudin.PMA.Audit.checkModuleAxioms `NegativeFixture
+run_cmd Rudin.PMA.Audit.checkModuleAxioms `NegativeFixture #[`OutsideNamespace.bad]
 """, expected_error="Forbidden axioms in OutsideNamespace.bad")
 
         # Keep the real module identity, imports, contracts, and audit calls.
@@ -131,6 +144,32 @@ run_cmd Rudin.PMA.Audit.checkModuleAxioms `NegativeFixture
             raise RuntimeError(f"Real Chapter08 coverage regressed below 535: {counts}")
         print(f"Chapter08 real-wrapper control: exit 0; {counts[0]} chapter + "
               f"{counts[1]} probe declarations = {sum(counts)}.", flush=True)
+
+        chapter11_module = "Rudin.PMA.Chapter11Audit"
+        chapter11_source = (ROOT / "Rudin/PMA/Chapter11Audit.lean").read_text()
+        output = lean(chapter11_module, chapter11_source)
+        counts = re.findall(
+            r"Axiom audit for Rudin\.PMA\.Chapter11: checked (\d+) declarations", output)
+        pins = re.findall(
+            r"Axiom audit coverage: (\S+) \(module Rudin\.PMA\.Chapter11\.[^)]+\)", output)
+        if counts != ["794"] or len(pins) != 24 or len(set(pins)) != 24:
+            raise RuntimeError(f"Real Chapter11 coverage changed:\n{output}")
+        print("Chapter11 real-wrapper control: exit 0; 794 declarations; "
+              "24 distinct ownership pins.", flush=True)
+
+        for module, source, pin, owner in [
+            (chapter11_module, chapter11_source,
+             "Rudin.PMA.Chapter11.SecondHalf.partitionStep_integral",
+             "Rudin.PMA.Chapter11.Darboux"),
+            (chapter_module, chapter_source,
+             "Rudin.PMA.Chapter08.abelPowerSeries", "Rudin.PMA.Chapter08.Abel"),
+        ]:
+            pin_line = f"    `{pin},\n"
+            if source.count(pin_line) != 1:
+                raise RuntimeError(f"Expected exactly one pin line for {pin} to delete.")
+            lean(module, source.replace(pin_line, "", 1),
+                 expected_error=f"Axiom audit coverage regression: module {owner}",
+                 rejection_label=f"{module} deleted sole pin {pin}")
 
         probe_import = "import Rudin.PMA.Chapter08.ExponentialProbes\n"
         if chapter_source.count(probe_import) != 1:
@@ -163,8 +202,10 @@ run_cmd Rudin.PMA.Audit.checkModuleAxioms `NegativeFixture
                             "Equiv.boolProdNatEquivNat.eq_1",
              rejection_label="Chapter08 excluded generated declaration")
     print("Axiom-audit regression checks passed: imported/generated/private/current "
-          "declarations, submodules, missing/empty modules, required coverage, and "
-          "transitive forbidden-axiom rejection; real Chapter08 scope-loss mutations rejected.")
+          "declarations, submodules, missing/empty modules, nonempty allowEmpty guard, "
+          "required coverage, and "
+          "transitive forbidden-axiom rejection; real Chapter08 scope-loss mutations "
+          "and Chapter08/Chapter11 one-pin deletions rejected.")
 
 
 if __name__ == "__main__":

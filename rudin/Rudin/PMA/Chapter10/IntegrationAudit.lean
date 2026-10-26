@@ -268,4 +268,19 @@ run_cmd do
   Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter09
     #[`Rudin.PMA.Chapter09.pma9_1_span_iff,
       `Rudin.PMA.Chapter09.pma9_22,
-      `Rudin.PMA.Chapter09.pma9_43]
+      `Rudin.PMA.Chapter09.pma9_43,
+      `Rudin.PMA.Chapter09.pma9_30_finrank,
+      `Rudin.PMA.Chapter09.pma9_10_linear_derivative,
+      `Rudin.PMA.Chapter09.pma9_16_discontinuous,
+      `Rudin.PMA.Chapter09.coordinatePartial,
+      `ContDiffAt.implicitFunction.congr_simp,
+      `Rudin.PMA.Chapter09.pma9_23,
+      `Rudin.PMA.Chapter09Audit.check,
+      `Rudin.PMA.Chapter09.pma9_6_bound,
+      `Rudin.PMA.Chapter09.continuous_coordinateDerivative,
+      `Rudin.PMA.Chapter09.pma9_16_continuousCounterexample,
+      `Rudin.PMA.Chapter09.partial_hasDerivAt_update,
+      `Rudin.PMA.Chapter09.pma9_32,
+      `Rudin.PMA.Chapter09.rankSupport_constant_on_fibers,
+      `Rudin.PMA.Chapter09.pma9_32_graph_image,
+      `Rudin.PMA.Chapter09.rankSupport_ker_comp_eq]
