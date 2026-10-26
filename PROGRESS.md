@@ -4,6 +4,9 @@ Formalized node counts per chapter include definitions, theorems, propositions,
 worked examples, notation, and mathematical content of remarks/discussions.
 Unnumbered corollaries are folded into their nearest nodes. Numbered Remark 1.2
 has its own node and proved midpoint theorem.
+Chapters 1–11 are complete at the numbered-node level except for the final
+C² vector-potential clause of 10.43, tracked in
+[ticket #14](https://github.com/derekblair/rudin-lean/issues/14).
 All completed nodes have zero proof placeholders. Historical audit counts below
 refer to their recorded chapter-completion gates; the later review-finding
 repairs are listed separately.
@@ -20,7 +23,7 @@ repairs are listed separately.
 | 08 | Some Special Functions | 22 / 22 |
 | 09 | Functions of Several Variables | 43 / 43 |
 | 10 | Integration of Differential Forms | 50 / 51 |
-| 11 | The Lebesgue Theory | 0 |
+| 11 | The Lebesgue Theory | 45 / 45 |
 
 Chapter 1 is complete: 38 / 38 nodes, including the standalone 1.2 rational
 midpoint theorem added by merged PR #3. The original 37-node completion had
@@ -126,14 +129,35 @@ theorem is explicitly labeled as weaker. The final C² vector-potential clause
 remains stated in `pma10_43_contract` but unproved. There is no principal
 `pma10_43`, proof placeholder, or axiom for that clause; the second-half audit
 checks that the principal theorem is absent. Its separate research ticket is
-`research/pma-ch10-b-43-blocker.md`. The integration preserves that boundary
-and does not attempt the missing proof. Chapter 11 remains pending in this
-checkout.
+[#14](https://github.com/derekblair/rudin-lean/issues/14), with the blocker
+record in `research/pma-ch10-b-43-blocker.md`. The exact missing clause is:
+on an open domain C²-equivalent to a convex open set, a C¹ divergence-free
+vector field admits a C² vector potential. Neither the weaker C¹ result nor
+an added regularity hypothesis closes that clause. The integration preserves
+that boundary and does not attempt the missing proof.
 
-The live-tree integration build passes with 9,177 jobs. Its combined gate checks
-all 51 contracts, 50 principals and 25 probe modules, and transitively audits
+The recorded PR #17 live-tree integration build passed with 9,177 jobs. Its
+combined gate checked all 51 contracts, 50 principals and 25 probe modules,
+and transitively audited
 2,306 Chapter 10 declarations across 148 modules using only `propext`,
 `Classical.choice` and `Quot.sound`. The separate outer Chapter10Audit module
-is also audited. All 253 project Lean sources pass the placeholder scan.
+was also audited. All 253 project Lean sources at that gate passed the placeholder scan.
 See `evidence/ch10-integration-validation.json`, the integration build/audit
 logs, and `research/pma-ch10-integration-inventory.md` for the complete record.
+
+Chapter 11 is complete: 45 / 45 numbered nodes. The first-half modules cover
+11.1–11.23; merged PR #7 supplies 11.24–11.45. The default root imports
+`Chapter11Audit`, which imports `Chapter11SecondHalfAudit`: together they
+check the 23 first-half and 22 second-half numbered-node groups and permitted
+axioms, with ownership anchors for all 24 contributing content modules.
+See `evidence/ch11-a-coverage.md` for first-half source qualifications and
+PR #7 for the second-half representation choices and explicit measurability
+qualifications in 11.32 and 11.42. Numbered-node completion does not extend
+to the ancillary narrative exclusions recorded in that coverage evidence.
+
+This status incorporates merged PRs #16 (audit ownership), #17 (Chapter 10
+integration), #7 (Chapter 11 second half), #18 and #20 (documentation
+corrections). The historical counts above remain tied to their original gates;
+PRs #18 and #20 subsequently recorded successful full default builds of
+9,204 jobs. This documentation reconciliation is not a new kernel-verification
+run and does not count unmerged research as a proof of 10.43.
