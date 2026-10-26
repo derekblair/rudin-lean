@@ -108,7 +108,9 @@ def L2Converges (f : ℕ → L2Space μ) (g : L2Space μ) : Prop :=
   Tendsto (fun n => ‖f n - g‖) atTop (𝓝 0)
 
 /-- 11.41: the Cauchy condition with one index for all pairs in the tail.
-Using `≥ N` rather than `> N` gives the same condition by shifting `N`. -/
+The printed text (p. 329) also uses `≥ N`. Its tolerance `≤ ε` is equivalent
+to the strict tolerance `< ε` used here: apply the printed condition with `ε / 2`
+for the forward implication and weaken `< ε` to `≤ ε` for the reverse. -/
 def L2Cauchy (f : ℕ → L2Space μ) : Prop :=
   ∀ ε > 0, ∃ N : ℕ, ∀ m ≥ N, ∀ n ≥ N, ‖f m - f n‖ < ε
 

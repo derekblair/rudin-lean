@@ -131,9 +131,11 @@ integrable majorant. No first-half integral dependency remains unresolved.
    opposite-infinity exceptional cases occur only on a null set. The addition
    wrapper explicitly documents that its totalized values there do not
    determine the integral.
-6. Sequence indexing begins at zero instead of one. Cauchy tails use `≥ N`
-   instead of `> N`. Both are harmless reindexings, documented at the relevant
-   declarations.
+6. Sequence indexing begins at zero instead of one. The printed Cauchy condition
+   (p. 329) already uses `n ≥ N` and `m ≥ N`, as does Lean. The tolerance changes
+   from the printed `≤ ε` to Lean's `< ε`; these conditions are equivalent:
+   apply the printed condition with `ε / 2` for one direction and weaken the
+   strict inequality for the other, as documented at `L2Cauchy`.
 7. After 11.37, `Lp ℂ 2 μ` implements the source's identification modulo null
    equality. Its use in orthonormal systems and completeness is accompanied
    by norm, equality, coefficient-integral, and raw-function bridges. It does
