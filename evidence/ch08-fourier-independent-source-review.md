@@ -1,6 +1,6 @@
 # Independent final Fourier source review
 
-Reviewer: the inventory/bridge agent, independently of the Fourier-convergence proof author. Source: authorized local PMA third-edition PDF, printed pp.188–192 (PDF pp.199–203), with fresh direct reading of pp.189–190. Scope of this acceptance: numbered discussion 8.13, theorem 8.14 and both attached localization formulations, and the relation of 8.16 to their native integral conventions. Definition/examples 8.9–8.10 have a separate independent review.
+Reviewer: the inventory/bridge agent, independently of the Fourier-convergence proof author. Source: authorized local PMA third-edition PDF, printed pp.188–192 (PDF pp.197–201), with fresh direct reading of pp.189–190. Scope of this acceptance: numbered discussion 8.13, theorem 8.14 and both attached localization formulations, and the relation of 8.16 to their native integral conventions. Definition/examples 8.9–8.10 have a separate independent review.
 
 ## 8.13
 
