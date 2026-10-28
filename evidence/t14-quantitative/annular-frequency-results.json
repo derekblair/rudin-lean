@@ -1,0 +1,134 @@
+{
+  "status": "candidate family repaired; no counterexample established",
+  "evidence_level": "exact rational check and floating-point analytic/numerical cross-checks; not Lean",
+  "midpoint_moment_exact": "349/1120",
+  "pure_angular_family": [
+    {
+      "n": 2,
+      "m": 4,
+      "radius": 0.0625,
+      "datum_gradient_exact_at_selected_point": 0.3333333333333333,
+      "tangential_hessian_sampled_max": 1.221553872892657,
+      "tangential_hessian_analytic_upper_bound": 11.625,
+      "radial_hessian_analytic_lower_bound": 0.06220238095238095
+    },
+    {
+      "n": 4,
+      "m": 16,
+      "radius": 0.00390625,
+      "datum_gradient_exact_at_selected_point": 0.16666666666666666,
+      "tangential_hessian_sampled_max": 0.1709559434524507,
+      "tangential_hessian_analytic_upper_bound": 0.90234375,
+      "radial_hessian_analytic_lower_bound": 0.180890376984127
+    },
+    {
+      "n": 8,
+      "m": 256,
+      "radius": 1.52587890625e-05,
+      "datum_gradient_exact_at_selected_point": 0.08333333333333333,
+      "tangential_hessian_sampled_max": 0.08412084262050536,
+      "tangential_hessian_analytic_upper_bound": 0.13817596435546875,
+      "radial_hessian_analytic_lower_bound": 1.4771309988839285
+    },
+    {
+      "n": 16,
+      "m": 65536,
+      "radius": 2.3283064365386963e-10,
+      "datum_gradient_exact_at_selected_point": 0.041666666666666664,
+      "tangential_hessian_sampled_max": 0.04206105321523813,
+      "tangential_hessian_analytic_upper_bound": 0.0625247991993092,
+      "radial_hessian_analytic_lower_bound": 189.08783045799012
+    },
+    {
+      "n": 32,
+      "m": 4294967296,
+      "radius": 5.421010862427522e-20,
+      "datum_gradient_exact_at_selected_point": 0.020833333333333332,
+      "tangential_hessian_sampled_max": 0.02103052661253276,
+      "tangential_hessian_analytic_upper_bound": 0.0312500001891749,
+      "radial_hessian_analytic_lower_bound": 6196030.035978836
+    }
+  ],
+  "cartesian_finite_difference_checks": [
+    {
+      "n": 1,
+      "max_hessian_finite_difference_error": 3.114656188518694e-07,
+      "divergence_finite_difference_error": 1.9569831477550537e-08
+    },
+    {
+      "n": 2,
+      "max_hessian_finite_difference_error": 2.043255803441113e-08,
+      "divergence_finite_difference_error": 4.934824701652296e-10
+    },
+    {
+      "n": 4,
+      "max_hessian_finite_difference_error": 9.597831006520618e-10,
+      "divergence_finite_difference_error": 4.639735991240901e-11
+    },
+    {
+      "n": 6,
+      "max_hessian_finite_difference_error": 5.432124329209564e-10,
+      "divergence_finite_difference_error": 8.67876940018747e-12
+    },
+    {
+      "n": 8,
+      "max_hessian_finite_difference_error": 3.8046411477073736e-10,
+      "divergence_finite_difference_error": 1.6381395209503352e-12
+    }
+  ],
+  "mixed_packets": [
+    {
+      "radial_frequency": 1,
+      "angular_frequency": 2,
+      "selected_primitive": "tangential",
+      "datum_gradient_sampled_max": 1.0188378824255993,
+      "primitive_hessian_sampled_max": 6.068862392247941,
+      "analytic_hessian_upper_bound": 1350
+    },
+    {
+      "radial_frequency": 2,
+      "angular_frequency": 32,
+      "selected_primitive": "tangential",
+      "datum_gradient_sampled_max": 21.175506043670662,
+      "primitive_hessian_sampled_max": 21.191335062235883,
+      "analytic_hessian_upper_bound": 15300
+    },
+    {
+      "radial_frequency": 32,
+      "angular_frequency": 2,
+      "selected_primitive": "radial",
+      "datum_gradient_sampled_max": 31.835188361125446,
+      "primitive_hessian_sampled_max": 31.83388653604152,
+      "analytic_hessian_upper_bound": 15300
+    },
+    {
+      "radial_frequency": 32,
+      "angular_frequency": 32,
+      "selected_primitive": "tangential",
+      "datum_gradient_sampled_max": 31.835188361125446,
+      "primitive_hessian_sampled_max": 52.66642102292796,
+      "analytic_hessian_upper_bound": 28800
+    },
+    {
+      "radial_frequency": 256,
+      "angular_frequency": 4,
+      "selected_primitive": "radial",
+      "datum_gradient_sampled_max": 255.8472526518178,
+      "primitive_hessian_sampled_max": 255.85375930937784,
+      "analytic_hessian_upper_bound": 117000
+    },
+    {
+      "radial_frequency": 4,
+      "angular_frequency": 256,
+      "selected_primitive": "tangential",
+      "datum_gradient_sampled_max": 164.36701254542743,
+      "primitive_hessian_sampled_max": 164.3646597094838,
+      "analytic_hessian_upper_bound": 117000
+    }
+  ],
+  "limitations": [
+    "Finite differences and sampled extrema are not proofs.",
+    "No minimization over all gauges or arbitrary frequency superpositions.",
+    "No claim of universal C1 to C2 solvability."
+  ]
+}

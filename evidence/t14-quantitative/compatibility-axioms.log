@@ -1,0 +1,39 @@
+Axiom audit coverage: Rudin.PMA.Chapter10.c2_planarDivergence_iff_compatibleColumns (module Rudin.Research.PMA1043Compatibility); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+Axiom audit coverage: Rudin.PMA.Chapter10.canonical_columns_compatible_iff_constant (module Rudin.Research.PMA1043Compatibility); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+Axiom audit module Rudin.Research.PMA1043Compatibility: checked 24 declarations.
+Axiom audit for Rudin.Research.PMA1043Compatibility: checked 24 declarations in 1 modules; axioms used: [propext,
+ Classical.choice,
+ Quot.sound]; no forbidden axioms.
+'Rudin.PMA.Chapter10.planarGradient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter10.planarGradient_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter10.PlanarClosed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter10.contDiff_planarGradient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter10.planarClosed_planarGradient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter10.horizontalField' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter10.contDiff_horizontalField' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter10.curl_horizontalField_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter10.planarClosed_has_c2_scalarPotential' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter10.PlanarCompatibleTrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter10.c2_planarDivergence_iff_compatibleTrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter10.c2_verticalPotential_iff_compatibleTrace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Rudin.PMA.Chapter10.planarMatrixColumn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter10.planarMatrixTrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter10.contDiff_planarMatrixTrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter10.planarDivergence_column_eq_partial_trace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Rudin.PMA.Chapter10.PlanarCompatibleColumns' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter10.planar_constant_of_partials_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter10.compatibleColumns_iff_compatibleTrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Rudin.PMA.Chapter10.c2_planarDivergence_iff_compatibleColumns' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Rudin.PMA.Chapter10.canonical_columns_compatible_iff_constant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

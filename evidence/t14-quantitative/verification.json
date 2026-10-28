@@ -1,0 +1,82 @@
+{
+  "base_commit": "83e06caf856c17659ceaaa4ff4cc2dabc9b68d14",
+  "branch": "thm-1043-final-clause",
+  "outcome": "obstruction; exact endpoint unresolved",
+  "lean_toolchain": "leanprover/lean4:v4.34.1",
+  "new_module_explicit_declarations": 21,
+  "new_module_owned_declarations_audited": 24,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "default_build_jobs": 9208,
+  "explicit_module_build_jobs_including_replays": 9069,
+  "new_module_in_default_import_closure": false,
+  "preserved_files": [
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/VectorPotentials.lean",
+      "sha256": "d7c1a926415911e523a70a29c0957bc63dc271b981f86c04dcbcb11ee37f4c84",
+      "identical_to_base": true
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/IntegrationAudit.lean",
+      "sha256": "71204b2ae770ad3bf3cc9b2994406d41e715a485116b711a366aa947ab29df1d",
+      "identical_to_base": true
+    },
+    {
+      "path": "rudin/Rudin/PMA/Chapter10/SecondHalfAudit.lean",
+      "sha256": "1b86d77a64c0ded48fceb67e9dd1e1c87a2424223960490205c45ac70a7d6885",
+      "identical_to_base": true
+    },
+    {
+      "path": "research/pma-ch10-b-43-blocker.md",
+      "sha256": "4a62677650a432454338bf12b37f75c26f171149fae6e07bb44795e26f1a1704",
+      "identical_to_base": true
+    },
+    {
+      "path": "research/pma10-43-endpoint-obstruction.md",
+      "sha256": "1c28cba17b0b75e7d4cd8737d85f20fbfc8c32cf522d32fd8070686ed7013c86",
+      "identical_to_base": true
+    },
+    {
+      "path": "research/t14-cex-gauge-obstruction.md",
+      "sha256": "868857afb2161ce2719c143dab737e2cbd6c803f97d83c65e5b13693161fb2dd",
+      "identical_to_base": true
+    },
+    {
+      "path": "evidence/ch10-integration-manifest.json",
+      "sha256": "cfb6a460edf3eb9cd6718a1fae249afe67945e1c733f1cebf8a54d2f0369f1e5",
+      "identical_to_base": true
+    },
+    {
+      "path": "rudin/lean-toolchain",
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+      "identical_to_base": true
+    },
+    {
+      "path": "rudin/lakefile.toml",
+      "sha256": "76f6da8cfc4cd594397f62eb3d1947edc0cfa9db25f0fac517974c89e75bff3f",
+      "identical_to_base": true
+    },
+    {
+      "path": "rudin/lake-manifest.json",
+      "sha256": "3d3476c312fb2220e92334726052c3b23080ad1f97c3db6cfceedc9a90466d1b",
+      "identical_to_base": true
+    }
+  ],
+  "artifacts": {
+    "evidence/t14-quantitative/annular-frequency-results.json": "8cdb91b597d14f7c9a221ff069966077ef7c49213aa8cce58a8d845dba0fb459",
+    "evidence/t14-quantitative/compatibility-axioms.log": "dadc68ffde9cedf906d15f0fdbe30403aede476d4ba14c19dad9de0ba605db0f",
+    "evidence/t14-quantitative/compatibility-build.log": "48ec2f653a73788230daa3489924c10ecb8a1783ff73e30617f7d5e7ecda6b6d",
+    "evidence/t14-quantitative/integration-verifier.log": "da9d8dae1d1927d615cfa168981a68eb7e285baf24bf8b0c7b4a3def66485bdc",
+    "evidence/t14-quantitative/lake-build.log": "44e14e0335e035758f7bac37ebc29b73858c750ca672360c89778f9ea41bc278"
+  },
+  "new_source_sha256": {
+    "rudin/Rudin/Research/PMA1043Compatibility.lean": "e4aeb6aee340e34f3a28db04928de4220f20cc4022e3f965aca8232281c7f784",
+    "research/pma10-43-compatibility-axioms.lean": "66ccb26d0313a907bf77e96d82e37c00fe27029667b9a5e1c7e8811457a58d3c",
+    "research/pma10-43-annular-probe.py": "665396b016af04b90841775240a700159627f3d8e1f3d853af0dda333ff5eb54",
+    "research/pma10-43-annular-probe.md": "4a075bfa40efc643cbb8f36f6964b8657eff2eeb43647fbd19f5dd1b31751c83",
+    "research/pma10-43-quantitative-obstruction.md": "95f988457298201c4fce829afe21812b67542070047bb6da2d82da88fffb960e"
+  }
+}
