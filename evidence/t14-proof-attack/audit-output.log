@@ -1,0 +1,67 @@
+info: Rudin/Research/PMA1043ProofAttack.lean:485:0: Axiom audit coverage: Rudin.PMA.Chapter10.pma10_43_contract_iff_symmetricDerivativeLifting (module Rudin.Research.PMA1043ProofAttack); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/Research/PMA1043ProofAttack.lean:485:0: Axiom audit coverage: Rudin.PMA.Chapter10.ProofAttack.lifting_extends_from_dense_submodule (module Rudin.Research.PMA1043ProofAttack); axioms used: [propext,
+ Classical.choice,
+ Quot.sound].
+info: Rudin/Research/PMA1043ProofAttack.lean:485:0: Axiom audit module Rudin.Research.PMA1043ProofAttack: checked 39 declarations.
+info: Rudin/Research/PMA1043ProofAttack.lean:485:0: Axiom audit for Rudin.Research.PMA1043ProofAttack: checked 39 declarations in 1 modules; axioms used: [propext,
+ Classical.choice,
+ Quot.sound]; no forbidden axioms.
+info: Rudin/Research/PMA1043ProofAttack.lean:490:0: 'Rudin.PMA.Chapter10.curlMatrixSkew' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:491:0: 'Rudin.PMA.Chapter10.CompatibleCurlRows' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:492:0: 'Rudin.PMA.Chapter10.c2_vectorPotential_iff_compatibleCurlRows' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:493:0: 'Rudin.PMA.Chapter10.CurlMatrixCompletion' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:494:0: 'Rudin.PMA.Chapter10.pma10_43_contract_iff_curlMatrixCompletion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:495:0: 'Rudin.PMA.Chapter10.canonicalSkewRows' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:496:0: 'Rudin.PMA.Chapter10.SymmetricRowsOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:497:0: 'Rudin.PMA.Chapter10.curlMatrixSkew_canonical' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:498:0: 'Rudin.PMA.Chapter10.contDiffOn_canonicalSkewRows' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:499:0: 'Rudin.PMA.Chapter10.SymmetricCurlCorrection' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:500:0: 'Rudin.PMA.Chapter10.compatibleCurlRows_iff_symmetricCurlCorrection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:501:0: 'Rudin.PMA.Chapter10.SymmetricCurlCompletion' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:502:0: 'Rudin.PMA.Chapter10.pma10_43_contract_iff_symmetricCurlCompletion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:503:0: 'Rudin.PMA.Chapter10.vectorCoordinatePartial' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:504:0: 'Rudin.PMA.Chapter10.curl_canonicalSkewRows_of_divergence_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:505:0: 'Rudin.PMA.Chapter10.curl_canonical_add_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:506:0: 'Rudin.PMA.Chapter10.SymmetricCurlSystem' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:507:0: 'Rudin.PMA.Chapter10.symmetricCurlCorrection_iff_system' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:508:0: 'Rudin.PMA.Chapter10.SymmetricDerivativeLifting' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:509:0: 'Rudin.PMA.Chapter10.pma10_43_contract_iff_symmetricDerivativeLifting' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:510:0: 'Rudin.PMA.Chapter10.ProofAttack.allGaugeCost' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:511:0: 'Rudin.PMA.Chapter10.ProofAttack.allGaugeCost_le_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:512:0: 'Rudin.PMA.Chapter10.ProofAttack.allGaugeCost_eq_of_image_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:513:0: 'Rudin.PMA.Chapter10.ProofAttack.exists_same_image_norm_lt_cost_add' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:514:0: 'Rudin.PMA.Chapter10.ProofAttack.allGaugeCost_eq_sInf' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:515:0: 'Rudin.PMA.Chapter10.ProofAttack.allGaugeCost_bound_iff_representative_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:516:0: 'Rudin.PMA.Chapter10.ProofAttack.surjective_of_denseRange_allGaugeCost_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:517:0: 'Rudin.PMA.Chapter10.ProofAttack.surjective_iff_denseRange_allGaugeCost_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:518:0: 'Rudin.PMA.Chapter10.ProofAttack.lifting_extends_from_dense_submodule' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:519:0: 'Rudin.PMA.Chapter10.ProofAttack.surjective_of_dense_submodule_bounded_lifts' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Rudin/Research/PMA1043ProofAttack.lean:520:0: 'Rudin.PMA.Chapter10.ProofAttack.surjective_iff_dense_submodule_bounded_lifts' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

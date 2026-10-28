@@ -1,0 +1,170 @@
+[
+  {
+    "argv": [
+      "/home/derekblair/.elan/bin/lake",
+      "build",
+      "Rudin.Research.PMA1043Compatibility"
+    ],
+    "cwd": "/home/derekblair/lane-work/codex-rudin1043-proof2/repo/rudin",
+    "started": "2026-10-28T04:39:16.413857+00:00",
+    "finished": "2026-10-28T04:41:31.613338+00:00",
+    "exit_status": 1,
+    "log": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/base-build.log",
+    "sha256": "8a6c940715730904ba795b1000913ec3c9c5e4ed75b2c22085bcb997f617cd26"
+  },
+  {
+    "argv": [
+      "/home/derekblair/.elan/bin/lake",
+      "build",
+      "Rudin.Research.PMA1043ProofAttack"
+    ],
+    "cwd": "/home/derekblair/lane-work/codex-rudin1043-proof2/repo/rudin",
+    "started": "2026-10-28T04:39:27.493359+00:00",
+    "finished": "2026-10-28T04:39:41.732577+00:00",
+    "exit_status": -15,
+    "log": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/proof-build-01.log",
+    "sha256": "fd3d1ec647791b3d4e729a974ed907e6962b34351879f6d481e52ed662810bbf"
+  },
+  {
+    "argv": [
+      "/home/derekblair/.elan/bin/lake",
+      "build",
+      "Rudin.Research.PMA1043ProofAttack"
+    ],
+    "cwd": "/home/derekblair/lane-work/codex-rudin1043-proof2/repo/rudin",
+    "started": "2026-10-28T04:42:05.174262+00:00",
+    "finished": "2026-10-28T04:46:22.374833+00:00",
+    "exit_status": 0,
+    "log": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/proof-build-02.log",
+    "sha256": "12e11e47daa4242660d4ec1d93e25fca34fa7937fcc22e9f3e093be9e3e95698"
+  },
+  {
+    "argv": [
+      "/home/derekblair/.elan/bin/lake",
+      "build",
+      "Rudin.Research.PMA1043ProofAttack"
+    ],
+    "cwd": "/home/derekblair/lane-work/codex-rudin1043-proof2/repo/rudin",
+    "started": "2026-10-28T04:47:07.170496+00:00",
+    "finished": "2026-10-28T04:47:23.254932+00:00",
+    "exit_status": 0,
+    "log": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/proof-build-03.log",
+    "sha256": "08439b894865740290d5c401a114b8de4118d0c95e9b14325f22739212fe7a89"
+  },
+  {
+    "argv": [
+      "/home/derekblair/.elan/bin/lake",
+      "env",
+      "lean",
+      "--stdin"
+    ],
+    "cwd": "/home/derekblair/lane-work/codex-rudin1043-proof2/repo/rudin",
+    "stdin": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/gluing-curl-01.stdin.txt",
+    "stdin_sha256": "273889ae3cd2476064001f3149948a08221aa2b596b314b5e0fe38c38d463484",
+    "log": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/gluing-curl-01.log",
+    "log_sha256": "eea5e35de16e85ef02d3d81172a2cfcc6ed7917e0356e1ce422a7ef95bdc9844",
+    "exit_status": 1,
+    "started": "2026-10-28T04:46:15.396682+00:00",
+    "finished": "2026-10-28T04:46:23.762002+00:00"
+  },
+  {
+    "argv": [
+      "/home/derekblair/.elan/bin/lake",
+      "env",
+      "lean",
+      "--stdin"
+    ],
+    "cwd": "/home/derekblair/lane-work/codex-rudin1043-proof2/repo/rudin",
+    "stdin": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/gluing-curl-02.stdin.txt",
+    "stdin_sha256": "e407757456db5eddc951dcce31e8ee7c521a5b5e193264dd6cebbfd1998e58c6",
+    "log": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/gluing-curl-02.log",
+    "log_sha256": "40055b8363a4bba799f048f7c0cc8dbe8a34212aa0b07889eba102afd9da2975",
+    "exit_status": 0,
+    "started": "2026-10-28T04:46:35.638819+00:00",
+    "finished": "2026-10-28T04:46:42.465781+00:00"
+  },
+  {
+    "argv": [
+      "/home/derekblair/.elan/bin/lake",
+      "env",
+      "lean",
+      "--stdin"
+    ],
+    "cwd": "/home/derekblair/lane-work/codex-rudin1043-proof2/repo/rudin",
+    "stdin": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/quantitative-proposal-01.txt",
+    "stdin_sha256": "716cb2c21922d7602b63d05b67d57b8cfa467e5789b15bca875648823c38016f",
+    "log": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/quantitative-01.log",
+    "sha256": "7a5e28d85e8b3fb0a73a7ee3c47c5968f7360b7825704ccbcb53df4aa4ad2f0b",
+    "exit_status": 1
+  },
+  {
+    "argv": [
+      "/home/derekblair/.elan/bin/lake",
+      "env",
+      "lean",
+      "--stdin"
+    ],
+    "cwd": "/home/derekblair/lane-work/codex-rudin1043-proof2/repo/rudin",
+    "stdin": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/quantitative-proposal-02.txt",
+    "stdin_sha256": "b8c6735dc212be0f9e2c595577112e444b70b63674a743ae724492b8d9869df5",
+    "log": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/quantitative-02.log",
+    "sha256": "e22ea6962468dd3e4c3a0f51c6267c3a619a6974cb5dd335bcb5c148282bb258",
+    "exit_status": 1
+  },
+  {
+    "argv": [
+      "/home/derekblair/.elan/bin/lake",
+      "env",
+      "lean",
+      "--stdin"
+    ],
+    "cwd": "/home/derekblair/lane-work/codex-rudin1043-proof2/repo/rudin",
+    "stdin": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/quantitative-proposal-03.txt",
+    "stdin_sha256": "315581cd3010a797cfae89cb74e140a75ef37803be02078594489fbd008e5636",
+    "log": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/quantitative-03.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "exit_status": 0
+  },
+  {
+    "argv": [
+      "/home/derekblair/.elan/bin/lake",
+      "env",
+      "lean",
+      "--stdin"
+    ],
+    "cwd": "/home/derekblair/lane-work/codex-rudin1043-proof2/repo/rudin",
+    "stdin": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/quantitative-proposal-04.txt",
+    "stdin_sha256": "8efdd0414480c02b80a397bec076b242bd860d6b8a1c1bfa5d482804cdc2659c",
+    "log": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/quantitative-04.log",
+    "sha256": "22bc5d22679807edcb8c415384ba86841a0c864bd083dad31236db182d6f612e",
+    "exit_status": 1
+  },
+  {
+    "argv": [
+      "/home/derekblair/.elan/bin/lake",
+      "env",
+      "lean",
+      "--stdin"
+    ],
+    "cwd": "/home/derekblair/lane-work/codex-rudin1043-proof2/repo/rudin",
+    "stdin": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/quantitative-proposal-05.txt",
+    "stdin_sha256": "6d521ae30a5d48779f3592e68ed0e17e5e89c4d83f9d26480e4daf97750f3b17",
+    "log": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/quantitative-05.log",
+    "sha256": "2cbfd41ea3422839998bb2c63e5f94fec08c47d47b7aece1017fbb91be126329",
+    "exit_status": 0
+  },
+  {
+    "argv": [
+      "/home/derekblair/.elan/bin/lake",
+      "env",
+      "lean",
+      "--stdin"
+    ],
+    "cwd": "/home/derekblair/lane-work/codex-rudin1043-proof2/repo/rudin",
+    "stdin": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/quantitative-proposal-06.txt",
+    "stdin_sha256": "4e79a0a9474341b9a59259e2f24e30cb84ee1c1fc5afd4e92103264ac82c18e9",
+    "log": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/quantitative-06.log",
+    "sha256": "6479f4ab2db0c891a6e853c4fb7ca37d73b9efedae8bcbf3bcb04d3bbaadf72a",
+    "exit_status": 0
+  }
+]

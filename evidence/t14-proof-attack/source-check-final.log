@@ -1,0 +1,165 @@
+{
+  "base_commit": "c9d55a22e4a060c24bf754235bad24ab5deb71cf",
+  "branch": "rudin1043-proof-attack",
+  "toolchain_pin": "leanprover/lean4:v4.34.1",
+  "mathlib_checkout": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "sha256": {
+    "rudin/Rudin/Research/PMA1043ProofAttack.lean": "6e6b870e7e82e3ce54c63be4f0eed1212dd5c0637091bb714411bfeb6b2a9ab2",
+    "rudin/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+    "rudin/lakefile.toml": "76f6da8cfc4cd594397f62eb3d1947edc0cfa9db25f0fac517974c89e75bff3f",
+    "rudin/lake-manifest.json": "3d3476c312fb2220e92334726052c3b23080ad1f97c3db6cfceedc9a90466d1b",
+    "rudin/Rudin/Research/PMA1043Compatibility.lean": "e4aeb6aee340e34f3a28db04928de4220f20cc4022e3f965aca8232281c7f784",
+    "rudin/Rudin/PMA/Chapter10/VectorPotentials.lean": "d7c1a926415911e523a70a29c0957bc63dc271b981f86c04dcbcb11ee37f4c84"
+  },
+  "preserved_byte_for_byte": [
+    "rudin/lean-toolchain",
+    "rudin/lakefile.toml",
+    "rudin/lake-manifest.json",
+    "rudin/Rudin/Research/PMA1043Compatibility.lean",
+    "rudin/Rudin/PMA/Chapter10/VectorPotentials.lean"
+  ],
+  "tracked_changes_since_base": [
+    "evidence/t14-proof-attack/audit-output.log",
+    "evidence/t14-proof-attack/cache-get.log",
+    "evidence/t14-proof-attack/commands.json",
+    "evidence/t14-proof-attack/development-records.json",
+    "evidence/t14-proof-attack/full-build.log",
+    "evidence/t14-proof-attack/integration-check.log",
+    "evidence/t14-proof-attack/proof-build-final.log",
+    "evidence/t14-proof-attack/source-check-final.log",
+    "evidence/t14-proof-attack/source-check.py",
+    "evidence/t14-proof-attack/toolchain.log",
+    "research/pma10-43-proof-attack.md",
+    "rudin/Rudin/Research/PMA1043ProofAttack.lean"
+  ],
+  "forbidden_tokens": [],
+  "explicit_declaration_count": 31,
+  "proved_declaration_count": 20,
+  "printed_dependency_count": 31,
+  "declarations": [
+    {
+      "kind": "def",
+      "name": "Rudin.PMA.Chapter10.curlMatrixSkew"
+    },
+    {
+      "kind": "def",
+      "name": "Rudin.PMA.Chapter10.CompatibleCurlRows"
+    },
+    {
+      "kind": "theorem",
+      "name": "Rudin.PMA.Chapter10.c2_vectorPotential_iff_compatibleCurlRows"
+    },
+    {
+      "kind": "def",
+      "name": "Rudin.PMA.Chapter10.CurlMatrixCompletion"
+    },
+    {
+      "kind": "theorem",
+      "name": "Rudin.PMA.Chapter10.pma10_43_contract_iff_curlMatrixCompletion"
+    },
+    {
+      "kind": "def",
+      "name": "Rudin.PMA.Chapter10.canonicalSkewRows"
+    },
+    {
+      "kind": "def",
+      "name": "Rudin.PMA.Chapter10.SymmetricRowsOn"
+    },
+    {
+      "kind": "lemma",
+      "name": "Rudin.PMA.Chapter10.curlMatrixSkew_canonical"
+    },
+    {
+      "kind": "lemma",
+      "name": "Rudin.PMA.Chapter10.contDiffOn_canonicalSkewRows"
+    },
+    {
+      "kind": "def",
+      "name": "Rudin.PMA.Chapter10.SymmetricCurlCorrection"
+    },
+    {
+      "kind": "theorem",
+      "name": "Rudin.PMA.Chapter10.compatibleCurlRows_iff_symmetricCurlCorrection"
+    },
+    {
+      "kind": "def",
+      "name": "Rudin.PMA.Chapter10.SymmetricCurlCompletion"
+    },
+    {
+      "kind": "theorem",
+      "name": "Rudin.PMA.Chapter10.pma10_43_contract_iff_symmetricCurlCompletion"
+    },
+    {
+      "kind": "def",
+      "name": "Rudin.PMA.Chapter10.vectorCoordinatePartial"
+    },
+    {
+      "kind": "lemma",
+      "name": "Rudin.PMA.Chapter10.curl_canonicalSkewRows_of_divergence_zero"
+    },
+    {
+      "kind": "lemma",
+      "name": "Rudin.PMA.Chapter10.curl_canonical_add_eq_zero_iff"
+    },
+    {
+      "kind": "def",
+      "name": "Rudin.PMA.Chapter10.SymmetricCurlSystem"
+    },
+    {
+      "kind": "theorem",
+      "name": "Rudin.PMA.Chapter10.symmetricCurlCorrection_iff_system"
+    },
+    {
+      "kind": "def",
+      "name": "Rudin.PMA.Chapter10.SymmetricDerivativeLifting"
+    },
+    {
+      "kind": "theorem",
+      "name": "Rudin.PMA.Chapter10.pma10_43_contract_iff_symmetricDerivativeLifting"
+    },
+    {
+      "kind": "def",
+      "name": "Rudin.PMA.Chapter10.ProofAttack.allGaugeCost"
+    },
+    {
+      "kind": "lemma",
+      "name": "Rudin.PMA.Chapter10.ProofAttack.allGaugeCost_le_norm"
+    },
+    {
+      "kind": "lemma",
+      "name": "Rudin.PMA.Chapter10.ProofAttack.allGaugeCost_eq_of_image_eq"
+    },
+    {
+      "kind": "lemma",
+      "name": "Rudin.PMA.Chapter10.ProofAttack.exists_same_image_norm_lt_cost_add"
+    },
+    {
+      "kind": "lemma",
+      "name": "Rudin.PMA.Chapter10.ProofAttack.allGaugeCost_eq_sInf"
+    },
+    {
+      "kind": "theorem",
+      "name": "Rudin.PMA.Chapter10.ProofAttack.allGaugeCost_bound_iff_representative_bound"
+    },
+    {
+      "kind": "theorem",
+      "name": "Rudin.PMA.Chapter10.ProofAttack.surjective_of_denseRange_allGaugeCost_bound"
+    },
+    {
+      "kind": "theorem",
+      "name": "Rudin.PMA.Chapter10.ProofAttack.surjective_iff_denseRange_allGaugeCost_bound"
+    },
+    {
+      "kind": "theorem",
+      "name": "Rudin.PMA.Chapter10.ProofAttack.lifting_extends_from_dense_submodule"
+    },
+    {
+      "kind": "theorem",
+      "name": "Rudin.PMA.Chapter10.ProofAttack.surjective_of_dense_submodule_bounded_lifts"
+    },
+    {
+      "kind": "theorem",
+      "name": "Rudin.PMA.Chapter10.ProofAttack.surjective_iff_dense_submodule_bounded_lifts"
+    }
+  ]
+}
