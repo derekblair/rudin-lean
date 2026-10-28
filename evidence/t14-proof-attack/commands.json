@@ -1,0 +1,103 @@
+[
+  {
+    "argv": [
+      "/home/derekblair/.elan/bin/lake",
+      "exe",
+      "cache",
+      "get"
+    ],
+    "cwd": "/home/derekblair/lane-work/codex-rudin1043-proof2/repo/rudin",
+    "exit_status": 0,
+    "log": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/cache-get.log",
+    "sha256": "3a43c95124817f7cf0b604ecd44c589b4021b4f96e3efd53fe99d23b2b111dcb",
+    "retained_log": "evidence/t14-proof-attack/cache-get.log"
+  },
+  {
+    "argv": [
+      "/home/derekblair/.elan/bin/lake",
+      "build",
+      "Rudin.Research.PMA1043ProofAttack"
+    ],
+    "cwd": "/home/derekblair/lane-work/codex-rudin1043-proof2/repo/rudin",
+    "started": "2026-10-28T04:47:38.798675+00:00",
+    "finished": "2026-10-28T04:47:52.133527+00:00",
+    "exit_status": 0,
+    "log": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/proof-build-final.log",
+    "sha256": "0c27956c62ed67e2050006ad4b1118ba0fbc55f87f826d9c6ba1fb873ea768ff",
+    "retained_log": "evidence/t14-proof-attack/proof-build-final.log"
+  },
+  {
+    "argv": [
+      "/home/derekblair/.elan/bin/lake",
+      "build"
+    ],
+    "cwd": "/home/derekblair/lane-work/codex-rudin1043-proof2/repo/rudin",
+    "started": "2026-10-28T04:48:23.322638+00:00",
+    "finished": "2026-10-28T04:50:55.303128+00:00",
+    "exit_status": 0,
+    "log": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/full-build.log",
+    "sha256": "58426c0a1abf304f4e7e6e4112964f6b9b4e37db5bb53876b3dc51eb1f12f3ae",
+    "retained_log": "evidence/t14-proof-attack/full-build.log"
+  },
+  {
+    "argv": [
+      "env",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "python3",
+      "scripts/verify_ch10_integration.py"
+    ],
+    "cwd": "/home/derekblair/lane-work/codex-rudin1043-proof2/repo",
+    "started": "2026-10-28T04:47:59.513315+00:00",
+    "finished": "2026-10-28T04:48:00.163754+00:00",
+    "exit_status": 0,
+    "log": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/integration-check.log",
+    "sha256": "96f3f79e791515a21046abbeefecd864a00ff61d0690fb96bd937a8888c9827b",
+    "retained_log": "evidence/t14-proof-attack/integration-check.log"
+  },
+  {
+    "argv": [
+      "python3",
+      "evidence/t14-proof-attack/source-check.py"
+    ],
+    "cwd": "/home/derekblair/lane-work/codex-rudin1043-proof2/repo",
+    "started": "2026-10-28T04:52:08.425354+00:00",
+    "finished": "2026-10-28T04:52:08.516368+00:00",
+    "exit_status": 0,
+    "log": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/publication-source-check.log",
+    "sha256": "c852bd0317e5c833553aedbbad7e18b96e3263cae6a06431cd870c576123295a",
+    "retained_log": "evidence/t14-proof-attack/source-check-final.log"
+  },
+  {
+    "argv": [
+      "/home/derekblair/.elan/bin/lake",
+      "env",
+      "lean",
+      "--version"
+    ],
+    "cwd": "/home/derekblair/lane-work/codex-rudin1043-proof2/repo/rudin",
+    "started": "2026-10-28T04:40:05.558023+00:00",
+    "finished": "2026-10-28T04:40:08.159910+00:00",
+    "exit_status": 0,
+    "log": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/toolchain.log",
+    "sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
+    "retained_log": "evidence/t14-proof-attack/toolchain.log"
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--cached",
+      "--check",
+      "--",
+      "rudin/Rudin/Research/PMA1043ProofAttack.lean",
+      "research/pma10-43-proof-attack.md",
+      "evidence/t14-proof-attack/source-check.py"
+    ],
+    "cwd": "/home/derekblair/lane-work/codex-rudin1043-proof2/repo",
+    "started": "2026-10-28T04:52:08.591538+00:00",
+    "finished": "2026-10-28T04:52:08.594875+00:00",
+    "exit_status": 0,
+    "log": "/home/derekblair/lane-work/codex-rudin1043-proof2/evidence/format-check.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]
