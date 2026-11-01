@@ -16,7 +16,9 @@
   only as comments) and this header.
 -/
 
-import Mathlib.MeasureTheory.Integral.IntervalIntegral
+-- Interval-integral notation arrives transitively via Integration.lean's
+-- imports (this Mathlib rev has no Mathlib.MeasureTheory.Integral.IntervalIntegral
+-- module file; the notation lives in IntervalIntegral/Basic.lean).
 import Rudin.PMA.Chapter10.VectorFields
 import Rudin.PMA.Chapter10.ExactnessTransport
 import Rudin.PMA.Chapter10.Integration
