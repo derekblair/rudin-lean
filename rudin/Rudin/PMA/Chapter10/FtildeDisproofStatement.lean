@@ -3,17 +3,15 @@
   PLACED 2026-10-31 ~17:53 PDT by the math orchestrator under Derek's
   2026-10-31 ~17:30 PDT standing-delegation clarification (routine
   pipeline placement + typecheck, not a new direction).
-  STATUS: DRAFT, statement only. The (A) witness lemma `ftilde_witness`
-  carries a `sorry` placeholder: that is the formalization work
-  (stages 1-4), never a result. Nothing here is proved, and the pin
-  manifest ~/workspace/math-fleet/pins/rudin29-ftilde-disproof.md stays
-  DRAFT v0.1 until this file typechecks and its path + sha256 + commit
-  are recorded there.
+  STATUS: DRAFT WIP. The Stage 1 tensor, radial, and divergence-profile
+  lemmas below are Lean-checked. The (A) witness lemma `ftilde_witness`
+  still carries one `sorry` for its three analytic clauses; neither it nor
+  its downstream consequences is a completed result. The pin manifest is
+  frozen and no dependency pins are changed by this proof work.
   Source: desk draft v3 (sha256
-  4392009bf437d79067c3509bcc268064cfce87043879170f042cf11990974978),
-  v2 + the single `open scoped BigOperators` placement line. Body
-  unchanged from v3 except the import block below (v3 listed imports
-  only as comments) and this header.
+  4392009bf437d79067c3509bcc268064cfce87043879170f042cf11990974978).
+  The original statement is unchanged; proof lemmas and the domain part of
+  the witness proof were added during Stage 1.
 -/
 
 -- Interval-integral notation arrives transitively via Integration.lean's
@@ -122,6 +120,206 @@ def ftildeF : VectorField :=
     (homogeneity identity + FD check, REPORT.md). -/
 def ftildeD (a n : Fin 3) (θ : Euclidean 3) : ℝ :=
   fderiv ℝ (fun x => (ftildeV x) n) θ (coordinateVector 3 a)
+
+/-- The nonzero branches of the three homogeneous rows. -/
+def core₁ (x : Euclidean 3) : ℝ :=
+  ‖x‖ * (ftildeTh 0 (ftildeDir x)) ^ 6 * ftildeTh 1 (ftildeDir x)
+
+def core₂ (x : Euclidean 3) : ℝ :=
+  let θ := ftildeDir x
+  let u := ftildeTh 0 θ; let v := ftildeTh 1 θ; let w := ftildeTh 2 θ
+  ‖x‖ * ((ftildeB u * (1 + v ^ 2) - u * v ^ 2 * ftildeB' u) + 2 * v ^ 4 * w)
+
+def core₃ (x : Euclidean 3) : ℝ :=
+  let θ := ftildeDir x
+  let u := ftildeTh 0 θ; let v := ftildeTh 1 θ; let w := ftildeTh 2 θ
+  ‖x‖ * ((v * w * (ftildeB u - u * ftildeB' u)) + 2 * v ^ 3 * (2 - v ^ 2))
+
+lemma ftildeV₁_eq_core {x : Euclidean 3} (hx : x ≠ 0) : ftildeV₁ x = core₁ x := by
+  simp only [ftildeV₁, core₁, if_neg hx]
+
+lemma ftildeV₂_eq_core {x : Euclidean 3} (hx : x ≠ 0) : ftildeV₂ x = core₂ x := by
+  simp only [ftildeV₂, core₂, if_neg hx]
+
+lemma ftildeV₃_eq_core {x : Euclidean 3} (hx : x ≠ 0) : ftildeV₃ x = core₃ x := by
+  simp only [ftildeV₃, core₃, if_neg hx]
+
+lemma differentiableAt_core₁ {x : Euclidean 3} (hx : x ≠ 0) : DifferentiableAt ℝ core₁ x := by
+  have hnorm : DifferentiableAt ℝ (fun y : Euclidean 3 => ‖y‖) x :=
+    (differentiableAt_id (x := x)).norm ℝ hx
+  unfold core₁ ftildeDir ftildeTh
+  fun_prop (disch := aesop)
+
+lemma differentiableAt_core₂ {x : Euclidean 3} (hx : x ≠ 0) : DifferentiableAt ℝ core₂ x := by
+  have hnorm : DifferentiableAt ℝ (fun y : Euclidean 3 => ‖y‖) x :=
+    (differentiableAt_id (x := x)).norm ℝ hx
+  unfold core₂ ftildeDir ftildeTh ftildeB ftildeB'
+  fun_prop (disch := aesop)
+
+lemma differentiableAt_core₃ {x : Euclidean 3} (hx : x ≠ 0) : DifferentiableAt ℝ core₃ x := by
+  have hnorm : DifferentiableAt ℝ (fun y : Euclidean 3 => ‖y‖) x :=
+    (differentiableAt_id (x := x)).norm ℝ hx
+  unfold core₃ ftildeDir ftildeTh ftildeB ftildeB'
+  fun_prop (disch := aesop)
+
+lemma differentiableAt_ftildeV₁ {x : Euclidean 3} (hx : x ≠ 0) : DifferentiableAt ℝ ftildeV₁ x := by
+  apply (differentiableAt_core₁ hx).congr_of_eventuallyEq
+  filter_upwards [eventually_ne_nhds hx] with y hy
+  exact ftildeV₁_eq_core hy
+
+lemma differentiableAt_ftildeV₂ {x : Euclidean 3} (hx : x ≠ 0) : DifferentiableAt ℝ ftildeV₂ x := by
+  apply (differentiableAt_core₂ hx).congr_of_eventuallyEq
+  filter_upwards [eventually_ne_nhds hx] with y hy
+  exact ftildeV₂_eq_core hy
+
+lemma differentiableAt_ftildeV₃ {x : Euclidean 3} (hx : x ≠ 0) : DifferentiableAt ℝ ftildeV₃ x := by
+  apply (differentiableAt_core₃ hx).congr_of_eventuallyEq
+  filter_upwards [eventually_ne_nhds hx] with y hy
+  exact ftildeV₃_eq_core hy
+
+lemma differentiableAt_ftildeV_coordinate {x : Euclidean 3} (hx : x ≠ 0) (n : Fin 3) :
+    DifferentiableAt ℝ (fun y => ftildeV y n) x := by
+  fin_cases n
+  · simpa [ftildeV] using differentiableAt_ftildeV₁ hx
+  · simpa [ftildeV] using differentiableAt_ftildeV₂ hx
+  · simpa [ftildeV] using differentiableAt_ftildeV₃ hx
+
+lemma ftildeD_trace_eq_divergence {θ : Euclidean 3} (hθ : θ ≠ 0) :
+    ∑ a : Fin 3, ftildeD a a θ = divergence ftildeV θ := by
+  rw [divergence]
+  apply Finset.sum_congr rfl
+  intro a ha
+  rw [coordinatePartial_eq_fderiv (differentiableAt_ftildeV_coordinate hθ a)]
+  rfl
+
+lemma hasFDerivAt_norm_euclidean {θ : Euclidean 3} (hθ : θ ≠ 0) :
+    HasFDerivAt (fun x : Euclidean 3 => ‖x‖) (‖θ‖⁻¹ • innerSL ℝ θ) θ := by
+  have h := (hasStrictFDerivAt_norm_sq θ).hasFDerivAt.sqrt
+    (pow_ne_zero 2 (norm_ne_zero_iff.mpr hθ))
+  simp only [Real.sqrt_sq (norm_nonneg _)] at h
+  convert h using 1
+  ext v
+  simp only [ContinuousLinearMap.smul_apply, smul_eq_mul]
+  field_simp [norm_ne_zero_iff.mpr hθ]
+  ring
+
+lemma fderiv_norm_euclidean {θ : Euclidean 3} (hθ : θ ≠ 0) (a : Fin 3) :
+    fderiv ℝ (fun x : Euclidean 3 => ‖x‖) θ (coordinateVector 3 a) = θ a / ‖θ‖ := by
+  rw [(hasFDerivAt_norm_euclidean hθ).fderiv]
+  simp only [ContinuousLinearMap.smul_apply, smul_eq_mul, innerSL_apply_apply,
+    coordinateVector, EuclideanSpace.basisFun_apply, EuclideanSpace.inner_single_right,
+    map_one, one_mul, conj_trivial]
+  ring
+
+lemma fderiv_dir_coordinate_of_unit {θ : Euclidean 3} (hθ : θ ≠ 0)
+    (hnorm : ‖θ‖ = 1) (i a : Fin 3) :
+    fderiv ℝ (fun x => ftildeTh i (ftildeDir x)) θ (coordinateVector 3 a) =
+      (if i = a then 1 else 0) - θ i * θ a := by
+  have hN := hasFDerivAt_norm_euclidean hθ
+  have hI := (hasDerivAt_id ‖θ‖).inv (norm_ne_zero_iff.mpr hθ) |>.comp_hasFDerivAt θ hN
+  have hc : HasFDerivAt (fun x : Euclidean 3 => x i) (EuclideanSpace.proj (𝕜 := ℝ) i) θ := by
+    simpa only [EuclideanSpace.coe_proj] using
+      (EuclideanSpace.proj (𝕜 := ℝ) i).hasFDerivAt (x := θ)
+  have h := hI.mul hc
+  have he := congrArg (fun L : Euclidean 3 →L[ℝ] ℝ => L (coordinateVector 3 a)) h.fderiv
+  have hf : (fun x => ftildeTh i (ftildeDir x)) =
+      (id⁻¹ ∘ (norm : Euclidean 3 → ℝ) * fun x => x i) := by
+    funext x
+    simp [ftildeTh, ftildeDir, Function.comp_def, Pi.mul_apply, Pi.inv_apply,
+      id_eq, smul_eq_mul]
+  rw [hf]
+  simp only [ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply,
+    smul_eq_mul, Function.comp_def, id_eq, Pi.inv_apply, PiLp.proj_apply,
+    PiLp.single_apply, innerSL_apply_apply, coordinateVector,
+    EuclideanSpace.basisFun_apply, EuclideanSpace.inner_single_right,
+    map_one, one_mul, conj_trivial] at he
+  rw [hnorm] at he
+  simp only [inv_one, one_smul, one_mul, one_div, one_pow] at he
+  have hvec : coordinateVector 3 a = EuclideanSpace.single a 1 := by
+    ext j
+    simp [coordinateVector, EuclideanSpace.basisFun_apply]
+  rw [hvec]
+  change fderiv ℝ ((fun x : Euclidean 3 => ‖x‖⁻¹) * fun x => x i) θ
+    (EuclideanSpace.single a 1) = _
+  by_cases hia : i = a
+  · subst a
+    simp only [if_pos rfl] at he ⊢
+    convert he using 1 <;> ring
+  · simp only [if_neg hia] at he ⊢
+    convert he using 1 <;> ring
+
+lemma fderiv_core₁_of_unit {θ : Euclidean 3} (hθ : θ ≠ 0) (hnorm : ‖θ‖ = 1)
+    (a : Fin 3) :
+    fderiv ℝ core₁ θ (coordinateVector 3 a) =
+      θ a * (θ 0 ^ 6 * θ 1) +
+        (6 * θ 0 ^ 5 * θ 1) * ((if 0 = a then 1 else 0) - θ 0 * θ a) +
+        θ 0 ^ 6 * ((if 1 = a then 1 else 0) - θ 1 * θ a) := by
+  have hr : DifferentiableAt ℝ (fun y : Euclidean 3 => ‖y‖) θ :=
+    (differentiableAt_id (x := θ)).norm ℝ hθ
+  have hd (i : Fin 3) : DifferentiableAt ℝ (fun x => ftildeTh i (ftildeDir x)) θ := by
+    unfold ftildeTh ftildeDir
+    fun_prop (disch := aesop)
+  unfold core₁
+  simp (disch := fun_prop) only [fderiv_fun_mul, fderiv_fun_pow,
+    add_apply, smul_apply, smul_eq_mul, nsmul_eq_mul]
+  rw [fderiv_norm_euclidean hθ, fderiv_dir_coordinate_of_unit hθ hnorm,
+    fderiv_dir_coordinate_of_unit hθ hnorm]
+  simp only [ftildeTh, ftildeDir, hnorm, inv_one, one_smul, one_div]
+  ring
+
+lemma fderiv_ftildeV_zero_eq_core {θ : Euclidean 3} (hθ : θ ≠ 0) :
+    fderiv ℝ (fun y => ftildeV y 0) θ = fderiv ℝ core₁ θ := by
+  have heq : (fun y => ftildeV y 0) =ᶠ[𝓝 θ] core₁ := by
+    filter_upwards [eventually_ne_nhds hθ] with y hy
+    simpa [ftildeV] using ftildeV₁_eq_core hy
+  exact heq.fderiv_eq
+
+lemma fderiv_ftildeV_one_eq_core {θ : Euclidean 3} (hθ : θ ≠ 0) :
+    fderiv ℝ (fun y => ftildeV y 1) θ = fderiv ℝ core₂ θ := by
+  have heq : (fun y => ftildeV y 1) =ᶠ[𝓝 θ] core₂ := by
+    filter_upwards [eventually_ne_nhds hθ] with y hy
+    simpa [ftildeV] using ftildeV₂_eq_core hy
+  exact heq.fderiv_eq
+
+lemma fderiv_ftildeV_two_eq_core {θ : Euclidean 3} (hθ : θ ≠ 0) :
+    fderiv ℝ (fun y => ftildeV y 2) θ = fderiv ℝ core₃ θ := by
+  have heq : (fun y => ftildeV y 2) =ᶠ[𝓝 θ] core₃ := by
+    filter_upwards [eventually_ne_nhds hθ] with y hy
+    simpa [ftildeV] using ftildeV₃_eq_core hy
+  exact heq.fderiv_eq
+
+lemma unit_sum_sq {θ : Euclidean 3} (hnorm : ‖θ‖ = 1) :
+    θ 0 ^ 2 + θ 1 ^ 2 + θ 2 ^ 2 = 1 := by
+  have h := EuclideanSpace.norm_sq_eq θ
+  rw [hnorm] at h
+  simpa [Fin.sum_univ_three, Real.norm_eq_abs, sq_abs] using h.symm
+
+lemma divergence_ftildeV_of_unit {θ : Euclidean 3} (hθ : θ ≠ 0) (hnorm : ‖θ‖ = 1) :
+    divergence ftildeV θ = 0 := by
+  have hr : DifferentiableAt ℝ (fun y : Euclidean 3 => ‖y‖) θ :=
+    (differentiableAt_id (x := θ)).norm ℝ hθ
+  have hd (i : Fin 3) : DifferentiableAt ℝ (fun x => ftildeTh i (ftildeDir x)) θ := by
+    unfold ftildeTh ftildeDir
+    fun_prop (disch := aesop)
+  have hs := unit_sum_sq hnorm
+  simp only [divergence, Fin.sum_univ_three]
+  rw [coordinatePartial_eq_fderiv (differentiableAt_ftildeV_coordinate hθ 0),
+    coordinatePartial_eq_fderiv (differentiableAt_ftildeV_coordinate hθ 1),
+    coordinatePartial_eq_fderiv (differentiableAt_ftildeV_coordinate hθ 2),
+    fderiv_ftildeV_zero_eq_core hθ, fderiv_ftildeV_one_eq_core hθ,
+    fderiv_ftildeV_two_eq_core hθ]
+  unfold core₁ core₂ core₃ ftildeB ftildeB'
+  simp (disch := fun_prop) only [div_eq_mul_inv, fderiv_fun_mul, fderiv_fun_pow,
+    fderiv_fun_add, fderiv_fun_sub, fderiv_const_mul, fderiv_mul_const,
+    fderiv_const, add_apply, smul_apply, sub_apply, smul_eq_mul, nsmul_eq_mul]
+  simp only [fderiv_dir_coordinate_of_unit hθ hnorm, fderiv_norm_euclidean hθ]
+  simp only [ftildeTh, ftildeDir, hnorm, inv_one, one_smul, one_div]
+  norm_num
+  linear_combination (θ 0 ^ 3 * θ 1 * (4 - 6 * θ 0 ^ 2)) * hs
+
+lemma ftildeD_trace_of_unit {θ : Euclidean 3} (hθ : θ ≠ 0) (hnorm : ‖θ‖ = 1) :
+    ∑ a : Fin 3, ftildeD a a θ = 0 := by
+  rw [ftildeD_trace_eq_divergence hθ, divergence_ftildeV_of_unit hθ hnorm]
 
 /-- v_n(θ) = Σ_a θ_a D_{a,n}(θ); q(θ) = θ · v(θ). max|q| = 1.369 (0923 §4). -/
 def ftildeQ (θ : Euclidean 3) : ℝ :=
@@ -257,19 +455,20 @@ def ftildeField : VectorField :=
   fun x => ftildeF x + ftildeW x
 
 /-- (A) WITNESS LEMMA (the Lean target, in repo vocabulary; 14:53 §1).
-    Stated, NOT proved: the sorry below is the formalization work
-    (L1–L10, stages 1–4), never a result. -/
+    The domain clauses are proved below. The single remaining sorry covers
+    the C¹, divergence-free, and no-symmetric-system clauses (stages 2–4). -/
 theorem ftilde_witness :
     IsOpen ftildeBall ∧ Convex ℝ ftildeBall ∧
     ContDiffOn ℝ 1 ftildeField ftildeBall ∧
     EqOn (divergence ftildeField) 0 ftildeBall ∧
     ¬ SymmetricCurlSystem ftildeBall ftildeField := by
+  refine ⟨Metric.isOpen_ball, convex_ball 0 1, ?_⟩
   sorry
 
 /-- (B) MAIN THEOREM: ¬ SymmetricDerivativeLifting, by negating the
     universal at the (A) witness; hence ¬ pma10_43_contract by the PR #28
-    iff. The proof is logic over (A) once (A) is proved; it is written out
-    (not sorry) so the layering is checkable, but it is UNTYPECHECKED. -/
+    iff. The proof is logic over (A), is written out (not sorry), and
+    typechecks; it still depends on (A)'s `sorryAx`. -/
 theorem ftilde_disproves_lifting : ¬ SymmetricDerivativeLifting := by
   intro h
   obtain ⟨_, _, hC1, hDiv, hNo⟩ := ftilde_witness
