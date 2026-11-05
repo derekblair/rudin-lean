@@ -99,6 +99,66 @@ def ftildeD (a n : Fin 3) (θ : Euclidean 3) : ℝ :=
 def ftildeQ (θ : Euclidean 3) : ℝ :=
   ∑ n : Fin 3, θ n * (∑ a : Fin 3, θ a * ftildeD a n θ)
 
+/-- The exact leading-order tensor from the 0653/1223 computation, in zero-based
+coordinates. -/
+def ftildeC (i j k : Fin 3) : ℝ :=
+  ![![![-8 / 35, 0, 0], ![0, 32 / 105, 0], ![0, 0, -8 / 105]],
+    ![![0, 32 / 105, 0], ![32 / 105, 0, 0], ![0, 0, 0]],
+    ![![0, 0, -8 / 105], ![0, 0, 0], ![-8 / 105, 0, 0]]] i j k
+
+/-- Φᵢⱼ(θ) = Σₖ Cᵢⱼₖθₖ. -/
+def ftildePhi (θ : Euclidean 3) (i j : Fin 3) : ℝ :=
+  ∑ k : Fin 3, ftildeC i j k * θ k
+
+/-- The squared Frobenius norm of Φ(θ). -/
+def ftildePhiNormSq (θ : Euclidean 3) : ℝ :=
+  ∑ i : Fin 3, ∑ j : Fin 3, ftildePhi θ i j ^ 2
+
+/-- The Frobenius norm used in the uniform ray obstruction L9. -/
+def ftildePhiNorm (θ : Euclidean 3) : ℝ := √(ftildePhiNormSq θ)
+
+lemma ftildeC_swap_left (i j k : Fin 3) : ftildeC i j k = ftildeC j i k := by
+  fin_cases i <;> fin_cases j <;> fin_cases k <;> norm_num [ftildeC]
+
+lemma ftildeC_swap_right (i j k : Fin 3) : ftildeC i j k = ftildeC i k j := by
+  fin_cases i <;> fin_cases j <;> fin_cases k <;> norm_num [ftildeC]
+
+lemma ftildeC_trace (k : Fin 3) : ∑ i : Fin 3, ftildeC i i k = 0 := by
+  fin_cases k <;> norm_num [ftildeC, Fin.sum_univ_three]
+
+lemma ftildePhiNormSq_eq (θ : Euclidean 3) :
+    ftildePhiNormSq θ =
+      (1664 * θ 0 ^ 2 + 2048 * θ 1 ^ 2 + 128 * θ 2 ^ 2) / 11025 := by
+  simp [ftildePhiNormSq, ftildePhi, ftildeC, Fin.sum_univ_three]
+  ring
+
+lemma ftildePhiNormSq_lower {θ : Euclidean 3} (hθ : ∑ i : Fin 3, θ i ^ 2 = 1) :
+    128 / 11025 ≤ ftildePhiNormSq θ := by
+  rw [ftildePhiNormSq_eq]
+  simp only [Fin.sum_univ_three] at hθ
+  norm_num at *
+  nlinarith [sq_nonneg (θ 0), sq_nonneg (θ 1)]
+
+lemma ftildePhiNorm_lower {θ : Euclidean 3} (hθ : ∑ i : Fin 3, θ i ^ 2 = 1) :
+    8 * √2 / 105 ≤ ftildePhiNorm θ := by
+  have h := ftildePhiNormSq_lower hθ
+  have hs : (8 * √2 / 105 : ℝ) ^ 2 = 128 / 11025 := by
+    rw [div_pow, mul_pow, Real.sq_sqrt (by norm_num)]
+    norm_num
+  have hn : (0 : ℝ) ≤ 8 * √2 / 105 := by positivity
+  calc
+    8 * √2 / 105 = √((8 * √2 / 105 : ℝ) ^ 2) := (Real.sqrt_sq hn).symm
+    _ ≤ √(ftildePhiNormSq θ) := Real.sqrt_le_sqrt (hs ▸ h)
+    _ = ftildePhiNorm θ := rfl
+
+lemma ftildePhi_ne_zero {θ : Euclidean 3} (hθ : ∑ i : Fin 3, θ i ^ 2 = 1) :
+    ftildePhi θ ≠ 0 := by
+  intro hzero
+  have hsq : ftildePhiNormSq θ = 0 := by simp [ftildePhiNormSq, hzero]
+  have h := ftildePhiNormSq_lower hθ
+  rw [hsq] at h
+  norm_num at h
+
 /-- J(r) = ∫₀^r ψ²(t)·t² dt. -/
 def ftildeJ (r : ℝ) : ℝ := ∫ t in (0)..r, ftildePsi t ^ 2 * t ^ 2
 
