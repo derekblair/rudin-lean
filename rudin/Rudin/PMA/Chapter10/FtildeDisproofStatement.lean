@@ -28,7 +28,7 @@ import Rudin.Research.PMA1043ProofAttack
 namespace Rudin.PMA.Chapter10
 
 open Set Function Metric
-open scoped BigOperators
+open scoped Topology BigOperators
 noncomputable section
 
 /-- The unit ball B ⊂ ℝ³: the convex domain of the #29 witness. -/
@@ -54,6 +54,34 @@ def ftildeDir (x : Euclidean 3) : Euclidean 3 := ‖x‖⁻¹ • x
 
 /-- ψ(r) = 1 / |log r| for 0 < r < 1, ψ(0) = 0. (Manifest §1; ψ′ = ψ²/r.) -/
 def ftildePsi (r : ℝ) : ℝ := if r = 0 then 0 else 1 / |Real.log r|
+
+lemma ftildePsi_eq_neg_inv_log {r : ℝ} (hr : 0 < r) (hr1 : r < 1) :
+    ftildePsi r = -(Real.log r)⁻¹ := by
+  rw [ftildePsi, if_neg hr.ne', abs_of_neg (Real.log_neg hr hr1), one_div, inv_neg]
+
+lemma hasDerivAt_ftildePsi {r : ℝ} (hr : 0 < r) (hr1 : r < 1) :
+    HasDerivAt ftildePsi (ftildePsi r ^ 2 / r) r := by
+  have hlog : Real.log r < 0 := Real.log_neg hr hr1
+  have h := (Real.hasDerivAt_inv_log hr.ne' (ne_of_lt hr1) (by linarith)).neg
+  have heq : ftildePsi =ᶠ[𝓝 r] fun x : ℝ => -(Real.log x)⁻¹ := by
+    filter_upwards [Ioo_mem_nhds hr hr1] with x hx
+    exact ftildePsi_eq_neg_inv_log hx.1 hx.2
+  convert h.congr_of_eventuallyEq heq using 1
+  rw [ftildePsi_eq_neg_inv_log hr hr1]
+  field_simp [hr.ne', hlog.ne]
+
+lemma tendsto_ftildePsi_nhdsNE_zero :
+    Filter.Tendsto ftildePsi (𝓝[≠] 0) (𝓝 0) := by
+  have hlog : Filter.Tendsto (fun r : ℝ => |Real.log r|) (𝓝[≠] 0) Filter.atTop :=
+    Filter.tendsto_abs_atBot_atTop.comp Real.tendsto_log_nhdsNE_zero
+  apply hlog.inv_tendsto_atTop.congr'
+  filter_upwards [self_mem_nhdsWithin] with r hr
+  have hr0 : r ≠ 0 := hr
+  simp only [ftildePsi, if_neg hr0, one_div, Pi.inv_apply]
+
+lemma continuousAt_ftildePsi_zero : ContinuousAt ftildePsi 0 := by
+  rw [continuousAt_iff_punctured_nhds]
+  simpa [ftildePsi] using tendsto_ftildePsi_nhdsNE_zero
 
 /-- b(u) = u + u³/2 − u⁵/4 (0253 closed form); b′ alongside. -/
 def ftildeB (u : ℝ) : ℝ := u + u ^ 3 / 2 - u ^ 5 / 4
@@ -161,6 +189,63 @@ lemma ftildePhi_ne_zero {θ : Euclidean 3} (hθ : ∑ i : Fin 3, θ i ^ 2 = 1) :
 
 /-- J(r) = ∫₀^r ψ²(t)·t² dt. -/
 def ftildeJ (r : ℝ) : ℝ := ∫ t in (0)..r, ftildePsi t ^ 2 * t ^ 2
+
+lemma continuousOn_ftildePsi_Ioo : ContinuousOn ftildePsi (Ioo 0 1) := by
+  intro r hr
+  exact (hasDerivAt_ftildePsi hr.1 hr.2).continuousAt.continuousWithinAt
+
+lemma continuousOn_ftildePsi_Icc {r : ℝ} (hr : 0 < r) (hr1 : r < 1) :
+    ContinuousOn ftildePsi (Icc 0 r) := by
+  intro t ht
+  by_cases ht0 : t = 0
+  · subst t
+    exact continuousAt_ftildePsi_zero.continuousWithinAt
+  · exact (hasDerivAt_ftildePsi (lt_of_le_of_ne ht.1 (Ne.symm ht0))
+      (lt_of_le_of_lt ht.2 hr1)).continuousAt.continuousWithinAt
+
+lemma intervalIntegrable_ftildePsi_sq_mul_sq {r : ℝ} (hr : 0 < r) (hr1 : r < 1) :
+    IntervalIntegrable (fun t => ftildePsi t ^ 2 * t ^ 2) MeasureTheory.volume 0 r := by
+  apply ContinuousOn.intervalIntegrable
+  rw [uIcc_of_le hr.le]
+  exact ((continuousOn_ftildePsi_Icc hr hr1).pow 2).mul (continuousOn_id.pow 2)
+
+lemma continuousOn_ftildePsi_sq_mul_sq_Ioo :
+    ContinuousOn (fun t => ftildePsi t ^ 2 * t ^ 2) (Ioo 0 1) :=
+  (continuousOn_ftildePsi_Ioo.pow 2).mul (continuousOn_id.pow 2)
+
+lemma hasDerivAt_ftildeJ {r : ℝ} (hr : 0 < r) (hr1 : r < 1) :
+    HasDerivAt ftildeJ (ftildePsi r ^ 2 * r ^ 2) r := by
+  have hc : ContinuousAt (fun t => ftildePsi t ^ 2 * t ^ 2) r :=
+    ((hasDerivAt_ftildePsi hr hr1).continuousAt.pow 2).mul (continuousAt_id.pow 2)
+  have hm : StronglyMeasurableAtFilter (fun t => ftildePsi t ^ 2 * t ^ 2)
+      (𝓝 r) MeasureTheory.volume :=
+    continuousOn_ftildePsi_sq_mul_sq_Ioo.stronglyMeasurableAtFilter
+      isOpen_Ioo r ⟨hr, hr1⟩
+  exact intervalIntegral.integral_hasDerivAt_right
+    (intervalIntegrable_ftildePsi_sq_mul_sq hr hr1) hm hc
+
+/-- The scalar radial factor in the divergence repair. -/
+def ftildeRadialRepair (q r : ℝ) : ℝ := -q * ftildeJ r / r ^ 2
+
+lemma hasDerivAt_ftildeRadialRepair (q : ℝ) {r : ℝ} (hr : 0 < r) (hr1 : r < 1) :
+    HasDerivAt (fun t => ftildeRadialRepair q t)
+      (-q * (ftildePsi r ^ 2 - 2 * ftildeJ r / r ^ 3)) r := by
+  have hJ := (hasDerivAt_ftildeJ hr hr1).const_mul (-q)
+  have hr2 := (hasDerivAt_id r).pow 2
+  have hdiv := hJ.div hr2 (pow_ne_zero 2 hr.ne')
+  change HasDerivAt (fun t => -q * ftildeJ t / t ^ 2) _ r
+  convert hdiv using 1
+  · funext t
+    simp [div_eq_mul_inv, mul_comm]
+  · simp only [id_eq, Pi.pow_apply, Pi.div_apply, Nat.cast_ofNat,
+      Nat.reduceSub, pow_one, mul_one]
+    field_simp [hr.ne']
+    ring
+
+lemma ftildeRadialRepair_deriv (q : ℝ) {r : ℝ} (hr : 0 < r) (hr1 : r < 1) :
+    deriv (fun t => ftildeRadialRepair q t) r =
+      -q * (ftildePsi r ^ 2 - 2 * ftildeJ r / r ^ 3) :=
+  (hasDerivAt_ftildeRadialRepair q hr hr1).deriv
 
 /-- Repair: w(r,θ) = −q(θ)·J(r)/r²; W = w·θ; F̃ = F + W (0923 §3, 0953 §1).
     F̃ is the falsifying field; the literally-defined ψV field is NOT
