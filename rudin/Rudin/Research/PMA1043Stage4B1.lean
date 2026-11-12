@@ -19,7 +19,7 @@ rectangular integration-by-parts reduction in Lean:
    `                 + (∂_x∂_y V₀)(∂_x φ₂ - ∂_y φ₃) + (∂_y² V₀)(∂_x φ₃))`,
    yielding the exact `L∞–L¹` bound `(⋆)` on `[a, b] × [c, d]`.
 
-2. **Spin-3 Harmonic-Cubic Specialization (`planar_c2_div_spin3_duality`,
+2. **Spin-3 Harmonic-Cubic Specialization (`spin3_identities`,
    `planar_c2_div_spin3_bound`):**
    Substituting `(φ₁, φ₂, φ₃) = (3∂_x² U - ∂_y² U, 8∂_x∂_y U, -∂_x² U + 3∂_y² U)`
    for any `C⁴` test function `U` collapses all four gauge components into

@@ -3,20 +3,22 @@
   PLACED 2026-10-31 ~17:53 PDT by the math orchestrator under Derek's
   2026-10-31 ~17:30 PDT standing-delegation clarification (routine
   pipeline placement + typecheck, not a new direction).
-  STATUS: DRAFT WIP. The Stage 1 tensor, radial, and divergence-profile
-  lemmas below are Lean-checked. The (A) witness lemma `ftilde_witness`
-  still carries one `sorry` for its three analytic clauses; neither it nor
-  its downstream consequences is a completed result. The pin manifest is
-  frozen and no dependency pins are changed by this proof work.
+  STATUS: Kernel-checked Stage 1 definitions and tensor, radial, and
+  divergence-profile lemmas for `ftildeField` (`rudin-lean` #29). The former
+  unproved Stage 1–2 witness and disproof declarations (whose third clause
+  `¬ SymmetricCurlSystem ftildeBall ftildeField` was refuted on the merits in
+  Stage 3 and by `symmetricCurlSystem_of_sublinear_second_deriv` in
+  `FtildeCZPrep.lean`) have been removed; only verified definitions and lemmas
+  remain. The pin manifest is frozen and no dependency pins are changed.
   Source: desk draft v3 (sha256
-  4392009bf437d79067c3509bcc268064cfce87043879170f042cf11990974978).
-  The original statement is unchanged; proof lemmas and the domain part of
-  the witness proof were added during Stage 1.
+  4392009bf437d79067c3509bcc268064cfce87043879170f042cf11990974978),
+  trimmed to the proved Stage 1 infrastructure imported by `FtildeCZPrep.lean`.
 -/
 
 -- Interval-integral notation arrives transitively via Integration.lean's
 -- imports (this Mathlib rev has no Mathlib.MeasureTheory.Integral.IntervalIntegral
 -- module file; the notation lives in IntervalIntegral/Basic.lean).
+import Rudin.PMA.AxiomAudit
 import Rudin.PMA.Chapter10.VectorFields
 import Rudin.PMA.Chapter10.ExactnessTransport
 import Rudin.PMA.Chapter10.Integration
@@ -34,7 +36,7 @@ def ftildeBall : Set (Euclidean 3) := Metric.ball 0 1
 
 /-- (V1, 15:23 run) The identity C2DomainEquivalence on B. Ambient extensions
     need not be inverse outside the domains (ExactnessTransport.lean
-    comment, lines 18-19), so id/id is admitted; both C² fields are
+    comment, lines 18-19), so id/id is valid; both C² fields are
     contDiffOn_id. Repo precedent: univIdentityEquivalence
     (PlanarVectorPotentialResearch.lean 175-184, private, for univ). -/
 def ballIdentityEquivalence : C2DomainEquivalence ftildeBall ftildeBall where
@@ -454,32 +456,30 @@ def ftildeW : VectorField :=
 def ftildeField : VectorField :=
   fun x => ftildeF x + ftildeW x
 
-/-- (A) WITNESS LEMMA (the Lean target, in repo vocabulary; 14:53 §1).
-    The domain clauses are proved below. The single remaining sorry covers
-    the C¹, divergence-free, and no-symmetric-system clauses (stages 2–4). -/
-theorem ftilde_witness :
-    IsOpen ftildeBall ∧ Convex ℝ ftildeBall ∧
-    ContDiffOn ℝ 1 ftildeField ftildeBall ∧
-    EqOn (divergence ftildeField) 0 ftildeBall ∧
-    ¬ SymmetricCurlSystem ftildeBall ftildeField := by
-  refine ⟨Metric.isOpen_ball, convex_ball 0 1, ?_⟩
-  sorry
-
-/-- (B) MAIN THEOREM: ¬ SymmetricDerivativeLifting, by negating the
-    universal at the (A) witness; hence ¬ pma10_43_contract by the PR #28
-    iff. The proof is logic over (A), is written out (not sorry), and
-    typechecks; it still depends on (A)'s `sorryAx`. -/
-theorem ftilde_disproves_lifting : ¬ SymmetricDerivativeLifting := by
-  intro h
-  obtain ⟨_, _, hC1, hDiv, hNo⟩ := ftilde_witness
-  exact hNo (h ftildeBall ftildeBall ballIdentityEquivalence ftildeField
-    (by exact Metric.isOpen_ball) (by exact Metric.isOpen_ball)
-    (by exact convex_ball 0 1) hC1 hDiv)
-
-theorem ftilde_disproves_pma10_43 : ¬ pma10_43_contract := by
-  intro h
-  exact ftilde_disproves_lifting
-    (pma10_43_contract_iff_symmetricDerivativeLifting.mp h)
-
 end
 end Rudin.PMA.Chapter10
+
+/-! Verify module ownership and standard foundations for all declarations in this module. -/
+run_cmd do
+  Rudin.PMA.Audit.checkModuleAxioms `Rudin.PMA.Chapter10.FtildeDisproofStatement
+    #[`Rudin.PMA.Chapter10.ftildeBall,
+      `Rudin.PMA.Chapter10.ballIdentityEquivalence,
+      `Rudin.PMA.Chapter10.ftildePsi,
+      `Rudin.PMA.Chapter10.hasDerivAt_ftildePsi,
+      `Rudin.PMA.Chapter10.continuousAt_ftildePsi_zero,
+      `Rudin.PMA.Chapter10.ftildeV,
+      `Rudin.PMA.Chapter10.ftildeF,
+      `Rudin.PMA.Chapter10.ftildeD,
+      `Rudin.PMA.Chapter10.divergence_ftildeV_of_unit,
+      `Rudin.PMA.Chapter10.ftildeD_trace_of_unit,
+      `Rudin.PMA.Chapter10.ftildeC,
+      `Rudin.PMA.Chapter10.ftildeC_swap_left,
+      `Rudin.PMA.Chapter10.ftildeC_swap_right,
+      `Rudin.PMA.Chapter10.ftildeC_trace,
+      `Rudin.PMA.Chapter10.ftildePhiNorm_lower,
+      `Rudin.PMA.Chapter10.ftildePhi_ne_zero,
+      `Rudin.PMA.Chapter10.ftildeJ,
+      `Rudin.PMA.Chapter10.hasDerivAt_ftildeJ,
+      `Rudin.PMA.Chapter10.ftildeRadialRepair_deriv,
+      `Rudin.PMA.Chapter10.ftildeW,
+      `Rudin.PMA.Chapter10.ftildeField]

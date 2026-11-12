@@ -3,7 +3,8 @@
   Branch: `rudin29-stage4-prep` (disjoint from PR #30 / Stage 2 / Stage 3).
 
   STATUS: FULLY PROVED STAGE 4 PREP & DIRECTION-ANALYSIS MODULE
-  (Re-scoped after Stage 3 proved clause 3 of `ftilde_witness` FALSE on the merits;
+  (Re-scoped after Stage 3 proved the `¬ SymmetricCurlSystem ftildeBall ftildeField`
+   clause of the Stage 1–2 `ftildeField` witness target FALSE on the merits;
    no unproved L8 skeleton is built for the dead `ftildeField` disproof direction).
 
   Every declaration in this file is completely kernel-checked with standard foundations only
@@ -1856,9 +1857,10 @@ theorem l10_not_c1_of_log_log_symGrad
 /-!
 ### Section I.4: Structural Classification for the Next `#29` Direction
 
-Following Stage 3's refutation of clause 3 of `ftilde_witness` (`rudin29-stage3-harmonic`,
-`6f2c75a5`), we establish three general structural theorems that govern the choice
-between constructing a new counterexample candidate and proving `pma10_43_contract`:
+Following Stage 3's refutation of `¬ SymmetricCurlSystem ftildeBall ftildeField` for the
+Stage 1–2 `ftildeField` witness target (`rudin29-stage3-harmonic`, `6f2c75a5`), we establish
+three general structural theorems that govern the choice between constructing a new
+counterexample candidate and proving `pma10_43_contract`:
 
 1. **Universal `Sym³₀(ℝ³) = H₃(ℝ³)` Harmonic Trap (`traceFree_sym3_cubic_harmonic`):**
    Every constant symmetric trace-free 3-tensor `C` on `ℝ³` is the exact third-derivative tensor
